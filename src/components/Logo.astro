@@ -1,0 +1,40 @@
+---
+import { site } from '../config/site';
+import { withBase } from '../utils/links';
+
+export interface Props {
+  /** Rendered height in px. Width is derived from the logo's aspect ratio. */
+  height?: number;
+  class?: string;
+  /** Put the logo on a white rounded badge (for use on dark backgrounds). */
+  badge?: boolean;
+}
+
+const { height = 40, class: className = '', badge = false } = Astro.props;
+// Intrinsic logo size is 447x347 — pass both so there is no layout shift.
+const width = Math.round((447 / 347) * height);
+---
+
+<span class={`logo ${badge ? 'logo-badge' : ''} ${className}`}>
+  <img
+    src={withBase('/images/logo.png')}
+    alt={`${site.name} logo`}
+    width={width}
+    height={height}
+    style={`height:${height}px;width:auto;`}
+    decoding="async"
+    fetchpriority="high"
+  />
+</span>
+
+<style>
+  .logo {
+    display: inline-flex;
+    align-items: center;
+  }
+  .logo-badge {
+    background: #fff;
+    border-radius: 0.5rem;
+    padding: 0.35rem 0.55rem;
+  }
+</style>

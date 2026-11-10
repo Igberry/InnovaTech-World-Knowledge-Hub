@@ -1,0 +1,2026 @@
+﻿order_id,order_date,customer_id,product_id,quantity,unit_price,discount_pct,city,payment_method,status
+2206,2025-03-31,136,4,1,22000,0, Benin City,POS,Completed
+1193,09/07/2025,162,3,2,5500,0,Warri,Card,Completed
+1849,21/07/2025,165,2,1,6500,0, Yenagoa,Transfer,Completed
+1250,21/11/2025,35,15,3,31000,10,warri ,POS,Cancelled
+2661,01/09/2025,170,2,3,"₦6,500",5, Yenagoa,Transfer,Completed
+1927,2025-07-13,130,2,1,6500,0,Yenagoa,Cash,Completed
+2454,07-Aug-2025,162,5,1,28000,0,Warri,Transfer,Completed
+2697,06/12/2025,104,12,1,24000,0,Lagos,Transfer,Completed
+1353,30-Nov-2025,146,1,1,18000,5,Port Harcourt,POS,Completed
+2221,29/10/2025,114,11,2,14000,0,Warri,Transfer,Cancelled
+1759,19/03/2025,61,2,5,6500,0,YENAGOA,Card,Completed
+1883,2025-07-18,110,2,2,"₦6,500",15,Yenagoa,Cash,Completed
+2515,21-Apr-2025,49,3,1,5500,15,Yenagoa,Transfer,Completed
+1646,12/01/2025,195,4,4,22000,0,Warri,Transfer,Completed
+1853,07-Dec-2025,58,1,1,18000,0,Port Harcourt,Cash,Completed
+1546,2025-07-03,63,1,1,18000,5,lagos ,Card,Completed
+2177,2025-09-20,11,9,4,6000,0,Yenagoa,Transfer,Completed
+1319,26/05/2025,35,15,2,"₦31,000",0,WARRI,Cash,Completed
+1224,17-Sep-2025,22,2,1,6500,0,Lagos,Transfer,Completed
+1612,13-Aug-2025,47,11,4,14000,0,YENAGOA,Transfer,Completed
+2000,2025-10-15,98,10,4,4500,0,Abuja,Transfer,Completed
+2233,04-Aug-2025,10,4,1,22000,0, Warri,POS,Completed
+2336,2025-12-20,71,4,1,22000,0,Abuja,Transfer,Completed
+2087,07/11/2025,155,6,1,12000,10,Lagos,POS,Completed
+2931,20-Oct-2025,13,3,2,5500,0,Yenagoa,Transfer,Completed
+2672,19/11/2025,63,5,1,28000,0,lagos ,Card,Completed
+2723,06/12/2025,46,8,3 units,"₦120,000",0,Abuja,Cash,Cancelled
+1277,02-Mar-2025,157,9,1,6000,5,Benin City,Cash,Completed
+1713,2025-10-07,121,14,2,9000,0, Yenagoa,Cash,Completed
+1801,2025-08-03,174,5,1,28000,0,Lagos,Cash,Completed
+1962,2025-11-18,175,14,2,9000,15,Lagos,Cash,Completed
+2502,2025-05-03,161,1,2,18000,0,Yenagoa,Cash,Completed
+2222,17-Jan-2025,193,2,1,6500,0,Benin City,Card,Returned
+1134,2025-02-27,107,9,3,6000,5,Port Harcourt,Cash,Completed
+1994,12-Jul-2025,42,2,3,6500,10,Abuja,Card,Cancelled
+1279,06/05/2025,96,2,3,6500,0,ABUJA,POS,Completed
+2800,2025-10-14,184,6,5,"₦12,000",0,Abuja,Transfer,Completed
+2905,2025-04-06,79,3,1,5500,0,Port Harcourt,Transfer,Completed
+1188,03/12/2025,190,2,1,"₦6,500",10,Lagos,Card,Completed
+1583,22/11/2025,52,10,1,4500,5,Yenagoa,Transfer,Completed
+1587,13/09/2025,170,9,1,6000,0,Yenagoa,Transfer,Completed
+1225,06/09/2025,166,10,1,"₦4,500",5,Port Harcourt,POS,Completed
+1719,15-Nov-2025,162,9,3,6000,0,Warri,Card,Completed
+1492,18-Nov-2025,74,3,3,"₦5,500",0, Abuja,Cash,Completed
+2829,2025-01-30,184,10,1,"₦4,500",10,Abuja,Transfer,Completed
+1132,2025-12-17,82,2,5,6500,5,Port Harcourt,Transfer,Completed
+2275,29/09/2025,67,12,1,24000,0,Lagos,Transfer,Completed
+2030,2025-09-20,80,9,2,"₦6,000",0,Warri,Transfer,Completed
+1757,2025-12-25,198,12,1,24000,0,Port Harcourt,POS,Completed
+2251,13/07/2025,65,10,1,4500,0, Port Harcourt,Card,Completed
+1495,01-Sep-2025,186,12,4,24000,0,Abuja,POS,Completed
+1830,25-Nov-2025,17,9,3,6000,0,Abuja,Transfer,Completed
+1273,21-Dec-2025,102,8,2,120000,0,Yenagoa,Card,Completed
+2545,2025-07-28,13,13,2,38000,0,Yenagoa,Transfer,Completed
+1902,2025-10-21,6,2,2,"₦6,500",0,lagos ,Card,Completed
+1931,2025-06-25,189,3,1,5500,0,Port Harcourt,POS,Completed
+2584,2025-05-06,71,9,3,6000,0,Abuja,Transfer,Completed
+1555,17-Oct-2025,197,9,2,6000,0,Abuja,Cash,Completed
+1145,21/07/2025,66,10,1,4500,5,Lagos,Transfer,Completed
+1006,16-Jul-2025,63,9,2,"₦6,000",5,Lagos,Transfer,Completed
+1642,06-Aug-2025,129,2,1,6500,0,ABUJA,POS,Completed
+1166,04/05/2025,1,10,2,4500,0,Yenagoa,Transfer,Completed
+2761,28-Sep-2025,54,14,1,9000,0, Yenagoa,Cash,Completed
+2860,2025-07-07,111,2,1,6500,0,yenagoa ,POS,Completed
+2530,19/07/2025,186,3,2,"₦5,500",5,Abuja,Transfer,Completed
+1069,2025-09-20,39,4,2,22000,0,Yenagoa,Transfer,Returned
+1728,07/08/2025,30,1,1,18000,0,Abuja,Card,Completed
+1872,2025-11-23,145,13,2,38000,0,Port-Harcourt,POS,Completed
+2858,2025-06-23,142,9,1,6000,0,Port Harcourt,Card,Completed
+2983,20-Jun-2025,101,3,1,5500,0,Yenagoa,POS,Completed
+2279,10/11/2025,169,1,1,18000,0, Yenagoa,Transfer,Returned
+2028,2025-12-02,106,5,5,28000,0,Benin City,Card,Completed
+1527,16-Jan-2025,170,5,4,"₦28,000",10,yenagoa ,Card,Cancelled
+2053,2025-10-15,198,10,1,4500,0,Port Harcourt,POS,Completed
+1293,2025-12-26,22,9,2,6000,0,Lagos,Transfer,Completed
+2029,30-Jun-2025,53,2,1,"₦6,500",0,Lagos,Cash,Completed
+1064,10/12/2025,116,14,2,"₦9,000",0,Abuja,Cash,Completed
+1570,2025-07-28,40,2,1,6500,0,Yenagoa,Transfer,Completed
+1758,2025-03-23,138,4,5,22000,5,abuja ,Cash,Completed
+2317,09-Dec-2025,48,3,1,"₦5,500",0,Port Harcourt,Transfer,Completed
+2016,2025-08-30,67,1,1,18000,5,Lagos,POS,Completed
+2333,2025-08-12,63,9,2,6000,0,LAGOS,Transfer,Completed
+2677,2025-12-05,11,5,4,"₦28,000",0,Yenagoa,Card,Completed
+1328,21-Apr-2025,116,1,3,18000,0,Abuja,,Returned
+1150,2025-11-03,10,14,1,9000,10,Warri,Transfer,Cancelled
+2217,21-Apr-2025,192,2,5,"₦6,500",5,Port Harcourt,Transfer,Completed
+1796,15/12/2025,182,7,2,65000,0,Abuja,Cash,Completed
+1828,24-Sep-2025,197,14,4,"₦9,000",5,abuja ,Transfer,Completed
+2885,21-Jun-2025,179,6,2,12000,10,Lagos,Transfer,Completed
+1876,2025-01-04,12,10,5,4500,0,Warri,Cash,Completed
+1614,04-Jun-2025,167,14,3,9000,5,Abuja,Transfer,Completed
+2617,2025-09-21,97,1,1,18000,0, Port Harcourt,Card,Completed
+1563,09/11/2025,148,5,1,28000,0,lagos ,,Completed
+1074,10-Nov-2025,190,13,1,38000,0,Lagos,POS,Completed
+2729,21/08/2025,170,10,4,4500,0,Yenagoa,Cash,Completed
+1743,23/05/2025,193,3,4,5500,0,Benin City,POS,Completed
+1254,05-Jun-2025,1,13,3,38000,0,Yenagoa,POS,Completed
+2263,02/09/2025,42,9,1,6000,5,Abuja,Cash,Completed
+1177,13/05/2025,143,14,3 units,9000,10,Warri,Cash,Completed
+1098,2025-07-16,47,9,1,6000,0, Yenagoa,Cash,Completed
+2685,2025-03-03,196,3,2,5500,5,Yenagoa,Cash,Completed
+1263,07-Feb-2025,99,2,3,6500,0,Abuja,Transfer,Completed
+1444,14-Sep-2025,180,12,1,24000,0,Port Harcourt,Transfer,Completed
+2339,2025-05-26,74,1,1,"₦18,000",0,Abuja,Transfer,Completed
+2938,01-Aug-2025,34,3,2,5500,0,Lagos,POS,Completed
+2322,2025-05-14,159,10,1,4500,0,Yenagoa,Transfer,Completed
+2593,15-Nov-2025,59,10,1,4500,0,Lagos,Cash,Returned
+1585,2025-02-28,116,6,1,12000,5,Abuja,Transfer,Completed
+1818,02/03/2025,44,1,1,"₦18,000",0,Lagos,POS,Completed
+2896,04/12/2025,200,5,1,28000,5,Warri,Transfer,Completed
+2538,24-Mar-2025,175,8,1,120000,5,Lagos,Transfer,Completed
+2985,21/11/2025,191,15,1,31000,0,Warri,POS,Completed
+1066,28/03/2025,64,10,5,4500,0,Yenagoa,Cash,Completed
+2284,2025-01-17,88,15,1,31000,0,Warri,Card,Completed
+2974,13-Feb-2025,11,9,3,6000,0,Yenagoa,Transfer,Completed
+1572,08/08/2025,177,10,3,4500,0,Warri,Cash,Completed
+1911,2025-11-28,29,15,3,31000,0,Abuja,POS,Completed
+2494,2025-08-17,113,6,1,"₦12,000",0,Yenagoa,POS,Completed
+2936,22/06/2025,46,2,4,6500,0,Abuja,Transfer,Completed
+2886,2025-07-12,9,4,2,"₦22,000",0,Benin City,Transfer,Completed
+1597,2025-08-29,52,13,1,38000,5, Yenagoa,Card,Completed
+1602,07/09/2025,60,9,1,6000,0, Lagos,Transfer,Completed
+2892,2025-04-29,123,11,1,14000,0, Port Harcourt,Card,Completed
+2921,2025-12-02,99,6,1,12000,5,ABUJA,Card,Completed
+1524,2025-04-14,102,2,1,"₦6,500",10,Yenagoa,Card,Completed
+2654,2025-02-25,58,3,2,5500,0,Port Harcourt,Cash,Completed
+1772,04-Dec-2025,86,1,5,"₦18,000",5,PORT HARCOURT,Transfer,Completed
+2605,01-Aug-2025,42,2,-3,6500,0,Abuja,Transfer,Cancelled
+1275,2025-12-26,40,9,1,6000,0,YENAGOA,POS,Completed
+2639,2025-06-18,82,6,1,12000,0,port harcourt ,Card,Completed
+2153,2025-08-11,44,5,1,28000,10,lagos ,Transfer,Completed
+1586,2025-11-05,141,7,2,"₦65,000",0,Lagos,Cash,Completed
+1811,2025-07-24,97,6,1,12000,0,Port-Harcourt,Cash,Completed
+2242,08/07/2025,159,14,1,"₦9,000",0,Yenagoa,POS,Returned
+1300,2025-12-21,116,9,-2,6000,0,ABUJA,Transfer,Completed
+2746,2025-12-07,52,14,2 units,9000,0,Yenagoa,Transfer,Returned
+2376,2025-10-31,187,10,1,4500,5,Lagos,Card,Completed
+1786,26/10/2025,180,11,1,14000,0,Port Harcourt,Transfer,Completed
+1316,2025-08-04,85,14,1,9000,0,Yenagoa,Cash,Cancelled
+1337,07/09/2025,39,11,2,14000,0,Yenagoa,Transfer,Completed
+1349,10/06/2025,78,4,3,22000,10,Warri,Cash,Returned
+2363,2025-07-31,186,6,1,12000,0, Abuja,Card,Cancelled
+1434,2025-12-21,159,9,5,6000,5,Yenagoa,,Completed
+2929,04-Aug-2025,44,3,2,5500,0,Lagos,Card,Completed
+2528,2025-12-23,24,4,3,22000,5, Port Harcourt,Card,Completed
+2428,2025-03-03,105,6,5,12000,0,Abuja,Cash,Completed
+2771,07-Jun-2025,24,4,4,22000,0,Port Harcourt,Transfer,Completed
+1404,2025-09-10,23,12,1,24000,0,Lagos,Card,Completed
+1680,2025-11-05,187,11,1,"₦14,000",0,Lagos,Card,Completed
+2561,13/02/2025,192,15,1,31000,0,Port Harcourt,Transfer,Completed
+1122,2025-08-19,28,4,1,22000,0,Benin City,Transfer,Completed
+1386,12/07/2025,27,8,2,120000,0,Yenagoa,POS,Completed
+2910,28-Jul-2025,88,2,2,6500,0,WARRI,POS,Completed
+1939,2025-11-14,108,1,4,18000,10,Port Harcourt,Transfer,Completed
+1348,08-Dec-2025,85,10,1,4500,0,Yenagoa,Transfer,Completed
+1502,2025-11-23,20,9,1,"₦6,000",0,Yenagoa,Transfer,Completed
+2514,02-Nov-2025,80,1,2,18000,0,Warri,Transfer,Completed
+1272,08-Nov-2025,198,1,2,18000,0,Port Harcourt,Transfer,Cancelled
+2346,07-Sep-2025,161,6,1,"₦12,000",5,Yenagoa,POS,Completed
+2665,16/10/2025,199,1,2,"₦18,000",0,Warri,Cash,Completed
+2184,06/09/2025,100,5,1,28000,0,Lagos,Transfer,Completed
+2161,2025-04-09,49,4,1,"₦22,000",0,Yenagoa,Transfer,Completed
+1004,2025-05-19,59,10,1,4500,0,Lagos,,Cancelled
+2540,26-Jul-2025,125,10,2,4500,0,Abuja,Transfer,Completed
+2432,2025-10-26,31,4,3,22000,0,Port Harcourt,Cash,Completed
+2439,2025-11-01,111,8,2,120000,0,Yenagoa,Transfer,Completed
+2136,24-Mar-2025,40,4,3,22000,0,Yenagoa,POS,Completed
+2588,2025-06-20,131,10,5,4500,0,Warri,Cash,Completed
+2195,31-Oct-2025,166,4,1,22000,10,Port Harcourt,POS,Completed
+2274,23-Apr-2025,182,11,2,14000,0,Abuja,POS,Completed
+2790,19/11/2025,159,1,2,18000,15,Yenagoa,POS,Completed
+2214,2025-10-23,61,5,1,28000,10,Yenagoa,Transfer,Completed
+2220,18/03/2025,47,6,1,12000,0,Yenagoa,POS,Completed
+2282,2025-07-10,125,14,1,9000,0, Abuja,,Completed
+2375,2025-03-14,2,5,1,28000,0,Lagos,Transfer,Completed
+1739,2025-11-06,178,10,4,"₦4,500",0,Benin City,Transfer,Completed
+2124,2025-12-02,138,3,3,5500,0, Abuja,Card,Completed
+1898,24-Feb-2025,183,6,1,12000,0,yenagoa ,Card,Completed
+2922,2025-03-18,99,12,3,24000,0, Abuja,POS,Completed
+1966,2025-01-17,172,6,1,12000,15,Lagos,Transfer,Completed
+1581,2025-10-13,109,5,1,28000,0,Port Harcourt,Cash,Completed
+2420,2025-06-12,56,5,2,28000,0,Lagos,Transfer,Completed
+1548,08-Nov-2025,16,1,2,18000,5,Yenagoa,POS,Completed
+1980,18/12/2025,65,3,1,5500,15,Port Harcourt,POS,Completed
+2577,07-Jul-2025,134,15,3,31000,0,PORT HARCOURT,Card,Completed
+2673,15/06/2025,58,15,1,31000,10,Port Harcourt,Transfer,Completed
+2804,15/12/2025,104,6,4,12000,0,Lagos,Transfer,Completed
+1287,05-Jun-2025,142,6,1,12000,0,Port Harcourt,POS,Completed
+2067,17/09/2025,40,9,1,6000,0,Yenagoa,Transfer,Completed
+2192,05-May-2025,161,10,2,4500,5,Yenagoa,Transfer,Completed
+2144,2025-10-03,95,10,1,4500,0, Port Harcourt,Cash,Completed
+2845,2025-08-10,144,9,3,6000,0,Lagos,POS,Completed
+2962,2025-05-15,153,11,1,"₦14,000",5,Port Harcourt,Card,Completed
+1735,02-Dec-2025,56,9,3,"₦6,000",0,Lagos,Cash,Completed
+1379,15/09/2025,43,1,1,"₦18,000",10,ABUJA,Card,Completed
+1094,2025-12-07,81,14,2,9000,15,Abuja,Card,Completed
+1997,18-Jun-2025,143,2,1,6500,0,Warri,,Completed
+1470,2025-11-20,185,2,2,6500,0,PORT HARCOURT,Card,Completed
+2934,01-Aug-2025,109,13,1,38000,5,Port Harcourt,Transfer,Completed
+1544,18-Dec-2025,134,2,1,6500,0,Port Harcourt,Transfer,Completed
+1218,2025-07-04,82,4,2,22000,0,Port Harcourt,Card,Completed
+2219,2025-03-22,38,5,1,28000,0,Yenagoa,Card,Completed
+2278,07/10/2025,57,4,2,22000,0,Yenagoa,POS,Completed
+1380,22/08/2025,112,13,5,38000,0,Yenagoa,POS,Completed
+2835,2025-11-07,172,5,2,28000,0,lagos ,Transfer,Completed
+1993,19-Oct-2025,120,9,1,6000,0,Lagos,POS,Completed
+1780,2025-10-20,92,2,1,"₦6,500",0, Yenagoa,POS,Completed
+1928,26/01/2025,167,14,1,9000,0,abuja ,Transfer,Completed
+1778,05/08/2025,112,13,2,38000,0,Yenagoa,Cash,Completed
+2539,2025-10-08,104,11,1,14000,0,Lagos,Card,Completed
+2642,14/02/2025,165,11,3,14000,0,Yenagoa,POS,Completed
+1522,2025-07-02,114,11,4,14000,5,Warri,Card,Completed
+2988,2025-10-29,107,1,1,"₦18,000",0,Port Harcourt,Transfer,Completed
+2525,25/12/2025,60,11,4,14000,0,lagos ,Card,Completed
+2634,22-Dec-2025,84,13,4,38000,0,Yenagoa,Transfer,Completed
+1347,02-Aug-2025,45,3,1,5500,0,Lagos,Cash,Completed
+2027,12/04/2025,75,10,1,4500,0,Yenagoa,Card,Completed
+1865,2025-06-01,136,6,1,12000,0,Benin City,POS,Completed
+1437,13-Dec-2025,198,5,3,"₦28,000",0,Port Harcourt,Transfer,Cancelled
+2166,18/07/2025,75,4,1,22000,0,Yenagoa,Cash,Completed
+1123,2025-05-20,99,13,-1,38000,15,Abuja,POS,Completed
+1885,18-Nov-2025,77,2,1,6500,10,Benin City,POS,Completed
+2151,10/10/2025,136,10,1,4500,0, Benin City,Transfer,Cancelled
+2368,25/09/2025,104,1,1,18000,5,Lagos,Transfer,Completed
+2964,2025-12-03,28,12,2,"₦24,000",5,Benin City,Transfer,Returned
+2256,2025-11-23,188,10,2,"₦4,500",0,lagos ,Transfer,Completed
+1364,24-May-2025,39,8,1,120000,0, Yenagoa,POS,Completed
+1675,23-Oct-2025,29,9,5,6000,0,Abuja,Cash,Completed
+2355,19/11/2025,160,10,1,4500,0,Yenagoa,,Completed
+1651,2025-12-09,162,12,2,24000,0,Warri,Transfer,Completed
+1799,06/06/2025,30,5,1,28000,5,Abuja,Cash,Completed
+1090,23-Jan-2025,100,15,1,31000,0,Lagos,POS,Completed
+1211,07/07/2025,7,2,2,6500,0,Yenagoa,POS,Cancelled
+2146,21-Nov-2025,79,10,1,4500,0,port harcourt ,POS,Completed
+2926,23-Apr-2025,154,13,5,38000,0,Yenagoa,Card,Completed
+1281,26/07/2025,93,1,3,18000,0,Lagos,Transfer,Completed
+1737,10/12/2025,107,15,1,31000,0, Port Harcourt,POS,Completed
+2389,07-Mar-2025,180,6,1,12000,0,port harcourt ,POS,Returned
+2477,2025-03-18,83,10,2,4500,10,Lagos,Transfer,Completed
+2410,18-Jun-2025,164,12,1,24000,0,Port-Harcourt,POS,Completed
+1756,27/07/2025,146,2,3,6500,0,Port Harcourt,Transfer,Completed
+2582,13/12/2025,124,3,1,5500,0,Yenagoa,Transfer,Cancelled
+2056,29/05/2025,189,6,1,12000,0, Port Harcourt,Transfer,Completed
+1332,31-Oct-2025,68,10,1,4500,0,Port Harcourt,Transfer,Completed
+2262,2025-08-30,134,15,1,"₦31,000",10,Port Harcourt,Card,Completed
+2750,2025-03-19,65,14,1,9000,0,Port Harcourt,Cash,Completed
+2140,19/11/2025,25,9,2,6000,10,BENIN CITY,Card,Completed
+1260,11-Oct-2025,167,2,1,6500,0,ABUJA,Cash,Completed
+2499,05/12/2025,49,5,1,"₦28,000",5,yenagoa ,Transfer,Completed
+1264,2025-06-27,193,13,2,38000,0,Benin City,Transfer,Completed
+1592,02-Jul-2025,41,1,2,"₦18,000",0, Yenagoa,Transfer,Returned
+1142,24-May-2025,74,10,2,4500,0,Abuja,Card,Completed
+2567,08-Nov-2025,82,7,2,65000,0,port harcourt ,Card,Completed
+2041,19-Jul-2025,121,11,3,14000,0,Yenagoa,Transfer,Completed
+1320,01-Jun-2025,182,15,2,31000,10,Abuja,POS,Completed
+2055,2025-11-03,129,9,5,6000,0,Abuja,Cash,Cancelled
+1429,18-Aug-2025,97,1,1,"₦18,000",0,Port Harcourt,Transfer,Completed
+2960,23-Jun-2025,121,14,1,9000,0,YENAGOA,POS,Completed
+2653,09-Mar-2025,37,3,1,5500,0,port harcourt ,Card,Cancelled
+2449,19-Jan-2025,163,9,1,6000,0,Yenagoa,POS,Completed
+2965,30-Jul-2025,40,14,2,9000,0,Yenagoa,Card,Completed
+2020,19/12/2025,107,3,1,"₦5,500",0,Port Harcourt,Transfer,Completed
+1944,08-Dec-2025,189,4,1,22000,0,Port Harcourt,Transfer,Completed
+1645,2025-11-29,23,4,4,22000,0,LAGOS,POS,Completed
+2770,2025-12-05,174,2,1,6500,0,Lagos,POS,Cancelled
+1207,01/10/2025,116,7,1,65000,10,Abuja,Card,Completed
+2059,10/07/2025,74,11,-1,14000,5, Abuja,Transfer,Completed
+1093,20-Nov-2025,17,10,-4,4500,0,Abuja,,Completed
+2033,22/10/2025,183,11,1,"₦14,000",5,Yenagoa,POS,Completed
+1667,11/12/2025,14,1,2,18000,15,Lagos,Transfer,Completed
+2408,11-May-2025,65,11,3,14000,0,Port Harcourt,Transfer,Completed
+2671,24/09/2025,18,1,1,18000,0,Warri,POS,Completed
+1553,26-Jul-2025,199,10,1,4500,0,warri ,Transfer,Completed
+1286,19-Aug-2025,12,14,1,9000,0,Warri,Transfer,Completed
+2387,30/11/2025,59,1,1,18000,5, Lagos,POS,Completed
+2687,2025-12-19,161,10,1,4500,10,Yenagoa,Transfer,Completed
+2443,08-Aug-2025,7,5,1,28000,10,Yenagoa,Card,Completed
+1056,2025-11-28,63,6,1,12000,0,Lagos,POS,Completed
+1407,22-Nov-2025,117,4,3,22000,0,Yenagoa,Cash,Completed
+1083,2025-04-21,82,14,3,9000,0,port harcourt ,POS,Completed
+1192,22/12/2025,135,1,-3,18000,10,Yenagoa,Cash,Completed
+2552,04-Nov-2025,21,12,1,24000,0,Port Harcourt,Transfer,Completed
+1366,2025-07-12,100,10,2,4500,15,Lagos,POS,Completed
+1156,2025-06-06,103,10,1,4500,0,Yenagoa,Transfer,Completed
+2008,10/05/2025,103,10,3,4500,0,Yenagoa,Transfer,Cancelled
+1507,13-May-2025,47,15,4,31000,0,yenagoa ,,Completed
+2295,2025-10-18,184,4,1,22000,5,Abuja,POS,Completed
+2678,2025-12-05,178,13,1,38000,0,Benin City,Card,Completed
+1744,12/02/2025,86,10,1,4500,10,Port Harcourt,Cash,Cancelled
+2752,14-Jan-2025,113,1,1,18000,0,Yenagoa,Card,Completed
+2204,23/11/2025,29,7,5,65000,0,abuja ,POS,Completed
+1172,2025-06-13,71,3,3,5500,5, Abuja,Transfer,Completed
+1183,2025-11-08,186,10,1,4500,0,Abuja,POS,Completed
+2652,12-Oct-2025,25,7,-2,65000,10,Benin City,Transfer,Completed
+2121,22/07/2025,3,2,1,"₦6,500",0,Yenagoa,Cash,Completed
+1882,29/06/2025,69,9,1,6000,5,Port Harcourt,POS,Completed
+1577,15/08/2025,57,6,3,12000,0,Yenagoa,Transfer,Completed
+2457,27/11/2025,126,9,2,"₦6,000",0, Abuja,Transfer,Completed
+1724,19-Jun-2025,195,15,2,31000,0,Warri,Cash,Completed
+2321,23/12/2025,57,2,4,6500,0,Yenagoa,Transfer,Completed
+2648,02-Nov-2025,37,14,1,9000,0,Port Harcourt,Card,Completed
+2331,09/12/2025,199,10,3,4500,5,Warri,Card,Completed
+2705,29/12/2025,64,11,2,14000,0,Yenagoa,POS,Returned
+2610,17-Dec-2025,121,14,3,9000,0,Yenagoa,Transfer,Completed
+1679,07-Jun-2025,91,15,3,31000,0,Lagos,Transfer,Cancelled
+2837,23/10/2025,149,13,2,38000,5,Abuja,Transfer,Completed
+2816,23/04/2025,152,9,3,6000,0,Benin City,Card,Cancelled
+2895,2025-11-06,161,5,1,"₦28,000",0,Yenagoa,Transfer,Completed
+2563,06-Nov-2025,73,9,1,6000,0,Yenagoa,POS,Completed
+1053,12-Oct-2025,91,1,3,18000,0,Lagos,Transfer,Cancelled
+2193,13-Sep-2025,193,5,1,28000,5,Benin City,Card,Completed
+1400,2025-10-18,159,2,2,6500,0,Yenagoa,Transfer,Completed
+1923,28-Sep-2025,159,10,2,4500,10,Yenagoa,POS,Completed
+2603,2025-12-21,77,3,2,5500,0,Benin City,Cash,Completed
+1451,17-Dec-2025,141,6,2,12000,0, Lagos,Transfer,Completed
+1305,27-Jun-2025,110,2,1,6500,0,yenagoa ,,Cancelled
+2155,02-Jul-2025,79,14,5,9000,0,Port Harcourt,POS,Cancelled
+1253,10/11/2025,104,8,1,120000,10,lagos ,Transfer,Returned
+1633,2025-11-09,30,10,1,4500,5,ABUJA,Cash,Completed
+1247,2025-04-14,189,9,1,6000,5,Port Harcourt,Cash,Completed
+1425,19-May-2025,171,1,1,"₦18,000",0,WARRI,POS,Completed
+2122,2025-01-13,147,15,1,"₦31,000",0,Lagos,Transfer,Completed
+2277,2025-06-27,191,10,-5,4500,0,Warri,POS,Completed
+2043,20-Jul-2025,46,3,1,5500,0, Abuja,Transfer,Completed
+1888,02-Mar-2025,170,6,3,12000,5,Yenagoa,Transfer,Completed
+2823,06/01/2025,67,3,1,5500,0,Lagos,Cash,Completed
+1234,20/11/2025,17,9,3,6000,0,Abuja,Transfer,Completed
+1430,03/01/2025,120,10,1,4500,0,Lagos,,Completed
+1807,11/03/2025,26,10,3,4500,0,Lagos,Transfer,Completed
+1409,21/05/2025,134,5,1,28000,10,Port-Harcourt,Card,Completed
+2651,2025-05-30,121,13,1,38000,0,Yenagoa,Card,Returned
+1411,27-Jul-2025,49,10,1,4500,0,Yenagoa,POS,Completed
+2788,16/08/2025,30,1,1,18000,5,ABUJA,Transfer,Completed
+1534,30/06/2025,97,3,1,5500,0,Port Harcourt,Card,Completed
+2132,25/05/2025,56,14,2 units,9000,0,Lagos,Transfer,Completed
+2507,10/12/2025,44,14,2,"₦9,000",10,LAGOS,Card,Returned
+2388,02-Dec-2025,175,10,1,4500,0, Lagos,Transfer,Completed
+1130,10/06/2025,94,11,1,14000,0,PORT HARCOURT,Card,Completed
+2496,2025-12-07,55,14,4,9000,5,Yenagoa,Cash,Completed
+1964,05-Oct-2025,1,9,1,"₦6,000",0,Yenagoa,Transfer,Completed
+2044,26/11/2025,134,10,2,"₦4,500",10,port harcourt ,,Completed
+1797,26-Nov-2025,98,6,2,12000,0,Abuja,POS,Completed
+1663,22/11/2025,149,14,2,9000,0,Abuja,Transfer,Completed
+1598,2025-12-31,198,2,4,6500,10,PORT HARCOURT,Transfer,Completed
+1881,2025-10-17,34,5,1,28000,0,Lagos,,Completed
+1194,25/09/2025,171,14,4,9000,0,Warri,Transfer,Completed
+1499,10/06/2025,199,6,1,12000,0,Warri,Transfer,Completed
+1398,2025-12-08,113,1,1,18000,0,yenagoa ,Cash,Completed
+2724,08/12/2025,31,11,1,"₦14,000",0,Port Harcourt,Transfer,Completed
+1238,20-Oct-2025,131,5,2,28000,0,Warri,Card,Completed
+2939,26/07/2025,182,2,1,6500,0, Abuja,POS,Completed
+1792,06-Nov-2025,32,14,1,9000,10,YENAGOA,Transfer,Completed
+1691,10/05/2025,26,3,2,5500,0,Lagos,Cash,Completed
+2669,25/12/2025,103,4,4,22000,15,Yenagoa,POS,Completed
+2006,10/10/2025,17,2,1,6500,10,Abuja,POS,Completed
+1032,01/03/2025,17,7,3,65000,0,Abuja,Transfer,Completed
+1011,22/10/2025,6,15,2,31000,0,lagos ,Card,Completed
+2440,2025-03-04,71,7,1,65000,0,Abuja,POS,Completed
+1864,22-Jan-2025,46,3,2,5500,10,Abuja,POS,Completed
+2622,2025-12-07,48,4,1,22000,0,Port Harcourt,Transfer,Returned
+1203,23-Dec-2025,151,2,3,6500,5,Yenagoa,POS,Completed
+1116,2025-08-26,129,10,2,4500,0,Abuja,Transfer,Completed
+2165,08-Jan-2025,176,3,2,5500,0,Yenagoa,POS,Completed
+1946,2025-09-11,14,14,2,9000,5,Lagos,Card,Completed
+1049,14-Jul-2025,156,6,1,12000,5,Lagos,Transfer,Completed
+1209,26-Jun-2025,163,2,1,"₦6,500",0,Yenagoa,Transfer,Returned
+2827,01/06/2025,185,5,1,28000,0,port harcourt ,,Completed
+2310,2025-08-09,72,4,2,22000,0,Yenagoa,Transfer,Completed
+1330,10/06/2025,158,13,2,"₦38,000",0,Port Harcourt,Cash,Completed
+2473,31-Aug-2025,28,6,2,12000,0,Benin City,POS,Completed
+2913,09/08/2025,28,7,1,65000,0,Benin-City,Transfer,Completed
+1274,2025-02-13,138,9,1,"₦6,000",0,Abuja,Transfer,Cancelled
+1722,23-Sep-2025,10,9,2,6000,0,Warri,Transfer,Completed
+1042,30-May-2025,27,9,1,6000,0,Yenagoa,Transfer,Completed
+2111,01/07/2025,169,14,1,9000,0,Yenagoa,Transfer,Completed
+2455,06-Dec-2025,194,11,1,14000,0,PORT HARCOURT,Transfer,Completed
+2760,2025-03-15,118,6,3,12000,10,Lagos,POS,Completed
+1068,2025-02-04,25,9,1,"₦6,000",0,BENIN CITY,POS,Returned
+1204,2025-09-06,146,12,1,24000,10,Port Harcourt,Transfer,Completed
+2246,2025-06-14,120,10,4,4500,0,Lagos,Transfer,Completed
+1179,17/03/2025,97,3,2,5500,0, Port Harcourt,Transfer,Completed
+2356,21/02/2025,53,2,1,6500,0,Lagos,Transfer,Cancelled
+1653,19-Feb-2025,179,6,1,12000,0,Lagos,Cash,Completed
+1649,17/05/2025,63,2,1,6500,10,Lagos,Card,Completed
+2076,2025-07-03,151,15,1,"₦31,000",10,Yenagoa,POS,Completed
+2361,2025-07-11,109,2,1,6500,0,Port Harcourt,Transfer,Completed
+1120,24-May-2025,19,10,1,"₦4,500",0,Warri,Card,Completed
+2325,2025-10-18,44,4,1,22000,0,LAGOS,POS,Completed
+2125,20-Nov-2025,126,1,3,"₦18,000",0,Abuja,POS,Completed
+1785,2025-04-19,49,11,2,14000,0,Yenagoa,POS,Completed
+2359,08/10/2025,44,8,2,120000,0,Lagos,Card,Completed
+1086,12-Nov-2025,61,4,1,22000,0,Yenagoa,POS,Completed
+1839,20-Jul-2025,66,13,1,"₦38,000",0,Lagos,Cash,Completed
+2947,2025-07-30,53,6,1,"₦12,000",0,Lagos,POS,Cancelled
+2734,03-Nov-2025,137,1,5,18000,0,Port Harcourt,Transfer,Completed
+1003,28/10/2025,195,7,2,65000,0,Warri,Transfer,Completed
+1787,2025-12-15,123,4,2,22000,0,Port Harcourt,Card,Returned
+2518,18/07/2025,166,11,3,14000,0,Port Harcourt,Cash,Completed
+2276,07/01/2025,198,9,1,"₦6,000",5, Port Harcourt,POS,Completed
+2640,16/08/2025,117,1,1,"₦18,000",0,Yenagoa,,Completed
+1096,2025-11-17,112,13,2,38000,10,Yenagoa,Transfer,Returned
+2848,25/12/2025,190,13,1,38000,0,Lagos,Transfer,Completed
+1712,2025-10-15,138,2,2,6500,10,Abuja,Transfer,Completed
+2839,10/04/2025,156,3,1,5500,10,Lagos,Transfer,Completed
+1383,2025-08-27,13,9,1,"₦6,000",0,YENAGOA,POS,Completed
+2098,2025-12-17,84,14,3,9000,0,Yenagoa,Transfer,Completed
+1687,02-Mar-2025,43,6,1,12000,0,Abuja,POS,Cancelled
+1770,08/12/2025,190,15,3,31000,0,Lagos,POS,Returned
+2882,04-Jan-2025,199,10,2,4500,0,warri ,Transfer,Completed
+1600,26/12/2025,106,4,2,"₦22,000",5,Benin City,Cash,Completed
+1127,2025-11-29,111,2,1,"₦6,500",0,Yenagoa,Card,Completed
+1591,24/12/2025,144,14,1,9000,0,Lagos,Card,Completed
+1310,20/11/2025,72,1,5,18000,0,Yenagoa,POS,Returned
+1479,10/12/2025,199,10,1,"₦4,500",0,Warri,POS,Completed
+1596,2025-03-19,80,14,1,9000,0,Warri,Transfer,Completed
+1512,2025-12-01,72,6,2,12000,15,Yenagoa,Cash,Completed
+1658,05/07/2025,106,3,1,5500,0,Benin City,Card,Completed
+2503,22-Sep-2025,117,7,1,65000,10,Yenagoa,POS,Completed
+2483,03-Jun-2025,96,9,1,6000,0,Abuja,Cash,Completed
+2342,26-Oct-2025,37,15,1,31000,0,Port Harcourt,Transfer,Completed
+2302,25/05/2025,82,11,1,14000,0,Port Harcourt,Transfer,Completed
+1136,27/03/2025,162,10,3,4500,0,warri ,POS,Completed
+1476,2025-02-06,97,5,1,28000,0,Port Harcourt,POS,Completed
+1110,09-Sep-2025,120,11,2,14000,0,Lagos,Transfer,Completed
+2147,2025-10-01,20,10,4,4500,0,Yenagoa,Transfer,Completed
+1974,15/10/2025,158,3,2,5500,0,Port Harcourt,POS,Completed
+1432,24/10/2025,135,3,1,"₦5,500",0,Yenagoa,Card,Completed
+1372,2025-08-13,175,5,1,"₦28,000",0,Lagos,POS,Completed
+1462,18-Aug-2025,115,2,2,6500,0,Warri,POS,Completed
+2952,06/07/2025,157,6,2,12000,0,Benin-City,Transfer,Completed
+2268,2025-12-13,106,14,2,9000,5,Benin City,Transfer,Cancelled
+2023,18-Jan-2025,36,2,5,6500,0,Abuja,Cash,Completed
+2005,07/03/2025,131,15,4,31000,0, Warri,Transfer,Completed
+1997,18-Jun-2025,143,2,1,6500,0,Warri,,Completed
+1835,2025-10-13,24,5,3,28000,5,port harcourt ,Transfer,Completed
+1168,03/10/2025,187,10,1,4500,15,Lagos,Transfer,Cancelled
+2173,22-Jan-2025,14,10,1,4500,0,Lagos,Transfer,Completed
+2674,20/12/2025,39,3,1,5500,0,Yenagoa,Transfer,Completed
+1906,09/04/2025,156,7,3,"₦65,000",10,Lagos,Card,Completed
+1515,2025-10-28,125,4,2,22000,0, Abuja,,Completed
+2074,15/01/2025,171,10,1,"₦4,500",0,Warri,Cash,Completed
+1736,01/05/2025,84,6,1,12000,10,Yenagoa,POS,Cancelled
+2430,04/11/2025,33,13,3,38000,0,Abuja,Transfer,Completed
+2470,14-Jul-2025,191,1,1,18000,0,Warri,Transfer,Completed
+2810,04/08/2025,75,2,2,6500,0,Yenagoa,Transfer,Completed
+2914,18/11/2025,14,1,1,18000,0,Lagos,Card,Completed
+2337,17-Jul-2025,117,9,3,6000,0,Yenagoa,Transfer,Completed
+1415,21/09/2025,83,8,1,120000,15,Lagos,POS,Completed
+2105,15/10/2025,33,8,2,120000,0, Abuja,Transfer,Completed
+2172,28/02/2025,94,4,-1,22000,0,Port Harcourt,Transfer,Completed
+1972,20/09/2025,45,1,1,18000,0,Lagos,Transfer,Completed
+1012,04-Nov-2025,13,14,2,9000,5,Yenagoa,POS,Completed
+2157,14/06/2025,185,3,1,5500,0,Port Harcourt,Card,Completed
+2133,27-Sep-2025,20,9,1,6000,0, Yenagoa,Transfer,Completed
+1901,2025-05-10,166,6,1,12000,0,Port Harcourt,POS,Completed
+1235,02/03/2025,172,13,2,38000,0,Lagos,Card,Completed
+2589,12-Jun-2025,40,9,2,6000,0,Yenagoa,Transfer,Cancelled
+2084,2025-06-25,71,1,1,"₦18,000",0,Abuja,Card,Completed
+1339,2025-10-18,122,9,1,6000,0,Port Harcourt,Transfer,Completed
+1152,2025-01-20,77,9,1,6000,15,Benin City,Transfer,Returned
+2311,13/02/2025,143,12,1,24000,0,Warri,POS,Completed
+2327,08-Nov-2025,3,9,5,6000,0,Yenagoa,Card,Completed
+2255,05-Sep-2025,153,3,2,5500,0,Port Harcourt,Transfer,Completed
+1808,2025-09-21,84,2,2,"₦6,500",0,Yenagoa,Transfer,Completed
+2445,2025-07-17,68,2,1,6500,0,Port Harcourt,Cash,Returned
+2890,2025-04-11,77,2,2,6500,0,Benin City,Transfer,Completed
+2101,27/10/2025,189,10,2,4500,5,Port Harcourt,POS,Completed
+1141,09-May-2025,124,3,1,5500,0,Yenagoa,Transfer,Returned
+2998,2025-11-15,197,9,1,6000,15,Abuja,Transfer,Completed
+1618,23-Jul-2025,161,3,4,"₦5,500",15,Yenagoa,Transfer,Completed
+1957,14/03/2025,139,15,-3,31000,0,Abuja,Card,Cancelled
+2318,02/09/2025,91,6,1,"₦12,000",0,Lagos,Card,Completed
+2636,2025-07-20,97,1,-3,"₦18,000",10,Port Harcourt,Transfer,Completed
+2048,26-Feb-2025,84,4,2,22000,0,Yenagoa,POS,Completed
+2288,2025-11-04,127,6,4,"₦12,000",10,Lagos,Transfer,Completed
+1231,24-Mar-2025,190,3,1,"₦5,500",0,Lagos,Card,Returned
+2071,15/12/2025,99,14,1,9000,5,Abuja,POS,Completed
+1659,13/04/2025,178,9,3,6000,0,Benin-City,POS,Completed
+1843,22-Oct-2025,176,2,3,6500,10, Yenagoa,Transfer,Cancelled
+1862,2025-12-12,156,14,5,9000,0,Lagos,Cash,Completed
+1805,2025-11-15,165,14,1,9000,0,Yenagoa,POS,Returned
+2682,26-Oct-2025,125,3,1,"₦5,500",0,Abuja,Cash,Completed
+2407,13-May-2025,64,11,1,"₦14,000",0,Yenagoa,Transfer,Completed
+2815,16/11/2025,179,3,1,5500,0,Lagos,Cash,Returned
+1326,28/10/2025,13,5,2,28000,15,Yenagoa,POS,Completed
+1660,2025-04-26,170,10,2,"₦4,500",5, Yenagoa,POS,Completed
+2415,2025-01-24,61,5,1,28000,0,Yenagoa,Card,Completed
+1119,2025-12-08,140,4,5,22000,0,Port Harcourt,POS,Completed
+2303,02/07/2025,179,15,1,31000,0,Lagos,POS,Completed
+1746,05-Sep-2025,199,3,5 units,"₦5,500",0,Warri,Transfer,Completed
+1924,08-Apr-2025,78,2,2,6500,0,Warri,Cash,Cancelled
+2670,12-Mar-2025,77,1,1,18000,0,benin city ,Transfer,Cancelled
+1176,11/11/2025,83,3,3,5500,15,Lagos,Card,Completed
+1573,20-Nov-2025,98,1,1,18000,5,Abuja,Transfer,Completed
+1625,2025-12-10,18,11,3,14000,0,Warri,Card,Completed
+2971,16/07/2025,24,14,3,9000,0,Port Harcourt,Transfer,Completed
+2807,20/02/2025,101,7,1,65000,0,Yenagoa,Card,Completed
+2292,24-Jul-2025,9,14,1,9000,0,Benin City,Cash,Cancelled
+2833,27-Apr-2025,166,10,1,4500,0,Port-Harcourt,Cash,Completed
+1438,2025-04-06,132,2,1,"₦6,500",15,Yenagoa,POS,Completed
+1440,28/08/2025,180,13,2,38000,0,Port Harcourt,POS,Completed
+2156,2025-12-09,125,1,1,"₦18,000",0,Abuja,Transfer,Completed
+1949,2025-12-18,88,6,1,"₦12,000",10,Warri,Transfer,Completed
+2924,27-Nov-2025,156,3,1,5500,0,Lagos,POS,Completed
+2350,06-Dec-2025,14,11,1,"₦14,000",0,Lagos,Transfer,Completed
+2169,01/12/2025,162,10,1,4500,0, Warri,Transfer,Returned
+2668,06/11/2025,39,9,5,6000,0,Yenagoa,Transfer,Completed
+2012,01-Jun-2025,98,1,1,"₦18,000",0,Abuja,Transfer,Cancelled
+1048,18/09/2025,14,2,3,6500,0, Lagos,Transfer,Completed
+2941,30-Oct-2025,135,6,2,12000,0,Yenagoa,POS,Completed
+2700,21/04/2025,178,15,1,31000,0,Benin City,Cash,Completed
+1604,24-Mar-2025,58,1,3,18000,0,Port Harcourt,Transfer,Completed
+2286,03/12/2025,30,13,1,38000,0,Abuja,Transfer,Completed
+2667,25-Mar-2025,41,2,1,"₦6,500",0,Yenagoa,Cash,Completed
+1065,23-Dec-2025,116,2,4,6500,0, Abuja,Cash,Completed
+1951,21-Dec-2025,174,2,2,6500,0,lagos ,Transfer,Completed
+1217,26/12/2025,35,4,2,22000,0,WARRI,Card,Completed
+2019,07-Nov-2025,185,11,1,14000,0,port harcourt ,POS,Completed
+1650,16-Jan-2025,173,1,1,18000,0,Port Harcourt,Transfer,Completed
+2260,2025-12-26,148,14,1,9000,0,lagos ,Transfer,Completed
+1147,02-Oct-2025,14,2,1,"₦6,500",0,Lagos,Cash,Completed
+2114,2025-11-30,182,4,2,22000,0,Abuja,Card,Completed
+2073,2025-12-16,189,3,1,5500,10,Port Harcourt,Transfer,Completed
+1129,16/05/2025,160,10,1,"₦4,500",15,yenagoa ,Transfer,Completed
+1878,2025-11-04,141,14,1,9000,0, Lagos,Transfer,Returned
+1128,28/01/2025,144,3,2,"₦5,500",0,Lagos,Card,Completed
+1514,2025-08-02,3,2,1,6500,15,Yenagoa,POS,Completed
+2345,13-Mar-2025,197,3,1,5500,0,Abuja,Transfer,Completed
+1466,12/09/2025,146,2,2,6500,0, Port Harcourt,Cash,Completed
+2061,2025-08-21,47,6,1,12000,10,Yenagoa,Transfer,Completed
+1026,17/10/2025,140,13,2,38000,0,PORT HARCOURT,Transfer,Returned
+2343,02/08/2025,91,3,2,5500,0,Lagos,,Cancelled
+1393,09/12/2025,160,3,2,5500,0,Yenagoa,Transfer,Completed
+1007,2025-12-04,159,10,1,4500,0,Yenagoa,Transfer,Completed
+1419,2025-10-06,46,7,2,65000,0,Abuja,Transfer,Completed
+1671,2025-10-29,125,10,5,4500,0,Abuja,Transfer,Completed
+1670,11/07/2025,74,15,2,31000,0,Abuja,Transfer,Completed
+2847,26/05/2025,98,10,5,4500,0,Abuja,Transfer,Completed
+2057,2025-04-10,97,3,1,5500,10,Port Harcourt,Card,Returned
+2476,27/11/2025,195,3,3,5500,0,Warri,Transfer,Completed
+2928,30-Oct-2025,109,2,1,6500,0,Port Harcourt,Transfer,Returned
+2843,23/04/2025,65,3,1,5500,0, Port Harcourt,POS,Cancelled
+2787,16/05/2025,22,14,4,9000,0, Lagos,Cash,Completed
+2009,25/07/2025,61,5,1,28000,10,Yenagoa,Card,Cancelled
+1076,24/01/2025,94,10,1,4500,0,Port Harcourt,Transfer,Completed
+1656,2025-06-15,119,12,1,24000,0,Benin City,Card,Completed
+2836,10/07/2025,18,1,2,18000,0, Warri,Card,Completed
+2768,20-Mar-2025,103,9,3,"₦6,000",0,Yenagoa,Transfer,Completed
+2453,2025-06-14,136,10,1,"₦4,500",0,Benin City,Transfer,Completed
+1079,24/12/2025,52,11,1,"₦14,000",0,Yenagoa,Cash,Cancelled
+2531,12/06/2025,121,9,1,6000,0,Yenagoa,Card,Completed
+2742,05/04/2025,200,7,2,65000,0,Warri,Transfer,Completed
+2717,12/06/2025,25,4,1,22000,0,Benin City,Transfer,Completed
+2520,02-Mar-2025,169,9,1,6000,0,Yenagoa,Transfer,Completed
+2956,14/05/2025,57,1,1,18000,15, Yenagoa,Transfer,Completed
+2362,19/01/2025,167,13,2,"₦38,000",0,Abuja,POS,Returned
+2959,16-Dec-2025,127,2,2,6500,5,Lagos,Transfer,Completed
+1558,2025-05-05,94,3,2,5500,0,Port Harcourt,POS,Completed
+2312,09-Feb-2025,127,1,1,"₦18,000",0,LAGOS,POS,Completed
+2613,23-Oct-2025,54,10,1,4500,5,Yenagoa,Transfer,Completed
+1905,2025-08-02,42,9,1,6000,5,Abuja,Cash,Completed
+2869,07-Nov-2025,78,12,2,24000,0,Warri,POS,Completed
+2287,2025-03-07,71,7,5,65000,0,Abuja,Card,Completed
+2013,2025-05-22,129,8,2,120000,5,Abuja,POS,Completed
+1016,14-Nov-2025,94,9,4,6000,5,Port Harcourt,Transfer,Completed
+1848,2025-11-21,189,4,2,22000,5,Port Harcourt,Cash,Completed
+2679,2025-11-01,154,13,1,38000,5,Yenagoa,Card,Completed
+2513,30/10/2025,64,4,2,22000,10,Yenagoa,POS,Completed
+1755,12-Jun-2025,166,11,1,14000,0, Port Harcourt,Card,Completed
+2411,2025-09-23,81,14,1,9000,0,Abuja,POS,Completed
+2324,01/11/2025,25,3,4,5500,0,Benin City,Cash,Completed
+1891,2025-07-18,5,1,1,18000,0,Port Harcourt,Card,Completed
+1486,06/08/2025,79,9,3,6000,0,Port Harcourt,Transfer,Cancelled
+2283,12/12/2025,42,3,1,5500,0,Abuja,Card,Completed
+2358,16/10/2025,169,9,1,"₦6,000",0,Yenagoa,Transfer,Completed
+2461,2025-12-20,158,9,1 units,6000,0, Port Harcourt,POS,Completed
+2370,2025-04-26,45,10,1,4500,15,LAGOS,POS,Completed
+1199,2025-02-19,98,5,1,28000,0,Abuja,Cash,Completed
+2190,2025-09-28,3,12,1,24000,15,Yenagoa,Transfer,Returned
+1727,2025-12-08,117,1,2,18000,10,Yenagoa,Transfer,Completed
+1035,2025-12-10,83,9,1,"₦6,000",0,Lagos,Cash,Completed
+1904,22-May-2025,183,5,1 units,28000,10,Yenagoa,Cash,Completed
+1283,30-Apr-2025,121,5,4,28000,0,Yenagoa,POS,Completed
+1301,05/03/2025,16,12,5,24000,0,Yenagoa,POS,Completed
+1567,18-Jun-2025,116,6,1,12000,5,Abuja,POS,Completed
+2532,2025-07-29,63,11,1,14000,0,Lagos,POS,Completed
+1846,03-Dec-2025,200,14,1,9000,0,Warri,POS,Completed
+1765,03/03/2025,7,5,3,28000,0,YENAGOA,Transfer,Completed
+2201,29-Apr-2025,140,10,2,"₦4,500",0,Port Harcourt,POS,Completed
+1185,2025-04-29,155,10,1,4500,0,lagos ,Transfer,Completed
+2693,29-Oct-2025,164,5,2,"₦28,000",0,Port Harcourt,POS,Completed
+1556,22/08/2025,18,1,4,18000,0,Warri,Transfer,Completed
+2091,19/08/2025,170,3,5,5500,15,Yenagoa,POS,Completed
+1769,2025-06-23,73,4,1,"₦22,000",0,Yenagoa,Card,Completed
+1413,03-Jan-2025,189,1,4,18000,5,Port Harcourt,Card,Completed
+2143,18-Aug-2025,40,10,1,"₦4,500",0,Yenagoa,Transfer,Cancelled
+1072,2025-10-05,109,8,1,120000,0,port harcourt ,POS,Completed
+1631,2025-11-29,158,15,1,31000,0,Port Harcourt,Card,Completed
+1714,01-Oct-2025,79,11,1,"₦14,000",0, Port Harcourt,POS,Completed
+1696,08/10/2025,166,9,5,6000,10,port harcourt ,Cash,Completed
+2266,22/02/2025,114,7,3,65000,0,Warri,POS,Completed
+1824,13/05/2025,146,11,1,14000,0,Port Harcourt,POS,Completed
+1612,13-Aug-2025,47,11,4,14000,0,YENAGOA,Transfer,Completed
+2898,05-Oct-2025,194,10,1,4500,0, Port Harcourt,Card,Completed
+2077,2025-07-15,178,4,5,22000,0,Benin City,Transfer,Completed
+2935,2025-02-05,26,3,3,5500,0,Lagos,POS,Completed
+2382,28-Dec-2025,168,1,1,18000,0,Lagos,Transfer,Completed
+2198,2025-01-08,165,14,1,9000,5,Yenagoa,Transfer,Cancelled
+2413,21/01/2025,176,8,1 units,120000,0,Yenagoa,Card,Completed
+1369,20/11/2025,196,14,4,9000,10,Yenagoa,Cash,Completed
+1189,19-Mar-2025,85,3,2,5500,0,YENAGOA,Card,Returned
+2409,03-Jun-2025,68,12,1,24000,0,Port Harcourt,Transfer,Completed
+2803,04-Nov-2025,59,9,1,6000,0,Lagos,Card,Completed
+1480,2025-07-16,124,11,1,14000,0,Yenagoa,Cash,Completed
+2270,2025-07-10,62,1,4,18000,0,Port-Harcourt,Transfer,Completed
+1809,10-Nov-2025,120,3,-2,5500,0, Lagos,Transfer,Completed
+1970,2025-08-10,181,10,1,4500,0,Yenagoa,POS,Completed
+2297,19/11/2025,172,1,4,18000,0,LAGOS,POS,Completed
+1230,2025-02-05,12,11,1,14000,5,Warri,Cash,Completed
+1133,24-Nov-2025,137,7,2,"₦65,000",0,Port Harcourt,Transfer,Completed
+1920,2025-09-10,162,15,3,"₦31,000",10,Warri,POS,Completed
+2127,2025-09-03,81,2,1,6500,0,Abuja,Transfer,Completed
+1131,12-Mar-2025,86,11,2,14000,0, Port Harcourt,POS,Completed
+2948,2025-12-15,76,5,1,28000,10,Lagos,POS,Cancelled
+2754,2025-10-30,83,5,1,28000,0,Lagos,Transfer,Completed
+1058,2025-06-14,187,14,2,"₦9,000",0,Lagos,Transfer,Completed
+2399,09/11/2025,30,1,3,18000,0,Abuja,Card,Completed
+2175,02-Sep-2025,34,4,-2,22000,0,Lagos,POS,Completed
+2703,27-Dec-2025,192,3,3,5500,0,Port Harcourt,POS,Completed
+2629,01-Apr-2025,148,4,2,22000,0,Lagos,POS,Completed
+1345,17-Mar-2025,151,9,5,6000,0,Yenagoa,Transfer,Completed
+2557,2025-10-25,57,1,1,18000,5,Yenagoa,,Completed
+2212,20-Dec-2025,63,5,2,28000,0,Lagos,Card,Completed
+1678,2025-09-24,88,9,1,6000,0,Warri,POS,Completed
+1621,2025-05-15,161,9,3,6000,0,Yenagoa,Transfer,Completed
+1535,2025-09-24,178,10,1,"₦4,500",5,Benin City,POS,Completed
+2891,01-Mar-2025,171,3,2,5500,0,Warri,POS,Completed
+1941,2025-07-25,87,11,1,14000,5,Yenagoa,Cash,Completed
+1200,2025-11-29,166,11,2,14000,10,Port Harcourt,Transfer,Completed
+2001,2025-06-22,96,10,4,4500,15,Abuja,POS,Cancelled
+2855,13-Oct-2025,49,3,1,5500,0,Yenagoa,Cash,Cancelled
+2650,30/07/2025,107,12,2,24000,0,Port Harcourt,Cash,Completed
+2689,04-May-2025,175,4,5,22000,0,Lagos,Card,Completed
+1791,09-Oct-2025,152,1,1,18000,0,Benin City,Transfer,Completed
+1424,03-Nov-2025,58,10,2,"₦4,500",0,Port Harcourt,POS,Completed
+1278,2025-10-24,180,1,1,"₦18,000",0,Port Harcourt,Card,Completed
+2351,05-Dec-2025,118,12,1,24000,0,Lagos,POS,Completed
+1423,14/11/2025,53,11,1,14000,5,Lagos,Transfer,Cancelled
+1580,22/08/2025,63,1,3,18000,0,LAGOS,POS,Completed
+2915,20/02/2025,191,10,1,4500,10,Warri,Card,Completed
+1449,11/12/2025,89,3,4,"₦5,500",10,PORT HARCOURT,Transfer,Completed
+2852,12/01/2025,145,7,2,"₦65,000",0,Port Harcourt,Transfer,Completed
+2245,2025-05-21,41,9,3,6000,0,Yenagoa,POS,Completed
+2004,05/04/2025,138,4,1,22000,0,abuja ,Cash,Completed
+2240,07/02/2025,182,11,1,14000,0,Abuja,Transfer,Cancelled
+2484,21/12/2025,96,8,1,120000,0,ABUJA,POS,Cancelled
+1634,2025-03-29,85,12,4,"₦24,000",0,YENAGOA,Card,Completed
+2215,10/03/2025,29,1,1,18000,5,abuja ,POS,Completed
+2595,30-Jan-2025,146,9,1,6000,5,Port Harcourt,Transfer,Cancelled
+2416,05/06/2025,96,12,2,24000,0,Abuja,Card,Completed
+2157,14/06/2025,185,3,1,5500,0,Port Harcourt,Card,Completed
+2989,09/06/2025,27,7,3,65000,0,Yenagoa,Transfer,Completed
+2569,08/11/2025,168,2,-4,6500,0,Lagos,Cash,Returned
+2765,30-Aug-2025,116,4,3,"₦22,000",5,Abuja,Cash,Completed
+1595,2025-10-31,134,15,2,"₦31,000",0,Port Harcourt,Transfer,Completed
+1031,18/06/2025,61,9,1,6000,0, Yenagoa,Transfer,Completed
+1029,21-Nov-2025,60,4,1,22000,10,Lagos,Transfer,Completed
+1061,04-Jun-2025,161,4,1,22000,0,Yenagoa,Cash,Completed
+2257,2025-03-17,82,2,5,6500,0,Port Harcourt,Card,Completed
+1539,12-Jul-2025,128,15,-1,"₦31,000",5,abuja ,Transfer,Completed
+1760,12-Apr-2025,182,1,1,18000,0,Abuja,Transfer,Completed
+1289,08/11/2025,63,2,4,6500,0,Lagos,Card,Completed
+2796,22/10/2025,180,11,-1,14000,5,Port Harcourt,POS,Completed
+2468,15-Aug-2025,181,11,1,14000,0,Yenagoa,,Completed
+1782,2025-09-19,43,9,3 units,6000,5,Abuja,Cash,Completed
+2137,11/05/2025,137,2,2,6500,0,Port Harcourt,Cash,Completed
+2575,20-Sep-2025,62,11,5,14000,0,Port Harcourt,Transfer,Completed
+2716,06/07/2025,180,14,1,9000,0,Port Harcourt,Cash,Completed
+2435,22-Nov-2025,131,2,4,"₦6,500",0, Warri,Transfer,Completed
+2537,18/03/2025,80,5,3,28000,0, Warri,POS,Completed
+2849,10/12/2025,78,2,1,"₦6,500",10,Warri,,Cancelled
+1523,2025-03-26,6,2,1,"₦6,500",0,Lagos,Cash,Completed
+1810,02-Dec-2025,140,1,3,18000,15, Port Harcourt,POS,Completed
+1243,26/03/2025,118,9,3,6000,0, Lagos,Card,Completed
+2668,06/11/2025,39,9,5,6000,0,Yenagoa,Transfer,Completed
+1989,01/02/2025,80,9,2,"₦6,000",0,warri ,Transfer,Completed
+2745,03-Jul-2025,138,4,3,22000,0,Abuja,POS,Completed
+2419,26/02/2025,55,11,2,14000,5,Yenagoa,Card,Completed
+2130,2025-10-09,114,2,1,"₦6,500",0,Warri,POS,Returned
+1214,26/03/2025,71,6,1,12000,0,Abuja,Transfer,Completed
+1564,01-Apr-2025,103,8,2,120000,0,Yenagoa,Card,Cancelled
+2459,2025-07-21,103,3,1 units,5500,0,Yenagoa,Transfer,Completed
+2969,16-Apr-2025,111,12,1,"₦24,000",0,Yenagoa,Transfer,Completed
+1682,30/11/2025,72,3,2,5500,0,Yenagoa,Transfer,Completed
+1038,2025-07-10,117,5,2,28000,0,Yenagoa,Transfer,Completed
+2078,09/07/2025,187,13,1,38000,0,Lagos,POS,Completed
+2149,2025-03-12,128,8,5,"₦120,000",10,Abuja,Cash,Completed
+1605,03/11/2025,52,11,1,14000,10,Yenagoa,POS,Cancelled
+1303,08/04/2025,166,6,1,"₦12,000",10,Port Harcourt,POS,Completed
+2418,26-Dec-2025,160,1,1,"₦18,000",0,Yenagoa,Transfer,Completed
+1060,06/11/2025,195,9,2,6000,10,WARRI,,Returned
+1674,26-Oct-2025,69,6,2,12000,0, Port Harcourt,POS,Completed
+2876,30-Apr-2025,184,9,1,6000,0,Abuja,Transfer,Completed
+1329,09/02/2025,44,13,1,"₦38,000",0,Lagos,POS,Returned
+1776,02/10/2025,32,10,4,4500,0,Yenagoa,Card,Completed
+2684,12/10/2025,11,9,2,6000,5,yenagoa ,POS,Completed
+2633,29/05/2025,26,1,2,"₦18,000",5,Lagos,POS,Completed
+1142,24-May-2025,74,10,2,4500,0,Abuja,Card,Completed
+2058,03/11/2025,85,2,1,6500,5,Yenagoa,Transfer,Completed
+2205,10-Feb-2025,86,2,4,6500,10,Port Harcourt,POS,Completed
+1269,20-Aug-2025,131,3,1,"₦5,500",0,warri ,,Completed
+1148,24-Dec-2025,41,6,4,12000,10, Yenagoa,Card,Completed
+2840,25-Jul-2025,115,9,2,6000,0,Warri,,Completed
+2509,2025-02-14,114,1,2,18000,0,Warri,Card,Completed
+1950,02/03/2025,26,9,1,6000,0,Lagos,POS,Completed
+2487,2025-02-02,120,9,1,"₦6,000",0,Lagos,POS,Completed
+2229,02-Oct-2025,9,3,1,5500,0,Benin City,Transfer,Returned
+1561,11-Feb-2025,56,15,1,31000,5, Lagos,Card,Completed
+2838,04-Jan-2025,161,10,1,4500,0,Yenagoa,Card,Completed
+2923,13-Oct-2025,112,11,2,14000,0,Yenagoa,Card,Completed
+2314,25-Oct-2025,168,2,2,6500,10,Lagos,Transfer,Completed
+1426,24-Dec-2025,14,1,1,18000,0, Lagos,POS,Cancelled
+1856,2025-11-11,117,12,1,24000,0,Yenagoa,Transfer,Returned
+2713,04-Jan-2025,157,1,3,"₦18,000",0,Benin City,POS,Completed
+2051,07-Dec-2025,106,4,2,22000,15,Benin City,Transfer,Completed
+2291,27-Sep-2025,156,5,1,28000,0,Lagos,POS,Completed
+2230,06/08/2025,13,4,4,22000,0,Yenagoa,Transfer,Completed
+2594,16-Aug-2025,70,9,2,"₦6,000",5,Lagos,POS,Returned
+2546,2025-11-22,139,3,1,5500,0,Abuja,Card,Completed
+2909,02/04/2025,166,11,1,14000,0,Port Harcourt,Cash,Cancelled
+1102,19-Jan-2025,18,3,2,5500,0,Warri,POS,Completed
+2834,2025-01-23,195,3,1,5500,10,Warri,Card,Completed
+2456,2025-03-30,82,10,1,4500,0,Port Harcourt,Transfer,Cancelled
+1826,2025-07-25,196,9,4,6000,0,yenagoa ,Card,Completed
+1248,2025-03-13,53,11,3,14000,0,Lagos,Card,Completed
+1494,16-Jun-2025,102,5,1,28000,0, Yenagoa,Cash,Cancelled
+2641,2025-06-19,80,12,1,24000,5,Warri,Transfer,Returned
+1721,03/08/2025,33,3,2,5500,0,Abuja,Card,Cancelled
+2474,04-Aug-2025,28,10,1,4500,5,benin city ,POS,Completed
+1246,24-Jul-2025,90,13,1,"₦38,000",10,Lagos,Transfer,Completed
+1220,10-Nov-2025,7,14,1,9000,5,Yenagoa,Card,Completed
+1340,2025-01-19,147,13,3,38000,0,Lagos,Cash,Completed
+1439,29-Sep-2025,54,10,3,4500,10,Yenagoa,Card,Completed
+1892,04-Dec-2025,191,9,1,"₦6,000",0,Warri,POS,Completed
+2801,13/12/2025,179,10,2,4500,0, Lagos,Transfer,Completed
+2107,17-May-2025,192,10,3,4500,5,Port Harcourt,,Completed
+2258,24-Jul-2025,33,10,2,4500,0,Abuja,Transfer,Completed
+1034,2025-01-17,123,12,1,24000,0,Port Harcourt,Cash,Completed
+2751,19/03/2025,75,8,1,120000,0,Yenagoa,Transfer,Completed
+1017,06/08/2025,76,10,1,"₦4,500",0, Lagos,POS,Completed
+2348,12-Jul-2025,106,6,4,12000,0,BENIN CITY,POS,Completed
+1603,2025-03-11,155,6,2,12000,0,Lagos,Transfer,Completed
+1215,28-Sep-2025,153,9,1,6000,0,Port Harcourt,Transfer,Completed
+1450,25-Sep-2025,65,3,1,5500,5,PORT HARCOURT,POS,Completed
+1672,02/12/2025,179,9,1,6000,0, Lagos,Card,Completed
+1641,2025-03-29,96,11,3,14000,10,abuja ,Card,Completed
+1050,2025-05-17,174,9,2,6000,0,Lagos,Transfer,Returned
+2492,2025-09-25,122,3,1,"₦5,500",0,Port Harcourt,Transfer,Cancelled
+2068,2025-09-06,124,1,1,18000,0,Yenagoa,Transfer,Completed
+1255,2025-10-21,17,11,1,14000,15,Abuja,POS,Completed
+2991,2025-12-16,51,6,4,12000,5,Port-Harcourt,Card,Completed
+1959,2025-02-01,124,3,1,5500,0,yenagoa ,POS,Completed
+1412,15-Sep-2025,198,13,1,38000,0, Port Harcourt,Card,Returned
+2472,23-Oct-2025,130,3,1,5500,0,Yenagoa,Transfer,Completed
+2296,28/06/2025,155,3,1,5500,0,Lagos,Cash,Returned
+1874,18-May-2025,175,2,1,"₦6,500",10,Lagos,Transfer,Completed
+1360,26-Oct-2025,182,10,1,4500,0,abuja ,Transfer,Completed
+2536,2025-03-12,49,1,1,18000,0,YENAGOA,Transfer,Completed
+2616,20-Dec-2025,200,10,2,4500,10,Warri,Card,Completed
+2802,24/07/2025,191,11,1,14000,0,warri ,Card,Completed
+2046,09/04/2025,5,6,5,12000,0,Port Harcourt,Transfer,Completed
+1436,2025-12-07,98,14,4,9000,0,Abuja,Card,Completed
+2526,2025-12-22,103,9,1,6000,0,Yenagoa,Transfer,Completed
+2570,2025-07-08,163,1,1,18000,0, Yenagoa,Card,Completed
+1504,05/12/2025,53,3,3,5500,5,Lagos,Transfer,Completed
+2162,2025-10-11,123,15,5,31000,0,Port Harcourt,Card,Completed
+1575,12/11/2025,98,1,-2,18000,0,Abuja,Card,Completed
+2014,2025-02-07,10,9,1,6000,0,Warri,Transfer,Completed
+1382,15/08/2025,32,5,2,28000,0,Yenagoa,POS,Completed
+2285,03/11/2025,32,3,1,5500,0,Yenagoa,Card,Completed
+2730,07-Nov-2025,165,3,1,"₦5,500",0,Yenagoa,Transfer,Returned
+1741,27/12/2025,119,11,3,14000,0,Benin-City,POS,Completed
+2228,24/03/2025,28,1,2,18000,5,Benin City,Transfer,Completed
+1540,21/12/2025,15,3,1,5500,0,Port Harcourt,Transfer,Cancelled
+1389,17-Feb-2025,29,12,2,24000,0,Abuja,Transfer,Completed
+2485,2025-10-28,35,2,2,6500,0,Warri,Transfer,Completed
+2079,11-May-2025,54,14,1,9000,0,Yenagoa,POS,Completed
+1578,04-Nov-2025,141,5,1,28000,0,Lagos,POS,Completed
+2035,02/07/2025,12,3,3,5500,0,Warri,Cash,Completed
+1493,2025-10-14,93,3,1,"₦5,500",0,Lagos,POS,Completed
+1397,16/01/2025,176,13,2,38000,10,YENAGOA,Card,Completed
+2290,2025-11-16,185,7,4,"₦65,000",0,Port Harcourt,Cash,Completed
+1082,2025-06-14,7,6,1,12000,0,YENAGOA,Transfer,Completed
+2211,02/06/2025,109,7,5,65000,0,Port Harcourt,Cash,Completed
+1422,2025-04-09,193,11,5 units,14000,0,benin city ,Transfer,Completed
+1210,22-Jul-2025,195,3,1,5500,0,warri ,Card,Completed
+1562,23/08/2025,64,9,4,6000,0,Yenagoa,Card,Completed
+1623,11-Jul-2025,46,2,1,6500,0,Abuja,Cash,Completed
+2598,13-Apr-2025,63,9,2,6000,0,Lagos,Card,Completed
+1355,06/03/2025,8,3,1,5500,0, Port Harcourt,POS,Completed
+2688,30/09/2025,85,2,4,6500,5,Yenagoa,Cash,Completed
+2034,31-Mar-2025,159,10,1,4500,10,Yenagoa,Transfer,Completed
+2832,01/09/2025,23,11,1,14000,0,Lagos,POS,Completed
+1381,04-Apr-2025,104,1,1,18000,15,lagos ,Transfer,Completed
+1584,2025-04-29,159,14,3,9000,5,YENAGOA,Transfer,Completed
+1644,30/10/2025,118,5,3,"₦28,000",0,Lagos,Transfer,Completed
+2620,31/08/2025,170,3,2,5500,0,Yenagoa,Transfer,Completed
+2975,30-Dec-2025,28,3,1,5500,5,Benin City,Transfer,Completed
+2699,31-Dec-2025,114,12,1,24000,0,Warri,POS,Completed
+2132,25/05/2025,56,14,2 units,9000,0,Lagos,Transfer,Completed
+1455,26-Oct-2025,165,6,3,12000,0,Yenagoa,Cash,Cancelled
+2783,22/01/2025,192,15,2,31000,0,port harcourt ,Transfer,Completed
+2758,05/08/2025,40,6,3,12000,0, Yenagoa,Transfer,Completed
+1788,22/08/2025,88,2,1,6500,5, Warri,Transfer,Completed
+2708,2025-07-19,152,6,5,12000,0,Benin City,Card,Completed
+1228,2025-02-25,107,14,-1,9000,5,Port-Harcourt,Cash,Completed
+2050,2025-06-30,118,3,2,5500,0,Lagos,Cash,Completed
+1030,15-Mar-2025,34,9,3,6000,0,Lagos,POS,Completed
+1800,21/04/2025,105,4,3,"₦22,000",0,Abuja,Transfer,Completed
+1730,09-Apr-2025,57,1,2,18000,0,YENAGOA,Card,Completed
+2878,06-Jan-2025,33,9,2,6000,0,Abuja,Card,Completed
+2120,16/11/2025,169,2,1,6500,5,Yenagoa,Transfer,Completed
+1229,2025-06-12,53,9,1,6000,0,Lagos,Cash,Completed
+2691,03/06/2025,103,11,3,"₦14,000",0,Yenagoa,Card,Completed
+2813,02-Aug-2025,5,6,1,12000,0,Port Harcourt,Transfer,Completed
+1019,15/11/2025,4,3,1,5500,0,Yenagoa,Cash,Completed
+2538,24-Mar-2025,175,8,1,120000,5,Lagos,Transfer,Completed
+1871,03/12/2025,32,5,1,28000,0,Yenagoa,POS,Completed
+1877,2025-12-23,146,2,3,"₦6,500",5,PORT HARCOURT,Transfer,Completed
+2741,2025-10-07,70,6,1,12000,5,Lagos,Transfer,Completed
+2821,09/04/2025,166,3,4,5500,0,Port-Harcourt,Transfer,Completed
+1198,2025-10-21,77,10,3,"₦4,500",0,Benin City,POS,Completed
+1648,05-Sep-2025,27,3,1,5500,0,Yenagoa,Transfer,Completed
+2315,26/12/2025,159,8,3,120000,0,Yenagoa,Transfer,Completed
+1459,2025-01-20,67,9,5,6000,0,Lagos,POS,Completed
+1298,27-May-2025,181,10,1,4500,5,yenagoa ,Transfer,Completed
+2103,04-Nov-2025,30,9,1,6000,0,Abuja,Transfer,Completed
+1690,25-Aug-2025,91,14,1,9000,10, Lagos,POS,Completed
+1115,09/12/2025,21,3,2,5500,0, Port Harcourt,Transfer,Completed
+2092,18-Jun-2025,12,15,2,31000,0,Warri,Transfer,Completed
+1654,24-Apr-2025,58,2,4,6500,0,Port Harcourt,Transfer,Completed
+2259,04/04/2025,179,9,1,6000,0,Lagos,Transfer,Returned
+1002,2025-07-03,21,12,3,24000,10,Port Harcourt,Transfer,Completed
+2854,08/10/2025,198,13,2,38000,5,Port Harcourt,Transfer,Completed
+2463,20/08/2025,93,9,5,6000,5, Lagos,Transfer,Completed
+1500,05/02/2025,163,11,1,14000,5,Yenagoa,POS,Completed
+1732,10/04/2025,33,1,2,18000,0, Abuja,Transfer,Completed
+1160,2025-04-19,35,7,1,65000,15,Warri,Transfer,Completed
+1268,2025-10-29,73,11,2,14000,5,Yenagoa,Cash,Completed
+1013,2025-04-23,91,3,1,5500,0,lagos ,,Completed
+1036,2025-06-05,153,9,1,6000,0,Port Harcourt,Transfer,Completed
+1537,10-Aug-2025,83,1,1,18000,0,lagos ,Transfer,Completed
+2383,2025-03-13,141,11,1,"₦14,000",5,Lagos,POS,Completed
+2943,2025-11-19,53,1,5,18000,5,Lagos,Transfer,Cancelled
+1390,29/10/2025,26,14,2 units,9000,0,Lagos,POS,Completed
+1165,2025-08-18,117,9,2,6000,0,Yenagoa,Transfer,Completed
+2635,30/12/2025,60,14,1,"₦9,000",0,Lagos,Transfer,Cancelled
+2736,22-Oct-2025,55,2,4,"₦6,500",10,Yenagoa,Cash,Completed
+2720,2025-01-01,136,1,1,18000,0,Benin City,POS,Completed
+2608,13-Oct-2025,83,2,3,6500,5,Lagos,POS,Completed
+1410,04-Nov-2025,105,2,2,"₦6,500",0, Abuja,POS,Completed
+1343,13/12/2025,18,2,2,6500,0,Warri,POS,Completed
+2500,2025-08-23,2,9,1,6000,10,Lagos,POS,Completed
+1606,09/08/2025,84,13,4,38000,0,Yenagoa,POS,Completed
+2906,2025-10-12,49,11,4,14000,0,Yenagoa,POS,Completed
+2421,06-Oct-2025,20,14,5,9000,0,Yenagoa,POS,Completed
+1643,05-Jun-2025,197,13,3 units,38000,10,abuja ,Cash,Completed
+2322,2025-05-14,159,10,1,4500,0,Yenagoa,Transfer,Completed
+2607,14-Aug-2025,82,11,1 units,14000,0,Port Harcourt,POS,Completed
+2954,2025-11-05,130,1,5,18000,10,Yenagoa,Transfer,Completed
+1938,2025-03-19,96,4,1,22000,0,Abuja,Transfer,Completed
+1362,24/12/2025,96,9,2,6000,0, Abuja,Cash,Completed
+2267,12/11/2025,142,5,1,28000,0,Port Harcourt,Transfer,Returned
+2946,03-Jul-2025,37,1,1,18000,0, Port Harcourt,Card,Completed
+2789,2025-02-04,147,11,3,14000,10,Lagos,Transfer,Completed
+2371,02/05/2025,10,12,1,24000,5,warri ,Cash,Completed
+2129,2025-12-27,169,1,1,18000,10,Yenagoa,Card,Completed
+2973,2025-06-17,147,2,1,6500,0,Lagos,Transfer,Returned
+2119,03/07/2025,78,10,5,"₦4,500",0,Warri,Transfer,Completed
+1725,2025-01-29,29,11,-2,"₦14,000",15,Abuja,Card,Completed
+2806,2025-06-21,112,11,2,14000,0,Yenagoa,Card,Completed
+1521,07/02/2025,42,4,1,22000,0,Abuja,Cash,Completed
+1418,17-Apr-2025,54,9,1,6000,0,Yenagoa,Cash,Returned
+2874,2025-11-10,109,10,2,4500,0,Port Harcourt,POS,Completed
+2323,19-Oct-2025,127,3,3,5500,0,Lagos,Transfer,Completed
+1569,2025-12-20,71,14,2,9000,0,Abuja,Card,Completed
+1249,26-Mar-2025,181,4,2,22000,15,Yenagoa,Card,Cancelled
+1396,13/12/2025,124,11,2,14000,0,Yenagoa,Transfer,Completed
+1118,03-Oct-2025,148,3,1,5500,0,lagos ,Cash,Completed
+2808,25-Nov-2025,141,4,1,22000,0,Lagos,Card,Completed
+1401,28-Jun-2025,143,13,2,38000,0,Warri,POS,Completed
+2065,05-Aug-2025,93,5,1,28000,0,Lagos,Card,Completed
+2585,23/06/2025,93,10,1,4500,5, Lagos,Card,Completed
+2911,2025-12-28,1,1,3,18000,0,YENAGOA,Card,Cancelled
+1213,09/09/2025,44,10,1,4500,0,lagos ,Transfer,Completed
+2271,27/11/2025,133,11,2,14000,0,Abuja,POS,Returned
+2422,2025-11-01,138,10,3,4500,0, Abuja,Transfer,Completed
+2384,10/08/2025,145,14,2,9000,5,Port Harcourt,,Returned
+1571,2025-02-18,103,9,1,6000,0,YENAGOA,Transfer,Completed
+2199,19/09/2025,3,14,1,"₦9,000",5,Yenagoa,Transfer,Completed
+1538,2025-05-11,184,6,1,12000,0, Abuja,Transfer,Completed
+1526,2025-06-30,59,3,1,5500,0,lagos ,Transfer,Completed
+1852,06/06/2025,73,3,1,"₦5,500",0,Yenagoa,POS,Returned
+1498,21/11/2025,148,3,1,5500,0,Lagos,Card,Completed
+1153,2025-08-30,127,13,1,38000,0,Lagos,Transfer,Completed
+1615,24-Jul-2025,93,2,2,6500,5,Lagos,POS,Completed
+1222,13-Jul-2025,97,1,5,"₦18,000",0,PORT HARCOURT,Card,Completed
+1912,06/09/2025,130,2,2,"₦6,500",10,Yenagoa,,Completed
+2978,25/07/2025,131,4,2,22000,5,Warri,Card,Cancelled
+1870,11/08/2025,114,5,2,28000,0,Warri,Card,Completed
+2497,2025-09-05,126,10,1,4500,0,Abuja,POS,Completed
+2448,23/02/2025,181,11,1,14000,5,Yenagoa,Cash,Cancelled
+2508,05/07/2025,171,10,1,"₦4,500",5,Warri,Card,Completed
+2932,2025-07-18,48,3,1,5500,0,Port Harcourt,Transfer,Completed
+2334,15/12/2025,97,10,5,4500,10,Port Harcourt,Cash,Cancelled
+1235,02/03/2025,172,13,2,38000,0,Lagos,Card,Completed
+1081,24-Jul-2025,132,2,1,6500,10,Yenagoa,Transfer,Completed
+1046,2025-03-15,169,5,1,28000,0,Yenagoa,Transfer,Completed
+1112,01-Jun-2025,19,6,2,12000,0,warri ,POS,Completed
+2244,2025-12-27,15,10,1,4500,5,Port Harcourt,Transfer,Completed
+2243,24/06/2025,175,6,1,12000,10,Lagos,POS,Completed
+2573,06/04/2025,42,6,2 units,12000,0,Abuja,Card,Completed
+1764,31-Oct-2025,114,4,1,22000,0,Warri,Transfer,Completed
+2026,30-Mar-2025,177,9,1,"₦6,000",0,Warri,POS,Completed
+2412,2025-08-11,59,9,1,6000,0,Lagos,Transfer,Completed
+2897,26-Nov-2025,58,11,1 units,14000,0,Port Harcourt,POS,Cancelled
+2313,2025-02-25,54,11,3,14000,0,Yenagoa,Transfer,Returned
+1710,2025-10-04,128,9,3,6000,0,Abuja,POS,Completed
+2740,2025-10-12,109,10,2,4500,10,Port Harcourt,Transfer,Returned
+1703,22/10/2025,101,9,2,6000,10,Yenagoa,Card,Completed
+1195,09/07/2025,5,9,1,6000,15,Port Harcourt,Transfer,Completed
+1314,2025-10-22,146,9,2,6000,0,Port Harcourt,POS,Cancelled
+1080,2025-09-03,27,10,2,4500,0,Yenagoa,Transfer,Completed
+2774,2025-08-26,159,6,2,12000,0,Yenagoa,Cash,Completed
+2070,03/11/2025,99,7,2,65000,0,Abuja,Card,Completed
+2981,2025-06-08,82,9,2,6000,0,port harcourt ,Transfer,Completed
+2442,07-Nov-2025,8,9,1,6000,10, Port Harcourt,Card,Completed
+2714,03/02/2025,106,10,2,4500,0,Benin City,Cash,Completed
+2512,28-Sep-2025,6,11,3,"₦14,000",0, Lagos,Transfer,Completed
+1684,2025-04-26,47,11,3,"₦14,000",0,Yenagoa,Transfer,Completed
+1368,29-Nov-2025,169,13,1,38000,0,Yenagoa,Transfer,Completed
+1829,29/07/2025,62,2,2,6500,0,Port Harcourt,Card,Completed
+1513,29-Oct-2025,61,9,3,6000,0,YENAGOA,POS,Completed
+2799,2025-02-04,17,7,4,65000,0,Abuja,POS,Completed
+2737,2025-04-11,53,9,2,6000,0,Lagos,Transfer,Cancelled
+2781,2025-12-30,94,12,1,24000,0,Port Harcourt,Card,Cancelled
+2776,11-Mar-2025,98,7,1,65000,5,ABUJA,Card,Returned
+2003,2025-10-20,82,9,5,6000,0,Port Harcourt,,Completed
+2352,2025-09-17,75,9,2,6000,10,Yenagoa,,Completed
+1158,2025-05-07,93,10,1,4500,0,Lagos,Transfer,Completed
+1297,2025-12-24,54,6,1,12000,10, Yenagoa,Transfer,Completed
+1043,29/11/2025,95,2,1,6500,0,Port-Harcourt,Card,Completed
+2712,2025-09-08,131,14,1,9000,0,Warri,Cash,Completed
+1075,25-Jun-2025,42,3,2,5500,0,Abuja,POS,Completed
+1447,24-May-2025,187,10,5,4500,0,Lagos,POS,Completed
+2377,2025-06-15,159,13,3,38000,5,Yenagoa,,Completed
+2784,2025-12-04,160,1,2,18000,0,yenagoa ,Transfer,Completed
+1798,30/07/2025,134,2,3,6500,5,Port Harcourt,Card,Completed
+1895,18/07/2025,161,12,2,24000,0, Yenagoa,POS,Completed
+2576,07/06/2025,41,3,2,"₦5,500",0,Yenagoa,Cash,Completed
+1987,24/02/2025,153,10,2,4500,5,Port Harcourt,POS,Completed
+2397,07/08/2025,21,3,1,5500,15,Port Harcourt,Transfer,Completed
+1244,10/05/2025,140,12,1,24000,5,port harcourt ,Transfer,Completed
+2374,20/11/2025,50,2,1,"₦6,500",15,warri ,Transfer,Completed
+1734,23-Sep-2025,44,9,2,6000,0,lagos ,Card,Completed
+1914,2025-11-22,32,12,1,24000,0,YENAGOA,POS,Completed
+2197,23-Aug-2025,187,11,-1,14000,0,Lagos,,Completed
+2239,19-Feb-2025,81,2,1,"₦6,500",0,Abuja,Card,Completed
+2612,2025-07-06,105,5,3,28000,15,abuja ,POS,Completed
+1894,21-Nov-2025,179,15,3,31000,0,LAGOS,Cash,Completed
+1686,30-Oct-2025,43,3,2,"₦5,500",0,Abuja,Cash,Completed
+2381,13/08/2025,103,9,2,"₦6,000",10,yenagoa ,,Cancelled
+1077,24/07/2025,137,3,5,"₦5,500",5,Port Harcourt,POS,Completed
+2385,21/12/2025,154,10,4 units,4500,10, Yenagoa,Card,Completed
+1866,2025-12-26,72,10,4,4500,0,Yenagoa,POS,Completed
+2977,21/09/2025,177,4,1,22000,0,Warri,Transfer,Completed
+2662,15-Jul-2025,7,15,1,31000,0,Yenagoa,Card,Completed
+2037,2025-03-05,95,1,1,18000,5,Port Harcourt,Transfer,Completed
+1124,18/12/2025,185,4,3,22000,0,Port Harcourt,Card,Completed
+1441,18/10/2025,7,6,1,12000,0, Yenagoa,Transfer,Completed
+2587,2025-06-28,164,3,3,5500,0,Port Harcourt,Transfer,Completed
+2798,12-Jun-2025,62,9,2,6000,15,PORT HARCOURT,Transfer,Completed
+2475,2025-03-27,126,9,1,6000,0,Abuja,POS,Completed
+1252,09/08/2025,148,9,2,6000,0,Lagos,Transfer,Completed
+1420,2025-08-05,147,14,2,9000,0,Lagos,POS,Completed
+1285,12/05/2025,20,9,1,"₦6,000",0,Yenagoa,Transfer,Completed
+2560,05-May-2025,9,10,2,"₦4,500",0,Benin City,Card,Returned
+2134,20/12/2025,174,6,2,12000,0,LAGOS,Transfer,Completed
+1647,02-Jun-2025,113,10,1,4500,0,Yenagoa,Transfer,Returned
+1528,18/12/2025,141,6,5,12000,0,Lagos,Transfer,Completed
+1982,12-Sep-2025,22,15,4,"₦31,000",0, Lagos,POS,Completed
+2908,03-Mar-2025,186,13,2,38000,0, Abuja,POS,Completed
+2844,2025-04-12,185,5,1,28000,15,Port Harcourt,Cash,Completed
+2596,01-Dec-2025,59,10,1,4500,0,Lagos,Cash,Completed
+2390,21-Jun-2025,50,4,4,22000,0,Warri,Transfer,Completed
+1402,01-Aug-2025,127,13,1,38000,0,Lagos,Transfer,Returned
+1955,13/12/2025,5,3,5,5500,0,Port Harcourt,Transfer,Completed
+1916,2025-09-29,63,2,3,6500,0,Lagos,Transfer,Completed
+2831,06-Nov-2025,127,5,1,28000,0,LAGOS,POS,Completed
+1973,22/04/2025,134,10,1,4500,5,Port-Harcourt,Transfer,Returned
+2100,08-Jun-2025,58,14,3,9000,0,Port Harcourt,Cash,Completed
+2082,2025-11-21,48,3,2,5500,5,Port Harcourt,Transfer,Returned
+1322,2025-10-23,147,5,5,28000,15,Lagos,Transfer,Completed
+1775,05/09/2025,119,3,3,"₦5,500",0,benin city ,Transfer,Completed
+1879,03-Dec-2025,23,1,1,18000,0,Lagos,Card,Completed
+2252,26-Oct-2025,108,9,2,6000,0,Port Harcourt,POS,Completed
+2289,29/11/2025,184,4,1,22000,0, Abuja,POS,Completed
+2893,29/06/2025,163,9,3,6000,0, Yenagoa,Cash,Completed
+2072,2025-11-06,90,8,1,120000,0,LAGOS,Cash,Completed
+1482,18-Sep-2025,140,6,1,12000,5,Port Harcourt,POS,Completed
+1896,13/07/2025,30,2,1,"₦6,500",5,Abuja,POS,Completed
+2970,2025-06-05,97,12,1,24000,0, Port Harcourt,Cash,Completed
+1632,06-Jan-2025,52,10,1,4500,0,Yenagoa,Transfer,Completed
+2516,18-Feb-2025,91,9,1,"₦6,000",0, Lagos,Card,Completed
+1998,24/01/2025,8,3,1,5500,0,Port Harcourt,Transfer,Completed
+1781,20/05/2025,136,10,1,4500,0,Benin City,Cash,Completed
+1954,02/03/2025,16,4,2,22000,0,Yenagoa,,Completed
+1261,08-Oct-2025,181,2,1,6500,0,Yenagoa,Card,Completed
+2517,2025-11-25,10,14,2,9000,0,Warri,Card,Returned
+2042,22/05/2025,137,10,1,4500,0, Port Harcourt,Transfer,Completed
+1318,2025-08-23,94,15,1,"₦31,000",10,Port Harcourt,Transfer,Completed
+2766,17/04/2025,142,13,2,38000,10,Port Harcourt,Card,Returned
+1747,2025-12-19,149,13,2,38000,5,abuja ,POS,Completed
+1458,2025-12-09,130,9,3,"₦6,000",0,YENAGOA,POS,Completed
+1716,2025-11-20,189,10,1,4500,15,Port Harcourt,Card,Completed
+2452,13-Apr-2025,46,1,2,18000,0,Abuja,Cash,Completed
+2879,01-Apr-2025,71,10,1,4500,10,Abuja,Cash,Completed
+2820,2025-08-06,38,11,5,14000,0,Yenagoa,Transfer,Cancelled
+1187,28/12/2025,121,11,1,14000,0,Yenagoa,Transfer,Completed
+2647,28/09/2025,68,9,1,6000,0,Port Harcourt,Transfer,Completed
+2884,02/03/2025,43,2,2,6500,10,Abuja,Card,Completed
+1073,09-Nov-2025,50,3,1,5500,0,Warri,POS,Completed
+2780,21-May-2025,22,5,5,28000,0,Lagos,Cash,Completed
+2851,2025-01-08,23,10,1,4500,10,Lagos,Cash,Completed
+2425,23/12/2025,105,5,1,28000,0,Abuja,POS,Completed
+1180,15/03/2025,119,14,2,9000,15,Benin City,Card,Completed
+2396,2025-05-10,179,9,1,6000,0,Lagos,Card,Returned
+1761,24/03/2025,78,2,1,6500,10,Warri,POS,Returned
+2250,19/06/2025,111,15,1,31000,0,Yenagoa,Transfer,Completed
+1162,2025-12-05,21,9,2,6000,0,Port Harcourt,POS,Completed
+1146,12-May-2025,28,9,2,6000,0,Benin City,Cash,Completed
+2961,2025-06-07,171,4,1,22000,0,Warri,Cash,Completed
+1806,17/08/2025,38,11,1,14000,0,Yenagoa,Card,Completed
+2721,2025-06-24,18,14,1,9000,0,warri ,Transfer,Completed
+2298,03/06/2025,51,1,1,18000,0,Port Harcourt,Transfer,Completed
+2099,10/12/2025,32,10,4,4500,0, Yenagoa,Card,Completed
+1312,2025-11-09,57,9,5,6000,0, Yenagoa,POS,Returned
+1560,23/11/2025,182,1,2,18000,0,abuja ,Cash,Completed
+2131,21/09/2025,131,3,1,5500,5,Warri,Transfer,Completed
+1547,23-Jun-2025,23,3,1,5500,0, Lagos,Transfer,Returned
+1111,31-Dec-2025,185,7,1,65000,0,Port Harcourt,Card,Completed
+2022,17/10/2025,104,11,2,14000,0,Lagos,Card,Completed
+2154,09/11/2025,31,4,1,22000,0,Port Harcourt,Transfer,Completed
+1731,22-Sep-2025,46,5,1,28000,5,ABUJA,Cash,Returned
+1749,2025-08-23,32,6,2,"₦12,000",5, Yenagoa,POS,Completed
+1184,2025-12-12,55,14,5,9000,0,Yenagoa,POS,Completed
+2458,30-Nov-2025,105,1,3,18000,0,Abuja,Transfer,Completed
+1059,28-Mar-2025,40,11,2,14000,0,Yenagoa,POS,Completed
+1197,21/11/2025,69,11,1,14000,15,Port Harcourt,Card,Completed
+2940,2025-06-25,1,4,2,22000,0,Yenagoa,POS,Completed
+2353,17-Aug-2025,184,1,1,18000,0, Abuja,Cash,Completed
+2090,25/08/2025,180,11,1,14000,0,Port Harcourt,Cash,Cancelled
+2481,2025-12-07,127,2,3,6500,0,LAGOS,Cash,Completed
+1099,2025-09-20,110,2,1,6500,0,Yenagoa,Cash,Cancelled
+1819,11/12/2025,69,1,1,18000,0,Port-Harcourt,Transfer,Completed
+1149,2025-12-24,83,4,1,22000,5,Lagos,Cash,Completed
+2822,07/12/2025,135,11,1,14000,5,Yenagoa,Card,Completed
+2805,2025-07-12,7,13,3,38000,0,Yenagoa,POS,Completed
+2875,15-Jan-2025,10,15,3,31000,0,Warri,,Completed
+2775,29-Nov-2025,64,15,2,31000,0,Yenagoa,Card,Completed
+2777,2025-06-19,113,9,1,"₦6,000",10,Yenagoa,POS,Returned
+2644,20-Oct-2025,196,1,2,18000,0,Yenagoa,Cash,Completed
+2491,09-Nov-2025,85,9,3,6000,0,yenagoa ,POS,Completed
+1940,08/08/2025,32,9,1,6000,0,Yenagoa,Card,Completed
+2591,21-Apr-2025,53,3,1 units,"₦5,500",5,Lagos,POS,Completed
+1767,2025-11-30,174,10,1,4500,0,LAGOS,Transfer,Completed
+1045,2025-05-10,47,3,3,5500,10,Yenagoa,Transfer,Completed
+2571,09/09/2025,105,14,1,"₦9,000",0,Abuja,Card,Completed
+1975,19-Dec-2025,14,12,1,"₦24,000",5,Lagos,Card,Completed
+2241,06/10/2025,36,14,5,9000,0,Abuja,Transfer,Completed
+1313,29/03/2025,61,9,3,6000,0,Yenagoa,POS,Completed
+2460,25-Jan-2025,115,6,2,"₦12,000",0,WARRI,Transfer,Completed
+1208,09/10/2025,22,11,1,14000,0,Lagos,Transfer,Completed
+2826,2025-09-14,83,14,1,9000,10,Lagos,Card,Completed
+1867,2025-11-08,68,8,1,120000,0,Port Harcourt,Cash,Completed
+1472,09-Sep-2025,15,2,4,6500,0,PORT HARCOURT,Card,Returned
+1371,03-Mar-2025,14,13,2,38000,10,Lagos,Transfer,Cancelled
+2261,22/11/2025,32,10,2,4500,0,yenagoa ,Card,Completed
+1427,25-Nov-2025,163,10,2,4500,5,Yenagoa,Card,Completed
+2535,19/06/2025,129,12,2,24000,5,Abuja,POS,Completed
+2330,2025-08-31,170,7,1,65000,0,Yenagoa,Transfer,Completed
+2401,24/01/2025,53,5,2,28000,0,Lagos,Cash,Completed
+1477,12-Jul-2025,39,9,1,6000,10,Yenagoa,Card,Cancelled
+2168,2025-04-09,181,11,1,14000,5,Yenagoa,Cash,Completed
+2234,2025-10-28,56,11,2,14000,5,Lagos,Transfer,Returned
+1505,04-Mar-2025,21,10,2,"₦4,500",0,Port Harcourt,POS,Completed
+1454,2025-09-07,94,11,5,14000,0,Port-Harcourt,Transfer,Completed
+1202,17-Oct-2025,72,13,2,38000,0,Yenagoa,POS,Completed
+2047,2025-04-19,25,11,3,14000,0,Benin City,,Completed
+1509,2025-03-29,31,10,1 units,4500,0,Port Harcourt,Transfer,Completed
+1406,2025-10-02,131,9,2,6000,0,Warri,,Completed
+1936,03-Dec-2025,31,10,1,4500,0,Port Harcourt,Transfer,Completed
+2304,2025-12-18,27,1,1,18000,0,Yenagoa,Transfer,Completed
+1456,29-Jul-2025,92,11,1,14000,0,YENAGOA,Cash,Completed
+1961,2025-10-21,36,10,5,4500,10,Abuja,Transfer,Completed
+2980,01/02/2025,31,2,5,6500,0,Port Harcourt,Cash,Completed
+1358,13/04/2025,167,6,-1,12000,5,abuja ,POS,Completed
+1711,30/01/2025,185,1,1,18000,5,Port Harcourt,Cash,Completed
+2365,06/09/2025,118,10,3,"₦4,500",0,Lagos,POS,Completed
+1435,12-Oct-2025,115,3,-2,5500,10, Warri,Transfer,Completed
+2423,22-Aug-2025,113,4,1,22000,0,Yenagoa,POS,Completed
+1032,01/03/2025,17,7,3,65000,0,Abuja,Transfer,Completed
+2797,02/07/2025,152,4,1,22000,0,Benin City,Transfer,Completed
+1820,2025-06-03,26,11,1,14000,0,Lagos,Transfer,Completed
+1474,01-Aug-2025,124,2,3,6500,0,YENAGOA,POS,Completed
+2434,26/11/2025,75,11,2,"₦14,000",5,Yenagoa,Cash,Completed
+1403,2025-01-27,58,9,1,6000,5,Port Harcourt,Transfer,Completed
+1461,2025-06-20,3,10,3,"₦4,500",5,Yenagoa,Cash,Completed
+2372,15/12/2025,83,2,1,"₦6,500",0,Lagos,Cash,Completed
+1745,28-Feb-2025,94,6,1,12000,0,Port Harcourt,Cash,Completed
+1908,14-Aug-2025,17,4,1,"₦22,000",0,Abuja,Card,Completed
+1887,30-Jul-2025,185,9,1 units,6000,0,Port Harcourt,Transfer,Completed
+1126,26/01/2025,73,7,4,65000,0,Yenagoa,Card,Completed
+1295,2025-10-22,189,4,1,22000,0,Port Harcourt,POS,Completed
+2887,21/12/2025,92,7,2,65000,0, Yenagoa,,Completed
+1821,09-Nov-2025,87,2,1,6500,15,Yenagoa,,Completed
+2316,28-May-2025,148,10,1,4500,10,Lagos,Cash,Completed
+3000,2025-10-08,4,10,1,4500,0,Yenagoa,,Completed
+1361,31/07/2025,174,9,2,6000,0,Lagos,Transfer,Returned
+1582,2025-03-27,90,9,5,6000,0,lagos ,Transfer,Completed
+1108,20/05/2025,77,12,2,24000,10,Benin City,Cash,Completed
+1533,2025-09-01,49,6,2,12000,0,Yenagoa,Transfer,Completed
+1652,26/10/2025,172,11,1,14000,10,Lagos,POS,Completed
+1666,17-Feb-2025,3,9,2,"₦6,000",5,Yenagoa,POS,Completed
+2164,2025-11-28,100,2,5,6500,5,Lagos,Transfer,Completed
+2444,2025-03-07,117,4,1,22000,5,yenagoa ,POS,Completed
+2031,15-Mar-2025,17,12,2,24000,0,Abuja,Transfer,Completed
+2793,2025-10-27,100,4,2 units,22000,0,Lagos,Transfer,Returned
+1299,2025-05-01,92,5,1,28000,0,YENAGOA,POS,Completed
+2335,2025-07-24,135,2,4,6500,0,Yenagoa,Transfer,Completed
+1639,2025-04-04,30,13,3,38000,5,Abuja,Transfer,Completed
+2683,13/11/2025,182,7,2,65000,0,Abuja,Cash,Cancelled
+2659,25/07/2025,55,6,1,12000,0,Yenagoa,Cash,Completed
+2841,23-Jan-2025,28,10,3,4500,0,Benin City,Card,Completed
+2281,19-Feb-2025,127,12,4,24000,0,Lagos,Transfer,Completed
+2357,2025-05-25,124,15,3,31000,5, Yenagoa,Card,Completed
+2406,27-Jun-2025,191,15,1,31000,10,Warri,Transfer,Completed
+1078,15-Oct-2025,147,15,1,"₦31,000",0,Lagos,Transfer,Completed
+1033,20-Dec-2025,12,10,4,4500,0,warri ,Transfer,Completed
+2979,16-Nov-2025,80,10,1,4500,0,Warri,Cash,Completed
+2495,2025-07-02,199,5,1,28000,0,Warri,Card,Completed
+1088,2025-07-16,158,5,2,28000,0,Port Harcourt,Cash,Completed
+2817,31-May-2025,25,5,1,28000,0, Benin City,Card,Completed
+2825,2025-11-07,28,14,1,9000,0,Benin City,Cash,Completed
+1825,26/05/2025,77,6,2,"₦12,000",0,Benin City,Card,Completed
+1484,2025-07-15,150,3,3,5500,0,Abuja,Transfer,Completed
+1953,2025-01-28,62,11,2,14000,0,Port Harcourt,POS,Completed
+1617,18-Mar-2025,38,3,2,5500,0,Yenagoa,Transfer,Completed
+1335,14/11/2025,121,7,2,65000,0,Yenagoa,Card,Completed
+1884,2025-10-26,127,9,2,"₦6,000",0,Lagos,,Completed
+2718,2025-05-07,52,3,5,5500,0,Yenagoa,Transfer,Completed
+2521,09-Oct-2025,9,4,1,22000,0,Benin City,POS,Completed
+2764,2025-09-01,196,11,1,14000,0,Yenagoa,Transfer,Completed
+2696,05-Sep-2025,46,5,2,"₦28,000",0,Abuja,Transfer,Completed
+2663,2025-09-02,76,2,1,6500,0,LAGOS,Card,Cancelled
+2445,2025-07-17,68,2,1,6500,0,Port Harcourt,Cash,Returned
+2328,27/02/2025,5,9,5,6000,5,Port Harcourt,Card,Completed
+2405,19/05/2025,137,6,2,12000,0,Port-Harcourt,Card,Completed
+2225,18/04/2025,48,12,5,24000,0,Port Harcourt,,Completed
+1855,07-May-2025,23,14,1,"₦9,000",0,Lagos,,Completed
+2586,2025-10-26,173,4,2,22000,0,Port Harcourt,Transfer,Completed
+2578,2025-10-27,31,10,2,"₦4,500",15, Port Harcourt,Cash,Completed
+2104,30-May-2025,152,9,3,6000,15,Benin City,Transfer,Completed
+1324,27/04/2025,82,2,4,6500,0,Port Harcourt,Cash,Completed
+2623,06/05/2025,155,10,1,4500,0,lagos ,Card,Completed
+1628,2025-10-24,110,9,1,6000,0, Yenagoa,POS,Completed
+2944,27-Jun-2025,77,5,1,28000,0,Benin City,Transfer,Completed
+1559,16-Dec-2025,21,6,2,12000,0,Port Harcourt,Cash,Cancelled
+2081,30/03/2025,48,10,1,4500,0,Port Harcourt,POS,Completed
+2863,27/12/2025,53,12,1,24000,5,Lagos,POS,Returned
+2930,20-Jan-2025,98,5,3,28000,0,Abuja,POS,Completed
+2253,11/12/2025,88,15,1,31000,0,Warri,POS,Completed
+2379,20/09/2025,85,1,3,"₦18,000",0,Yenagoa,POS,Completed
+1545,11-Oct-2025,29,3,1,"₦5,500",0,Abuja,POS,Completed
+2069,07/01/2025,129,10,1,4500,0,Abuja,Card,Completed
+2319,12/05/2025,26,1,1,"₦18,000",10,Lagos,Transfer,Completed
+2694,01/12/2025,125,5,3,28000,10,Abuja,POS,Returned
+1027,21-Dec-2025,117,2,1,"₦6,500",0,Yenagoa,POS,Completed
+2249,2025-03-16,55,4,1,22000,0,Yenagoa,Transfer,Cancelled
+1863,04-May-2025,159,5,5,28000,0,Yenagoa,Transfer,Cancelled
+1673,24-Jul-2025,91,3,1,5500,0,Lagos,Card,Completed
+2007,20-Aug-2025,46,4,1,22000,0, Abuja,Cash,Completed
+2601,08/12/2025,200,10,2,"₦4,500",0,Warri,POS,Returned
+2231,2025-07-03,50,4,1,22000,0,Warri,Transfer,Completed
+2664,24-Dec-2025,130,3,3,5500,10,Yenagoa,Card,Completed
+1812,2025-12-07,43,7,1,65000,5,Abuja,Card,Completed
+1374,01/04/2025,21,7,2,65000,0,Port Harcourt,Cash,Completed
+1378,03/01/2025,188,3,2,5500,0,Lagos,Transfer,Completed
+2364,14-Apr-2025,181,9,2,6000,0,Yenagoa,Transfer,Completed
+1233,07/12/2025,116,9,1,6000,5,Abuja,Transfer,Completed
+1223,15-Dec-2025,178,6,1,12000,15,Benin City,Cash,Completed
+2618,2025-05-18,121,2,2,6500,0,Yenagoa,POS,Completed
+2305,2025-10-18,112,3,1,5500,5,Yenagoa,POS,Completed
+1304,23/01/2025,119,1,4,"₦18,000",0,Benin City,,Completed
+2454,07-Aug-2025,162,5,1,28000,0,Warri,Transfer,Completed
+1206,27/11/2025,88,9,2,6000,0,Warri,POS,Completed
+1121,15-Mar-2025,184,4,5,"₦22,000",0,Abuja,Transfer,Completed
+2710,14-May-2025,65,14,2,"₦9,000",5,Port Harcourt,Card,Completed
+1174,2025-12-05,63,10,1,4500,0,Lagos,Transfer,Cancelled
+1109,2025-08-16,32,15,3,31000,0,Yenagoa,Card,Completed
+2958,2025-03-24,10,3,1,5500,0,Warri,Card,Returned
+1845,22-Mar-2025,113,9,3,"₦6,000",5,Yenagoa,Card,Completed
+1453,06-Feb-2025,50,4,1,22000,0,Warri,Transfer,Completed
+2574,2025-04-09,34,4,4,22000,0,Lagos,Card,Completed
+2378,2025-12-05,146,1,3,"₦18,000",0,Port Harcourt,Transfer,Completed
+1536,01-Dec-2025,47,2,1,6500,0,Yenagoa,Card,Completed
+1750,22/06/2025,173,14,3,9000,10, Port Harcourt,Transfer,Cancelled
+1258,2025-03-21,117,1,5,18000,0,yenagoa ,Cash,Completed
+2995,22-Nov-2025,172,14,1,"₦9,000",0,Lagos,Card,Completed
+2865,2025-04-22,182,11,1,14000,0,Abuja,POS,Completed
+2417,14-Jan-2025,156,11,1,14000,0,Lagos,Cash,Completed
+2626,05-Feb-2025,20,9,5,6000,5,YENAGOA,Card,Completed
+1590,27/12/2025,26,14,1,9000,0,Lagos,Transfer,Completed
+1262,22/07/2025,3,10,3,4500,15,Yenagoa,Card,Completed
+2912,02-Sep-2025,71,8,1,120000,0,Abuja,POS,Completed
+1979,30/05/2025,161,9,1,6000,0,Yenagoa,Transfer,Completed
+1468,16/11/2025,155,1,4,"₦18,000",0,Lagos,Transfer,Completed
+2632,23/11/2025,91,13,2,"₦38,000",0,Lagos,Transfer,Completed
+1726,2025-10-12,12,1,1,18000,0,Warri,Transfer,Completed
+1859,2025-12-26,61,9,4,6000,0,Yenagoa,Cash,Completed
+1135,03/08/2025,168,11,3,14000,0,Lagos,Cash,Completed
+2873,2025-01-17,82,5,1,28000,0,Port Harcourt,POS,Completed
+1588,12/05/2025,120,10,1,"₦4,500",0,lagos ,Transfer,Completed
+2489,28/09/2025,104,14,2,9000,0,Lagos,Transfer,Completed
+1103,2025-03-19,116,14,1,"₦9,000",5,Abuja,Card,Completed
+1063,2025-02-10,24,9,2,6000,0,Port Harcourt,Card,Completed
+1104,03-Jul-2025,167,4,5,22000,0,Abuja,Transfer,Completed
+1858,2025-12-30,73,10,1,4500,0,YENAGOA,POS,Completed
+2191,28-Aug-2025,200,14,2 units,9000,5,Warri,Cash,Returned
+2819,15/03/2025,200,1,1,"₦18,000",0,Warri,Transfer,Completed
+1601,19/03/2025,49,2,1,6500,5,Yenagoa,Cash,Completed
+1257,16-Oct-2025,13,1,2,18000,5,Yenagoa,Transfer,Cancelled
+1608,05/12/2025,10,9,1,6000,5,Warri,,Returned
+1039,2025-12-22,176,14,1,9000,5,Yenagoa,Transfer,Completed
+2094,22/10/2025,26,10,1,4500,0,Lagos,,Completed
+1554,2025-11-12,62,4,1,22000,15,PORT HARCOURT,POS,Completed
+1464,12-Oct-2025,133,14,1,9000,0,Abuja,Card,Completed
+2918,28-Mar-2025,99,3,2 units,5500,15,Abuja,Transfer,Completed
+2347,2025-08-23,178,4,4,22000,5,Benin City,Card,Completed
+1321,15/09/2025,45,5,2,28000,0,Lagos,Transfer,Completed
+2778,2025-09-07,87,15,4,31000,0,YENAGOA,Transfer,Completed
+2062,2025-10-01,37,14,1,9000,0,Port Harcourt,Card,Completed
+2656,10/10/2025,149,10,3,4500,5,Abuja,POS,Completed
+1630,2025-04-24,75,15,1,31000,0,Yenagoa,Cash,Completed
+2427,30/04/2025,105,10,2,4500,0,Abuja,POS,Completed
+2711,19/12/2025,102,3,1,"₦5,500",0,Yenagoa,Cash,Completed
+1226,06/01/2025,67,3,2,5500,0,Lagos,Cash,Completed
+2676,06-Mar-2025,191,9,-1,6000,10,Warri,POS,Completed
+2488,08-Jan-2025,50,3,3,5500,10,Warri,Card,Completed
+2657,16/11/2025,47,1,2 units,18000,5,Yenagoa,Transfer,Completed
+2237,13-Apr-2025,157,9,5,6000,0,Benin City,POS,Completed
+2307,20-Dec-2025,20,3,2,5500,5,Yenagoa,Transfer,Completed
+2015,2025-11-10,71,3,2,"₦5,500",0,Abuja,POS,Completed
+2063,11/04/2025,130,1,2,18000,0,yenagoa ,Cash,Completed
+1948,08/12/2025,114,2,2,6500,0,Warri,Card,Completed
+2919,2025-12-27,70,11,1,14000,0,Lagos,Card,Completed
+1702,2025-07-22,128,2,2,6500,10,abuja ,Cash,Completed
+2329,16/03/2025,25,2,3,6500,0,Benin City,Card,Completed
+1627,31-Oct-2025,162,9,1,6000,5,Warri,Cash,Completed
+1392,02-Mar-2025,195,13,1,38000,0,warri ,Cash,Completed
+1609,20-Aug-2025,102,15,1,31000,0,Yenagoa,POS,Returned
+2701,07-Jan-2025,63,15,3,31000,0,Lagos,Card,Completed
+2990,2025-10-09,189,10,1,"₦4,500",0, Port Harcourt,Card,Completed
+2937,09-Nov-2025,132,11,2,14000,10,Yenagoa,,Completed
+2942,27/11/2025,104,11,2,"₦14,000",0,Lagos,Card,Completed
+1890,24-Dec-2025,48,3,1,"₦5,500",15,Port Harcourt,Transfer,Completed
+1483,03-Mar-2025,2,5,1,28000,5,Lagos,Card,Completed
+2733,2025-01-22,23,4,2,22000,10,Lagos,Card,Completed
+1963,10-Oct-2025,83,4,1,22000,0,Lagos,Transfer,Completed
+2178,2025-12-16,20,14,2,9000,0,Yenagoa,Card,Completed
+2478,06-Sep-2025,126,9,1,6000,0,Abuja,Transfer,Completed
+1365,06-Jul-2025,82,10,2,4500,0,PORT HARCOURT,POS,Completed
+1144,22-Nov-2025,198,11,1,14000,0,Port Harcourt,Cash,Completed
+1487,04-Mar-2025,59,6,2,12000,0,Lagos,Transfer,Completed
+2118,2025-10-06,152,6,1,12000,5,Benin City,,Completed
+2060,29/01/2025,171,15,3,"₦31,000",0,WARRI,Transfer,Cancelled
+2811,22/12/2025,162,2,2,6500,0,Warri,Card,Completed
+2308,16/12/2025,150,6,1,12000,10,Abuja,POS,Cancelled
+1709,13-Mar-2025,50,1,5,"₦18,000",0,Warri,Transfer,Completed
+2522,03/08/2025,87,10,1,4500,10,Yenagoa,Transfer,Completed
+1790,14-Nov-2025,20,1,-1,18000,0,Yenagoa,Transfer,Completed
+1325,08/12/2025,115,1,1,18000,0,Warri,Transfer,Completed
+1844,01-Jul-2025,66,4,4,"₦22,000",5,Lagos,Transfer,Completed
+2902,2025-09-15,144,14,2,9000,0,Lagos,Card,Completed
+2627,2025-11-29,23,9,1,6000,0, Lagos,Transfer,Completed
+1958,2025-07-25,1,11,5,14000,0,Yenagoa,Cash,Completed
+2150,2025-09-25,191,1,1,18000,0,Warri,Transfer,Returned
+2747,01/08/2025,28,2,1,6500,0,benin city ,Transfer,Completed
+1376,2025-03-09,112,9,1,6000,15, Yenagoa,Transfer,Completed
+2524,02-Aug-2025,63,3,1,5500,0,Lagos,Cash,Completed
+1227,24/06/2025,119,11,2,14000,0,Benin City,Transfer,Completed
+2543,2025-12-04,21,2,1,6500,10,Port Harcourt,Card,Completed
+1942,15/08/2025,118,11,2,14000,0,Lagos,Cash,Completed
+1685,2025-12-18,40,12,3,24000,0,Yenagoa,Transfer,Completed
+2424,2025-11-17,93,3,1,5500,15,Lagos,Cash,Completed
+2465,20/01/2025,6,11,2,14000,0,Lagos,POS,Completed
+1338,25/12/2025,151,3,1,5500,0,Yenagoa,,Returned
+2232,07-Jun-2025,190,7,2,65000,5,Lagos,Transfer,Completed
+1579,11-Mar-2025,144,3,1,5500,0,LAGOS,Card,Returned
+1171,27/12/2025,119,10,2,"₦4,500",0,Benin City,POS,Completed
+1909,30/12/2025,91,11,3 units,14000,0,Lagos,POS,Completed
+2238,08/01/2025,197,13,2,38000,15,Abuja,POS,Completed
+1433,27-Aug-2025,24,4,4,22000,0,Port Harcourt,Transfer,Completed
+1880,22-Dec-2025,40,2,1 units,"₦6,500",0,Yenagoa,POS,Completed
+1159,2025-08-14,181,11,2,"₦14,000",0,Yenagoa,POS,Completed
+1256,2025-06-04,73,4,2,22000,0,Yenagoa,Card,Completed
+1661,2025-09-18,84,9,3,6000,0, Yenagoa,POS,Completed
+1762,16/12/2025,40,1,2,18000,15,Yenagoa,Transfer,Completed
+2856,26/11/2025,112,9,2,6000,5,Yenagoa,Cash,Completed
+2097,15-Apr-2025,193,14,2,"₦9,000",0,Benin City,,Completed
+2579,2025-11-24,16,4,1,22000,5,Yenagoa,POS,Completed
+1212,2025-01-07,106,5,1,28000,10,Benin City,POS,Returned
+2216,2025-05-22,37,12,2 units,24000,10,Port Harcourt,Card,Completed
+1331,2025-07-18,14,2,1,6500,0,Lagos,Cash,Completed
+2580,27-Oct-2025,131,9,1,6000,5,Warri,Transfer,Completed
+2564,22-Sep-2025,32,2,1,6500,15,Yenagoa,Card,Completed
+2200,2025-04-11,123,11,4,"₦14,000",5,Port-Harcourt,Transfer,Completed
+1977,12-Jul-2025,115,4,1,22000,0,Warri,POS,Completed
+1405,2025-02-24,106,1,2,18000,5, Benin City,POS,Returned
+2326,07-Jan-2025,122,6,1,12000,15,Port Harcourt,POS,Completed
+2179,26-Aug-2025,40,1,1,18000,0, Yenagoa,Transfer,Cancelled
+1551,2025-08-30,126,3,1,5500,0,ABUJA,Cash,Completed
+2927,04/02/2025,183,11,1,14000,0,Yenagoa,,Completed
+1922,2025-05-16,136,9,1,6000,0,BENIN CITY,Cash,Cancelled
+2660,19/08/2025,87,4,4 units,"₦22,000",0,Yenagoa,POS,Completed
+1306,2025-01-19,159,9,2,6000,0,Yenagoa,POS,Completed
+2599,02-Jun-2025,163,1,1,"₦18,000",0, Yenagoa,Card,Completed
+2392,28/10/2025,15,1,-1,18000,0,PORT HARCOURT,Transfer,Completed
+1259,06/10/2025,41,13,3,38000,0,Yenagoa,Transfer,Completed
+1723,25/05/2025,108,1,1,18000,0,Port Harcourt,Card,Completed
+2126,06-Nov-2025,54,15,4,31000,0,yenagoa ,Card,Completed
+1317,28/11/2025,83,1,1,"₦18,000",5,Lagos,Transfer,Completed
+2152,09/11/2025,58,2,1 units,6500,0,port harcourt ,Transfer,Completed
+1245,31/08/2025,109,2,3 units,6500,5,Port Harcourt,Transfer,Returned
+1095,2025-11-06,49,4,3,22000,0,Yenagoa,Cash,Completed
+2592,17/06/2025,118,9,2,6000,0,Lagos,Cash,Completed
+2907,2025-10-18,93,10,2,4500,0,Lagos,Card,Completed
+2870,17/01/2025,31,3,3,5500,0,Port-Harcourt,Transfer,Completed
+1718,2025-07-10,179,5,-1,28000,0, Lagos,Card,Completed
+1265,23-Sep-2025,43,6,2,12000,0,Abuja,Transfer,Completed
+2265,17-Feb-2025,5,9,1,6000,0,PORT HARCOURT,POS,Cancelled
+2529,01-Jan-2025,38,3,1,5500,0,Yenagoa,Transfer,Completed
+2542,08-Jun-2025,137,15,1,31000,0,Port Harcourt,,Completed
+1990,29-Aug-2025,38,2,1,"₦6,500",0,yenagoa ,Transfer,Completed
+2248,07/08/2025,180,10,1,4500,0, Port Harcourt,Card,Returned
+2017,06/07/2025,149,11,1,14000,0,Abuja,POS,Returned
+1886,23/05/2025,13,9,4,6000,0,Yenagoa,Card,Completed
+2501,07-Jan-2025,70,1,1,18000,0,Lagos,Transfer,Completed
+2809,2025-11-30,125,15,1,"₦31,000",15,Abuja,Transfer,Completed
+1091,01-Nov-2025,161,2,2,6500,5,Yenagoa,Transfer,Completed
+2541,03-Nov-2025,30,9,3,"₦6,000",0,Abuja,Transfer,Completed
+1196,14-Oct-2025,46,2,1,6500,0,abuja ,Transfer,Completed
+1015,12-Sep-2025,188,2,4,6500,0,Lagos,Card,Completed
+1943,28/09/2025,160,6,1,12000,0,Yenagoa,Card,Returned
+2299,25/07/2025,154,4,1,22000,0,Yenagoa,Transfer,Completed
+2272,28/04/2025,101,3,2,5500,5,Yenagoa,POS,Completed
+2474,04-Aug-2025,28,10,1,4500,5,benin city ,POS,Completed
+2877,01/08/2025,83,4,3,22000,10,Lagos,Transfer,Completed
+1701,26-Feb-2025,114,10,1,4500,0,Warri,Card,Completed
+2566,10-Dec-2025,72,4,1,22000,0,Yenagoa,POS,Returned
+2360,22/02/2025,151,7,2,65000,0,YENAGOA,,Completed
+1549,24-Apr-2025,143,11,3,14000,5,Warri,Card,Completed
+1155,08/09/2025,194,3,2,5500,0,Port Harcourt,Card,Completed
+1995,2025-10-03,178,3,2,"₦5,500",0,Benin City,Cash,Returned
+2510,2025-11-28,1,4,2,"₦22,000",0,Yenagoa,Card,Completed
+1276,04-Feb-2025,179,6,5,12000,0,Lagos,Transfer,Cancelled
+1470,2025-11-20,185,2,2,6500,0,PORT HARCOURT,Card,Completed
+1315,10/08/2025,80,2,1,"₦6,500",0,Warri,Cash,Completed
+2763,26-Oct-2025,146,3,3,5500,0,Port Harcourt,Cash,Cancelled
+1913,21/05/2025,114,11,1,14000,10,Warri,Transfer,Completed
+1688,2025-04-25,175,10,1,"₦4,500",0, Lagos,POS,Completed
+1532,2025-12-20,123,4,3,22000,5,Port Harcourt,Card,Completed
+1181,29/04/2025,53,4,1,"₦22,000",0,Lagos,Transfer,Completed
+1101,20-Jun-2025,192,10,5,4500,0, Port Harcourt,Cash,Completed
+1873,09/09/2025,107,14,1,9000,0, Port Harcourt,Transfer,Completed
+2743,24/07/2025,170,10,1,4500,0,Yenagoa,Transfer,Completed
+2320,30-Mar-2025,71,9,1,6000,0,Abuja,Cash,Completed
+2096,01/09/2025,120,2,1,6500,0, Lagos,Cash,Completed
+1815,03-Jun-2025,8,9,1,6000,0, Port Harcourt,POS,Completed
+1443,2025-06-01,100,10,2,4500,0,Lagos,Cash,Completed
+2853,2025-01-16,128,6,1,"₦12,000",0,Abuja,Transfer,Cancelled
+1488,10-Jun-2025,141,9,2,6000,0, Lagos,Transfer,Completed
+1291,24/02/2025,136,15,1,31000,15,Benin City,POS,Completed
+2011,22-Jan-2025,132,9,1,6000,0,Yenagoa,Card,Completed
+2702,31/12/2025,50,6,3,12000,0,Warri,Cash,Cancelled
+1763,2025-08-02,75,15,3 units,31000,15,yenagoa ,Cash,Completed
+2872,26-May-2025,159,9,1,6000,0,Yenagoa,Transfer,Completed
+1028,2025-06-08,33,11,1,14000,5,Abuja,Card,Completed
+2972,01-Aug-2025,9,2,5,6500,0,Benin City,Cash,Completed
+1387,2025-09-22,200,3,2,5500,0, Warri,Cash,Completed
+2782,09-Aug-2025,43,1,1,18000,0,Abuja,Card,Completed
+1599,21/12/2025,31,3,3,5500,0,Port Harcourt,Transfer,Completed
+2812,2025-03-09,73,4,1,22000,0,Yenagoa,,Completed
+2095,2025-09-09,184,8,1,"₦120,000",5,Abuja,Transfer,Completed
+1986,2025-02-23,167,14,3,9000,0,Abuja,Transfer,Completed
+2429,10-Dec-2025,117,1,1,"₦18,000",0,Yenagoa,Card,Cancelled
+2438,04/06/2025,82,11,5,14000,0,Port Harcourt,,Cancelled
+2611,25/11/2025,81,6,1,12000,0,Abuja,Card,Completed
+2753,2025-12-24,15,2,1,6500,0,Port Harcourt,Transfer,Completed
+1350,22/04/2025,77,15,1,31000,5,Benin City,Transfer,Completed
+2462,2025-06-26,200,10,4,"₦4,500",5,Warri,Card,Completed
+1518,11/09/2025,167,10,1,4500,5,Abuja,Transfer,Completed
+1917,10/07/2025,105,13,5,38000,0,Abuja,Cash,Returned
+2170,17-Dec-2025,110,1,1,18000,10,Yenagoa,Transfer,Completed
+2709,2025-01-31,89,7,2,65000,0,Port Harcourt,Transfer,Returned
+2994,23-Apr-2025,81,12,1,24000,0,Abuja,POS,Completed
+1831,18-Oct-2025,61,5,1,28000,0,Yenagoa,Transfer,Completed
+1351,05/10/2025,49,6,4,12000,0, Yenagoa,Card,Completed
+1729,05-Nov-2025,84,3,1,5500,0,Yenagoa,,Completed
+1201,23-Jan-2025,55,13,2,38000,0,Yenagoa,Transfer,Cancelled
+1037,2025-11-30,167,13,2,"₦38,000",10,Abuja,Card,Cancelled
+2686,2025-10-28,11,4,3,22000,10,YENAGOA,Card,Completed
+1655,14-Dec-2025,85,11,4,14000,0,Yenagoa,Transfer,Completed
+1956,14-Nov-2025,78,9,1,6000,5,Warri,Card,Completed
+2504,21-Jan-2025,8,9,2,"₦6,000",5,Port Harcourt,Transfer,Completed
+1851,08-Jul-2025,82,6,3,"₦12,000",0,Port Harcourt,Transfer,Completed
+1832,30-Jul-2025,144,15,1,31000,10,LAGOS,Transfer,Completed
+1552,25/11/2025,142,2,2,"₦6,500",0,Port Harcourt,POS,Completed
+1114,20/08/2025,78,2,1,6500,5,Warri,Transfer,Returned
+1140,13/12/2025,88,9,2,6000,10,Warri,Cash,Completed
+2426,21/09/2025,115,11,1,14000,5,Warri,POS,Cancelled
+2349,14/03/2025,78,11,2,14000,0,Warri,Cash,Cancelled
+1282,2025-12-09,173,10,1,"₦4,500",0,Port-Harcourt,Transfer,Cancelled
+2269,2025-11-13,130,4,3,22000,0,Yenagoa,POS,Completed
+2021,08-Mar-2025,189,1,3,"₦18,000",5, Port Harcourt,Transfer,Completed
+2534,08-Aug-2025,190,15,1,31000,10,Lagos,,Completed
+1565,2025-12-11,141,15,1,31000,0,Lagos,POS,Completed
+2997,2025-08-27,140,14,1,9000,10,Port Harcourt,Cash,Completed
+1137,09/09/2025,180,2,1,6500,0,Port-Harcourt,Transfer,Completed
+1557,06-Apr-2025,9,9,3,6000,0,Benin City,Card,Completed
+1751,27-Jul-2025,21,5,1,"₦28,000",15,Port Harcourt,Transfer,Completed
+1610,2025-04-05,113,5,1,28000,5,Yenagoa,,Completed
+1740,17/02/2025,123,10,-1,4500,0,Port Harcourt,Card,Completed
+2002,2025-12-06,17,2,4,6500,0,Abuja,Transfer,Completed
+1169,12/12/2025,97,1,5,18000,10,Port Harcourt,Transfer,Cancelled
+2987,08/06/2025,11,13,1,38000,0,yenagoa ,POS,Cancelled
+2824,22/06/2025,199,14,1,9000,0,Warri,Card,Completed
+2441,21/09/2025,28,14,2,9000,0,Benin City,Transfer,Completed
+2498,2025-03-31,94,12,3,24000,0,Port Harcourt,Card,Completed
+2395,21/07/2025,78,14,3,9000,0,Warri,Cash,Completed
+1302,30/09/2025,166,2,2,6500,10,Port Harcourt,Transfer,Returned
+1044,10-Nov-2025,160,9,2,6000,0,Yenagoa,POS,Completed
+1308,2025-11-18,5,15,3,"₦31,000",0,Port Harcourt,Card,Completed
+1163,25-Nov-2025,130,3,2,5500,0,Yenagoa,POS,Completed
+2403,06-Nov-2025,56,11,1,14000,5,Lagos,Card,Completed
+1694,17/05/2025,50,1,2,18000,0,Warri,Card,Cancelled
+1640,10/07/2025,128,13,1 units,38000,5,abuja ,Transfer,Completed
+1999,2025-11-29,63,2,1,6500,5,Lagos,POS,Completed
+2080,01/01/2025,18,11,1,14000,0,Warri,Transfer,Completed
+1367,26-Oct-2025,176,9,3,6000,10,Yenagoa,Cash,Completed
+1085,11/02/2025,66,3,-1,"₦5,500",10,Lagos,Cash,Completed
+2437,2025-08-10,13,9,-4,"₦6,000",0,Yenagoa,POS,Completed
+1161,2025-12-13,194,9,2,"₦6,000",0,Port Harcourt,Transfer,Completed
+2791,2025-06-07,171,2,1,6500,5,Warri,Transfer,Completed
+1040,2025-11-03,34,9,2,6000,0,Lagos,Transfer,Completed
+2867,29/12/2025,58,10,1,"₦4,500",5,Port Harcourt,POS,Completed
+1965,2025-10-21,126,11,2,14000,5,Abuja,Cash,Completed
+2548,19/02/2025,187,2,1,6500,10,Lagos,Transfer,Completed
+2038,2025-05-03,130,1,1,18000,0,Yenagoa,Cash,Completed
+2141,10-Dec-2025,44,4,3,22000,0,Lagos,POS,Completed
+2110,2025-12-18,58,10,1,4500,10,Port Harcourt,Transfer,Completed
+1375,13-May-2025,195,11,2,14000,0,Warri,,Completed
+1399,10-Nov-2025,148,10,1,4500,15,Lagos,POS,Completed
+1481,21-Oct-2025,26,6,1,12000,5,Lagos,,Completed
+1018,24/12/2025,174,10,5,4500,15,Lagos,POS,Completed
+1875,16/01/2025,118,12,2,24000,0,Lagos,POS,Completed
+1236,15-Sep-2025,90,5,1,28000,0,LAGOS,Cash,Completed
+1616,22/03/2025,141,5,3,28000,10,Lagos,Card,Completed
+2490,2025-02-24,56,4,1,22000,0,Lagos,POS,Completed
+2735,23-Nov-2025,176,13,2,38000,0,Yenagoa,Transfer,Completed
+2183,03-Jul-2025,176,9,2,6000,0,Yenagoa,Card,Completed
+2366,2025-07-02,166,7,5,"₦65,000",0,Port Harcourt,Transfer,Completed
+1971,2025-12-04,146,7,1,65000,0,Port-Harcourt,,Completed
+2984,03-Apr-2025,128,6,5,12000,5,Abuja,POS,Completed
+2715,31-Mar-2025,47,1,4,18000,5,YENAGOA,Transfer,Completed
+1356,2025-09-02,89,2,4,6500,5,Port Harcourt,Cash,Completed
+1838,19-Nov-2025,191,3,1,5500,0,Warri,Transfer,Returned
+2707,04/10/2025,142,11,1,14000,0,Port Harcourt,POS,Completed
+2163,16/10/2025,33,4,3,22000,10,Abuja,Card,Cancelled
+1635,11-Mar-2025,40,9,4,6000,0,Yenagoa,Transfer,Completed
+1323,15/12/2025,157,3,2,"₦5,500",10,Benin City,Transfer,Completed
+1516,01-Feb-2025,66,7,2,65000,0,Lagos,Transfer,Completed
+1157,07-May-2025,61,6,1,"₦12,000",0,yenagoa ,Card,Completed
+2883,20/04/2025,175,9,1,6000,5,Lagos,POS,Returned
+1416,2025-05-13,88,15,1,31000,0,warri ,Card,Completed
+2894,2025-03-16,195,1,2,"₦18,000",15,Warri,Card,Completed
+2681,2025-05-03,131,4,2,22000,0,Warri,Transfer,Completed
+1327,2025-06-26,140,5,3,28000,5, Port Harcourt,Card,Completed
+2738,03/03/2025,75,1,1,18000,5,Yenagoa,POS,Returned
+2075,20/09/2025,170,12,1,24000,5,YENAGOA,Cash,Cancelled
+2159,01-Aug-2025,96,4,1,"₦22,000",0,Abuja,POS,Completed
+1967,29/06/2025,197,11,5,14000,0,Abuja,Transfer,Completed
+2628,17/10/2025,71,6,4,12000,15,Abuja,,Completed
+1270,27/04/2025,99,2,1,6500,0,Abuja,Card,Returned
+2356,21/02/2025,53,2,1,6500,0,Lagos,Transfer,Cancelled
+2182,25/12/2025,75,1,2,18000,5,Yenagoa,Cash,Completed
+2213,23/04/2025,22,9,1,6000,0,Lagos,Cash,Completed
+2850,04-Mar-2025,163,10,2,4500,0,Yenagoa,POS,Completed
+1850,21/03/2025,133,10,3,4500,0,Abuja,Transfer,Completed
+2606,2025-06-11,176,9,1,6000,5,Yenagoa,POS,Completed
+2148,03-Sep-2025,127,11,1,14000,10,Lagos,Cash,Cancelled
+1668,2025-01-17,111,10,1,4500,0,Yenagoa,Transfer,Completed
+2469,19-Mar-2025,189,9,1,6000,5,Port Harcourt,POS,Completed
+2950,05-Aug-2025,91,4,1,22000,0, Lagos,Transfer,Completed
+2862,28/09/2025,154,4,2,22000,5,Yenagoa,POS,Completed
+1071,2025-06-06,33,10,3,"₦4,500",5,Abuja,Cash,Completed
+1985,03/12/2025,169,9,1,"₦6,000",0,Yenagoa,Card,Completed
+1154,2025-06-07,188,6,1,12000,0,lagos ,Cash,Completed
+1511,2025-12-23,88,5,1,28000,0, Warri,Cash,Completed
+2925,2025-03-26,104,3,1,5500,0,LAGOS,Transfer,Completed
+1346,2025-11-14,138,13,3,38000,0,Abuja,Cash,Completed
+2638,13/12/2025,186,8,1,120000,0,Abuja,POS,Completed
+2690,27-Jul-2025,163,3,3,5500,0,Yenagoa,POS,Completed
+2479,19-Aug-2025,190,15,1 units,"₦31,000",0,Lagos,Cash,Completed
+1469,16/05/2025,39,3,1,5500,5,yenagoa ,Transfer,Completed
+1087,28-Feb-2025,128,9,1,6000,0,Abuja,Transfer,Completed
+1370,20-Apr-2025,79,6,4,"₦12,000",0,Port Harcourt,Card,Completed
+2391,09/07/2025,193,13,3,38000,0,Benin-City,POS,Completed
+2604,2025-09-28,29,15,4,31000,0,Abuja,Transfer,Returned
+1813,14/10/2025,169,9,2,6000,0,Yenagoa,Card,Completed
+2115,10/12/2025,54,3,2,5500,5,Yenagoa,Transfer,Completed
+1915,2025-11-20,88,4,1,22000,0,WARRI,Cash,Completed
+2999,19/05/2025,30,12,4,24000,0, Abuja,Cash,Completed
+2086,22/08/2025,2,5,2,28000,15,Lagos,Transfer,Completed
+2977,21/09/2025,177,4,1,22000,0,Warri,Transfer,Completed
+1869,2025-04-23,10,6,1,12000,0, Warri,Transfer,Cancelled
+2842,2025-11-26,173,3,2,5500,0,Port Harcourt,Card,Completed
+1983,13-Nov-2025,16,14,1,9000,0,Yenagoa,Cash,Completed
+1062,2025-09-16,91,8,1,120000,0,Lagos,Transfer,Completed
+2993,24-Dec-2025,17,7,3,"₦65,000",10,Abuja,POS,Completed
+1748,2025-12-10,129,10,1,4500,0, Abuja,Transfer,Completed
+2680,2025-07-17,15,10,3,4500,0,Port Harcourt,Cash,Completed
+1620,15/09/2025,122,6,1,12000,0,Port Harcourt,Transfer,Cancelled
+1841,2025-10-27,79,1,5,18000,0,Port Harcourt,POS,Completed
+2649,22/03/2025,4,4,1,22000,0,Yenagoa,Transfer,Returned
+1508,29-Jan-2025,109,7,2,65000,0,Port Harcourt,Transfer,Completed
+1664,25/08/2025,100,9,1,6000,0,Lagos,POS,Completed
+1014,16-Oct-2025,36,9,4,6000,0,Abuja,Transfer,Completed
+2085,06/01/2025,69,11,1,14000,0,Port Harcourt,POS,Completed
+2615,26/02/2025,63,2,2,"₦6,500",10,Lagos,Card,Returned
+1637,2025-01-10,148,10,3,"₦4,500",10,Lagos,Transfer,Returned
+1717,26/11/2025,55,11,2,"₦14,000",0,Yenagoa,Transfer,Completed
+2732,30/06/2025,128,15,3,"₦31,000",5,abuja ,Cash,Completed
+1342,2025-02-11,175,6,5,12000,0,Lagos,POS,Completed
+1525,2025-07-03,196,15,1,31000,0,Yenagoa,Transfer,Cancelled
+1021,2025-09-06,157,3,1,"₦5,500",5,Benin City,POS,Completed
+2066,08-Nov-2025,124,1,1,18000,10,YENAGOA,POS,Cancelled
+2544,21/11/2025,187,13,1,38000,0,LAGOS,Transfer,Cancelled
+2294,17-Jun-2025,19,3,1,5500,0, Warri,Transfer,Completed
+2186,2025-10-25,142,2,1,6500,0,Port Harcourt,Transfer,Completed
+2786,14-Nov-2025,105,10,1,4500,0,Abuja,Transfer,Completed
+1219,25-Jun-2025,101,5,4,"₦28,000",0,yenagoa ,POS,Completed
+1503,2025-04-02,192,10,4,4500,0,Port Harcourt,Transfer,Completed
+1698,10-Nov-2025,83,3,3,5500,0,Lagos,Transfer,Completed
+1981,21/08/2025,61,14,3,"₦9,000",0, Yenagoa,POS,Completed
+2089,2025-01-02,179,5,3,28000,10,Lagos,Transfer,Completed
+2631,18-Mar-2025,58,9,3,6000,0,Port Harcourt,Cash,Completed
+1689,16/12/2025,115,5,1,28000,0,warri ,,Completed
+2139,2025-04-20,27,11,1,14000,0,Yenagoa,POS,Completed
+2088,19/12/2025,171,5,2,28000,15,Warri,,Completed
+2868,01/01/2025,130,11,1,14000,10,Yenagoa,Cash,Completed
+1543,13/04/2025,100,10,1,4500,0,Lagos,Cash,Completed
+1784,16-May-2025,200,7,1,65000,10,WARRI,Transfer,Completed
+1068,2025-02-04,25,9,1,"₦6,000",0,BENIN CITY,POS,Returned
+1100,2025-09-24,112,3,5,5500,10,YENAGOA,Transfer,Completed
+2466,2025-05-17,7,3,3,5500,0,Yenagoa,Transfer,Completed
+2900,22/06/2025,101,4,2,22000,15,Yenagoa,Transfer,Completed
+1497,05/09/2025,129,4,4,22000,5,Abuja,POS,Cancelled
+1704,28/11/2025,200,11,1,"₦14,000",0,Warri,Transfer,Completed
+2036,14/12/2025,179,10,4,4500,10,Lagos,Card,Completed
+1280,2025-01-16,110,3,1,5500,5,Yenagoa,Card,Completed
+1186,2025-07-30,167,5,1,28000,0,abuja ,Card,Completed
+1626,2025-12-02,85,9,2,"₦6,000",0,yenagoa ,Cash,Completed
+2227,07/04/2025,28,2,1,"₦6,500",5,Benin City,Transfer,Completed
+2986,22-Oct-2025,2,13,1,"₦38,000",0,lagos ,Transfer,Cancelled
+1662,2025-02-27,153,11,1,14000,0,Port-Harcourt,Cash,Completed
+1803,2025-12-16,44,1,5,18000,0,LAGOS,Card,Returned
+2102,2025-04-25,67,2,1 units,6500,0,Lagos,Cash,Cancelled
+2967,2025-05-31,15,6,3,12000,0,Port Harcourt,Card,Completed
+2762,30-Jun-2025,94,4,2,22000,0,Port Harcourt,Card,Completed
+1391,27-Jan-2025,45,13,3,"₦38,000",0,Lagos,Cash,Completed
+1268,2025-10-29,73,11,2,14000,5,Yenagoa,Cash,Completed
+2341,2025-06-14,73,11,2,14000,15,Yenagoa,Card,Returned
+1705,13-Nov-2025,32,9,4,6000,0,YENAGOA,Cash,Completed
+2254,27/08/2025,42,15,-1,31000,10, Abuja,Card,Completed
+1817,10/10/2025,64,3,1,5500,0,YENAGOA,Cash,Cancelled
+1005,22/07/2025,178,4,1,22000,0,Benin City,Transfer,Completed
+2393,08-Oct-2025,63,15,1,31000,0,Lagos,Cash,Completed
+1465,27-Dec-2025,83,2,5,6500,0, Lagos,Transfer,Completed
+2976,13-Mar-2025,119,9,1,6000,0,Benin-City,Cash,Completed
+1530,2025-08-06,59,11,1,14000,0,lagos ,Transfer,Completed
+2899,2025-09-19,107,1,1,18000,10,Port Harcourt,Transfer,Completed
+1774,25-Nov-2025,75,9,1,6000,5,Yenagoa,POS,Completed
+1057,19-Apr-2025,200,2,2,"₦6,500",0,warri ,Card,Cancelled
+2451,2025-12-05,133,12,2,24000,0,Abuja,Transfer,Completed
+1822,26/12/2025,20,12,2,"₦24,000",0,Yenagoa,Transfer,Returned
+1047,2025-04-16,108,6,1,12000,0,Port Harcourt,Transfer,Returned
+2692,15/06/2025,138,10,3,4500,0, Abuja,POS,Completed
+2828,24/09/2025,195,1,1,18000,0,Warri,Card,Cancelled
+1517,2025-09-05,66,4,1,22000,0,Lagos,Cash,Completed
+1471,09/07/2025,63,1,2,18000,0,Lagos,Cash,Completed
+2208,2025-11-20,183,11,3,14000,10,YENAGOA,POS,Completed
+2264,17/05/2025,159,14,4,9000,0, Yenagoa,Transfer,Completed
+1442,04-Sep-2025,148,12,4,24000,0,Lagos,Card,Completed
+1294,02/02/2025,170,15,1,"₦31,000",0,Yenagoa,Transfer,Completed
+2614,27/06/2025,143,9,1,"₦6,000",0,Warri,Card,Completed
+1107,31/12/2025,175,15,5,31000,0,Lagos,Cash,Completed
+1496,21/09/2025,50,6,1,"₦12,000",0,Warri,Transfer,Completed
+2590,2025-10-06,135,7,1,"₦65,000",0,Yenagoa,Cash,Completed
+2402,08-Nov-2025,7,14,3,9000,0,Yenagoa,POS,Completed
+1395,17-Nov-2025,29,2,2,6500,15,abuja ,POS,Completed
+2857,19-May-2025,23,9,1,6000,0,Lagos,Transfer,Completed
+1336,07/12/2025,95,3,1,5500,0,Port Harcourt,Transfer,Completed
+1414,2025-12-15,46,10,1,4500,5,Abuja,Transfer,Completed
+1589,09/10/2025,28,1,3,18000,0,Benin City,Transfer,Completed
+1344,14/12/2025,4,11,2,"₦14,000",0,YENAGOA,Card,Completed
+2338,16-Dec-2025,38,6,1,12000,15,Yenagoa,Cash,Completed
+2106,28/07/2025,38,11,1,14000,0,Yenagoa,Cash,Completed
+1834,2025-01-11,22,4,1,22000,0,Lagos,POS,Cancelled
+2880,14/09/2025,179,8,-1,120000,0,Lagos,POS,Completed
+2625,31/12/2025,130,13,1,38000,0, Yenagoa,Transfer,Completed
+2354,20/04/2025,173,10,1,4500,0,Port Harcourt,Cash,Cancelled
+1384,02-Mar-2025,114,5,2,28000,0,Warri,Transfer,Completed
+1354,27-Jul-2025,93,10,1,4500,5,Lagos,Card,Completed
+1860,06/01/2025,35,13,5,38000,0,Warri,Transfer,Completed
+2223,26/07/2025,183,12,4,24000,0,Yenagoa,Cash,Completed
+2135,2025-12-31,179,10,2,4500,0,Lagos,Cash,Completed
+1267,2025-12-24,81,11,1,14000,0,Abuja,Transfer,Completed
+1253,10/11/2025,104,8,1,120000,10,lagos ,Transfer,Returned
+1733,11-Jul-2025,195,4,4,22000,0,Warri,POS,Completed
+1489,2025-11-19,38,7,2,65000,0,Yenagoa,Transfer,Completed
+2556,09-Mar-2025,69,6,3,"₦12,000",0,Port Harcourt,Transfer,Completed
+1897,02-Dec-2025,150,3,1,"₦5,500",5,Abuja,Transfer,Completed
+1113,03/10/2025,47,11,1,14000,0,Yenagoa,POS,Completed
+1175,2025-01-30,129,15,1,"₦31,000",10,Abuja,Card,Completed
+2609,21/03/2025,133,15,2,31000,5, Abuja,POS,Completed
+2373,08-Apr-2025,126,6,1,12000,0,Abuja,Transfer,Completed
+1143,2025-12-18,185,3,1,5500,0,Port Harcourt,Transfer,Returned
+1910,05/12/2025,155,10,2,4500,10,LAGOS,Card,Completed
+2555,04-Jul-2025,47,10,1,"₦4,500",0,yenagoa ,Transfer,Completed
+2527,21-Oct-2025,135,3,5,5500,5,Yenagoa,Transfer,Completed
+1377,09-Apr-2025,96,14,4,9000,5,Abuja,Card,Completed
+2207,28/09/2025,74,4,1,22000,10,Abuja,Cash,Cancelled
+2666,2025-12-02,135,1,2,18000,0,Yenagoa,Cash,Returned
+2018,03/12/2025,59,3,2,5500,0,Lagos,Card,Completed
+1457,16/05/2025,36,13,1,"₦38,000",5,Abuja,Cash,Completed
+1771,14-Jul-2025,107,2,2,6500,0,PORT HARCOURT,Transfer,Completed
+1296,2025-11-10,28,2,1,6500,0,Benin City,Card,Completed
+1833,16/01/2025,72,10,1,4500,10,yenagoa ,,Completed
+2722,13-Jun-2025,175,14,2,9000,0,Lagos,POS,Completed
+2167,04/04/2025,72,11,3,14000,15,Yenagoa,,Completed
+1421,2025-12-06,109,11,2,"₦14,000",0,Port Harcourt,Transfer,Completed
+2340,06-Mar-2025,126,4,1,22000,0,Abuja,Transfer,Completed
+2551,2025-12-16,192,4,1,22000,0,PORT HARCOURT,Cash,Completed
+1084,19/05/2025,121,10,1,4500,5,Yenagoa,Card,Completed
+1960,15-Apr-2025,131,4,1,"₦22,000",0, Warri,Transfer,Completed
+1768,2025-09-21,15,14,1,9000,0,port harcourt ,POS,Completed
+2221,29/10/2025,114,11,2,14000,0,Warri,Transfer,Cancelled
+1900,22/11/2025,125,3,1,5500,0,Abuja,Card,Completed
+1935,2025-07-11,42,2,1,6500,5,Abuja,Transfer,Completed
+1903,15-Sep-2025,176,4,2,22000,5, Yenagoa,Cash,Completed
+1907,2025-09-04,5,5,1,"₦28,000",0,Port Harcourt,Transfer,Completed
+2572,18/02/2025,95,1,2,18000,5,Port Harcourt,Transfer,Completed
+2280,03-Dec-2025,29,6,2,"₦12,000",0,Abuja,Transfer,Cancelled
+1070,21-Oct-2025,101,2,2,6500,0,Yenagoa,Card,Completed
+1976,2025-08-20,127,5,3,28000,10,Lagos,Transfer,Completed
+2123,2025-06-28,166,10,1,4500,0,Port Harcourt,Transfer,Completed
+2602,2025-05-03,105,9,1,"₦6,000",0,Abuja,Card,Completed
+1840,31/08/2025,122,10,5,4500,10,Port Harcourt,POS,Completed
+1271,2025-12-29,82,2,3,6500,0, Port Harcourt,Transfer,Completed
+2064,2025-03-30,64,4,2,22000,15,Yenagoa,Transfer,Cancelled
+1448,23/01/2025,147,9,2,6000,10,lagos ,Transfer,Completed
+1139,20/08/2025,144,4,2,22000,0,Lagos,Transfer,Completed
+1836,2025-08-13,31,9,3,6000,10,Port Harcourt,POS,Completed
+2748,2025-02-05,112,9,1,6000,0,Yenagoa,Card,Completed
+2332,20-Aug-2025,164,1,5,"₦18,000",10,Port Harcourt,Cash,Completed
+1373,10-Apr-2025,105,15,4,31000,15,Abuja,Transfer,Cancelled
+2224,21-Mar-2025,24,9,5,6000,0,PORT HARCOURT,Transfer,Completed
+2996,2025-12-21,116,3,1,5500,0, Abuja,Transfer,Completed
+2209,16/03/2025,38,5,2 units,28000,5,Yenagoa,Card,Completed
+2482,04-Jul-2025,76,2,5,6500,5, Lagos,POS,Completed
+1777,30/04/2025,31,11,1,14000,15, Port Harcourt,Card,Completed
+1889,23/10/2025,81,9,1,6000,0,Abuja,Cash,Completed
+1024,2025-11-03,40,13,2,38000,5,Yenagoa,Cash,Cancelled
+1854,16/02/2025,119,3,2,5500,0,Benin City,Card,Completed
+2519,2025-11-25,69,2,3,6500,0,Port Harcourt,Card,Completed
+1715,22-Nov-2025,30,7,3,65000,0,abuja ,POS,Completed
+2083,04-Dec-2025,113,9,2,6000,10,Yenagoa,Transfer,Completed
+1779,2025-08-18,148,1,1,"₦18,000",0,Lagos,Transfer,Completed
+2404,31-Oct-2025,189,11,3,"₦14,000",0,Port Harcourt,POS,Cancelled
+1529,30-Sep-2025,163,13,1,38000,0,Yenagoa,Card,Cancelled
+2040,2025-06-05,192,6,1,"₦12,000",0,Port Harcourt,Cash,Completed
+2247,14/12/2025,102,11,1,14000,0,Yenagoa,Transfer,Returned
+2969,16-Apr-2025,111,12,1,"₦24,000",0,Yenagoa,Transfer,Completed
+2749,17-Dec-2025,197,15,3,31000,5,Abuja,Transfer,Completed
+1417,05-Nov-2025,77,12,2,24000,0,Benin City,Cash,Completed
+2553,26-May-2025,132,9,3,6000,0,Yenagoa,Transfer,Completed
+1051,29-Jan-2025,53,4,1,22000,0,Lagos,Transfer,Completed
+2394,10/02/2025,140,3,2,5500,5,Port-Harcourt,POS,Completed
+1550,19/10/2025,92,10,1,4500,0,Yenagoa,Cash,Completed
+1692,13-Oct-2025,198,3,1,5500,0,Port Harcourt,Transfer,Completed
+2039,12/06/2025,103,12,1,24000,0,Yenagoa,Transfer,Cancelled
+1607,23/11/2025,185,4,2,22000,5,Port Harcourt,Card,Completed
+1431,17-Dec-2025,158,12,-1,24000,5,Port Harcourt,Card,Completed
+2181,2025-02-05,108,9,5,6000,5,Port Harcourt,Transfer,Completed
+2400,24/12/2025,16,4,2,22000,0,Yenagoa,POS,Completed
+1794,31/10/2025,62,8,1,120000,5,Port Harcourt,POS,Completed
+1341,2025-11-07,45,14,1,9000,0,Lagos,Transfer,Completed
+1311,26/12/2025,26,3,1,5500,0,Lagos,POS,Completed
+1934,2025-05-08,128,10,5,4500,0,Abuja,POS,Completed
+2619,2025-03-19,39,9,2,6000,0,Yenagoa,Card,Completed
+2158,2025-08-18,40,6,4,12000,0,Yenagoa,POS,Completed
+2049,15-Jul-2025,60,3,1,"₦5,500",0,Lagos,Card,Completed
+1307,2025-02-16,99,2,1,6500,10,Abuja,Card,Completed
+1945,11-Nov-2025,80,9,1,"₦6,000",0,Warri,Transfer,Completed
+1700,2025-09-23,46,10,1,"₦4,500",0,Abuja,Card,Completed
+1857,21-Nov-2025,69,4,1,"₦22,000",0, Port Harcourt,POS,Completed
+1720,31-Mar-2025,23,10,2,4500,0,Lagos,Cash,Completed
+2523,2025-04-03,6,6,2,12000,0,LAGOS,Cash,Completed
+2380,18/06/2025,41,15,1,"₦31,000",0,Yenagoa,POS,Cancelled
+1594,16/01/2025,143,14,1,"₦9,000",0,Warri,Transfer,Completed
+2945,2025-10-02,38,6,2,"₦12,000",5,Yenagoa,Transfer,Completed
+1921,2025-12-07,180,9,1,6000,5,Port Harcourt,POS,Completed
+1629,2025-03-09,145,7,2,65000,0,PORT HARCOURT,POS,Cancelled
+2861,24-Jul-2025,139,13,1,"₦38,000",0,Abuja,Card,Completed
+1969,2025-09-24,78,11,1,14000,15,WARRI,POS,Completed
+2180,01/12/2025,144,15,4,31000,0,Lagos,Cash,Cancelled
+1992,2025-06-12,52,10,1,4500,0,Yenagoa,Transfer,Completed
+1105,13-Dec-2025,31,3,1,5500,0,Port Harcourt,POS,Completed
+1221,20/10/2025,105,10,1 units,4500,0,Abuja,Transfer,Completed
+1216,2025-11-28,98,11,1,14000,0,Abuja,POS,Completed
+1241,2025-12-24,130,10,-1,4500,0,Yenagoa,Cash,Completed
+2704,2025-06-20,61,4,1,"₦22,000",15,YENAGOA,Transfer,Completed
+1847,05-Dec-2025,26,12,2,24000,0,Lagos,Transfer,Completed
+1978,29/12/2025,58,15,1,31000,0,Port Harcourt,Transfer,Completed
+2645,25/09/2025,41,6,1,12000,0,Yenagoa,Transfer,Completed
+1613,24-Jul-2025,46,6,4,12000,10,Abuja,POS,Completed
+2471,01/08/2025,75,6,1,12000,0,yenagoa ,Transfer,Completed
+2188,2025-11-23,137,2,2,6500,0,port harcourt ,POS,Completed
+2675,21/08/2025,135,2,2,6500,0,Yenagoa,Cash,Completed
+1738,25-Aug-2025,123,11,2,14000,0,port harcourt ,Card,Completed
+2196,04/04/2025,37,1,1,18000,10,Port Harcourt,POS,Completed
+2739,29-Dec-2025,59,5,-3,"₦28,000",0,Lagos,Transfer,Completed
+2785,2025-06-30,178,10,2,4500,0,Benin-City,POS,Completed
+2218,24-Dec-2025,96,1,1,"₦18,000",0,Abuja,Card,Completed
+2818,10-Dec-2025,187,3,1,5500,5,Lagos,POS,Completed
+1106,14-Dec-2025,126,3,1,5500,0, Abuja,Transfer,Completed
+1991,14-Sep-2025,174,2,1,6500,5,Lagos,Card,Completed
+1333,09-Aug-2025,14,5,1,28000,0,Lagos,Cash,Completed
+1593,27/12/2025,71,11,2,14000,10,Abuja,POS,Completed
+2731,15-Jul-2025,112,5,1,"₦28,000",0,Yenagoa,Transfer,Completed
+2992,31-Aug-2025,138,15,1,31000,0,Abuja,Transfer,Completed
+2755,06-Sep-2025,100,11,1,14000,0,Lagos,Cash,Completed
+1041,16/06/2025,171,14,1,9000,10,Warri,Transfer,Completed
+1793,17-Feb-2025,192,14,4,9000,0, Port Harcourt,Transfer,Completed
+1706,2025-09-30,166,2,2,6500,15,Port Harcourt,Transfer,Completed
+1190,09-Jun-2025,196,12,5,24000,0, Yenagoa,Card,Completed
+2109,21-May-2025,97,1,3,18000,0,Port Harcourt,Cash,Completed
+1240,28-Nov-2025,159,1,1,18000,0,yenagoa ,Transfer,Completed
+2728,2025-12-14,123,11,4,14000,5,PORT HARCOURT,POS,Completed
+1445,21/09/2025,73,11,1,"₦14,000",0,Yenagoa,Cash,Completed
+2643,10-Dec-2025,12,2,1,6500,0,Warri,Transfer,Completed
+2794,21/09/2025,48,6,2,12000,0, Port Harcourt,POS,Completed
+1899,2025-12-31,10,7,1,"₦65,000",0,Warri,Cash,Completed
+2436,26-Jun-2025,113,2,2,6500,0,Yenagoa,POS,Completed
+2871,04/03/2025,92,10,1,4500,0,Yenagoa,Transfer,Completed
+2202,23-May-2025,131,13,1,"₦38,000",0,Warri,,Completed
+1089,19-Jun-2025,135,9,3,6000,0,yenagoa ,Transfer,Cancelled
+2759,24-Dec-2025,100,15,4,31000,0,lagos ,Transfer,Completed
+2093,03/11/2025,21,4,4,22000,10,Port Harcourt,Card,Completed
+1576,2025-10-21,40,1,2,18000,0,Yenagoa,Card,Completed
+2112,2025-08-02,90,11,1,14000,0,Lagos,Transfer,Completed
+1619,07/01/2025,128,12,2,24000,0,abuja ,POS,Completed
+1001,2025-07-08,168,15,1,31000,5,Lagos,Transfer,Completed
+2597,2025-02-18,49,10,4,4500,10,Yenagoa,,Completed
+1239,2025-08-28,166,14,1,9000,0,Port Harcourt,,Completed
+1697,2025-07-31,20,10,4,4500,0,Yenagoa,Card,Cancelled
+2779,2025-07-02,39,2,4,6500,15,Yenagoa,Transfer,Completed
+1541,02/05/2025,98,12,1,24000,5,Abuja,Transfer,Completed
+2024,2025-09-22,101,15,1,31000,0,Yenagoa,Card,Completed
+2547,2025-01-19,29,5,1,28000,5,Abuja,Transfer,Completed
+1683,20/09/2025,152,10,2,4500,0,benin city ,Transfer,Completed
+1925,21-Aug-2025,139,4,1,22000,0,Abuja,,Completed
+2486,2025-08-01,2,4,1,"₦22,000",0,Lagos,Card,Completed
+2480,07/11/2025,42,8,1,120000,0,Abuja,POS,Completed
+2698,28-Jun-2025,189,11,4,14000,0,Port Harcourt,Card,Completed
+2533,11-Nov-2025,73,11,2,14000,0,Yenagoa,Transfer,Completed
+1861,2025-07-13,153,3,1,5500,0,Port Harcourt,Transfer,Completed
+2621,05/02/2025,180,10,1,4500,10,Port Harcourt,POS,Completed
+2189,2025-12-20,141,3,1,5500,10,LAGOS,Transfer,Returned
+1542,2025-07-21,189,15,1,31000,5, Port Harcourt,Transfer,Completed
+1363,09-Jun-2025,71,10,3,4500,0, Abuja,Cash,Cancelled
+1463,2025-11-01,92,1,3,"₦18,000",0,Yenagoa,Transfer,Completed
+1467,19-Aug-2025,97,15,1,31000,0, Port Harcourt,POS,Completed
+1092,2025-06-10,165,2,3,6500,0,YENAGOA,Cash,Completed
+1485,16/10/2025,194,3,2,"₦5,500",0,Port Harcourt,Transfer,Completed
+2558,01/10/2025,85,9,1,"₦6,000",0,Yenagoa,Transfer,Completed
+1968,2025-01-05,191,1,1,18000,10,Warri,Transfer,Completed
+2562,2025-01-16,160,9,2,6000,0,Yenagoa,Card,Completed
+2949,2025-02-11,76,5,2,28000,0,Lagos,POS,Cancelled
+1164,2025-10-16,184,9,1,"₦6,000",0, Abuja,POS,Completed
+2726,16/12/2025,141,12,3,24000,10,Lagos,Cash,Completed
+1478,2025-08-25,193,2,1,"₦6,500",0,Benin City,Cash,Completed
+2725,2025-08-20,26,7,2,65000,15,lagos ,POS,Cancelled
+2369,2025-08-13,174,7,3,65000,15,Lagos,POS,Completed
+2903,18/02/2025,126,15,2,31000,0,Abuja,Transfer,Completed
+2386,2025-10-29,27,1,2,"₦18,000",0, Yenagoa,Card,Completed
+1932,21-Feb-2025,183,6,1,"₦12,000",0,Yenagoa,Card,Completed
+2467,14/11/2025,168,5,3,"₦28,000",10,Lagos,POS,Completed
+2637,2025-07-19,51,3,1,"₦5,500",5,Port Harcourt,Transfer,Completed
+2203,2025-06-28,91,10,1,4500,10,lagos ,Transfer,Cancelled
+2464,2025-05-20,42,14,1,9000,0,Abuja,Cash,Returned
+2966,07/09/2025,77,1,1,18000,0,Benin City,POS,Completed
+2344,09/12/2025,78,9,1,6000,0,Warri,POS,Completed
+1665,2025-11-16,174,4,4,22000,0,LAGOS,POS,Completed
+1636,10/07/2025,191,1,2,18000,0,Warri,Cash,Completed
+1460,2025-04-20,198,9,3,6000,0,Port Harcourt,Card,Completed
+1574,11-Jul-2025,31,13,1,38000,0,Port Harcourt,Cash,Completed
+1795,27-Oct-2025,73,2,3,"₦6,500",0, Yenagoa,Cash,Cancelled
+1020,27-Jun-2025,164,14,1,"₦9,000",0,Port Harcourt,,Cancelled
+1125,2025-05-29,6,2,1,6500,0,Lagos,Transfer,Completed
+2757,29-Jun-2025,192,3,1,5500,0,Port Harcourt,POS,Completed
+1893,14-Oct-2025,177,10,3,4500,0,Warri,Transfer,Completed
+2367,2025-08-16,169,9,1,6000,0,Yenagoa,POS,Completed
+2773,2025-03-29,78,2,2,6500,10, Warri,Transfer,Completed
+1689,16/12/2025,115,5,1,28000,0,warri ,,Completed
+1937,2025-12-15,31,9,1,6000,0,Port-Harcourt,Card,Completed
+1827,2025-08-12,170,15,2,31000,0,YENAGOA,POS,Completed
+2706,2025-10-25,138,4,3,22000,0, Abuja,Cash,Completed
+2565,22/03/2025,200,15,5,31000,0,Warri,Transfer,Completed
+1929,26-Apr-2025,191,15,2,31000,10,Warri,Cash,Completed
+2142,2025-11-15,142,9,3,6000,0, Port Harcourt,Transfer,Completed
+2957,11/07/2025,39,6,2,12000,15,yenagoa ,Transfer,Returned
+1237,14/12/2025,152,2,1,6500,0,Benin City,Transfer,Completed
+1531,01-Jan-2025,195,12,1,24000,0,Warri,Transfer,Cancelled
+1109,2025-08-16,32,15,3,31000,0,Yenagoa,Card,Completed
+1789,20/10/2025,177,3,1,"₦5,500",0, Warri,Transfer,Completed
+1918,21/07/2025,198,1,3,18000,10,Port Harcourt,Transfer,Completed
+1490,22/09/2025,186,5,5,28000,0,Abuja,Card,Completed
+1428,12-Nov-2025,50,4,1,22000,0,Warri,Transfer,Completed
+1657,06/07/2025,183,11,1,14000,0,Yenagoa,POS,Completed
+2210,11-Sep-2025,187,4,1,22000,15,Lagos,Transfer,Completed
+2138,08/06/2025,70,2,3,6500,0, Lagos,Transfer,Returned
+2293,21-Dec-2025,136,5,1,28000,0,Benin City,Transfer,Completed
+2300,01-Dec-2025,2,14,1,9000,5,Lagos,Card,Cancelled
+2559,23-Nov-2025,39,6,2,12000,0,Yenagoa,Cash,Completed
+2963,19/12/2025,77,7,2,65000,0,Benin City,POS,Completed
+2658,07-Jan-2025,124,7,1,65000,0,Yenagoa,POS,Completed
+2108,29/12/2025,32,3,3,5500,0, Yenagoa,Cash,Completed
+1519,2025-08-08,189,6,1,12000,0,Port Harcourt,Card,Returned
+1804,06-Mar-2025,109,10,1,4500,5,Port Harcourt,Card,Completed
+1191,2025-11-16,44,2,2,6500,0,Lagos,POS,Returned
+1676,02-Dec-2025,193,11,1,14000,0,Benin City,POS,Completed
+1010,26/05/2025,99,12,1,24000,0,Abuja,Transfer,Completed
+1783,17/10/2025,177,5,2,28000,0,Warri,Transfer,Completed
+2431,19/08/2025,136,14,4,"₦9,000",0,Benin City,Card,Completed
+2864,2025-08-30,134,2,1,"₦6,500",10,Port Harcourt,Cash,Completed
+2933,28/01/2025,168,11,3,14000,10,Lagos,Cash,Completed
+1266,18-Oct-2025,56,2,1,"₦6,500",5,Lagos,Card,Completed
+1151,2025-12-31,102,11,1,14000,5,yenagoa ,POS,Completed
+1622,20/01/2025,9,10,3 units,"₦4,500",0,Benin City,POS,Completed
+2174,16-Jul-2025,65,14,1,9000,0,Port Harcourt,Transfer,Completed
+2830,24-Mar-2025,183,3,3,5500,15,YENAGOA,Transfer,Completed
+1117,11/12/2025,87,12,2,24000,5,Yenagoa,Transfer,Completed
+2917,06/11/2025,142,5,1,28000,0,Port Harcourt,Card,Completed
+1926,22-Mar-2025,8,13,2,38000,0,Port Harcourt,POS,Completed
+2025,27/02/2025,146,15,2,31000,0,Port Harcourt,Transfer,Completed
+1842,2025-12-19,177,14,2,9000,0,WARRI,Transfer,Completed
+1708,30-Jun-2025,28,9,1,6000,0,Benin-City,Cash,Completed
+1067,14-Dec-2025,100,6,1,12000,0,lagos ,POS,Completed
+2953,06-Mar-2025,113,11,1,14000,0,yenagoa ,Cash,Completed
+1055,24-Dec-2025,44,11,2,14000,5,Lagos,POS,Completed
+2433,2025-10-29,19,10,1,"₦4,500",0,WARRI,Card,Completed
+1996,07-Jun-2025,190,5,1,28000,5,Lagos,Transfer,Completed
+2756,09/02/2025,167,12,1,"₦24,000",0,Abuja,Transfer,Completed
+2920,2025-09-22,45,14,1,9000,0,Lagos,Cash,Completed
+2888,13/01/2025,23,9,2,6000,0,Lagos,POS,Completed
+2010,24/06/2025,141,2,3,"₦6,500",0,Lagos,Card,Completed
+1923,28-Sep-2025,159,10,2,4500,10,Yenagoa,POS,Completed
+1930,18-Sep-2025,90,4,-2,22000,5,Lagos,Card,Completed
+2235,2025-08-19,187,9,2,6000,5,Lagos,Card,Completed
+2767,2025-01-13,53,5,2,"₦28,000",0,Lagos,Cash,Completed
+2554,16-Apr-2025,112,3,2,5500,0,YENAGOA,Card,Completed
+2916,09/06/2025,160,10,1,"₦4,500",0,yenagoa ,Transfer,Completed
+1695,17-Apr-2025,154,10,2,4500,0,Yenagoa,POS,Completed
+1452,30-Oct-2025,125,14,1,9000,0,Abuja,Transfer,Completed
+1025,16-May-2025,177,5,1,28000,15,Warri,POS,Completed
+2185,21/10/2025,132,6,2,12000,0,Yenagoa,Transfer,Completed
+2160,2025-07-19,113,2,1,6500,0,Yenagoa,Transfer,Cancelled
+1988,16/08/2025,91,6,2,12000,0,Lagos,Transfer,Completed
+2447,30/09/2025,132,10,-1,4500,0,Yenagoa,POS,Completed
+2194,04-Aug-2025,127,3,1,5500,10,Lagos,Transfer,Completed
+2301,2025-12-14,11,4,1,22000,0,Yenagoa,POS,Completed
+2052,29/12/2025,146,2,5,6500,0,Port-Harcourt,POS,Completed
+1753,25-Dec-2025,139,14,1,9000,0,Abuja,Cash,Completed
+1677,02-Aug-2025,190,10,2,"₦4,500",0,Lagos,Card,Completed
+2982,19-Dec-2025,142,10,1,4500,5,Port Harcourt,POS,Completed
+1178,2025-08-11,89,14,2,9000,5,Port Harcourt,Transfer,Completed
+1388,2025-01-21,128,14,2,9000,0, Abuja,,Completed
+1501,16/06/2025,138,1,3,18000,0,ABUJA,Transfer,Completed
+2113,2025-04-07,141,5,-1,28000,5,Lagos,Card,Completed
+2866,18/12/2025,134,10,1,4500,0,Port Harcourt,Cash,Completed
+1309,2025-12-13,129,4,1,22000,0,Abuja,Card,Completed
+1182,25/11/2025,14,3,2,5500,0,Lagos,POS,Completed
+2568,19-May-2025,116,2,3,6500,0,Abuja,Transfer,Completed
+2655,16-Sep-2025,133,9,4,6000,5,Abuja,Transfer,Completed
+2859,23-Jun-2025,89,11,1,14000,0,Port Harcourt,POS,Completed
+1097,11-Aug-2025,128,5,3,"₦28,000",0,Abuja,Transfer,Completed
+1624,06/09/2025,117,11,1,"₦14,000",0,Yenagoa,POS,Completed
+1167,2025-12-30,18,15,1,31000,0,Warri,Transfer,Completed
+2505,13/02/2025,31,1,2,18000,0,Port Harcourt,Transfer,Completed
+1334,2025-04-09,7,3,2,5500,15,Yenagoa,Card,Completed
+2795,16-Aug-2025,21,2,1,6500,0,Port Harcourt,Card,Returned
+1054,02-Dec-2025,148,6,1,12000,0,Lagos,Transfer,Completed
+1251,07/03/2025,34,3,2,5500,5,Lagos,POS,Completed
+1707,09-Nov-2025,166,3,2,5500,15,Port Harcourt,Cash,Completed
+2446,18-Nov-2025,191,11,2,14000,0,Warri,Card,Completed
+2414,21/12/2025,67,15,1,31000,5,Lagos,POS,Completed
+2581,07/11/2025,149,11,1,14000,0,Abuja,Card,Completed
+1446,26-Aug-2025,35,10,3,4500,5,WARRI,Transfer,Completed
+2399,09/11/2025,30,1,3,18000,0,Abuja,Card,Completed
+1773,13-Dec-2025,107,2,1,6500,0,PORT HARCOURT,POS,Completed
+1520,2025-12-04,164,11,1,"₦14,000",0,Port Harcourt,Card,Completed
+2881,2025-09-19,110,2,1,6500,5,YENAGOA,Transfer,Completed
+1693,13/10/2025,18,1,1,18000,0,Warri,Card,Completed
+1638,2025-05-16,8,4,1,22000,0,Port Harcourt,Transfer,Completed
+1984,15-Oct-2025,144,1,3,18000,0,Lagos,Cash,Completed
+1173,24/09/2025,5,3,1,5500,0,Port Harcourt,Card,Completed
+2744,2025-02-05,138,4,4,22000,0,Abuja,Cash,Cancelled
+1669,2025-08-31,170,2,1,"₦6,500",0,yenagoa ,POS,Completed
+2646,12/10/2025,94,13,1,38000,0,Port Harcourt,Card,Completed
+2814,04/12/2025,81,9,4,6000,0,Abuja,Transfer,Completed
+1491,2025-09-18,199,11,2,14000,0,Warri,Transfer,Completed
+1919,28-Dec-2025,43,6,1,12000,0,Abuja,POS,Completed
+1742,30/07/2025,163,1,2,18000,0, Yenagoa,Cash,Completed
+1837,2025-12-07,61,9,3,"₦6,000",0,YENAGOA,POS,Completed
+1009,2025-07-21,89,15,1,31000,15,Port Harcourt,Cash,Completed
+1170,04/03/2025,138,5,1,"₦28,000",15,Abuja,POS,Completed
+2309,24-Dec-2025,106,10,2,4500,0,Benin City,Transfer,Completed
+2273,08/03/2025,163,5,2 units,28000,0,Yenagoa,Transfer,Completed
+2719,22/08/2025,6,13,1,38000,0,Lagos,Cash,Completed
+2398,14/04/2025,96,10,3,"₦4,500",0,Abuja,Transfer,Completed
+1394,2025-07-04,117,3,1,5500,10,Yenagoa,POS,Completed
+1611,2025-09-24,14,10,4,"₦4,500",0,Lagos,Cash,Completed
+2695,04/06/2025,29,3,1,5500,0, Abuja,Cash,Completed
+2032,2025-08-09,119,9,2,6000,0,benin city ,POS,Completed
+2549,25/09/2025,188,11,2,14000,0,Lagos,Transfer,Completed
+1473,02-Oct-2025,185,10,3,4500,10,Port Harcourt,Transfer,Completed
+2117,2025-03-26,15,2,5,6500,0,Port Harcourt,Transfer,Returned
+1754,05/04/2025,6,13,1,38000,10,Lagos,,Completed
+2583,09-Aug-2025,63,11,1,14000,0,Lagos,Transfer,Completed
+1408,2025-07-25,25,11,1,14000,0,Benin City,POS,Returned
+1475,01-Apr-2025,169,8,1,120000,0,Yenagoa,POS,Completed
+2236,21/05/2025,160,12,1,"₦24,000",10,Yenagoa,POS,Completed
+2901,2025-09-21,79,12,1,24000,0,Port Harcourt,POS,Completed
+2727,30/04/2025,37,3,3,5500,0,Port Harcourt,Card,Completed
+2772,27/11/2025,93,9,1,6000,10,LAGOS,,Completed
+1290,20/10/2025,3,14,1,9000,0, Yenagoa,POS,Completed
+1022,07/07/2025,36,1,1,18000,15,Abuja,Transfer,Completed
+2054,30-Nov-2025,124,1,1,18000,10,yenagoa ,Card,Completed
+1566,2025-10-30,156,3,2,5500,0,Lagos,Card,Completed
+2624,07-Aug-2025,13,12,1,24000,15,yenagoa ,Transfer,Completed
+1752,01/03/2025,38,7,3,65000,0,Yenagoa,Cash,Completed
+1933,16-Apr-2025,20,5,2,"₦28,000",0,Yenagoa,Card,Completed
+2045,28-Jan-2025,2,1,1,18000,0,Lagos,Transfer,Cancelled
+2450,08/04/2025,121,2,3,"₦6,500",5,Yenagoa,Transfer,Completed
+2128,2025-11-30,9,2,1,6500,0,BENIN CITY,POS,Completed
+1052,05-Jan-2025,192,6,-1,12000,0,Port Harcourt,Transfer,Completed
+2550,2025-09-22,186,10,4,4500,0,Abuja,POS,Completed
+2904,18-Dec-2025,74,9,1,6000,10,Abuja,Transfer,Completed
+2506,28-Dec-2025,50,10,2,4500,0,Warri,Cash,Cancelled
+2171,2025-10-22,60,3,1,5500,0,Lagos,Card,Completed
+1868,21-Dec-2025,143,12,2,24000,5,Warri,Transfer,Completed
+1232,24/04/2025,104,9,1,6000,0,LAGOS,Transfer,Completed
+1357,29-Jun-2025,42,12,3,24000,0, Abuja,Transfer,Completed
+1288,2025-04-29,95,9,1,"₦6,000",5,Port Harcourt,Transfer,Cancelled
+1008,28-Jul-2025,171,1,3,"₦18,000",10,Warri,Cash,Completed
+2630,12/01/2025,148,4,2,22000,0,Lagos,Transfer,Completed
+1823,2025-07-05,58,9,5,6000,5,Port Harcourt,Card,Completed
+1352,24-Jun-2025,15,8,1,"₦120,000",0,Port Harcourt,Card,Completed
+2951,04-Nov-2025,144,3,1,5500,0,LAGOS,Card,Completed
+1699,31/12/2025,67,14,1,9000,0,Lagos,Card,Cancelled
+2792,2025-02-12,24,10,1,4500,0,Port Harcourt,Cash,Completed
+2600,2025-09-15,154,7,2,"₦65,000",0,Yenagoa,POS,Completed
+1284,2025-11-18,183,10,1,4500,0,Yenagoa,Card,Completed
+2493,24/09/2025,37,2,3,6500,0,Port Harcourt,POS,Completed
+1816,2025-11-09,161,4,1,22000,0,Yenagoa,Transfer,Completed
+2846,2025-02-26,1,12,2,24000,10,YENAGOA,POS,Cancelled
+2306,28/08/2025,2,14,3,9000,0,LAGOS,POS,Completed
+1510,12/09/2025,84,5,3,28000,0, Yenagoa,Transfer,Completed
+2226,2025-08-04,168,10,3,"₦4,500",0,Lagos,POS,Completed
+1138,08/07/2025,199,9,1,6000,5,Warri,Cash,Completed
+1506,2025-01-23,124,5,1,28000,10,Yenagoa,POS,Completed
+2889,08/05/2025,18,15,2,"₦31,000",0,Warri,Transfer,Completed
+1681,08-Oct-2025,75,11,2,14000,0,Yenagoa,Transfer,Completed
+2968,2025-12-18,31,4,1,22000,15,Port Harcourt,POS,Completed
+1242,2025-03-26,145,1,3,18000,0,Port Harcourt,Transfer,Completed
+1359,2025-12-13,166,2,3,6500,0,PORT HARCOURT,Cash,Returned
+1568,2025-08-20,78,1,5 units,18000,0,Warri,Transfer,Completed
+1947,2025-10-09,137,3,1,5500,5,Port Harcourt,Transfer,Completed
+1023,2025-08-28,100,6,2,12000,5,LAGOS,POS,Completed
+2955,20-Jul-2025,185,10,1,4500,5,Port Harcourt,Transfer,Completed
+1952,2025-06-30,82,2,4,6500,0,Port-Harcourt,POS,Cancelled
+1802,22-Aug-2025,174,2,1,6500,0,Lagos,Card,Completed
+2187,2025-12-19,72,14,1,9000,5,Yenagoa,Cash,Completed
+1292,2025-05-16,12,14,4,9000,0,Warri,Cash,Completed
+2116,2025-09-11,174,11,3,14000,0,Lagos,POS,Completed
+1814,30-Jan-2025,68,7,5,"₦65,000",0,Port Harcourt,Transfer,Returned
+1385,30/09/2025,78,6,1,12000,0,Warri,Cash,Completed
+1205,2025-03-13,177,10,2,4500,15,Warri,Transfer,Completed
+2176,2025-06-23,167,3,2,5500,0,Abuja,Transfer,Completed
+2145,29-Dec-2025,120,7,1,65000,0,Lagos,POS,Cancelled
+1766,03/10/2025,150,9,3,"₦6,000",5,abuja ,Transfer,Completed
+2769,03-Nov-2025,196,14,1,9000,10,Yenagoa,Cash,Completed
+2511,15-Feb-2025,119,2,4,"₦6,500",0,Benin City,Transfer,Completed

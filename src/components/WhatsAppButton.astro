@@ -1,0 +1,42 @@
+---
+import { Icon } from 'astro-icon/components';
+import { whatsappUrl } from '../utils/links';
+
+export interface Props {
+  course?: string;
+  label?: string;
+  variant?: 'primary' | 'secondary';
+  class?: string;
+}
+const { course, label = 'Chat on WhatsApp', variant = 'primary', class: className = '' } = Astro.props;
+const url = whatsappUrl(course);
+---
+
+{
+  url ? (
+    <a class={`btn btn-${variant} ${className}`} href={url} target="_blank" rel="noopener noreferrer">
+      <Icon name="lucide:message-circle" width={18} height={18} aria-hidden="true" />
+      {label}
+    </a>
+  ) : (
+    /* No WhatsApp number configured yet — hidden in the UI, flagged in dev. */
+    <Fragment>
+      {import.meta.env.DEV && (
+        <span class="wa-missing" role="note">
+          [dev] WhatsApp hidden: set contact.whatsappNumber in src/config/site.ts
+        </span>
+      )}
+    </Fragment>
+  )
+}
+
+<style>
+  .wa-missing {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: var(--color-warning);
+    border: 1px dashed var(--color-warning);
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.4rem;
+  }
+</style>

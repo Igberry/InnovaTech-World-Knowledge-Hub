@@ -1,0 +1,174 @@
+---
+import { Icon } from 'astro-icon/components';
+import Logo from './Logo.astro';
+import { site } from '../config/site';
+import { withBase } from '../utils/links';
+
+const current = Astro.url.pathname;
+function isActive(href: string): boolean {
+  const target = withBase(href);
+  if (href === '/') return current === target || current === withBase('/');
+  return current.startsWith(target);
+}
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href={withBase('/')} class="header-logo" aria-label={`${site.name} — home`}>
+      <Logo height={38} />
+    </a>
+
+    <button
+      class="nav-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="primary-nav"
+    >
+      <Icon name="lucide:menu" width={24} height={24} aria-hidden="true" />
+    </button>
+
+    <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+      <ul>
+        {
+          site.nav.map((item) => (
+            <li>
+              <a
+                href={withBase(item.href)}
+                aria-current={isActive(item.href) ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a href={withBase('/courses/')} class="btn btn-primary nav-cta">Start Learning</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: saturate(150%) blur(8px);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 4rem;
+  }
+  .header-logo {
+    display: inline-flex;
+  }
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+    background: #fff;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+  .primary-nav {
+    display: none;
+  }
+  .primary-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .primary-nav a {
+    display: inline-block;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .primary-nav a:hover {
+    background: var(--color-blue-50);
+    color: var(--color-blue-700);
+  }
+  .primary-nav a[aria-current='page'] {
+    color: var(--color-blue-700);
+    background: var(--color-blue-50);
+  }
+  .nav-cta {
+    margin-left: 0.5rem;
+  }
+
+  /* Mobile menu (open state toggled by script) */
+  @media (max-width: 767px) {
+    .primary-nav.open {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.75rem;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 4rem;
+      background: #fff;
+      border-bottom: 1px solid var(--color-border);
+      padding: 1rem;
+      box-shadow: 0 10px 24px rgba(18, 42, 107, 0.08);
+    }
+    .primary-nav.open ul {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.25rem;
+    }
+    .primary-nav.open .nav-cta {
+      margin-left: 0;
+      text-align: center;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 768px) {
+    .nav-toggle {
+      display: none;
+    }
+    .primary-nav {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const nav = document.getElementById('primary-nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+    nav.addEventListener('click', (e) => {
+      if ((e.target as HTMLElement).tagName === 'A') {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && nav.classList.contains('open')) {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.focus();
+      }
+    });
+  }
+</script>

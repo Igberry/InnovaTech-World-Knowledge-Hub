@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap URL is finalised at build time from SITE_URL + BASE_PATH.
+# Update this line to your live sitemap, e.g.:
+# Sitemap: https://YOUR-USERNAME.github.io/innovatech-knowledge-hub/sitemap-index.xml

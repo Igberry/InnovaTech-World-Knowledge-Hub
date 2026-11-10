@@ -1,0 +1,78 @@
+/**
+ * ALL editable site settings live here. Non-developers: this is the one file
+ * to change for contact details, social links, navigation and analytics.
+ * (WEBSITE-BUILD-PROMPT.md §5.3)
+ *
+ * Anything marked "TODO" must be replaced with a real value by the owner.
+ * NEVER invent contact details. Links/buttons that are still "TODO" are hidden
+ * automatically rather than rendered broken.
+ */
+import { HIDDEN_SECTION_HEADINGS } from './hidden-sections.mjs';
+
+export const site = {
+  name: 'InnovaTech World Knowledge Hub',
+  shortName: 'InnovaTech Hub',
+  tagline: 'Learn digital skills. Build a global career.',
+  description:
+    'Practical, beginner-friendly digital-skills training from InnovaTech World in Yenagoa, Bayelsa State, Nigeria. Follow weekly lessons, download real datasets, and build a job-ready portfolio.',
+
+  // Deployment — these are overridden by SITE_URL / BASE_PATH env vars at build
+  // time (see astro.config.mjs). Kept here only for display/fallback.
+  url: 'https://TODO.github.io/innovatech-knowledge-hub',
+
+  // Public GitHub repo, used for the "Edit this page on GitHub" links.
+  repo: {
+    // TODO: set to the real repo, e.g. "InnovaTechWorld/innovatech-knowledge-hub"
+    slug: 'TODO/innovatech-knowledge-hub',
+    branch: 'main',
+  },
+
+  location: 'Yenagoa, Bayelsa State, Nigeria',
+
+  facilitator: {
+    name: 'David C. Igberi',
+    title: 'Founder & Lead Facilitator',
+  },
+
+  contact: {
+    // International format WITHOUT the leading "+", e.g. 234XXXXXXXXXX
+    whatsappNumber: 'TODO',
+    email: 'TODO',
+    whatsappDefaultMessage:
+      "Hello InnovaTech World, I'd like to know more about the {course} course.",
+  },
+
+  social: {
+    facebook: 'TODO',
+    instagram: 'TODO',
+    linkedin: 'TODO',
+    youtube: 'TODO',
+    tiktok: 'TODO',
+  },
+
+  nav: [
+    { label: 'Home', href: '/' },
+    { label: 'Courses', href: '/courses/' },
+    { label: 'Resources', href: '/resources/' },
+    { label: 'About', href: '/about/' },
+    { label: 'Contact', href: '/contact/' },
+  ],
+
+  // Headings whose whole section is stripped from the rendered site.
+  hideSectionsHeadings: HIDDEN_SECTION_HEADINGS,
+
+  // Optional privacy-friendly analytics. OFF by default (WEBSITE-BUILD-PROMPT.md §7.10).
+  analytics: {
+    enabled: false,
+    provider: 'none' as 'none' | 'plausible' | 'ga4',
+    // For Plausible: the domain you registered. For GA4: the measurement ID.
+    domain: '',
+  },
+} as const;
+
+export type SiteConfig = typeof site;
+
+/** A value that still needs the owner to fill it in. */
+export function isTodo(value: string | undefined | null): boolean {
+  return !value || value.trim() === '' || value.trim().toUpperCase() === 'TODO';
+}

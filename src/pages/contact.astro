@@ -1,0 +1,129 @@
+---
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { site } from '../config/site';
+import { emailUrl, activeSocials } from '../utils/links';
+
+const email = emailUrl();
+const socials = activeSocials();
+const socialIcon: Record<string, string> = {
+  facebook: 'lucide:facebook',
+  instagram: 'lucide:instagram',
+  linkedin: 'lucide:linkedin',
+  youtube: 'lucide:youtube',
+  tiktok: 'lucide:music-2',
+};
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with InnovaTech World — chat on WhatsApp, email us, or follow us on social media."
+>
+  <header class="page-head">
+    <h1>Contact us</h1>
+    <p>The fastest way to reach us is WhatsApp. We'd love to hear from you.</p>
+  </header>
+
+  <div class="contact-grid">
+    <div class="card contact-main">
+      <h2>Chat with us</h2>
+      <p>Ask about courses, enrolment, or anything else.</p>
+      <WhatsAppButton />
+      {
+        email && (
+          <p class="contact-line">
+            <Icon name="lucide:mail" width={18} height={18} aria-hidden="true" />
+            <a href={email}>{site.contact.email}</a>
+          </p>
+        )
+      }
+      <p class="contact-line">
+        <Icon name="lucide:map-pin" width={18} height={18} aria-hidden="true" />
+        {site.location}
+      </p>
+    </div>
+
+    {
+      socials.length > 0 && (
+        <div class="card contact-social">
+          <h2>Follow us</h2>
+          <ul>
+            {socials.map((s) => (
+              <li>
+                <a href={s.url} target="_blank" rel="noopener noreferrer">
+                  <Icon name={socialIcon[s.platform] ?? 'lucide:link'} width={20} height={20} aria-hidden="true" />
+                  <span>{s.platform}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  </div>
+</BaseLayout>
+
+<style>
+  .page-head {
+    margin: 0.5rem 0 1.5rem;
+  }
+  .page-head h1 {
+    font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  }
+  .page-head p {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    max-width: 50ch;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 48rem;
+  }
+  .contact-main,
+  .contact-social {
+    padding: 1.5rem;
+  }
+  .contact-main h2,
+  .contact-social h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+  .contact-main p {
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+  }
+  .contact-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-ink) !important;
+    margin-top: 0.75rem;
+    margin-bottom: 0 !important;
+  }
+  .contact-social ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .contact-social a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: var(--color-blue-700);
+    font-weight: 500;
+  }
+  @media (min-width: 720px) {
+    .contact-grid {
+      grid-template-columns: 1.4fr 1fr;
+    }
+  }
+</style>

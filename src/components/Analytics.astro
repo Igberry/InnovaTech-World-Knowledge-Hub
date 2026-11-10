@@ -1,0 +1,32 @@
+---
+/**
+ * Privacy-friendly analytics slot. OFF by default (WEBSITE-BUILD-PROMPT.md §7.10).
+ * Enable by editing src/config/site.ts -> analytics. No cookies, no third-party
+ * script, nothing rendered unless explicitly enabled.
+ */
+import { site } from '../config/site';
+
+const { enabled, provider, domain } = site.analytics;
+const on = enabled && provider !== 'none' && domain;
+---
+
+{
+  on && provider === 'plausible' && (
+    <script is:inline defer data-domain={domain} src="https://plausible.io/js/script.js" />
+  )
+}
+{
+  on && provider === 'ga4' && (
+    <>
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${domain}`} />
+      <script is:inline define:vars={{ id: domain }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', id);
+      </script>
+    </>
+  )
+}

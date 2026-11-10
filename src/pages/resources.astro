@@ -1,0 +1,95 @@
+---
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { resources, resourceCategories } from '../data/resources';
+---
+
+<BaseLayout
+  title="Resources"
+  description="Free, trusted resources to support your learning — official docs, interactive practice, statistics, and YouTube channels."
+>
+  <header class="page-head">
+    <h1>Free learning resources</h1>
+    <p>
+      Trusted, free resources to use alongside your course. Links open in a new tab.
+      Tell us if any are out of date.
+    </p>
+  </header>
+
+  {
+    resourceCategories.map((cat) => (
+      <section class="res-section">
+        <h2>{cat}</h2>
+        <div class="res-grid">
+          {resources
+            .filter((r) => r.category === cat)
+            .map((r) => (
+              <a class="card card-link res-card" href={r.url} target="_blank" rel="noopener noreferrer">
+                <span class="res-title">
+                  {r.title}
+                  <Icon name="lucide:external-link" width={15} height={15} aria-hidden="true" />
+                </span>
+                <span class="res-desc">{r.description}</span>
+              </a>
+            ))}
+        </div>
+      </section>
+    ))
+  }
+</BaseLayout>
+
+<style>
+  .page-head {
+    margin: 0.5rem 0 2rem;
+  }
+  .page-head h1 {
+    font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  }
+  .page-head p {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    max-width: 55ch;
+  }
+  .res-section {
+    margin-bottom: 2.5rem;
+  }
+  .res-section h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  .res-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .res-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.1rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .res-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    color: var(--color-blue-700);
+  }
+  .res-desc {
+    color: var(--color-muted);
+    font-size: 0.925rem;
+  }
+  @media (min-width: 640px) {
+    .res-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 960px) {
+    .res-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

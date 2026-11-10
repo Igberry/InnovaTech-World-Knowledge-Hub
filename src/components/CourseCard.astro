@@ -1,0 +1,106 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Course } from '../utils/courses';
+import { withBase, whatsappUrl } from '../utils/links';
+
+export interface Props {
+  course: Course;
+}
+const { course } = Astro.props;
+const d = course.data;
+const available = d.status === 'available';
+const href = withBase(`/courses/${d.slug}/`);
+const wa = whatsappUrl(d.title);
+const Tag = available ? 'a' : 'div';
+---
+
+<Tag
+  class={`card course-card ${available ? 'card-link' : 'course-card--soon'}`}
+  {...available ? { href } : {}}
+>
+  <div class="course-card-top">
+    <span class="course-icon" aria-hidden="true">
+      <Icon name={`lucide:${d.icon}`} width={24} height={24} />
+    </span>
+    <span class={`badge ${available ? 'badge-available' : 'badge-soon'}`}>
+      {available ? 'Available' : 'Coming soon'}
+    </span>
+  </div>
+
+  <h3 class="course-title">{d.title}</h3>
+  <p class="course-summary">{d.summary}</p>
+
+  <div class="course-meta">
+    {d.level && <span class="chip">{d.level}</span>}
+    {d.duration && <span class="chip">{d.duration}</span>}
+    {!available && <span class="chip">{d.category}</span>}
+  </div>
+
+  {
+    available ? (
+      <span class="course-cta">
+        View course
+        <Icon name="lucide:arrow-right" width={16} height={16} aria-hidden="true" />
+      </span>
+    ) : wa ? (
+      <a class="course-cta course-cta--link" href={wa} target="_blank" rel="noopener noreferrer">
+        Join the waitlist on WhatsApp
+        <Icon name="lucide:arrow-right" width={16} height={16} aria-hidden="true" />
+      </a>
+    ) : null
+  }
+</Tag>
+
+<style>
+  .course-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.25rem;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+  }
+  .course-card--soon {
+    opacity: 0.92;
+  }
+  .course-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .course-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    background: var(--color-blue-50);
+    color: var(--color-blue-600);
+  }
+  .course-title {
+    font-size: 1.2rem;
+  }
+  .course-summary {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    flex: 1;
+  }
+  .course-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .course-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 600;
+    color: var(--color-blue-700);
+    margin-top: 0.25rem;
+  }
+  .course-cta--link {
+    text-decoration: none;
+  }
+</style>

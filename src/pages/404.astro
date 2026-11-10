@@ -1,0 +1,54 @@
+---
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { withBase } from '../utils/links';
+---
+
+<BaseLayout title="Page not found" description="The page you were looking for could not be found.">
+  <section class="notfound">
+    <p class="code">404</p>
+    <h1>Page not found</h1>
+    <p class="lead">
+      Sorry, the page you were looking for doesn't exist or may have moved.
+    </p>
+    <!-- Site search arrives in Phase 2. -->
+    <div class="notfound-cta">
+      <a class="btn btn-primary" href={withBase('/courses/')}>
+        Browse Courses
+        <Icon name="lucide:arrow-right" width={18} height={18} aria-hidden="true" />
+      </a>
+      <a class="btn btn-secondary" href={withBase('/')}>Go home</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound {
+    text-align: center;
+    padding: 4rem 1rem 5rem;
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+  .code {
+    font-size: clamp(3rem, 2rem + 6vw, 5rem);
+    font-weight: 700;
+    color: var(--color-blue-200);
+    line-height: 1;
+  }
+  .notfound h1 {
+    font-size: clamp(1.6rem, 1.3rem + 1.5vw, 2.2rem);
+    margin-top: 0.5rem;
+  }
+  .lead {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    margin-top: 0.75rem;
+  }
+  .notfound-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 1.75rem;
+  }
+</style>

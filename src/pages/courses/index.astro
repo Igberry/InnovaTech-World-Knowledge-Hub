@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CourseCard from '../../components/CourseCard.astro';
+import { getAllCourses } from '../../utils/courses';
+
+const courses = await getAllCourses();
+const available = courses.filter((c) => c.data.status === 'available');
+const soon = courses.filter((c) => c.data.status !== 'available');
+const ordered = [...available, ...soon];
+
+const categories = Array.from(new Set(courses.map((c) => c.data.category))).sort();
+---
+
+<BaseLayout
+  title="Courses"
+  description="Browse InnovaTech World's digital-skills courses — from Data Analysis to Web Development and more."
+>
+  <header class="page-head">
+    <h1>Courses</h1>
+    <p>Practical, project-based training. Start with what's available now; more are on the way.</p>
+  </header>
+
+  <div class="filters" role="group" aria-label="Filter courses by category">
+    <button class="filter-chip is-active" data-filter="all" aria-pressed="true">All</button>
+    {
+      categories.map((cat) => (
+        <button class="filter-chip" data-filter={cat} aria-pressed="false">
+          {cat}
+        </button>
+      ))
+    }
+  </div>
+
+  <div class="card-grid" id="course-grid">
+    {
+      ordered.map((course) => (
+        <div class="course-cell" data-category={course.data.category}>
+          <CourseCard course={course} />
+        </div>
+      ))
+    }
+  </div>
+  <p class="no-results" hidden>No courses in this category yet.</p>
+</BaseLayout>
+
+<style>
+  .page-head {
+    margin: 0.5rem 0 1.5rem;
+  }
+  .page-head h1 {
+    font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  }
+  .page-head p {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    max-width: 55ch;
+  }
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .filter-chip {
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--color-border);
+    background: #fff;
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+  .filter-chip:hover {
+    border-color: var(--color-blue-200);
+    background: var(--color-blue-50);
+  }
+  .filter-chip.is-active {
+    background: var(--color-blue-600);
+    border-color: var(--color-blue-600);
+    color: #fff;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .no-results {
+    color: var(--color-muted);
+    margin-top: 1rem;
+  }
+  @media (min-width: 680px) {
+    .card-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 980px) {
+    .card-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
+
+<script>
+  const chips = document.querySelectorAll<HTMLButtonElement>('.filter-chip');
+  const cells = document.querySelectorAll<HTMLElement>('.course-cell');
+  const empty = document.querySelector<HTMLElement>('.no-results');
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const filter = chip.dataset.filter!;
+      chips.forEach((c) => {
+        const active = c === chip;
+        c.classList.toggle('is-active', active);
+        c.setAttribute('aria-pressed', String(active));
+      });
+      let shown = 0;
+      cells.forEach((cell) => {
+        const match = filter === 'all' || cell.dataset.category === filter;
+        cell.hidden = !match;
+        if (match) shown++;
+      });
+      if (empty) empty.hidden = shown !== 0;
+    });
+  });
+</script>

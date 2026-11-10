@@ -1,0 +1,85 @@
+---
+import { Icon } from 'astro-icon/components';
+import { withBase } from '../utils/links';
+
+export interface Props {
+  downloads: Array<{ label: string; href: string }>;
+}
+const { downloads } = Astro.props;
+
+function ext(href: string): string {
+  const m = /\.([a-z0-9]+)(?:\?.*)?$/i.exec(href);
+  return m ? m[1].toUpperCase() : 'FILE';
+}
+---
+
+{
+  downloads.length > 0 && (
+    <section class="downloads" aria-label="Files for this lesson">
+      <h2 class="downloads-title">
+        <Icon name="lucide:download" width={18} height={18} aria-hidden="true" />
+        Files for this lesson
+      </h2>
+      <ul>
+        {downloads.map((f) => (
+          <li>
+            <a href={withBase(f.href)} download>
+              <span class="downloads-name">{f.label}</span>
+              <span class="downloads-ext">{ext(f.href)}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )
+}
+
+<style>
+  .downloads {
+    border: 1px solid var(--color-blue-200);
+    background: var(--color-blue-50);
+    border-radius: 0.75rem;
+    padding: 1rem 1.1rem;
+    margin: 1.5rem 0;
+  }
+  .downloads-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: var(--color-blue-900);
+    margin-bottom: 0.6rem;
+  }
+  .downloads ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .downloads a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    background: #fff;
+    border: 1px solid var(--color-blue-100);
+    border-radius: 0.5rem;
+    padding: 0.55rem 0.75rem;
+    text-decoration: none;
+    color: var(--color-blue-700);
+    font-weight: 500;
+  }
+  .downloads a:hover {
+    border-color: var(--color-blue-400);
+  }
+  .downloads-ext {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-muted);
+    background: var(--color-blue-50);
+    border-radius: 0.3rem;
+    padding: 0.1rem 0.4rem;
+  }
+</style>

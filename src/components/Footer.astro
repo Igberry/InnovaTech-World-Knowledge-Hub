@@ -1,0 +1,123 @@
+---
+import { Icon } from 'astro-icon/components';
+import Logo from './Logo.astro';
+import { site } from '../config/site';
+import { withBase, activeSocials } from '../utils/links';
+
+const socials = activeSocials();
+const socialIcon: Record<string, string> = {
+  facebook: 'lucide:facebook',
+  instagram: 'lucide:instagram',
+  linkedin: 'lucide:linkedin',
+  youtube: 'lucide:youtube',
+  tiktok: 'lucide:music-2',
+};
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <Logo height={40} badge />
+      <p>{site.description}</p>
+      <p class="footer-loc">
+        <Icon name="lucide:map-pin" width={16} height={16} aria-hidden="true" />
+        {site.location}
+      </p>
+    </div>
+
+    <nav class="footer-nav" aria-label="Footer">
+      <h2>Explore</h2>
+      <ul>
+        {site.nav.map((item) => <li><a href={withBase(item.href)}>{item.label}</a></li>)}
+      </ul>
+    </nav>
+
+    {
+      socials.length > 0 && (
+        <div class="footer-social">
+          <h2>Follow</h2>
+          <ul>
+            {socials.map((s) => (
+              <li>
+                <a href={s.url} target="_blank" rel="noopener noreferrer" aria-label={s.platform}>
+                  <Icon name={socialIcon[s.platform] ?? 'lucide:link'} width={20} height={20} aria-hidden="true" />
+                  <span>{s.platform}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )
+    }
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© {year} InnovaTech World. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-blue-900);
+    color: #cbd5e1;
+    margin-top: 4rem;
+    padding-top: 2.5rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+  .footer-brand p {
+    margin-top: 0.75rem;
+    font-size: 0.925rem;
+    max-width: 40ch;
+  }
+  .footer-loc {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .site-footer h2 {
+    color: #fff;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.75rem;
+  }
+  .site-footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .site-footer a {
+    color: #cbd5e1;
+    text-decoration: none;
+  }
+  .site-footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+  .footer-social a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-transform: capitalize;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-block: 1.25rem;
+    font-size: 0.85rem;
+  }
+  @media (min-width: 768px) {
+    .footer-grid {
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+</style>

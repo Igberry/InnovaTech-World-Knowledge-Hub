@@ -1,0 +1,199 @@
+---
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { site } from '../config/site';
+
+const initials = site.facilitator.name
+  .split(/\s+/)
+  .map((p) => p[0])
+  .join('')
+  .slice(0, 2)
+  .toUpperCase();
+
+const how = [
+  { icon: 'users', title: 'Live mentoring', text: 'Weekly in-person sessions for review, live problem-solving, and feedback.' },
+  { icon: 'laptop', title: 'Practical assignments', text: 'Every week you work with real data and build something concrete.' },
+  { icon: 'folder-git-2', title: 'A real portfolio', text: 'You finish with projects and a GitHub profile employers can see.' },
+  { icon: 'shield-check', title: 'Honest outcomes', text: 'We help you get job-ready and build skills. We never promise a specific job or income.' },
+];
+---
+
+<BaseLayout
+  title="About"
+  description="InnovaTech World is a practical digital-skills training program based in Yenagoa, Bayelsa State, Nigeria."
+>
+  <header class="page-head">
+    <h1>About InnovaTech World</h1>
+    <p>
+      InnovaTech World runs practical, beginner-friendly technology training from
+      {site.location}. We teach real, job-ready digital skills through written
+      lessons, hands-on assignments, and live mentoring.
+    </p>
+  </header>
+
+  <section class="section">
+    <h2>Our mission</h2>
+    <p class="prose-block">
+      To help people in Bayelsa and beyond build practical digital skills and open
+      doors to local and remote opportunities — starting from zero, with real
+      support, and work to show for it.
+    </p>
+    <!-- TODO (owner): add any further history, founding year, or milestones you want shown here. -->
+  </section>
+
+  <section class="section">
+    <h2>Your facilitator</h2>
+    <div class="facilitator card">
+      <div class="avatar" aria-hidden="true">{initials}</div>
+      <div>
+        <h3>{site.facilitator.name}</h3>
+        <p class="facilitator-title">{site.facilitator.title}</p>
+        <!-- TODO (owner): add a short bio and a real photo (place at public/images/facilitator.jpg and swap the avatar). -->
+        <p class="facilitator-bio">
+          Leads the mentorship programs and teaches every course hands-on.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>How our training works</h2>
+    <div class="how-grid">
+      {
+        how.map((h) => (
+          <div class="how card">
+            <span class="how-icon" aria-hidden="true">
+              <Icon name={`lucide:${h.icon}`} width={22} height={22} />
+            </span>
+            <h3>{h.title}</h3>
+            <p>{h.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="container cta-inner">
+      <div>
+        <h2>Questions about our programs?</h2>
+        <p>We're happy to help you choose the right path.</p>
+      </div>
+      <WhatsAppButton variant="secondary" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head {
+    margin: 0.5rem 0 1rem;
+  }
+  .page-head h1 {
+    font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  }
+  .page-head p {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    max-width: 60ch;
+  }
+  .section {
+    margin-top: 2.5rem;
+  }
+  .section h2 {
+    font-size: clamp(1.5rem, 1.3rem + 1.2vw, 2rem);
+    margin-bottom: 1rem;
+  }
+  .prose-block {
+    max-width: 65ch;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #1e293b;
+  }
+  .facilitator {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    padding: 1.5rem;
+    max-width: 40rem;
+  }
+  .avatar {
+    flex: 0 0 auto;
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 999px;
+    background: var(--color-blue-600);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .facilitator-title {
+    color: var(--color-blue-700);
+    font-weight: 600;
+  }
+  .facilitator-bio {
+    color: var(--color-muted);
+    margin-top: 0.3rem;
+  }
+  .how-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .how {
+    padding: 1.25rem;
+  }
+  .how-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.75rem;
+    background: var(--color-blue-50);
+    color: var(--color-blue-600);
+    margin-bottom: 0.6rem;
+  }
+  .how h3 {
+    font-size: 1.1rem;
+  }
+  .how p {
+    color: var(--color-muted);
+    margin-top: 0.3rem;
+  }
+  .cta-band {
+    background: var(--color-blue-900);
+    color: #fff;
+    border-radius: 1.25rem;
+    margin-top: 3rem;
+    padding: 2.25rem 0;
+  }
+  .cta-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+  }
+  .cta-band h2 {
+    color: #fff;
+  }
+  .cta-band p {
+    color: #cbd5e1;
+    margin-top: 0.35rem;
+  }
+  @media (min-width: 720px) {
+    .how-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1000px) {
+    .how-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

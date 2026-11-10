@@ -1,0 +1,42 @@
+# --- Course source (facilitator notes live here; never commit — see WEBSITE-BUILD-PROMPT.md §6, §8) ---
+_import/
+
+# --- Dependencies ---
+node_modules/
+.pnp
+.pnp.js
+
+# --- Build output ---
+dist/
+.output/
+.vercel/
+.netlify/
+
+# --- Astro ---
+.astro/
+
+# --- Pagefind index (generated at build) ---
+public/pagefind/
+
+# --- Environment & secrets (NEVER commit) ---
+.env
+.env.*
+!.env.example
+
+# --- Private documents: agreements, pricing, student data (WEBSITE-BUILD-PROMPT.md §8.4) ---
+*-agreement.*
+*-agreements.*
+*commitment-fee*
+*pricing*
+students-*.csv
+student-data/
+private/
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+.idea/
+.vscode/*
+!.vscode/extensions.json

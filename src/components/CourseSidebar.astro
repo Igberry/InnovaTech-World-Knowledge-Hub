@@ -1,0 +1,133 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Lesson } from '../utils/courses';
+import { lessonSlug, groupByPhase } from '../utils/courses';
+import { withBase } from '../utils/links';
+
+export interface Props {
+  lessons: Lesson[];
+  courseSlug: string;
+  courseTitle: string;
+  currentSlug?: string;
+}
+const { lessons, courseSlug, courseTitle, currentSlug } = Astro.props;
+const groups = groupByPhase(lessons);
+---
+
+<aside class="lesson-sidebar" data-course={courseSlug} aria-label="Course contents">
+  <a class="sidebar-course" href={withBase(`/courses/${courseSlug}/`)}>
+    <Icon name="lucide:book-open" width={16} height={16} aria-hidden="true" />
+    {courseTitle}
+  </a>
+  <nav aria-label="Lessons">
+    {
+      groups.map((g) => (
+        <div class="sidebar-group">
+          {g.phase && <p class="sidebar-phase">{g.phase}</p>}
+          <ol>
+            {g.lessons.map((l) => {
+              const slug = lessonSlug(l);
+              const active = slug === currentSlug;
+              return (
+                <li>
+                  <a
+                    href={withBase(`/courses/${courseSlug}/${slug}/`)}
+                    class={active ? 'active' : ''}
+                    aria-current={active ? 'page' : undefined}
+                    data-lesson={slug}
+                  >
+                    <span class="sidebar-check" data-check aria-hidden="true" />
+                    <span class="sidebar-label">{l.data.title}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+      ))
+    }
+  </nav>
+</aside>
+
+<style>
+  .lesson-sidebar {
+    font-size: 0.9rem;
+  }
+  .sidebar-course {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 700;
+    color: var(--color-blue-900);
+    text-decoration: none;
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .sidebar-group + .sidebar-group {
+    margin-top: 1rem;
+  }
+  .sidebar-phase {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-muted);
+    font-weight: 700;
+    margin: 0.4rem 0;
+  }
+  .lesson-sidebar ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .lesson-sidebar a {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.5rem;
+    color: var(--color-ink);
+    text-decoration: none;
+    line-height: 1.35;
+  }
+  .lesson-sidebar a:hover {
+    background: var(--color-blue-50);
+  }
+  .lesson-sidebar a.active {
+    background: var(--color-blue-50);
+    color: var(--color-blue-700);
+    font-weight: 600;
+  }
+  .sidebar-check {
+    flex: 0 0 auto;
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.15rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: 999px;
+  }
+  .lesson-sidebar a.done .sidebar-check {
+    background: var(--color-success)
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E")
+      center / 0.7rem no-repeat;
+    border-color: var(--color-success);
+  }
+</style>
+
+<script>
+  import { getCompleted } from '../scripts/progress';
+  const paint = () => {
+    document.querySelectorAll<HTMLElement>('.lesson-sidebar').forEach((side) => {
+      const course = side.dataset.course!;
+      const done = getCompleted(course);
+      side.querySelectorAll<HTMLAnchorElement>('a[data-lesson]').forEach((a) => {
+        a.classList.toggle('done', done.has(a.dataset.lesson!));
+      });
+    });
+  };
+  paint();
+  document.addEventListener('itw:progress', paint);
+</script>

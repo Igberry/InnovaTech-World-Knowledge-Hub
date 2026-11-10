@@ -1,0 +1,98 @@
+---
+/**
+ * "On this page" table of contents built from the lesson's H2/H3 headings.
+ * (WEBSITE-BUILD-PROMPT.md §7.4) The active section is highlighted by a small
+ * IntersectionObserver script.
+ */
+import type { MarkdownHeading } from 'astro';
+
+export interface Props {
+  headings: MarkdownHeading[];
+}
+const { headings } = Astro.props;
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+{
+  toc.length > 1 && (
+    <nav class="lesson-toc" aria-label="On this page">
+      <p class="toc-title">On this page</p>
+      <ul>
+        {toc.map((h) => (
+          <li class={`toc-d${h.depth}`}>
+            <a href={`#${h.slug}`} data-toc={h.slug}>
+              {h.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  )
+}
+
+<style>
+  .lesson-toc {
+    font-size: 0.85rem;
+  }
+  .toc-title {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-muted);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .lesson-toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 2px solid var(--color-border);
+  }
+  .lesson-toc a {
+    display: block;
+    padding: 0.25rem 0 0.25rem 0.75rem;
+    margin-left: -2px;
+    border-left: 2px solid transparent;
+    color: var(--color-muted);
+    text-decoration: none;
+    line-height: 1.35;
+  }
+  .toc-d3 a {
+    padding-left: 1.5rem;
+    font-size: 0.8rem;
+  }
+  .lesson-toc a:hover {
+    color: var(--color-blue-700);
+  }
+  .lesson-toc a.active {
+    color: var(--color-blue-700);
+    border-left-color: var(--color-blue-600);
+    font-weight: 600;
+  }
+</style>
+
+<script>
+  const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('.lesson-toc a[data-toc]'));
+  if (links.length) {
+    const byId = new Map(links.map((l) => [l.dataset.toc!, l]));
+    const headings = links
+      .map((l) => document.getElementById(l.dataset.toc!))
+      .filter((el): el is HTMLElement => !!el);
+
+    const setActive = (id: string) => {
+      links.forEach((l) => l.classList.toggle('active', l.dataset.toc === id));
+    };
+
+    const obs = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+        if (visible[0]) setActive(visible[0].target.id);
+      },
+      { rootMargin: '-80px 0px -70% 0px', threshold: 0 },
+    );
+    headings.forEach((h) => obs.observe(h));
+    if (byId.size) links[0].classList.add('active');
+  }
+</script>

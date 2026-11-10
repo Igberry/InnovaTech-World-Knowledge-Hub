@@ -1,0 +1,36 @@
+---
+/**
+ * Adds a "Copy" button to every code block in the lesson body.
+ * (WEBSITE-BUILD-PROMPT.md §6, §7.4) Progressive: if JS is off, code still shows.
+ * Emits no markup — just the enhancer script.
+ */
+---
+
+<script>
+  const blocks = document.querySelectorAll<HTMLPreElement>('.prose pre');
+  blocks.forEach((pre) => {
+    if (pre.querySelector('.code-copy')) return;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'code-copy';
+    btn.textContent = 'Copy';
+    btn.setAttribute('aria-label', 'Copy code to clipboard');
+    pre.appendChild(btn);
+
+    btn.addEventListener('click', async () => {
+      const code = pre.querySelector('code');
+      const text = code ? code.innerText : pre.innerText;
+      try {
+        await navigator.clipboard.writeText(text.replace(/\n$/, ''));
+        btn.textContent = 'Copied';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 1600);
+      } catch {
+        btn.textContent = 'Press Ctrl+C';
+      }
+    });
+  });
+</script>

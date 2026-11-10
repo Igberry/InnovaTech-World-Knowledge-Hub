@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components';
+import { withBase } from '../utils/links';
+
+export interface Props {
+  items: Array<{ label: string; href?: string }>;
+}
+const { items } = Astro.props;
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    {
+      items.map((item, i) => (
+        <li>
+          {item.href && i < items.length - 1 ? (
+            <a href={withBase(item.href)}>{item.label}</a>
+          ) : (
+            <span aria-current="page">{item.label}</span>
+          )}
+          {i < items.length - 1 && (
+            <Icon name="lucide:chevron-right" width={14} height={14} aria-hidden="true" />
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>
+
+<style>
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.3rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .breadcrumbs li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .breadcrumbs a {
+    color: var(--color-muted);
+    text-decoration: none;
+  }
+  .breadcrumbs a:hover {
+    color: var(--color-blue-700);
+    text-decoration: underline;
+  }
+  .breadcrumbs [aria-current='page'] {
+    color: var(--color-ink);
+    font-weight: 500;
+  }
+</style>
