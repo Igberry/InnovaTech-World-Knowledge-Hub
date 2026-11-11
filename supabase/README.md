@@ -20,6 +20,7 @@ automatically. **You** run the SQL by hand in the Supabase SQL Editor for your p
 | `submissions` | Assignment links + notes a student sent | The student (own) + admin | The student, until it's reviewed |
 | `reviews` | Approve / needs-changes, score, feedback | The student (their own) + admin | Admin only |
 | `attendance` | Present / absent per mentoring session | The student (own) + admin | Admin only |
+| `certificates` | Graduate records (code, name, course, duration, date) | **Nobody can list all**; anyone can verify ONE by its exact code via the `verify_certificate` function | Admin only (issue from `/admin` → Certificates) |
 
 **Row Level Security (RLS)** is on for every table, so these rules are enforced by the database
 itself — not just the website. A student can never read another student's data, make themselves

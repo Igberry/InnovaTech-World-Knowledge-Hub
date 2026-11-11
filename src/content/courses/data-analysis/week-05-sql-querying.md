@@ -1,5 +1,5 @@
 ---
-title: "SQL I — Querying Data"
+title: "SQL I - Querying Data"
 course: "data-analysis"
 order: 5
 week: 5

@@ -13,7 +13,7 @@ downloads:
 ---
 
 **Goal:** Build a complete, multi-page Fresh Bites site in HTML using *meaningful* elements, working
-forms, and accessibility good practice — all before adding any CSS.
+forms, and accessibility good practice - all before adding any CSS.
 
 Good structure makes your site easier to style, easier to maintain, better for search engines, and
 usable by people with disabilities. This is the foundation everything else sits on.
@@ -30,7 +30,7 @@ By the end of this week you can:
 
 ## Tools to Install This Week
 
-Nothing new — keep using VS Code, Live Server, and Git from Week 1.
+Nothing new - keep using VS Code, Live Server, and Git from Week 1.
 
 ## Pre-Session Resources (about 2 hours)
 
@@ -39,7 +39,7 @@ Nothing new — keep using VS Code, Live Server, and Git from Week 1.
 - Learn: **web.dev/learn** → search "web.dev Learn HTML" and "web.dev Learn Accessibility".
 - Watch (search YouTube): *"Kevin Powell semantic HTML"* and *"Web Dev Simplified HTML forms"*.
 
-## Lesson 1: Semantic HTML — meaning, not just boxes
+## Lesson 1: Semantic HTML - meaning, not just boxes
 
 Early websites wrapped everything in `<div>` (a generic box). Modern HTML has **semantic** elements
 that say what a section *is*. This helps browsers, search engines, and screen readers.
@@ -81,13 +81,13 @@ that say what a section *is*. This helps browsers, search engines, and screen re
 |---|---|
 | `<header>` | Top of the page or a section (logo, nav) |
 | `<nav>` | A set of navigation links |
-| `<main>` | The main content — **one per page** |
+| `<main>` | The main content - **one per page** |
 | `<section>` | A thematic grouping with its own heading |
 | `<article>` | A self-contained piece (a review, a card, a blog post) |
 | `<aside>` | Related but secondary content (hours, a sidebar) |
 | `<footer>` | Bottom of the page or section (copyright, links) |
 
-> **Tip:** Still use `<div>` and `<span>` — but only when no semantic element fits (usually for styling
+> **Tip:** Still use `<div>` and `<span>` - but only when no semantic element fits (usually for styling
 > hooks). `<div>` groups block content; `<span>` wraps a bit of inline text.
 
 ### Heading hierarchy
@@ -116,7 +116,7 @@ reader users navigate by headings, so this is about access, not size.
 ```
 
 - `<figure>` + `<figcaption>` group an image with its caption.
-- Use `<table>` for **real tabular data** (like opening hours), never for page layout — that's CSS's
+- Use `<table>` for **real tabular data** (like opening hours), never for page layout - that's CSS's
   job (Week 4). A table needs `<th>` header cells and `<td>` data cells inside `<tr>` rows.
 
 ## Lesson 3: Forms
@@ -160,7 +160,7 @@ form for Fresh Bites:
   same word but play different roles.
 - **Input types** give the right keyboard and validation: `email`, `tel`, `number`, `date`, `password`.
 - **Validation attributes:** `required`, `pattern` (a rule), `min`/`max` (for numbers/dates). The
-  browser checks these before submitting — free validation.
+  browser checks these before submitting - free validation.
 - `<fieldset>` + `<legend>` group related fields with a caption.
 - A `<button type="submit">` sends the form.
 
@@ -169,7 +169,7 @@ form for Fresh Bites:
 
 ## Lesson 4: Accessibility basics
 
-Accessibility (often "a11y") means building so **everyone** can use your site — including people using
+Accessibility (often "a11y") means building so **everyone** can use your site - including people using
 screen readers, keyboards only, or who can't see colour well. It overlaps heavily with good HTML.
 
 **The essentials:**
@@ -186,7 +186,7 @@ screen readers, keyboards only, or who can't see colour well. It overlaps heavil
 - **Link text** should make sense alone: "See our menu", not "click here".
 
 > **Important:** About **15% of people** live with some disability. Accessible sites are also better for
-> everyone — clearer, faster, more usable on phones. Build it in from the start; it's much harder to
+> everyone - clearer, faster, more usable on phones. Build it in from the start; it's much harder to
 > bolt on later.
 
 ## Lesson 5: Metadata and Lighthouse
@@ -197,13 +197,13 @@ The `<head>` describes your page to browsers, search engines and social media:
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Menu — Fresh Bites, Yenagoa</title>
+  <title>Menu - Fresh Bites, Yenagoa</title>
   <meta name="description" content="Fresh Nigerian home-style food in Yenagoa. See our menu and reserve a table." />
   <link rel="icon" href="images/logo.svg" />
 </head>
 ```
 
-- `<title>` shows on the browser tab and in search results — make it specific per page.
+- `<title>` shows on the browser tab and in search results - make it specific per page.
 - The meta `description` is the summary search engines may show.
 - `viewport` makes your site work on phones (never leave it out).
 - `<link rel="icon">` sets the little tab icon (favicon).
@@ -222,7 +222,7 @@ You'll use Lighthouse all course.
 4. **Medium:** Build the reservation `<form>` with labels and validation attributes.
 5. **Medium:** Add a `<figure>` with a dish image and caption.
 6. **Stretch:** Navigate your whole site using only the `Tab` and `Enter` keys. Fix anything you can't reach.
-7. **Stretch:** Run Lighthouse Accessibility on each page and get every score to 100 (structure only — no CSS yet).
+7. **Stretch:** Run Lighthouse Accessibility on each page and get every score to 100 (structure only - no CSS yet).
 
 ## Weekly Assignment (Due Before Week 3)
 
@@ -231,7 +231,7 @@ Build the **4-page Fresh Bites HTML site** (no CSS yet):
 1. **Home** (`index.html`): welcome, tagline, intro, a few highlights.
 2. **Menu** (`menu.html`): all menu items grouped by category (use the kit's `menu.json`), with prices
    in Naira.
-3. **About** (`about.html`): the business story (fictional — say so), opening-hours table.
+3. **About** (`about.html`): the business story (fictional - say so), opening-hours table.
 4. **Contact** (`contact.html`): address, a reservation `<form>` with labels and validation.
 
 All pages share a `<header>`/`<nav>`, use semantic HTML, have correct metadata, and are published on
@@ -269,7 +269,7 @@ GitHub Pages.
 ## Facilitator Notes
 
 Students over-use `<div>` and `<section>`; push them to justify each element's meaning. The form is the
-hard part — watch for missing `for`/`id` pairing (the single most common a11y bug) and inputs without
+hard part - watch for missing `for`/`id` pairing (the single most common a11y bug) and inputs without
 labels. Make them do the "keyboard only" and Lighthouse checks in session so the habit sticks. Resist
 the urge to style anything yet; separating structure (now) from style (next week) is a deliberate
 teaching choice.
@@ -279,5 +279,5 @@ teaching choice.
 1. Why use `<nav>` and `<main>` instead of `<div>` everywhere?
 2. What connects a `<label>` to its input, and why does it matter?
 3. Name three things that make a form accessible.
-4. When is a `<table>` the right element — and when is it wrong?
+4. When is a `<table>` the right element - and when is it wrong?
 5. What does the Lighthouse Accessibility report check for?

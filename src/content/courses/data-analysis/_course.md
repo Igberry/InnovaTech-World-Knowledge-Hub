@@ -128,6 +128,6 @@ All weeks use the same fictional retail business so that skills build on each ot
 | `orders_clean.csv` | 2,000 | Clean data for analysis (Weeks 3–11) |
 | `customers.csv` | 200 | Customer details (joins) |
 | `products.csv` | 15 | Product catalogue (joins) |
-| `generate_data.py` | — | Regenerates the files. Change `random.seed(42)` to create a new version for each student. |
+| `generate_data.py` | - | Regenerates the files. Change `random.seed(42)` to create a new version for each student. |
 
 ---

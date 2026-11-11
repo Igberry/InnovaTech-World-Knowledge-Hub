@@ -6,7 +6,7 @@
  *   1. Whole sections under a heading like "## Facilitator Notes" / "Facilitator Tips".
  *      Removed from that heading until the next heading of the same or higher level.
  *   2. Blockquotes whose bold label contains "facilitator"
- *      (e.g. `> **Note for the facilitator ...`). Removed entirely — they would
+ *      (e.g. `> **Note for the facilitator ...`). Removed entirely - they would
  *      otherwise survive heading-stripping and render as a student callout.
  *
  * Runs BEFORE the callout and self-check plugins so facilitator blockquotes can

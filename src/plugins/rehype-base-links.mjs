@@ -1,7 +1,7 @@
 /**
  * Prefix root-relative links/images inside Markdown with the deployment base
  * path, so content-authored links work at /REPO/ and at a custom-domain root.
- * (WEBSITE-BUILD-PROMPT.md §9 point 2 — "never hard-code / for internal links")
+ * (WEBSITE-BUILD-PROMPT.md §9 point 2 - "never hard-code / for internal links")
  *
  * Only touches href/src that start with a single "/". External URLs, anchors,
  * mailto:/tel:, protocol-relative "//", and links already under the base are

@@ -1,5 +1,5 @@
 ---
-title: "Power BI II — DAX & Dashboards (Portfolio Project 2)"
+title: "Power BI II - DAX & Dashboards (Portfolio Project 2)"
 course: "data-analysis"
 order: 11
 week: 11

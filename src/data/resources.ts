@@ -1,7 +1,7 @@
 /**
  * Curated free learning resources shown on /resources/.
  * (WEBSITE-BUILD-PROMPT.md §7.6) Seeded from the Data Analysis setup guide.
- * The owner can add entries by appending to this list — nothing else to change.
+ * The owner can add entries by appending to this list - nothing else to change.
  *
  * YouTube channels link to a channel search (not a fixed video) because, as the
  * course notes, video links change over time.
@@ -28,7 +28,7 @@ export const resources: Resource[] = [
   { title: 'Kaggle Learn', url: 'https://www.kaggle.com/learn', category: 'Interactive practice', description: 'Free micro-courses in Python, pandas and SQL, plus practice datasets.' },
 
   // Statistics
-  { title: 'Khan Academy — Statistics', url: 'https://www.khanacademy.org/math/statistics-probability', category: 'Statistics', description: 'Clear fundamentals of statistics and probability.' },
+  { title: 'Khan Academy - Statistics', url: 'https://www.khanacademy.org/math/statistics-probability', category: 'Statistics', description: 'Clear fundamentals of statistics and probability.' },
 
   // Web development
   { title: 'MDN Web Docs', url: 'https://developer.mozilla.org', category: 'Web development', description: 'The reference for HTML, CSS and JavaScript.' },

@@ -16,7 +16,7 @@ function isActive(href: string): boolean {
 
 <header class="site-header" data-pagefind-ignore>
   <div class="container header-inner">
-    <a href={withBase('/')} class="header-logo" aria-label={`${site.name} — home`}>
+    <a href={withBase('/')} class="header-logo" aria-label={`${site.name} - home`}>
       <Logo height={38} />
     </a>
 
@@ -90,7 +90,7 @@ function isActive(href: string): boolean {
   .header-right {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
   }
   .nav-toggle {
     display: inline-flex;
@@ -121,6 +121,7 @@ function isActive(href: string): boolean {
     color: var(--color-ink);
     text-decoration: none;
     font-weight: 500;
+    white-space: nowrap;
   }
   .primary-nav a:hover {
     background: var(--color-blue-50);
@@ -132,6 +133,7 @@ function isActive(href: string): boolean {
   }
   .nav-cta {
     margin-left: 0.5rem;
+    white-space: nowrap;
   }
   /* The "Start Learning" button is a primary button, not a nav text link:
      keep its text white on the navy fill (override .primary-nav a colour). */
@@ -166,7 +168,7 @@ function isActive(href: string): boolean {
   }
 
   /* Mobile + tablet menu (open state toggled by script) */
-  @media (max-width: 1023px) {
+  @media (max-width: 1119px) {
     .primary-nav.open {
       display: flex;
       flex-direction: column;
@@ -200,7 +202,7 @@ function isActive(href: string): boolean {
   }
 
   /* Desktop */
-  @media (min-width: 1024px) {
+  @media (min-width: 1120px) {
     .nav-toggle {
       display: none;
     }

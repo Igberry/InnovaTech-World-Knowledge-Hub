@@ -12,7 +12,7 @@ downloads:
     href: "/downloads/web-development/fresh-bites-content.zip"
 ---
 
-**Goal:** Learn the core of JavaScript — variables, data types, functions, arrays and objects — and use
+**Goal:** Learn the core of JavaScript - variables, data types, functions, arrays and objects - and use
 them to work with the Fresh Bites menu data.
 
 HTML is structure, CSS is style, and **JavaScript** is behaviour. It's the programming language of the
@@ -90,7 +90,7 @@ const guests = 6;
 if (guests > 8) {
   console.log("You need to book ahead.");
 } else if (guests > 4) {
-  console.log("Large table — we'll arrange it.");
+  console.log("Large table - we'll arrange it.");
 } else {
   console.log("Walk right in.");
 }
@@ -108,7 +108,7 @@ function formatNaira(amount) {
   }).format(amount);
 }
 
-// Function (arrow function — shorter syntax)
+// Function (arrow function - shorter syntax)
 const addVat = (price) => price * 1.075;
 
 console.log(formatNaira(3500));  // ₦3,500.00
@@ -116,7 +116,7 @@ console.log(addVat(3500));       // 3762.5
 ```
 
 - A **function** is reusable code that takes **arguments** and usually `return`s a value.
-- **Arrow functions** are a shorter way to write functions — you'll see them everywhere in React.
+- **Arrow functions** are a shorter way to write functions - you'll see them everywhere in React.
 - `Intl.NumberFormat("en-NG", { style: "currency", currency: "NGN" })` is the correct, built-in way to
   format Naira. Use it instead of writing "₦" by hand.
 
@@ -179,7 +179,7 @@ console.log(dish["price"]);   // 3500
 dish.price = 3800;            // update a value
 ```
 
-Arrays of objects are how real data is modelled — exactly like the kit's `menu.json`:
+Arrays of objects are how real data is modelled - exactly like the kit's `menu.json`:
 
 ```js
 const menu = [
@@ -197,7 +197,7 @@ const grandTotal = menu.reduce((sum, d) => sum + d.price, 0);
 console.log(formatNaira(grandTotal));
 ```
 
-**Destructuring and spread** (introductory) — you'll use these a lot later:
+**Destructuring and spread** (introductory) - you'll use these a lot later:
 
 ```js
 const { name, price } = dish;        // pull fields into variables
@@ -206,7 +206,7 @@ const updated = { ...dish, price: 4000 }; // copy, overriding price
 
 ## Lesson 6: Reading errors and debugging
 
-When something breaks, read the error in the Console — it names the file, the line, and the problem
+When something breaks, read the error in the Console - it names the file, the line, and the problem
 (e.g. `Uncaught TypeError: ... is not a function`). Then:
 
 - `console.log()` the values around the problem to see what they actually are.
@@ -226,7 +226,7 @@ Use the kit's `menu.json` data (copy it into a `menu` array).
 3. **Medium:** Use `filter` to get all items under ₦2,000.
 4. **Medium:** Use `find` to get the item with id `"suya-platter"`.
 5. **Medium:** Use `reduce` to total the price of all Drinks.
-6. **Medium:** Write `formatNaira(amount)` and print every item as `"Name — ₦price"`.
+6. **Medium:** Write `formatNaira(amount)` and print every item as `"Name - ₦price"`.
 7. **Stretch:** Write `itemsByCategory(category)` that returns the items in a given category.
 8. **Stretch:** Write `cartTotal(ids)` that takes an array of item ids and returns the formatted total.
 
@@ -271,7 +271,7 @@ console):
 
 ## Facilitator Notes
 
-Many beginners find the jump to programming logic the hardest in the course — go slow, run everything
+Many beginners find the jump to programming logic the hardest in the course - go slow, run everything
 live, and let them predict outputs before you run. The four array methods (`map`/`filter`/`find`/`reduce`)
 are the single highest-value skill this week and recur in every later week, so over-invest here. Insist
 they run code themselves rather than watch. If a learner is overwhelmed, drop `reduce` to a stretch goal

@@ -9,7 +9,7 @@ estimatedHours: 12
 tools: ["Node.js", "Vite", "React"]
 ---
 
-**Goal:** Learn React — the most popular way to build web interfaces — by rebuilding the Fresh Bites
+**Goal:** Learn React - the most popular way to build web interfaces - by rebuilding the Fresh Bites
 menu and cart as reusable **components** with **props** and **state**.
 
 React lets you build complex UIs out of small, reusable pieces and keeps the screen in sync with your
@@ -39,7 +39,7 @@ Node.js and Vite (you'll scaffold a React project with Vite).
 As pages grow, hand-writing DOM updates (Week 6) gets messy. **React** flips it around: you describe
 what the UI should look like for the current data, and React updates the page for you.
 
-The building block is a **component** — a function that returns UI. Create a React project with Vite:
+The building block is a **component** - a function that returns UI. Create a React project with Vite:
 
 ```bash
 npm create vite@latest fresh-bites-react
@@ -64,7 +64,7 @@ export default Welcome;
 
 ## Lesson 2: JSX
 
-The markup in React is **JSX** — HTML-like syntax inside JavaScript. A few rules differ from HTML:
+The markup in React is **JSX** - HTML-like syntax inside JavaScript. A few rules differ from HTML:
 
 ```jsx
 function Card() {
@@ -83,7 +83,7 @@ function Card() {
 - A component must return **one** top-level element (wrap siblings in a `<div>` or an empty `<>…</>`).
 - Close every tag, including `<img />` and `<br />`.
 
-## Lesson 3: Props — passing data in
+## Lesson 3: Props - passing data in
 
 **Props** pass data from a parent component to a child, like function arguments:
 
@@ -108,7 +108,7 @@ function MenuItem({ name, price }) {
 
 - Destructure props in the parameter list: `function MenuItem({ name, price })`.
 - Pass strings in quotes and other values in braces: `price={2500}`.
-- Props are **read-only** — a component never changes its own props.
+- Props are **read-only** - a component never changes its own props.
 
 ## Lesson 4: Rendering lists with keys
 
@@ -157,14 +157,14 @@ function Counter() {
 ```
 
 - `useState(initial)` returns the current value and a **setter** function.
-- Call the setter (`setCount(...)`) to change state — **never** assign directly. React then re-renders.
+- Call the setter (`setCount(...)`) to change state - **never** assign directly. React then re-renders.
 - Handle events with camelCase props: `onClick`, `onChange`, `onSubmit`.
 
-> **Common mistakes:** mutating state directly (`cart.push(...)` then expecting a re-render — instead
+> **Common mistakes:** mutating state directly (`cart.push(...)` then expecting a re-render - instead
 > create a new array: `setCart([...cart, item])`); forgetting `key` on list items; lowercase component
 > names (must be capitalised).
 
-## Lesson 6: Lifting state up — the cart
+## Lesson 6: Lifting state up - the cart
 
 When two components need the same data (the menu adds to the cart; the cart displays it), put the state
 in their **common parent** and pass it down:
@@ -189,8 +189,8 @@ function App() {
 The parent owns `cart`; children receive functions as props to update it. This "state lives up, data and
 callbacks flow down" pattern is the heart of React.
 
-> **Note:** `useEffect` (introduced next week) runs side effects — like fetching data or saving to
-> `localStorage` — after render. For now, focus on components, props and `useState`.
+> **Note:** `useEffect` (introduced next week) runs side effects - like fetching data or saving to
+> `localStorage` - after render. For now, focus on components, props and `useState`.
 
 ## Practice Exercises
 
@@ -245,7 +245,7 @@ callbacks flow down" pattern is the heart of React.
 
 The two things that trip beginners: direct state mutation (drill "new array/object, then set") and
 "where should this state live?" (teach: in the lowest common parent). Keep components tiny at first.
-Don't introduce `useEffect`, context or TypeScript yet — resist scope creep; props + `useState` +
+Don't introduce `useEffect`, context or TypeScript yet - resist scope creep; props + `useState` +
 lifting state is plenty for one week. Have them say out loud "props flow down, state lives up".
 
 ## Self-Check Questions

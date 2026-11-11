@@ -34,12 +34,60 @@ async function selectAll<T>(table: string, columns: string): Promise<T[]> {
   return (data as T[]) ?? [];
 }
 
+export interface AdminCertificate {
+  id: string;
+  code: string;
+  student_name: string;
+  course: string;
+  duration: string | null;
+  grade: string | null;
+  issued_at: string;
+}
+
 export const getProfiles = () => selectAll<AdminProfile>('profiles', 'id, full_name, email, cohort');
 export const getEnrollments = () => selectAll<AdminEnrollment>('enrollments', 'user_id, course_slug, status, enrolled_at');
 export const getProgress = () => selectAll<AdminProgress>('lesson_progress', 'user_id, course_slug, lesson_slug, updated_at');
 export const getSubmissions = () => selectAll<AdminSubmission>('submissions', 'id, user_id, course_slug, lesson_slug, link_url, note, submitted_at');
 export const getReviews = () => selectAll<AdminReview>('reviews', 'submission_id, status, score, feedback, reviewed_at');
 export const getAttendance = () => selectAll<AdminAttendance>('attendance', 'id, user_id, course_slug, session_date, status, note');
+export const getCertificates = () =>
+  selectAll<AdminCertificate>('certificates', 'id, code, student_name, course, duration, grade, issued_at');
+
+export async function issueCertificate(c: {
+  code: string;
+  student_name: string;
+  course: string;
+  duration?: string;
+  grade?: string;
+  issued_at?: string;
+}): Promise<Result> {
+  const sb = getSupabase();
+  if (!sb) return { ok: false, error: 'Portal not configured.' };
+  try {
+    const { error } = await sb.from('certificates').insert({
+      code: c.code.trim(),
+      student_name: c.student_name.trim(),
+      course: c.course.trim(),
+      duration: c.duration?.trim() || null,
+      grade: c.grade?.trim() || null,
+      ...(c.issued_at ? { issued_at: c.issued_at } : {}),
+    });
+    return error ? { ok: false, error: error.message } : { ok: true, data: undefined };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
+export async function deleteCertificate(id: string): Promise<Result> {
+  const sb = getSupabase();
+  if (!sb) return { ok: false, error: 'Portal not configured.' };
+  try {
+    const { error } = await sb.from('certificates').delete().eq('id', id);
+    return error ? { ok: false, error: error.message } : { ok: true, data: undefined };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
 
 export async function saveReview(
   submissionId: string,

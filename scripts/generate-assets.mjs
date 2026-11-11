@@ -28,15 +28,18 @@ async function run() {
     process.exit(1);
   }
 
-  // Favicons from the monogram SVG.
-  const svg = readFileSync(FAVICON_SVG);
-  await sharp(svg, { density: 384 }).resize(32, 32).png().toFile(join(PUB, 'favicon-32.png'));
-  await sharp(svg, { density: 384 }).resize(16, 16).png().toFile(join(PUB, 'favicon-16.png'));
+  // Favicons & app icon from the LOGO's symbol (crop out the "INNOVATECH" wordmark,
+  // which is unreadable at icon sizes). The logo is 447x347 with the symbol on top.
+  const symbol = await sharp(LOGO).extract({ left: 91, top: 0, width: 265, height: 265 }).toBuffer();
+  const transparent = { r: 255, g: 255, b: 255, alpha: 0 };
 
-  // Apple touch icon: logo contained on white with padding.
-  const logoForApple = await sharp(LOGO).resize(150, 150, { fit: 'contain', background: '#ffffff' }).toBuffer();
+  await sharp(symbol).resize(32, 32, { fit: 'contain', background: transparent }).png().toFile(join(PUB, 'favicon-32.png'));
+  await sharp(symbol).resize(16, 16, { fit: 'contain', background: transparent }).png().toFile(join(PUB, 'favicon-16.png'));
+
+  // Apple touch icon: symbol centred on white (iOS adds no transparency).
+  const appleSymbol = await sharp(symbol).resize(152, 152, { fit: 'contain', background: '#ffffff' }).toBuffer();
   await sharp({ create: { width: 180, height: 180, channels: 4, background: '#ffffff' } })
-    .composite([{ input: logoForApple, gravity: 'center' }])
+    .composite([{ input: appleSymbol, gravity: 'center' }])
     .png()
     .toFile(join(PUB, 'apple-touch-icon.png'));
 

@@ -1,7 +1,7 @@
-/* InnovaTech World Knowledge Hub — global styles & design tokens
+/* InnovaTech World Knowledge Hub - global styles & design tokens
    (WEBSITE-BUILD-PROMPT.md §2). Royal blue + white. Poppins. No gold, no emoji. */
 
-/* Self-hosted Poppins (no Google Fonts request) — Latin subset, swap display. */
+/* Self-hosted Poppins (no Google Fonts request) - Latin subset, swap display. */
 @import '@fontsource/poppins/latin-400.css';
 @import '@fontsource/poppins/latin-500.css';
 @import '@fontsource/poppins/latin-600.css';
@@ -16,7 +16,7 @@
   --color-blue-200: #a7c3dd;
   --color-blue-400: #3f6d97;
   --color-blue-500: #1d4e7e;
-  --color-blue-600: #0b3b66; /* primary brand colour — matches the logo navy */
+  --color-blue-600: #0b3b66; /* primary brand colour - matches the logo navy */
   --color-blue-700: #0a3057;
   --color-blue-900: #04172b;
 

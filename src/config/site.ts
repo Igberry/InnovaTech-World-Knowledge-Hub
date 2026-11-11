@@ -16,7 +16,7 @@ export const site = {
   description:
     'Practical, beginner-friendly digital-skills training from InnovaTech World in Yenagoa, Bayelsa State, Nigeria. Follow weekly lessons, download real datasets, and build a job-ready portfolio.',
 
-  // Deployment — these are overridden by SITE_URL / BASE_PATH env vars at build
+  // Deployment - these are overridden by SITE_URL / BASE_PATH env vars at build
   // time (see astro.config.mjs). Kept here only for display/fallback.
   url: 'https://TODO.github.io/innovatech-knowledge-hub',
 

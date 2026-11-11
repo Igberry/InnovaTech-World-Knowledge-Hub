@@ -1,5 +1,5 @@
 ---
-title: "SQL II — Joins, CTEs & Window Functions (Mid-Course Checkpoint)"
+title: "SQL II - Joins, CTEs & Window Functions (Mid-Course Checkpoint)"
 course: "data-analysis"
 order: 6
 week: 6

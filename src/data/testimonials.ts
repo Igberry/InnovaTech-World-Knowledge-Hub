@@ -8,7 +8,7 @@
 export interface Testimonial {
   quote: string;
   name: string;
-  /** Optional: course taken, role, or location — only what the person agreed to show. */
+  /** Optional: course taken, role, or location - only what the person agreed to show. */
   detail?: string;
 }
 

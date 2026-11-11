@@ -1,5 +1,5 @@
 ---
-title: "Python I — Programming Basics"
+title: "Python I - Programming Basics"
 course: "data-analysis"
 order: 7
 week: 7

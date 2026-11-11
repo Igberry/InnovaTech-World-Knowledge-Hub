@@ -8,7 +8,7 @@ export async function GET(context: APIContext) {
   // Base-aware site root so item links include the deployment base path.
   const siteRoot = new URL(import.meta.env.BASE_URL, context.site ?? site.url).toString();
   return rss({
-    title: `${site.name} — Insights`,
+    title: `${site.name} - Insights`,
     description: 'Practical articles on tech careers, remote work, and learning digital skills.',
     site: siteRoot,
     items: posts.map((post) => ({

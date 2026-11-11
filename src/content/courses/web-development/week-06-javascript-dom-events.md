@@ -12,7 +12,7 @@ downloads:
     href: "/downloads/web-development/fresh-bites-content.zip"
 ---
 
-**Goal:** Connect JavaScript to the page — select and change elements, respond to clicks and form input,
+**Goal:** Connect JavaScript to the page - select and change elements, respond to clicks and form input,
 and build an interactive menu filter and cart. This week also includes the **mid-course checkpoint**.
 
 Last week was the language; this week it comes alive on the page through the **DOM**.
@@ -40,7 +40,7 @@ Nothing new.
 ## Lesson 1: What is the DOM?
 
 When the browser loads your HTML, it builds a live, in-memory model of the page called the **DOM**
-(Document Object Model) — a tree of objects you can read and change with JavaScript. Change the DOM, and
+(Document Object Model) - a tree of objects you can read and change with JavaScript. Change the DOM, and
 the page updates instantly.
 
 ```js
@@ -70,11 +70,11 @@ el.style.color = "#c8372d";                // change a style (prefer classes)
 ```
 
 > **Tip:** Prefer changing **classes** over inline styles. Keep the look in your CSS and just toggle
-> classes in JavaScript — cleaner and easier to maintain.
+> classes in JavaScript - cleaner and easier to maintain.
 
 ## Lesson 3: Events
 
-An **event** is something that happens — a click, typing, submitting a form. You respond with an
+An **event** is something that happens - a click, typing, submitting a form. You respond with an
 **event listener**:
 
 ```js
@@ -113,7 +113,7 @@ menu.addEventListener("click", (event) => {
 });
 ```
 
-**Event delegation** means putting one listener on a parent instead of many on each child — essential
+**Event delegation** means putting one listener on a parent instead of many on each child - essential
 when items are added dynamically (your cart buttons).
 
 ## Lesson 4: Rendering a list from data
@@ -151,7 +151,7 @@ renderMenu(menu);
 - `data-id="${item.id}"` stores the id on the button so the click handler knows which item.
 
 > **Warning:** Only use `innerHTML` with data **you** control (like your own menu). Never inject text a
-> user typed with `innerHTML` — it's a security risk (XSS). For user text, use `textContent`.
+> user typed with `innerHTML` - it's a security risk (XSS). For user text, use `textContent`.
 
 ## Lesson 5: Build the menu filter + cart
 
@@ -171,7 +171,7 @@ function addToCart(id) {
 function renderCart() {
   const list = document.querySelector("#cart");
   const totalEl = document.querySelector("#cart-total");
-  list.innerHTML = cart.map((i) => `<li>${i.name} — ${naira(i.price)}</li>`).join("");
+  list.innerHTML = cart.map((i) => `<li>${i.name} - ${naira(i.price)}</li>`).join("");
   const total = cart.reduce((sum, i) => sum + i.price, 0);
   totalEl.textContent = naira(total);
 }
@@ -284,10 +284,10 @@ not in this repo.)
 
 ## Facilitator Notes
 
-The DOM is where it clicks that "code can change the page" — do lots of live, visible changes. The two
+The DOM is where it clicks that "code can change the page" - do lots of live, visible changes. The two
 common bugs: running JS before the element exists (put the `<script>` at the end of `<body>`, or use
 `defer`), and attaching listeners to elements created later (teach event delegation for the cart). Use
-the checkpoint honestly to catch gaps now — Weeks 7–11 build directly on this. Keep all model answers in
+the checkpoint honestly to catch gaps now - Weeks 7–11 build directly on this. Keep all model answers in
 `_facilitator/`.
 
 ## Self-Check Questions

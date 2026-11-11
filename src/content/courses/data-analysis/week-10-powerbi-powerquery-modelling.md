@@ -1,5 +1,5 @@
 ---
-title: "Power BI I — Power Query & Data Modelling"
+title: "Power BI I - Power Query & Data Modelling"
 course: "data-analysis"
 order: 10
 week: 10

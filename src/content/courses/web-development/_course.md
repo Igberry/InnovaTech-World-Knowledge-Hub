@@ -19,7 +19,7 @@ order: 2
 featured: true
 ---
 
-**Learn to build real websites and web apps — starting from absolute zero.** Over 12 weeks you will
+**Learn to build real websites and web apps - starting from absolute zero.** Over 12 weeks you will
 go from your first line of HTML to a deployed React app backed by a real database, building one
 growing project the whole way so your skills stack into a portfolio you can show.
 
@@ -40,7 +40,7 @@ laptops and unreliable power or internet.
 
 ## One running project
 
-Everything you build is for one fictional business — **Yenagoa Fresh Bites**, a small restaurant and
+Everything you build is for one fictional business - **Yenagoa Fresh Bites**, a small restaurant and
 takeaway. As you learn, the site grows from plain pages into a full app with a menu, cart,
 reservations and a database. By the end you have a complete, deployed project (plus four more) in your
 portfolio. The content kit (brand, menu data, colours, placeholders) is in the files for Week 1.
@@ -78,7 +78,7 @@ portfolio. The content kit (brand, menu data, colours, placeholders) is in the f
 
 Each week has a **90-minute in-person mentoring session**: we review the past week, code live together,
 pair on a tricky part, review your committed work, and brief the next assignment. You do the bulk of
-the work on your own between sessions — that independence is part of becoming a developer.
+the work on your own between sessions - that independence is part of becoming a developer.
 
 ## Assessment & certification
 
@@ -93,7 +93,7 @@ A **completion certificate** is awarded at **70% or above** overall.
 
 ## Honest outcomes
 
-Beginners do not become fully job-ready in 12 weeks — that takes sustained practice beyond the course.
+Beginners do not become fully job-ready in 12 weeks - that takes sustained practice beyond the course.
 What this course gives you is real: a **deployed portfolio of five projects**, a professional GitHub
 profile, the habit of building and shipping, and a clear plan for applying. We measure success by
 **work you can show and consistent practice**, never by promises. We do not guarantee a job or any
@@ -106,7 +106,7 @@ you create yourself in Week 11.
 
 ## Facilitator Notes
 
-Pace to the learner, not the calendar — it is fine to spend two sessions on a hard week (CSS layout,
+Pace to the learner, not the calendar - it is fine to spend two sessions on a hard week (CSS layout,
 the DOM, React state, Supabase RLS are the usual sticking points). Insist on typing code (not pasting)
 for the first six weeks, and check the Git commit history every week as a signal of consistent effort.
 Keep the full solutions in the private `_facilitator/` folder, never in the public repo.

@@ -5,7 +5,7 @@
  * Logged in:  the database is the source of truth. We also mirror the signed-in
  *             user's DB progress into the localStorage cache so the existing
  *             sidebar and course progress bars (which read the cache and the
- *             `itw:progress` event) stay correct — without rewriting them.
+ *             `itw:progress` event) stay correct - without rewriting them.
  */
 import { isPortalEnabled } from './supabase';
 import { currentUser } from './auth';

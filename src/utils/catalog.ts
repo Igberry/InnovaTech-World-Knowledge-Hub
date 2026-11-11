@@ -1,7 +1,7 @@
 /**
  * Build a small course/lesson catalog at build time for the portal pages to read
- * client-side (as a JSON island). Lesson content is NOT included — only slugs,
- * titles and links — so the catalog stays tiny.
+ * client-side (as a JSON island). Lesson content is NOT included - only slugs,
+ * titles and links - so the catalog stays tiny.
  */
 import { getAllCourses, getLessons, lessonSlug } from './courses';
 import { withBase } from './links';

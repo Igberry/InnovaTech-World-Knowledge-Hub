@@ -1,10 +1,10 @@
 ---
-title: "Python II — pandas for Data Analysis"
+title: "Python II - pandas for Data Analysis"
 course: "data-analysis"
 order: 8
 week: 8
 phase: "Programming"
-summary: "Load, explore, filter, summarise, and combine data with pandas — repeating everything you've done in Excel and SQL, but faster and repeatable."
+summary: "Load, explore, filter, summarise, and combine data with pandas - repeating everything you've done in Excel and SQL, but faster and repeatable."
 estimatedHours: 10
 tools: ["Python", "pandas"]
 downloads:
@@ -17,7 +17,7 @@ downloads:
   - label: "Orders (raw, messy) CSV"
     href: "/downloads/data-analysis/orders_raw.csv"
 ---
-**Goal:** Load, explore, filter, summarise, and combine data with pandas — repeating everything you've done in Excel and SQL, but faster and repeatable.
+**Goal:** Load, explore, filter, summarise, and combine data with pandas - repeating everything you've done in Excel and SQL, but faster and repeatable.
 
 ## Learning Objectives
 - Load CSVs into a DataFrame and inspect them
