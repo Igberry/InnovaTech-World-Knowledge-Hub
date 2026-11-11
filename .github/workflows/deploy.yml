@@ -1,8 +1,10 @@
 name: Deploy to GitHub Pages
 
+# Hosting is on Vercel (auto-deploys on push). This GitHub Pages workflow is kept
+# as an optional alternative and runs ONLY when triggered by hand
+# (Actions → Deploy to GitHub Pages → Run workflow). To make Pages the automatic
+# host instead, add `push: { branches: [main] }` back here and enable Pages.
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:

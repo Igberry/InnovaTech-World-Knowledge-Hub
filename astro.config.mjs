@@ -13,11 +13,18 @@ import { remarkAssignment } from './src/plugins/remark-assignment.mjs';
 import { rehypeBaseLinks } from './src/plugins/rehype-base-links.mjs';
 import { rehypeTableWrap } from './src/plugins/rehype-table-wrap.mjs';
 
-// Deployment is base-path aware so the same code works at
-// https://USERNAME.github.io/REPO/ and later at a custom domain with base "/".
-// (WEBSITE-BUILD-PROMPT.md §9)
-const SITE_URL = process.env.SITE_URL || 'https://TODO.github.io';
-const BASE_PATH = process.env.BASE_PATH || '/innovatech-knowledge-hub';
+// Deployment is base-path aware so the same code works on Vercel (served at the
+// root), on GitHub Pages (served under /REPO/), and on a custom domain.
+// (WEBSITE-BUILD-PROMPT.md §9) Explicit SITE_URL / BASE_PATH env vars always win.
+const onVercel = Boolean(process.env.VERCEL);
+const vercelProdUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL;
+
+const SITE_URL =
+  process.env.SITE_URL ||
+  (vercelProdUrl ? `https://${vercelProdUrl}` : 'https://TODO.github.io');
+
+// On Vercel the site lives at the domain root; elsewhere default to the GH Pages subpath.
+const BASE_PATH = process.env.BASE_PATH || (onVercel ? '/' : '/innovatech-knowledge-hub');
 
 export default defineConfig({
   site: SITE_URL,

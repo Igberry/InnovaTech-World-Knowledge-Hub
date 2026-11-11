@@ -10,7 +10,8 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'dist');
-const RAW_BASE = process.env.BASE_PATH || '/innovatech-knowledge-hub';
+// Must match astro.config.mjs base resolution.
+const RAW_BASE = process.env.BASE_PATH || (process.env.VERCEL ? '/' : '/innovatech-knowledge-hub');
 const BASE = RAW_BASE === '/' ? '' : RAW_BASE.replace(/\/+$/, '');
 
 if (!existsSync(DIST)) {
