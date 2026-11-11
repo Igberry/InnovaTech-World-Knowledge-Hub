@@ -2,10 +2,12 @@
 import { Icon } from 'astro-icon/components';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
+import ContactForm from '../components/ContactForm.astro';
 import { site } from '../config/site';
-import { emailUrl, activeSocials } from '../utils/links';
+import { emailUrl, activeSocials, formEndpoint } from '../utils/links';
 
 const email = emailUrl();
+const hasForm = formEndpoint('contact') !== null;
 const socials = activeSocials();
 const socialIcon: Record<string, string> = {
   facebook: 'lucide:facebook',
@@ -24,6 +26,15 @@ const socialIcon: Record<string, string> = {
     <h1>Contact us</h1>
     <p>The fastest way to reach us is WhatsApp. We'd love to hear from you.</p>
   </header>
+
+  {
+    hasForm && (
+      <section class="card form-card">
+        <h2>Send us a message</h2>
+        <ContactForm />
+      </section>
+    )
+  }
 
   <div class="contact-grid">
     <div class="card contact-main">
@@ -76,6 +87,15 @@ const socialIcon: Record<string, string> = {
     font-size: 1.1rem;
     margin-top: 0.5rem;
     max-width: 50ch;
+  }
+  .form-card {
+    padding: 1.5rem;
+    max-width: 48rem;
+    margin-bottom: 1.25rem;
+  }
+  .form-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
   }
   .contact-grid {
     display: grid;

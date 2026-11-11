@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import CourseCard from '../components/CourseCard.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import { getAllCourses, getLessons, lessonSlug } from '../utils/courses';
+import { testimonials } from '../data/testimonials';
 import { site } from '../config/site';
 import { withBase } from '../utils/links';
 
@@ -179,6 +180,26 @@ const values = [
     </div>
   </section>
 
+  <!-- Testimonials (shown only when real, permitted entries exist) -->
+  {
+    testimonials.length > 0 && (
+      <section class="section">
+        <h2>What students say</h2>
+        <div class="testimonial-grid">
+          {testimonials.map((t) => (
+            <figure class="card testimonial">
+              <blockquote>{t.quote}</blockquote>
+              <figcaption>
+                <strong>{t.name}</strong>
+                {t.detail && <span>{t.detail}</span>}
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+    )
+  }
+
   <!-- CTA band -->
   <section class="cta-band">
     <div class="container cta-inner">
@@ -353,6 +374,35 @@ const values = [
     margin-top: 0.2rem;
   }
 
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .testimonial {
+    padding: 1.5rem;
+    margin: 0;
+  }
+  .testimonial blockquote {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.6;
+  }
+  .testimonial blockquote::before {
+    content: '“';
+    color: var(--color-blue-400);
+    font-size: 1.5rem;
+    margin-right: 0.1rem;
+  }
+  .testimonial figcaption {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .testimonial figcaption span {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+  }
   .cta-band {
     background: var(--color-blue-900);
     color: #fff;
@@ -377,7 +427,8 @@ const values = [
 
   @media (min-width: 680px) {
     .card-grid,
-    .step-grid {
+    .step-grid,
+    .testimonial-grid {
       grid-template-columns: repeat(2, 1fr);
     }
     .value-grid {
@@ -389,7 +440,8 @@ const values = [
       grid-template-columns: 1.1fr 0.9fr;
       padding: 3.5rem 3rem;
     }
-    .card-grid {
+    .card-grid,
+    .testimonial-grid {
       grid-template-columns: repeat(3, 1fr);
     }
     .step-grid {

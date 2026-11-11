@@ -68,4 +68,20 @@ const lessons = defineCollection({
   }),
 });
 
-export const collections = { courses, lessons };
+/**
+ * Insights: short blog articles (tech careers in Nigeria, remote work, study tips).
+ */
+const insights = defineCollection({
+  loader: glob({ pattern: '*.md', base: './src/content/insights' }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    publishDate: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
+    author: z.string().optional(),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { courses, lessons, insights };

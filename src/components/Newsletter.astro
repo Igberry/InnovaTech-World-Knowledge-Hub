@@ -1,0 +1,76 @@
+---
+/**
+ * Newsletter signup (WEBSITE-BUILD-PROMPT.md §10). Posts to the configured form
+ * service. Renders nothing if no endpoint is set, so it never shows a dead form.
+ */
+import { Icon } from 'astro-icon/components';
+import { formEndpoint } from '../utils/links';
+
+export interface Props {
+  heading?: string;
+  blurb?: string;
+}
+const { heading = 'Get learning tips by email', blurb = 'Occasional, practical emails. No spam, unsubscribe any time.' } =
+  Astro.props;
+const endpoint = formEndpoint('newsletter');
+---
+
+{
+  endpoint && (
+    <section class="newsletter">
+      <div>
+        <h2>{heading}</h2>
+        <p>{blurb}</p>
+      </div>
+      <form class="newsletter-form" action={endpoint} method="POST">
+        <label for="nl-email" class="sr-only">Email address</label>
+        <input id="nl-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" class="nl-hp" aria-hidden="true" />
+        <button type="submit" class="btn btn-primary">
+          Subscribe
+          <Icon name="lucide:arrow-right" width={16} height={16} aria-hidden="true" />
+        </button>
+      </form>
+    </section>
+  )
+}
+
+<style>
+  .newsletter {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    background: var(--color-blue-50);
+    border: 1px solid var(--color-blue-100);
+    border-radius: 1rem;
+    padding: 1.5rem;
+  }
+  .newsletter h2 {
+    font-size: 1.25rem;
+  }
+  .newsletter p {
+    color: var(--color-muted);
+    margin-top: 0.25rem;
+  }
+  .newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 16rem;
+    max-width: 24rem;
+  }
+  .newsletter-form input[type='email'] {
+    flex: 1;
+    font: inherit;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: var(--surface);
+    color: var(--color-ink);
+  }
+  .nl-hp {
+    display: none;
+  }
+</style>

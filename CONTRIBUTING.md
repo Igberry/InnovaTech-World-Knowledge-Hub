@@ -159,7 +159,43 @@ Do **not** add to this public repository:
 
 ---
 
-## 9. Troubleshooting
+## 9. Growth content (blog, forms, testimonials, showcase, certificates)
+
+**Blog / Insights:** add a `.md` file to `src/content/insights/`. Frontmatter:
+
+```yaml
+---
+title: "Your post title"
+description: "One or two sentences for the listing and search."
+publishDate: 2026-11-20
+author: "David C. Igberi"   # optional
+tags: ["careers"]           # optional
+draft: false                # true = hidden from the live site
+---
+
+Write the article body in Markdown.
+```
+
+It appears on `/insights/` and in the RSS feed automatically.
+
+**Contact form & newsletter:** both are **off** until you set a form service. In
+`src/config/site.ts` set `forms.provider: "formspree"` and paste your Formspree endpoints
+into `forms.contactEndpoint` / `forms.newsletterEndpoint`. Until then, the contact form is
+hidden (the WhatsApp/email options still show) and the newsletter box doesn't appear.
+
+**Testimonials:** edit `src/data/testimonials.ts`. Add entries **only with the person's
+permission**. The section on the home page shows automatically once the list is non-empty.
+
+**Student showcase:** edit `src/data/showcase.ts`. Add students **only with written
+permission**. `/showcase` shows a "submit your project" message while the list is empty.
+
+**Certificate verification:** edit `src/data/certificates.ts`. Store only the certificate ID,
+name, course, and issue date — nothing more — and only with the learner's consent. Visitors
+check an ID at `/verify`.
+
+> **Important:** never invent testimonials, students, statistics, or certificates. See section 8.
+
+## 10. Troubleshooting
 
 | Message | What it means |
 |---|---|

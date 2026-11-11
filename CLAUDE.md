@@ -9,9 +9,10 @@ Lucide icons (`astro-icon`) · GitHub Pages via Actions. Node 20.3+.
 
 ## Folder map
 - `src/config/site.ts` — ALL editable settings (contacts, nav, social, analytics). `hidden-sections.mjs` — facilitator headings.
-- `src/content/courses/<slug>/` — `_course.md` + lesson `.md`. Schemas in `src/content/config.ts`.
-- `src/pages/` — home, courses, course, lesson, about, contact, resources, 404.
+- `src/content/courses/<slug>/` — `_course.md` + lesson `.md`. `src/content/insights/` — blog posts. Schemas in `src/content/config.ts`.
+- `src/pages/` — home, courses, course, lesson, insights, about, contact, resources, search, showcase, verify, 404, rss.xml.
 - `src/components/`, `src/layouts/` — UI. `src/plugins/` — remark/rehype. `src/scripts/progress.ts` — localStorage.
+- `src/data/` — resources, testimonials, showcase, certificates (testimonials/showcase/certificates are EMPTY until the owner adds permitted entries).
 - `_import/` — course SOURCE (git-ignored, has facilitator notes). `scripts/` — import, assets, checks.
 
 ## Commands

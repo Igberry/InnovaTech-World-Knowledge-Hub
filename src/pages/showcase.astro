@@ -1,0 +1,108 @@
+---
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { showcase } from '../data/showcase';
+---
+
+<BaseLayout
+  title="Student Showcase"
+  description="Projects and portfolios built by InnovaTech World students."
+>
+  <header class="page-head">
+    <h1>Student showcase</h1>
+    <p>Real projects built by InnovaTech World students, shared with their permission.</p>
+  </header>
+
+  {
+    showcase.length === 0 ? (
+      <div class="card empty-state">
+        <Icon name="lucide:sparkles" width={28} height={28} aria-hidden="true" />
+        <h2>Student projects will appear here</h2>
+        <p>
+          Finished a project you're proud of? Ask about being featured — we only showcase work
+          with your written permission.
+        </p>
+        <WhatsAppButton label="Submit your project" />
+      </div>
+    ) : (
+      <div class="showcase-grid">
+        {showcase.map((s) => (
+          <a class="card card-link showcase-card" href={s.url} target="_blank" rel="noopener noreferrer">
+            <span class="showcase-course chip">{s.course}</span>
+            <h2>{s.projectTitle}</h2>
+            {s.summary && <p>{s.summary}</p>}
+            <span class="showcase-by">
+              by {s.name}
+              <Icon name="lucide:external-link" width={15} height={15} aria-hidden="true" />
+            </span>
+          </a>
+        ))}
+      </div>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .page-head {
+    margin: 0.5rem 0 1.5rem;
+  }
+  .page-head h1 {
+    font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  }
+  .page-head p {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    max-width: 55ch;
+  }
+  .empty-state {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    max-width: 36rem;
+    margin-inline: auto;
+    color: var(--color-blue-600);
+  }
+  .empty-state h2 {
+    font-size: 1.3rem;
+    margin: 0.75rem 0 0.5rem;
+  }
+  .empty-state p {
+    color: var(--color-muted);
+    margin-bottom: 1.25rem;
+  }
+  .showcase-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .showcase-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.4rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .showcase-course {
+    align-self: flex-start;
+  }
+  .showcase-card h2 {
+    font-size: 1.25rem;
+  }
+  .showcase-card p {
+    color: var(--color-muted);
+  }
+  .showcase-by {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-weight: 600;
+    color: var(--color-blue-700);
+  }
+  @media (min-width: 760px) {
+    .showcase-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

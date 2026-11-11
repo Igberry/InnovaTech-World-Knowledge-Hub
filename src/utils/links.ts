@@ -42,6 +42,13 @@ export function activeSocials(): Array<{ platform: string; url: string }> {
     .map(([platform, url]) => ({ platform, url: url as string }));
 }
 
+/** Form POST endpoint for "contact" or "newsletter", or null if not configured. */
+export function formEndpoint(kind: 'contact' | 'newsletter'): string | null {
+  if (site.forms.provider === 'none') return null;
+  const value = kind === 'contact' ? site.forms.contactEndpoint : site.forms.newsletterEndpoint;
+  return isTodo(value) ? null : value;
+}
+
 /** "Edit this page on GitHub" URL for a content file, or null if repo is TODO. */
 export function editOnGitHubUrl(contentPath: string): string | null {
   if (isTodo(site.repo.slug)) return null;

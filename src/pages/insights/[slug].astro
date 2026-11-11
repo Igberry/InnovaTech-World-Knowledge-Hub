@@ -1,0 +1,104 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CodeCopy from '../../components/CodeCopy.astro';
+import { getInsights, insightSlug, formatDate } from '../../utils/insights';
+import { editOnGitHubUrl } from '../../utils/links';
+import { Icon } from 'astro-icon/components';
+import { site } from '../../config/site';
+
+export async function getStaticPaths() {
+  const posts = await getInsights();
+  return posts.map((post) => ({ params: { slug: insightSlug(post) }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const d = post.data;
+const editUrl = editOnGitHubUrl(`src/content/insights/${insightSlug(post)}.md`);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: d.title,
+  description: d.description,
+  datePublished: d.publishDate.toISOString(),
+  ...(d.updatedDate ? { dateModified: d.updatedDate.toISOString() } : {}),
+  author: { '@type': 'Person', name: d.author ?? site.facilitator.name },
+};
+---
+
+<BaseLayout title={d.title} description={d.description} jsonLd={[jsonLd]}>
+  <article class="post">
+    <Breadcrumbs items={[{ label: 'Insights', href: '/insights/' }, { label: d.title }]} />
+    <header class="post-header">
+      <h1>{d.title}</h1>
+      <p class="post-dek">{d.description}</p>
+      <div class="post-meta">
+        <time datetime={d.publishDate.toISOString()}>{formatDate(d.publishDate)}</time>
+        {d.author && <span>· {d.author}</span>}
+        {d.updatedDate && <span>· Updated {formatDate(d.updatedDate)}</span>}
+      </div>
+    </header>
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {
+      editUrl && (
+        <p class="post-edit no-print">
+          <a href={editUrl} target="_blank" rel="noopener noreferrer">
+            <Icon name="lucide:pencil" width={15} height={15} aria-hidden="true" /> Edit this page on GitHub
+          </a>
+        </p>
+      )
+    }
+  </article>
+
+  <CodeCopy />
+</BaseLayout>
+
+<style>
+  .post {
+    max-width: 72ch;
+    margin-inline: auto;
+  }
+  .post-header {
+    margin: 1rem 0 1.5rem;
+  }
+  .post-header h1 {
+    font-size: clamp(2rem, 1.5rem + 2.5vw, 2.8rem);
+  }
+  .post-dek {
+    color: var(--color-muted);
+    font-size: 1.15rem;
+    margin-top: 0.6rem;
+  }
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+    color: var(--color-muted);
+    margin-top: 0.75rem;
+  }
+  .post-edit {
+    margin-top: 2rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.875rem;
+  }
+  .post-edit a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-muted);
+    text-decoration: none;
+  }
+  .post-edit a:hover {
+    color: var(--color-blue-700);
+    text-decoration: underline;
+  }
+</style>

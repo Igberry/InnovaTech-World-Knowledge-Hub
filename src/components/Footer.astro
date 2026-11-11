@@ -1,10 +1,12 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Logo from './Logo.astro';
+import Newsletter from './Newsletter.astro';
 import { site } from '../config/site';
-import { withBase, activeSocials } from '../utils/links';
+import { withBase, activeSocials, formEndpoint } from '../utils/links';
 
 const socials = activeSocials();
+const hasNewsletter = formEndpoint('newsletter') !== null;
 const socialIcon: Record<string, string> = {
   facebook: 'lucide:facebook',
   instagram: 'lucide:instagram',
@@ -16,6 +18,13 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer" data-pagefind-ignore>
+  {
+    hasNewsletter && (
+      <div class="container footer-newsletter">
+        <Newsletter />
+      </div>
+    )
+  }
   <div class="container footer-grid">
     <div class="footer-brand">
       <Logo height={40} badge />
@@ -30,6 +39,8 @@ const year = new Date().getFullYear();
       <h2>Explore</h2>
       <ul>
         {site.nav.map((item) => <li><a href={withBase(item.href)}>{item.label}</a></li>)}
+        <li><a href={withBase('/showcase/')}>Student Showcase</a></li>
+        <li><a href={withBase('/verify/')}>Verify a Certificate</a></li>
       </ul>
     </nav>
 
@@ -63,6 +74,11 @@ const year = new Date().getFullYear();
     color: #cbd5e1;
     margin-top: 4rem;
     padding-top: 2.5rem;
+  }
+  .footer-newsletter {
+    padding-bottom: 2rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
   .footer-grid {
     display: grid;

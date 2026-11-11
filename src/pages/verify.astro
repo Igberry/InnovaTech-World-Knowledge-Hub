@@ -1,0 +1,150 @@
+---
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { certificates } from '../data/certificates';
+
+// Only the minimum fields are sent to the client (id, name, course, issued).
+const records = certificates.map((c) => ({ id: c.id, name: c.name, course: c.course, issued: c.issued }));
+---
+
+<BaseLayout
+  title="Verify a Certificate"
+  description="Check that an InnovaTech World certificate is genuine by entering its certificate ID."
+>
+  <header class="page-head">
+    <h1>Verify a certificate</h1>
+    <p>Enter the certificate ID printed on an InnovaTech World certificate to confirm it's genuine.</p>
+  </header>
+
+  <form id="verify-form" class="verify-form">
+    <label for="cert-id" class="sr-only">Certificate ID</label>
+    <input id="cert-id" name="id" type="text" placeholder="e.g. ITW-DA-2026-0001" autocomplete="off" required />
+    <button type="submit" class="btn btn-primary">
+      <Icon name="lucide:shield-check" width={18} height={18} aria-hidden="true" />
+      Verify
+    </button>
+  </form>
+
+  <div id="verify-result" class="verify-result" role="status" aria-live="polite"></div>
+
+  <script type="application/json" id="cert-data" set:html={JSON.stringify(records)} />
+</BaseLayout>
+
+<script>
+  type Cert = { id: string; name: string; course: string; issued: string };
+  const dataEl = document.getElementById('cert-data');
+  const form = document.getElementById('verify-form') as HTMLFormElement | null;
+  const input = document.getElementById('cert-id') as HTMLInputElement | null;
+  const result = document.getElementById('verify-result');
+
+  let records: Cert[] = [];
+  try {
+    records = JSON.parse(dataEl?.textContent || '[]');
+  } catch {
+    records = [];
+  }
+
+  const fmt = (iso: string) => {
+    const d = new Date(iso);
+    return isNaN(d.getTime())
+      ? iso
+      : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  };
+  const esc = (s: string) =>
+    s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c] as string);
+
+  if (form && input && result) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q = input.value.trim().toLowerCase();
+      if (!q) return;
+      const match = records.find((r) => r.id.toLowerCase() === q);
+      if (match) {
+        result.className = 'verify-result ok';
+        result.innerHTML =
+          `<p class="vr-title">✓ Valid certificate</p>
+           <dl>
+             <div><dt>Name</dt><dd>${esc(match.name)}</dd></div>
+             <div><dt>Course</dt><dd>${esc(match.course)}</dd></div>
+             <div><dt>Issued</dt><dd>${esc(fmt(match.issued))}</dd></div>
+             <div><dt>Certificate ID</dt><dd>${esc(match.id)}</dd></div>
+           </dl>`;
+      } else {
+        result.className = 'verify-result bad';
+        result.innerHTML =
+          `<p class="vr-title">No match found</p>
+           <p>We couldn't find a certificate with that ID. Check the ID and try again, or contact us.</p>`;
+      }
+    });
+  }
+</script>
+
+<style>
+  .page-head {
+    margin: 0.5rem 0 1.5rem;
+  }
+  .page-head h1 {
+    font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  }
+  .page-head p {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+    max-width: 55ch;
+  }
+  .verify-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    max-width: 32rem;
+  }
+  .verify-form input {
+    flex: 1;
+    min-width: 12rem;
+    font: inherit;
+    padding: 0.65rem 0.8rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: var(--surface);
+    color: var(--color-ink);
+  }
+  .verify-result {
+    max-width: 32rem;
+    margin-top: 1.25rem;
+  }
+  .verify-result:empty {
+    display: none;
+  }
+  .verify-result.ok,
+  .verify-result.bad {
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    border: 1px solid var(--color-border);
+  }
+  .verify-result.ok {
+    border-color: var(--color-success);
+    background: var(--cl-bg-tip);
+  }
+  .verify-result.bad {
+    border-color: var(--color-warning);
+    background: var(--cl-bg-warning);
+  }
+  .vr-title {
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .verify-result dl {
+    display: grid;
+    gap: 0.4rem;
+    margin: 0;
+  }
+  .verify-result dl div {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .verify-result dt {
+    font-weight: 600;
+    min-width: 7rem;
+    color: var(--color-muted);
+  }
+</style>

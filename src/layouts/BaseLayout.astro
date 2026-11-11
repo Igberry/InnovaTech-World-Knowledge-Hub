@@ -50,6 +50,7 @@ const ogImage = new URL(withBase(image), Astro.site ?? 'https://example.com').to
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="application/rss+xml" title={`${site.name} — Insights`} href={withBase('/rss.xml')} />
 
     <meta name="theme-color" content="#2457D6" />
     <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />

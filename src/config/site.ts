@@ -53,10 +53,20 @@ export const site = {
   nav: [
     { label: 'Home', href: '/' },
     { label: 'Courses', href: '/courses/' },
+    { label: 'Insights', href: '/insights/' },
     { label: 'Resources', href: '/resources/' },
     { label: 'About', href: '/about/' },
     { label: 'Contact', href: '/contact/' },
   ],
+
+  // Form service for the contact form and newsletter (WEBSITE-BUILD-PROMPT.md §7.8, §10).
+  // Set provider to "formspree" and paste your endpoints to switch the forms on.
+  // While a value is "TODO"/empty, that form is hidden and a WhatsApp/email fallback shows.
+  forms: {
+    provider: 'none' as 'none' | 'formspree',
+    contactEndpoint: 'TODO', // e.g. https://formspree.io/f/xxxxxxxx
+    newsletterEndpoint: 'TODO', // e.g. https://formspree.io/f/yyyyyyyy
+  },
 
   // Headings whose whole section is stripped from the rendered site.
   hideSectionsHeadings: HIDDEN_SECTION_HEADINGS,
