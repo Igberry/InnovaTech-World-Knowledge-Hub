@@ -61,6 +61,9 @@ const catalog = await buildCatalog();
         <div class="profile-row">
           <input id="current_password" type="password" autocomplete="current-password" placeholder="Current password (if you have one)" />
         </div>
+        <div class="profile-row" id="totp_row" hidden>
+          <input id="totp_code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="6-digit authenticator code (2FA)" />
+        </div>
         <div class="profile-row">
           <input id="new_password" type="password" autocomplete="new-password" minlength="8" placeholder="New password (at least 8 characters)" />
           <button class="btn btn-secondary" type="submit">Save password</button>
@@ -221,6 +224,8 @@ const catalog = await buildCatalog();
     const form = document.getElementById('password-form') as HTMLFormElement;
     const input = document.getElementById('new_password') as HTMLInputElement;
     const current = document.getElementById('current_password') as HTMLInputElement;
+    const totpRow = document.getElementById('totp_row') as HTMLElement;
+    const totp = document.getElementById('totp_code') as HTMLInputElement;
     const msg = document.getElementById('password-msg')!;
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -229,9 +234,18 @@ const catalog = await buildCatalog();
         return;
       }
       msg.textContent = 'Saving...';
-      const r = await changePassword(input.value, current.value.trim() || undefined);
+      const r = await changePassword(input.value, {
+        currentPassword: current.value.trim() || undefined,
+        totpCode: totp.value.trim() || undefined,
+      });
+      if (!r.ok && r.error === 'mfa_required') {
+        totpRow.hidden = false;
+        msg.textContent = 'Enter your 6-digit authenticator code above, then click Save password again.';
+        totp.focus();
+        return;
+      }
       msg.textContent = r.ok ? 'Password saved. You can now log in with your email and password.' : r.error;
-      if (r.ok) { input.value = ''; current.value = ''; }
+      if (r.ok) { input.value = ''; current.value = ''; totp.value = ''; }
     });
   }
 
