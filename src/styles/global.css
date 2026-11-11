@@ -43,7 +43,8 @@
   --header-bg: rgba(255, 255, 255, 0.92);
   --code-copy-bg: rgba(255, 255, 255, 0.9);
   --cl-bg-tip: #f0fdf4;
-  --cl-bg-warning: #fffbeb;
+  /* Warning surface kept neutral so yellow stays a thin accent only, not a fill. */
+  --cl-bg-warning: #f3f6fa;
 }
 
 /* ---- Dark mode (WEBSITE-BUILD-PROMPT.md §2.5): blue accent on dark navy-slate.
@@ -78,17 +79,17 @@
   --header-bg: rgba(11, 16, 32, 0.9);
   --code-copy-bg: rgba(18, 26, 46, 0.9);
   --cl-bg-tip: rgba(22, 163, 74, 0.14);
-  --cl-bg-warning: rgba(245, 158, 11, 0.14);
+  --cl-bg-warning: rgba(148, 163, 184, 0.12);
   --color-ink: #e6ecf5;
   --color-muted: #9fb0c9;
   --color-border: #243049;
-  --color-blue-50: #16233f;
-  --color-blue-100: #1c2c4d;
-  --color-blue-200: #2a3c63;
-  --color-blue-400: #7c9bf0;
-  --color-blue-500: #6f90ee;
-  --color-blue-600: #5f86ec;
-  --color-blue-700: #8aa6f2;
+  --color-blue-50: #122334;
+  --color-blue-100: #183049;
+  --color-blue-200: #274863;
+  --color-blue-400: #7fb0dc;
+  --color-blue-500: #6fa6d6;
+  --color-blue-600: #5e97cc;
+  --color-blue-700: #86b4de;
 }
 
 html {
