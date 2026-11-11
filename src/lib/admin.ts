@@ -89,6 +89,111 @@ export async function deleteCertificate(id: string): Promise<Result> {
   }
 }
 
+// ---------- Access & pricing (payments) ----------
+export interface CoursePlanRow {
+  id: string; course_slug: string; plan: string; price_kobo: number;
+  currency: string; features: string[]; active: boolean;
+}
+export const getCoursePlans = () =>
+  selectAll<CoursePlanRow>('course_plans', 'id, course_slug, plan, price_kobo, currency, features, active, sort');
+
+export async function updateCoursePlan(
+  id: string,
+  patch: { price_kobo?: number; features?: string[]; active?: boolean },
+): Promise<Result> {
+  const sb = getSupabase();
+  if (!sb) return { ok: false, error: 'Portal not configured.' };
+  try {
+    const { error } = await sb
+      .from('course_plans')
+      .update({ ...patch, updated_at: new Date().toISOString() })
+      .eq('id', id);
+    return error ? { ok: false, error: error.message } : { ok: true, data: undefined };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
+export interface VoucherRow {
+  id: string; code: string; kind: string; value: number;
+  course_slug: string | null; plan: string | null;
+  max_uses: number | null; used_count: number; expires_at: string | null;
+  active: boolean; created_at: string;
+}
+export const getVouchers = () =>
+  selectAll<VoucherRow>('vouchers', 'id, code, kind, value, course_slug, plan, max_uses, used_count, expires_at, active, created_at');
+
+export async function createVoucher(v: {
+  code: string; kind: string; value: number;
+  course_slug: string | null; plan: string | null;
+  max_uses: number | null; expires_at: string | null;
+}): Promise<Result> {
+  const sb = getSupabase();
+  if (!sb) return { ok: false, error: 'Portal not configured.' };
+  try {
+    const { error } = await sb.from('vouchers').insert({ ...v, code: v.code.trim() });
+    return error ? { ok: false, error: error.message } : { ok: true, data: undefined };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
+export async function setVoucherActive(id: string, active: boolean): Promise<Result> {
+  const sb = getSupabase();
+  if (!sb) return { ok: false, error: 'Portal not configured.' };
+  try {
+    const { error } = await sb.from('vouchers').update({ active }).eq('id', id);
+    return error ? { ok: false, error: error.message } : { ok: true, data: undefined };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
+export interface PaymentRow {
+  id: string; reference: string; user_id: string | null; course_slug: string;
+  plan: string; amount_kobo: number; status: string; voucher_code: string | null; created_at: string;
+}
+export const getPayments = () =>
+  selectAll<PaymentRow>('payments', 'id, reference, user_id, course_slug, plan, amount_kobo, status, voucher_code, created_at');
+
+export interface EntitlementRow {
+  id: string; user_id: string; course_slug: string; plan: string;
+  source: string; status: string; created_at: string;
+}
+export const getEntitlements = () =>
+  selectAll<EntitlementRow>('entitlements', 'id, user_id, course_slug, plan, source, status, created_at');
+
+/** Grant free access to a course for the account with this email (must already have signed up). */
+export async function grantFreePass(email: string, courseSlug: string, plan: string): Promise<Result> {
+  const sb = getSupabase();
+  const me = await currentUser();
+  if (!sb) return { ok: false, error: 'Portal not configured.' };
+  try {
+    const { data: prof, error: pe } = await sb
+      .from('profiles').select('id').ilike('email', email.trim()).maybeSingle();
+    if (pe) return { ok: false, error: pe.message };
+    if (!prof) return { ok: false, error: 'No account with that email. Ask them to sign up first.' };
+    const { error } = await sb.from('entitlements').upsert(
+      { user_id: (prof as { id: string }).id, course_slug: courseSlug, plan, source: 'free_pass', status: 'active', granted_by: me?.id ?? null, note: 'free pass' },
+      { onConflict: 'user_id,course_slug' },
+    );
+    return error ? { ok: false, error: error.message } : { ok: true, data: undefined };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
+export async function revokeEntitlement(id: string): Promise<Result> {
+  const sb = getSupabase();
+  if (!sb) return { ok: false, error: 'Portal not configured.' };
+  try {
+    const { error } = await sb.from('entitlements').update({ status: 'revoked' }).eq('id', id);
+    return error ? { ok: false, error: error.message } : { ok: true, data: undefined };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
 export async function saveReview(
   submissionId: string,
   status: 'approved' | 'needs_changes',
