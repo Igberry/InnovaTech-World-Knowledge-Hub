@@ -30,15 +30,30 @@ async function run() {
 
   // Favicons & app icon from the LOGO's symbol (crop out the "INNOVATECH" wordmark,
   // which is unreadable at icon sizes). The logo is 447x347 with the symbol on top.
-  const symbol = await sharp(LOGO).extract({ left: 91, top: 0, width: 265, height: 265 }).toBuffer();
+  const region = { left: 91, top: 0, width: 265, height: 265 };
   const transparent = { r: 255, g: 255, b: 255, alpha: 0 };
 
-  await sharp(symbol).resize(32, 32, { fit: 'contain', background: transparent }).png().toFile(join(PUB, 'favicon-32.png'));
-  await sharp(symbol).resize(16, 16, { fit: 'contain', background: transparent }).png().toFile(join(PUB, 'favicon-16.png'));
+  // Build a WHITE silhouette of the symbol on a transparent background: use the
+  // symbol's darkness as an alpha mask, then fill it white. More visible on dark tabs.
+  const alphaRaw = await sharp(LOGO)
+    .extract(region)
+    .flatten({ background: '#ffffff' })
+    .greyscale()
+    .negate() // navy symbol -> high (opaque); white bg -> low (transparent)
+    .linear(1.25, -10) // boost contrast so the shape is crisp
+    .raw()
+    .toBuffer();
+  const whiteSymbol = await sharp({ create: { width: region.width, height: region.height, channels: 3, background: '#ffffff' } })
+    .joinChannel(alphaRaw, { raw: { width: region.width, height: region.height, channels: 1 } })
+    .png()
+    .toBuffer();
 
-  // Apple touch icon: symbol centred on white (iOS adds no transparency).
-  const appleSymbol = await sharp(symbol).resize(152, 152, { fit: 'contain', background: '#ffffff' }).toBuffer();
-  await sharp({ create: { width: 180, height: 180, channels: 4, background: '#ffffff' } })
+  await sharp(whiteSymbol).resize(32, 32, { fit: 'contain', background: transparent }).png().toFile(join(PUB, 'favicon-32.png'));
+  await sharp(whiteSymbol).resize(16, 16, { fit: 'contain', background: transparent }).png().toFile(join(PUB, 'favicon-16.png'));
+
+  // Apple touch icon: white symbol on a navy brand tile (iOS needs an opaque icon).
+  const appleSymbol = await sharp(whiteSymbol).resize(150, 150, { fit: 'contain', background: transparent }).toBuffer();
+  await sharp({ create: { width: 180, height: 180, channels: 4, background: '#0b3b66' } })
     .composite([{ input: appleSymbol, gravity: 'center' }])
     .png()
     .toFile(join(PUB, 'apple-touch-icon.png'));

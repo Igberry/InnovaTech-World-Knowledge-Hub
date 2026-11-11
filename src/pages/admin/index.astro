@@ -69,6 +69,7 @@ const catalog = await buildCatalog();
             </span>
           </label>
           <label>Student name <input data-cert-name type="text" required /></label>
+          <label>Student email <input data-cert-email type="email" placeholder="student@example.com" /></label>
           <label>Course <input data-cert-course type="text" list="cert-courses" required /></label>
           <label>Duration <input data-cert-duration type="text" placeholder="12 weeks" /></label>
           <label>Result (optional) <input data-cert-grade type="text" placeholder="Distinction" /></label>
@@ -77,9 +78,17 @@ const catalog = await buildCatalog();
         <datalist id="cert-courses"></datalist>
         <div class="adm-row" style="margin-top:.5rem">
           <button type="submit" class="btn btn-primary">Issue certificate</button>
+          <button type="button" class="btn btn-secondary" data-cert-print>Download / Print</button>
+          <button type="button" class="btn btn-secondary" data-cert-email>Email to student</button>
           <span data-cert-msg></span>
         </div>
       </form>
+
+      <h3 class="cert-preview-title">Live preview</h3>
+      <div class="cert-preview-wrap">
+        <div class="cert-preview" data-cert-preview></div>
+      </div>
+
       <div data-certificates><p class="muted">Loading…</p></div>
     </section>
   </div>
@@ -120,6 +129,9 @@ const catalog = await buildCatalog();
   .cert-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
   .cert-code-row { display: flex; gap: 0.5rem; }
   .cert-code-row input { flex: 1; }
+  .cert-preview-title { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+  .cert-preview-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 0.6rem; padding: 1rem; background: #eef2f7; margin-bottom: 1.5rem; }
+  .cert-preview { max-width: 820px; min-width: 620px; margin: 0 auto; }
   .link-btn-danger { background: none; border: none; color: var(--color-danger); font: inherit; cursor: pointer; padding: 0; }
   @media (min-width: 640px) { .cert-grid { grid-template-columns: 1fr 1fr; } }
 </style>
@@ -392,30 +404,125 @@ const catalog = await buildCatalog();
     }
   }
 
+  const CERT_CSS = `
+    .cert-doc{font-family:'Poppins',system-ui,sans-serif;background:#fff;color:#0f172a;width:100%;}
+    .cert-border{border:9px solid #0b3b66;outline:2px solid #0b3b66;outline-offset:6px;padding:40px 48px;text-align:center;background:#fff;}
+    .cert-logo{height:58px;width:auto;margin:0 auto 10px;display:block;}
+    .cert-kicker{letter-spacing:.14em;text-transform:uppercase;font-size:12px;color:#0b3b66;font-weight:700;margin:0 0 16px;}
+    .cert-h1{font-size:38px;line-height:1.1;margin:0 0 18px;color:#0b3b66;}
+    .cert-sub{color:#475569;margin:6px 0;font-size:16px;}
+    .cert-name{font-size:32px;font-weight:700;margin:6px 0;color:#0f172a;}
+    .cert-course{font-size:23px;font-weight:600;margin:6px 0;color:#0b3b66;}
+    .cert-meta{color:#475569;margin:6px 0 26px;}
+    .cert-footer{display:flex;justify-content:space-between;gap:40px;margin-top:38px;}
+    .cert-footer>div{flex:1;text-align:center;font-size:13px;color:#0f172a;}
+    .cert-signline{display:block;border-top:1px solid #94a3b8;margin:0 16px 8px;height:1px;}
+    .cert-code{margin-top:24px;font-size:12px;color:#475569;}
+    @media print{@page{size:A4 landscape;margin:0;}body{margin:0;padding:0;}.cert-doc{width:100%;}}
+  `;
+  function ensureCertStyles() {
+    if (!document.getElementById('cert-css')) {
+      const s = document.createElement('style');
+      s.id = 'cert-css';
+      s.textContent = CERT_CSS;
+      document.head.appendChild(s);
+    }
+  }
+  const niceDate = (iso: string) => {
+    const d = iso ? new Date(iso) : new Date();
+    return isNaN(d.getTime()) ? iso : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+  };
+  function certInner(f: Record<string, string>, absolute = false) {
+    const origin = absolute ? location.origin : '';
+    const logo = origin + withBase('/images/logo.png');
+    const verifyUrl = location.origin + withBase('/verify/');
+    const meta = [f.duration, f.grade].filter(Boolean).map(esc).join(' · ');
+    return `<div class="cert-doc"><div class="cert-border">
+      <img class="cert-logo" src="${logo}" alt="InnovaTech World" />
+      <p class="cert-kicker">InnovaTech World · Yenagoa, Bayelsa</p>
+      <h1 class="cert-h1">Certificate of Completion</h1>
+      <p class="cert-sub">This is to certify that</p>
+      <p class="cert-name">${esc(f.name) || 'Student Name'}</p>
+      <p class="cert-sub">has successfully completed</p>
+      <p class="cert-course">${esc(f.course) || 'Course Title'}</p>
+      ${meta ? `<p class="cert-meta">${meta}</p>` : '<p class="cert-meta"></p>'}
+      <div class="cert-footer">
+        <div><span class="cert-signline"></span>David C. Igberi, Lead Facilitator</div>
+        <div><span class="cert-signline"></span>Date: ${esc(niceDate(f.date))}</div>
+      </div>
+      <p class="cert-code">Certificate code: <strong>${esc(f.code) || '—'}</strong> · Verify at ${esc(verifyUrl)}</p>
+    </div></div>`;
+  }
+
   function bindCertForm() {
     const form = root.querySelector('[data-cert-form]') as HTMLFormElement;
     const codeEl = form.querySelector('[data-cert-code]') as HTMLInputElement;
     const courseEl = form.querySelector('[data-cert-course]') as HTMLInputElement;
+    const preview = root.querySelector('[data-cert-preview]') as HTMLElement;
+    const msg = form.querySelector('[data-cert-msg]')!;
+    const fields = () => ({
+      code: codeEl.value,
+      name: (form.querySelector('[data-cert-name]') as HTMLInputElement).value,
+      email: (form.querySelector('[data-cert-email]') as HTMLInputElement).value,
+      course: courseEl.value,
+      duration: (form.querySelector('[data-cert-duration]') as HTMLInputElement).value,
+      grade: (form.querySelector('[data-cert-grade]') as HTMLInputElement).value,
+      date: (form.querySelector('[data-cert-date]') as HTMLInputElement).value,
+    });
+
+    ensureCertStyles();
+    const refreshPreview = () => { preview.innerHTML = certInner(fields(), false); };
+    refreshPreview();
+    form.querySelectorAll('input').forEach((i) => i.addEventListener('input', refreshPreview));
+
     form.querySelector('[data-cert-gen]')!.addEventListener('click', () => {
       codeEl.value = genCode(courseEl.value);
+      refreshPreview();
     });
+
+    // Download / Print: open the certificate in its own window and print (Save as PDF).
+    form.querySelector('[data-cert-print]')!.addEventListener('click', () => {
+      const f = fields();
+      const w = window.open('', '_blank');
+      if (!w) return;
+      w.document.write(
+        `<!doctype html><html><head><meta charset="utf-8"><title>Certificate - ${esc(f.name) || 'Student'}</title>` +
+        `<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">` +
+        `<style>body{margin:0;padding:24px;background:#eef}</style><style>${CERT_CSS}</style></head>` +
+        `<body>${certInner(f, true)}<script>window.onload=function(){setTimeout(function(){window.print()},400)}<\/script></body></html>`,
+      );
+      w.document.close();
+    });
+
+    // Email to student: open a prefilled message (verification details + link).
+    form.querySelector('[data-cert-email]')!.addEventListener('click', () => {
+      const f = fields();
+      if (!f.email) { msg.textContent = 'Enter the student email first.'; msg.className = 'err'; return; }
+      const verifyUrl = location.origin + withBase('/verify/');
+      const subject = `Your InnovaTech World certificate - ${f.course || ''}`.trim();
+      const body =
+        `Hello ${f.name || ''},\n\n` +
+        `Congratulations on completing ${f.course || 'your course'} with InnovaTech World.\n\n` +
+        `Your certificate code is: ${f.code}\n` +
+        `Anyone can verify it at: ${verifyUrl}\n\n` +
+        `Your certificate is attached.\n\n` +
+        `Warm regards,\nDavid C. Igberi\nInnovaTech World, Yenagoa`;
+      window.location.href = `mailto:${encodeURIComponent(f.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const msg = form.querySelector('[data-cert-msg]')!;
       const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
       btn.disabled = true;
+      const f = fields();
       const res = await issueCertificate({
-        code: codeEl.value,
-        student_name: (form.querySelector('[data-cert-name]') as HTMLInputElement).value,
-        course: courseEl.value,
-        duration: (form.querySelector('[data-cert-duration]') as HTMLInputElement).value,
-        grade: (form.querySelector('[data-cert-grade]') as HTMLInputElement).value,
-        issued_at: (form.querySelector('[data-cert-date]') as HTMLInputElement).value || undefined,
+        code: f.code, student_name: f.name, course: f.course,
+        duration: f.duration, grade: f.grade, issued_at: f.date || undefined,
       });
       btn.disabled = false;
-      msg.textContent = res.ok ? 'Issued.' : res.error;
+      msg.textContent = res.ok ? 'Issued and saved. Use Download / Print, then Email to student.' : res.error;
       msg.className = res.ok ? 'ok' : 'err';
-      if (res.ok) { form.reset(); certificates = await getCertificates(); renderCertificates(); }
+      if (res.ok) { certificates = await getCertificates(); renderCertificates(); }
     });
   }
 
