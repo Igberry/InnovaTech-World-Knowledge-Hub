@@ -61,10 +61,11 @@ const values = [
   <!-- Hero -->
   <section class="hero">
     <div class="hero-text">
+      <span class="eyebrow">InnovaTech World · Yenagoa, Bayelsa</span>
       <h1>{site.tagline}</h1>
-      <p>
-        Practical, beginner-friendly technology training from Yenagoa, Bayelsa — written
-        lessons, real datasets, and live mentoring to get you job-ready.
+      <p class="hero-lead">
+        Practical, beginner-friendly technology training — written lessons, real datasets, and
+        live mentoring to get you job-ready.
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href={withBase('/courses/')}>
@@ -73,6 +74,11 @@ const values = [
         </a>
         <WhatsAppButton variant="secondary" />
       </div>
+      <ul class="hero-meta">
+        <li><Icon name="lucide:check" width={16} height={16} aria-hidden="true" /> Project-based lessons</li>
+        <li><Icon name="lucide:check" width={16} height={16} aria-hidden="true" /> Live mentoring</li>
+        <li><Icon name="lucide:check" width={16} height={16} aria-hidden="true" /> Portfolio-ready</li>
+      </ul>
     </div>
     <div class="hero-art">
       <img
@@ -134,8 +140,14 @@ const values = [
   <!-- Featured courses -->
   <section class="section">
     <div class="section-head">
-      <h2>Courses</h2>
-      <a class="section-link" href={withBase('/courses/')}>See all courses →</a>
+      <div>
+        <span class="eyebrow">Courses</span>
+        <h2>Start with what's ready now</h2>
+      </div>
+      <a class="section-link" href={withBase('/courses/')}>
+        See all courses
+        <Icon name="lucide:arrow-right" width={15} height={15} aria-hidden="true" />
+      </a>
     </div>
     <div class="card-grid">
       {featured.map((course) => <CourseCard course={course} />)}
@@ -144,7 +156,10 @@ const values = [
 
   <!-- How learning works -->
   <section class="section section-alt">
-    <h2>How learning works</h2>
+    <div class="section-head section-head--center">
+      <span class="eyebrow">How it works</span>
+      <h2>A simple weekly rhythm</h2>
+    </div>
     <div class="step-grid">
       {
         steps.map((s, i) => (
@@ -161,7 +176,12 @@ const values = [
 
   <!-- Why InnovaTech -->
   <section class="section">
-    <h2>Why InnovaTech</h2>
+    <div class="section-head">
+      <div>
+        <span class="eyebrow">Why us</span>
+        <h2>Built around getting you job-ready</h2>
+      </div>
+    </div>
     <div class="value-grid">
       {
         values.map((v) => (
@@ -190,6 +210,7 @@ const values = [
       />
     </div>
     <div class="community-text">
+      <span class="eyebrow">Community</span>
       <h2>Learn alongside a supportive community</h2>
       <p>
         You're never on your own. Small-group mentorship means real people, real feedback, and
@@ -238,27 +259,46 @@ const values = [
   .hero {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 2.5rem;
     align-items: center;
-    background: var(--color-blue-50);
-    border-radius: 1.25rem;
-    padding: 2.5rem 1.5rem;
-    margin-top: 1rem;
+    padding: 2rem 0 1rem;
+    margin-top: 0.5rem;
   }
   .hero-text h1 {
-    font-size: clamp(2.1rem, 1.5rem + 3vw, 3.3rem);
+    font-size: clamp(2.3rem, 1.4rem + 3.6vw, 3.6rem);
+    line-height: 1.08;
   }
-  .hero-text p {
+  .hero-lead {
     color: var(--color-muted);
-    font-size: 1.15rem;
-    margin-top: 1rem;
-    max-width: 48ch;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-top: 1.1rem;
+    max-width: 46ch;
   }
   .hero-cta {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-top: 1.5rem;
+    margin-top: 1.75rem;
+  }
+  .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 1.75rem 0 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-muted);
+  }
+  .hero-meta li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .hero-meta :global(svg) {
+    color: var(--color-blue-600);
   }
   .hero-art {
     display: flex;
@@ -266,35 +306,58 @@ const values = [
   }
   .hero-photo {
     width: 100%;
-    max-width: 440px;
+    max-width: 460px;
     aspect-ratio: 4 / 5;
     object-fit: cover;
-    border-radius: 1.25rem;
+    border-radius: 1rem;
     display: block;
-    box-shadow: 0 12px 34px rgba(4, 23, 43, 0.18);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 18px 40px rgba(4, 23, 43, 0.12);
   }
 
   .section {
-    margin-top: 3.5rem;
+    margin-top: 4.5rem;
   }
   .section h2 {
-    font-size: clamp(1.6rem, 1.3rem + 1.4vw, 2.1rem);
-    margin-bottom: 1.25rem;
+    font-size: clamp(1.65rem, 1.3rem + 1.5vw, 2.15rem);
+  }
+  .section > h2 {
+    margin-bottom: 1.5rem;
   }
   .section-head {
     display: flex;
-    align-items: baseline;
+    align-items: flex-end;
     justify-content: space-between;
     gap: 1rem;
+    margin-bottom: 1.75rem;
+  }
+  .section-head h2 {
+    margin-bottom: 0;
+  }
+  .section-head--center {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .section-head--center .eyebrow {
+    margin-bottom: 0.5rem;
   }
   .section-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
     font-weight: 600;
     white-space: nowrap;
+    text-decoration: none;
+  }
+  .section-link:hover {
+    text-decoration: underline;
   }
   .section-alt {
     background: var(--color-blue-50);
+    border: 1px solid var(--color-blue-100);
     border-radius: 1.25rem;
-    padding: 2.5rem 1.5rem;
+    padding: 3rem 1.5rem;
   }
 
   .continue-grid {
@@ -351,28 +414,35 @@ const values = [
     gap: 1.25rem;
   }
   .step {
-    position: relative;
     background: var(--surface);
     border: 1px solid var(--color-border);
-    border-radius: 0.9rem;
-    padding: 1.25rem;
-    color: var(--color-blue-600);
+    border-radius: 0.75rem;
+    padding: 1.6rem 1.4rem;
+  }
+  .step > :global(svg) {
+    display: none; /* the number is the accent; drop the redundant icon */
   }
   .step h3 {
-    margin-top: 0.6rem;
     font-size: 1.1rem;
+    margin: 0;
   }
   .step p {
     color: var(--color-muted);
-    margin-top: 0.3rem;
+    margin-top: 0.45rem;
+    font-size: 0.95rem;
   }
   .step-num {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    background: var(--color-blue-600);
+    color: #fff;
     font-weight: 700;
-    color: var(--color-blue-200);
-    font-size: 1.5rem;
+    font-size: 1rem;
+    margin-bottom: 0.9rem;
   }
   .value-grid {
     display: grid;
@@ -408,7 +478,8 @@ const values = [
     gap: 1.75rem;
     align-items: center;
     background: var(--color-blue-50);
-    border-radius: 1.25rem;
+    border: 1px solid var(--color-blue-100);
+    border-radius: 1rem;
     padding: 1.5rem;
   }
   .community-media img {
@@ -493,8 +564,9 @@ const values = [
   }
   @media (min-width: 900px) {
     .hero {
-      grid-template-columns: 1.1fr 0.9fr;
-      padding: 3.5rem 3rem;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 3.5rem;
+      padding: 3rem 0 2rem;
     }
     .card-grid,
     .testimonial-grid {
