@@ -165,7 +165,7 @@ const catalog = await buildCatalog();
 </style>
 
 <script>
-  import { isPortalEnabled } from '../../lib/supabase';
+  import { isPortalEnabled, getSupabase } from '../../lib/supabase';
   import { currentUser, isAdmin } from '../../lib/auth';
   import {
     getProfiles, getEnrollments, getProgress, getSubmissions, getReviews, getAttendance,
@@ -505,20 +505,37 @@ const catalog = await buildCatalog();
       w.document.close();
     });
 
-    // Email to student: open a prefilled message (verification details + link).
-    form.querySelector('[data-cert-email]')!.addEventListener('click', () => {
+    // Email to student: send the certificate via the server function (Gmail SMTP).
+    // Requires the certificate to be issued (saved) first, and the sender to be an admin.
+    form.querySelector('[data-cert-email]')!.addEventListener('click', async () => {
       const f = fields();
+      const btn = form.querySelector('[data-cert-email]') as HTMLButtonElement;
       if (!f.email) { msg.textContent = 'Enter the student email first.'; msg.className = 'err'; return; }
-      const verifyUrl = location.origin + withBase('/verify/');
-      const subject = `Your InnovaTech World certificate - ${f.course || ''}`.trim();
-      const body =
-        `Hello ${f.name || ''},\n\n` +
-        `Congratulations on completing ${f.course || 'your course'} with InnovaTech World.\n\n` +
-        `Your certificate code is: ${f.code}\n` +
-        `Anyone can verify it at: ${verifyUrl}\n\n` +
-        `Your certificate is attached.\n\n` +
-        `Warm regards,\nDavid C. Igberi\nInnovaTech World`;
-      window.location.href = `mailto:${encodeURIComponent(f.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      if (!f.code) { msg.textContent = 'Generate or enter a certificate code first.'; msg.className = 'err'; return; }
+      btn.disabled = true; msg.textContent = 'Sending email...'; msg.className = '';
+      try {
+        const sb = getSupabase();
+        const token = sb ? (await sb.auth.getSession()).data.session?.access_token : null;
+        if (!token) { msg.textContent = 'Please sign in again to send email.'; msg.className = 'err'; btn.disabled = false; return; }
+        const course = catalog.find((c) => c.title.toLowerCase() === (f.course || '').toLowerCase());
+        const res = await fetch('/api/send-certificate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            token,
+            code: f.code,
+            email: f.email,
+            verifyUrl: location.origin + withBase('/verify/'),
+            achievements: course?.outcomes ?? [],
+          }),
+        });
+        const out = await res.json().catch(() => ({ ok: false, error: 'Unexpected response from the email service.' }));
+        if (out.ok) { msg.textContent = 'Certificate emailed to ' + f.email + '.'; msg.className = 'ok'; }
+        else { msg.textContent = out.error || 'Could not send the email.'; msg.className = 'err'; }
+      } catch {
+        msg.textContent = 'Could not reach the email service (only works on the deployed site).';
+        msg.className = 'err';
+      } finally { btn.disabled = false; }
     });
 
     form.addEventListener('submit', async (e) => {
