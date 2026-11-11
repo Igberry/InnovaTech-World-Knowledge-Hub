@@ -37,7 +37,7 @@ export const site = {
   contact: {
     // International format WITHOUT the leading "+", e.g. 234XXXXXXXXXX
     whatsappNumber: '2349121681159',
-    email: 'TODO',
+    email: 'info.innovatech.expertise@gmail.com',
     // Office call line, full international format with "+". Shown as a "Call us" link.
     phone: '+2349121681159',
     whatsappDefaultMessage:

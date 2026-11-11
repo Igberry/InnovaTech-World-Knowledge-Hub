@@ -1,101 +1,121 @@
 ---
 title: "Virtual Assistant (VA Launch)"
-slug: "virtual-assistant"
-status: "available"
+slug: virtual-assistant
+status: available
 category: "Remote Work"
 level: "Beginner"
-duration: "8 weeks"
-format: "Weekly lessons + in-person mentoring"
-summary: "Land and deliver remote VA work: the core admin skills, the tools, client communication, pricing, and a portfolio that wins your first clients."
+duration: "7 weeks"
+format: "1:1 live mentorship: 3 live sessions per week + weekly reference note"
+summary: "Land and deliver remote VA work: tools, workflows, and client communication."
 outcomes:
-  - "Offer clear VA services and explain who you help and how"
-  - "Run inbox, calendar, data, and files reliably with written SOPs"
-  - "Communicate like a professional: async updates, reports, and clear expectations"
-  - "Use task boards, documents, and light automation to work faster"
-  - "Find clients, write proposals, price your work, and onboard cleanly"
-  - "Deliver great work, get paid safely, and build a portfolio that wins clients"
-tools: ["Google Workspace / Microsoft 365", "A task board (Trello/Notion/ClickUp)", "A scheduling tool", "A password manager", "A time tracker"]
+  - "Choose a VA niche and describe your value clearly"
+  - "Use the core tools clients expect: Google Workspace, Slack, task boards, time tracking and invoicing"
+  - "Build live profiles, a no-experience portfolio and a clear rate sheet"
+  - "Write proposals that get replies and run a daily application routine"
+  - "Handle interviews, trial tasks, negotiation and scam red flags, then onboard your first client"
+tools: ["Google Workspace", "Slack", "Zoom", "Trello / Notion", "Canva", "Upwork", "LinkedIn", "OnlineJobs.ph"]
 icon: "headset"
-order: 4
-featured: true
+order: 3
+featured: false
 ---
 
-**Become the person a busy founder cannot work without.** A virtual assistant (VA) handles the admin,
-inbox, calendar, and day-to-day tasks that keep a business running, from anywhere, over the internet.
-It is one of the most accessible ways into remote work: you can start with skills you already have and
-grow into a specialism that pays well. This 8-week course takes you from "what is a VA?" to a real
-service, your first proposals, and a portfolio.
+**VA Launch: Virtual Assistant Training & Remote Job Hunt Program.** This is a 7-week, live-led 1:1
+mentorship that gets you doing real remote VA work, not just learning about it. The teaching happens in
+private live sessions; this website is your **companion**: the pre-reading, session notes, scripts,
+templates and checklists you use before, during, and after each live session.
 
 ## Who this is for
 
-Anyone who is organised, reliable, and good with people and wants to earn remotely, whether or not you
-have formal experience. You need basic computer and internet skills, a willingness to learn tools, and
-care for detail. Every tool used is free to start. This course pairs naturally with
-[Remote Ready](/courses/remote-ready/), which covers your CV, LinkedIn, the job search, and avoiding
-scams; this course focuses on the VA skill itself and getting paid for it.
+Beginners with little or no VA experience who want a genuine remote income path, and who can commit to
+live sessions and consistent daily action. You need basic computer and internet skills, a working
+device, and a reliable way to join video calls. Every tool used has a free way to start.
 
-## What you'll be able to do
+## The core idea: skills and job-hunting in parallel
 
-- Describe clear VA services and who they are for
-- Manage an inbox and calendar to a professional standard, with written SOPs
-- Keep data and files clean, searchable, and safe
-- Communicate well in writing, run async updates, and send reports clients trust
-- Use task boards, shared documents, and simple automation to save hours
-- Choose a specialism that fits you and the market
-- Find clients, write a proposal, price your work, and onboard cleanly
-- Deliver reliably, get paid safely, and show your work in a portfolio
+Most courses teach skills and leave you to find work alone. This one runs both at once. You start
+**building your professional profiles in Week 2**, send your **first real applications in Week 3**, and
+move to **daily applications from Week 5**. By graduation you have a working skill set, live profiles, an
+active application pipeline, and, for engaged learners, a first client or interview in sight.
 
-## The 8-week plan
+## The 7-week rhythm
 
-| Week | Topic | Main deliverable |
-|---|---|---|
-| 0 | Setup: accounts, tools, workspace | Accounts created; a reliable workspace + power/data plan |
-| 1 | What a VA really does | Your positioning line and a draft service list |
-| 2 | Core admin: inbox, calendar, data, files | A written Inbox and Calendar SOP you can follow |
-| 3 | Communication and client management | A weekly report format + async communication habits |
-| 4 | Tools of the trade | A task board set up + one simple time-saving workflow |
-| 5 | Choose your specialism | A chosen niche + the skills plan to serve it |
-| 6 | Finding clients and pricing | A service menu + a proposal ready to send |
-| 7 | Onboarding, delivering, and getting paid | An onboarding checklist + a safe payment plan |
-| 8 | Your VA business and portfolio (capstone) | A portfolio with 3 to 4 anonymised samples |
+Each week has three live sessions and one short written reference note:
 
-## Weekly time (about 8 hours)
+| Wk | Skill theme | Session A (teach) | Session B (teach + practice) | Session C (workshop) | Job-hunt action |
+|---|---|---|---|---|---|
+| 1 | VA Foundations & Self-Assessment | What a VA does; income & niches | Skills audit; choose your niche | Niche Clarity Workshop | Set up email, folders, tracker |
+| 2 | Core Tools Every VA Must Master | Google Workspace / Microsoft 365 | Collaboration tools; time & invoicing | Hands-On Tools Lab | Set up Upwork, LinkedIn, 3rd profile |
+| 3 | Specialized VA Skill Tracks | Social media & content + Canva | Inbox/calendar; customer service & CRM | Role-Play Lab | Send first 3 applications |
+| 4 | Branding, Portfolio & Pricing | Portfolio with no experience | LinkedIn + rates & packages | Profile & Portfolio Review | Ramp to 5 tailored applications |
+| 5 | Platforms, Proposals & Outreach | Where VA jobs are | Proposals that get replies; outreach | Proposal-Writing Session | Daily applications begin (1+/day) |
+| 6 | Active Job Hunt Sprint | Interviews & trial tasks | Negotiation; spotting scam clients | Mock Interview & Trial Task | Daily sprint + attend interviews |
+| 7 | Interview Mastery, Onboarding & Graduation | Onboarding your first client | Retainers & sustainability | Final Mock + Graduation (in person) | Close a client or confirm pipeline |
 
-| Activity | Hours |
-|---|---|
-| Read the lesson and follow along | 3 |
-| Practice exercises | 1.5 |
-| Weekly assignment | 2 |
-| In-person mentoring | 1.5 |
-| **Total** | **~8** |
+## How a live 1:1 session works
 
-## How mentoring works
+Sessions run on Google Meet (kickoff and graduation are in person where possible). The mentor teaches and
+demonstrates live, you practise while being coached, and you leave each session with a concrete next step.
+Session links come with your calendar invites. The pages here hold what to **pre-read** and what to
+**bring**, so sessions are spent doing, not catching up.
 
-Each week has a 90-minute in-person mentoring session: review your work, practise live (mock client
-calls, inbox drills, proposal reviews), and get the brief for the next assignment. You do most of the
-work on your own between sessions.
+**What to bring to each session:** the week's companion page skimmed beforehand, your questions, your
+tracker, and whatever that session asks you to prepare (noted on each week's page).
+
+## Daily WhatsApp check-in (from Week 3)
+
+From Week 3, you send your mentor a short daily "applications sent" message on WhatsApp. It is not
+busywork, it is the habit that turns learning into momentum. Consistency is the single biggest predictor
+of landing work.
 
 ## Assessment and certification
 
-| Component | Weight |
-|---|---|
-| Weekly assignments (Weeks 1-7) | 45% |
-| Capstone portfolio and mock client call (Week 8) | 35% |
-| Attendance and consistency | 20% |
+| Deliverable | Week | Pass criteria | Weight |
+|---|---|---|---|
+| Niche Statement and Skills Audit | 1 | Specific niche named; honest, complete self-audit | 10% |
+| Live Profiles (3 platforms) | 2 | All live and complete; consistent with niche statement | 15% |
+| First Applications (3+) | 3 | 3 real applications logged with dates and platforms | 10% |
+| Portfolio + Rate Sheet | 4 | At least 2 credible samples; realistic, clear rate sheet | 15% |
+| Daily Application Consistency | 5 to 6 | Tracker shows daily/near-daily applications, not one bulk submission | 25% |
+| Mock Interview Performance | 6 to 7 | Takes part in a mock interview; answers using proof from portfolio | 15% |
+| Final Outcome / Next-Steps Plan | 7 | Signed client/job OR a clear, dated 2-week plan | 10% |
 
-A completion certificate is awarded at 70% or above overall.
+A **Certificate of Completion** is issued at **70% or above overall**. In this 1:1 format, attendance at
+live sessions carries strong weight.
+
+## Is this right for me?
+
+This course suits you if you can:
+
+- **Attend the live sessions** (three short sessions a week) and be coached in real time
+- **Apply daily from Week 5** and send a short daily WhatsApp check-in from Week 3
+- **Complete assignments on time** and act on feedback
+
+If you want a self-paced reading course, this is not it, the value here is live practice plus relentless,
+supported job-hunting.
 
 ## Honest outcomes
 
-This course gives you real VA skills, professional habits, templates you will reuse, and a portfolio
-to show. It does **not** guarantee a job, clients, or any income; that depends on your skills, your
-effort, and the market. Success here means you can do the work well, explain your value clearly, and
-apply consistently.
+*Success is measured by momentum: a complete career package and an active pipeline, not a guaranteed job
+on day 49.* This course gives you real skills, live profiles, a portfolio, and a working application
+routine. It does **not** promise a job or any income; that depends on your effort, your skill, and the
+market. What it guarantees is that if you do the work, you finish ready and already applying.
+
+## Tools you'll use
+
+Google Workspace, Slack, Zoom, task boards (Trello / Notion), Canva, and the job platforms covered in
+Weeks 2 and 5. All have a free way to start. Tools, fees, and platform rules change, so each week tells
+you to check current details.
+
+## Enrolment
+
+Enrolment terms are handled personally. **Ask on WhatsApp about enrolment terms**, or email
+info.innovatech.expertise@gmail.com.
 
 ## Facilitator Notes
 
-The two highest-value weeks are Week 2 (inbox and calendar, the bread and butter of VA work) and Week 6
-(pricing and proposals, where learners tend to undersell themselves). Run real inbox drills and live
-proposal reviews. Reinforce the scam and privacy warnings from Week 7 and cross-link Remote Ready Week 4;
-new VAs are a common target. Keep every learner's details private, and never let a learner put a real
-client's private data in a portfolio.
+This companion exists because teaching is live. Keep learners pre-reading before each session so live
+time is spent practising, not lecturing. The make-or-break habit is the daily application routine and
+WhatsApp check-in from Weeks 3 and 5, hold learners to it warmly but firmly. Flag honestly that
+OnlineJobs.ph admits only Philippine workers as jobseekers and that Belay, Time Etc and Fancy Hands use
+US-based assistants, so Nigerian learners use Upwork, LinkedIn and a Nigeria-accessible marketplace
+(e.g. Fiverr) for the three live profiles. Never publish fees or the commitment agreement.
