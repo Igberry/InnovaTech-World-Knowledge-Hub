@@ -244,6 +244,11 @@ const catalog = await buildCatalog();
         totp.focus();
         return;
       }
+      if (!r.ok && r.error === 'current_required') {
+        msg.textContent = 'Enter your current password above to change it.';
+        current.focus();
+        return;
+      }
       msg.textContent = r.ok ? 'Password saved. You can now log in with your email and password.' : r.error;
       if (r.ok) { input.value = ''; current.value = ''; totp.value = ''; }
     });
