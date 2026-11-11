@@ -53,7 +53,7 @@ const problemUrl =
       </details>
 
       <!-- Center: lesson content -->
-      <article class="lesson-main">
+      <article class="lesson-main" data-lesson-gate data-course={course.data.slug}>
         <Breadcrumbs
           items={[
             { label: 'Courses', href: '/courses/' },
@@ -72,37 +72,41 @@ const problemUrl =
           </div>
         </header>
 
-        <!-- Mobile: On this page dropdown -->
-        <details class="toc-drawer">
-          <summary>On this page</summary>
-          <Toc headings={headings} />
-        </details>
+        <div class="lesson-paywall" data-paywall hidden></div>
 
-        {d.downloads && <DownloadsBox downloads={d.downloads} />}
+        <div data-gated>
+          <!-- Mobile: On this page dropdown -->
+          <details class="toc-drawer">
+            <summary>On this page</summary>
+            <Toc headings={headings} />
+          </details>
 
-        <div class="prose">
-          <slot />
-        </div>
+          {d.downloads && <DownloadsBox downloads={d.downloads} />}
 
-        {hasAssignment && <AssignmentBox course={course.data.slug} lesson={slug} />}
-
-        <div class="lesson-actions no-print">
-          <MarkComplete course={course.data.slug} lesson={slug} />
-          <div class="lesson-links">
-            {editUrl && (
-              <a href={editUrl} target="_blank" rel="noopener noreferrer">
-                <Icon name="lucide:pencil" width={15} height={15} aria-hidden="true" /> Edit this page on GitHub
-              </a>
-            )}
-            {problemUrl && (
-              <a href={problemUrl} target={problemUrl.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
-                <Icon name="lucide:flag" width={15} height={15} aria-hidden="true" /> Report a problem
-              </a>
-            )}
+          <div class="prose">
+            <slot />
           </div>
-        </div>
 
-        <LessonNav prev={prev} next={next} courseSlug={course.data.slug} />
+          {hasAssignment && <AssignmentBox course={course.data.slug} lesson={slug} />}
+
+          <div class="lesson-actions no-print">
+            <MarkComplete course={course.data.slug} lesson={slug} />
+            <div class="lesson-links">
+              {editUrl && (
+                <a href={editUrl} target="_blank" rel="noopener noreferrer">
+                  <Icon name="lucide:pencil" width={15} height={15} aria-hidden="true" /> Edit this page on GitHub
+                </a>
+              )}
+              {problemUrl && (
+                <a href={problemUrl} target={problemUrl.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
+                  <Icon name="lucide:flag" width={15} height={15} aria-hidden="true" /> Report a problem
+                </a>
+              )}
+            </div>
+          </div>
+
+          <LessonNav prev={prev} next={next} courseSlug={course.data.slug} />
+        </div>
       </article>
 
       <!-- Right: table of contents (desktop) -->
@@ -234,4 +238,49 @@ const problemUrl =
       overflow-y: auto;
     }
   }
+  .lesson-paywall {
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    margin: 1rem 0 2rem;
+    background: var(--surface);
+  }
+  .lesson-paywall h2 { margin: 0 0 0.5rem; }
+  .lesson-paywall p { margin: 0 0 1rem; color: var(--color-muted); }
+  .lesson-paywall .btn + .btn { margin-left: 0.5rem; }
 </style>
+
+<script>
+  import { isPortalEnabled } from '../lib/portal-config';
+  import { getPlans, myEntitlement } from '../lib/payments';
+  import { currentUser } from '../lib/auth';
+  import { withBase } from '../utils/links';
+
+  const art = document.querySelector('[data-lesson-gate]') as HTMLElement | null;
+  if (art && isPortalEnabled) {
+    const course = art.dataset.course!;
+    (async () => {
+      const plans = await getPlans(course);
+      if (!plans.length) return; // course not monetised -> stays open
+      const ent = await myEntitlement(course);
+      if (ent) return; // already has access
+      // Lock: hide the lesson body, show the paywall.
+      const gated = art.querySelector('[data-gated]') as HTMLElement | null;
+      const paywall = art.querySelector('[data-paywall]') as HTMLElement | null;
+      if (gated) gated.hidden = true;
+      const user = await currentUser();
+      const courseUrl = withBase('/courses/' + course + '/');
+      if (paywall) {
+        paywall.hidden = false;
+        paywall.innerHTML = user
+          ? `<h2>This lesson is locked</h2>
+             <p>Choose a plan to unlock the full course and start learning.</p>
+             <a class="btn btn-primary" href="${courseUrl}#course-pricing">See plans and get access</a>`
+          : `<h2>This lesson is locked</h2>
+             <p>Log in or create an account, then choose a plan to get instant access.</p>
+             <a class="btn btn-primary" href="${withBase('/login/')}">Log in</a>
+             <a class="btn btn-secondary" href="${courseUrl}#course-pricing">View plans</a>`;
+      }
+    })();
+  }
+</script>
