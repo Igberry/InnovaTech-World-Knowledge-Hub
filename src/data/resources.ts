@@ -53,6 +53,12 @@ export const resources: Resource[] = [
   { title: 'Notion', url: 'https://www.notion.so', category: 'Remote work & careers', description: 'Notes, documents and task boards in one place.' },
   { title: 'Google Workspace', url: 'https://workspace.google.com', category: 'Remote work & careers', description: 'Free Docs, Sheets and Drive for remote work.' },
 
+  // Cybersecurity
+  { title: 'Have I Been Pwned', url: 'https://haveibeenpwned.com', category: 'Cybersecurity', description: 'Check whether your email appeared in a known data breach.' },
+  { title: 'Bitwarden', url: 'https://bitwarden.com', category: 'Cybersecurity', description: 'A free, reputable password manager to create and store strong passwords.' },
+  { title: 'Google Safety Center', url: 'https://safety.google', category: 'Cybersecurity', description: 'Plain-language guides on accounts, 2FA, and staying safe online.' },
+  { title: 'StaySafeOnline', url: 'https://staysafeonline.org', category: 'Cybersecurity', description: 'Beginner-friendly cybersecurity basics and tips.' },
+
   // Automation
   { title: 'Zapier', url: 'https://zapier.com', category: 'Automation', description: 'Connect apps with no-code "when X, do Y" automations (check current free tier).' },
   { title: 'Make', url: 'https://www.make.com', category: 'Automation', description: 'Build visual, multi-step automations between apps (check current free tier).' },
