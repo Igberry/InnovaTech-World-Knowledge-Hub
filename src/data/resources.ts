@@ -30,6 +30,21 @@ export const resources: Resource[] = [
   // Statistics
   { title: 'Khan Academy — Statistics', url: 'https://www.khanacademy.org/math/statistics-probability', category: 'Statistics', description: 'Clear fundamentals of statistics and probability.' },
 
+  // Web development
+  { title: 'MDN Web Docs', url: 'https://developer.mozilla.org', category: 'Web development', description: 'The reference for HTML, CSS and JavaScript.' },
+  { title: 'javascript.info', url: 'https://javascript.info', category: 'Web development', description: 'A thorough, modern JavaScript tutorial.' },
+  { title: 'web.dev (Learn)', url: 'https://web.dev/learn', category: 'Web development', description: "Google's courses on HTML, CSS, accessibility and performance." },
+  { title: 'The Odin Project', url: 'https://www.theodinproject.com', category: 'Web development', description: 'A free, project-based full-stack curriculum.' },
+  { title: 'freeCodeCamp', url: 'https://www.freecodecamp.org', category: 'Web development', description: 'Free, interactive coding courses and projects.' },
+  { title: 'React docs', url: 'https://react.dev', category: 'Web development', description: 'Official React tutorials and reference.' },
+  { title: 'React Router', url: 'https://reactrouter.com', category: 'Web development', description: 'Routing for React single-page apps.' },
+  { title: 'Tailwind CSS docs', url: 'https://tailwindcss.com/docs', category: 'Web development', description: 'The utility-first CSS framework, with install guides.' },
+  { title: 'Vite', url: 'https://vite.dev', category: 'Web development', description: 'The fast build tool and dev server used in this course.' },
+  { title: 'Supabase docs', url: 'https://supabase.com/docs', category: 'Web development', description: 'Database, auth and APIs for your apps.' },
+  { title: 'GitHub Docs', url: 'https://docs.github.com', category: 'Web development', description: 'Git, GitHub, Pages and pull requests, explained.' },
+  { title: 'Flexbox Froggy', url: 'https://flexboxfroggy.com', category: 'Web development', description: 'Learn CSS Flexbox as a game.' },
+  { title: 'Grid Garden', url: 'https://cssgridgarden.com', category: 'Web development', description: 'Learn CSS Grid as a game.' },
+
   // YouTube channels (search-based)
   { title: 'Alex The Analyst', url: yt('Alex The Analyst'), category: 'YouTube channels', description: 'Data analyst career and tool tutorials.' },
   { title: 'freeCodeCamp.org', url: yt('freeCodeCamp'), category: 'YouTube channels', description: 'Long-form, free full courses on data and programming.' },

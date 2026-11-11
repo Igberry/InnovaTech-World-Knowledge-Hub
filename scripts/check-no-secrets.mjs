@@ -37,6 +37,9 @@ function decodeJwtRole(token) {
 }
 
 const jwtRe = /eyJ[A-Za-z0-9_-]+\.eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/g;
+// New-style Supabase secret keys look like `sb_secret_...`. The publishable key
+// (`sb_publishable_...`) is safe to ship, so only the secret prefix is flagged.
+const sbSecretRe = /\bsb_secret_[A-Za-z0-9_-]{8,}/g;
 const findings = [];
 
 for (const file of walk(DIST)) {
@@ -45,15 +48,19 @@ for (const file of walk(DIST)) {
   const text = readFileSync(file, 'utf8');
   const rel = file.slice(DIST.length);
 
-  if (text.includes('service_role')) {
-    findings.push(`${rel}: contains the literal string "service_role"`);
-  }
+  // A real service_role JWT (the legacy secret key) — the actual risk.
   for (const token of text.match(jwtRe) || []) {
     if (decodeJwtRole(token) === 'service_role') {
       findings.push(`${rel}: contains a JWT whose role is "service_role"`);
     }
   }
+  // A new-format secret key.
+  for (const key of text.match(sbSecretRe) || []) {
+    findings.push(`${rel}: contains a Supabase secret key (${key.slice(0, 14)}…)`);
+  }
 }
+// NOTE: the plain word "service_role" is intentionally NOT flagged — it appears
+// legitimately in teaching content. Only real keys (JWT role or sb_secret_) fail.
 
 if (findings.length) {
   console.error('\n[secrets] POSSIBLE SERVICE_ROLE KEY IN BUILD OUTPUT — refusing:');
