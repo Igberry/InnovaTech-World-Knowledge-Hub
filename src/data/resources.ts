@@ -45,6 +45,14 @@ export const resources: Resource[] = [
   { title: 'Flexbox Froggy', url: 'https://flexboxfroggy.com', category: 'Web development', description: 'Learn CSS Flexbox as a game.' },
   { title: 'Grid Garden', url: 'https://cssgridgarden.com', category: 'Web development', description: 'Learn CSS Grid as a game.' },
 
+  // Remote work & careers
+  { title: 'LinkedIn', url: 'https://www.linkedin.com', category: 'Remote work & careers', description: 'Build a professional profile and search for jobs.' },
+  { title: 'We Work Remotely', url: 'https://weworkremotely.com', category: 'Remote work & careers', description: 'A popular board for remote-first job listings.' },
+  { title: 'Upwork', url: 'https://www.upwork.com', category: 'Remote work & careers', description: 'A major freelance platform (check current fees and terms).' },
+  { title: 'Trello', url: 'https://trello.com', category: 'Remote work & careers', description: 'A simple task board for organising work.' },
+  { title: 'Notion', url: 'https://www.notion.so', category: 'Remote work & careers', description: 'Notes, documents and task boards in one place.' },
+  { title: 'Google Workspace', url: 'https://workspace.google.com', category: 'Remote work & careers', description: 'Free Docs, Sheets and Drive for remote work.' },
+
   // YouTube channels (search-based)
   { title: 'Alex The Analyst', url: yt('Alex The Analyst'), category: 'YouTube channels', description: 'Data analyst career and tool tutorials.' },
   { title: 'freeCodeCamp.org', url: yt('freeCodeCamp'), category: 'YouTube channels', description: 'Long-form, free full courses on data and programming.' },
