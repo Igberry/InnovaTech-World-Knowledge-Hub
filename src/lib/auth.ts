@@ -71,6 +71,22 @@ export async function signUpWithPassword(
   }
 }
 
+/** Re-send the sign-up confirmation email. */
+export async function resendConfirmation(email: string): Promise<Result> {
+  const sb = getSupabase();
+  if (!sb) return err('Portal not configured.');
+  try {
+    const { error } = await sb.auth.resend({
+      type: 'signup',
+      email,
+      options: { emailRedirectTo: absoluteUrl('/auth/callback/') },
+    });
+    return error ? err(error) : ok(undefined);
+  } catch (e) {
+    return err(e);
+  }
+}
+
 export async function signInWithMagicLink(email: string): Promise<Result> {
   const sb = getSupabase();
   if (!sb) return err('Portal not configured.');

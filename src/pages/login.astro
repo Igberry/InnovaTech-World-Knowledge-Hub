@@ -34,6 +34,9 @@ const allowSignups = site.portal.allowSignups;
           <button type="button" class="btn btn-ghost" data-magic>Email me a login link</button>
           <button type="button" class="link-btn" data-forgot>Forgot password?</button>
         </div>
+        <p class="auth-resend" hidden>
+          <button type="button" class="link-btn" data-resend>Resend confirmation email</button>
+        </p>
       </form>
 
       {
@@ -157,7 +160,7 @@ const allowSignups = site.portal.allowSignups;
 
 <script>
   import { isPortalEnabled } from '../lib/supabase';
-  import { currentUser, signInWithPassword, signInWithMagicLink, sendPasswordReset, signUpWithPassword } from '../lib/auth';
+  import { currentUser, signInWithPassword, signInWithMagicLink, sendPasswordReset, signUpWithPassword, resendConfirmation } from '../lib/auth';
   import { withBase } from '../utils/links';
 
   const form = document.getElementById('login-form') as HTMLFormElement | null;
@@ -186,11 +189,28 @@ const allowSignups = site.portal.allowSignups;
     const emailEl = () => (document.getElementById('email') as HTMLInputElement).value.trim();
     const passEl = () => (document.getElementById('password') as HTMLInputElement).value;
 
+    const resendWrap = document.querySelector<HTMLElement>('.auth-resend');
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       clear();
+      if (resendWrap) resendWrap.hidden = true;
       const r = await signInWithPassword(emailEl(), passEl());
-      if (r.ok) window.location.href = withBase('/account/');
+      if (r.ok) {
+        window.location.href = withBase('/account/');
+      } else if (/confirm/i.test(r.error)) {
+        show(errEl, 'Your email is not confirmed yet. Check your inbox for the confirmation link, or resend it below.');
+        if (resendWrap) resendWrap.hidden = false;
+      } else {
+        show(errEl, r.error);
+      }
+    });
+
+    form.querySelector('[data-resend]')?.addEventListener('click', async () => {
+      clear();
+      if (!emailEl()) return show(errEl, 'Enter your email first.');
+      const r = await resendConfirmation(emailEl());
+      if (r.ok) show(okEl, 'Confirmation email sent. Check your inbox (and spam).');
       else show(errEl, r.error);
     });
 
