@@ -55,13 +55,13 @@ waiter takes it to the **kitchen**, which prepares it and sends it back. The web
 | The language you both speak | **HTTP** | The rules for how requests and responses travel |
 
 So: you type a **URL**, the **browser** sends an **HTTP request** to a **server**, and the server
-sends back a **response** — the files that make up the page. The browser then draws the page on screen.
+sends back a **response** - the files that make up the page. The browser then draws the page on screen.
 
 **Three languages build every web page:**
 
-- **HTML** — the structure and content (headings, text, images). *This week.*
-- **CSS** — the styling (colours, layout, fonts). *Weeks 3–4.*
-- **JavaScript** — the behaviour (clicks, interactivity). *Weeks 5–7.*
+- **HTML** - the structure and content (headings, text, images). *This week.*
+- **CSS** - the styling (colours, layout, fonts). *Weeks 3–4.*
+- **JavaScript** - the behaviour (clicks, interactivity). *Weeks 5–7.*
 
 > **Note:** "Frontend" means the part users see (HTML/CSS/JS in the browser). "Backend" means the
 > server and database behind the scenes. "Full-stack" means both. You'll touch the backend in Week 11.
@@ -69,7 +69,7 @@ sends back a **response** — the files that make up the page. The browser then 
 ## Lesson 2: Your first HTML page
 
 Create a folder `projects/web-dev/week-01`, open it in VS Code, and make a file called `index.html`.
-**Type this (don't paste)** — typing builds muscle memory:
+**Type this (don't paste)** - typing builds muscle memory:
 
 ```html
 <!DOCTYPE html>
@@ -87,7 +87,7 @@ Create a folder `projects/web-dev/week-01`, open it in VS Code, and make a file 
 ```
 
 Right-click the file in VS Code and choose **"Open with Live Server"**. Your page opens in the browser
-and refreshes every time you save. Congratulations — you are writing the web.
+and refreshes every time you save. Congratulations - you are writing the web.
 
 **What each part does:**
 
@@ -97,7 +97,7 @@ and refreshes every time you save. Congratulations — you are writing the web.
   `viewport` (makes it work on phones), and the `<title>` (shown on the browser tab).
 - `<body>` holds everything you actually see.
 
-## Lesson 3: HTML anatomy — elements, tags, attributes
+## Lesson 3: HTML anatomy - elements, tags, attributes
 
 An **element** is a piece of content wrapped in **tags**:
 
@@ -121,7 +121,7 @@ Elements **nest** inside each other, like boxes inside boxes. Indent your code s
 ```
 
 > **Common mistakes:** forgetting a closing tag, spelling a tag wrong, or crossing tags (`<b><i>text</b></i>`
-> — wrong; close in reverse order: `<b><i>text</i></b>`).
+> - wrong; close in reverse order: `<b><i>text</i></b>`).
 
 ## Lesson 4: The content elements you need this week
 
@@ -149,7 +149,7 @@ Elements **nest** inside each other, like boxes inside boxes. Indent your code s
 <img src="images/dish-placeholder.svg" alt="A plate of jollof rice" />
 ```
 
-- Use **one `<h1>` per page**, then `<h2>`, `<h3>` in order — don't skip levels. This is about meaning,
+- Use **one `<h1>` per page**, then `<h2>`, `<h3>` in order - don't skip levels. This is about meaning,
   not size (CSS controls size later).
 - `<ul>` is an unordered (bulleted) list; `<ol>` is ordered (numbered). Each item is an `<li>`.
 - `<a href="...">` makes a link. `<img>` shows an image and **must** have `alt` text describing it.
@@ -157,16 +157,16 @@ Elements **nest** inside each other, like boxes inside boxes. Indent your code s
 ### Paths: how files find each other
 
 - **Relative path** (recommended): where a file is *relative to the current file*.
-  - `menu.html` — a file in the same folder.
-  - `images/logo.svg` — the `logo.svg` inside an `images` folder next to this file.
-  - `../about.html` — go up one folder, then find `about.html`.
+  - `menu.html` - a file in the same folder.
+  - `images/logo.svg` - the `logo.svg` inside an `images` folder next to this file.
+  - `../about.html` - go up one folder, then find `about.html`.
 - **Absolute path**: a full web address, e.g. `https://example.com/menu.html`. Use these only for
   *other* websites.
 
 > **Warning:** paths are case-sensitive on the web. `Images/Logo.SVG` ≠ `images/logo.svg`. Stick to
 > lowercase, hyphenated names (Setup Guide, section 6).
 
-## Lesson 5: Git — track your work
+## Lesson 5: Git - track your work
 
 **Git** records snapshots ("commits") of your project so you never lose work and can see your history.
 Open VS Code's terminal (`` Ctrl+` ``) in your `week-01` folder and run:
@@ -175,7 +175,7 @@ Open VS Code's terminal (`` Ctrl+` ``) in your `week-01` folder and run:
 git init
 ```
 
-This creates a hidden `.git` folder — your project is now tracked. The core loop is **add → commit**:
+This creates a hidden `.git` folder - your project is now tracked. The core loop is **add → commit**:
 
 ```bash
 git status                     # see what changed
@@ -186,7 +186,7 @@ git log --oneline              # see your history
 
 - `git add` chooses what goes into the next snapshot.
 - `git commit -m "message"` saves the snapshot with a **clear message** (what you did, present tense).
-- Commit **often** — after each small, working change. Aim for many small commits, not one giant one.
+- Commit **often** - after each small, working change. Aim for many small commits, not one giant one.
 
 Create a `.gitignore` file to keep junk out of Git (you'll use it more later):
 
@@ -203,7 +203,7 @@ Thumbs.db
 
 1. On **github.com**, click **New** to create a repository. Name it `fresh-bites` (lowercase). Keep it
    **Public**. Don't add a README for now.
-2. GitHub shows commands to "push an existing repository". In your terminal, run them — they look like:
+2. GitHub shows commands to "push an existing repository". In your terminal, run them - they look like:
 
 ```bash
 git remote add origin https://github.com/YOUR-USERNAME/fresh-bites.git
@@ -211,12 +211,12 @@ git branch -M main
 git push -u origin main
 ```
 
-(The first time, GitHub asks you to sign in — follow the browser prompt.)
+(The first time, GitHub asks you to sign in - follow the browser prompt.)
 
 3. On the repository page, go to **Settings → Pages**. Under "Source", choose **Deploy from a branch**,
    pick **`main`** and **`/ (root)`**, and **Save**.
 4. Wait a minute, refresh, and GitHub shows your live URL:
-   `https://YOUR-USERNAME.github.io/fresh-bites/`. Open it — your page is on the internet.
+   `https://YOUR-USERNAME.github.io/fresh-bites/`. Open it - your page is on the internet.
 
 > **Note:** GitHub Pages can take 1–2 minutes to update after a push. If you see a 404, wait and
 > refresh. Make sure your homepage file is named exactly `index.html`.
@@ -277,7 +277,7 @@ Build and **publish** a small two-page site:
 
 The two reliable blockers this week are Git authentication on first push (use the browser sign-in flow;
 avoid typing passwords in the terminal) and GitHub Pages 404s (almost always a wrong file name or
-Pages not pointed at `main`/root). Have the student *say aloud* what each HTML tag means as they type —
+Pages not pointed at `main`/root). Have the student *say aloud* what each HTML tag means as they type -
 passive copying is the enemy. Praise frequent commits; a messy single "final" commit is a red flag you
 should correct now, before habits set.
 

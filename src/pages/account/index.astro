@@ -111,6 +111,25 @@ const catalog = await buildCatalog();
   .empty { color: var(--color-muted); }
 </style>
 
+<style is:global>
+  /* Course/submission/attendance cards are injected with JS, so scoped styles
+     can't reach them. These #account-prefixed global rules style that content. */
+  #account .acct-card {
+    border: 1px solid var(--color-border); border-radius: 0.75rem;
+    padding: 1.1rem 1.25rem; background: var(--surface);
+  }
+  #account .acct-card h3 { font-size: 1.1rem; }
+  #account .bar { height: 0.5rem; background: var(--color-blue-100); border-radius: 999px; overflow: hidden; margin: 0.5rem 0; }
+  #account .bar > span { display: block; height: 100%; background: var(--color-success); }
+  #account .pill { font-size: 0.75rem; font-weight: 600; padding: 0.15rem 0.55rem; border-radius: 999px; display: inline-block; }
+  #account .pill.approved { background: #dcfce7; color: #166534; }
+  #account .pill.needs_changes { background: var(--cl-bg-warning); color: #92400e; }
+  #account .pill.pending { background: var(--color-blue-50); color: var(--color-blue-700); }
+  #account .empty { color: var(--color-muted); }
+  #account table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  #account table th, #account table td { border: 1px solid var(--color-border); padding: 0.5rem 0.7rem; text-align: left; }
+</style>
+
 <script>
   import { isPortalEnabled } from '../../lib/supabase';
   import { currentUser, getProfile, updateFullName, recordConsent, updatePassword } from '../../lib/auth';

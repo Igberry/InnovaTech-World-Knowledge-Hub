@@ -13,7 +13,7 @@ downloads:
 ---
 
 **Goal:** Lay out your Fresh Bites site with Flexbox and CSS Grid, make it fully responsive from phone
-to desktop, and ship it as **Portfolio Project 1** — your first real, deployed project.
+to desktop, and ship it as **Portfolio Project 1** - your first real, deployed project.
 
 Most of the web is viewed on phones, often on slow data. This week you learn to build **mobile-first**
 layouts that adapt to any screen.
@@ -43,13 +43,13 @@ Nothing new. Play the two free practice games in Lesson 5.
 
 Every element has a `display` value that controls how it lays out:
 
-- `block` — stacks vertically, takes full width (`div`, `p`, `section`, `h1`).
-- `inline` — sits in a line, only as wide as its content (`span`, `a`).
-- `inline-block` — in a line, but you can set width/height.
-- `flex` and `grid` — powerful layout modes (this week).
+- `block` - stacks vertically, takes full width (`div`, `p`, `section`, `h1`).
+- `inline` - sits in a line, only as wide as its content (`span`, `a`).
+- `inline-block` - in a line, but you can set width/height.
+- `flex` and `grid` - powerful layout modes (this week).
 
 "Normal flow" is how the page stacks by default. `position` (relative, absolute, fixed, sticky) and
-`z-index` let you take elements out of flow — use them sparingly.
+`z-index` let you take elements out of flow - use them sparingly.
 
 ## Lesson 2: Flexbox (one dimension)
 
@@ -75,7 +75,7 @@ Key container properties:
 | `gap` | space between items |
 | `flex-wrap` | `wrap` lets items drop to the next line |
 
-Flexbox makes two common tasks easy — a **navbar** (space-between) and **centring** anything:
+Flexbox makes two common tasks easy - a **navbar** (space-between) and **centring** anything:
 
 ```css
 .center {
@@ -88,7 +88,7 @@ Flexbox makes two common tasks easy — a **navbar** (space-between) and **centr
 
 ## Lesson 3: CSS Grid (two dimensions)
 
-Grid lays items out in **rows and columns** at once — perfect for a menu of cards.
+Grid lays items out in **rows and columns** at once - perfect for a menu of cards.
 
 ```css
 .menu-grid {
@@ -101,10 +101,10 @@ Grid lays items out in **rows and columns** at once — perfect for a menu of ca
 - `grid-template-columns` defines the columns.
 - `repeat(auto-fill, minmax(260px, 1fr))` is the responsive magic: "as many columns as fit, each at
   least 260px wide, sharing space equally." The grid reflows from 1 column on a phone to several on a
-  desktop — **without a single media query**.
+  desktop - **without a single media query**.
 
 > **Rule of thumb:** Flexbox for a single row or column of items; Grid for a true two-dimensional
-> layout. They work together — a Grid page with Flexbox inside each card.
+> layout. They work together - a Grid page with Flexbox inside each card.
 
 ## Lesson 4: Mobile-first responsive design
 
@@ -130,7 +130,7 @@ screens with **media queries**:
 }
 ```
 
-Common breakpoints: ~`640px` (tablet), ~`1024px` (desktop). Don't chase specific devices — add a
+Common breakpoints: ~`640px` (tablet), ~`1024px` (desktop). Don't chase specific devices - add a
 breakpoint whenever the layout starts to look cramped.
 
 ### Responsive images and type
@@ -143,25 +143,25 @@ img {
 }
 
 h1 {
-  font-size: clamp(1.8rem, 1.2rem + 3vw, 3rem); /* min, preferred, max — fluid */
+  font-size: clamp(1.8rem, 1.2rem + 3vw, 3rem); /* min, preferred, max - fluid */
 }
 ```
 
 - `max-width: 100%` on images stops them breaking the layout on small screens.
 - `clamp(min, preferred, max)` makes a value scale smoothly with the screen and is great for headings.
-- `srcset` (intro only) lets you offer different image sizes for different screens — look it up when
+- `srcset` (intro only) lets you offer different image sizes for different screens - look it up when
   you need it.
 
 ## Lesson 5: Common components + practice games
 
 You now have the tools to build the pieces every site needs: a **navbar**, a **hero**, a **card grid**,
 and a **footer**. For the mobile menu, a no-JavaScript pattern is a details/summary disclosure or a
-simple wrapped nav — you'll add a JavaScript toggle later.
+simple wrapped nav - you'll add a JavaScript toggle later.
 
 **Play these now** (they teach the properties fast):
 
-- **Flexbox Froggy** — flexboxfroggy.com
-- **Grid Garden** — cssgridgarden.com
+- **Flexbox Froggy** - flexboxfroggy.com
+- **Grid Garden** - cssgridgarden.com
 
 > **Tip:** Use DevTools device toolbar (the phone icon, `Ctrl+Shift+M`) to preview your site at 360px,
 > 768px and 1280px without resizing your window.
@@ -169,9 +169,9 @@ simple wrapped nav — you'll add a JavaScript toggle later.
 ## Common mistakes
 
 - Putting `display: flex` on the items instead of the **container**.
-- Fixed widths (`width: 1000px`) that overflow phones — use `max-width` and `%`/`fr` instead.
+- Fixed widths (`width: 1000px`) that overflow phones - use `max-width` and `%`/`fr` instead.
 - Forgetting the `viewport` meta tag (then media queries seem not to work on phones).
-- Designing desktop-first and cramming it onto mobile — start mobile-first.
+- Designing desktop-first and cramming it onto mobile - start mobile-first.
 
 ## Practice Exercises
 
@@ -183,14 +183,14 @@ simple wrapped nav — you'll add a JavaScript toggle later.
 6. **Stretch:** Build a footer with three columns on desktop that stack on mobile.
 7. **Stretch:** Finish Flexbox Froggy and Grid Garden (all levels).
 
-## Weekly Assignment — Portfolio Project 1 (Due Before Week 5)
+## Weekly Assignment - Portfolio Project 1 (Due Before Week 5)
 
-Ship a **fully responsive Fresh Bites website** — your first portfolio piece.
+Ship a **fully responsive Fresh Bites website** - your first portfolio piece.
 
 Requirements:
 
 1. All pages (Home, Menu, About, Contact) styled and **responsive**, tested at **360px, 768px and
-   1280px** — no horizontal scrolling on mobile.
+   1280px** - no horizontal scrolling on mobile.
 2. A Flexbox navbar and footer; a Grid menu layout.
 3. Responsive images; fluid headings with `clamp()`.
 4. A **README.md** in the repo: what the project is, a screenshot or two, the live link, and what you
@@ -228,10 +228,10 @@ Requirements:
 
 ## Facilitator Notes
 
-This is the first "portfolio" week — set the bar for READMEs and screenshots now, because every later
+This is the first "portfolio" week - set the bar for READMEs and screenshots now, because every later
 project repeats it. The classic confusion is flex properties on the wrong element; have students point
 to "the container" out loud. Push mobile-first hard: make them resize to 360px *first*. If a learner is
-struggling with Grid, `repeat(auto-fill, minmax(…, 1fr))` alone covers most of their needs — teach that
+struggling with Grid, `repeat(auto-fill, minmax(…, 1fr))` alone covers most of their needs - teach that
 pattern well before the fancier Grid features.
 
 ## Self-Check Questions

@@ -1,5 +1,5 @@
 ---
-title: "Excel — Data Cleaning"
+title: "Excel - Data Cleaning"
 course: "data-analysis"
 order: 2
 week: 2

@@ -11,7 +11,7 @@ export interface Props {
 }
 
 const { height = 40, class: className = '', badge = false } = Astro.props;
-// Intrinsic logo size is 447x347 — pass both so there is no layout shift.
+// Intrinsic logo size is 447x347 - pass both so there is no layout shift.
 const width = Math.round((447 / 347) * height);
 ---
 

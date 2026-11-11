@@ -27,7 +27,7 @@ const {
   wide = false,
 } = Astro.props;
 
-const pageTitle = title ? `${title} · ${site.shortName}` : `${site.name} — ${site.tagline}`;
+const pageTitle = title ? `${title} · ${site.shortName}` : `${site.name} - ${site.tagline}`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://example.com').toString();
 const ogImage = new URL(withBase(image), Astro.site ?? 'https://example.com').toString();
 ---
@@ -52,11 +52,11 @@ const ogImage = new URL(withBase(image), Astro.site ?? 'https://example.com').to
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <link rel="alternate" type="application/rss+xml" title={`${site.name} — Insights`} href={withBase('/rss.xml')} />
+    <link rel="alternate" type="application/rss+xml" title={`${site.name} - Insights`} href={withBase('/rss.xml')} />
 
     <meta name="theme-color" content="#0b3b66" />
-    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
     <link rel="icon" href={withBase('/favicon-32.png')} sizes="32x32" type="image/png" />
+    <link rel="icon" href={withBase('/favicon-16.png')} sizes="16x16" type="image/png" />
     <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
 
     <!-- Open Graph / Twitter -->

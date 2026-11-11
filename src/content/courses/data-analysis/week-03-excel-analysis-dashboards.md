@@ -1,5 +1,5 @@
 ---
-title: "Excel — Analysis, Pivot Tables & Dashboards"
+title: "Excel - Analysis, Pivot Tables & Dashboards"
 course: "data-analysis"
 order: 3
 week: 3

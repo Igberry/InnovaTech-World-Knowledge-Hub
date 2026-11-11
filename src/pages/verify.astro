@@ -12,8 +12,9 @@ const records = certificates.map((c) => ({ id: c.id, name: c.name, course: c.cou
   description="Check that an InnovaTech World certificate is genuine by entering its certificate ID."
 >
   <header class="page-head">
+    <span class="eyebrow">Verification</span>
     <h1>Verify a certificate</h1>
-    <p>Enter the certificate ID printed on an InnovaTech World certificate to confirm it's genuine.</p>
+    <p>Enter the certificate code printed on an InnovaTech World certificate to confirm it's genuine.</p>
   </header>
 
   <form id="verify-form" class="verify-form">
@@ -31,17 +32,28 @@ const records = certificates.map((c) => ({ id: c.id, name: c.name, course: c.cou
 </BaseLayout>
 
 <script>
-  type Cert = { id: string; name: string; course: string; issued: string };
+  import { isPortalEnabled } from '../lib/portal-config';
+
+  type Cert = {
+    code: string;
+    student_name: string;
+    course: string;
+    duration?: string | null;
+    grade?: string | null;
+    issued_at: string;
+  };
+
   const dataEl = document.getElementById('cert-data');
   const form = document.getElementById('verify-form') as HTMLFormElement | null;
   const input = document.getElementById('cert-id') as HTMLInputElement | null;
   const result = document.getElementById('verify-result');
 
-  let records: Cert[] = [];
+  // Static fallback (used only when Supabase isn't configured).
+  let fallback: Array<{ id: string; name: string; course: string; issued: string }> = [];
   try {
-    records = JSON.parse(dataEl?.textContent || '[]');
+    fallback = JSON.parse(dataEl?.textContent || '[]');
   } catch {
-    records = [];
+    fallback = [];
   }
 
   const fmt = (iso: string) => {
@@ -51,29 +63,45 @@ const records = certificates.map((c) => ({ id: c.id, name: c.name, course: c.cou
       : d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
   };
   const esc = (s: string) =>
-    s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c] as string);
+    String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c] as string);
+
+  function showValid(c: Cert) {
+    result!.className = 'verify-result ok';
+    result!.innerHTML =
+      `<p class="vr-title">✓ Valid certificate</p>
+       <dl>
+         <div><dt>Name</dt><dd>${esc(c.student_name)}</dd></div>
+         <div><dt>Course</dt><dd>${esc(c.course)}</dd></div>
+         ${c.duration ? `<div><dt>Duration</dt><dd>${esc(c.duration)}</dd></div>` : ''}
+         ${c.grade ? `<div><dt>Result</dt><dd>${esc(c.grade)}</dd></div>` : ''}
+         <div><dt>Issued</dt><dd>${esc(fmt(c.issued_at))}</dd></div>
+         <div><dt>Certificate code</dt><dd>${esc(c.code)}</dd></div>
+       </dl>`;
+  }
+  function showNotFound() {
+    result!.className = 'verify-result bad';
+    result!.innerHTML =
+      `<p class="vr-title">No match found</p>
+       <p>We couldn't find a certificate with that code. Check it and try again, or contact us.</p>`;
+  }
 
   if (form && input && result) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const q = input.value.trim().toLowerCase();
+      const q = input.value.trim();
       if (!q) return;
-      const match = records.find((r) => r.id.toLowerCase() === q);
-      if (match) {
-        result.className = 'verify-result ok';
-        result.innerHTML =
-          `<p class="vr-title">✓ Valid certificate</p>
-           <dl>
-             <div><dt>Name</dt><dd>${esc(match.name)}</dd></div>
-             <div><dt>Course</dt><dd>${esc(match.course)}</dd></div>
-             <div><dt>Issued</dt><dd>${esc(fmt(match.issued))}</dd></div>
-             <div><dt>Certificate ID</dt><dd>${esc(match.id)}</dd></div>
-           </dl>`;
+      result.className = 'verify-result';
+      result.textContent = 'Checking…';
+
+      if (isPortalEnabled) {
+        const { verifyCertificate } = await import('../lib/certificates');
+        const match = await verifyCertificate(q);
+        if (match) showValid(match);
+        else showNotFound();
       } else {
-        result.className = 'verify-result bad';
-        result.innerHTML =
-          `<p class="vr-title">No match found</p>
-           <p>We couldn't find a certificate with that ID. Check the ID and try again, or contact us.</p>`;
+        const m = fallback.find((r) => r.id.toLowerCase() === q.toLowerCase());
+        if (m) showValid({ code: m.id, student_name: m.name, course: m.course, issued_at: m.issued });
+        else showNotFound();
       }
     });
   }

@@ -7,6 +7,6 @@
  * these, or begins with it (so "Facilitator Notes (optional)" still matches).
  *
  * NOTE: "Mentoring Session Plan" and "Self-Check Questions" are intentionally
- * NOT here — they stay visible to students (Self-Check is wrapped in <details>).
+ * NOT here - they stay visible to students (Self-Check is wrapped in <details>).
  */
 export const HIDDEN_SECTION_HEADINGS = ['Facilitator Notes', 'Facilitator Tips'];

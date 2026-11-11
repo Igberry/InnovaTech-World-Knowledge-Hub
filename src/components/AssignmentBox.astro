@@ -123,7 +123,7 @@ const { course, lesson } = Astro.props;
       const statusEl = root.querySelector<HTMLElement>('[data-status]')!;
       if (mine) {
         const r = reviews.find((rv) => rv.submission_id === mine.id);
-        const label = r ? (r.status === 'approved' ? 'Approved' : 'Needs changes') : 'Submitted — awaiting review';
+        const label = r ? (r.status === 'approved' ? 'Approved' : 'Needs changes') : 'Submitted - awaiting review';
         const fb = r?.feedback ? ` Feedback: ${esc(r.feedback)}` : '';
         const score = r?.score != null ? ` (score: ${r.score})` : '';
         statusEl.innerHTML = `<strong>${label}${score}</strong>.${fb} You can submit again if you have an updated link.`;
@@ -142,7 +142,7 @@ const { course, lesson } = Astro.props;
         const r = await submitAssignment(course, lesson, link, note);
         btn.disabled = false;
         if (r.ok) {
-          statusEl.innerHTML = '<strong>Submitted — awaiting review.</strong>';
+          statusEl.innerHTML = '<strong>Submitted - awaiting review.</strong>';
           statusEl.hidden = false;
           form.reset();
         } else {

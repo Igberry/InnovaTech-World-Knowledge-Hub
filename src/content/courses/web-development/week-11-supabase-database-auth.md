@@ -9,15 +9,15 @@ estimatedHours: 12
 tools: ["Supabase (your own free account)", "React", "Vite"]
 ---
 
-**Goal:** Give your Fresh Bites app a real backend — save reservations to a **database**, protect them
-with **security rules**, and add **user login** — using your **own free Supabase account**. Ship
+**Goal:** Give your Fresh Bites app a real backend - save reservations to a **database**, protect them
+with **security rules**, and add **user login** - using your **own free Supabase account**. Ship
 **Portfolio Project 4**.
 
 > **You use your OWN account.** Everything this week happens in a free Supabase project **you** create.
 > Never use anyone else's project. Never commit any real keys. These are the exact habits professionals
 > live by.
 
-This week connects to the SQL ideas from the Data Analysis course — a table is rows and columns, like a
+This week connects to the SQL ideas from the Data Analysis course - a table is rows and columns, like a
 spreadsheet, that your app can read and write safely.
 
 ## Learning Objectives
@@ -39,13 +39,13 @@ A free **Supabase** account (from Week 0). The client library installs per-proje
 - Read: **supabase.com/docs** → "Getting Started with React", "Row Level Security", "Auth".
 - Watch (search YouTube): *"Supabase crash course"* (recent), *"Web Dev Simplified Supabase"*.
 
-## Lesson 1: Backend, database, API — the ideas
+## Lesson 1: Backend, database, API - the ideas
 
 - A **backend** is the part of an app the user doesn't see: the database and the rules around it.
-- A **database** stores data in **tables** (rows and columns) — like the spreadsheets you met in the
+- A **database** stores data in **tables** (rows and columns) - like the spreadsheets you met in the
   Data Analysis course.
 - Your React app talks to the database over an **API** (web requests). Supabase gives you a database, an
-  auto-generated API, authentication, and security rules — a free backend without writing a server.
+  auto-generated API, authentication, and security rules - a free backend without writing a server.
 
 ## Lesson 2: Create a project and tables
 
@@ -78,7 +78,7 @@ create table public.reservations (
 Make a `menu_items` table too (id, name, category, price) if you want to load the menu from the
 database.
 
-## Lesson 3: Connect from React — the keys
+## Lesson 3: Connect from React - the keys
 
 Install the client:
 
@@ -90,8 +90,8 @@ Find your keys in **Project Settings → API**. There are two:
 
 | Key | Use | Safe in front-end code? |
 |---|---|---|
-| **anon / publishable** key | the public key your app uses in the browser | **Yes** — but only because RLS (Lesson 4) protects your data |
-| **service_role / secret** key | full admin access, bypasses all security | **NEVER** — only on a server you control |
+| **anon / publishable** key | the public key your app uses in the browser | **Yes** - but only because RLS (Lesson 4) protects your data |
+| **service_role / secret** key | full admin access, bypasses all security | **NEVER** - only on a server you control |
 
 Put the public values in a git-ignored `.env`:
 
@@ -141,12 +141,12 @@ async function getReservations() {
 }
 ```
 
-Every call returns `{ data, error }` — **always check `error`**. In React, call these from an event
+Every call returns `{ data, error }` - **always check `error`**. In React, call these from an event
 handler (insert) or `useEffect` (read), tracking loading and error state as usual.
 
-## Lesson 5: Row Level Security (RLS) — the rules
+## Lesson 5: Row Level Security (RLS) - the rules
 
-By default a new table is locked. **RLS** decides who can do what, enforced by the database itself — not
+By default a new table is locked. **RLS** decides who can do what, enforced by the database itself - not
 just your app. Turn it on and add policies. Run this in the SQL Editor and read each line:
 
 ```sql
@@ -170,10 +170,10 @@ create policy "Authenticated users can read reservations"
 
 Line by line:
 
-- `enable row level security` — nothing is allowed until a policy says so.
-- `for insert ... with check (true)` — allow inserts for anyone; `with check` is the rule new rows must
+- `enable row level security` - nothing is allowed until a policy says so.
+- `for insert ... with check (true)` - allow inserts for anyone; `with check` is the rule new rows must
   pass (here, always true).
-- `for select ... to authenticated using (true)` — only signed-in users can read; `using` is the rule
+- `for select ... to authenticated using (true)` - only signed-in users can read; `using` is the rule
   for which existing rows they can see.
 
 > **Important:** RLS is why the public anon key is safe to ship. Without RLS, that key could read and
@@ -204,9 +204,9 @@ supabase.auth.onAuthStateChange((event, session) => {
 
 Build a simple **protected "Reservations list" page**: if there's no session, show the login form; if
 there is, show the reservations (which RLS only lets logged-in users read). Validate inputs on the
-client **and** rely on RLS on the database — defence in depth.
+client **and** rely on RLS on the database - defence in depth.
 
-> **Note:** Supabase's free tier is generous but limits and pausing policies can change — check the
+> **Note:** Supabase's free tier is generous but limits and pausing policies can change - check the
 > current docs. Projects can pause after inactivity; just un-pause when you return.
 
 ## Common mistakes
@@ -226,7 +226,7 @@ client **and** rely on RLS on the database — defence in depth.
 6. **Stretch:** Build a protected page that lists reservations only when logged in.
 7. **Stretch:** Load the menu from a `menu_items` table instead of a local file.
 
-## Weekly Assignment — Portfolio Project 4 (Due Before Week 12)
+## Weekly Assignment - Portfolio Project 4 (Due Before Week 12)
 
 **Fresh Bites reservations saved to a database, with login.**
 
@@ -267,15 +267,15 @@ client **and** rely on RLS on the database — defence in depth.
 ## Facilitator Notes
 
 The non-negotiable teaching points are the two keys (make students recite "service_role never touches
-the browser") and enabling RLS (demo what happens with it off — the anon key reads everything). Watch
+the browser") and enabling RLS (demo what happens with it off - the anon key reads everything). Watch
 for committed `.env` files; check `git status` with them before any push. Link back to the Data Analysis
-SQL lessons for students who took it. This is instruction for the student's **own** account only — there
+SQL lessons for students who took it. This is instruction for the student's **own** account only - there
 is no shared or demo project. Keep any solution code in `_facilitator/`.
 
 ## Self-Check Questions
 
 1. What is the difference between the anon key and the service_role key?
-2. Why is the public anon key safe to use in the browser — what protects your data?
+2. Why is the public anon key safe to use in the browser - what protects your data?
 3. What does `enable row level security` do, and why add policies after it?
 4. Where do your Supabase URL and key go, and why is `.env` git-ignored?
 5. How do you protect a page so only logged-in users can see it?

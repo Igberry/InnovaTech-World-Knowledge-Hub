@@ -19,6 +19,7 @@ const catalog = await buildCatalog();
       <button class="tab" data-tab="submissions" role="tab">Submissions</button>
       <button class="tab" data-tab="attendance" role="tab">Attendance</button>
       <button class="tab" data-tab="enrolments" role="tab">Enrolments</button>
+      <button class="tab" data-tab="certificates" role="tab">Certificates</button>
     </div>
 
     <section data-panel="students" class="panel">
@@ -53,6 +54,34 @@ const catalog = await buildCatalog();
       <h2>Enrolments</h2>
       <div data-enrolments><p class="muted">Loading…</p></div>
     </section>
+
+    <section data-panel="certificates" class="panel" hidden>
+      <div class="panel-head"><h2>Certificates</h2>
+        <button class="btn btn-secondary" data-export="certificates">Export CSV</button>
+      </div>
+      <form data-cert-form class="adm-card cert-form">
+        <h3>Issue a certificate</h3>
+        <div class="cert-grid">
+          <label>Certificate code
+            <span class="cert-code-row">
+              <input data-cert-code type="text" placeholder="ITW-WD-2026-ABC123" required />
+              <button type="button" class="btn btn-secondary" data-cert-gen>Generate</button>
+            </span>
+          </label>
+          <label>Student name <input data-cert-name type="text" required /></label>
+          <label>Course <input data-cert-course type="text" list="cert-courses" required /></label>
+          <label>Duration <input data-cert-duration type="text" placeholder="12 weeks" /></label>
+          <label>Result (optional) <input data-cert-grade type="text" placeholder="Distinction" /></label>
+          <label>Issue date <input data-cert-date type="date" /></label>
+        </div>
+        <datalist id="cert-courses"></datalist>
+        <div class="adm-row" style="margin-top:.5rem">
+          <button type="submit" class="btn btn-primary">Issue certificate</button>
+          <span data-cert-msg></span>
+        </div>
+      </form>
+      <div data-certificates><p class="muted">Loading…</p></div>
+    </section>
   </div>
 
   <script type="application/json" id="catalog" set:html={JSON.stringify(catalog)} />
@@ -85,6 +114,42 @@ const catalog = await buildCatalog();
   }
   .err { color: var(--color-danger); font-size: 0.85rem; }
   .ok { color: var(--color-success); font-size: 0.85rem; }
+  .cert-form h3 { font-size: 1.1rem; margin-bottom: 0.75rem; }
+  .cert-form label { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; }
+  .cert-form input { font-weight: 400; }
+  .cert-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+  .cert-code-row { display: flex; gap: 0.5rem; }
+  .cert-code-row input { flex: 1; }
+  .link-btn-danger { background: none; border: none; color: var(--color-danger); font: inherit; cursor: pointer; padding: 0; }
+  @media (min-width: 640px) { .cert-grid { grid-template-columns: 1fr 1fr; } }
+</style>
+
+<style is:global>
+  /* The students/submissions/attendance/enrolments/certificates tables and cards
+     are injected with JavaScript, so Astro's scoped styles can't reach them.
+     These #admin-prefixed global rules style that injected content. */
+  #admin table.admin { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 560px; }
+  #admin table.admin th,
+  #admin table.admin td { border: 1px solid var(--color-border); padding: 0.6rem 0.85rem; text-align: left; vertical-align: top; }
+  #admin table.admin thead th { background: var(--color-blue-50); white-space: nowrap; }
+  #admin .wrap { overflow-x: auto; }
+  #admin .adm-card { border: 1px solid var(--color-border); border-radius: 0.6rem; padding: 1rem 1.1rem; margin-bottom: 0.75rem; background: var(--surface); }
+  #admin .adm-card h3 { font-size: 1.05rem; }
+  #admin .adm-row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+  #admin .adm-card select,
+  #admin .adm-card input,
+  #admin .adm-card textarea,
+  #admin table.admin select {
+    font: inherit; padding: 0.45rem 0.6rem; border: 1px solid var(--color-border);
+    border-radius: 0.45rem; background: var(--surface); color: var(--color-ink);
+  }
+  #admin .err { color: var(--color-danger); font-size: 0.85rem; }
+  #admin .ok { color: var(--color-success); font-size: 0.85rem; }
+  #admin .pill { font-size: 0.75rem; font-weight: 600; padding: 0.15rem 0.55rem; border-radius: 999px; display: inline-block; }
+  #admin .pill.approved { background: #dcfce7; color: #166534; }
+  #admin .pill.needs_changes { background: var(--cl-bg-warning); color: #92400e; }
+  #admin .pill.pending { background: var(--color-blue-50); color: var(--color-blue-700); }
+  #admin .link-btn-danger { background: none; border: none; color: var(--color-danger); font: inherit; cursor: pointer; padding: 0; }
 </style>
 
 <script>
@@ -92,9 +157,10 @@ const catalog = await buildCatalog();
   import { currentUser, isAdmin } from '../../lib/auth';
   import {
     getProfiles, getEnrollments, getProgress, getSubmissions, getReviews, getAttendance,
+    getCertificates, issueCertificate, deleteCertificate,
     saveReview, setEnrollment, saveAttendance, downloadCsv,
     type AdminProfile, type AdminEnrollment, type AdminProgress,
-    type AdminSubmission, type AdminReview, type AdminAttendance,
+    type AdminSubmission, type AdminReview, type AdminAttendance, type AdminCertificate,
   } from '../../lib/admin';
   import { withBase } from '../../utils/links';
 
@@ -120,14 +186,15 @@ const catalog = await buildCatalog();
   let submissions: AdminSubmission[] = [];
   let reviews: AdminReview[] = [];
   let attendance: AdminAttendance[] = [];
+  let certificates: AdminCertificate[] = [];
   const nameOf = (uid: string) => {
     const p = profiles.find((x) => x.id === uid);
     return p ? (p.full_name || p.email || uid) : uid;
   };
 
   async function loadAll() {
-    [profiles, enrollments, progress, submissions, reviews, attendance] = await Promise.all([
-      getProfiles(), getEnrollments(), getProgress(), getSubmissions(), getReviews(), getAttendance(),
+    [profiles, enrollments, progress, submissions, reviews, attendance, certificates] = await Promise.all([
+      getProfiles(), getEnrollments(), getProgress(), getSubmissions(), getReviews(), getAttendance(), getCertificates(),
     ]);
   }
 
@@ -146,13 +213,13 @@ const catalog = await buildCatalog();
         const total = courseTotal(e.course_slug);
         const pct = total ? Math.round((done / total) * 100) : 0;
         return `${esc(courseTitle(e.course_slug))} (${pct}%, ${esc(e.status)})`;
-      }).join('<br>') || '<span class="muted">—</span>';
+      }).join('<br>') || '<span class="muted">-</span>';
       return `<tr>
-        <td>${esc(p.full_name || '—')}</td>
-        <td>${esc(p.email || '—')}</td>
-        <td>${esc(p.cohort || '—')}</td>
+        <td>${esc(p.full_name || '-')}</td>
+        <td>${esc(p.email || '-')}</td>
+        <td>${esc(p.cohort || '-')}</td>
         <td>${courses}</td>
-        <td>${last ? new Date(last).toLocaleDateString() : '—'}</td>
+        <td>${last ? new Date(last).toLocaleDateString() : '-'}</td>
       </tr>`;
     }).join('');
     el.innerHTML = `<div class="wrap"><table class="admin">
@@ -258,7 +325,7 @@ const catalog = await buildCatalog();
       .map((c) => `<option value="${c.slug}">${esc(c.title)}</option>`).join('');
     el.innerHTML = profiles.map((p) => {
       const myEnr = enrollments.filter((e) => e.user_id === p.id)
-        .map((e) => `${esc(courseTitle(e.course_slug))}: ${esc(e.status)}`).join(', ') || '—';
+        .map((e) => `${esc(courseTitle(e.course_slug))}: ${esc(e.status)}`).join(', ') || '-';
       return `<div class="adm-card" data-uid="${p.id}">
         <strong>${esc(p.full_name || p.email || p.id)}</strong>
         <p class="muted">Current: ${myEnr}</p>
@@ -285,6 +352,73 @@ const catalog = await buildCatalog();
     });
   }
 
+  // ---------- Certificates ----------
+  function genCode(course: string) {
+    const abbr = (course || 'ITW').split(/\s+/).map((w) => w[0]).join('').toUpperCase().slice(0, 3) || 'ITW';
+    const year = new Date().getFullYear();
+    const rand = Math.random().toString(36).toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 5);
+    return `ITW-${abbr}-${year}-${rand}`;
+  }
+
+  function renderCertificates() {
+    // Course options for the datalist
+    const dl = root.querySelector('#cert-courses')!;
+    dl.innerHTML = catalog.map((c) => `<option value="${esc(c.title)}"></option>`).join('');
+
+    const el = root.querySelector('[data-certificates]')!;
+    if (certificates.length === 0) {
+      el.innerHTML = '<p class="muted">No certificates issued yet.</p>';
+    } else {
+      const rows = [...certificates]
+        .sort((a, b) => b.issued_at.localeCompare(a.issued_at))
+        .map(
+          (c) => `<tr data-cert="${c.id}">
+            <td>${esc(c.code)}</td><td>${esc(c.student_name)}</td><td>${esc(c.course)}</td>
+            <td>${esc(c.duration || '-')}</td><td>${esc(c.grade || '-')}</td><td>${esc(c.issued_at)}</td>
+            <td><button class="link-btn-danger" data-cert-del="${c.id}">Delete</button></td>
+          </tr>`,
+        ).join('');
+      el.innerHTML = `<div class="wrap"><table class="admin">
+        <thead><tr><th>Code</th><th>Student</th><th>Course</th><th>Duration</th><th>Result</th><th>Issued</th><th></th></tr></thead>
+        <tbody>${rows}</tbody></table></div>`;
+      el.querySelectorAll<HTMLButtonElement>('[data-cert-del]').forEach((b) =>
+        b.addEventListener('click', async () => {
+          if (!confirm('Delete this certificate? Its code will no longer verify.')) return;
+          const res = await deleteCertificate(b.dataset.certDel!);
+          if (res.ok) { certificates = await getCertificates(); renderCertificates(); }
+          else alert(res.error);
+        }),
+      );
+    }
+  }
+
+  function bindCertForm() {
+    const form = root.querySelector('[data-cert-form]') as HTMLFormElement;
+    const codeEl = form.querySelector('[data-cert-code]') as HTMLInputElement;
+    const courseEl = form.querySelector('[data-cert-course]') as HTMLInputElement;
+    form.querySelector('[data-cert-gen]')!.addEventListener('click', () => {
+      codeEl.value = genCode(courseEl.value);
+    });
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const msg = form.querySelector('[data-cert-msg]')!;
+      const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      btn.disabled = true;
+      const res = await issueCertificate({
+        code: codeEl.value,
+        student_name: (form.querySelector('[data-cert-name]') as HTMLInputElement).value,
+        course: courseEl.value,
+        duration: (form.querySelector('[data-cert-duration]') as HTMLInputElement).value,
+        grade: (form.querySelector('[data-cert-grade]') as HTMLInputElement).value,
+        issued_at: (form.querySelector('[data-cert-date]') as HTMLInputElement).value || undefined,
+      });
+      btn.disabled = false;
+      msg.textContent = res.ok ? 'Issued.' : res.error;
+      msg.className = res.ok ? 'ok' : 'err';
+      if (res.ok) { form.reset(); certificates = await getCertificates(); renderCertificates(); }
+    });
+  }
+
   // ---------- CSV exports ----------
   function exportCsv(kind: string) {
     if (kind === 'progress') {
@@ -299,6 +433,9 @@ const catalog = await buildCatalog();
     } else if (kind === 'attendance') {
       downloadCsv('attendance.csv', ['student', 'course', 'date', 'status', 'note'],
         attendance.map((a) => [nameOf(a.user_id), courseTitle(a.course_slug), a.session_date, a.status, a.note ?? '']));
+    } else if (kind === 'certificates') {
+      downloadCsv('certificates.csv', ['code', 'student', 'course', 'duration', 'result', 'issued'],
+        certificates.map((c) => [c.code, c.student_name, c.course, c.duration ?? '', c.grade ?? '', c.issued_at]));
     }
   }
 
@@ -331,6 +468,8 @@ const catalog = await buildCatalog();
     renderSubmissions();
     renderAttendanceControls();
     renderEnrolments();
+    renderCertificates();
+    bindCertForm();
   }
 
   main().catch((e) => { gate.textContent = 'Error loading the dashboard. Please refresh.'; console.error(e); });

@@ -1,6 +1,6 @@
 /**
  * Lesson progress stored per-course in localStorage (no accounts).
- * (WEBSITE-BUILD-PROMPT.md §7.4) — all access wrapped so private mode / blocked
+ * (WEBSITE-BUILD-PROMPT.md §7.4) - all access wrapped so private mode / blocked
  * storage never throws. Phase 4 will merge this into Supabase.
  *
  * Kept deliberately small and framework-free behind this one module so the

@@ -14,7 +14,7 @@ downloads:
 **Goal:** Set up a clean, professional developer environment on your computer (Windows first, with
 macOS notes), so that from Week 1 you can write code, run it in a browser, and publish it online.
 
-Do this guide **before** Week 1 — ideally together with your facilitator in the first session, because
+Do this guide **before** Week 1 - ideally together with your facilitator in the first session, because
 installing alone is where most beginners get stuck. Work through it top to bottom and tick the
 checklist at the end.
 
@@ -35,7 +35,7 @@ VS Code is a free, professional editor from Microsoft.
 
 1. Go to **code.visualstudio.com** and download **VS Code** for your system.
 2. On Windows, run the installer. On the "Additional Tasks" screen, tick **"Add to PATH"** and
-   **"Open with Code"** options — they make life easier later.
+   **"Open with Code"** options - they make life easier later.
 3. Open VS Code.
 
 ### Extensions to install
@@ -57,7 +57,7 @@ Open **File → Preferences → Settings** (`Ctrl+,`) and set:
 - Search "default formatter" and set it to **Prettier**
 
 > **Tip:** Type `settings.json` in the settings search, click "Edit in settings.json", and you can keep
-> these as text. You will meet JSON (a data format) properly in Week 7 — for now just know the editor
+> these as text. You will meet JSON (a data format) properly in Week 7 - for now just know the editor
 > stores its settings this way.
 
 > **macOS note:** Download the Mac build, drag VS Code into Applications, and open it. Extensions and
@@ -81,7 +81,7 @@ Try it now: open DevTools on this page and find the `<h1>` in the Elements tab.
 ### Install Git (Windows)
 
 1. Go to **git-scm.com** and download **Git for Windows**.
-2. Run the installer. The defaults are fine — keep clicking **Next**. (When asked for the default
+2. Run the installer. The defaults are fine - keep clicking **Next**. (When asked for the default
    editor, you can choose VS Code.)
 3. Open VS Code's terminal (**Terminal → New Terminal**, or `Ctrl+` backtick) and check:
 
@@ -92,7 +92,7 @@ git --version
 You should see a version number.
 
 > **macOS note:** Open the **Terminal** app and type `git --version`. If Git is not installed, macOS
-> will offer to install the Command Line Tools — accept.
+> will offer to install the Command Line Tools - accept.
 
 ### Tell Git who you are (once)
 
@@ -106,13 +106,13 @@ Use the **same email** you will use for GitHub.
 ### Create a GitHub account
 
 1. Go to **github.com** and sign up.
-2. Pick a **professional username** — ideally your name, e.g. `firstname-lastname-dev`. This becomes
+2. Pick a **professional username** - ideally your name, e.g. `firstname-lastname-dev`. This becomes
    part of your portfolio URL, so no nicknames.
 3. **Turn on two-factor authentication** (Settings → Password and authentication). This protects your
    work and is expected of professionals.
 
 > **Important:** From Week 1 you publish your work on GitHub. Treat your GitHub profile as your public
-> CV from day one — clean usernames, clear project names, real README files.
+> CV from day one - clean usernames, clear project names, real README files.
 
 ## 4. Node.js (needed from Week 8)
 
@@ -135,7 +135,7 @@ a scramble later.
 In Week 11 you add a database. Create a free account now so it's ready:
 
 1. Go to **supabase.com** and sign up (you can use your GitHub account).
-2. **Do not create a project yet** — you'll set it up step by step in Week 11.
+2. **Do not create a project yet** - you'll set it up step by step in Week 11.
 
 ## 6. Organise your folders
 
@@ -165,12 +165,12 @@ projects/
 If your laptop struggles or power is unreliable, you can still do this course:
 
 - **Browser-based editors:** **StackBlitz** (stackblitz.com) and **CodeSandbox** (codesandbox.io) run
-  VS Code-like editors in your browser — useful for Weeks 8–11 when projects get heavier. Free-tier
+  VS Code-like editors in your browser - useful for Weeks 8–11 when projects get heavier. Free-tier
   limits can change, so check their current terms.
 - **Offline habits:** download the docs pages you need, work in battery-saver mode, **commit often**,
-  and **push to GitHub when you next have internet**. Git works fully offline — only pushing needs a
+  and **push to GitHub when you next have internet**. Git works fully offline - only pushing needs a
   connection.
-- Keep pages light (small images, little JavaScript) — good for your own low-data testing and good for
+- Keep pages light (small images, little JavaScript) - good for your own low-data testing and good for
   your future users, many of whom are on phones and slow data.
 
 ## Verification checklist

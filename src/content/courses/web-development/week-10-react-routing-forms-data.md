@@ -10,7 +10,7 @@ tools: ["Node.js", "Vite", "React", "React Router"]
 ---
 
 **Goal:** Turn your single React page into a real multi-page app with **React Router**, **controlled
-forms**, and **data fetching** — then ship **Portfolio Project 3**.
+forms**, and **data fetching** - then ship **Portfolio Project 3**.
 
 ## Learning Objectives
 
@@ -34,7 +34,7 @@ React Router (installed per-project with npm).
 ## Lesson 1: React Router
 
 A single-page app swaps content without a full reload. **React Router** maps URLs to components.
-**Check `reactrouter.com` for the current install command and version** — the API below is the stable
+**Check `reactrouter.com` for the current install command and version** - the API below is the stable
 declarative style that has worked across recent major versions.
 
 ```bash
@@ -87,7 +87,7 @@ function App() {
 
 ## Lesson 2: Controlled forms
 
-In React, a form input's value is driven by state — a **controlled component**:
+In React, a form input's value is driven by state - a **controlled component**:
 
 ```jsx
 import { useState } from "react";
@@ -131,7 +131,7 @@ function Reservations() {
 
 ## Lesson 3: Fetching data with useEffect
 
-`useEffect` runs code **after** render — perfect for fetching data when a component mounts:
+`useEffect` runs code **after** render - perfect for fetching data when a component mounts:
 
 ```jsx
 import { useState, useEffect } from "react";
@@ -165,7 +165,7 @@ function Weather() {
 
 - The **dependency array** `[]` means "run once". Values inside it, if any, re-run the effect when they
   change.
-- Always track loading/error with state and show the right UI — just like Week 7.
+- Always track loading/error with state and show the right UI - just like Week 7.
 
 > **Tip:** A **custom hook** (introductory) extracts reusable logic, e.g. `useWeather()` that returns
 > `{ temp, status }`. You'll meet these more later; for now, know they exist.
@@ -200,7 +200,7 @@ Context only when prop-passing genuinely hurts.
 
 - **Structure:** `src/pages/` for route components, `src/components/` for reusable pieces,
   `src/hooks/` for custom hooks, `src/context/` for providers.
-- **Accessibility in React:** still use labels, semantic elements, and visible focus — JSX doesn't
+- **Accessibility in React:** still use labels, semantic elements, and visible focus - JSX doesn't
   change a11y rules.
 - **Deploying a single-page app:** because routing is client-side, a host must send **all** paths to
   `index.html`, or a refresh on `/menu` gives a 404. Netlify/Vercel handle this automatically (or with a
@@ -224,9 +224,9 @@ Context only when prop-passing genuinely hurts.
 6. **Stretch:** Move the cart into Context and use it from two pages.
 7. **Stretch:** Deploy the SPA so refreshing `/menu` works.
 
-## Weekly Assignment — Portfolio Project 3 (Due Before Week 11)
+## Weekly Assignment - Portfolio Project 3 (Due Before Week 11)
 
-Ship a **multi-page React Fresh Bites app** — your third portfolio piece.
+Ship a **multi-page React Fresh Bites app** - your third portfolio piece.
 
 1. Pages: Home, Menu, Cart, Reservations, About (React Router), plus a 404.
 2. Controlled, validated reservation form.
@@ -266,7 +266,7 @@ Ship a **multi-page React Fresh Bites app** — your third portfolio piece.
 
 Routing is usually smooth; controlled forms and `useEffect` dependency arrays are the sticking points.
 Demo an infinite-loop `useEffect` (missing `[]`) so they recognise it. For SPA deployment, pre-check the
-student's host and have the redirect/404 fix ready — a "works locally, 404 on refresh when deployed" bug
+student's host and have the redirect/404 fix ready - a "works locally, 404 on refresh when deployed" bug
 is demoralising if unexplained. Keep Context minimal; some learners are better served by lifted state for
 one more week. Confirm the current React Router install command against reactrouter.com in session.
 

@@ -12,7 +12,7 @@ downloads:
     href: "/downloads/web-development/fresh-bites-content.zip"
 ---
 
-**Goal:** Turn your plain HTML Fresh Bites site into a styled, branded site using CSS — colours,
+**Goal:** Turn your plain HTML Fresh Bites site into a styled, branded site using CSS - colours,
 typography, spacing and reusable classes.
 
 HTML is the structure; **CSS** is the style. This week you make the site *look* like a real brand,
@@ -72,7 +72,7 @@ a:hover      { }   /* an <a> while hovered (pseudo-class) */
 .btn:focus   { }   /* a .btn while focused */
 ```
 
-- Use **classes** for almost everything — they're reusable (`class="btn"` on many buttons).
+- Use **classes** for almost everything - they're reusable (`class="btn"` on many buttons).
 - Use **ids** rarely (they must be unique per page).
 - **Pseudo-classes** like `:hover` and `:focus` style interaction states. Always style `:focus` so
   keyboard users can see where they are.
@@ -90,7 +90,7 @@ p        { color: black; }   /* specificity: low */
 #lead    { color: red;   }   /* beats the class rule */
 ```
 
-> **Rule of thumb:** Keep specificity low and even — style with classes, avoid ids and `!important`.
+> **Rule of thumb:** Keep specificity low and even - style with classes, avoid ids and `!important`.
 > When styles "don't apply", open DevTools → Styles: it shows which rule won and which were overridden
 > (struck through).
 
@@ -100,7 +100,7 @@ Every element is a box with four layers, from inside out: **content → padding 
 
 ```css
 .card {
-  box-sizing: border-box;   /* width includes padding + border — much easier to reason about */
+  box-sizing: border-box;   /* width includes padding + border - much easier to reason about */
   width: 300px;
   padding: 1rem;            /* space inside the border */
   border: 1px solid #eadfd3;
@@ -152,7 +152,7 @@ h1, h2, h3 {
 - **Colour** can be hex (`#c8372d`), `rgb(200 55 45)`, or `hsl(...)`. Keep strong contrast between text
   and background (check with Lighthouse / DevTools contrast tool).
 - **Custom properties (variables)** live under `:root` and are reused with `var(--name)`. Change a
-  colour once and it updates everywhere — exactly how this course's own site works.
+  colour once and it updates everywhere - exactly how this course's own site works.
 - **Web fonts:** add Google Fonts with a `<link>` in your HTML `<head>` (search "Google Fonts Poppins"
   for the embed code), then use the font name in CSS.
 
@@ -166,7 +166,7 @@ h1, h2, h3 {
 | `%` | percent of the parent | fluid widths |
 | `vw` / `vh` | percent of viewport width/height | full-screen sections |
 
-> **Tip:** Prefer `rem` for font sizes and spacing. It respects the user's browser settings — better
+> **Tip:** Prefer `rem` for font sizes and spacing. It respects the user's browser settings - better
 > for accessibility than fixed pixels.
 
 ## Lesson 6: Backgrounds, borders, radius, shadows, transitions
@@ -198,7 +198,7 @@ h1, h2, h3 {
 - `:hover` and `:focus` states make a site feel responsive to the user.
 
 > **Common mistakes:** forgetting the semicolon, misspelling a property, or expecting margin to add
-> space *inside* a box (that's padding). When a rule seems ignored, check DevTools — it's usually a
+> space *inside* a box (that's padding). When a rule seems ignored, check DevTools - it's usually a
 > typo or a more specific rule winning.
 
 ## Practice Exercises
@@ -252,10 +252,10 @@ Style the **4-page Fresh Bites site** from Week 2 with a consistent brand:
 
 ## Facilitator Notes
 
-The two conceptual humps are specificity (demo it live in DevTools — seeing the struck-through rules
+The two conceptual humps are specificity (demo it live in DevTools - seeing the struck-through rules
 clicks for most students) and the margin-vs-padding distinction (use the DevTools box diagram). Steer
 students away from `!important` and ids; insist on reusable classes now, because Week 4's layout work
-assumes a clean class-based stylesheet. Watch for pixel-everything — nudge them toward `rem`.
+assumes a clean class-based stylesheet. Watch for pixel-everything - nudge them toward `rem`.
 
 ## Self-Check Questions
 

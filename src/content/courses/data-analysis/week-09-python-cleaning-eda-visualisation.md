@@ -1,5 +1,5 @@
 ---
-title: "Python III — Cleaning, EDA & Visualisation (Portfolio Project 1)"
+title: "Python III - Cleaning, EDA & Visualisation (Portfolio Project 1)"
 course: "data-analysis"
 order: 9
 week: 9

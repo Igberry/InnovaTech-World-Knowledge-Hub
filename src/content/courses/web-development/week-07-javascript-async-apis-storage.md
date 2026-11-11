@@ -15,7 +15,7 @@ downloads:
 ---
 
 **Goal:** Fetch live data from real web APIs using `async/await`, handle loading and error states, and
-save data in the browser with `localStorage` — then ship **Portfolio Project 2**.
+save data in the browser with `localStorage` - then ship **Portfolio Project 2**.
 
 This week your app talks to the outside world (a live weather service) and remembers things between
 visits (the cart). These are the skills that turn a static page into a real app.
@@ -42,7 +42,7 @@ Nothing new. Serve your page with **Live Server** (fetch and modules need a serv
 
 ## Lesson 1: Synchronous vs asynchronous
 
-Most code runs **synchronously** — one line after another. But some things take time (fetching data over
+Most code runs **synchronously** - one line after another. But some things take time (fetching data over
 the internet). We don't want the page to freeze while waiting, so those run **asynchronously**: we start
 them, and get the result later.
 
@@ -50,7 +50,7 @@ them, and get the result later.
 console.log("1");
 setTimeout(() => console.log("2 (later)"), 1000);
 console.log("3");
-// Prints: 1, 3, then 2 — the timer runs later, without blocking.
+// Prints: 1, 3, then 2 - the timer runs later, without blocking.
 ```
 
 ## Lesson 2: Promises → async/await
@@ -83,19 +83,19 @@ getData();
 ## Lesson 3: fetch, JSON, HTTP
 
 - **`fetch(url)`** makes an HTTP request and returns a promise for a `Response`.
-- **JSON** (JavaScript Object Notation) is the common data format — `response.json()` parses it into
+- **JSON** (JavaScript Object Notation) is the common data format - `response.json()` parses it into
   JavaScript objects/arrays.
 - **HTTP methods:** `GET` (read, the default), `POST` (create), `PUT`/`PATCH` (update), `DELETE`.
 - **Status codes:** `200` OK, `201` Created, `400` Bad Request, `401` Unauthorized, `404` Not Found,
   `500` Server Error.
 
 > **Important:** This week use only **free, keyless** public APIs. Never put a secret API key in
-> front-end code — anyone can read it. Keys come later (Week 11) and live in environment variables.
+> front-end code - anyone can read it. Keys come later (Week 11) and live in environment variables.
 
-## Lesson 4: A real API — Yenagoa weather
+## Lesson 4: A real API - Yenagoa weather
 
 **Open-Meteo** is a free weather API that needs no key. Yenagoa is about latitude `4.92`, longitude
-`6.26`. **Check the current parameter names on `open-meteo.com/en/docs` before you rely on them** — APIs
+`6.26`. **Check the current parameter names on `open-meteo.com/en/docs` before you rely on them** - APIs
 change.
 
 ```js
@@ -122,7 +122,7 @@ Notice the **three states**: loading ("Loading weather…"), success (the temper
 friendly message). Real apps always handle all three. **JSONPlaceholder**
 (`jsonplaceholder.typicode.com`) is a good keyless API for pure practice.
 
-## Lesson 5: localStorage — remember things
+## Lesson 5: localStorage - remember things
 
 `localStorage` saves small amounts of data in the browser that survive a page reload or closing the tab.
 It stores **strings only**, so use `JSON.stringify` to save and `JSON.parse` to read.
@@ -133,7 +133,7 @@ function saveCart(cart) {
   try {
     localStorage.setItem("freshbites:cart", JSON.stringify(cart));
   } catch (e) {
-    /* storage can be full or blocked — ignore safely */
+    /* storage can be full or blocked - ignore safely */
   }
 }
 
@@ -148,9 +148,9 @@ function loadCart() {
 ```
 
 - Namespace your keys (`freshbites:cart`) so they don't clash.
-- Always wrap reads/writes in `try/catch` — storage can be disabled or full.
+- Always wrap reads/writes in `try/catch` - storage can be disabled or full.
 
-> **Note:** `localStorage` is per-browser and per-device, and it isn't secure storage — never keep
+> **Note:** `localStorage` is per-browser and per-device, and it isn't secure storage - never keep
 > passwords or secrets there. For data that must follow a user across devices, you need a database
 > (Week 11).
 
@@ -189,9 +189,9 @@ next.
 6. **Stretch:** Show a friendly "nothing found" message when a filter returns no items.
 7. **Stretch:** Persist the user's last selected category filter in `localStorage`.
 
-## Weekly Assignment — Portfolio Project 2 (Due Before Week 8)
+## Weekly Assignment - Portfolio Project 2 (Due Before Week 8)
 
-Ship the **interactive Fresh Bites app** — your second portfolio piece.
+Ship the **interactive Fresh Bites app** - your second portfolio piece.
 
 Requirements:
 

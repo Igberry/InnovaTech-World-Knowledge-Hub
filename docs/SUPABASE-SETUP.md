@@ -15,7 +15,10 @@ automatically; you run the SQL yourself in your own Supabase project.
 ## 2. Create the tables and security rules
 1. In the left menu: **SQL Editor** → **New query**.
 2. Open `supabase/schema.sql` from this repo, copy everything, paste it in, and click **Run**.
-3. You should see "Success". This creates all tables with Row Level Security on.
+3. You should see "Success". This creates all tables (including the public **certificates** registry)
+   with Row Level Security on.
+4. **Already ran an older schema.sql?** Then run `supabase/migrations/0002_certificates.sql` on its own
+   to add the certificates table and the `verify_certificate` function.
 
 ## 3. Turn off public sign-ups, set URLs
 1. **Authentication → Providers → Email**: keep **Email** enabled; enable **magic link**.

@@ -9,7 +9,7 @@ estimatedHours: 12
 tools: ["Node.js", "VS Code terminal", "Vite", "Tailwind CSS"]
 ---
 
-**Goal:** Step up to professional tools — the terminal, **npm**, **Vite** and **Tailwind CSS** — and
+**Goal:** Step up to professional tools - the terminal, **npm**, **Vite** and **Tailwind CSS** - and
 deploy your Fresh Bites app using a real Git branch-and-pull-request workflow.
 
 Until now you wrote plain files. Real projects use a **build tool** that bundles your code, a fast dev
@@ -27,7 +27,7 @@ By the end of this week you can:
 
 ## Tools to Install This Week
 
-**Node.js** (from Week 0 — check `node -v`). Everything else installs per-project with npm.
+**Node.js** (from Week 0 - check `node -v`). Everything else installs per-project with npm.
 
 ## Pre-Session Resources (about 2 hours)
 
@@ -57,7 +57,7 @@ npm install axios  # add a package
 npm run dev        # run the "dev" script defined in package.json
 ```
 
-> **Important:** Never commit the `node_modules/` folder — it's huge and rebuildable. Your `.gitignore`
+> **Important:** Never commit the `node_modules/` folder - it's huge and rebuildable. Your `.gitignore`
 > should list `node_modules`. Commit `package.json` and `package-lock.json` instead.
 
 ## Lesson 2: Vite
@@ -69,25 +69,25 @@ npm create vite@latest fresh-bites-app
 # choose: Vanilla, then JavaScript (we add React in Week 9)
 cd fresh-bites-app
 npm install
-npm run dev     # starts the dev server — open the printed localhost URL
+npm run dev     # starts the dev server - open the printed localhost URL
 ```
 
 Key scripts (in `package.json`):
 
-- `npm run dev` — start the dev server (auto-reloads as you save).
-- `npm run build` — produce an optimised `dist/` folder for deployment.
-- `npm run preview` — preview the built site locally.
+- `npm run dev` - start the dev server (auto-reloads as you save).
+- `npm run build` - produce an optimised `dist/` folder for deployment.
+- `npm run preview` - preview the built site locally.
 
 Project structure: your code lives in `src/`, static files in `public/`, and the HTML entry is
 `index.html` at the root.
 
 > **Tip:** On a weak laptop or unreliable power, **StackBlitz** and **CodeSandbox** run Vite in the
-> browser — useful this week and next. Commit and push whenever you have internet.
+> browser - useful this week and next. Commit and push whenever you have internet.
 
 ## Lesson 3: Tailwind CSS
 
 **Tailwind** is a utility-first CSS framework: instead of writing CSS files, you compose small classes
-in your HTML. Install it in your Vite project (this is the **current official method** — confirm on
+in your HTML. Install it in your Vite project (this is the **current official method** - confirm on
 `tailwindcss.com/docs` as versions update):
 
 ```bash
@@ -131,7 +131,7 @@ Now use utility classes:
 | `hover:bg-red-700` | background on hover |
 | `sm:grid-cols-2 lg:grid-cols-3` | 2 columns on small screens, 3 on large (responsive prefixes) |
 
-> **Note:** Tailwind feels strange at first — "styling in HTML?" — but it is fast and consistent once it
+> **Note:** Tailwind feels strange at first - "styling in HTML?" - but it is fast and consistent once it
 > clicks. For a repeated pattern, extract a component (a function/React component) rather than copying
 > classes everywhere.
 
@@ -165,13 +165,13 @@ Your Vite app builds to `dist/`. Options:
   ```js
   export default defineConfig({ base: "/fresh-bites-app/", plugins: [tailwindcss()] });
   ```
-  Build, then publish `dist/` (a GitHub Action or the `gh-pages` approach — see the Vite deploy docs).
+  Build, then publish `dist/` (a GitHub Action or the `gh-pages` approach - see the Vite deploy docs).
 - **Netlify / Vercel / Cloudflare Pages:** connect your GitHub repo; they detect Vite, run
-  `npm run build`, and deploy automatically on every push. Free tiers are generous (limits can change —
+  `npm run build`, and deploy automatically on every push. Free tiers are generous (limits can change -
   check current terms). These serve at the **root**, so you usually don't need a `base` path.
 
 **Environment variables:** Vite exposes variables that start with `VITE_` to your code via
-`import.meta.env.VITE_SOMETHING`. Put them in a `.env` file and **git-ignore `.env`** — never commit
+`import.meta.env.VITE_SOMETHING`. Put them in a `.env` file and **git-ignore `.env`** - never commit
 secrets.
 
 > **Warning:** Anything in front-end code (including `VITE_` variables) is **visible to users**. Only
@@ -233,7 +233,7 @@ Every repo needs a `README.md`: what the project is, a screenshot, the live link
 
 ## Facilitator Notes
 
-This is a big tooling jump — expect friction with the terminal and npm. Reassure students that the dev
+This is a big tooling jump - expect friction with the terminal and npm. Reassure students that the dev
 server auto-reloading and Tailwind's speed are worth the discomfort. Check `.gitignore` includes
 `node_modules` and `.env` before they push (a committed `node_modules` is the week's classic mistake).
 Verify the Tailwind install steps against the live docs in session, as the install method has changed

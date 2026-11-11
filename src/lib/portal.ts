@@ -1,6 +1,6 @@
 /**
  * Student-side portal data (STUDENT-PORTAL-SPEC.md §6.3).
- * Progress, submissions, reviews, attendance — all scoped to the signed-in user
+ * Progress, submissions, reviews, attendance - all scoped to the signed-in user
  * by RLS. Includes the one-time localStorage → database merge on first login.
  */
 import { getSupabase } from './supabase';
