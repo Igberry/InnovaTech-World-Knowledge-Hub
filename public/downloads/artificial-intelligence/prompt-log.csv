@@ -1,0 +1,4 @@
+Date,Tool,Task,Prompt (short),What worked,What to improve,Rating (1-5)
+2026-01-07,Sample chat assistant,Draft a shop closure notice,"Role + task + under 40 words, friendly",Good tone and length first try,Needed a second pass to add the date,4
+2026-01-07,Sample chat assistant,Summarise an article,"Summarise to 5 bullets, facts only",Caught the main points,Invented one statistic - had to fact-check,3
+2026-01-08,Sample image tool,Make a simple event banner,"Describe scene, no text on image",Clean image,Hands looked wrong - regenerated,3
