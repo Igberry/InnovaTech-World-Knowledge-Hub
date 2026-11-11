@@ -106,7 +106,9 @@ export async function sendPasswordReset(email: string): Promise<Result> {
   if (!sb) return err('Portal not configured.');
   try {
     const { error } = await sb.auth.resetPasswordForEmail(email, {
-      redirectTo: absoluteUrl('/account/reset-password/'),
+      // Go through /auth/callback/ which verifies the recovery token and then
+      // forwards to /account/reset-password/ with an active session.
+      redirectTo: absoluteUrl('/auth/callback/'),
     });
     return error ? err(error) : ok(undefined);
   } catch (e) {
