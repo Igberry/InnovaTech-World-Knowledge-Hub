@@ -176,7 +176,8 @@ export default async function handler(req, res) {
     host: 'smtp.gmail.com',
     port: 465,
     secure: true,
-    auth: { user: GMAIL_USER, pass: GMAIL_APP_PASSWORD },
+    // Google shows App Passwords with spaces; strip them so a pasted value still works.
+    auth: { user: GMAIL_USER.trim(), pass: GMAIL_APP_PASSWORD.replace(/\s+/g, '') },
   });
 
   try {
