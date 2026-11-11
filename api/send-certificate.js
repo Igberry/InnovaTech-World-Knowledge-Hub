@@ -21,6 +21,8 @@ import { createClient } from '@supabase/supabase-js';
 const send = (res, status, body) => {
   res.statusCode = status;
   res.setHeader('Content-Type', 'application/json');
+  res.setHeader('Cache-Control', 'no-store');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
   res.end(JSON.stringify(body));
 };
 
