@@ -8,39 +8,52 @@
 
 <span class="auth-nav" data-auth-nav hidden></span>
 
-<style>
+<!-- Styles are global (not scoped) because the links below are injected via
+     innerHTML at runtime, so Astro's scoped selectors would not match them. -->
+<style is:global>
   .auth-nav {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.15rem;
+    flex-wrap: nowrap;
   }
-  .auth-nav a {
-    text-decoration: none;
-    font-weight: 600;
-    color: var(--color-blue-700);
-    white-space: nowrap;
-  }
-  .auth-nav .auth-name {
-    color: var(--color-muted);
-    font-weight: 500;
-    max-width: 10rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+  .auth-nav a,
   .auth-nav button {
     font: inherit;
     font-weight: 600;
-    background: none;
+    font-size: 0.9rem;
+    line-height: 1;
+    color: var(--color-blue-700);
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0.45rem 0.6rem;
     border: none;
-    color: var(--color-muted);
+    border-radius: 0.5rem;
+    background: none;
     cursor: pointer;
-    padding: 0;
   }
+  .auth-nav a:hover,
   .auth-nav button:hover {
+    background: var(--color-blue-50);
     color: var(--color-blue-700);
   }
-  @media (max-width: 520px) {
+  .auth-nav button {
+    color: var(--color-muted);
+  }
+  /* The signed-in identity: muted, with a subtle divider before it. */
+  .auth-nav .auth-name {
+    color: var(--color-muted);
+    font-weight: 500;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    max-width: 11rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 0.4rem;
+    padding-left: 0.75rem;
+    border-left: 1px solid var(--color-border);
+  }
+  @media (max-width: 640px) {
     .auth-nav .auth-name {
       display: none;
     }
