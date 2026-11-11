@@ -33,6 +33,7 @@ if (!course) throw new Error(`Course not found: ${courseSlug}`);
 const lessons = await getLessons(courseSlug!);
 const { prev, next } = await getAdjacentLessons(lesson);
 const { Content, headings } = await render(lesson);
+const hasAssignment = /(^|\n)#{1,6}\s+Weekly Assignment/i.test(lesson.body ?? '');
 ---
 
 <LessonLayout
@@ -42,6 +43,7 @@ const { Content, headings } = await render(lesson);
   headings={headings}
   prev={prev}
   next={next}
+  hasAssignment={hasAssignment}
 >
   <Content />
 </LessonLayout>

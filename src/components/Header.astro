@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import Logo from './Logo.astro';
 import ThemeToggle from './ThemeToggle.astro';
+import AuthNav from './AuthNav.astro';
 import { site } from '../config/site';
 import { withBase } from '../utils/links';
 
@@ -42,6 +43,7 @@ function isActive(href: string): boolean {
     </nav>
 
     <div class="header-right">
+      <AuthNav />
       <ThemeToggle />
       <button
         class="nav-toggle"

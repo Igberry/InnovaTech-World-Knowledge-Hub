@@ -17,7 +17,9 @@
     "check:astro": "astro check",
     "check:links": "node scripts/check-links.mjs",
     "test:facilitator": "node scripts/test-facilitator-stripped.mjs",
-    "verify": "npm run build && npm run check:links && npm run test:facilitator",
+    "test:rls": "node supabase/tests/rls.test.mjs",
+    "check:secrets": "node scripts/check-no-secrets.mjs",
+    "verify": "npm run build && npm run check:links && npm run test:facilitator && npm run check:secrets",
     "import:data-analysis": "node scripts/import-data-analysis-course.mjs",
     "generate:assets": "node scripts/generate-assets.mjs"
   },
@@ -26,6 +28,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@fontsource/poppins": "^5.1.1",
     "@iconify-json/lucide": "^1.2.18",
+    "@supabase/supabase-js": "^2.119.0",
     "astro": "^5.1.1",
     "astro-icon": "^1.1.5",
     "rehype-autolink-headings": "^7.1.0",

@@ -1,0 +1,78 @@
+---
+/**
+ * Header auth area (STUDENT-PORTAL-SPEC.md §6.2). Renders nothing until the
+ * client script decides the state, so there's no flash of the wrong link. Hidden
+ * entirely when the portal isn't configured.
+ */
+---
+
+<span class="auth-nav" data-auth-nav hidden></span>
+
+<style>
+  .auth-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .auth-nav a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--color-blue-700);
+    white-space: nowrap;
+  }
+  .auth-nav .auth-name {
+    color: var(--color-muted);
+    font-weight: 500;
+    max-width: 10rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .auth-nav button {
+    font: inherit;
+    font-weight: 600;
+    background: none;
+    border: none;
+    color: var(--color-muted);
+    cursor: pointer;
+    padding: 0;
+  }
+  .auth-nav button:hover {
+    color: var(--color-blue-700);
+  }
+  @media (max-width: 520px) {
+    .auth-nav .auth-name {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  import { isPortalEnabled } from '../lib/portal-config';
+  import { withBase } from '../utils/links';
+
+  const el = document.querySelector<HTMLElement>('[data-auth-nav]');
+  if (el && isPortalEnabled) {
+    // Load the Supabase client only when the portal is on (keeps it off public builds).
+    const { onAuthChange, isAdmin, getProfile, signOut } = await import('../lib/auth');
+    el.hidden = false;
+    const render = async (loggedIn: boolean) => {
+      if (!loggedIn) {
+        el.innerHTML = `<a href="${withBase('/login/')}">Log in</a>`;
+        return;
+      }
+      const [admin, profile] = await Promise.all([isAdmin(), getProfile()]);
+      const name = profile?.full_name?.trim() || 'My account';
+      el.innerHTML =
+        `<a href="${withBase('/account/')}">My Learning</a>` +
+        (admin ? `<a href="${withBase('/admin/')}">Admin</a>` : '') +
+        `<span class="auth-name" title="${name}">${name}</span>` +
+        `<button type="button" data-logout>Log out</button>`;
+      el.querySelector('[data-logout]')?.addEventListener('click', async () => {
+        await signOut();
+        window.location.href = withBase('/');
+      });
+    };
+    onAuthChange((user) => render(!!user));
+  }
+</script>

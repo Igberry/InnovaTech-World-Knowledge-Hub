@@ -111,8 +111,24 @@ This repo is wired to **one** Supabase project (`rrjyfrqidwndgfgdncnp`, Phase 4 
 is ever pointed elsewhere. Phases 1–3 use no Supabase at all. Never put a `service_role` key or
 database password anywhere in this repo.
 
-### Lesson access (open decision)
+### Lesson access
 
-Lessons are currently built as a **static, public** site. True "students-only" access is not
-possible on a plain static site — it needs either **Cloudflare Access** (free, works now) or the
-**Phase 4 Supabase portal**. See the handoff notes / `STUDENT-PORTAL-SPEC.md`.
+Lessons are **public** by design (good for SEO and prospective students). The student portal
+protects the **student data** (progress, submissions, feedback, attendance), not the lesson pages.
+A plain static site can't password-protect lesson pages; if you ever need that, use Cloudflare
+Access or store premium lessons privately (see `STUDENT-PORTAL-SPEC.md` §3).
+
+## Student portal (Phase 4)
+
+Login + progress sync + a facilitator dashboard, powered by **Supabase** (Auth + Postgres + RLS).
+It is **off by default** — the site builds and works as a public site until you add the two public
+Supabase values. Nothing runs against Supabase automatically; you run the SQL yourself.
+
+- SQL + tests: [`supabase/`](supabase/) (`schema.sql`, `migrations/`, `make-admin.sql`, `tests/rls.test.mjs`).
+- Setup steps: [`docs/SUPABASE-SETUP.md`](docs/SUPABASE-SETUP.md).
+- Turn it on: set repo variables `PUBLIC_SUPABASE_URL` and `PUBLIC_SUPABASE_ANON_KEY`.
+- Security: RLS on every table; only the **anon** key ships; a build check (`npm run check:secrets`)
+  fails if a `service_role` key ever reaches `dist/`. Run `npm run test:rls` (with test users you
+  create) before launch — every check must PASS.
+
+The portal pages are `/login`, `/account`, `/admin`, `/privacy` (plus auth callback + reset).

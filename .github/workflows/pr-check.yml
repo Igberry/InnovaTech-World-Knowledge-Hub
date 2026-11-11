@@ -32,3 +32,6 @@ jobs:
 
       - name: Facilitator-content test
         run: npm run test:facilitator
+
+      - name: No service_role key in build
+        run: npm run check:secrets

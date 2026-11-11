@@ -8,6 +8,7 @@ import Toc from '../components/Toc.astro';
 import DownloadsBox from '../components/DownloadsBox.astro';
 import LessonNav from '../components/LessonNav.astro';
 import MarkComplete from '../components/MarkComplete.astro';
+import AssignmentBox from '../components/AssignmentBox.astro';
 import CodeCopy from '../components/CodeCopy.astro';
 import type { Course, Lesson } from '../utils/courses';
 import { lessonSlug } from '../utils/courses';
@@ -21,9 +22,10 @@ export interface Props {
   headings: MarkdownHeading[];
   prev: Lesson | null;
   next: Lesson | null;
+  hasAssignment?: boolean;
   jsonLd?: Record<string, unknown>[];
 }
-const { course, lessons, lesson, headings, prev, next, jsonLd } = Astro.props;
+const { course, lessons, lesson, headings, prev, next, hasAssignment = false, jsonLd } = Astro.props;
 const slug = lessonSlug(lesson);
 const d = lesson.data;
 
@@ -81,6 +83,8 @@ const problemUrl =
         <div class="prose">
           <slot />
         </div>
+
+        {hasAssignment && <AssignmentBox course={course.data.slug} lesson={slug} />}
 
         <div class="lesson-actions no-print">
           <MarkComplete course={course.data.slug} lesson={slug} />
