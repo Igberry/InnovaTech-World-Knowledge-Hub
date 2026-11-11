@@ -62,7 +62,7 @@ const courseJsonLd = {
       <div class="course-hero-cta">
         {
           available && lessons[0] && (
-            <a class="btn btn-primary" href={withBase(`/courses/${slug}/${lessonSlug(lessons[0])}/`)}>
+            <a class="btn btn-primary" data-start-course href={withBase(`/courses/${slug}/${lessonSlug(lessons[0])}/`)}>
               Start the course
               <Icon name="lucide:arrow-right" width={18} height={18} aria-hidden="true" />
             </a>
@@ -420,6 +420,9 @@ const courseJsonLd = {
 
       voucherRow.hidden = false;
       payNote.hidden = false;
+      // Course is locked for this visitor: point the hero button at the plans.
+      const startBtn = document.querySelector('[data-start-course]') as HTMLAnchorElement | null;
+      if (startBtn) { startBtn.textContent = 'Enrol to start'; startBtn.setAttribute('href', '#course-pricing'); }
       const order: Record<string, number> = { basic: 1, advanced: 2, premium: 3 };
       plans.sort((a, b) => (order[a.plan] || 9) - (order[b.plan] || 9));
       grid.innerHTML = plans.map((p) => `
