@@ -57,9 +57,12 @@ const catalog = await buildCatalog();
 
       <form id="password-form" class="profile-form">
         <label for="new_password">Set or change your password</label>
-        <p class="muted small">First time here from an invite link? Set a password so you can log in with email and password next time.</p>
+        <p class="muted small">First time here from an invite link? Leave "current password" blank. Otherwise, enter your current password to change it.</p>
         <div class="profile-row">
-          <input id="new_password" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" />
+          <input id="current_password" type="password" autocomplete="current-password" placeholder="Current password (if you have one)" />
+        </div>
+        <div class="profile-row">
+          <input id="new_password" type="password" autocomplete="new-password" minlength="8" placeholder="New password (at least 8 characters)" />
           <button class="btn btn-secondary" type="submit">Save password</button>
         </div>
         <p id="password-msg" class="muted" role="status"></p>
@@ -132,7 +135,7 @@ const catalog = await buildCatalog();
 
 <script>
   import { isPortalEnabled } from '../../lib/supabase';
-  import { currentUser, getProfile, updateFullName, recordConsent, updatePassword } from '../../lib/auth';
+  import { currentUser, getProfile, updateFullName, recordConsent, changePassword } from '../../lib/auth';
   import {
     getEnrollments, getProgress, mergeLocalProgress,
     getMySubmissions, getMyReviews, getMyAttendance,
@@ -217,16 +220,18 @@ const catalog = await buildCatalog();
   function renderPassword() {
     const form = document.getElementById('password-form') as HTMLFormElement;
     const input = document.getElementById('new_password') as HTMLInputElement;
+    const current = document.getElementById('current_password') as HTMLInputElement;
     const msg = document.getElementById('password-msg')!;
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (input.value.length < 8) {
-        msg.textContent = 'Password must be at least 8 characters.';
+        msg.textContent = 'New password must be at least 8 characters.';
         return;
       }
-      const r = await updatePassword(input.value);
+      msg.textContent = 'Saving...';
+      const r = await changePassword(input.value, current.value.trim() || undefined);
       msg.textContent = r.ok ? 'Password saved. You can now log in with your email and password.' : r.error;
-      if (r.ok) input.value = '';
+      if (r.ok) { input.value = ''; current.value = ''; }
     });
   }
 

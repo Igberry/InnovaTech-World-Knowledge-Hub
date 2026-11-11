@@ -127,6 +127,35 @@ export async function updatePassword(password: string): Promise<Result> {
   }
 }
 
+/**
+ * Change the password for a logged-in user. If a current password is supplied,
+ * it is verified first (re-authentication), which also satisfies Supabase's
+ * "secure password change" setting. Leave currentPassword empty for accounts
+ * that have no password yet (e.g. invite/magic-link users).
+ */
+export async function changePassword(newPassword: string, currentPassword?: string): Promise<Result> {
+  const sb = getSupabase();
+  const user = await currentUser();
+  if (!sb || !user?.email) return err('Not signed in.');
+  try {
+    if (currentPassword) {
+      const { error: se } = await sb.auth.signInWithPassword({ email: user.email, password: currentPassword });
+      if (se) return err('Current password is incorrect.');
+    }
+    const { error } = await sb.auth.updateUser({ password: newPassword });
+    if (error) {
+      // Supabase "secure password change" needs the current password.
+      if (/current password|reauthenticat/i.test(error.message) && !currentPassword) {
+        return err('Enter your current password above to set a new one.');
+      }
+      return err(error);
+    }
+    return ok(undefined);
+  } catch (e) {
+    return err(e);
+  }
+}
+
 export async function signOut(): Promise<void> {
   const sb = getSupabase();
   if (sb) await sb.auth.signOut();
