@@ -1,0 +1,14 @@
+Description,Hours,Rate,Amount
+"INVOICE - replace all sample values",,,
+"From: [Your name / VA business, email, phone]",,,
+"To: [Client name / company]",,,
+"Invoice #: 001",,,
+"Date: [date]  |  Due: [date]",,,
+,,,
+Inbox and calendar management,10,[your rate],[hours x rate]
+Social media scheduling,6,[your rate],[hours x rate]
+Data entry,4,[your rate],[hours x rate]
+,,,Subtotal,[sum]
+,,,Total due,[sum]
+"Payment method: [e.g. Payoneer / bank transfer - agree with client up front]",,,
+"Note: thank you, payment due within [X] days",,,
