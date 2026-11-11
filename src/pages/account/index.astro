@@ -57,10 +57,7 @@ const catalog = await buildCatalog();
 
       <form id="password-form" class="profile-form">
         <label for="new_password">Set or change your password</label>
-        <p class="muted small">First time here from an invite link? Leave "current password" blank. Otherwise, enter your current password to change it.</p>
-        <div class="profile-row">
-          <input id="current_password" type="password" autocomplete="current-password" placeholder="Current password (if you have one)" />
-        </div>
+        <p class="muted small">Enter a new password below. If you have 2FA on, you'll also be asked for your authenticator code.</p>
         <div class="profile-row" id="totp_row" hidden>
           <input id="totp_code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="6-digit authenticator code (2FA)" />
         </div>
@@ -223,7 +220,6 @@ const catalog = await buildCatalog();
   function renderPassword() {
     const form = document.getElementById('password-form') as HTMLFormElement;
     const input = document.getElementById('new_password') as HTMLInputElement;
-    const current = document.getElementById('current_password') as HTMLInputElement;
     const totpRow = document.getElementById('totp_row') as HTMLElement;
     const totp = document.getElementById('totp_code') as HTMLInputElement;
     const msg = document.getElementById('password-msg')!;
@@ -234,23 +230,15 @@ const catalog = await buildCatalog();
         return;
       }
       msg.textContent = 'Saving...';
-      const r = await changePassword(input.value, {
-        currentPassword: current.value.trim() || undefined,
-        totpCode: totp.value.trim() || undefined,
-      });
+      const r = await changePassword(input.value, { totpCode: totp.value.trim() || undefined });
       if (!r.ok && r.error === 'mfa_required') {
         totpRow.hidden = false;
-        msg.textContent = 'Enter your 6-digit authenticator code above, then click Save password again.';
+        msg.textContent = 'Enter a fresh 6-digit authenticator code above, then click Save password again.';
         totp.focus();
         return;
       }
-      if (!r.ok && r.error === 'current_required') {
-        msg.textContent = 'Enter your current password above to change it.';
-        current.focus();
-        return;
-      }
       msg.textContent = r.ok ? 'Password saved. You can now log in with your email and password.' : r.error;
-      if (r.ok) { input.value = ''; current.value = ''; totp.value = ''; }
+      if (r.ok) { input.value = ''; totp.value = ''; }
     });
   }
 
