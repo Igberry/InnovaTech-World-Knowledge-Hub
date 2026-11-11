@@ -133,19 +133,31 @@ export async function updatePassword(password: string): Promise<Result> {
  * "secure password change" setting. Leave currentPassword empty for accounts
  * that have no password yet (e.g. invite/magic-link users).
  */
-export async function changePassword(newPassword: string, currentPassword?: string): Promise<Result> {
+export async function changePassword(
+  newPassword: string,
+  opts: { currentPassword?: string; totpCode?: string } = {},
+): Promise<Result> {
   const sb = getSupabase();
   const user = await currentUser();
   if (!sb || !user?.email) return err('Not signed in.');
   try {
-    if (currentPassword) {
-      const { error: se } = await sb.auth.signInWithPassword({ email: user.email, password: currentPassword });
+    const factors = await listVerifiedTotp();
+    if (factors.length > 0) {
+      // 2FA is on: Supabase needs an AAL2 session to change the password.
+      const aal = await getAAL();
+      if (!aal || aal.current !== 'aal2') {
+        if (!opts.totpCode) return err('mfa_required');
+        const v = await stepUpTotp(opts.totpCode);
+        if (!v.ok) return err('That authenticator code was not accepted. Try again.');
+      }
+    } else if (opts.currentPassword) {
+      // No 2FA: verify the current password (satisfies "secure password change").
+      const { error: se } = await sb.auth.signInWithPassword({ email: user.email, password: opts.currentPassword });
       if (se) return err('Current password is incorrect.');
     }
     const { error } = await sb.auth.updateUser({ password: newPassword });
     if (error) {
-      // Supabase "secure password change" needs the current password.
-      if (/current password|reauthenticat/i.test(error.message) && !currentPassword) {
+      if (/current password/i.test(error.message) && !opts.currentPassword && factors.length === 0) {
         return err('Enter your current password above to set a new one.');
       }
       return err(error);
