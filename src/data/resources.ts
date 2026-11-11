@@ -53,6 +53,13 @@ export const resources: Resource[] = [
   { title: 'Notion', url: 'https://www.notion.so', category: 'Remote work & careers', description: 'Notes, documents and task boards in one place.' },
   { title: 'Google Workspace', url: 'https://workspace.google.com', category: 'Remote work & careers', description: 'Free Docs, Sheets and Drive for remote work.' },
 
+  // Virtual assistant tools
+  { title: 'Trello', url: 'https://trello.com', category: 'Virtual assistant tools', description: 'A simple task board for tracking work per client.' },
+  { title: 'ClickUp', url: 'https://clickup.com', category: 'Virtual assistant tools', description: 'Tasks, docs and projects in one tool (free tier).' },
+  { title: 'Calendly', url: 'https://calendly.com', category: 'Virtual assistant tools', description: 'Let clients book time from your free slots (check current free tier).' },
+  { title: 'Bitwarden', url: 'https://bitwarden.com', category: 'Virtual assistant tools', description: 'A password manager to store and share access safely.' },
+  { title: 'Toggl Track', url: 'https://toggl.com/track', category: 'Virtual assistant tools', description: 'Track hours per client and task (check current free tier).' },
+
   // YouTube channels (search-based)
   { title: 'Alex The Analyst', url: yt('Alex The Analyst'), category: 'YouTube channels', description: 'Data analyst career and tool tutorials.' },
   { title: 'freeCodeCamp.org', url: yt('freeCodeCamp'), category: 'YouTube channels', description: 'Long-form, free full courses on data and programming.' },
