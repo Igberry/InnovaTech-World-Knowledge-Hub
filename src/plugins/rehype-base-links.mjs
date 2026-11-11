@@ -9,7 +9,8 @@
  */
 import { visit } from 'unist-util-visit';
 
-const RAW_BASE = process.env.BASE_PATH || '/innovatech-knowledge-hub';
+// Must match astro.config.mjs: Vercel serves at the root, GH Pages under /REPO/.
+const RAW_BASE = process.env.BASE_PATH || (process.env.VERCEL ? '/' : '/innovatech-knowledge-hub');
 const BASE = RAW_BASE === '/' ? '' : RAW_BASE.replace(/\/+$/, '');
 
 function prefix(value) {

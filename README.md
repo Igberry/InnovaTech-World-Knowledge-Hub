@@ -73,16 +73,30 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add courses and lessons (writt
 
 ---
 
-## Deployment (GitHub Pages)
+## Deployment (Vercel — recommended, free)
 
-1. Push to the `main` branch. The workflow in `.github/workflows/deploy.yml` builds and deploys automatically.
-2. In the repo: **Settings → Pages → Source: GitHub Actions**.
-3. The site URL and base path are detected automatically for a project site
-   (`https://<username>.github.io/<repo>/`). To override (for example a **custom domain**),
-   set repository **Variables** `SITE_URL` and `BASE_PATH`:
-   - Custom domain served at the root: `SITE_URL=https://hub.example.com`, `BASE_PATH=/`
-   - Add a `public/CNAME` file containing the domain, and point your DNS at GitHub Pages.
-4. Pull requests run `.github/workflows/pr-check.yml` (build + link check + facilitator test).
+The site is set up to host on **Vercel**, which serves it at the domain root (no base path).
+
+1. Push this repo to GitHub (see the git note below).
+2. Go to <https://vercel.com>, sign in with GitHub, **Add New → Project**, and import this repo.
+3. Vercel auto-detects Astro and uses `vercel.json` (build command `npm run build`, output `dist/`).
+   Just click **Deploy**. You get a free `*.vercel.app` URL.
+4. **Environment variables** (Project → Settings → Environment Variables), all optional:
+   - For the student portal: `PUBLIC_SUPABASE_URL` and `PUBLIC_SUPABASE_ANON_KEY` (the portal stays off until these are set).
+   - You normally don't need `SITE_URL`/`BASE_PATH` — on Vercel the base is `/` and the site URL is detected automatically. Set `SITE_URL` only to pin a custom domain's canonical URL.
+5. **Custom domain:** Project → Settings → Domains → add your domain and follow the DNS steps.
+6. After it's live, update your Supabase **Site URL / Redirect URLs** to the Vercel domain
+   (`https://<project>.vercel.app/auth/callback/` and `/account/reset-password/`). See `docs/SUPABASE-SETUP.md`.
+
+Every push to `main` triggers a new Vercel deployment automatically. Preview deployments are
+created for pull requests.
+
+### Alternative: GitHub Pages
+
+Still supported. The workflow `.github/workflows/deploy.yml` is **manual-only** now
+(Actions → Run workflow). To make Pages automatic, re-add the `push` trigger, enable
+**Settings → Pages → Source: GitHub Actions**; the URL/base default to `https://<user>.github.io/<repo>/`.
+Pull requests run `.github/workflows/pr-check.yml` (build + link check + facilitator + secret scan) on either host.
 
 ---
 
