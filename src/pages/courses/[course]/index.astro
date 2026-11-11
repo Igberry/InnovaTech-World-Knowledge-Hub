@@ -78,6 +78,23 @@ const courseJsonLd = {
   </section>
 
   {
+    available && (
+      <section class="section" id="course-pricing" data-course={slug} hidden>
+        <h2>Plans &amp; pricing</h2>
+        <div class="pricing-status" data-pricing-status></div>
+        <div class="plan-grid" data-plan-grid></div>
+        <div class="voucher-row" data-voucher-row hidden>
+          <label>Have a discount or access code?
+            <input type="text" data-voucher placeholder="Enter code" autocomplete="off" />
+          </label>
+          <span class="muted" data-voucher-msg></span>
+        </div>
+        <p class="muted pay-note" data-pay-note hidden>Secure payment by Paystack. Access is granted instantly.</p>
+      </section>
+    )
+  }
+
+  {
     available && d.outcomes && (
       <section class="section">
         <h2>What you'll learn</h2>
@@ -331,6 +348,26 @@ const courseJsonLd = {
       padding: 3rem;
     }
   }
+
+  /* Plans & pricing */
+  .plan-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem; margin: 1rem 0; }
+  .plan-card {
+    border: 1px solid var(--color-border); border-radius: 0.75rem; padding: 1.25rem; display: flex; flex-direction: column;
+    background: var(--surface);
+  }
+  .plan-card.is-popular { border-color: var(--color-blue-600); box-shadow: 0 6px 20px rgba(11,59,102,0.08); }
+  .plan-card h3 { margin: 0 0 0.25rem; text-transform: capitalize; }
+  .plan-price { font-size: 1.6rem; font-weight: 700; color: var(--color-blue-700); margin: 0.25rem 0 0.75rem; }
+  .plan-card ul { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: 0.4rem; font-size: 0.9rem; }
+  .plan-card li { display: flex; gap: 0.4rem; align-items: flex-start; }
+  .plan-card .btn { margin-top: auto; }
+  .pricing-status { margin: 0.5rem 0; }
+  .pricing-granted {
+    padding: 0.75rem 1rem; border: 1px solid var(--color-success); border-radius: 0.5rem;
+    background: color-mix(in srgb, var(--color-success) 10%, transparent); font-weight: 600;
+  }
+  .voucher-row { margin: 0.5rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+  .voucher-row input { font: inherit; padding: 0.5rem 0.65rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: var(--surface); color: var(--color-ink); }
 </style>
 
 <script>
@@ -351,4 +388,83 @@ const courseJsonLd = {
   };
   paint();
   document.addEventListener('itw:progress', paint);
+</script>
+
+<script>
+  import { isPortalEnabled } from '../../../lib/portal-config';
+  import { currentUser } from '../../../lib/auth';
+  import { getPlans, myEntitlement, validateVoucher, amountAfterVoucher, checkout, nairaFromKobo } from '../../../lib/payments';
+  import { withBase } from '../../../utils/links';
+
+  const section = document.getElementById('course-pricing');
+  if (section && isPortalEnabled) {
+    const course = section.dataset.course!;
+    const statusEl = section.querySelector('[data-pricing-status]') as HTMLElement;
+    const grid = section.querySelector('[data-plan-grid]') as HTMLElement;
+    const voucherRow = section.querySelector('[data-voucher-row]') as HTMLElement;
+    const voucherInput = section.querySelector('[data-voucher]') as HTMLInputElement;
+    const voucherMsg = section.querySelector('[data-voucher-msg]') as HTMLElement;
+    const payNote = section.querySelector('[data-pay-note]') as HTMLElement;
+    const esc = (s: string) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' } as any)[c]);
+
+    (async () => {
+      const plans = await getPlans(course);
+      if (!plans.length) return; // not configured yet -> stay hidden
+      section.hidden = false;
+
+      const entitled = await myEntitlement(course);
+      if (entitled) {
+        statusEl.innerHTML = `<p class="pricing-granted">You have access to this course (${esc(entitled)} plan). Scroll down to start learning.</p>`;
+        return;
+      }
+
+      voucherRow.hidden = false;
+      payNote.hidden = false;
+      const order: Record<string, number> = { basic: 1, advanced: 2, premium: 3 };
+      plans.sort((a, b) => (order[a.plan] || 9) - (order[b.plan] || 9));
+      grid.innerHTML = plans.map((p) => `
+        <div class="plan-card ${p.plan === 'advanced' ? 'is-popular' : ''}">
+          <h3>${esc(p.plan)}</h3>
+          <div class="plan-price">${nairaFromKobo(p.price_kobo)}</div>
+          <ul>${(p.features || []).map((f) => `<li>✓ ${esc(f)}</li>`).join('')}</ul>
+          <button class="btn btn-primary" data-buy="${esc(p.plan)}" data-kobo="${p.price_kobo}">Get access</button>
+        </div>`).join('');
+
+      grid.querySelectorAll<HTMLButtonElement>('[data-buy]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+          const plan = btn.dataset.buy!;
+          const kobo = Number(btn.dataset.kobo || '0');
+          const user = await currentUser();
+          if (!user) {
+            statusEl.innerHTML = `<p>Please <a href="${withBase('/login/')}">log in or create an account</a> to enrol, then come back and choose your plan.</p>`;
+            statusEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            return;
+          }
+          const code = voucherInput.value.trim();
+          let voucher = null;
+          if (code) {
+            voucher = await validateVoucher(code, course, plan);
+            if (!voucher || !voucher.valid) {
+              voucherMsg.textContent = voucher?.reason || 'Invalid code.'; voucherMsg.className = 'err';
+              return;
+            }
+            const final = amountAfterVoucher(kobo, voucher);
+            voucherMsg.textContent = 'Code applied: you pay ' + nairaFromKobo(final); voucherMsg.className = 'ok';
+          }
+          const label = btn.textContent;
+          btn.disabled = true; btn.textContent = 'Processing...';
+          const r = await checkout({ course, plan, priceKobo: kobo, voucher, voucherCode: code || null });
+          btn.disabled = false; btn.textContent = label;
+          if (r.ok) {
+            statusEl.innerHTML = `<p class="pricing-granted">Payment confirmed — you now have access. Reloading...</p>`;
+            setTimeout(() => window.location.reload(), 1200);
+          } else if (r.error === 'login') {
+            statusEl.innerHTML = `<p>Please <a href="${withBase('/login/')}">log in</a> first.</p>`;
+          } else if (r.error && r.error !== 'cancelled') {
+            voucherMsg.textContent = r.error; voucherMsg.className = 'err';
+          }
+        });
+      });
+    })();
+  }
 </script>
