@@ -135,19 +135,14 @@ export async function updatePassword(password: string): Promise<Result> {
  */
 export async function changePassword(
   newPassword: string,
-  opts: { currentPassword?: string; totpCode?: string } = {},
+  opts: { totpCode?: string } = {},
 ): Promise<Result> {
   const sb = getSupabase();
   const user = await currentUser();
   if (!sb || !user?.email) return err('Not signed in.');
   try {
+    // If 2FA is on, the session must be AAL2 to change the password.
     const factors = await listVerifiedTotp();
-    // 1) Verify the current password if given (satisfies "secure password change").
-    if (opts.currentPassword) {
-      const { error: se } = await sb.auth.signInWithPassword({ email: user.email, password: opts.currentPassword });
-      if (se) return err('Current password is incorrect.');
-    }
-    // 2) If 2FA is on, step up to AAL2 (a fresh sign-in above resets to AAL1).
     if (factors.length > 0) {
       const aal = await getAAL();
       if (!aal || aal.current !== 'aal2') {
@@ -156,10 +151,13 @@ export async function changePassword(
         if (!v.ok) return err('That authenticator code was not accepted. Use a fresh code and try again.');
       }
     }
-    // 3) Update the password.
     const { error } = await sb.auth.updateUser({ password: newPassword });
     if (error) {
-      if (/current password/i.test(error.message)) return err('current_required');
+      if (/current password|reauthenticat/i.test(error.message)) {
+        return err(
+          'Supabase still requires email reauthentication. Ask the owner to turn off "Secure password change" in Supabase (Authentication settings); your 2FA already protects this.',
+        );
+      }
       return err(error);
     }
     return ok(undefined);
