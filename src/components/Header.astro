@@ -133,6 +133,15 @@ function isActive(href: string): boolean {
   .nav-cta {
     margin-left: 0.5rem;
   }
+  /* The "Start Learning" button is a primary button, not a nav text link:
+     keep its text white on the navy fill (override .primary-nav a colour). */
+  .primary-nav a.nav-cta,
+  .primary-nav a.nav-cta:hover {
+    color: #fff;
+  }
+  .primary-nav a.nav-cta:hover {
+    background: var(--color-blue-700);
+  }
   .nav-search {
     display: flex;
     align-items: center;
