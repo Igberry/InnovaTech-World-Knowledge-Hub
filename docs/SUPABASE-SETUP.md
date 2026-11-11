@@ -19,7 +19,13 @@ automatically; you run the SQL yourself in your own Supabase project.
 
 ## 3. Turn off public sign-ups, set URLs
 1. **Authentication → Providers → Email**: keep **Email** enabled; enable **magic link**.
-2. **Authentication → Sign In / Providers** (or **Settings**): **disable "Allow new users to sign up."** (Invite-only.)
+2. **Authentication → Sign In / Providers** (or **Settings**) — choose your model:
+   - **Open sign-up (default in this build):** keep **"Allow new users to sign up" ON** so students can
+     self-register via the "Create an account" form on `/login` (they enter their name there). Leave
+     `site.portal.allowSignups = true`.
+   - **Invite-only:** turn **"Allow new users to sign up" OFF**, and set `site.portal.allowSignups = false`
+     in `src/config/site.ts` to hide the sign-up form. Invited users still get in via the invite link
+     and set their name + password on first login.
 3. **Authentication → URL Configuration:**
    - **Site URL:** your live site. On Vercel this is served at the root, e.g.
      `https://innovatech-world-knowledge-hub.vercel.app/` (or your custom domain).
