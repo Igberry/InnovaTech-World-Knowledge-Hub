@@ -53,6 +53,11 @@ export const resources: Resource[] = [
   { title: 'Notion', url: 'https://www.notion.so', category: 'Remote work & careers', description: 'Notes, documents and task boards in one place.' },
   { title: 'Google Workspace', url: 'https://workspace.google.com', category: 'Remote work & careers', description: 'Free Docs, Sheets and Drive for remote work.' },
 
+  // Artificial intelligence
+  { title: 'Elements of AI', url: 'https://www.elementsofai.com', category: 'Artificial intelligence', description: 'A free, beginner-friendly course on what AI is and how it works.' },
+  { title: 'AI for Everyone (Coursera)', url: 'https://www.coursera.org/learn/ai-for-everyone', category: 'Artificial intelligence', description: 'A non-technical overview of AI and how to use it (audit for free).' },
+  { title: 'Microsoft Learn - AI', url: 'https://learn.microsoft.com/training/', category: 'Artificial intelligence', description: 'Free, structured training modules, including AI basics.' },
+
   // Virtual assistant tools
   { title: 'Trello', url: 'https://trello.com', category: 'Virtual assistant tools', description: 'A simple task board for tracking work per client.' },
   { title: 'ClickUp', url: 'https://clickup.com', category: 'Virtual assistant tools', description: 'Tasks, docs and projects in one tool (free tier).' },
