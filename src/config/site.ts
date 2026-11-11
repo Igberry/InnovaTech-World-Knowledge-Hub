@@ -36,7 +36,7 @@ export const site = {
 
   contact: {
     // International format WITHOUT the leading "+", e.g. 234XXXXXXXXXX
-    whatsappNumber: 'TODO',
+    whatsappNumber: '2349121681159',
     email: 'TODO',
     // Office call line, full international format with "+". Shown as a "Call us" link.
     phone: '+2349121681159',

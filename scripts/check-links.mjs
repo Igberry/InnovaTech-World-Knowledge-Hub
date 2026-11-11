@@ -32,7 +32,18 @@ const allFiles = walk(DIST).map((p) => p.slice(DIST.length).split('\\').join('/'
 const fileSet = new Set(allFiles);
 const htmlFiles = allFiles.filter((f) => f.endsWith('.html'));
 
+// Owner-supplied media referenced by the site but added by hand (not in the repo).
+// Missing is OK — the pages remove these <img> gracefully (onerror) until uploaded.
+const PENDING_MEDIA = new Set([
+  '/images/hero.jpg',
+  '/images/community.jpg',
+  '/images/facilitator.jpg',
+  '/images/building.jpg',
+]);
+
 function exists(pathNoBase) {
+  const clean = pathNoBase.split('#')[0].split('?')[0];
+  if (PENDING_MEDIA.has(clean)) return true;
   let p = pathNoBase.split('#')[0].split('?')[0];
   if (p === '' || p === '/') p = '/index.html';
   if (fileSet.has(p)) return true;
