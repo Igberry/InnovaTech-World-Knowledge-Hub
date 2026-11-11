@@ -42,6 +42,9 @@ public/images/innovatechcom.png
 public/images/prime4.jpg
 public/images/sample 1.png
 
+# --- Facilitator-only solutions / answer keys (keep private, never commit) ---
+_facilitator/
+
 # --- OS / editor ---
 .DS_Store
 Thumbs.db
