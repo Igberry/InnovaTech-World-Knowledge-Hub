@@ -35,6 +35,13 @@ students-*.csv
 student-data/
 private/
 
+# --- Original (unoptimized) source photos: optimized copies are committed instead ---
+public/images/20260304_133918.jpg
+public/images/20260304_134000.jpg
+public/images/innovatechcom.png
+public/images/prime4.jpg
+public/images/sample 1.png
+
 # --- OS / editor ---
 .DS_Store
 Thumbs.db
