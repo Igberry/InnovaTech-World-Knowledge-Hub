@@ -62,9 +62,20 @@ function isActive(href: string): boolean {
     position: sticky;
     top: 0;
     z-index: 50;
-    background: var(--header-bg);
-    backdrop-filter: saturate(150%) blur(8px);
-    border-bottom: 1px solid var(--color-border);
+    /* Always a white header so the navy logo stays visible in every theme. */
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    color: #0f172a;
+    /* Pin light colours inside the header so its text/controls stay readable on white. */
+    --color-ink: #0f172a;
+    --color-muted: #475569;
+    --surface: #ffffff;
+    --color-border: #e2e8f0;
+    --color-blue-50: #eaf1f7;
+    --color-blue-100: #d2e0ee;
+    --color-blue-200: #a7c3dd;
+    --color-blue-600: #0b3b66;
+    --color-blue-700: #0a3057;
   }
   .header-inner {
     display: flex;
