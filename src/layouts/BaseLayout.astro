@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Analytics from '../components/Analytics.astro';
 import AuthRedirect from '../components/AuthRedirect.astro';
+import PasswordToggle from '../components/PasswordToggle.astro';
 import { site } from '../config/site';
 import { withBase } from '../utils/links';
 
@@ -81,6 +82,7 @@ const ogImage = new URL(withBase(image), Astro.site ?? 'https://example.com').to
   <body>
     <a href="#main" class="skip-link">Skip to content</a>
     <AuthRedirect />
+    <PasswordToggle />
     <Header />
     <main id="main" class={wide ? '' : 'container'} style={wide ? '' : 'padding-block: 2rem 3rem;'}>
       <slot />
