@@ -413,8 +413,12 @@ const catalog = await buildCatalog();
     .cert-sub{color:#475569;margin:6px 0;font-size:16px;}
     .cert-name{font-size:32px;font-weight:700;margin:6px 0;color:#0f172a;}
     .cert-course{font-size:23px;font-weight:600;margin:6px 0;color:#0b3b66;}
-    .cert-meta{color:#475569;margin:6px 0 26px;}
-    .cert-footer{display:flex;justify-content:space-between;gap:40px;margin-top:38px;}
+    .cert-meta{color:#475569;margin:6px 0 18px;}
+    .cert-skills{margin:4px auto 20px;max-width:720px;text-align:left;}
+    .cert-skills-label{text-align:center;text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:#0b3b66;font-weight:700;margin:0 0 8px;}
+    .cert-skills ul{columns:2;column-gap:36px;margin:0;padding-left:18px;font-size:12.5px;color:#334155;}
+    .cert-skills li{margin:3px 0;break-inside:avoid;}
+    .cert-footer{display:flex;justify-content:space-between;gap:40px;margin-top:30px;}
     .cert-footer>div{flex:1;text-align:center;font-size:13px;color:#0f172a;}
     .cert-signline{display:block;border-top:1px solid #94a3b8;margin:0 16px 8px;height:1px;}
     .cert-code{margin-top:24px;font-size:12px;color:#475569;}
@@ -437,6 +441,12 @@ const catalog = await buildCatalog();
     const logo = origin + withBase('/images/logo.png');
     const verifyUrl = location.origin + withBase('/verify/');
     const meta = [f.duration, f.grade].filter(Boolean).map(esc).join(' · ');
+    const course = catalog.find((c) => c.title.toLowerCase() === (f.course || '').toLowerCase());
+    const outcomes = course?.outcomes ?? [];
+    const skills = outcomes.length
+      ? `<div class="cert-skills"><p class="cert-skills-label">Skills demonstrated</p>
+         <ul>${outcomes.map((o) => `<li>${esc(o)}</li>`).join('')}</ul></div>`
+      : '';
     return `<div class="cert-doc"><div class="cert-border">
       <img class="cert-logo" src="${logo}" alt="InnovaTech World" />
       <p class="cert-kicker">InnovaTech World</p>
@@ -446,6 +456,7 @@ const catalog = await buildCatalog();
       <p class="cert-sub">has successfully completed</p>
       <p class="cert-course">${esc(f.course) || 'Course Title'}</p>
       ${meta ? `<p class="cert-meta">${meta}</p>` : '<p class="cert-meta"></p>'}
+      ${skills}
       <div class="cert-footer">
         <div><span class="cert-signline"></span>David C. Igberi, Lead Facilitator</div>
         <div><span class="cert-signline"></span>Date: ${esc(niceDate(f.date))}</div>
