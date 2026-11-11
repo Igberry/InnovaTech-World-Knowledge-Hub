@@ -439,7 +439,7 @@ const catalog = await buildCatalog();
     const meta = [f.duration, f.grade].filter(Boolean).map(esc).join(' · ');
     return `<div class="cert-doc"><div class="cert-border">
       <img class="cert-logo" src="${logo}" alt="InnovaTech World" />
-      <p class="cert-kicker">InnovaTech World · Yenagoa, Bayelsa</p>
+      <p class="cert-kicker">InnovaTech World</p>
       <h1 class="cert-h1">Certificate of Completion</h1>
       <p class="cert-sub">This is to certify that</p>
       <p class="cert-name">${esc(f.name) || 'Student Name'}</p>
@@ -506,7 +506,7 @@ const catalog = await buildCatalog();
         `Your certificate code is: ${f.code}\n` +
         `Anyone can verify it at: ${verifyUrl}\n\n` +
         `Your certificate is attached.\n\n` +
-        `Warm regards,\nDavid C. Igberi\nInnovaTech World, Yenagoa`;
+        `Warm regards,\nDavid C. Igberi\nInnovaTech World`;
       window.location.href = `mailto:${encodeURIComponent(f.email)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     });
 

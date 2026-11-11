@@ -13,7 +13,7 @@ icon: "bar-chart-3"
 order: 1
 featured: true
 ---
-**InnovaTech World · Yenagoa, Bayelsa State**
+**InnovaTech World**
 *Beginner to job-ready portfolio in Excel, SQL, Python and Power BI*
 
 ---
