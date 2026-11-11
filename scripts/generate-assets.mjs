@@ -19,8 +19,8 @@ const PUB = join(ROOT, 'public');
 const LOGO = join(PUB, 'images', 'logo.png');
 const FAVICON_SVG = join(PUB, 'favicon.svg');
 
-const BLUE_50 = '#EEF3FF';
-const BLUE_900 = '#122A6B';
+const BLUE_50 = '#eaf1f7';
+const BLUE_900 = '#04172b';
 
 async function run() {
   if (!existsSync(LOGO)) {

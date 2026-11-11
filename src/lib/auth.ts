@@ -44,6 +44,33 @@ export async function signInWithPassword(email: string, password: string): Promi
   }
 }
 
+/**
+ * Self-service sign up with name + email + password. The `full_name` goes into
+ * user metadata, which the `handle_new_user` DB trigger copies into profiles.
+ * Only works if sign-ups are enabled in Supabase (Authentication settings).
+ */
+export async function signUpWithPassword(
+  email: string,
+  password: string,
+  fullName: string,
+): Promise<Result<{ needsConfirmation: boolean }>> {
+  const sb = getSupabase();
+  if (!sb) return err('Portal not configured.');
+  try {
+    const { data, error } = await sb.auth.signUp({
+      email,
+      password,
+      options: { data: { full_name: fullName }, emailRedirectTo: absoluteUrl('/auth/callback/') },
+    });
+    if (error) return err(error);
+    // If email confirmation is on, there is a user but no active session yet.
+    const needsConfirmation = !data.session;
+    return ok({ needsConfirmation });
+  } catch (e) {
+    return err(e);
+  }
+}
+
 export async function signInWithMagicLink(email: string): Promise<Result> {
   const sb = getSupabase();
   if (!sb) return err('Portal not configured.');

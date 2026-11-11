@@ -16,9 +16,14 @@ const catalog = await buildCatalog();
     </header>
 
     <div id="consent" class="consent" hidden>
+      <div id="onboard-name-wrap" class="onboard-field" hidden>
+        <label for="onboard-name">Your full name</label>
+        <input id="onboard-name" type="text" autocomplete="name" placeholder="e.g. Jane Doe" />
+      </div>
       <p>
-        Before you continue, please review how we handle your data in our
-        <a href={withBase('/privacy/')}>privacy notice</a>.
+        Please review how we handle your data in our
+        <a href={withBase('/privacy/')}>privacy policy</a> and our
+        <a href={withBase('/terms/')}>terms of use</a>.
       </p>
       <label><input type="checkbox" id="consent-box" /> I understand and agree.</label>
       <button class="btn btn-primary" id="consent-save" disabled>Continue</button>
@@ -49,6 +54,16 @@ const catalog = await buildCatalog();
         </div>
         <p id="profile-msg" class="muted" role="status"></p>
       </form>
+
+      <form id="password-form" class="profile-form">
+        <label for="new_password">Set or change your password</label>
+        <p class="muted small">First time here from an invite link? Set a password so you can log in with email and password next time.</p>
+        <div class="profile-row">
+          <input id="new_password" type="password" autocomplete="new-password" minlength="8" placeholder="At least 8 characters" />
+          <button class="btn btn-secondary" type="submit">Save password</button>
+        </div>
+        <p id="password-msg" class="muted" role="status"></p>
+      </form>
     </section>
   </div>
 
@@ -60,6 +75,8 @@ const catalog = await buildCatalog();
   .page-head { margin: 0.5rem 0 1rem; }
   .page-head h1 { font-size: clamp(2rem, 1.5rem + 2vw, 2.6rem); }
   .muted { color: var(--color-muted); }
+  .small { font-size: 0.85rem; margin: 0.25rem 0 0.5rem; }
+  #password-form { margin-top: 1.5rem; }
   .section { margin-top: 2.25rem; }
   .section h2 { font-size: 1.4rem; margin-bottom: 1rem; }
   .stack { display: flex; flex-direction: column; gap: 1rem; }
@@ -69,6 +86,11 @@ const catalog = await buildCatalog();
     align-items: center; gap: 0.75rem;
   }
   .consent label { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .onboard-field { display: flex; flex-direction: column; gap: 0.3rem; width: 100%; }
+  .onboard-field input {
+    font: inherit; padding: 0.55rem 0.7rem; border: 1px solid var(--color-border);
+    border-radius: 0.5rem; background: var(--surface); color: var(--color-ink);
+  }
   .acct-card {
     border: 1px solid var(--color-border); border-radius: 0.75rem; padding: 1.1rem 1.25rem;
     background: var(--surface);
@@ -91,7 +113,7 @@ const catalog = await buildCatalog();
 
 <script>
   import { isPortalEnabled } from '../../lib/supabase';
-  import { currentUser, getProfile, updateFullName, recordConsent } from '../../lib/auth';
+  import { currentUser, getProfile, updateFullName, recordConsent, updatePassword } from '../../lib/auth';
   import {
     getEnrollments, getProgress, mergeLocalProgress,
     getMySubmissions, getMyReviews, getMyAttendance,
@@ -128,16 +150,36 @@ const catalog = await buildCatalog();
       ? `Welcome back, ${profile.full_name}.`
       : 'Welcome back.';
 
-    // First-login consent
-    if (profile && !profile.consented_at) {
+    // First-login onboarding: capture name (if missing) and consent (if missing)
+    const needName = !!profile && !profile.full_name;
+    const needConsent = !!profile && !profile.consented_at;
+    if (profile && (needName || needConsent)) {
       const box = document.getElementById('consent')!;
       const check = document.getElementById('consent-box') as HTMLInputElement;
       const save = document.getElementById('consent-save') as HTMLButtonElement;
+      const nameWrap = document.getElementById('onboard-name-wrap')!;
+      const nameInput = document.getElementById('onboard-name') as HTMLInputElement;
       box.hidden = false;
-      check.addEventListener('change', () => (save.disabled = !check.checked));
+      if (needName) nameWrap.hidden = false;
+      const refresh = () => {
+        const nameOk = !needName || nameInput.value.trim().length > 0;
+        save.disabled = !(check.checked && nameOk);
+      };
+      check.addEventListener('change', refresh);
+      nameInput.addEventListener('input', refresh);
       save.addEventListener('click', async () => {
-        const r = await recordConsent();
-        if (r.ok) box.hidden = true;
+        save.disabled = true;
+        if (needName) {
+          const rn = await updateFullName(nameInput.value.trim());
+          if (!rn.ok) return void (save.disabled = false);
+          (document.getElementById('greeting') as HTMLElement).textContent = `Welcome, ${nameInput.value.trim()}.`;
+          (document.getElementById('full_name') as HTMLInputElement).value = nameInput.value.trim();
+        }
+        if (needConsent) {
+          const rc = await recordConsent();
+          if (!rc.ok) return void (save.disabled = false);
+        }
+        box.hidden = true;
       });
     }
 
@@ -148,8 +190,25 @@ const catalog = await buildCatalog();
 
     renderCourses(enrollments, progress);
     renderProfile(profile?.full_name ?? '');
+    renderPassword();
     await renderSubmissions();
     await renderAttendance();
+  }
+
+  function renderPassword() {
+    const form = document.getElementById('password-form') as HTMLFormElement;
+    const input = document.getElementById('new_password') as HTMLInputElement;
+    const msg = document.getElementById('password-msg')!;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (input.value.length < 8) {
+        msg.textContent = 'Password must be at least 8 characters.';
+        return;
+      }
+      const r = await updatePassword(input.value);
+      msg.textContent = r.ok ? 'Password saved. You can now log in with your email and password.' : r.error;
+      if (r.ok) input.value = '';
+    });
   }
 
   function renderCourses(enrollments: { course_slug: string; status: string }[], progress: { course_slug: string; lesson_slug: string }[]) {

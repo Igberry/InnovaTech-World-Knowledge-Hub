@@ -21,8 +21,15 @@ automatically; you run the SQL yourself in your own Supabase project.
 1. **Authentication → Providers → Email**: keep **Email** enabled; enable **magic link**.
 2. **Authentication → Sign In / Providers** (or **Settings**): **disable "Allow new users to sign up."** (Invite-only.)
 3. **Authentication → URL Configuration:**
-   - **Site URL:** your live site, e.g. `https://YOUR-USERNAME.github.io/innovatech-knowledge-hub/` (or your custom domain).
-   - **Redirect URLs:** add the same URL **plus** `/auth/callback/` and `/account/reset-password/` under it, and also add `http://localhost:4321/innovatech-knowledge-hub/auth/callback/` and `.../account/reset-password/` for local testing.
+   - **Site URL:** your live site. On Vercel this is served at the root, e.g.
+     `https://innovatech-world-knowledge-hub.vercel.app/` (or your custom domain).
+   - **Redirect URLs:** add these exact paths:
+     - `https://innovatech-world-knowledge-hub.vercel.app/auth/callback/`
+     - `https://innovatech-world-knowledge-hub.vercel.app/account/reset-password/`
+     - For local testing (`npm run dev` serves under a sub-path by default):
+       `http://localhost:4321/innovatech-knowledge-hub/auth/callback/` and
+       `http://localhost:4321/innovatech-knowledge-hub/account/reset-password/`
+     - Add your custom-domain versions too once you set one up.
 
 ## 4. Email delivery (recommended)
 Supabase's built-in email is rate-limited and for testing only. For real use, set up **custom SMTP**:
@@ -34,12 +41,20 @@ Supabase's built-in email is rate-limited and for testing only. For real use, se
 1. Create your own account: **Authentication → Users → Invite user**, enter your email, and accept the invite (set a password) — or log in once on the site with a magic link.
 2. Open `supabase/make-admin.sql`, replace `OWNER_EMAIL_HERE` with your login email, and **Run** it in the SQL Editor.
 
-## 6. Connect the website to Supabase
-1. In Supabase: **Project Settings → API**. Copy the **Project URL** and the **anon public** key (NOT the service_role key).
-2. In GitHub: **Settings → Secrets and variables → Actions → Variables → New repository variable**:
+## 6. Connect the website to Supabase (Vercel)
+1. In Supabase: **Settings → API Keys**. Copy the **Project URL** and the **Publishable** key
+   (`sb_publishable_…`, the new replacement for the anon key). **Not** the Secret / service_role key.
+   - (The old anon key still works under the **Legacy API Keys** tab, but it's being retired end of 2026 — use the publishable key.)
+2. In **Vercel → your project → Settings → Environment Variables**, add these to the **Production**
+   environment (also tick **Preview** if you want the portal on preview deployments):
    - `PUBLIC_SUPABASE_URL` = `https://rrjyfrqidwndgfgdncnp.supabase.co`
-   - `PUBLIC_SUPABASE_ANON_KEY` = the anon public key
-3. Re-run the deploy workflow (push any commit, or **Actions → Deploy → Run workflow**). The portal turns on automatically; without these variables the site still builds as a public site.
+   - `PUBLIC_SUPABASE_ANON_KEY` = the Publishable key
+3. **Redeploy** so the vars apply: **Vercel → Deployments → latest → ⋯ → Redeploy** (or push any commit).
+   The portal turns on automatically; without these variables the site still works as a public site.
+
+> **Hosting on GitHub Pages instead?** Put the same two values in **GitHub → Settings → Secrets and
+> variables → Actions → Variables**, then run the Pages workflow (**Actions → Deploy to GitHub Pages
+> → Run workflow**). That workflow is manual-only now because the site is set up for Vercel.
 
 ## 7. Invite and enrol students
 1. **Authentication → Users → Invite user** for each student.
