@@ -1,0 +1,6 @@
+Date,Client,Task,Category,Start,End,Hours,Billable,Notes
+2026-01-05,Sample Client A,Morning inbox triage,Email,09:00,09:45,0.75,Yes,Cleared 40 emails
+2026-01-05,Sample Client A,Schedule 3 meetings,Calendar,10:00,10:30,0.50,Yes,Confirmed time zones
+2026-01-05,Sample Client B,Data entry - contacts,Data,11:00,12:30,1.50,Yes,60 rows added to CRM
+2026-01-06,Sample Client A,Weekly report prep,Reporting,16:00,16:30,0.50,Yes,Friday report sent
+2026-01-06,Internal,Learning - new task board,Training,17:00,17:45,0.75,No,Not billed to client
