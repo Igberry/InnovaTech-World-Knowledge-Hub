@@ -53,6 +53,12 @@ export const resources: Resource[] = [
   { title: 'Notion', url: 'https://www.notion.so', category: 'Remote work & careers', description: 'Notes, documents and task boards in one place.' },
   { title: 'Google Workspace', url: 'https://workspace.google.com', category: 'Remote work & careers', description: 'Free Docs, Sheets and Drive for remote work.' },
 
+  // Automation
+  { title: 'Zapier', url: 'https://zapier.com', category: 'Automation', description: 'Connect apps with no-code "when X, do Y" automations (check current free tier).' },
+  { title: 'Make', url: 'https://www.make.com', category: 'Automation', description: 'Build visual, multi-step automations between apps (check current free tier).' },
+  { title: 'IFTTT', url: 'https://ifttt.com', category: 'Automation', description: 'Simple one-step automations for everyday apps and devices.' },
+  { title: 'n8n', url: 'https://n8n.io', category: 'Automation', description: 'Open-source workflow automation you can self-host.' },
+
   // Artificial intelligence
   { title: 'Elements of AI', url: 'https://www.elementsofai.com', category: 'Artificial intelligence', description: 'A free, beginner-friendly course on what AI is and how it works.' },
   { title: 'AI for Everyone (Coursera)', url: 'https://www.coursera.org/learn/ai-for-everyone', category: 'Artificial intelligence', description: 'A non-technical overview of AI and how to use it (audit for free).' },
