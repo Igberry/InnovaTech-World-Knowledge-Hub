@@ -90,7 +90,7 @@ function emailHtml(cert, achievements, verifyLink) {
 }
 
 /** Standalone printable certificate, attached to the email as an .html file. */
-function certificateDoc(cert, achievements, verifyLink) {
+function certificateDoc(cert, achievements, verifyLink, signatureUrl) {
   const meta = [cert.duration, cert.grade].filter(Boolean).map(esc).join(' &middot; ');
   const skills = achievements.length
     ? `<div style="max-width:640px;margin:8px auto 22px;text-align:left;">
@@ -98,6 +98,9 @@ function certificateDoc(cert, achievements, verifyLink) {
          <ul style="columns:2;column-gap:36px;margin:0;padding-left:18px;font:12.5px/1.6 Poppins,Arial,sans-serif;color:#334155;">
            ${achievements.map((a) => `<li style="margin:3px 0;break-inside:avoid;">${esc(a)}</li>`).join('')}
          </ul></div>`
+    : '';
+  const sigImg = signatureUrl
+    ? `<img src="${esc(signatureUrl)}" alt="" style="max-height:52px;max-width:220px;height:auto;vertical-align:bottom;" onerror="this.style.display='none'" />`
     : '';
   return `<!doctype html><html><head><meta charset="utf-8">
   <title>Certificate - ${esc(cert.student_name)}</title>
@@ -116,8 +119,10 @@ function certificateDoc(cert, achievements, verifyLink) {
      ${skills}
      <table role="presentation" width="100%" style="margin-top:14px;"><tr>
        <td style="text-align:center;font:13px/1.6 Poppins,Arial,sans-serif;color:#334155;">
+         <div style="height:54px;">${sigImg}</div>
          <div style="border-top:1px solid #94a3b8;width:220px;margin:0 auto 4px;"></div>David C. Igberi, Lead Facilitator</td>
        <td style="text-align:center;font:13px/1.6 Poppins,Arial,sans-serif;color:#334155;">
+         <div style="height:54px;"></div>
          <div style="border-top:1px solid #94a3b8;width:220px;margin:0 auto 4px;"></div>Date: ${niceDate(cert.issued_at)}</td>
      </tr></table>
      <p style="margin:22px 0 0;font:12px/1.5 Poppins,Arial,sans-serif;color:#64748b;">
@@ -138,7 +143,7 @@ export default async function handler(req, res) {
 
   let body = req.body;
   if (!body || typeof body === 'string') { try { body = JSON.parse(body || '{}'); } catch { body = {}; } }
-  const { token, code, email, verifyUrl, achievements } = body || {};
+  const { token, code, email, verifyUrl, signatureUrl, achievements } = body || {};
 
   if (!token) return send(res, 401, { ok: false, error: 'Not signed in.' });
   if (!code) return send(res, 400, { ok: false, error: 'Missing certificate code.' });
@@ -165,6 +170,7 @@ export default async function handler(req, res) {
   const vLink = (typeof verifyUrl === 'string' && /^https?:\/\//.test(verifyUrl))
     ? `${verifyUrl}${verifyUrl.includes('?') ? '&' : '?'}code=${encodeURIComponent(cert.code)}`
     : '';
+  const sigUrl = (typeof signatureUrl === 'string' && /^https?:\/\//.test(signatureUrl)) ? signatureUrl : '';
 
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -181,7 +187,7 @@ export default async function handler(req, res) {
       html: emailHtml(cert, safeAch, vLink),
       attachments: [{
         filename: `certificate-${String(cert.code).replace(/[^a-z0-9-]/gi, '')}.html`,
-        content: certificateDoc(cert, safeAch, vLink),
+        content: certificateDoc(cert, safeAch, vLink, sigUrl),
         contentType: 'text/html; charset=utf-8',
       }],
     });

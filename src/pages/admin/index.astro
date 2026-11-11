@@ -420,6 +420,8 @@ const catalog = await buildCatalog();
     .cert-skills li{margin:3px 0;break-inside:avoid;}
     .cert-footer{display:flex;justify-content:space-between;gap:40px;margin-top:30px;}
     .cert-footer>div{flex:1;text-align:center;font-size:13px;color:#0f172a;}
+    .cert-sign-area{display:flex;align-items:flex-end;justify-content:center;height:52px;margin:0 16px;}
+    .cert-sign-img{max-height:52px;max-width:220px;width:auto;object-fit:contain;}
     .cert-signline{display:block;border-top:1px solid #94a3b8;margin:0 16px 8px;height:1px;}
     .cert-code{margin-top:24px;font-size:12px;color:#475569;}
     @media print{@page{size:A4 landscape;margin:0;}body{margin:0;padding:0;}.cert-doc{width:100%;}}
@@ -447,6 +449,9 @@ const catalog = await buildCatalog();
       ? `<div class="cert-skills"><p class="cert-skills-label">Skills demonstrated</p>
          <ul>${outcomes.map((o) => `<li>${esc(o)}</li>`).join('')}</ul></div>`
       : '';
+    // Saved signature (public/images/signature.png). Hidden gracefully if not added yet.
+    const sigUrl = origin + withBase('/images/signature.png');
+    const sigImg = `<img class="cert-sign-img" src="${sigUrl}" alt="" onerror="this.style.display='none'" />`;
     return `<div class="cert-doc"><div class="cert-border">
       <img class="cert-logo" src="${logo}" alt="InnovaTech World" />
       <p class="cert-kicker">InnovaTech World</p>
@@ -458,8 +463,8 @@ const catalog = await buildCatalog();
       ${meta ? `<p class="cert-meta">${meta}</p>` : '<p class="cert-meta"></p>'}
       ${skills}
       <div class="cert-footer">
-        <div><span class="cert-signline"></span>David C. Igberi, Lead Facilitator</div>
-        <div><span class="cert-signline"></span>Date: ${esc(niceDate(f.date))}</div>
+        <div><span class="cert-sign-area">${sigImg}</span><span class="cert-signline"></span>David C. Igberi, Lead Facilitator</div>
+        <div><span class="cert-sign-area"></span><span class="cert-signline"></span>Date: ${esc(niceDate(f.date))}</div>
       </div>
       <p class="cert-code">Certificate code: <strong>${esc(f.code) || '—'}</strong> · Verify at ${esc(verifyUrl)}</p>
     </div></div>`;
@@ -526,6 +531,7 @@ const catalog = await buildCatalog();
             code: f.code,
             email: f.email,
             verifyUrl: location.origin + withBase('/verify/'),
+            signatureUrl: location.origin + withBase('/images/signature.png'),
             achievements: course?.outcomes ?? [],
           }),
         });
