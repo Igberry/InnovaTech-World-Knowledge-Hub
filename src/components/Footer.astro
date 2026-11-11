@@ -8,6 +8,7 @@ import { withBase, activeSocials, formEndpoint, phoneUrl } from '../utils/links'
 const socials = activeSocials();
 const hasNewsletter = formEndpoint('newsletter') !== null;
 const phone = phoneUrl();
+const email = site.contact.email && site.contact.email !== 'TODO' ? site.contact.email : null;
 const socialIcon: Record<string, string> = {
   facebook: 'lucide:facebook',
   instagram: 'lucide:instagram',
@@ -39,6 +40,14 @@ const year = new Date().getFullYear();
           <p class="footer-loc">
             <Icon name="lucide:phone" width={16} height={16} aria-hidden="true" />
             <a href={phone}>{site.contact.phone}</a>
+          </p>
+        )
+      }
+      {
+        email && (
+          <p class="footer-loc">
+            <Icon name="lucide:mail" width={16} height={16} aria-hidden="true" />
+            <a href={`mailto:${email}`}>{email}</a>
           </p>
         )
       }
