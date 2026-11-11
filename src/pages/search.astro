@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Search from '../components/Search.astro';
+---
+
+<BaseLayout title="Search" description="Search all InnovaTech World Knowledge Hub courses and lessons.">
+  <header class="page-head">
+    <h1>Search</h1>
+    <p>Find a lesson, topic, or course across the whole Knowledge Hub.</p>
+  </header>
+  <div class="search-wrap">
+    <Search id="search" autoFromQuery />
+  </div>
+</BaseLayout>
+
+<style>
+  .page-head {
+    margin: 0.5rem 0 1.5rem;
+  }
+  .page-head h1 {
+    font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  }
+  .page-head p {
+    color: var(--color-muted);
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+  }
+  .search-wrap {
+    max-width: 44rem;
+  }
+</style>

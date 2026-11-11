@@ -9,6 +9,7 @@ const soon = courses.filter((c) => c.data.status !== 'available');
 const ordered = [...available, ...soon];
 
 const categories = Array.from(new Set(courses.map((c) => c.data.category))).sort();
+const levelRank: Record<string, number> = { Beginner: 1, Intermediate: 2, Advanced: 3 };
 ---
 
 <BaseLayout
@@ -20,21 +21,37 @@ const categories = Array.from(new Set(courses.map((c) => c.data.category))).sort
     <p>Practical, project-based training. Start with what's available now; more are on the way.</p>
   </header>
 
-  <div class="filters" role="group" aria-label="Filter courses by category">
-    <button class="filter-chip is-active" data-filter="all" aria-pressed="true">All</button>
-    {
-      categories.map((cat) => (
-        <button class="filter-chip" data-filter={cat} aria-pressed="false">
-          {cat}
-        </button>
-      ))
-    }
+  <div class="controls">
+    <div class="filters" role="group" aria-label="Filter courses by category">
+      <button class="filter-chip is-active" data-filter="all" aria-pressed="true">All</button>
+      {
+        categories.map((cat) => (
+          <button class="filter-chip" data-filter={cat} aria-pressed="false">
+            {cat}
+          </button>
+        ))
+      }
+    </div>
+    <label class="sort">
+      <span>Sort</span>
+      <select id="course-sort">
+        <option value="recommended">Recommended</option>
+        <option value="title">Title (A–Z)</option>
+        <option value="level">Level</option>
+      </select>
+    </label>
   </div>
 
   <div class="card-grid" id="course-grid">
     {
-      ordered.map((course) => (
-        <div class="course-cell" data-category={course.data.category}>
+      ordered.map((course, i) => (
+        <div
+          class="course-cell"
+          data-category={course.data.category}
+          data-order={i}
+          data-title={course.data.title.toLowerCase()}
+          data-level={course.data.level ? levelRank[course.data.level] ?? 99 : 99}
+        >
           <CourseCard course={course} />
         </div>
       ))
@@ -56,11 +73,33 @@ const categories = Array.from(new Set(courses.map((c) => c.data.category))).sort
     margin-top: 0.5rem;
     max-width: 55ch;
   }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
   .filters {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1.5rem;
+  }
+  .sort {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--color-muted);
+  }
+  .sort select {
+    font: inherit;
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+    background: var(--surface);
+    color: var(--color-ink);
   }
   .filter-chip {
     font-size: 0.875rem;
@@ -68,7 +107,7 @@ const categories = Array.from(new Set(courses.map((c) => c.data.category))).sort
     padding: 0.4rem 0.9rem;
     border-radius: 999px;
     border: 1px solid var(--color-border);
-    background: #fff;
+    background: var(--surface);
     color: var(--color-ink);
     cursor: pointer;
   }
@@ -124,4 +163,21 @@ const categories = Array.from(new Set(courses.map((c) => c.data.category))).sort
       if (empty) empty.hidden = shown !== 0;
     });
   });
+
+  // Sorting
+  const grid = document.getElementById('course-grid');
+  const sortSel = document.getElementById('course-sort') as HTMLSelectElement | null;
+  if (grid && sortSel) {
+    const num = (el: HTMLElement, attr: string) => Number(el.dataset[attr] || '0');
+    sortSel.addEventListener('change', () => {
+      const mode = sortSel.value;
+      const items = Array.from(grid.children) as HTMLElement[];
+      items.sort((a, b) => {
+        if (mode === 'title') return (a.dataset.title || '').localeCompare(b.dataset.title || '');
+        if (mode === 'level') return num(a, 'level') - num(b, 'level') || num(a, 'order') - num(b, 'order');
+        return num(a, 'order') - num(b, 'order');
+      });
+      items.forEach((el) => grid.appendChild(el));
+    });
+  }
 </script>

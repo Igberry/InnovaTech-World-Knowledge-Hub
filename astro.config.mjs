@@ -9,6 +9,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { remarkFacilitator } from './src/plugins/remark-facilitator.mjs';
 import { remarkCallouts } from './src/plugins/remark-callouts.mjs';
 import { remarkSelfCheck } from './src/plugins/remark-selfcheck.mjs';
+import { remarkAssignment } from './src/plugins/remark-assignment.mjs';
 import { rehypeBaseLinks } from './src/plugins/rehype-base-links.mjs';
 import { rehypeTableWrap } from './src/plugins/rehype-table-wrap.mjs';
 
@@ -41,8 +42,9 @@ export default defineConfig({
       theme: 'github-light',
       wrap: false,
     },
-    // Order matters: strip facilitator content FIRST, then transform the rest.
-    remarkPlugins: [remarkFacilitator, remarkSelfCheck, remarkCallouts],
+    // Order matters: strip facilitator content first; style callouts while all
+    // blockquotes are still top-level; THEN wrap sections (self-check, assignment).
+    remarkPlugins: [remarkFacilitator, remarkCallouts, remarkSelfCheck, remarkAssignment],
     rehypePlugins: [
       rehypeBaseLinks,
       rehypeTableWrap,

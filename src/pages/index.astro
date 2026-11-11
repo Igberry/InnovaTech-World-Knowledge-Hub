@@ -3,13 +3,27 @@ import { Icon } from 'astro-icon/components';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CourseCard from '../components/CourseCard.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
-import { getAllCourses } from '../utils/courses';
+import { getAllCourses, getLessons, lessonSlug } from '../utils/courses';
 import { site } from '../config/site';
 import { withBase } from '../utils/links';
 
 const courses = await getAllCourses();
 const available = courses.filter((c) => c.data.status === 'available');
 const soon = courses.filter((c) => c.data.status !== 'available');
+
+// Lightweight index for the "continue where you left off" band (client-side).
+const courseIndex = await Promise.all(
+  available.map(async (c) => ({
+    slug: c.data.slug,
+    title: c.data.title,
+    href: withBase(`/courses/${c.data.slug}/`),
+    lessons: (await getLessons(c.data.slug)).map((l) => ({
+      slug: lessonSlug(l),
+      title: l.data.title,
+      href: withBase(`/courses/${c.data.slug}/${lessonSlug(l)}/`),
+    })),
+  })),
+);
 const featured = [
   ...available.sort((a, b) => Number(b.data.featured) - Number(a.data.featured)),
   ...soon,
@@ -71,6 +85,51 @@ const values = [
       </svg>
     </div>
   </section>
+
+  <!-- Continue where you left off (shown by JS only if there's saved progress) -->
+  <section id="continue" class="section continue" hidden aria-label="Continue learning">
+    <h2>Jump back in</h2>
+    <div class="continue-grid" id="continue-grid"></div>
+  </section>
+  <script type="application/json" id="itw-course-index" set:html={JSON.stringify(courseIndex)} />
+  <script>
+    import { getCompleted } from '../scripts/progress';
+    type L = { slug: string; title: string; href: string };
+    type C = { slug: string; title: string; href: string; lessons: L[] };
+    const el = document.getElementById('itw-course-index');
+    const grid = document.getElementById('continue-grid');
+    const section = document.getElementById('continue');
+    if (el && grid && section) {
+      let courses: C[] = [];
+      try {
+        courses = JSON.parse(el.textContent || '[]');
+      } catch {
+        courses = [];
+      }
+      const cards: string[] = [];
+      for (const c of courses) {
+        const done = getCompleted(c.slug);
+        if (done.size === 0) continue;
+        const total = c.lessons.length;
+        const next = c.lessons.find((l) => !done.has(l.slug));
+        const pct = total ? Math.round((done.size / total) * 100) : 0;
+        const target = next ?? { href: c.href, title: 'Review the course' };
+        const verb = next ? 'Continue' : 'Revisit';
+        cards.push(
+          `<a class="card card-link continue-card" href="${target.href}">
+             <span class="continue-course">${c.title}</span>
+             <span class="continue-next">${verb}: ${target.title}</span>
+             <span class="continue-bar"><span style="width:${pct}%"></span></span>
+             <span class="continue-pct">${pct}% complete</span>
+           </a>`,
+        );
+      }
+      if (cards.length) {
+        grid.innerHTML = cards.join('');
+        section.hidden = false;
+      }
+    }
+  </script>
 
   <!-- Featured courses -->
   <section class="section">
@@ -138,7 +197,7 @@ const values = [
     grid-template-columns: 1fr;
     gap: 2rem;
     align-items: center;
-    background: linear-gradient(180deg, var(--color-blue-50), #fff);
+    background: linear-gradient(180deg, var(--color-blue-50), var(--bg));
     border-radius: 1.25rem;
     padding: 2.5rem 1.5rem;
     margin-top: 1rem;
@@ -188,6 +247,50 @@ const values = [
     border-radius: 1.25rem;
     padding: 2.5rem 1.5rem;
   }
+
+  .continue-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .continue-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.1rem 1.25rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .continue-course {
+    font-weight: 700;
+  }
+  .continue-next {
+    color: var(--color-blue-700);
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .continue-bar {
+    height: 0.4rem;
+    background: var(--color-blue-100);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 0.3rem;
+  }
+  .continue-bar > span {
+    display: block;
+    height: 100%;
+    background: var(--color-success);
+  }
+  .continue-pct {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    font-weight: 600;
+  }
+  @media (min-width: 680px) {
+    .continue-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
   .card-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -200,7 +303,7 @@ const values = [
   }
   .step {
     position: relative;
-    background: #fff;
+    background: var(--surface);
     border: 1px solid var(--color-border);
     border-radius: 0.9rem;
     padding: 1.25rem;

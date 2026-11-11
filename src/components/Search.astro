@@ -1,0 +1,82 @@
+---
+/**
+ * Pagefind static search (WEBSITE-BUILD-PROMPT.md §10 Phase 2).
+ * The index and UI bundle are generated into /pagefind/ by `pagefind --site dist`
+ * after the Astro build, so search works in `npm run preview` and in production
+ * (not in `npm run dev`, where no index exists yet — the box degrades gracefully).
+ */
+import { withBase } from '../utils/links';
+
+export interface Props {
+  id?: string;
+  /** Prefill + run a search from the ?q= query param on load. */
+  autoFromQuery?: boolean;
+}
+const { id = 'search', autoFromQuery = false } = Astro.props;
+const bundlePath = withBase('/pagefind/');
+---
+
+<link rel="stylesheet" href={`${bundlePath}pagefind-ui.css`} />
+<div id={id} class="pf-search" data-bundle={bundlePath} data-auto={autoFromQuery ? '1' : '0'}>
+  <noscript>Search needs JavaScript enabled.</noscript>
+</div>
+
+<script>
+  function initSearch() {
+    document.querySelectorAll<HTMLElement>('.pf-search').forEach((el) => {
+      if (el.dataset.ready) return;
+      const bundlePath = el.dataset.bundle!;
+      const auto = el.dataset.auto === '1';
+      const script = document.createElement('script');
+      script.src = bundlePath + 'pagefind-ui.js';
+      script.onload = () => {
+        const Pagefind = (window as any).PagefindUI;
+        if (!Pagefind) return;
+        const ui = new Pagefind({
+          element: '#' + el.id,
+          bundlePath,
+          showSubResults: true,
+          showImages: false,
+          resetStyles: false,
+        });
+        el.dataset.ready = '1';
+        if (auto) {
+          const q = new URLSearchParams(location.search).get('q');
+          if (q) {
+            const input = el.querySelector<HTMLInputElement>('input[type="text"]');
+            if (input) {
+              input.value = q;
+              input.dispatchEvent(new Event('input', { bubbles: true }));
+            } else if (typeof ui.triggerSearch === 'function') {
+              ui.triggerSearch(q);
+            }
+          }
+        }
+      };
+      script.onerror = () => {
+        el.innerHTML =
+          '<p class="pf-missing">Search isn\'t available in this preview. It works on the published site.</p>';
+        el.dataset.ready = '1';
+      };
+      document.head.appendChild(script);
+    });
+  }
+  initSearch();
+  document.addEventListener('astro:page-load', initSearch);
+</script>
+
+<style is:global>
+  .pf-search {
+    --pagefind-ui-primary: var(--color-blue-600);
+    --pagefind-ui-text: var(--color-ink);
+    --pagefind-ui-background: var(--surface, #fff);
+    --pagefind-ui-border: var(--color-border);
+    --pagefind-ui-tag: var(--color-blue-50);
+    --pagefind-ui-border-radius: 0.6rem;
+    --pagefind-ui-font: var(--font-sans);
+  }
+  .pf-missing {
+    color: var(--color-muted);
+    font-size: 0.9rem;
+  }
+</style>

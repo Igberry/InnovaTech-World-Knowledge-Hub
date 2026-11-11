@@ -35,6 +35,16 @@ const ogImage = new URL(withBase(image), Astro.site ?? 'https://example.com').to
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Set the theme before paint to avoid a flash (follows system unless chosen). -->
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('itw:theme');
+          if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
     <meta name="generator" content={Astro.generator} />
 
     <title>{pageTitle}</title>

@@ -1,0 +1,71 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<button class="theme-toggle" type="button" aria-label="Switch between light and dark theme" title="Toggle theme">
+  <Icon name="lucide:sun" width={20} height={20} aria-hidden="true" class="icon-sun" />
+  <Icon name="lucide:moon" width={20} height={20} aria-hidden="true" class="icon-moon" />
+</button>
+
+<style>
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--color-border);
+    background: var(--surface);
+    color: var(--color-ink);
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+  .theme-toggle:hover {
+    background: var(--color-blue-50);
+  }
+  /* Show the icon for the theme you'd switch TO. Default (light): show moon. */
+  .icon-sun {
+    display: none;
+  }
+  .icon-moon {
+    display: inline;
+  }
+  :global(:root[data-theme='dark']) .icon-sun {
+    display: inline;
+  }
+  :global(:root[data-theme='dark']) .icon-moon {
+    display: none;
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .icon-sun {
+      display: inline;
+    }
+    :global(:root:not([data-theme='light'])) .icon-moon {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  function effectiveTheme(): 'light' | 'dark' {
+    const attr = document.documentElement.getAttribute('data-theme');
+    if (attr === 'light' || attr === 'dark') return attr;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function bind() {
+    document.querySelectorAll<HTMLButtonElement>('.theme-toggle').forEach((btn) => {
+      if (btn.dataset.bound) return;
+      btn.dataset.bound = '1';
+      btn.addEventListener('click', () => {
+        const next = effectiveTheme() === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        try {
+          localStorage.setItem('itw:theme', next);
+        } catch (e) {}
+      });
+    });
+  }
+  bind();
+  document.addEventListener('astro:page-load', bind);
+</script>

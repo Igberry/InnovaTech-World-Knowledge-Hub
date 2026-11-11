@@ -38,11 +38,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
-
-      # Phase 2: static search index.
-      # - name: Pagefind index
-      #   run: npx pagefind --site dist
+        run: npm run build # also runs Pagefind indexing into dist/pagefind
 
       - name: Check internal links
         run: npm run check:links

@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Search from '../components/Search.astro';
 import { withBase } from '../utils/links';
 ---
 
@@ -11,7 +12,9 @@ import { withBase } from '../utils/links';
     <p class="lead">
       Sorry, the page you were looking for doesn't exist or may have moved.
     </p>
-    <!-- Site search arrives in Phase 2. -->
+    <div class="notfound-search">
+      <Search id="search-404" />
+    </div>
     <div class="notfound-cta">
       <a class="btn btn-primary" href={withBase('/courses/')}>
         Browse Courses
@@ -43,6 +46,11 @@ import { withBase } from '../utils/links';
     color: var(--color-muted);
     font-size: 1.1rem;
     margin-top: 0.75rem;
+  }
+  .notfound-search {
+    max-width: 30rem;
+    margin: 1.75rem auto 0;
+    text-align: left;
   }
   .notfound-cta {
     display: flex;

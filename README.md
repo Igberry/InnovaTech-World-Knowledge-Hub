@@ -17,6 +17,7 @@ in royal blue and white, and deployed free on GitHub Pages.
 | Framework | Astro + Content Collections |
 | Styling | Tailwind CSS v4 + design tokens in `src/styles/global.css` |
 | Content | Markdown with GFM tables, Shiki highlighting, heading anchors |
+| Search | Pagefind — static index built after the Astro build (works in `preview`/production, not `dev`) |
 | Language | TypeScript (strict) |
 | Fonts | Poppins, self-hosted via `@fontsource/poppins` |
 | Hosting | GitHub Pages via GitHub Actions |
