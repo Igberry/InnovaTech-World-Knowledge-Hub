@@ -123,6 +123,23 @@ const catalog = await buildCatalog();
   }
   .err { color: var(--color-danger); font-size: 0.85rem; }
   .ok { color: var(--color-success); font-size: 0.85rem; }
+  .mfa-box {
+    max-width: 420px; margin: 2rem auto; padding: 1.5rem; text-align: center;
+    border: 1px solid var(--color-border); border-radius: 0.75rem; background: var(--surface);
+  }
+  .mfa-box h2 { font-size: 1.2rem; margin: 0 0 0.5rem; }
+  .mfa-box p { font-size: 0.9rem; color: var(--color-muted); }
+  .mfa-qr { width: 200px; height: 200px; margin: 1rem auto; background: #fff; padding: 8px; border-radius: 0.5rem; }
+  .mfa-qr :global(svg) { width: 100%; height: 100%; display: block; }
+  .mfa-secret code { font-size: 0.95rem; word-break: break-all; color: var(--color-ink); }
+  .mfa-input {
+    display: block; width: 100%; max-width: 180px; margin: 0.75rem auto; text-align: center;
+    font-size: 1.3rem; letter-spacing: 0.3em; padding: 0.5rem; border: 1px solid var(--color-border);
+    border-radius: 0.5rem; background: var(--surface); color: var(--color-ink);
+  }
+  .mfa-msg { min-height: 1.2em; margin: 0.5rem 0 0; }
+  .mfa-msg.ok { color: var(--color-success); }
+  .mfa-msg.err { color: var(--color-danger); }
   .cert-form h3 { font-size: 1.1rem; margin-bottom: 0.75rem; }
   .cert-form label { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; }
   .cert-form input { font-weight: 400; }
@@ -166,7 +183,9 @@ const catalog = await buildCatalog();
 
 <script>
   import { isPortalEnabled, getSupabase } from '../../lib/supabase';
-  import { currentUser, isAdmin } from '../../lib/auth';
+  import {
+    currentUser, isAdminMember, getAAL, listVerifiedTotp, enrollTotp, verifyTotp, stepUpTotp,
+  } from '../../lib/auth';
   import {
     getProfiles, getEnrollments, getProgress, getSubmissions, getReviews, getAttendance,
     getCertificates, issueCertificate, deleteCertificate,
@@ -595,14 +614,77 @@ const catalog = await buildCatalog();
       b.addEventListener('click', () => exportCsv(b.dataset.export!)));
   }
 
+  // ----- Two-factor (2FA) enforcement for admin -----
+  function renderEnroll() {
+    gate.innerHTML = '<div class="mfa-box"><p>Starting 2FA setup...</p></div>';
+    enrollTotp().then((res) => {
+      if (!res.ok) { gate.innerHTML = '<div class="mfa-box"><p class="err">Could not start 2FA setup: ' + esc(res.error) + '</p></div>'; return; }
+      const { factorId, qr, secret } = res.data;
+      gate.innerHTML =
+        '<div class="mfa-box">' +
+        '<h2>Set up two-factor authentication</h2>' +
+        '<p>Admin access requires 2FA. Scan this QR code in an authenticator app (Google Authenticator, Authy, Microsoft Authenticator), then enter the 6-digit code.</p>' +
+        '<div class="mfa-qr">' + qr + '</div>' +
+        '<p class="mfa-secret">Can’t scan? Enter this key manually:<br><code>' + esc(secret) + '</code></p>' +
+        '<input id="mfa-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456" class="mfa-input" />' +
+        '<button id="mfa-verify" class="btn btn-primary">Verify &amp; enable</button>' +
+        '<p id="mfa-msg" class="mfa-msg"></p></div>';
+      const input = document.getElementById('mfa-code') as HTMLInputElement;
+      const msg = document.getElementById('mfa-msg')!;
+      const go = async () => {
+        msg.textContent = 'Verifying...'; msg.className = 'mfa-msg';
+        const v = await verifyTotp(factorId, input.value.trim());
+        if (v.ok) { msg.textContent = '2FA enabled.'; msg.className = 'mfa-msg ok'; main(); }
+        else { msg.textContent = v.error; msg.className = 'mfa-msg err'; }
+      };
+      document.getElementById('mfa-verify')!.addEventListener('click', go);
+      input.addEventListener('keydown', (e) => { if ((e as KeyboardEvent).key === 'Enter') go(); });
+      input.focus();
+    });
+  }
+
+  function renderChallenge() {
+    gate.innerHTML =
+      '<div class="mfa-box">' +
+      '<h2>Two-factor authentication</h2>' +
+      '<p>Enter the 6-digit code from your authenticator app to open the admin dashboard.</p>' +
+      '<input id="mfa-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456" class="mfa-input" />' +
+      '<button id="mfa-verify" class="btn btn-primary">Verify</button>' +
+      '<p id="mfa-msg" class="mfa-msg"></p></div>';
+    const input = document.getElementById('mfa-code') as HTMLInputElement;
+    const msg = document.getElementById('mfa-msg')!;
+    const go = async () => {
+      msg.textContent = 'Verifying...'; msg.className = 'mfa-msg';
+      const v = await stepUpTotp(input.value.trim());
+      if (v.ok) { main(); } else { msg.textContent = v.error; msg.className = 'mfa-msg err'; }
+    };
+    document.getElementById('mfa-verify')!.addEventListener('click', go);
+    input.addEventListener('keydown', (e) => { if ((e as KeyboardEvent).key === 'Enter') go(); });
+    input.focus();
+  }
+
+  /** Returns true if the session is already aal2; otherwise shows 2FA UI and returns false. */
+  async function ensureMfa(): Promise<boolean> {
+    const aal = await getAAL();
+    if (aal && aal.current === 'aal2') return true;
+    const factors = await listVerifiedTotp();
+    if (factors.length === 0) { renderEnroll(); return false; }
+    renderChallenge();
+    return false;
+  }
+
   async function main() {
     if (!isPortalEnabled) { gate.textContent = 'The portal is not configured.'; return; }
     const user = await currentUser();
     if (!user) { window.location.replace(withBase('/login/')); return; }
-    if (!(await isAdmin())) {
+    if (!(await isAdminMember())) {
+      gate.hidden = false; root.hidden = true;
       gate.innerHTML = 'You do not have admin access. <a href="' + withBase('/account/') + '">Go to My Learning</a>.';
       return;
     }
+    // Admin requires two-factor auth (step up to aal2 before anything loads).
+    gate.hidden = false; root.hidden = true;
+    if (!(await ensureMfa())) return;
     await loadAll();
     gate.hidden = true;
     root.hidden = false;
