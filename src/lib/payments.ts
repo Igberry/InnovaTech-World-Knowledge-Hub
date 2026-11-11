@@ -76,6 +76,7 @@ export async function checkout(opts: {
   const token = sess.session?.access_token;
   const email = sess.session?.user?.email;
   const uid = sess.session?.user?.id;
+  const studentName = ((sess.session?.user?.user_metadata as any)?.full_name as string) || email || '';
   if (!token || !email || !uid) return { ok: false, error: 'login' };
 
   const amount = amountAfterVoucher(opts.priceKobo, opts.voucher);
@@ -96,7 +97,7 @@ export async function checkout(opts: {
       amount,
       currency: 'NGN',
       ref: reference,
-      label: 'InnovaTech World', // shown on the popup instead of the customer email
+      label: studentName, // show the student's name on the popup instead of the email
 
       metadata: {
         user_id: uid, course: opts.course, plan: opts.plan, voucher: opts.voucherCode || null,
