@@ -142,24 +142,24 @@ export async function changePassword(
   if (!sb || !user?.email) return err('Not signed in.');
   try {
     const factors = await listVerifiedTotp();
+    // 1) Verify the current password if given (satisfies "secure password change").
+    if (opts.currentPassword) {
+      const { error: se } = await sb.auth.signInWithPassword({ email: user.email, password: opts.currentPassword });
+      if (se) return err('Current password is incorrect.');
+    }
+    // 2) If 2FA is on, step up to AAL2 (a fresh sign-in above resets to AAL1).
     if (factors.length > 0) {
-      // 2FA is on: Supabase needs an AAL2 session to change the password.
       const aal = await getAAL();
       if (!aal || aal.current !== 'aal2') {
         if (!opts.totpCode) return err('mfa_required');
         const v = await stepUpTotp(opts.totpCode);
-        if (!v.ok) return err('That authenticator code was not accepted. Try again.');
+        if (!v.ok) return err('That authenticator code was not accepted. Use a fresh code and try again.');
       }
-    } else if (opts.currentPassword) {
-      // No 2FA: verify the current password (satisfies "secure password change").
-      const { error: se } = await sb.auth.signInWithPassword({ email: user.email, password: opts.currentPassword });
-      if (se) return err('Current password is incorrect.');
     }
+    // 3) Update the password.
     const { error } = await sb.auth.updateUser({ password: newPassword });
     if (error) {
-      if (/current password/i.test(error.message) && !opts.currentPassword && factors.length === 0) {
-        return err('Enter your current password above to set a new one.');
-      }
+      if (/current password/i.test(error.message)) return err('current_required');
       return err(error);
     }
     return ok(undefined);
