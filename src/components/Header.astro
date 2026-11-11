@@ -145,8 +145,8 @@ function isActive(href: string): boolean {
     border-color: var(--color-blue-400);
   }
 
-  /* Mobile menu (open state toggled by script) */
-  @media (max-width: 767px) {
+  /* Mobile + tablet menu (open state toggled by script) */
+  @media (max-width: 1023px) {
     .primary-nav.open {
       display: flex;
       flex-direction: column;
@@ -180,7 +180,7 @@ function isActive(href: string): boolean {
   }
 
   /* Desktop */
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .nav-toggle {
       display: none;
     }

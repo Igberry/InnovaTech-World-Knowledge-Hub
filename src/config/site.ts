@@ -38,6 +38,8 @@ export const site = {
     // International format WITHOUT the leading "+", e.g. 234XXXXXXXXXX
     whatsappNumber: 'TODO',
     email: 'TODO',
+    // Office call line, full international format with "+". Shown as a "Call us" link.
+    phone: '+2349121681159',
     whatsappDefaultMessage:
       "Hello InnovaTech World, I'd like to know more about the {course} course.",
   },
@@ -70,6 +72,15 @@ export const site = {
 
   // Headings whose whole section is stripped from the rendered site.
   hideSectionsHeadings: HIDDEN_SECTION_HEADINGS,
+
+  // Student portal options.
+  portal: {
+    // Show a "Create an account" (self sign-up) form on the login page.
+    // The student also enters their name here. For this to actually work you must
+    // ALSO enable sign-ups in Supabase (Authentication → keep "Allow new users to
+    // sign up" ON). Set false to stay strictly invite-only.
+    allowSignups: true,
+  },
 
   // Optional privacy-friendly analytics. OFF by default (WEBSITE-BUILD-PROMPT.md §7.10).
   analytics: {

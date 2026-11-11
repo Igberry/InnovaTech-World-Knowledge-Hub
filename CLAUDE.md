@@ -27,8 +27,10 @@ Course folder name == `slug`. Lesson URL == filename. `order` unique per course 
 Available courses need `level`, `duration`, `format`, `outcomes`. First-touch frontmatter is authored, not derived.
 
 ## Brand rules (do not change)
-Royal blue (`--blue-600 #2457D6`) + white. **Poppins** only. **No gold, no second web font, no emoji.**
+Deep navy matched to the logo (`--blue-600 #0b3b66`, dark sections `--blue-900 #04172b`) + white.
+**Poppins** only. **No gold, no second web font, no emoji, NO gradients** (owner's call — use solid brand colours).
 Never promise jobs or income ("get job-ready", not "guaranteed job"). Tokens live in `src/styles/global.css`.
+(The original brief named royal blue `#2457D6`; the owner changed it to the logo navy — keep the navy.)
 
 ## Accessibility & performance
 Semantic HTML, skip link, visible focus, `aria-current`, keyboard-operable menus/drawers, alt text,

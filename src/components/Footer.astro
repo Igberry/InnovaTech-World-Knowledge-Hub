@@ -3,10 +3,11 @@ import { Icon } from 'astro-icon/components';
 import Logo from './Logo.astro';
 import Newsletter from './Newsletter.astro';
 import { site } from '../config/site';
-import { withBase, activeSocials, formEndpoint } from '../utils/links';
+import { withBase, activeSocials, formEndpoint, phoneUrl } from '../utils/links';
 
 const socials = activeSocials();
 const hasNewsletter = formEndpoint('newsletter') !== null;
+const phone = phoneUrl();
 const socialIcon: Record<string, string> = {
   facebook: 'lucide:facebook',
   instagram: 'lucide:instagram',
@@ -33,6 +34,14 @@ const year = new Date().getFullYear();
         <Icon name="lucide:map-pin" width={16} height={16} aria-hidden="true" />
         {site.location}
       </p>
+      {
+        phone && (
+          <p class="footer-loc">
+            <Icon name="lucide:phone" width={16} height={16} aria-hidden="true" />
+            <a href={phone}>{site.contact.phone}</a>
+          </p>
+        )
+      }
     </div>
 
     <nav class="footer-nav" aria-label="Footer">
@@ -41,7 +50,8 @@ const year = new Date().getFullYear();
         {site.nav.map((item) => <li><a href={withBase(item.href)}>{item.label}</a></li>)}
         <li><a href={withBase('/showcase/')}>Student Showcase</a></li>
         <li><a href={withBase('/verify/')}>Verify a Certificate</a></li>
-        <li><a href={withBase('/privacy/')}>Privacy</a></li>
+        <li><a href={withBase('/privacy/')}>Privacy Policy</a></li>
+        <li><a href={withBase('/terms/')}>Terms of Use</a></li>
       </ul>
     </nav>
 

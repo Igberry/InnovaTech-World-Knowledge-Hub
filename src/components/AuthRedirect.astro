@@ -1,0 +1,28 @@
+---
+/**
+ * Catches auth links (invite, magic link, password recovery, email confirm) that
+ * land on any page — e.g. a Supabase dashboard invite redirects to the Site URL
+ * root — and forwards them to /auth/callback/ to establish the session.
+ * Loads no Supabase code; only acts when auth params are present and the portal
+ * is enabled. (STUDENT-PORTAL-SPEC.md §4, §6.2)
+ */
+---
+
+<script>
+  import { isPortalEnabled } from '../lib/portal-config';
+  import { withBase } from '../utils/links';
+
+  if (isPortalEnabled) {
+    const path = location.pathname.replace(/\/+$/, '/');
+    const onAuthPage = path.endsWith('/auth/callback/') || path.endsWith('/account/reset-password/');
+    const q = new URLSearchParams(location.search);
+    const h = new URLSearchParams(location.hash.replace(/^#/, ''));
+    const hasAuth =
+      q.has('code') || q.has('token_hash') || q.has('error_description') || q.get('type') ||
+      h.has('access_token') || h.has('error_description') || h.get('type');
+
+    if (hasAuth && !onAuthPage) {
+      location.replace(withBase('/auth/callback/') + location.search + location.hash);
+    }
+  }
+</script>

@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site';
+import { emailUrl, phoneUrl, withBase } from '../utils/links';
+
+const email = emailUrl('Terms of use question');
+const phone = phoneUrl();
+---
+
+<BaseLayout title="Terms of Use" description="The terms for using the InnovaTech World Knowledge Hub.">
+  <article class="prose terms">
+    <h1>Terms of Use</h1>
+    <p class="muted">
+      <!-- TODO (owner): confirm the "last updated" date whenever you change this page. -->
+      Last updated: 11 November 2026 (draft — please review and finalise, ideally with a lawyer).
+    </p>
+
+    <p>
+      These terms govern your use of the InnovaTech World Knowledge Hub (the "Site"), operated by
+      InnovaTech World, {site.location}. By using the Site you agree to these terms. If you do not
+      agree, please do not use the Site. This is a draft and not legal advice.
+    </p>
+
+    <h2>1. Who we are</h2>
+    <p>
+      InnovaTech World provides practical digital-skills training. The Site hosts course lessons,
+      resources, and (for enrolled students) a learning account.
+    </p>
+
+    <h2>2. Using the Site</h2>
+    <ul>
+      <li>You may read the public lessons and resources for your own learning.</li>
+      <li>Do not misuse the Site, attempt to break its security, disrupt it, or access data that is not yours.</li>
+      <li>You are responsible for anything done under your account.</li>
+    </ul>
+
+    <h2>3. Student accounts</h2>
+    <p>
+      Student accounts are for enrolled learners (by invitation, or by signing up where enabled).
+      Keep your password secure and don't share your account. You must give accurate information,
+      including your real name. We may suspend accounts that break these terms.
+    </p>
+
+    <h2>4. Assignments and submissions</h2>
+    <p>
+      When you submit assignment links, you confirm you have the right to share them. Do not submit
+      unlawful, infringing, or harmful content. Your facilitator reviews submissions to give feedback.
+    </p>
+
+    <h2>5. No guarantees of jobs or income</h2>
+    <p>
+      Our training is designed to help you build skills and a portfolio and become job-ready. We do
+      <strong>not</strong> promise or guarantee employment, a specific job, or any level of income.
+      Your results depend on your effort and other factors outside our control.
+    </p>
+
+    <h2>6. Intellectual property</h2>
+    <p>
+      Course content, text, and branding on the Site belong to InnovaTech World unless stated
+      otherwise, and are provided for your personal learning. Do not copy, republish, or resell the
+      content without permission. Datasets and templates provided for exercises may be used for your
+      own learning and portfolio.
+      <!-- TODO (owner): adjust if you want a specific licence for the course content. -->
+    </p>
+
+    <h2>7. Third-party links</h2>
+    <p>
+      The Site links to external resources we don't control. We're not responsible for their content
+      or availability, and linking does not mean we endorse them.
+    </p>
+
+    <h2>8. Availability and changes</h2>
+    <p>
+      We may update, pause, or change the Site and these terms at any time. We'll post the current
+      version here. Continuing to use the Site means you accept the updated terms.
+    </p>
+
+    <h2>9. Disclaimer and liability</h2>
+    <p>
+      The Site and its content are provided "as is" without warranties of any kind. To the extent
+      permitted by law, InnovaTech World is not liable for any loss arising from your use of the Site.
+      <!-- TODO (owner): confirm wording with a lawyer for your jurisdiction. -->
+    </p>
+
+    <h2>10. Privacy</h2>
+    <p>
+      Our <a href={withBase('/privacy/')}>Privacy Policy</a> explains how we handle personal data. By using the
+      Site you agree to it.
+    </p>
+
+    <h2>11. Governing law</h2>
+    <p>
+      These terms are governed by the laws of the Federal Republic of Nigeria.
+      <!-- TODO (owner): confirm governing law / dispute resolution with a lawyer. -->
+    </p>
+
+    <h2>12. Contact</h2>
+    {
+      email || phone ? (
+        <p>
+          Questions about these terms?{' '}
+          {email && <a href={email}>{site.contact.email}</a>}
+          {email && phone && ' · '}
+          {phone && <a href={phone}>{site.contact.phone}</a>}
+        </p>
+      ) : (
+        <p><!-- TODO (owner): add a contact in src/config/site.ts -->Contact details will be added here.</p>
+      )
+    }
+  </article>
+</BaseLayout>
+
+<style>
+  .terms { margin-inline: auto; }
+  .terms .muted { color: var(--color-muted); }
+</style>

@@ -28,6 +28,13 @@ export function whatsappUrl(course?: string): string | null {
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }
 
+/** tel: link for the office call line, or null if not configured. */
+export function phoneUrl(): string | null {
+  const phone = (site.contact as { phone?: string }).phone;
+  if (isTodo(phone)) return null;
+  return `tel:${(phone as string).replace(/[^\d+]/g, '')}`;
+}
+
 /** mailto: link, or null if no email is configured. */
 export function emailUrl(subject?: string): string | null {
   if (isTodo(site.contact.email)) return null;

@@ -2,22 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../config/site';
 import { isTodo } from '../config/site';
-import { emailUrl, whatsappUrl } from '../utils/links';
+import { emailUrl, phoneUrl, whatsappUrl } from '../utils/links';
 
-const contact = emailUrl('Privacy request') ?? whatsappUrl('privacy');
-const hasContact = !isTodo(site.contact.email) || !isTodo(site.contact.whatsappNumber);
+const contact = emailUrl('Privacy request') ?? phoneUrl() ?? whatsappUrl('privacy');
+const hasContact = !isTodo(site.contact.email) || !isTodo(site.contact.phone) || !isTodo(site.contact.whatsappNumber);
 ---
 
-<BaseLayout title="Privacy Notice" description="How InnovaTech World collects and uses student data.">
+<BaseLayout title="Privacy Policy" description="How InnovaTech World collects and uses student data.">
   <article class="prose privacy">
-    <h1>Privacy notice</h1>
+    <h1>Privacy Policy</h1>
     <p class="muted">
       <!-- TODO (owner): confirm the "last updated" date whenever you change this page. -->
-      Last updated: 10 November 2026 (draft — please review and finalise).
+      Last updated: 11 November 2026 (draft — please review and finalise).
     </p>
 
     <p>
-      This notice explains what personal data InnovaTech World collects through the Knowledge Hub
+      This policy explains what personal data InnovaTech World collects through the Knowledge Hub
       student portal, why, and your choices. It is written in plain language and is not legal advice.
       It reflects the principles of Nigeria's Data Protection Act 2023 (overseen by the NDPC).
     </p>
@@ -68,7 +68,7 @@ const hasContact = !isTodo(site.contact.email) || !isTodo(site.contact.whatsappN
     <h2>Contact</h2>
     {
       hasContact && contact ? (
-        <p>To make a request or ask a question, contact us: <a href={contact}>{site.contact.email && !isTodo(site.contact.email) ? site.contact.email : 'message us'}</a>.</p>
+        <p>To make a request or ask a question, contact us: <a href={contact}>{!isTodo(site.contact.email) ? site.contact.email : !isTodo(site.contact.phone) ? site.contact.phone : 'contact us'}</a>.</p>
       ) : (
         <p><!-- TODO (owner): add a real privacy contact (email or WhatsApp) in src/config/site.ts. -->
           Contact details will be added here. (TODO: set contact in site config.)</p>

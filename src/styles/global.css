@@ -11,14 +11,14 @@
 
 /* ---- Design tokens (exposed to both Tailwind utilities and plain CSS) ---- */
 @theme {
-  --color-blue-50: #eef3ff;
-  --color-blue-100: #dce6ff;
-  --color-blue-200: #b9cdff;
-  --color-blue-400: #5f86ec;
-  --color-blue-500: #3d68e0;
-  --color-blue-600: #2457d6; /* primary brand colour */
-  --color-blue-700: #1b44b0;
-  --color-blue-900: #122a6b;
+  --color-blue-50: #eaf1f7;
+  --color-blue-100: #d2e0ee;
+  --color-blue-200: #a7c3dd;
+  --color-blue-400: #3f6d97;
+  --color-blue-500: #1d4e7e;
+  --color-blue-600: #0b3b66; /* primary brand colour — matches the logo navy */
+  --color-blue-700: #0a3057;
+  --color-blue-900: #04172b;
 
   --color-ink: #0f172a;
   --color-muted: #475569;
@@ -61,13 +61,13 @@
     --color-ink: #e6ecf5;
     --color-muted: #9fb0c9;
     --color-border: #243049;
-    --color-blue-50: #16233f;
-    --color-blue-100: #1c2c4d;
-    --color-blue-200: #2a3c63;
-    --color-blue-400: #7c9bf0;
-    --color-blue-500: #6f90ee;
-    --color-blue-600: #5f86ec;
-    --color-blue-700: #8aa6f2;
+    --color-blue-50: #122334;
+    --color-blue-100: #183049;
+    --color-blue-200: #274863;
+    --color-blue-400: #7fb0dc;
+    --color-blue-500: #6fa6d6;
+    --color-blue-600: #5e97cc;
+    --color-blue-700: #86b4de;
   }
 }
 :root[data-theme='dark'] {

@@ -4,9 +4,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { site } from '../config/site';
-import { emailUrl, activeSocials, formEndpoint } from '../utils/links';
+import { emailUrl, phoneUrl, activeSocials, formEndpoint } from '../utils/links';
 
 const email = emailUrl();
+const phone = phoneUrl();
 const hasForm = formEndpoint('contact') !== null;
 const socials = activeSocials();
 const socialIcon: Record<string, string> = {
@@ -41,6 +42,14 @@ const socialIcon: Record<string, string> = {
       <h2>Chat with us</h2>
       <p>Ask about courses, enrolment, or anything else.</p>
       <WhatsAppButton />
+      {
+        phone && (
+          <p class="contact-line">
+            <Icon name="lucide:phone" width={18} height={18} aria-hidden="true" />
+            <a href={phone}>{site.contact.phone}</a>
+          </p>
+        )
+      }
       {
         email && (
           <p class="contact-line">
