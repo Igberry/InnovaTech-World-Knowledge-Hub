@@ -20,6 +20,7 @@ const catalog = await buildCatalog();
       <button class="tab" data-tab="attendance" role="tab">Attendance</button>
       <button class="tab" data-tab="enrolments" role="tab">Enrolments</button>
       <button class="tab" data-tab="certificates" role="tab">Certificates</button>
+      <button class="tab" data-tab="access" role="tab">Access &amp; Pricing</button>
     </div>
 
     <section data-panel="students" class="panel">
@@ -53,6 +54,62 @@ const catalog = await buildCatalog();
     <section data-panel="enrolments" class="panel" hidden>
       <h2>Enrolments</h2>
       <div data-enrolments><p class="muted">Loading…</p></div>
+    </section>
+
+    <section data-panel="access" class="panel" hidden>
+      <h2>Access &amp; Pricing</h2>
+      <p class="muted">Lock courses behind payment, grant free passes, and run discounts. Needs migration 0004.</p>
+
+      <div class="adm-card">
+        <h3>Grant a free pass</h3>
+        <form data-fp-form class="att-controls">
+          <label>Student email <input type="email" data-fp-email placeholder="student@example.com" required /></label>
+          <label>Course <select data-fp-course></select></label>
+          <label>Plan <select data-fp-plan>
+            <option value="basic">Basic</option><option value="advanced">Advanced</option><option value="premium">Premium</option>
+          </select></label>
+          <button type="submit" class="btn btn-primary">Grant free access</button>
+          <span data-fp-msg></span>
+        </form>
+      </div>
+
+      <div class="adm-card">
+        <h3>Create a voucher / discount</h3>
+        <form data-vc-form class="att-controls">
+          <label>Code <input type="text" data-vc-code placeholder="LAUNCH20" required /></label>
+          <label>Type <select data-vc-kind>
+            <option value="percent">% off</option>
+            <option value="fixed">Naira off</option>
+            <option value="free">100% free</option>
+          </select></label>
+          <label>Value <input type="number" data-vc-value min="0" placeholder="20" /></label>
+          <label>Course <select data-vc-course><option value="">Any course</option></select></label>
+          <label>Plan <select data-vc-plan>
+            <option value="">Any plan</option><option value="basic">Basic</option>
+            <option value="advanced">Advanced</option><option value="premium">Premium</option>
+          </select></label>
+          <label>Max uses <input type="number" data-vc-max min="1" placeholder="unlimited" /></label>
+          <label>Expires <input type="date" data-vc-exp /></label>
+          <button type="submit" class="btn btn-primary">Create voucher</button>
+          <span data-vc-msg></span>
+        </form>
+        <div data-vouchers><p class="muted">Loading…</p></div>
+      </div>
+
+      <div class="adm-card">
+        <div class="panel-head"><h3>Pricing (naira)</h3><span data-pricing-msg></span></div>
+        <div data-pricing><p class="muted">Loading…</p></div>
+      </div>
+
+      <div class="adm-card">
+        <h3>Who has access</h3>
+        <div data-entitlements><p class="muted">Loading…</p></div>
+      </div>
+
+      <div class="adm-card">
+        <h3>Payments</h3>
+        <div data-payments><p class="muted">No payments yet.</p></div>
+      </div>
     </section>
 
     <section data-panel="certificates" class="panel" hidden>
@@ -137,6 +194,18 @@ const catalog = await buildCatalog();
     font-size: 1.3rem; letter-spacing: 0.3em; padding: 0.5rem; border: 1px solid var(--color-border);
     border-radius: 0.5rem; background: var(--surface); color: var(--color-ink);
   }
+  .price-course { margin: 0 0 1.25rem; }
+  .price-course h4 { margin: 0 0 0.4rem; }
+  .price-row {
+    display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center;
+    margin: 0.4rem 0; padding: 0.5rem 0.6rem; border: 1px solid var(--color-border); border-radius: 0.45rem;
+  }
+  .price-row label { display: inline-flex; gap: 0.3rem; align-items: center; font-size: 0.85rem; font-weight: 600; }
+  .price-row input[type='number'] { width: 7rem; }
+  .price-row textarea { min-width: 260px; }
+  .adm-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 0.5rem; }
+  .adm-table th, .adm-table td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid var(--color-border); }
+  .adm-card + .adm-card { margin-top: 1rem; }
   .mfa-msg { min-height: 1.2em; margin: 0.5rem 0 0; }
   .mfa-msg.ok { color: var(--color-success); }
   .mfa-msg.err { color: var(--color-danger); }
@@ -190,8 +259,11 @@ const catalog = await buildCatalog();
     getProfiles, getEnrollments, getProgress, getSubmissions, getReviews, getAttendance,
     getCertificates, issueCertificate, deleteCertificate,
     saveReview, setEnrollment, saveAttendance, downloadCsv,
+    getCoursePlans, updateCoursePlan, getVouchers, createVoucher, setVoucherActive,
+    getPayments, getEntitlements, grantFreePass, revokeEntitlement,
     type AdminProfile, type AdminEnrollment, type AdminProgress,
     type AdminSubmission, type AdminReview, type AdminAttendance, type AdminCertificate,
+    type CoursePlanRow, type VoucherRow, type PaymentRow, type EntitlementRow,
   } from '../../lib/admin';
   import { withBase } from '../../utils/links';
 
@@ -614,6 +686,147 @@ const catalog = await buildCatalog();
       b.addEventListener('click', () => exportCsv(b.dataset.export!)));
   }
 
+  // ----- Access & Pricing (payments) -----
+  const naira = (kobo: number) => '₦' + Math.round((kobo || 0) / 100).toLocaleString('en-NG');
+  const userLabel = (uid: string | null) => {
+    const p = profiles.find((x) => x.id === uid);
+    return p ? (p.full_name || p.email || uid || '-') : (uid || '-');
+  };
+  const availableCourseOptions = (includeAny: boolean) =>
+    (includeAny ? '<option value="">Any course</option>' : '') +
+    catalog.filter((c) => c.status === 'available')
+      .map((c) => `<option value="${esc(c.slug)}">${esc(c.title)}</option>`).join('');
+
+  let coursePlans: CoursePlanRow[] = [];
+  let vouchers: VoucherRow[] = [];
+  let payments: PaymentRow[] = [];
+  let entitlements: EntitlementRow[] = [];
+
+  function renderPricing() {
+    const box = root.querySelector('[data-pricing]') as HTMLElement;
+    if (!box) return;
+    if (coursePlans.length === 0) { box.innerHTML = '<p class="muted">No plans found. Run migration 0004 to seed pricing.</p>'; return; }
+    const ord: Record<string, number> = { basic: 1, advanced: 2, premium: 3 };
+    const byCourse: Record<string, CoursePlanRow[]> = {};
+    coursePlans.forEach((p) => { (byCourse[p.course_slug] = byCourse[p.course_slug] || []).push(p); });
+    box.innerHTML = Object.keys(byCourse).sort().map((slug) => {
+      const rows = byCourse[slug].sort((a, b) => (ord[a.plan] || 9) - (ord[b.plan] || 9)).map((p) => `
+        <div class="price-row" data-plan-id="${p.id}">
+          <strong style="min-width:5rem">${esc(p.plan)}</strong>
+          <label>₦ <input type="number" min="0" step="1000" value="${Math.round(p.price_kobo / 100)}" data-price /></label>
+          <label>Active <input type="checkbox" ${p.active ? 'checked' : ''} data-active /></label>
+          <details><summary>Features</summary><textarea rows="3" data-features>${esc((p.features || []).join('\n'))}</textarea></details>
+          <button type="button" class="btn btn-secondary" data-save-plan>Save</button>
+          <span data-plan-msg></span>
+        </div>`).join('');
+      return `<div class="price-course"><h4>${esc(courseTitle(slug))}</h4>${rows}</div>`;
+    }).join('');
+    box.querySelectorAll('[data-save-plan]').forEach((btn) => btn.addEventListener('click', async () => {
+      const row = (btn as HTMLElement).closest('[data-plan-id]') as HTMLElement;
+      const id = row.dataset.planId!;
+      const price = Math.round(Number((row.querySelector('[data-price]') as HTMLInputElement).value) || 0);
+      const active = (row.querySelector('[data-active]') as HTMLInputElement).checked;
+      const features = (row.querySelector('[data-features]') as HTMLTextAreaElement).value.split('\n').map((s) => s.trim()).filter(Boolean);
+      const m = row.querySelector('[data-plan-msg]') as HTMLElement;
+      m.textContent = 'Saving...'; m.className = '';
+      const r = await updateCoursePlan(id, { price_kobo: price * 100, features, active });
+      m.textContent = r.ok ? 'Saved.' : r.error; m.className = r.ok ? 'ok' : 'err';
+      if (r.ok) coursePlans = await getCoursePlans();
+    }));
+  }
+
+  function renderVouchers() {
+    const box = root.querySelector('[data-vouchers]') as HTMLElement;
+    if (!box) return;
+    if (vouchers.length === 0) { box.innerHTML = '<p class="muted">No vouchers yet.</p>'; return; }
+    box.innerHTML = '<table class="adm-table"><thead><tr><th>Code</th><th>Type</th><th>Value</th><th>Scope</th><th>Uses</th><th>Expires</th><th></th></tr></thead><tbody>' +
+      vouchers.map((v) => `<tr>
+        <td><code>${esc(v.code)}</code></td><td>${esc(v.kind)}</td>
+        <td>${v.kind === 'free' ? '-' : v.kind === 'percent' ? v.value + '%' : naira(v.value)}</td>
+        <td>${esc(v.course_slug ? courseTitle(v.course_slug) : 'Any')} / ${esc(v.plan || 'Any')}</td>
+        <td>${v.used_count}${v.max_uses != null ? '/' + v.max_uses : ''}</td>
+        <td>${v.expires_at ? new Date(v.expires_at).toLocaleDateString() : '-'}</td>
+        <td><button class="link-btn" data-vc-toggle="${v.id}" data-active="${v.active}">${v.active ? 'Deactivate' : 'Activate'}</button></td>
+      </tr>`).join('') + '</tbody></table>';
+    box.querySelectorAll('[data-vc-toggle]').forEach((b) => b.addEventListener('click', async () => {
+      const id = (b as HTMLElement).getAttribute('data-vc-toggle')!;
+      const active = (b as HTMLElement).getAttribute('data-active') !== 'true';
+      const r = await setVoucherActive(id, active);
+      if (r.ok) { vouchers = await getVouchers(); renderVouchers(); }
+    }));
+  }
+
+  function renderEntitlementsList() {
+    const box = root.querySelector('[data-entitlements]') as HTMLElement;
+    if (!box) return;
+    const active = entitlements.filter((e) => e.status === 'active');
+    if (active.length === 0) { box.innerHTML = '<p class="muted">No one has access yet.</p>'; return; }
+    box.innerHTML = '<table class="adm-table"><thead><tr><th>Student</th><th>Course</th><th>Plan</th><th>Source</th><th></th></tr></thead><tbody>' +
+      active.map((e) => `<tr><td>${esc(userLabel(e.user_id))}</td><td>${esc(courseTitle(e.course_slug))}</td><td>${esc(e.plan)}</td><td>${esc(e.source)}</td>
+        <td><button class="link-btn" data-ent-revoke="${e.id}">Revoke</button></td></tr>`).join('') + '</tbody></table>';
+    box.querySelectorAll('[data-ent-revoke]').forEach((b) => b.addEventListener('click', async () => {
+      if (!confirm('Revoke this access?')) return;
+      const r = await revokeEntitlement((b as HTMLElement).getAttribute('data-ent-revoke')!);
+      if (r.ok) { entitlements = await getEntitlements(); renderEntitlementsList(); }
+    }));
+  }
+
+  function renderPayments() {
+    const box = root.querySelector('[data-payments]') as HTMLElement;
+    if (!box) return;
+    if (payments.length === 0) { box.innerHTML = '<p class="muted">No payments yet.</p>'; return; }
+    box.innerHTML = '<table class="adm-table"><thead><tr><th>Date</th><th>Student</th><th>Course</th><th>Plan</th><th>Amount</th><th>Status</th><th>Ref</th></tr></thead><tbody>' +
+      payments.map((p) => `<tr><td>${new Date(p.created_at).toLocaleDateString()}</td><td>${esc(userLabel(p.user_id))}</td><td>${esc(courseTitle(p.course_slug))}</td><td>${esc(p.plan)}</td><td>${naira(p.amount_kobo)}</td><td>${esc(p.status)}</td><td><code>${esc(p.reference)}</code></td></tr>`).join('') + '</tbody></table>';
+  }
+
+  let accessFormsBound = false;
+  function bindAccessForms() {
+    if (accessFormsBound) return; accessFormsBound = true;
+    const fp = root.querySelector('[data-fp-form]') as HTMLFormElement;
+    fp?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = (root.querySelector('[data-fp-email]') as HTMLInputElement).value.trim();
+      const course = (root.querySelector('[data-fp-course]') as HTMLSelectElement).value;
+      const plan = (root.querySelector('[data-fp-plan]') as HTMLSelectElement).value;
+      const m = root.querySelector('[data-fp-msg]') as HTMLElement;
+      m.textContent = 'Granting...'; m.className = '';
+      const r = await grantFreePass(email, course, plan);
+      m.textContent = r.ok ? 'Free access granted.' : r.error; m.className = r.ok ? 'ok' : 'err';
+      if (r.ok) { entitlements = await getEntitlements(); renderEntitlementsList(); fp.reset(); }
+    });
+    const vc = root.querySelector('[data-vc-form]') as HTMLFormElement;
+    vc?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const kind = (root.querySelector('[data-vc-kind]') as HTMLSelectElement).value;
+      const rawVal = Number((root.querySelector('[data-vc-value]') as HTMLInputElement).value) || 0;
+      const value = kind === 'fixed' ? Math.round(rawVal * 100) : Math.round(rawVal);
+      const maxRaw = Number((root.querySelector('[data-vc-max]') as HTMLInputElement).value);
+      const expRaw = (root.querySelector('[data-vc-exp]') as HTMLInputElement).value;
+      const m = root.querySelector('[data-vc-msg]') as HTMLElement;
+      m.textContent = 'Creating...'; m.className = '';
+      const r = await createVoucher({
+        code: (root.querySelector('[data-vc-code]') as HTMLInputElement).value.trim(),
+        kind, value,
+        course_slug: (root.querySelector('[data-vc-course]') as HTMLSelectElement).value || null,
+        plan: (root.querySelector('[data-vc-plan]') as HTMLSelectElement).value || null,
+        max_uses: maxRaw > 0 ? Math.round(maxRaw) : null,
+        expires_at: expRaw ? new Date(expRaw + 'T23:59:59').toISOString() : null,
+      });
+      m.textContent = r.ok ? 'Voucher created.' : r.error; m.className = r.ok ? 'ok' : 'err';
+      if (r.ok) { vouchers = await getVouchers(); renderVouchers(); vc.reset(); }
+    });
+  }
+
+  async function renderAccess() {
+    const fpC = root.querySelector('[data-fp-course]') as HTMLSelectElement; if (fpC) fpC.innerHTML = availableCourseOptions(false);
+    const vcC = root.querySelector('[data-vc-course]') as HTMLSelectElement; if (vcC) vcC.innerHTML = availableCourseOptions(true);
+    [coursePlans, vouchers, payments, entitlements] = await Promise.all([
+      getCoursePlans(), getVouchers(), getPayments(), getEntitlements(),
+    ]);
+    renderPricing(); renderVouchers(); renderEntitlementsList(); renderPayments();
+    bindAccessForms();
+  }
+
   // ----- Two-factor (2FA) enforcement for admin -----
   function renderEnroll() {
     gate.innerHTML = '<div class="mfa-box"><p>Starting 2FA setup...</p></div>';
@@ -695,6 +908,7 @@ const catalog = await buildCatalog();
     renderEnrolments();
     renderCertificates();
     bindCertForm();
+    renderAccess();
   }
 
   main().catch((e) => { gate.textContent = 'Error loading the dashboard. Please refresh.'; console.error(e); });
