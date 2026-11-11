@@ -17,6 +17,7 @@ export interface CatalogCourse {
   title: string;
   href: string;
   status: string;
+  outcomes: string[];
   lessons: CatalogLesson[];
 }
 
@@ -30,6 +31,7 @@ export async function buildCatalog(): Promise<CatalogCourse[]> {
       title: c.data.title,
       href: withBase(`/courses/${c.data.slug}/`),
       status: c.data.status,
+      outcomes: c.data.outcomes ?? [],
       lessons: lessons.map((l) => ({
         slug: lessonSlug(l),
         title: l.data.title,
