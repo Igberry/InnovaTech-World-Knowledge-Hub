@@ -43,9 +43,12 @@ const courseJsonLd = {
   <!-- Hero -->
   <section class="course-hero">
     <div>
-      <span class={`badge ${available ? 'badge-available' : 'badge-soon'}`}>
-        {available ? 'Available now' : 'Coming soon'}
-      </span>
+      <div class="course-hero-tags">
+        <span class="eyebrow">{d.category}</span>
+        <span class={`badge ${available ? 'badge-available' : 'badge-soon'}`}>
+          {available ? 'Available now' : 'Coming soon'}
+        </span>
+      </div>
       <h1>{d.title}</h1>
       <p class="course-hero-summary">{d.summary}</p>
 
@@ -137,7 +140,17 @@ const courseJsonLd = {
 </BaseLayout>
 
 <style>
+  .course-hero-tags {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+  .course-hero-tags .eyebrow {
+    margin-bottom: 0;
+  }
   .course-hero {
+    border: 1px solid var(--color-blue-100);
     background: var(--color-blue-50);
     border-radius: 1.25rem;
     padding: 2rem 1.5rem;
