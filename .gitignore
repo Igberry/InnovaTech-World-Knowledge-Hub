@@ -41,6 +41,10 @@ public/images/20260304_134000.jpg
 public/images/innovatechcom.png
 public/images/prime4.jpg
 public/images/sample 1.png
+# Raw camera/studio drops: workspace screenshots contain private Utah REIA data and
+# other people, and the studio portraits ship as optimized copies (e.g. facilitator.jpg).
+public/images/IMG_*
+public/images/Photoroom_*
 
 # --- Facilitator-only solutions / answer keys (keep private, never commit) ---
 _facilitator/
