@@ -155,7 +155,7 @@ export async function changePassword(
     if (error) {
       if (/current password|reauthenticat/i.test(error.message)) {
         return err(
-          'Supabase still requires email reauthentication. Ask the owner to turn off "Secure password change" in Supabase (Authentication settings); your 2FA already protects this.',
+          'Supabase still requires the current password. Ask the owner to turn off "Require current password when updating" (Authentication -> Providers -> Email); your 2FA already protects this.',
         );
       }
       return err(error);
