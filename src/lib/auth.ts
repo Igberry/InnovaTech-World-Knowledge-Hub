@@ -141,6 +141,113 @@ export async function isAdmin(): Promise<boolean> {
   }
 }
 
+/**
+ * Is the current user listed in the admins table, IGNORING the 2FA (aal2)
+ * requirement? Used only for UX (to decide whether to show the 2FA step).
+ * Falls back to is_admin() if the dedicated function isn't deployed yet.
+ */
+export async function isAdminMember(): Promise<boolean> {
+  const sb = getSupabase();
+  if (!sb) return false;
+  try {
+    const { data, error } = await sb.rpc('is_admin_member');
+    if (!error) return data === true;
+    const r = await sb.rpc('is_admin');
+    return !r.error && r.data === true;
+  } catch {
+    return false;
+  }
+}
+
+// ---------- Multi-factor auth (TOTP) ----------
+
+/** Current / next authenticator assurance level. aal2 = password + TOTP done. */
+export async function getAAL(): Promise<{ current: string; next: string } | null> {
+  const sb = getSupabase();
+  if (!sb) return null;
+  try {
+    const { data, error } = await sb.auth.mfa.getAuthenticatorAssuranceLevel();
+    if (error || !data) return null;
+    return { current: data.currentLevel ?? 'aal1', next: data.nextLevel ?? 'aal1' };
+  } catch {
+    return null;
+  }
+}
+
+/** Verified TOTP factors on the account. */
+export async function listVerifiedTotp(): Promise<{ id: string }[]> {
+  const sb = getSupabase();
+  if (!sb) return [];
+  try {
+    const { data, error } = await sb.auth.mfa.listFactors();
+    if (error || !data) return [];
+    return (data.totp ?? [])
+      .filter((f) => f.status === 'verified')
+      .map((f) => ({ id: f.id }));
+  } catch {
+    return [];
+  }
+}
+
+/** Start TOTP enrollment: returns a QR (SVG), secret and otpauth URI to display. */
+export async function enrollTotp(): Promise<
+  Result<{ factorId: string; qr: string; secret: string; uri: string }>
+> {
+  const sb = getSupabase();
+  if (!sb) return err('Portal not configured.');
+  try {
+    const { data, error } = await sb.auth.mfa.enroll({
+      factorType: 'totp',
+      friendlyName: 'Authenticator ' + new Date().toISOString().slice(0, 16),
+    });
+    if (error) return err(error);
+    return ok({ factorId: data.id, qr: data.totp.qr_code, secret: data.totp.secret, uri: data.totp.uri });
+  } catch (e) {
+    return err(e);
+  }
+}
+
+/** Verify a code against a factor (confirms enrollment AND steps the session up to aal2). */
+export async function verifyTotp(factorId: string, code: string): Promise<Result> {
+  const sb = getSupabase();
+  if (!sb) return err('Portal not configured.');
+  try {
+    const ch = await sb.auth.mfa.challenge({ factorId });
+    if (ch.error) return err(ch.error);
+    const { error } = await sb.auth.mfa.verify({ factorId, challengeId: ch.data.id, code });
+    return error ? err(error) : ok(undefined);
+  } catch (e) {
+    return err(e);
+  }
+}
+
+/** Step up an existing (aal1) session to aal2 using the first verified TOTP factor. */
+export async function stepUpTotp(code: string): Promise<Result> {
+  const sb = getSupabase();
+  if (!sb) return err('Portal not configured.');
+  try {
+    const { data, error } = await sb.auth.mfa.listFactors();
+    if (error) return err(error);
+    const totp = (data?.totp ?? []).find((f) => f.status === 'verified');
+    if (!totp) return err('No 2FA factor is set up.');
+    return await verifyTotp(totp.id, code);
+  } catch (e) {
+    return err(e);
+  }
+}
+
+/** Remove a TOTP factor (requires the current session; use with care). */
+export async function unenrollTotp(factorId: string): Promise<Result> {
+  const sb = getSupabase();
+  if (!sb) return err('Portal not configured.');
+  try {
+    const { error } = await sb.auth.mfa.unenroll({ factorId });
+    return error ? err(error) : ok(undefined);
+  } catch (e) {
+    return err(e);
+  }
+}
+
 export interface Profile {
   id: string;
   full_name: string;
