@@ -100,7 +100,7 @@ function certificateDoc(cert, achievements, verifyLink, signatureUrl) {
          </ul></div>`
     : '';
   const sigImg = signatureUrl
-    ? `<img src="${esc(signatureUrl)}" alt="" style="max-height:52px;max-width:220px;height:auto;vertical-align:bottom;" onerror="this.style.display='none'" />`
+    ? `<img src="${esc(signatureUrl)}" alt="" style="max-height:60px;max-width:220px;height:auto;vertical-align:bottom;" onerror="this.style.display='none'" />`
     : '';
   return `<!doctype html><html><head><meta charset="utf-8">
   <title>Certificate - ${esc(cert.student_name)}</title>
@@ -119,10 +119,10 @@ function certificateDoc(cert, achievements, verifyLink, signatureUrl) {
      ${skills}
      <table role="presentation" width="100%" style="margin-top:14px;"><tr>
        <td style="text-align:center;font:13px/1.6 Poppins,Arial,sans-serif;color:#334155;">
-         <div style="height:54px;">${sigImg}</div>
+         <div style="height:62px;">${sigImg}</div>
          <div style="border-top:1px solid #94a3b8;width:220px;margin:0 auto 4px;"></div>David C. Igberi, Lead Facilitator</td>
        <td style="text-align:center;font:13px/1.6 Poppins,Arial,sans-serif;color:#334155;">
-         <div style="height:54px;"></div>
+         <div style="height:62px;"></div>
          <div style="border-top:1px solid #94a3b8;width:220px;margin:0 auto 4px;"></div>Date: ${niceDate(cert.issued_at)}</td>
      </tr></table>
      <p style="margin:22px 0 0;font:12px/1.5 Poppins,Arial,sans-serif;color:#64748b;">
