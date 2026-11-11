@@ -96,6 +96,8 @@ export async function checkout(opts: {
       amount,
       currency: 'NGN',
       ref: reference,
+      label: 'InnovaTech World', // shown on the popup instead of the customer email
+
       metadata: {
         user_id: uid, course: opts.course, plan: opts.plan, voucher: opts.voucherCode || null,
         custom_fields: [
