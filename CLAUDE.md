@@ -10,9 +10,11 @@ Lucide icons (`astro-icon`) · GitHub Pages via Actions. Node 20.3+.
 ## Folder map
 - `src/config/site.ts` — ALL editable settings (contacts, nav, social, analytics). `hidden-sections.mjs` — facilitator headings.
 - `src/content/courses/<slug>/` — `_course.md` + lesson `.md`. `src/content/insights/` — blog posts. Schemas in `src/content/config.ts`.
-- `src/pages/` — home, courses, course, lesson, insights, about, contact, resources, search, showcase, verify, 404, rss.xml.
+- `src/pages/` — home, courses, course, lesson, insights, about, contact, resources, search, showcase, verify, privacy, login, account, admin, 404, rss.xml.
 - `src/components/`, `src/layouts/` — UI. `src/plugins/` — remark/rehype. `src/scripts/progress.ts` — localStorage.
 - `src/data/` — resources, testimonials, showcase, certificates (testimonials/showcase/certificates are EMPTY until the owner adds permitted entries).
+- `src/lib/` — Phase 4 portal: `portal-config.ts` (tiny on/off flag), `supabase.ts`, `auth.ts`, `portal.ts` (student data), `admin.ts`, `lesson-progress.ts`. Public pages lazy-import these only when the portal is enabled.
+- `supabase/` — `schema.sql`, `migrations/`, `make-admin.sql`, `tests/rls.test.mjs`. Never run against Supabase from here; the owner runs SQL manually. `docs/SUPABASE-SETUP.md` has the steps.
 - `_import/` — course SOURCE (git-ignored, has facilitator notes). `scripts/` — import, assets, checks.
 
 ## Commands

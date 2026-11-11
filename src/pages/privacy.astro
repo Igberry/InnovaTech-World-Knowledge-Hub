@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site';
+import { isTodo } from '../config/site';
+import { emailUrl, whatsappUrl } from '../utils/links';
+
+const contact = emailUrl('Privacy request') ?? whatsappUrl('privacy');
+const hasContact = !isTodo(site.contact.email) || !isTodo(site.contact.whatsappNumber);
+---
+
+<BaseLayout title="Privacy Notice" description="How InnovaTech World collects and uses student data.">
+  <article class="prose privacy">
+    <h1>Privacy notice</h1>
+    <p class="muted">
+      <!-- TODO (owner): confirm the "last updated" date whenever you change this page. -->
+      Last updated: 10 November 2026 (draft — please review and finalise).
+    </p>
+
+    <p>
+      This notice explains what personal data InnovaTech World collects through the Knowledge Hub
+      student portal, why, and your choices. It is written in plain language and is not legal advice.
+      It reflects the principles of Nigeria's Data Protection Act 2023 (overseen by the NDPC).
+    </p>
+
+    <h2>What we collect</h2>
+    <ul>
+      <li>Your <strong>name</strong> and <strong>email address</strong> (to create and secure your account).</li>
+      <li>Your <strong>course progress</strong> (which lessons you complete).</li>
+      <li>Your <strong>assignment submissions</strong> (links you share and any notes) and the feedback on them.</li>
+      <li>Your <strong>attendance</strong> at mentoring sessions.</li>
+    </ul>
+    <p>We do not collect phone numbers, home addresses, or ID numbers in the portal.</p>
+
+    <h2>Why we collect it</h2>
+    <p>To run your training: track progress, review your work, give feedback, and record attendance.</p>
+
+    <h2>Who can see it</h2>
+    <p>
+      Only <strong>you</strong> and your <strong>facilitator</strong>. Other students cannot see your data.
+      This is enforced by the database itself (Row Level Security), not just the website.
+    </p>
+
+    <h2>Where it is stored</h2>
+    <p>
+      In a Supabase database (a secure hosted Postgres service) used only for this training.
+      <!-- TODO (owner): if you later add any other processor, list it here. -->
+    </p>
+
+    <h2>How long we keep it</h2>
+    <p>
+      <!-- TODO (owner): state your retention period, e.g. "for the duration of your programme plus 12 months". -->
+      We keep your data for as long as you are a student and for a reasonable period afterwards. (TODO: specify.)
+    </p>
+
+    <h2>Your rights</h2>
+    <p>
+      You can ask to see, correct, or delete your data. When you ask for deletion, your account and
+      related records are removed.
+    </p>
+
+    <h2>Public features</h2>
+    <p>
+      Lessons on this site are public. Your name and progress are <strong>never</strong> shown publicly.
+      The optional "student showcase" and "certificate verification" features are used only with your
+      separate written permission.
+    </p>
+
+    <h2>Contact</h2>
+    {
+      hasContact && contact ? (
+        <p>To make a request or ask a question, contact us: <a href={contact}>{site.contact.email && !isTodo(site.contact.email) ? site.contact.email : 'message us'}</a>.</p>
+      ) : (
+        <p><!-- TODO (owner): add a real privacy contact (email or WhatsApp) in src/config/site.ts. -->
+          Contact details will be added here. (TODO: set contact in site config.)</p>
+      )
+    }
+  </article>
+</BaseLayout>
+
+<style>
+  .privacy { margin-inline: auto; }
+  .privacy .muted { color: var(--color-muted); }
+</style>

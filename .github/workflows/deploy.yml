@@ -24,6 +24,10 @@ jobs:
       #   SITE_URL=https://hub.example.com   BASE_PATH=/
       SITE_URL: ${{ vars.SITE_URL || format('https://{0}.github.io', github.repository_owner) }}
       BASE_PATH: ${{ vars.BASE_PATH || format('/{0}', github.event.repository.name) }}
+      # Phase 4 portal (public values only). Leave unset to ship a public-only site.
+      # NEVER add the service_role key here or anywhere in CI.
+      PUBLIC_SUPABASE_URL: ${{ vars.PUBLIC_SUPABASE_URL }}
+      PUBLIC_SUPABASE_ANON_KEY: ${{ vars.PUBLIC_SUPABASE_ANON_KEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -45,6 +49,9 @@ jobs:
 
       - name: Facilitator-content test
         run: npm run test:facilitator
+
+      - name: No service_role key in build
+        run: npm run check:secrets
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

@@ -8,11 +8,14 @@ export interface Props {
 const { course, lesson } = Astro.props;
 ---
 
-<button class="mark-complete" data-course={course} data-lesson={lesson} aria-pressed="false">
-  <Icon name="lucide:circle" width={18} height={18} aria-hidden="true" class="mc-icon-todo" />
-  <Icon name="lucide:check-circle-2" width={18} height={18} aria-hidden="true" class="mc-icon-done" />
-  <span class="mc-text">Mark as complete</span>
-</button>
+<div class="mc-wrap">
+  <button class="mark-complete" data-course={course} data-lesson={lesson} aria-pressed="false">
+    <Icon name="lucide:circle" width={18} height={18} aria-hidden="true" class="mc-icon-todo" />
+    <Icon name="lucide:check-circle-2" width={18} height={18} aria-hidden="true" class="mc-icon-done" />
+    <span class="mc-text">Mark as complete</span>
+  </button>
+  <p class="mc-note" data-mc-note hidden></p>
+</div>
 
 <style>
   .mark-complete {
@@ -44,18 +47,73 @@ const { course, lesson } = Astro.props;
   .mark-complete[aria-pressed='true'] .mc-icon-todo {
     display: none;
   }
+  .mc-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .mc-note {
+    font-size: 0.8rem;
+    color: var(--color-muted);
+  }
+  .mc-note a {
+    font-weight: 600;
+  }
+  .mc-note.error {
+    color: var(--color-danger);
+  }
 </style>
 
 <script>
-  import { isComplete, toggleComplete } from '../scripts/progress';
-  document.querySelectorAll<HTMLButtonElement>('.mark-complete').forEach((btn) => {
+  import { getCompleted, toggleComplete as localToggle } from '../scripts/progress';
+  import { isPortalEnabled } from '../lib/portal-config';
+  import { withBase } from '../utils/links';
+
+  // Portal module is loaded lazily only when the portal is configured.
+  type PortalMod = typeof import('../lib/lesson-progress');
+  const portal: PortalMod | null = isPortalEnabled ? await import('../lib/lesson-progress') : null;
+
+  document.querySelectorAll<HTMLButtonElement>('.mark-complete').forEach(async (btn) => {
     const course = btn.dataset.course!;
     const lesson = btn.dataset.lesson!;
-    const sync = (done: boolean) => {
+    const textEl = btn.querySelector('.mc-text')!;
+    const note = btn.parentElement?.querySelector<HTMLElement>('[data-mc-note]');
+
+    const sync = () => {
+      const done = getCompleted(course).has(lesson);
       btn.setAttribute('aria-pressed', String(done));
-      btn.querySelector('.mc-text')!.textContent = done ? 'Completed' : 'Mark as complete';
+      textEl.textContent = done ? 'Completed' : 'Mark as complete';
     };
-    sync(isComplete(course, lesson));
-    btn.addEventListener('click', () => sync(toggleComplete(course, lesson)));
+    sync();
+    document.addEventListener('itw:progress', sync);
+
+    if (portal) {
+      await portal.bootstrapCourseCache(course); // mirror DB → cache when signed in
+      if (note && !(await portal.isLoggedIn())) {
+        note.innerHTML = `<a href="${withBase('/login/')}">Log in</a> to save your progress across devices.`;
+        note.hidden = false;
+      }
+    }
+
+    btn.addEventListener('click', async () => {
+      btn.disabled = true;
+      try {
+        if (portal) await portal.toggleLessonComplete(course, lesson);
+        else localToggle(course, lesson);
+        if (note && note.classList.contains('error')) {
+          note.hidden = true;
+          note.classList.remove('error');
+        }
+      } catch {
+        if (note) {
+          note.textContent = 'Could not save. Please try again.';
+          note.classList.add('error');
+          note.hidden = false;
+        }
+      } finally {
+        btn.disabled = false;
+        sync();
+      }
+    });
   });
 </script>

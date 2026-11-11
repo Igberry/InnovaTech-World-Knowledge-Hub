@@ -1,0 +1,256 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildCatalog } from '../../utils/catalog';
+import { withBase } from '../../utils/links';
+
+const catalog = await buildCatalog();
+---
+
+<BaseLayout title="My Learning" description="Your courses, progress, submissions and attendance.">
+  <div id="account-gate" class="gate">Loading your account…</div>
+
+  <div id="account" hidden>
+    <header class="page-head">
+      <h1>My Learning</h1>
+      <p id="greeting" class="muted"></p>
+    </header>
+
+    <div id="consent" class="consent" hidden>
+      <p>
+        Before you continue, please review how we handle your data in our
+        <a href={withBase('/privacy/')}>privacy notice</a>.
+      </p>
+      <label><input type="checkbox" id="consent-box" /> I understand and agree.</label>
+      <button class="btn btn-primary" id="consent-save" disabled>Continue</button>
+    </div>
+
+    <section class="section">
+      <h2>Your courses</h2>
+      <div id="courses" class="stack"><p class="muted">Loading…</p></div>
+    </section>
+
+    <section class="section">
+      <h2>Your submissions</h2>
+      <div id="submissions" class="stack"><p class="muted">Loading…</p></div>
+    </section>
+
+    <section class="section">
+      <h2>Your attendance</h2>
+      <div id="attendance" class="stack"><p class="muted">Loading…</p></div>
+    </section>
+
+    <section class="section">
+      <h2>Your profile</h2>
+      <form id="profile-form" class="profile-form">
+        <label for="full_name">Display name</label>
+        <div class="profile-row">
+          <input id="full_name" type="text" autocomplete="name" />
+          <button class="btn btn-secondary" type="submit">Save</button>
+        </div>
+        <p id="profile-msg" class="muted" role="status"></p>
+      </form>
+    </section>
+  </div>
+
+  <script type="application/json" id="catalog" set:html={JSON.stringify(catalog)} />
+</BaseLayout>
+
+<style>
+  .gate { padding: 4rem 1rem; text-align: center; color: var(--color-muted); }
+  .page-head { margin: 0.5rem 0 1rem; }
+  .page-head h1 { font-size: clamp(2rem, 1.5rem + 2vw, 2.6rem); }
+  .muted { color: var(--color-muted); }
+  .section { margin-top: 2.25rem; }
+  .section h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+  .stack { display: flex; flex-direction: column; gap: 1rem; }
+  .consent {
+    background: var(--color-blue-50); border: 1px solid var(--color-blue-200);
+    border-radius: 0.75rem; padding: 1.25rem; display: flex; flex-wrap: wrap;
+    align-items: center; gap: 0.75rem;
+  }
+  .consent label { display: inline-flex; align-items: center; gap: 0.4rem; }
+  .acct-card {
+    border: 1px solid var(--color-border); border-radius: 0.75rem; padding: 1.1rem 1.25rem;
+    background: var(--surface);
+  }
+  .acct-card h3 { font-size: 1.1rem; }
+  .bar { height: 0.5rem; background: var(--color-blue-100); border-radius: 999px; overflow: hidden; margin: 0.5rem 0; }
+  .bar > span { display: block; height: 100%; background: var(--color-success); }
+  .pill { font-size: 0.75rem; font-weight: 600; padding: 0.15rem 0.55rem; border-radius: 999px; }
+  .pill.approved { background: #dcfce7; color: #166534; }
+  .pill.needs_changes { background: var(--cl-bg-warning); color: #92400e; }
+  .pill.pending { background: var(--color-blue-50); color: var(--color-blue-700); }
+  .profile-form { max-width: 28rem; }
+  .profile-row { display: flex; gap: 0.5rem; margin-top: 0.35rem; }
+  .profile-row input {
+    flex: 1; font: inherit; padding: 0.55rem 0.7rem; border: 1px solid var(--color-border);
+    border-radius: 0.5rem; background: var(--surface); color: var(--color-ink);
+  }
+  .empty { color: var(--color-muted); }
+</style>
+
+<script>
+  import { isPortalEnabled } from '../../lib/supabase';
+  import { currentUser, getProfile, updateFullName, recordConsent } from '../../lib/auth';
+  import {
+    getEnrollments, getProgress, mergeLocalProgress,
+    getMySubmissions, getMyReviews, getMyAttendance,
+  } from '../../lib/portal';
+  import { withBase } from '../../utils/links';
+
+  type Lesson = { slug: string; title: string; href: string };
+  type Course = { slug: string; title: string; href: string; status: string; lessons: Lesson[] };
+
+  const gate = document.getElementById('account-gate')!;
+  const root = document.getElementById('account')!;
+  const esc = (s: string) =>
+    s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c] as string);
+
+  let catalog: Course[] = [];
+  try { catalog = JSON.parse(document.getElementById('catalog')?.textContent || '[]'); } catch {}
+  const byslug = new Map(catalog.map((c) => [c.slug, c]));
+
+  async function main() {
+    if (!isPortalEnabled) {
+      gate.textContent = 'The student portal is not set up yet.';
+      return;
+    }
+    const user = await currentUser();
+    if (!user) {
+      window.location.replace(withBase('/login/'));
+      return;
+    }
+    gate.hidden = true;
+    root.hidden = false;
+
+    const profile = await getProfile();
+    (document.getElementById('greeting') as HTMLElement).textContent = profile?.full_name
+      ? `Welcome back, ${profile.full_name}.`
+      : 'Welcome back.';
+
+    // First-login consent
+    if (profile && !profile.consented_at) {
+      const box = document.getElementById('consent')!;
+      const check = document.getElementById('consent-box') as HTMLInputElement;
+      const save = document.getElementById('consent-save') as HTMLButtonElement;
+      box.hidden = false;
+      check.addEventListener('change', () => (save.disabled = !check.checked));
+      save.addEventListener('click', async () => {
+        const r = await recordConsent();
+        if (r.ok) box.hidden = true;
+      });
+    }
+
+    const enrollments = await getEnrollments();
+    const enrolledSlugs = enrollments.map((e) => e.course_slug);
+    await mergeLocalProgress(enrolledSlugs);
+    const progress = await getProgress();
+
+    renderCourses(enrollments, progress);
+    renderProfile(profile?.full_name ?? '');
+    await renderSubmissions();
+    await renderAttendance();
+  }
+
+  function renderCourses(enrollments: { course_slug: string; status: string }[], progress: { course_slug: string; lesson_slug: string }[]) {
+    const el = document.getElementById('courses')!;
+    if (enrollments.length === 0) {
+      el.innerHTML = `<p class="empty">You are not enrolled in any course yet. Contact your facilitator to get started.</p>`;
+      return;
+    }
+    const doneByCourse = new Map<string, Set<string>>();
+    for (const p of progress) {
+      if (!doneByCourse.has(p.course_slug)) doneByCourse.set(p.course_slug, new Set());
+      doneByCourse.get(p.course_slug)!.add(p.lesson_slug);
+    }
+    el.innerHTML = enrollments
+      .map((e) => {
+        const c = byslug.get(e.course_slug);
+        const title = c?.title ?? e.course_slug;
+        const lessons = c?.lessons ?? [];
+        const done = doneByCourse.get(e.course_slug) ?? new Set();
+        const total = lessons.length;
+        const pct = total ? Math.round((done.size / total) * 100) : 0;
+        const next = lessons.find((l) => !done.has(l.slug));
+        const cta = next
+          ? `<a class="btn btn-primary" href="${next.href}">Continue: ${esc(next.title)}</a>`
+          : c
+          ? `<a class="btn btn-secondary" href="${c.href}">Review course</a>`
+          : '';
+        return `<div class="acct-card">
+          <h3>${esc(title)}</h3>
+          <div class="bar"><span style="width:${pct}%"></span></div>
+          <p class="muted">${pct}% complete · ${done.size}/${total} lessons · status: ${esc(e.status)}</p>
+          ${cta}
+        </div>`;
+      })
+      .join('');
+  }
+
+  async function renderSubmissions() {
+    const el = document.getElementById('submissions')!;
+    const [subs, reviews] = await Promise.all([getMySubmissions(), getMyReviews()]);
+    if (subs.length === 0) {
+      el.innerHTML = `<p class="empty">No submissions yet. Submit assignments from a lesson's assignment box.</p>`;
+      return;
+    }
+    const rev = new Map(reviews.map((r) => [r.submission_id, r]));
+    el.innerHTML = subs
+      .map((s) => {
+        const r = rev.get(s.id);
+        const lessonTitle = byslug.get(s.course_slug)?.lessons.find((l) => l.slug === s.lesson_slug)?.title ?? s.lesson_slug;
+        const status = r ? r.status : 'pending';
+        const label = r ? (r.status === 'approved' ? 'Approved' : 'Needs changes') : 'Awaiting review';
+        const link = s.link_url ? `<a href="${esc(s.link_url)}" target="_blank" rel="noopener noreferrer">View submission</a>` : '';
+        const fb = r?.feedback ? `<p class="muted">Feedback: ${esc(r.feedback)}</p>` : '';
+        const score = r?.score != null ? ` · Score: ${r.score}` : '';
+        return `<div class="acct-card">
+          <div style="display:flex;justify-content:space-between;gap:.5rem;align-items:center;flex-wrap:wrap">
+            <h3>${esc(lessonTitle)}</h3>
+            <span class="pill ${status}">${label}${score}</span>
+          </div>
+          <p class="muted">${esc(byslug.get(s.course_slug)?.title ?? s.course_slug)} · ${new Date(s.submitted_at).toLocaleDateString()}</p>
+          ${link} ${fb}
+        </div>`;
+      })
+      .join('');
+  }
+
+  async function renderAttendance() {
+    const el = document.getElementById('attendance')!;
+    const rows = await getMyAttendance();
+    if (rows.length === 0) {
+      el.innerHTML = `<p class="empty">No attendance recorded yet.</p>`;
+      return;
+    }
+    el.innerHTML =
+      `<div class="acct-card"><table style="width:100%;border-collapse:collapse">
+        <thead><tr><th style="text-align:left">Date</th><th style="text-align:left">Course</th><th style="text-align:left">Status</th></tr></thead>
+        <tbody>` +
+      rows
+        .map(
+          (a) =>
+            `<tr><td>${new Date(a.session_date).toLocaleDateString()}</td><td>${esc(byslug.get(a.course_slug)?.title ?? a.course_slug)}</td><td>${esc(a.status)}</td></tr>`,
+        )
+        .join('') +
+      `</tbody></table></div>`;
+  }
+
+  function renderProfile(name: string) {
+    const form = document.getElementById('profile-form') as HTMLFormElement;
+    const input = document.getElementById('full_name') as HTMLInputElement;
+    const msg = document.getElementById('profile-msg')!;
+    input.value = name;
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const r = await updateFullName(input.value.trim());
+      msg.textContent = r.ok ? 'Saved.' : r.error;
+    });
+  }
+
+  main().catch((e) => {
+    gate.hidden = false;
+    gate.textContent = 'Something went wrong loading your account. Please refresh.';
+    console.error(e);
+  });
+</script>

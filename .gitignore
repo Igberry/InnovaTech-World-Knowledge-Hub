@@ -22,6 +22,9 @@ public/pagefind/
 .env
 .env.*
 !.env.example
+!.env.test.example
+# RLS test credentials (anon key + test logins) — never commit
+supabase/tests/.env.test
 
 # --- Private documents: agreements, pricing, student data (WEBSITE-BUILD-PROMPT.md §8.4) ---
 *-agreement.*

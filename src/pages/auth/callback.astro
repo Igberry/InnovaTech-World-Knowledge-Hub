@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Signing you in" description="Completing sign-in.">
+  <div class="callback">
+    <p id="cb-msg">Signing you in…</p>
+  </div>
+</BaseLayout>
+
+<style>
+  .callback {
+    text-align: center;
+    padding: 4rem 1rem;
+    color: var(--color-muted);
+  }
+</style>
+
+<script>
+  import { getSupabase, isPortalEnabled } from '../../lib/supabase';
+  import { withBase } from '../../utils/links';
+
+  const msg = document.getElementById('cb-msg')!;
+  async function finish() {
+    if (!isPortalEnabled) {
+      msg.textContent = 'The portal is not configured.';
+      return;
+    }
+    const sb = getSupabase()!;
+    // supabase-js (detectSessionInUrl + PKCE) exchanges the code on load.
+    // If a recovery link landed here, route to the password reset page.
+    const params = new URLSearchParams(window.location.search);
+    const hash = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+    if (params.get('type') === 'recovery' || hash.get('type') === 'recovery') {
+      window.location.replace(withBase('/account/reset-password/'));
+      return;
+    }
+    for (let i = 0; i < 10; i++) {
+      const { data } = await sb.auth.getSession();
+      if (data.session) {
+        window.location.replace(withBase('/account/'));
+        return;
+      }
+      await new Promise((r) => setTimeout(r, 300));
+    }
+    msg.innerHTML =
+      'We couldn\'t complete sign-in. <a href="' + withBase('/login/') + '">Try logging in again</a>.';
+  }
+  finish();
+</script>

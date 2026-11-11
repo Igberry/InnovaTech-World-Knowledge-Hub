@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Log in" description="Log in to your InnovaTech World student account.">
+  <div class="auth-page">
+    <div class="card auth-card">
+      <h1>Log in</h1>
+      <p class="auth-sub">Access your learning, progress and feedback.</p>
+
+      <div id="portal-off" class="auth-note" hidden>
+        The student portal isn't set up yet. Please check back later or contact your facilitator.
+      </div>
+
+      <form id="login-form" hidden>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required />
+        </div>
+
+        <p id="auth-error" class="auth-error" role="alert" hidden></p>
+        <p id="auth-ok" class="auth-ok" role="status" hidden></p>
+
+        <button type="submit" class="btn btn-primary" data-submit>Log in</button>
+
+        <div class="auth-alt">
+          <button type="button" class="btn btn-ghost" data-magic>Email me a login link</button>
+          <button type="button" class="link-btn" data-forgot>Forgot password?</button>
+        </div>
+      </form>
+
+      <p class="auth-help">
+        Accounts are invite-only. If you're a student without access, ask your facilitator to invite you.
+      </p>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .auth-page {
+    max-width: 28rem;
+    margin: 2rem auto;
+  }
+  .auth-card {
+    padding: 2rem;
+  }
+  .auth-card h1 {
+    font-size: 1.8rem;
+  }
+  .auth-sub {
+    color: var(--color-muted);
+    margin: 0.3rem 0 1.25rem;
+  }
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+  }
+  .field label {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .field input {
+    font: inherit;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: var(--surface);
+    color: var(--color-ink);
+  }
+  .auth-error {
+    color: var(--color-danger);
+    font-size: 0.9rem;
+  }
+  .auth-ok {
+    color: var(--color-success);
+    font-size: 0.9rem;
+  }
+  .auth-note {
+    background: var(--cl-bg-warning);
+    border: 1px solid var(--color-warning);
+    border-radius: 0.5rem;
+    padding: 0.85rem 1rem;
+    font-size: 0.95rem;
+  }
+  #login-form button[data-submit] {
+    width: 100%;
+  }
+  .auth-alt {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+  }
+  .link-btn {
+    background: none;
+    border: none;
+    color: var(--color-blue-700);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0.5rem 0;
+  }
+  .auth-help {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--color-muted);
+  }
+</style>
+
+<script>
+  import { isPortalEnabled } from '../lib/supabase';
+  import { currentUser, signInWithPassword, signInWithMagicLink, sendPasswordReset } from '../lib/auth';
+  import { withBase } from '../utils/links';
+
+  const form = document.getElementById('login-form') as HTMLFormElement | null;
+  const off = document.getElementById('portal-off');
+  const errEl = document.getElementById('auth-error')!;
+  const okEl = document.getElementById('auth-ok')!;
+
+  function show(el: HTMLElement, msg: string) {
+    el.textContent = msg;
+    el.hidden = false;
+  }
+  function clear() {
+    errEl.hidden = true;
+    okEl.hidden = true;
+  }
+
+  if (!isPortalEnabled) {
+    if (off) off.hidden = false;
+  } else if (form) {
+    // Already signed in? Go to the account page.
+    currentUser().then((u) => {
+      if (u) window.location.href = withBase('/account/');
+    });
+    form.hidden = false;
+
+    const emailEl = () => (document.getElementById('email') as HTMLInputElement).value.trim();
+    const passEl = () => (document.getElementById('password') as HTMLInputElement).value;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clear();
+      const r = await signInWithPassword(emailEl(), passEl());
+      if (r.ok) window.location.href = withBase('/account/');
+      else show(errEl, r.error);
+    });
+
+    form.querySelector('[data-magic]')?.addEventListener('click', async () => {
+      clear();
+      if (!emailEl()) return show(errEl, 'Enter your email first, then tap the link button.');
+      const r = await signInWithMagicLink(emailEl());
+      if (r.ok) show(okEl, 'Check your email for a login link.');
+      else show(errEl, r.error);
+    });
+
+    form.querySelector('[data-forgot]')?.addEventListener('click', async () => {
+      clear();
+      if (!emailEl()) return show(errEl, 'Enter your email first, then tap "Forgot password".');
+      const r = await sendPasswordReset(emailEl());
+      if (r.ok) show(okEl, 'If that email has an account, a reset link is on its way.');
+      else show(errEl, r.error);
+    });
+  }
+</script>

@@ -1,0 +1,155 @@
+---
+/**
+ * Assignment submission box (STUDENT-PORTAL-SPEC.md §6.3). Rendered only on
+ * lessons that have a "Weekly Assignment" section. Visible only when signed in
+ * and enrolled; otherwise shows a gentle prompt. All behaviour is client-side.
+ */
+export interface Props {
+  course: string;
+  lesson: string;
+}
+const { course, lesson } = Astro.props;
+---
+
+<section class="assignment-submit no-print" data-course={course} data-lesson={lesson} hidden>
+  <h2>Submit your assignment</h2>
+  <div data-state="loading"><p class="muted">Checking your enrolment…</p></div>
+
+  <div data-state="guest" hidden>
+    <p class="muted">Enrolled students can submit their assignment here. <a data-login-link href="#">Log in</a> to continue.</p>
+  </div>
+
+  <div data-state="not-enrolled" hidden>
+    <p class="muted">Assignment submission is for students enrolled in this course. Contact your facilitator to enrol.</p>
+  </div>
+
+  <div data-state="form" hidden>
+    <div data-status hidden></div>
+    <form data-submit-form>
+      <div class="field">
+        <label for="asg-link">Link to your work (GitHub, Drive, Kaggle…)</label>
+        <input id="asg-link" name="link" type="url" placeholder="https://…" required />
+      </div>
+      <div class="field">
+        <label for="asg-note">Note (optional)</label>
+        <textarea id="asg-note" name="note" rows="3"></textarea>
+      </div>
+      <p data-error class="asg-error" role="alert" hidden></p>
+      <button type="submit" class="btn btn-primary">Submit assignment</button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .assignment-submit {
+    border: 1px solid var(--color-blue-200);
+    background: var(--color-blue-50);
+    border-radius: 0.8rem;
+    padding: 1.25rem 1.4rem;
+    margin: 2rem 0;
+  }
+  .assignment-submit h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  .assignment-submit .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    margin-bottom: 0.75rem;
+  }
+  .assignment-submit label {
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+  .assignment-submit input,
+  .assignment-submit textarea {
+    font: inherit;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: var(--surface);
+    color: var(--color-ink);
+  }
+  .muted { color: var(--color-muted); }
+  .asg-error { color: var(--color-danger); font-size: 0.9rem; }
+  [data-status] {
+    margin-bottom: 0.75rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.5rem;
+    background: var(--surface);
+    border: 1px solid var(--color-border);
+    font-size: 0.95rem;
+  }
+</style>
+
+<script>
+  import { isPortalEnabled } from '../lib/portal-config';
+  import { withBase } from '../utils/links';
+
+  const root = document.querySelector<HTMLElement>('.assignment-submit');
+  if (root && isPortalEnabled) {
+    const { currentUser } = await import('../lib/auth');
+    const { getEnrollments, getMySubmissions, getMyReviews, submitAssignment } = await import('../lib/portal');
+    const course = root.dataset.course!;
+    const lesson = root.dataset.lesson!;
+    const show = (name: string) => {
+      root.querySelectorAll<HTMLElement>('[data-state]').forEach((el) => {
+        el.hidden = el.dataset.state !== name;
+      });
+    };
+    const esc = (s: string) =>
+      s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c] as string);
+
+    (async () => {
+      root.hidden = false;
+      const user = await currentUser();
+      if (!user) {
+        const link = root.querySelector<HTMLAnchorElement>('[data-login-link]');
+        if (link) link.href = withBase('/login/');
+        show('guest');
+        return;
+      }
+      const enrolled = (await getEnrollments()).some((e) => e.course_slug === course);
+      if (!enrolled) {
+        show('not-enrolled');
+        return;
+      }
+      show('form');
+
+      // Existing submission + review status for this lesson
+      const [subs, reviews] = await Promise.all([getMySubmissions(), getMyReviews()]);
+      const mine = subs.find((s) => s.course_slug === course && s.lesson_slug === lesson);
+      const statusEl = root.querySelector<HTMLElement>('[data-status]')!;
+      if (mine) {
+        const r = reviews.find((rv) => rv.submission_id === mine.id);
+        const label = r ? (r.status === 'approved' ? 'Approved' : 'Needs changes') : 'Submitted — awaiting review';
+        const fb = r?.feedback ? ` Feedback: ${esc(r.feedback)}` : '';
+        const score = r?.score != null ? ` (score: ${r.score})` : '';
+        statusEl.innerHTML = `<strong>${label}${score}</strong>.${fb} You can submit again if you have an updated link.`;
+        statusEl.hidden = false;
+      }
+
+      const form = root.querySelector<HTMLFormElement>('[data-submit-form]')!;
+      const errEl = root.querySelector<HTMLElement>('[data-error]')!;
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        errEl.hidden = true;
+        const link = (form.querySelector('#asg-link') as HTMLInputElement).value.trim();
+        const note = (form.querySelector('#asg-note') as HTMLTextAreaElement).value.trim();
+        const btn = form.querySelector('button')!;
+        btn.disabled = true;
+        const r = await submitAssignment(course, lesson, link, note);
+        btn.disabled = false;
+        if (r.ok) {
+          statusEl.innerHTML = '<strong>Submitted — awaiting review.</strong>';
+          statusEl.hidden = false;
+          form.reset();
+        } else {
+          errEl.textContent = r.error;
+          errEl.hidden = false;
+        }
+      });
+    })();
+  }
+</script>

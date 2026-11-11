@@ -1,0 +1,337 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildCatalog } from '../../utils/catalog';
+
+const catalog = await buildCatalog();
+---
+
+<BaseLayout title="Facilitator dashboard" description="Admin dashboard for InnovaTech World facilitators.">
+  <div id="admin-gate" class="gate">Checking access…</div>
+
+  <div id="admin" hidden>
+    <header class="page-head">
+      <h1>Facilitator dashboard</h1>
+      <p class="muted">Students, submissions, attendance and enrolments.</p>
+    </header>
+
+    <div class="tabs" role="tablist">
+      <button class="tab is-active" data-tab="students" role="tab">Students</button>
+      <button class="tab" data-tab="submissions" role="tab">Submissions</button>
+      <button class="tab" data-tab="attendance" role="tab">Attendance</button>
+      <button class="tab" data-tab="enrolments" role="tab">Enrolments</button>
+    </div>
+
+    <section data-panel="students" class="panel">
+      <div class="panel-head">
+        <h2>Students</h2>
+        <button class="btn btn-secondary" data-export="progress">Export progress CSV</button>
+      </div>
+      <div data-students><p class="muted">Loading…</p></div>
+    </section>
+
+    <section data-panel="submissions" class="panel" hidden>
+      <div class="panel-head">
+        <h2>Submissions</h2>
+        <button class="btn btn-secondary" data-export="submissions">Export submissions CSV</button>
+      </div>
+      <div data-submissions><p class="muted">Loading…</p></div>
+    </section>
+
+    <section data-panel="attendance" class="panel" hidden>
+      <div class="panel-head"><h2>Attendance</h2>
+        <button class="btn btn-secondary" data-export="attendance">Export attendance CSV</button>
+      </div>
+      <form data-att-controls class="att-controls">
+        <label>Course <select data-att-course></select></label>
+        <label>Date <input type="date" data-att-date /></label>
+        <button type="button" class="btn btn-secondary" data-att-load>Load students</button>
+      </form>
+      <div data-attendance></div>
+    </section>
+
+    <section data-panel="enrolments" class="panel" hidden>
+      <h2>Enrolments</h2>
+      <div data-enrolments><p class="muted">Loading…</p></div>
+    </section>
+  </div>
+
+  <script type="application/json" id="catalog" set:html={JSON.stringify(catalog)} />
+</BaseLayout>
+
+<style>
+  .gate { padding: 4rem 1rem; text-align: center; color: var(--color-muted); }
+  .page-head { margin: 0.5rem 0 1rem; }
+  .page-head h1 { font-size: clamp(1.8rem, 1.4rem + 2vw, 2.4rem); }
+  .muted { color: var(--color-muted); }
+  .tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; border-bottom: 1px solid var(--color-border); margin-bottom: 1.5rem; }
+  .tab {
+    font: inherit; font-weight: 600; padding: 0.6rem 1rem; border: none; background: none;
+    color: var(--color-muted); cursor: pointer; border-bottom: 2px solid transparent;
+  }
+  .tab.is-active { color: var(--color-blue-700); border-bottom-color: var(--color-blue-600); }
+  .panel-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
+  .panel-head h2, .panel > h2 { font-size: 1.4rem; }
+  table.admin { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  table.admin th, table.admin td { border: 1px solid var(--color-border); padding: 0.5rem 0.65rem; text-align: left; vertical-align: top; }
+  table.admin thead th { background: var(--color-blue-50); }
+  .wrap { overflow-x: auto; }
+  .adm-card { border: 1px solid var(--color-border); border-radius: 0.6rem; padding: 1rem 1.1rem; margin-bottom: 0.75rem; background: var(--surface); }
+  .adm-row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+  .att-controls { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: end; margin-bottom: 1rem; }
+  .att-controls label { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; }
+  select, input[type='date'], input[type='number'], textarea {
+    font: inherit; padding: 0.45rem 0.6rem; border: 1px solid var(--color-border);
+    border-radius: 0.45rem; background: var(--surface); color: var(--color-ink);
+  }
+  .err { color: var(--color-danger); font-size: 0.85rem; }
+  .ok { color: var(--color-success); font-size: 0.85rem; }
+</style>
+
+<script>
+  import { isPortalEnabled } from '../../lib/supabase';
+  import { currentUser, isAdmin } from '../../lib/auth';
+  import {
+    getProfiles, getEnrollments, getProgress, getSubmissions, getReviews, getAttendance,
+    saveReview, setEnrollment, saveAttendance, downloadCsv,
+    type AdminProfile, type AdminEnrollment, type AdminProgress,
+    type AdminSubmission, type AdminReview, type AdminAttendance,
+  } from '../../lib/admin';
+  import { withBase } from '../../utils/links';
+
+  type Lesson = { slug: string; title: string };
+  type Course = { slug: string; title: string; status: string; lessons: Lesson[] };
+
+  const gate = document.getElementById('admin-gate')!;
+  const root = document.getElementById('admin')!;
+  const esc = (s: string) =>
+    String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c] as string);
+
+  let catalog: Course[] = [];
+  try { catalog = JSON.parse(document.getElementById('catalog')?.textContent || '[]'); } catch {}
+  const courseTitle = (slug: string) => catalog.find((c) => c.slug === slug)?.title ?? slug;
+  const courseTotal = (slug: string) => catalog.find((c) => c.slug === slug)?.lessons.length ?? 0;
+  const lessonTitle = (cs: string, ls: string) =>
+    catalog.find((c) => c.slug === cs)?.lessons.find((l) => l.slug === ls)?.title ?? ls;
+
+  // Caches
+  let profiles: AdminProfile[] = [];
+  let enrollments: AdminEnrollment[] = [];
+  let progress: AdminProgress[] = [];
+  let submissions: AdminSubmission[] = [];
+  let reviews: AdminReview[] = [];
+  let attendance: AdminAttendance[] = [];
+  const nameOf = (uid: string) => {
+    const p = profiles.find((x) => x.id === uid);
+    return p ? (p.full_name || p.email || uid) : uid;
+  };
+
+  async function loadAll() {
+    [profiles, enrollments, progress, submissions, reviews, attendance] = await Promise.all([
+      getProfiles(), getEnrollments(), getProgress(), getSubmissions(), getReviews(), getAttendance(),
+    ]);
+  }
+
+  // ---------- Students ----------
+  function renderStudents() {
+    const el = root.querySelector('[data-students]')!;
+    if (profiles.length === 0) { el.innerHTML = '<p class="muted">No students yet. Invite them in Supabase.</p>'; return; }
+    const rows = profiles.map((p) => {
+      const myEnr = enrollments.filter((e) => e.user_id === p.id);
+      const myProg = progress.filter((pr) => pr.user_id === p.id);
+      const lastProg = myProg.map((x) => x.updated_at).sort().at(-1);
+      const lastSub = submissions.filter((s) => s.user_id === p.id).map((s) => s.submitted_at).sort().at(-1);
+      const last = [lastProg, lastSub].filter(Boolean).sort().at(-1);
+      const courses = myEnr.map((e) => {
+        const done = myProg.filter((x) => x.course_slug === e.course_slug).length;
+        const total = courseTotal(e.course_slug);
+        const pct = total ? Math.round((done / total) * 100) : 0;
+        return `${esc(courseTitle(e.course_slug))} (${pct}%, ${esc(e.status)})`;
+      }).join('<br>') || '<span class="muted">—</span>';
+      return `<tr>
+        <td>${esc(p.full_name || '—')}</td>
+        <td>${esc(p.email || '—')}</td>
+        <td>${esc(p.cohort || '—')}</td>
+        <td>${courses}</td>
+        <td>${last ? new Date(last).toLocaleDateString() : '—'}</td>
+      </tr>`;
+    }).join('');
+    el.innerHTML = `<div class="wrap"><table class="admin">
+      <thead><tr><th>Name</th><th>Email</th><th>Cohort</th><th>Courses (progress, status)</th><th>Last activity</th></tr></thead>
+      <tbody>${rows}</tbody></table></div>`;
+  }
+
+  // ---------- Submissions ----------
+  function renderSubmissions() {
+    const el = root.querySelector('[data-submissions]')!;
+    if (submissions.length === 0) { el.innerHTML = '<p class="muted">No submissions yet.</p>'; return; }
+    const byDate = [...submissions].sort((a, b) => b.submitted_at.localeCompare(a.submitted_at));
+    el.innerHTML = byDate.map((s) => {
+      const r = reviews.find((x) => x.submission_id === s.id);
+      const link = s.link_url ? `<a href="${esc(s.link_url)}" target="_blank" rel="noopener noreferrer">open link</a>` : '(no link)';
+      return `<div class="adm-card" data-sub="${s.id}">
+        <div class="adm-row" style="justify-content:space-between">
+          <strong>${esc(nameOf(s.user_id))}</strong>
+          <span class="muted">${new Date(s.submitted_at).toLocaleString()}</span>
+        </div>
+        <p class="muted">${esc(courseTitle(s.course_slug))} · ${esc(lessonTitle(s.course_slug, s.lesson_slug))}</p>
+        <p>${link}${s.note ? ' · ' + esc(s.note) : ''}</p>
+        <div class="adm-row">
+          <label>Status
+            <select data-r-status>
+              <option value="approved"${r?.status === 'approved' ? ' selected' : ''}>Approved</option>
+              <option value="needs_changes"${r?.status === 'needs_changes' ? ' selected' : ''}>Needs changes</option>
+            </select>
+          </label>
+          <label>Score <input type="number" min="0" max="100" step="0.5" data-r-score value="${r?.score ?? ''}" style="width:5rem" /></label>
+        </div>
+        <textarea data-r-feedback rows="2" placeholder="Feedback" style="width:100%;margin-top:.5rem">${esc(r?.feedback ?? '')}</textarea>
+        <div class="adm-row" style="margin-top:.5rem">
+          <button class="btn btn-primary" data-r-save>Save review</button>
+          <span data-r-msg></span>
+        </div>
+      </div>`;
+    }).join('');
+
+    el.querySelectorAll<HTMLButtonElement>('[data-r-save]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const card = btn.closest('[data-sub]') as HTMLElement;
+        const id = card.dataset.sub!;
+        const status = (card.querySelector('[data-r-status]') as HTMLSelectElement).value as 'approved' | 'needs_changes';
+        const scoreRaw = (card.querySelector('[data-r-score]') as HTMLInputElement).value;
+        const feedback = (card.querySelector('[data-r-feedback]') as HTMLTextAreaElement).value;
+        const msg = card.querySelector('[data-r-msg]')!;
+        btn.disabled = true;
+        const res = await saveReview(id, status, scoreRaw === '' ? null : Number(scoreRaw), feedback);
+        btn.disabled = false;
+        msg.textContent = res.ok ? 'Saved.' : res.error;
+        msg.className = res.ok ? 'ok' : 'err';
+        if (res.ok) reviews = await getReviews();
+      });
+    });
+  }
+
+  // ---------- Attendance ----------
+  function fillCourseSelect(sel: HTMLSelectElement) {
+    sel.innerHTML = catalog.filter((c) => c.status === 'available')
+      .map((c) => `<option value="${c.slug}">${esc(c.title)}</option>`).join('');
+  }
+  function renderAttendanceControls() {
+    fillCourseSelect(root.querySelector('[data-att-course]') as HTMLSelectElement);
+    const dateEl = root.querySelector('[data-att-date]') as HTMLInputElement;
+    if (!dateEl.value) dateEl.value = new Date().toISOString().slice(0, 10);
+    root.querySelector('[data-att-load]')!.addEventListener('click', renderAttendanceRoster);
+  }
+  function renderAttendanceRoster() {
+    const course = (root.querySelector('[data-att-course]') as HTMLSelectElement).value;
+    const date = (root.querySelector('[data-att-date]') as HTMLInputElement).value;
+    const el = root.querySelector('[data-attendance]')!;
+    const enrolled = enrollments.filter((e) => e.course_slug === course);
+    if (!date) { el.innerHTML = '<p class="err">Pick a date.</p>'; return; }
+    if (enrolled.length === 0) { el.innerHTML = '<p class="muted">No students enrolled in this course.</p>'; return; }
+    const opts = (uid: string) => {
+      const existing = attendance.find((a) => a.user_id === uid && a.course_slug === course && a.session_date === date)?.status;
+      return ['present', 'absent', 'excused'].map((s) =>
+        `<option value="${s}"${existing === s ? ' selected' : ''}>${s}</option>`).join('');
+    };
+    el.innerHTML = `<div class="wrap"><table class="admin"><thead><tr><th>Student</th><th>Status</th></tr></thead><tbody>` +
+      enrolled.map((e) => `<tr data-uid="${e.user_id}"><td>${esc(nameOf(e.user_id))}</td><td><select data-att-status>${opts(e.user_id)}</select></td></tr>`).join('') +
+      `</tbody></table></div>
+      <div class="adm-row" style="margin-top:.75rem"><button class="btn btn-primary" data-att-save>Save attendance</button><span data-att-msg></span></div>`;
+    el.querySelector('[data-att-save]')!.addEventListener('click', async () => {
+      const rows = Array.from(el.querySelectorAll<HTMLTableRowElement>('tr[data-uid]')).map((tr) => ({
+        user_id: tr.dataset.uid!, course_slug: course, session_date: date,
+        status: (tr.querySelector('[data-att-status]') as HTMLSelectElement).value,
+      }));
+      const msg = el.querySelector('[data-att-msg]')!;
+      const res = await saveAttendance(rows);
+      msg.textContent = res.ok ? 'Saved.' : res.error;
+      msg.className = res.ok ? 'ok' : 'err';
+      if (res.ok) attendance = await getAttendance();
+    });
+  }
+
+  // ---------- Enrolments ----------
+  function renderEnrolments() {
+    const el = root.querySelector('[data-enrolments]')!;
+    if (profiles.length === 0) { el.innerHTML = '<p class="muted">No students yet.</p>'; return; }
+    const courseOpts = catalog.filter((c) => c.status === 'available')
+      .map((c) => `<option value="${c.slug}">${esc(c.title)}</option>`).join('');
+    el.innerHTML = profiles.map((p) => {
+      const myEnr = enrollments.filter((e) => e.user_id === p.id)
+        .map((e) => `${esc(courseTitle(e.course_slug))}: ${esc(e.status)}`).join(', ') || '—';
+      return `<div class="adm-card" data-uid="${p.id}">
+        <strong>${esc(p.full_name || p.email || p.id)}</strong>
+        <p class="muted">Current: ${myEnr}</p>
+        <div class="adm-row">
+          <select data-en-course>${courseOpts}</select>
+          <select data-en-status><option value="active">active</option><option value="paused">paused</option><option value="completed">completed</option></select>
+          <button class="btn btn-secondary" data-en-save>Save</button>
+          <span data-en-msg></span>
+        </div>
+      </div>`;
+    }).join('');
+    el.querySelectorAll<HTMLButtonElement>('[data-en-save]').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const card = btn.closest('[data-uid]') as HTMLElement;
+        const uid = card.dataset.uid!;
+        const course = (card.querySelector('[data-en-course]') as HTMLSelectElement).value;
+        const status = (card.querySelector('[data-en-status]') as HTMLSelectElement).value as 'active' | 'paused' | 'completed';
+        const msg = card.querySelector('[data-en-msg]')!;
+        const res = await setEnrollment(uid, course, status);
+        msg.textContent = res.ok ? 'Saved.' : res.error;
+        msg.className = res.ok ? 'ok' : 'err';
+        if (res.ok) { enrollments = await getEnrollments(); }
+      });
+    });
+  }
+
+  // ---------- CSV exports ----------
+  function exportCsv(kind: string) {
+    if (kind === 'progress') {
+      downloadCsv('progress.csv', ['student', 'email', 'course', 'lesson', 'status', 'updated_at'],
+        progress.map((p) => [nameOf(p.user_id), profiles.find((x) => x.id === p.user_id)?.email ?? '', courseTitle(p.course_slug), lessonTitle(p.course_slug, p.lesson_slug), 'completed', p.updated_at]));
+    } else if (kind === 'submissions') {
+      downloadCsv('submissions.csv', ['student', 'course', 'lesson', 'link', 'note', 'submitted_at', 'review', 'score'],
+        submissions.map((s) => {
+          const r = reviews.find((x) => x.submission_id === s.id);
+          return [nameOf(s.user_id), courseTitle(s.course_slug), lessonTitle(s.course_slug, s.lesson_slug), s.link_url ?? '', s.note ?? '', s.submitted_at, r?.status ?? 'pending', r?.score ?? ''];
+        }));
+    } else if (kind === 'attendance') {
+      downloadCsv('attendance.csv', ['student', 'course', 'date', 'status', 'note'],
+        attendance.map((a) => [nameOf(a.user_id), courseTitle(a.course_slug), a.session_date, a.status, a.note ?? '']));
+    }
+  }
+
+  // ---------- Tabs + boot ----------
+  function setupTabs() {
+    root.querySelectorAll<HTMLButtonElement>('.tab').forEach((tab) => {
+      tab.addEventListener('click', () => {
+        root.querySelectorAll('.tab').forEach((t) => t.classList.toggle('is-active', t === tab));
+        const name = tab.dataset.tab;
+        root.querySelectorAll<HTMLElement>('[data-panel]').forEach((p) => (p.hidden = p.dataset.panel !== name));
+      });
+    });
+    root.querySelectorAll<HTMLButtonElement>('[data-export]').forEach((b) =>
+      b.addEventListener('click', () => exportCsv(b.dataset.export!)));
+  }
+
+  async function main() {
+    if (!isPortalEnabled) { gate.textContent = 'The portal is not configured.'; return; }
+    const user = await currentUser();
+    if (!user) { window.location.replace(withBase('/login/')); return; }
+    if (!(await isAdmin())) {
+      gate.innerHTML = 'You do not have admin access. <a href="' + withBase('/account/') + '">Go to My Learning</a>.';
+      return;
+    }
+    await loadAll();
+    gate.hidden = true;
+    root.hidden = false;
+    setupTabs();
+    renderStudents();
+    renderSubmissions();
+    renderAttendanceControls();
+    renderEnrolments();
+  }
+
+  main().catch((e) => { gate.textContent = 'Error loading the dashboard. Please refresh.'; console.error(e); });
+</script>
