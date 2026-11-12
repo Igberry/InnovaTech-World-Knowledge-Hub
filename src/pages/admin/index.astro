@@ -167,7 +167,7 @@ const catalog = await buildCatalog();
     font: inherit; font-weight: 600; padding: 0.6rem 1rem; border: none; background: none;
     color: var(--color-muted); cursor: pointer; border-bottom: 2px solid transparent;
   }
-  .tab.is-active { color: var(--color-burgundy-700); border-bottom-color: var(--color-burgundy-600); }
+  .tab.is-active { color: var(--color-burgundy-text); border-bottom-color: var(--color-burgundy-text); }
   .panel-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
   .panel-head h2, .panel > h2 { font-size: 1.4rem; }
   table.admin { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
@@ -758,7 +758,7 @@ const catalog = await buildCatalog();
           <label>₦ <input type="number" min="0" step="1000" value="${Math.round(p.price_kobo / 100)}" data-price /></label>
           <label>Active <input type="checkbox" ${p.active ? 'checked' : ''} data-active /></label>
           <details><summary>Features</summary><textarea rows="3" data-features>${esc((p.features || []).join('\n'))}</textarea></details>
-          <button type="button" class="btn btn-secondary" data-save-plan>Save</button>
+          <button type="button" class="btn btn-success" data-save-plan>Save</button>
           <span data-plan-msg></span>
         </div>`).join('');
       return `<div class="price-course"><h4>${esc(courseTitle(slug))}</h4>${rows}</div>`;

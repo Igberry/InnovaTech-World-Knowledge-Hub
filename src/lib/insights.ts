@@ -75,6 +75,13 @@ export async function getPublicInsights(): Promise<PublicInsight[]> {
     .select(INSIGHT_COLUMNS)
     .or(`status.eq.published,and(status.eq.scheduled,scheduled_at.lte.${now})`);
   if (error) {
+    if (error.code === '42P01' || error.code === 'PGRST205') {
+      console.warn(
+        'The Insights CMS table is unavailable. Showing bundled Markdown articles only; apply migration 0006_insights_cms.sql to enable CMS posts.',
+        error.message,
+      );
+      return markdownPosts.sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime());
+    }
     throw new Error(`Could not load published Insights from Supabase: ${error.message}. Apply migration 0006_insights_cms.sql and check the public read policy.`);
   }
 
