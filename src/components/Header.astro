@@ -100,6 +100,10 @@ function isNavItemActive(item: (typeof site.nav)[number]): boolean {
     --color-blue-200: #a7c3dd;
     --color-blue-600: #0b3b66;
     --color-blue-700: #0a3057;
+    --color-burgundy-50: #f9edf0;
+    --color-burgundy-700: #69001a;
+    --color-burgundy-900: #3d0010;
+    --color-burgundy-text: #69001a;
   }
   .header-inner {
     display: flex;
@@ -151,12 +155,12 @@ function isNavItemActive(item: (typeof site.nav)[number]): boolean {
     white-space: nowrap;
   }
   .primary-nav a:hover {
-    background: var(--color-blue-50);
-    color: var(--color-blue-700);
+    background: var(--color-burgundy-50);
+    color: var(--color-burgundy-text);
   }
   .primary-nav a[aria-current='page'] {
-    color: var(--color-blue-700);
-    background: var(--color-blue-50);
+    color: var(--color-burgundy-text);
+    background: var(--color-burgundy-50);
   }
   .nav-dropdown {
     position: relative;
@@ -179,8 +183,8 @@ function isNavItemActive(item: (typeof site.nav)[number]): boolean {
   }
   .nav-dropdown summary:hover,
   .nav-dropdown summary.is-active {
-    background: var(--color-blue-50);
-    color: var(--color-blue-700);
+    background: var(--color-burgundy-50);
+    color: var(--color-burgundy-text);
   }
   .nav-dropdown[open] summary svg {
     transform: rotate(180deg);
