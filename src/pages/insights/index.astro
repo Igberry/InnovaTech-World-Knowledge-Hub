@@ -1,10 +1,13 @@
 ---
 import { Icon } from 'astro-icon/components';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getInsights, insightSlug, formatDate } from '../../utils/insights';
+import { getPublicInsights } from '../../lib/insights';
+import { formatDate } from '../../utils/insights';
 import { withBase } from '../../utils/links';
 
-const posts = await getInsights();
+export const prerender = false;
+
+const posts = await getPublicInsights();
 ---
 
 <BaseLayout
@@ -24,22 +27,23 @@ const posts = await getInsights();
       <ul class="post-list">
         {posts.map((post) => (
           <li>
-            <a class="card card-link post-card" href={withBase(`/insights/${insightSlug(post)}/`)}>
+            <a class="card card-link post-card" href={withBase(`/insights/${post.slug}/`)}>
               <div class="post-meta">
-                <time datetime={post.data.publishDate.toISOString()}>
-                  {formatDate(post.data.publishDate)}
+                <time datetime={post.publishDate.toISOString()}>
+                  {formatDate(post.publishDate)}
                 </time>
-                {post.data.author && <span>· {post.data.author}</span>}
+                <span>· {post.author}</span>
               </div>
-              <h2>{post.data.title}</h2>
-              <p>{post.data.description}</p>
-              {post.data.tags.length > 0 && (
+              <h2>{post.title}</h2>
+              <p>{post.description}</p>
+              {post.tags.length > 0 && (
                 <div class="post-tags">
-                  {post.data.tags.map((t) => (
+                  {post.tags.map((t) => (
                     <span class="chip">{t}</span>
                   ))}
                 </div>
               )}
+              {post.image && <img class="post-image" src={post.image} alt={post.imageAlt ?? ''} loading="lazy" />}
               <span class="post-more">
                 Read article
                 <Icon name="lucide:arrow-right" width={16} height={16} aria-hidden="true" />
@@ -89,6 +93,13 @@ const posts = await getInsights();
     padding: 1.4rem;
     color: inherit;
     text-decoration: none;
+  }
+  .post-image {
+    width: 100%;
+    max-height: 15rem;
+    object-fit: cover;
+    border-radius: 0.6rem;
+    order: -1;
   }
   .post-meta {
     display: flex;

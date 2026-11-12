@@ -54,11 +54,28 @@ export const site = {
 
   nav: [
     { label: 'Home', href: '/' },
-    { label: 'Courses', href: '/courses/' },
-    { label: 'Insights', href: '/insights/' },
-    { label: 'Resources', href: '/resources/' },
-    { label: 'About', href: '/about/' },
+    { label: 'Academy', href: '/courses/' },
+    { label: 'Services', href: '/services/' },
+    {
+      label: 'About',
+      href: '/about/',
+      children: [
+        { label: 'About', href: '/about/' },
+        { label: 'Resources', href: '/resources/' },
+        { label: 'Insights', href: '/insights/' },
+      ],
+    },
     { label: 'Contact', href: '/contact/' },
+  ],
+
+  services: [
+    'Full Stack Web Development',
+    'Data Analysis',
+    'Automation',
+    'Graphics Design',
+    'WordPress Web Development',
+    'SEO, AEO & GEO',
+    'Virtual Assistance',
   ],
 
   // Form service for the contact form and newsletter (WEBSITE-BUILD-PROMPT.md §7.8, §10).

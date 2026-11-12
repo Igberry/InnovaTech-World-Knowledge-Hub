@@ -1,0 +1,7 @@
+<script>
+  import { isPortalEnabled } from '../lib/portal-config';
+
+  if (isPortalEnabled) {
+    import('../scripts/session-timeout').then(({ initSessionTimeout }) => initSessionTimeout());
+  }
+</script>

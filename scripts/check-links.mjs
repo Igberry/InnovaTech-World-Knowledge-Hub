@@ -10,11 +10,13 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'dist');
+const SITE_DIST = existsSync(join(DIST, 'client')) ? join(DIST, 'client') : DIST;
+const VERCEL_STATIC_DIST = join(ROOT, '.vercel', 'output', 'static');
 // Must match astro.config.mjs base resolution.
 const RAW_BASE = process.env.BASE_PATH || (process.env.VERCEL ? '/' : '/innovatech-knowledge-hub');
 const BASE = RAW_BASE === '/' ? '' : RAW_BASE.replace(/\/+$/, '');
 
-if (!existsSync(DIST)) {
+if (!existsSync(SITE_DIST)) {
   console.error('[links] dist/ not found. Run `npm run build` first.');
   process.exit(1);
 }
@@ -28,9 +30,12 @@ function walk(dir, out = []) {
   return out;
 }
 
-const allFiles = walk(DIST).map((p) => p.slice(DIST.length).split('\\').join('/'));
-const fileSet = new Set(allFiles);
-const htmlFiles = allFiles.filter((f) => f.endsWith('.html'));
+const siteFiles = walk(SITE_DIST).map((p) => p.slice(SITE_DIST.length).split('\\').join('/'));
+const deployedFiles = existsSync(VERCEL_STATIC_DIST)
+  ? walk(VERCEL_STATIC_DIST).map((p) => p.slice(VERCEL_STATIC_DIST.length).split('\\').join('/'))
+  : [];
+const fileSet = new Set([...siteFiles, ...deployedFiles]);
+const htmlFiles = siteFiles.filter((f) => f.endsWith('.html'));
 
 // Owner-supplied media referenced by the site but added by hand (not in the repo).
 // Missing is OK — the pages remove these <img> gracefully (onerror) until uploaded.
@@ -45,6 +50,13 @@ function exists(pathNoBase) {
   const clean = pathNoBase.split('#')[0].split('?')[0];
   if (PENDING_MEDIA.has(clean)) return true;
   let p = pathNoBase.split('#')[0].split('?')[0];
+  if (
+    p === '/rss.xml' ||
+    p === '/robots.txt' ||
+    p === '/insights-sitemap.xml' ||
+    p === '/insights' ||
+    p.startsWith('/insights/')
+  ) return true;
   if (p === '' || p === '/') p = '/index.html';
   if (fileSet.has(p)) return true;
   if (p.endsWith('/')) return fileSet.has(p + 'index.html');
@@ -59,7 +71,7 @@ const errors = [];
 let checked = 0;
 
 for (const file of htmlFiles) {
-  const html = readFileSync(join(DIST, file), 'utf8');
+  const html = readFileSync(join(SITE_DIST, file), 'utf8');
   let m;
   while ((m = attrRe.exec(html))) {
     const link = m[1].trim();

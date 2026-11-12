@@ -10,6 +10,9 @@ const allowSignups = site.portal.allowSignups;
     <div class="card auth-card">
       <h1>Log in</h1>
       <p class="auth-sub">Access your learning, progress and feedback.</p>
+      <p id="session-timeout-note" class="auth-ok" role="status" hidden>
+        You were signed out after 30 minutes without activity. Please log in again.
+      </p>
 
       <div id="portal-off" class="auth-note" hidden>
         The student portal isn't set up yet. Please check back later or contact your facilitator.
@@ -75,6 +78,13 @@ const allowSignups = site.portal.allowSignups;
     </div>
   </div>
 </BaseLayout>
+
+<script>
+  const timeoutNotice = document.getElementById('session-timeout-note');
+  if (timeoutNotice && new URLSearchParams(window.location.search).get('reason') === 'session-timeout') {
+    timeoutNotice.hidden = false;
+  }
+</script>
 
 <style>
   .auth-page {

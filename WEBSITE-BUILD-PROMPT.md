@@ -3,6 +3,17 @@
 > **Purpose of this file:** This is the master brief for Claude Code. Put it in the root of the GitHub repository and tell Claude Code to read it and build the site.
 > **Owner:** David C. Igberi, InnovaTech World, Yenagoa, Bayelsa State, Nigeria.
 
+> **Current owner decisions (override conflicting legacy guidance below):** Keep the logo navy and white,
+> and add classic burgundy `#800020` for filled action buttons with white text. Use
+> `Home · Academy · Services · About (dropdown: About, Resources, Insights) · Contact`.
+> Services include Full Stack Web Development, Data Analysis, Automation, Graphics Design,
+> WordPress Web Development, SEO/AEO/GEO, and Virtual Assistance. The site uses Vercel for
+> server-rendered, crawlable Insights pages and static prerendering for other pages. Insights posts
+> are managed in the admin portal with Supabase; the owner must manually apply migration
+> `supabase/migrations/0006_insights_cms.sql` to the approved project before using the CMS. Never run
+> SQL or connect to Supabase from an agent. Terms of Use and Privacy Policy are intentionally unchanged
+> until requested. Social icons may display before profile URLs are provided; never invent URLs.
+
 ---
 
 ## 0. How to Use This File (for the Owner)

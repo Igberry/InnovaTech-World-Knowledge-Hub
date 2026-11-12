@@ -19,6 +19,13 @@
   --color-blue-600: #0b3b66; /* primary brand colour - matches the logo navy */
   --color-blue-700: #0a3057;
   --color-blue-900: #04172b;
+  --color-burgundy-50: #f9edf0;
+  --color-burgundy-100: #f0d7de;
+  --color-burgundy-200: #e0b0bd;
+  --color-burgundy-600: #800020;
+  --color-burgundy-700: #69001a;
+  --color-burgundy-900: #3d0010;
+  --color-burgundy-text: #69001a;
 
   --color-ink: #0f172a;
   --color-muted: #475569;
@@ -69,6 +76,12 @@
     --color-blue-500: #6fa6d6;
     --color-blue-600: #5e97cc;
     --color-blue-700: #86b4de;
+    --color-burgundy-50: #24131a;
+    --color-burgundy-100: #371824;
+    --color-burgundy-200: #64283b;
+    --color-burgundy-900: #f5dce3;
+    --color-burgundy-text: #f4afc1;
+    --color-burgundy-focus: #f4afc1;
   }
 }
 :root[data-theme='dark'] {
@@ -90,6 +103,12 @@
   --color-blue-500: #6fa6d6;
   --color-blue-600: #5e97cc;
   --color-blue-700: #86b4de;
+  --color-burgundy-50: #24131a;
+  --color-burgundy-100: #371824;
+  --color-burgundy-200: #64283b;
+  --color-burgundy-900: #f5dce3;
+  --color-burgundy-text: #f4afc1;
+  --color-burgundy-focus: #f4afc1;
 }
 
 html {
@@ -134,7 +153,7 @@ h1, h2, h3, h4 {
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--color-blue-600);
+  color: var(--color-burgundy-600);
   margin-bottom: 0.75rem;
 }
 
@@ -147,7 +166,7 @@ a:hover {
 
 /* Visible focus everywhere (accessibility). */
 :focus-visible {
-  outline: 3px solid var(--color-blue-500);
+  outline: 3px solid var(--color-burgundy-focus, var(--color-burgundy-600));
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -185,27 +204,27 @@ a:hover {
   cursor: pointer;
 }
 .btn-primary {
-  background: var(--color-blue-600);
+  background: var(--color-burgundy-600);
   color: #fff;
-  border-color: var(--color-blue-600);
+  border-color: var(--color-burgundy-600);
 }
 .btn-primary:hover {
-  background: var(--color-blue-700);
-  border-color: var(--color-blue-700);
+  background: var(--color-burgundy-700);
+  border-color: var(--color-burgundy-700);
   color: #fff;
 }
 .btn-secondary {
   background: var(--surface);
-  color: var(--color-blue-700);
+  color: var(--color-burgundy-text);
   border-color: var(--color-border);
 }
 .btn-secondary:hover {
-  background: var(--color-blue-50);
-  border-color: var(--color-blue-200);
+  background: var(--color-burgundy-50);
+  border-color: var(--color-burgundy-200);
 }
 .btn-ghost {
   background: transparent;
-  color: var(--color-blue-700);
+  color: var(--color-burgundy-text);
 }
 
 /* ---- Cards ---- */
@@ -317,7 +336,7 @@ a:hover {
 }
 .prose input[type='checkbox'] {
   margin-right: 0.5rem;
-  accent-color: var(--color-blue-600);
+  accent-color: var(--color-burgundy-600);
 }
 
 /* Heading anchors */

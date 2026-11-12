@@ -36,7 +36,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     // If anything went wrong on Supabase's side, show it.
     const authErr = params.get('error_description') || hash.get('error_description');
     if (authErr) {
-      msg.innerHTML = esc(authErr) + ' <a href="' + withBase('/login/') + '">Try again</a>.';
+      msg.textContent = authErr;
+      const link = document.createElement('a');
+      link.href = withBase('/login/');
+      link.textContent = 'Try again';
+      msg.append(' ', link, '.');
       return;
     }
 

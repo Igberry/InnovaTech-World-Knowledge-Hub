@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogManager from '../../components/BlogManager.astro';
 import { buildCatalog } from '../../utils/catalog';
 
 const catalog = await buildCatalog();
@@ -14,16 +15,17 @@ const catalog = await buildCatalog();
       <p class="muted">Students, submissions, attendance and enrolments.</p>
     </header>
 
-    <div class="tabs" role="tablist">
-      <button class="tab is-active" data-tab="students" role="tab">Students</button>
-      <button class="tab" data-tab="submissions" role="tab">Submissions</button>
-      <button class="tab" data-tab="attendance" role="tab">Attendance</button>
-      <button class="tab" data-tab="enrolments" role="tab">Enrolments</button>
-      <button class="tab" data-tab="certificates" role="tab">Certificates</button>
-      <button class="tab" data-tab="access" role="tab">Access &amp; Pricing</button>
+    <div class="tabs" role="tablist" aria-label="Facilitator dashboard sections">
+      <button id="tab-students" class="tab is-active" data-tab="students" role="tab" aria-selected="true" aria-controls="panel-students" tabindex="0">Students</button>
+      <button id="tab-submissions" class="tab" data-tab="submissions" role="tab" aria-selected="false" aria-controls="panel-submissions" tabindex="-1">Submissions</button>
+      <button id="tab-attendance" class="tab" data-tab="attendance" role="tab" aria-selected="false" aria-controls="panel-attendance" tabindex="-1">Attendance</button>
+      <button id="tab-enrolments" class="tab" data-tab="enrolments" role="tab" aria-selected="false" aria-controls="panel-enrolments" tabindex="-1">Enrolments</button>
+      <button id="tab-certificates" class="tab" data-tab="certificates" role="tab" aria-selected="false" aria-controls="panel-certificates" tabindex="-1">Certificates</button>
+      <button id="tab-access" class="tab" data-tab="access" role="tab" aria-selected="false" aria-controls="panel-access" tabindex="-1">Access &amp; Pricing</button>
+      <button id="tab-blog" class="tab" data-tab="blog" role="tab" aria-selected="false" aria-controls="panel-blog" tabindex="-1">Blog</button>
     </div>
 
-    <section data-panel="students" class="panel">
+    <section id="panel-students" data-panel="students" class="panel" role="tabpanel" aria-labelledby="tab-students" tabindex="0">
       <div class="panel-head">
         <h2>Students</h2>
         <button class="btn btn-secondary" data-export="progress">Export progress CSV</button>
@@ -31,7 +33,7 @@ const catalog = await buildCatalog();
       <div data-students><p class="muted">Loading…</p></div>
     </section>
 
-    <section data-panel="submissions" class="panel" hidden>
+    <section id="panel-submissions" data-panel="submissions" class="panel" role="tabpanel" aria-labelledby="tab-submissions" tabindex="0" hidden>
       <div class="panel-head">
         <h2>Submissions</h2>
         <button class="btn btn-secondary" data-export="submissions">Export submissions CSV</button>
@@ -39,7 +41,7 @@ const catalog = await buildCatalog();
       <div data-submissions><p class="muted">Loading…</p></div>
     </section>
 
-    <section data-panel="attendance" class="panel" hidden>
+    <section id="panel-attendance" data-panel="attendance" class="panel" role="tabpanel" aria-labelledby="tab-attendance" tabindex="0" hidden>
       <div class="panel-head"><h2>Attendance</h2>
         <button class="btn btn-secondary" data-export="attendance">Export attendance CSV</button>
       </div>
@@ -51,12 +53,12 @@ const catalog = await buildCatalog();
       <div data-attendance></div>
     </section>
 
-    <section data-panel="enrolments" class="panel" hidden>
+    <section id="panel-enrolments" data-panel="enrolments" class="panel" role="tabpanel" aria-labelledby="tab-enrolments" tabindex="0" hidden>
       <h2>Enrolments</h2>
       <div data-enrolments><p class="muted">Loading…</p></div>
     </section>
 
-    <section data-panel="access" class="panel" hidden>
+    <section id="panel-access" data-panel="access" class="panel" role="tabpanel" aria-labelledby="tab-access" tabindex="0" hidden>
       <h2>Access &amp; Pricing</h2>
       <p class="muted">Lock courses behind payment, grant free passes, and run discounts. Needs migration 0004.</p>
 
@@ -69,7 +71,7 @@ const catalog = await buildCatalog();
             <option value="basic">Basic</option><option value="advanced">Advanced</option><option value="premium">Premium</option>
           </select></label>
           <button type="submit" class="btn btn-primary">Grant free access</button>
-          <span data-fp-msg></span>
+          <span data-fp-msg role="status" aria-live="polite"></span>
         </form>
       </div>
 
@@ -91,7 +93,7 @@ const catalog = await buildCatalog();
           <label>Max uses <input type="number" data-vc-max min="1" placeholder="unlimited" /></label>
           <label>Expires <input type="date" data-vc-exp /></label>
           <button type="submit" class="btn btn-primary">Create voucher</button>
-          <span data-vc-msg></span>
+          <span data-vc-msg role="status" aria-live="polite"></span>
         </form>
         <div data-vouchers><p class="muted">Loading…</p></div>
       </div>
@@ -112,7 +114,7 @@ const catalog = await buildCatalog();
       </div>
     </section>
 
-    <section data-panel="certificates" class="panel" hidden>
+    <section id="panel-certificates" data-panel="certificates" class="panel" role="tabpanel" aria-labelledby="tab-certificates" tabindex="0" hidden>
       <div class="panel-head"><h2>Certificates</h2>
         <button class="btn btn-secondary" data-export="certificates">Export CSV</button>
       </div>
@@ -148,6 +150,8 @@ const catalog = await buildCatalog();
 
       <div data-certificates><p class="muted">Loading…</p></div>
     </section>
+
+    <BlogManager />
   </div>
 
   <script type="application/json" id="catalog" set:html={JSON.stringify(catalog)} />
@@ -163,7 +167,7 @@ const catalog = await buildCatalog();
     font: inherit; font-weight: 600; padding: 0.6rem 1rem; border: none; background: none;
     color: var(--color-muted); cursor: pointer; border-bottom: 2px solid transparent;
   }
-  .tab.is-active { color: var(--color-blue-700); border-bottom-color: var(--color-blue-600); }
+  .tab.is-active { color: var(--color-burgundy-700); border-bottom-color: var(--color-burgundy-600); }
   .panel-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
   .panel-head h2, .panel > h2 { font-size: 1.4rem; }
   table.admin { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
@@ -203,6 +207,22 @@ const catalog = await buildCatalog();
   .price-row label { display: inline-flex; gap: 0.3rem; align-items: center; font-size: 0.85rem; font-weight: 600; }
   .price-row input[type='number'] { width: 7rem; }
   .price-row textarea { min-width: 260px; }
+  .adm-table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .adm-table-wrap:focus-visible { outline-offset: -2px; }
+  .panel, .adm-card, [data-pricing], [data-vouchers], [data-entitlements], [data-payments] { min-width: 0; }
+  @media (max-width: 640px) {
+    .adm-card { padding: 0.75rem; }
+    .att-controls { align-items: stretch; }
+    .att-controls label { width: 100%; min-width: 0; }
+    .att-controls input, .att-controls select { max-width: 100%; box-sizing: border-box; }
+    .price-row { align-items: stretch; flex-direction: column; }
+    .price-row label { justify-content: space-between; }
+    .price-row input[type='number'] { width: 100%; max-width: 12rem; }
+    .price-row textarea { min-width: 0; width: 100%; box-sizing: border-box; }
+    .price-row details { width: 100%; }
+    .panel-head > button { width: 100%; }
+    .adm-table-wrap table { min-width: 38rem; }
+  }
   .adm-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 0.5rem; }
   .adm-table th, .adm-table td { text-align: left; padding: 0.35rem 0.5rem; border-bottom: 1px solid var(--color-border); }
   .adm-card + .adm-card { margin-top: 1rem; }
@@ -234,6 +254,8 @@ const catalog = await buildCatalog();
   #admin .adm-card { border: 1px solid var(--color-border); border-radius: 0.6rem; padding: 1rem 1.1rem; margin-bottom: 0.75rem; background: var(--surface); }
   #admin .adm-card h3 { font-size: 1.05rem; }
   #admin .adm-row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+  #admin .adm-table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  #admin .adm-table-wrap table { min-width: 38rem; }
   #admin .adm-card select,
   #admin .adm-card input,
   #admin .adm-card textarea,
@@ -268,7 +290,7 @@ const catalog = await buildCatalog();
   import { withBase } from '../../utils/links';
 
   type Lesson = { slug: string; title: string };
-  type Course = { slug: string; title: string; status: string; lessons: Lesson[] };
+  type Course = { slug: string; title: string; status: string; outcomes: string[]; lessons: Lesson[] };
 
   const gate = document.getElementById('admin-gate')!;
   const root = document.getElementById('admin')!;
@@ -675,11 +697,31 @@ const catalog = await buildCatalog();
 
   // ---------- Tabs + boot ----------
   function setupTabs() {
-    root.querySelectorAll<HTMLButtonElement>('.tab').forEach((tab) => {
-      tab.addEventListener('click', () => {
-        root.querySelectorAll('.tab').forEach((t) => t.classList.toggle('is-active', t === tab));
-        const name = tab.dataset.tab;
-        root.querySelectorAll<HTMLElement>('[data-panel]').forEach((p) => (p.hidden = p.dataset.panel !== name));
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+    const activate = (tab: HTMLButtonElement, moveFocus = false) => {
+      tabs.forEach((item) => {
+        const selected = item === tab;
+        item.classList.toggle('is-active', selected);
+        item.setAttribute('aria-selected', String(selected));
+        item.tabIndex = selected ? 0 : -1;
+      });
+      root.querySelectorAll<HTMLElement>('[data-panel]').forEach((panel) => {
+        panel.hidden = panel.dataset.panel !== tab.dataset.tab;
+      });
+      if (moveFocus) tab.focus();
+    };
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activate(tab));
+      tab.addEventListener('keydown', (event) => {
+        const key = (event as KeyboardEvent).key;
+        let next = index;
+        if (key === 'ArrowRight') next = (index + 1) % tabs.length;
+        else if (key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+        else if (key === 'Home') next = 0;
+        else if (key === 'End') next = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        activate(tabs[next], true);
       });
     });
     root.querySelectorAll<HTMLButtonElement>('[data-export]').forEach((b) =>
@@ -739,7 +781,7 @@ const catalog = await buildCatalog();
     const box = root.querySelector('[data-vouchers]') as HTMLElement;
     if (!box) return;
     if (vouchers.length === 0) { box.innerHTML = '<p class="muted">No vouchers yet.</p>'; return; }
-    box.innerHTML = '<table class="adm-table"><thead><tr><th>Code</th><th>Type</th><th>Value</th><th>Scope</th><th>Uses</th><th>Expires</th><th></th></tr></thead><tbody>' +
+    box.innerHTML = '<div class="adm-table-wrap" role="region" aria-label="Voucher list" tabindex="0"><table class="adm-table"><thead><tr><th>Code</th><th>Type</th><th>Value</th><th>Scope</th><th>Uses</th><th>Expires</th><th>Actions</th></tr></thead><tbody>' +
       vouchers.map((v) => `<tr>
         <td><code>${esc(v.code)}</code></td><td>${esc(v.kind)}</td>
         <td>${v.kind === 'free' ? '-' : v.kind === 'percent' ? v.value + '%' : naira(v.value)}</td>
@@ -747,7 +789,7 @@ const catalog = await buildCatalog();
         <td>${v.used_count}${v.max_uses != null ? '/' + v.max_uses : ''}</td>
         <td>${v.expires_at ? new Date(v.expires_at).toLocaleDateString() : '-'}</td>
         <td><button class="link-btn" data-vc-toggle="${v.id}" data-active="${v.active}">${v.active ? 'Deactivate' : 'Activate'}</button></td>
-      </tr>`).join('') + '</tbody></table>';
+      </tr>`).join('') + '</tbody></table></div>';
     box.querySelectorAll('[data-vc-toggle]').forEach((b) => b.addEventListener('click', async () => {
       const id = (b as HTMLElement).getAttribute('data-vc-toggle')!;
       const active = (b as HTMLElement).getAttribute('data-active') !== 'true';
@@ -761,9 +803,9 @@ const catalog = await buildCatalog();
     if (!box) return;
     const active = entitlements.filter((e) => e.status === 'active');
     if (active.length === 0) { box.innerHTML = '<p class="muted">No one has access yet.</p>'; return; }
-    box.innerHTML = '<table class="adm-table"><thead><tr><th>Student</th><th>Course</th><th>Plan</th><th>Source</th><th></th></tr></thead><tbody>' +
+    box.innerHTML = '<div class="adm-table-wrap" role="region" aria-label="Course access list" tabindex="0"><table class="adm-table"><thead><tr><th>Student</th><th>Course</th><th>Plan</th><th>Source</th><th>Actions</th></tr></thead><tbody>' +
       active.map((e) => `<tr><td>${esc(userLabel(e.user_id))}</td><td>${esc(courseTitle(e.course_slug))}</td><td>${esc(e.plan)}</td><td>${esc(e.source)}</td>
-        <td><button class="link-btn" data-ent-revoke="${e.id}">Revoke</button></td></tr>`).join('') + '</tbody></table>';
+        <td><button class="link-btn" data-ent-revoke="${e.id}">Revoke</button></td></tr>`).join('') + '</tbody></table></div>';
     box.querySelectorAll('[data-ent-revoke]').forEach((b) => b.addEventListener('click', async () => {
       if (!confirm('Revoke this access?')) return;
       const r = await revokeEntitlement((b as HTMLElement).getAttribute('data-ent-revoke')!);
@@ -775,8 +817,8 @@ const catalog = await buildCatalog();
     const box = root.querySelector('[data-payments]') as HTMLElement;
     if (!box) return;
     if (payments.length === 0) { box.innerHTML = '<p class="muted">No payments yet.</p>'; return; }
-    box.innerHTML = '<table class="adm-table"><thead><tr><th>Date</th><th>Student</th><th>Course</th><th>Plan</th><th>Amount</th><th>Status</th><th>Ref</th></tr></thead><tbody>' +
-      payments.map((p) => `<tr><td>${new Date(p.created_at).toLocaleDateString()}</td><td>${esc(userLabel(p.user_id))}</td><td>${esc(courseTitle(p.course_slug))}</td><td>${esc(p.plan)}</td><td>${naira(p.amount_kobo)}</td><td>${esc(p.status)}</td><td><code>${esc(p.reference)}</code></td></tr>`).join('') + '</tbody></table>';
+    box.innerHTML = '<div class="adm-table-wrap" role="region" aria-label="Payments list" tabindex="0"><table class="adm-table"><thead><tr><th>Date</th><th>Student</th><th>Course</th><th>Plan</th><th>Amount</th><th>Status</th><th>Reference</th></tr></thead><tbody>' +
+      payments.map((p) => `<tr><td>${new Date(p.created_at).toLocaleDateString()}</td><td>${esc(userLabel(p.user_id))}</td><td>${esc(courseTitle(p.course_slug))}</td><td>${esc(p.plan)}</td><td>${naira(p.amount_kobo)}</td><td>${esc(p.status)}</td><td><code>${esc(p.reference)}</code></td></tr>`).join('') + '</tbody></table></div>';
   }
 
   let accessFormsBound = false;
@@ -902,6 +944,8 @@ const catalog = await buildCatalog();
     gate.hidden = true;
     root.hidden = false;
     setupTabs();
+    const { initAdminBlog } = await import('../../scripts/admin-blog');
+    initAdminBlog();
     renderStudents();
     renderSubmissions();
     renderAttendanceControls();

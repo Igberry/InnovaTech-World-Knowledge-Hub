@@ -2,20 +2,17 @@
 import { Icon } from 'astro-icon/components';
 import Logo from './Logo.astro';
 import Newsletter from './Newsletter.astro';
-import { site } from '../config/site';
-import { withBase, activeSocials, formEndpoint, phoneUrl } from '../utils/links';
+import { site, isTodo } from '../config/site';
+import { withBase, formEndpoint, phoneUrl } from '../utils/links';
 
-const socials = activeSocials();
+const socialPlatforms = [
+  { platform: 'Facebook', url: site.social.facebook, icon: 'lucide:facebook' },
+  { platform: 'Instagram', url: site.social.instagram, icon: 'lucide:instagram' },
+  { platform: 'LinkedIn', url: site.social.linkedin, icon: 'lucide:linkedin' },
+];
 const hasNewsletter = formEndpoint('newsletter') !== null;
 const phone = phoneUrl();
-const email = site.contact.email && site.contact.email !== 'TODO' ? site.contact.email : null;
-const socialIcon: Record<string, string> = {
-  facebook: 'lucide:facebook',
-  instagram: 'lucide:instagram',
-  linkedin: 'lucide:linkedin',
-  youtube: 'lucide:youtube',
-  tiktok: 'lucide:music-2',
-};
+const email = isTodo(site.contact.email) ? null : site.contact.email;
 const year = new Date().getFullYear();
 ---
 
@@ -56,7 +53,18 @@ const year = new Date().getFullYear();
     <nav class="footer-nav" aria-label="Footer">
       <h2>Explore</h2>
       <ul>
-        {site.nav.map((item) => <li><a href={withBase(item.href)}>{item.label}</a></li>)}
+        {site.nav.map((item) => (
+          <li>
+            <a href={withBase(item.href)}>{item.label}</a>
+            {'children' in item && (
+              <ul class="footer-subnav">
+                {item.children.filter((child) => child.href !== item.href).map((child) => (
+                  <li><a href={withBase(child.href)}>{child.label}</a></li>
+                ))}
+              </ul>
+            )}
+          </li>
+        ))}
         <li><a href={withBase('/showcase/')}>Student Showcase</a></li>
         <li><a href={withBase('/verify/')}>Verify a Certificate</a></li>
         <li><a href={withBase('/privacy/')}>Privacy Policy</a></li>
@@ -64,23 +72,26 @@ const year = new Date().getFullYear();
       </ul>
     </nav>
 
-    {
-      socials.length > 0 && (
-        <div class="footer-social">
-          <h2>Follow</h2>
-          <ul>
-            {socials.map((s) => (
-              <li>
-                <a href={s.url} target="_blank" rel="noopener noreferrer" aria-label={s.platform}>
-                  <Icon name={socialIcon[s.platform] ?? 'lucide:link'} width={20} height={20} aria-hidden="true" />
-                  <span>{s.platform}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )
-    }
+    <div class="footer-social">
+      <h2>Follow</h2>
+      <ul class="social-icons">
+        {socialPlatforms.map((s) => (
+          <li>
+            {isTodo(s.url) ? (
+              <span class="social-icon-pending" title={`${s.platform} link will be added soon`}>
+                <Icon name={s.icon} width={21} height={21} aria-hidden="true" />
+                <span class="sr-only">{s.platform} link will be added soon</span>
+              </span>
+            ) : (
+              <a href={s.url} target="_blank" rel="noopener noreferrer" aria-label={`InnovaTech World on ${s.platform}`}>
+                <Icon name={s.icon} width={21} height={21} aria-hidden="true" />
+                <span class="sr-only">{s.platform}</span>
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
+    </div>
   </div>
 
   <div class="container footer-bottom">
@@ -131,6 +142,10 @@ const year = new Date().getFullYear();
     flex-direction: column;
     gap: 0.5rem;
   }
+  .site-footer .footer-subnav {
+    margin: 0.4rem 0 0 0.8rem;
+    gap: 0.35rem;
+  }
   .site-footer a {
     color: #cbd5e1;
     text-decoration: none;
@@ -144,6 +159,24 @@ const year = new Date().getFullYear();
     align-items: center;
     gap: 0.5rem;
     text-transform: capitalize;
+  }
+  .social-icons {
+    flex-direction: row !important;
+    gap: 0.75rem !important;
+  }
+  .social-icons a,
+  .social-icon-pending {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+  }
+  .social-icon-pending {
+    color: #cbd5e1;
+    opacity: 0.8;
   }
   .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.12);
