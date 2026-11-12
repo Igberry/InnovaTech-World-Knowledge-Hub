@@ -33,10 +33,11 @@ export function initAdminBlog(): void {
   const imagePreview = document.querySelector<HTMLImageElement>('[data-blog-image-preview]');
   const imageAlt = document.querySelector<HTMLInputElement>('[data-blog-image-alt]');
   const clearImage = document.querySelector<HTMLButtonElement>('[data-blog-image-clear]');
+  const category = form?.querySelector<HTMLSelectElement>('[data-blog-category]');
   const status = document.querySelector<HTMLSelectElement>('[data-blog-status]');
   const scheduleField = document.querySelector<HTMLElement>('[data-blog-schedule-field]');
   const scheduledAt = document.querySelector<HTMLInputElement>('[data-blog-scheduled-at]');
-  if (!form || !list || !message || !imageFile || !imageUrl || !imagePreview || !imageAlt || !clearImage || !status || !scheduleField || !scheduledAt) {
+  if (!form || !list || !message || !imageFile || !imageUrl || !imagePreview || !imageAlt || !clearImage || !category || !status || !scheduleField || !scheduledAt) {
     throw new Error('The Insights editor is missing required form elements.');
   }
 
@@ -95,7 +96,14 @@ export function initAdminBlog(): void {
         (form.querySelector('[data-blog-title]') as HTMLInputElement).value = post.title;
         (form.querySelector('[data-blog-slug]') as HTMLInputElement).value = post.slug;
         (form.querySelector('[data-blog-description]') as HTMLTextAreaElement).value = post.description;
-        (form.querySelector('[data-blog-category]') as HTMLInputElement).value = post.category ?? '';
+        const savedCategory = post.category ?? '';
+        if (savedCategory && !Array.from(category.options).some((option) => option.value === savedCategory)) {
+          const option = document.createElement('option');
+          option.value = savedCategory;
+          option.textContent = savedCategory;
+          category.add(option);
+        }
+        category.value = savedCategory;
         (form.querySelector('[data-blog-tags]') as HTMLInputElement).value = post.tags.join(', ');
         (form.querySelector('[data-blog-author]') as HTMLInputElement).value = post.author;
         (form.querySelector('[data-blog-body]') as HTMLTextAreaElement).value = post.body_markdown;
@@ -187,7 +195,7 @@ export function initAdminBlog(): void {
       title: (form.querySelector('[data-blog-title]') as HTMLInputElement).value.trim(),
       description: (form.querySelector('[data-blog-description]') as HTMLTextAreaElement).value.trim(),
       body_markdown: (form.querySelector('[data-blog-body]') as HTMLTextAreaElement).value,
-      category: (form.querySelector('[data-blog-category]') as HTMLInputElement).value.trim() || null,
+      category: category.value.trim() || null,
       tags: (form.querySelector('[data-blog-tags]') as HTMLInputElement).value.split(','),
       author: (form.querySelector('[data-blog-author]') as HTMLInputElement).value.trim(),
       status: status.value as InsightPostInput['status'],
