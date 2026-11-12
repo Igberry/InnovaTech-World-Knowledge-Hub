@@ -1,50 +1,60 @@
 ---
-import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CodeCopy from '../../components/CodeCopy.astro';
-import { getInsights, insightSlug, formatDate } from '../../utils/insights';
-import { editOnGitHubUrl } from '../../utils/links';
+import { getPublicInsight, renderInsightMarkdown } from '../../lib/insights';
+import { formatDate } from '../../utils/insights';
+import { editOnGitHubUrl, withBase } from '../../utils/links';
 import { Icon } from 'astro-icon/components';
 import { site } from '../../config/site';
 
-export async function getStaticPaths() {
-  const posts = await getInsights();
-  return posts.map((post) => ({ params: { slug: insightSlug(post) }, props: { post } }));
+export const prerender = false;
+
+const post = await getPublicInsight(Astro.params.slug ?? '');
+if (!post) {
+  Astro.response.status = 404;
 }
+const bodyHtml = post ? await renderInsightMarkdown(post.bodyMarkdown) : '';
+const editUrl = post?.source === 'markdown' ? editOnGitHubUrl(`src/content/insights/${post.slug}.md`) : null;
 
-const { post } = Astro.props;
-const { Content } = await render(post);
-const d = post.data;
-const editUrl = editOnGitHubUrl(`src/content/insights/${insightSlug(post)}.md`);
-
-const jsonLd = {
+const canonical = new URL(Astro.url.pathname, Astro.site ?? new URL(Astro.url)).toString();
+const jsonLd = post ? {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
-  headline: d.title,
-  description: d.description,
-  datePublished: d.publishDate.toISOString(),
-  ...(d.updatedDate ? { dateModified: d.updatedDate.toISOString() } : {}),
-  author: { '@type': 'Person', name: d.author ?? site.facilitator.name },
-};
+  headline: post.title,
+  description: post.description,
+  datePublished: post.publishDate.toISOString(),
+  ...(post.updatedDate ? { dateModified: post.updatedDate.toISOString() } : {}),
+  author: { '@type': 'Person', name: post.author || site.facilitator.name },
+  publisher: { '@type': 'Organization', name: 'InnovaTech World' },
+  mainEntityOfPage: canonical,
+  url: canonical,
+  ...(post.image ? { image: post.image } : {}),
+} : null;
 ---
 
-<BaseLayout title={d.title} description={d.description} jsonLd={[jsonLd]}>
+{post ? (
+<BaseLayout
+  title={post.title}
+  description={post.description}
+  image={post.image ?? '/og-default.png'}
+  jsonLd={jsonLd ? [jsonLd] : []}
+>
   <article class="post">
-    <Breadcrumbs items={[{ label: 'Insights', href: '/insights/' }, { label: d.title }]} />
+    <Breadcrumbs items={[{ label: 'Insights', href: '/insights/' }, { label: post.title }]} />
     <header class="post-header">
-      <h1>{d.title}</h1>
-      <p class="post-dek">{d.description}</p>
+      <h1>{post.title}</h1>
+      <p class="post-dek">{post.description}</p>
       <div class="post-meta">
-        <time datetime={d.publishDate.toISOString()}>{formatDate(d.publishDate)}</time>
-        {d.author && <span>· {d.author}</span>}
-        {d.updatedDate && <span>· Updated {formatDate(d.updatedDate)}</span>}
+        <time datetime={post.publishDate.toISOString()}>{formatDate(post.publishDate)}</time>
+        <span>· {post.author}</span>
+        {post.category && <span>· {post.category}</span>}
+        {post.updatedDate && <span>· Updated {formatDate(post.updatedDate)}</span>}
       </div>
     </header>
 
-    <div class="prose">
-      <Content />
-    </div>
+    {post.image && <img class="post-featured-image" src={post.image} alt={post.imageAlt ?? ''} fetchpriority="high" />}
+    <div class="prose" set:html={bodyHtml}></div>
 
     {
       editUrl && (
@@ -59,11 +69,26 @@ const jsonLd = {
 
   <CodeCopy />
 </BaseLayout>
+) : (
+  <BaseLayout title="Article not found" description="This Insights article could not be found.">
+    <h1>Article not found</h1>
+    <p>This article may have been removed or is not published.</p>
+    <a class="btn btn-secondary" href={withBase('/insights/')}>Back to Insights</a>
+  </BaseLayout>
+)}
 
 <style>
   .post {
     max-width: 72ch;
     margin-inline: auto;
+  }
+  .post-featured-image {
+    display: block;
+    width: 100%;
+    max-height: 26rem;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 1.5rem;
   }
   .post-header {
     margin: 1rem 0 1.5rem;

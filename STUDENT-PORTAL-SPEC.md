@@ -45,7 +45,8 @@
 
 ## 3. Critical Design Decision: Lesson Content Stays Public
 
-The site is static. **Any lesson hidden only by a client-side login check can still be read** from the page source or the GitHub repo. So:
+Most learning pages are statically prerendered; Insights pages use Vercel SSR for the Supabase-backed CMS.
+**Any lesson hidden only by a client-side login check can still be read** from the page source or the GitHub repo. So:
 
 - **Default (recommended):** lessons remain **public** (good for marketing and search). The **login protects progress, submissions, feedback and attendance**, which is where real student data lives.
 - **If paid/students-only lessons are required later:** options are (a) host on Cloudflare Pages with **Cloudflare Access** in front, (b) store lesson bodies in Supabase behind RLS and render them client-side (slower, worse SEO), or (c) keep premium lessons in a private repo and deploy a separate private site. Present these to the owner and let them choose; do **not** pretend a front-end check is security.
@@ -58,7 +59,7 @@ The site is static. **Any lesson hidden only by a client-side login check can st
 - **Login methods:** email + password **and** email magic link (passwordless). Offer **"Sign in with Google"** only if the owner enables it.
 - **Password rules:** minimum 8 characters; leave Supabase's defaults for hashing and sessions. Never build custom password storage.
 - **Email delivery:** Supabase's built-in email sender is heavily rate-limited and meant for testing. For real use, the owner should configure a **custom SMTP provider** (e.g., Resend, Brevo, or Mailgun free tiers). Document the steps in `docs/SUPABASE-SETUP.md`.
-- **Redirect URLs:** set **Site URL** and **Redirect URLs** in Supabase to the live site, including the GitHub Pages base path and later the custom domain, plus `http://localhost:4321` for development.
+- **Redirect URLs:** set **Site URL** and **Redirect URLs** in Supabase to the Vercel site root and later the custom domain, plus `http://localhost:4321/innovatech-knowledge-hub/` for local development.
 - **Roles:** there are two: *student* (default) and *admin*. Admin status is stored in a separate `admins` table (see schema) that students can never write to. **Never** store the role in a column a student can edit, or in user metadata they can change.
 
 ---
@@ -262,7 +263,7 @@ select id from auth.users where email = 'OWNER_EMAIL_HERE';
 - `src/lib/supabase.ts` creates **one** client from `PUBLIC_SUPABASE_URL` and `PUBLIC_SUPABASE_ANON_KEY` (Astro `import.meta.env`). The URL must be exactly `https://rrjyfrqidwndgfgdncnp.supabase.co`; `.env.example` ships with that URL and a placeholder for the anon key (`PUBLIC_SUPABASE_ANON_KEY=PASTE_ANON_KEY_HERE`).
 - **Target guard:** `scripts/check-supabase-target.mjs` runs before `dev` and `build` and fails if `PUBLIC_SUPABASE_URL` is set and is not `https://rrjyfrqidwndgfgdncnp.supabase.co`. Also fail the build if the placeholder key is used in a production build when the portal is enabled.
 - The **anon key is designed to be public**, but it is only safe because RLS is on. **Never** put the `service_role` key in the repo, the front end, GitHub Actions variables used by the build, or documentation. Add a build check that fails if a string resembling a service-role key is found in `dist/`.
-- Store the two public values as **GitHub Actions repository variables** and read them in the deploy workflow. Provide `.env.example` and add `.env` to `.gitignore`.
+- Store the two public values as **Vercel environment variables**. Provide `.env.example` and add `.env` to `.gitignore`.
 - If the variables are missing (e.g., a contributor's local copy), the site must still build and work as a public site with the portal features hidden.
 
 ### 6.2 Pages (all must respect the base path)
@@ -295,7 +296,7 @@ Visible only if `is_admin()` returns true (call `supabase.rpc('is_admin')`. **Th
 *Email lives in `auth.users`, which the browser cannot read. Show names from `profiles`; if the owner wants emails in the dashboard, add an `email` column to `profiles` populated by the trigger (copy from `new.email`). This is acceptable because RLS limits who can read it.
 
 ### 6.5 UX Rules
-- Brand and typography unchanged (royal blue and white, Poppins).
+- Brand uses logo navy, white, and classic burgundy `#800020` for filled action buttons; typography remains Poppins.
 - Mobile-first. Forms are accessible: labels, error text tied with `aria-describedby`, focus management.
 - Show friendly empty states ("You are not enrolled in any course yet. Contact your facilitator on WhatsApp.").
 - Public pages must not load the portal JavaScript unless needed (load it only on `/login`, `/account`, `/admin` and the lesson progress/assignment widgets).

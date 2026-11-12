@@ -30,20 +30,6 @@ const featured = [
   ...soon,
 ].slice(0, 6);
 
-const orgJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'InnovaTech World',
-  description: site.description,
-  url: site.url,
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Yenagoa',
-    addressRegion: 'Bayelsa State',
-    addressCountry: 'NG',
-  },
-};
-
 const steps = [
   { icon: 'calendar-days', title: 'Weekly lessons', text: 'Follow one clear, written lesson each week at your own pace.' },
   { icon: 'laptop', title: 'Hands-on assignments', text: 'Practise on real datasets and build work you can show.' },
@@ -57,7 +43,7 @@ const values = [
 ];
 ---
 
-<BaseLayout jsonLd={[orgJsonLd]}>
+<BaseLayout>
   <!-- Hero -->
   <section class="hero">
     <div class="hero-text">
@@ -69,7 +55,7 @@ const values = [
       </p>
       <div class="hero-cta">
         <a class="btn btn-primary" href={withBase('/courses/')}>
-          Browse Courses
+          Explore Academy
           <Icon name="lucide:arrow-right" width={18} height={18} aria-hidden="true" />
         </a>
         <WhatsAppButton variant="secondary" />
@@ -141,11 +127,11 @@ const values = [
   <section class="section">
     <div class="section-head">
       <div>
-        <span class="eyebrow">Courses</span>
+        <span class="eyebrow">Academy</span>
         <h2>Start with what's ready now</h2>
       </div>
       <a class="section-link" href={withBase('/courses/')}>
-        See all courses
+        Browse Academy
         <Icon name="lucide:arrow-right" width={15} height={15} aria-hidden="true" />
       </a>
     </div>

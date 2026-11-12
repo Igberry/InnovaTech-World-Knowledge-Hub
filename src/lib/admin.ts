@@ -160,6 +160,126 @@ export interface EntitlementRow {
   id: string; user_id: string; course_slug: string; plan: string;
   source: string; status: string; created_at: string;
 }
+
+export interface AdminInsightPost {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  body_markdown: string;
+  category: string | null;
+  tags: string[];
+  author: string;
+  status: 'draft' | 'scheduled' | 'published';
+  scheduled_at: string | null;
+  published_at: string | null;
+  featured_image_url: string | null;
+  featured_image_alt: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+const INSIGHT_POST_COLUMNS =
+  'id, slug, title, description, body_markdown, category, tags, author, status, scheduled_at, published_at, featured_image_url, featured_image_alt, created_at, updated_at';
+
+export async function getInsightPosts(): Promise<Result<AdminInsightPost[]>> {
+  const sb = getSupabase();
+  if (!sb) return { ok: false, error: 'Portal not configured.' };
+  try {
+    const { data, error } = await sb
+      .from('insight_posts')
+      .select(INSIGHT_POST_COLUMNS)
+      .order('updated_at', { ascending: false });
+    if (error) return { ok: false, error: error.message };
+    return { ok: true, data: (data ?? []) as AdminInsightPost[] };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
+export type InsightPostInput = Omit<AdminInsightPost, 'id' | 'created_at' | 'updated_at'>;
+
+export async function saveInsightPost(
+  input: InsightPostInput,
+  id?: string,
+): Promise<Result<AdminInsightPost>> {
+  const sb = getSupabase();
+  const user = await currentUser();
+  if (!sb || !user) return { ok: false, error: 'Not signed in.' };
+  if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(input.slug)) {
+    return { ok: false, error: 'Use a lowercase URL slug with letters, numbers, and hyphens.' };
+  }
+  if (input.featured_image_url && !input.featured_image_alt?.trim()) {
+    return { ok: false, error: 'Add alternative text for the featured image.' };
+  }
+  if (input.status === 'scheduled' && !input.scheduled_at) {
+    return { ok: false, error: 'Choose a publication date and time for scheduled posts.' };
+  }
+
+  try {
+    const now = new Date().toISOString();
+    const post = {
+      ...input,
+      title: input.title.trim(),
+      description: input.description.trim(),
+      body_markdown: input.body_markdown.trim(),
+      category: input.category?.trim() || null,
+      tags: input.tags.map((tag) => tag.trim()).filter(Boolean),
+      author: input.author.trim() || 'InnovaTech World',
+      featured_image_alt: input.featured_image_url ? input.featured_image_alt?.trim() : null,
+      scheduled_at: input.status === 'scheduled' ? input.scheduled_at : null,
+      published_at: input.status === 'published' ? input.published_at ?? now : null,
+      updated_at: now,
+      ...(id ? {} : { created_by: user.id }),
+    };
+    const query = id
+      ? sb.from('insight_posts').update(post).eq('id', id)
+      : sb.from('insight_posts').insert(post);
+    const { data, error } = await query.select(INSIGHT_POST_COLUMNS).single();
+    if (error) return { ok: false, error: error.message };
+    return { ok: true, data: data as AdminInsightPost };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
+export async function deleteInsightPost(id: string): Promise<Result> {
+  const sb = getSupabase();
+  if (!sb) return { ok: false, error: 'Portal not configured.' };
+  try {
+    const { error } = await sb.from('insight_posts').delete().eq('id', id);
+    return error ? { ok: false, error: error.message } : { ok: true, data: undefined };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
+export async function uploadInsightImage(file: File): Promise<Result<{ url: string }>> {
+  const sb = getSupabase();
+  if (!sb) return { ok: false, error: 'Portal not configured.' };
+  const allowedTypes = new Set(['image/jpeg', 'image/png', 'image/webp', 'image/avif']);
+  if (!allowedTypes.has(file.type)) {
+    return { ok: false, error: 'Choose a JPG, PNG, WebP, or AVIF image.' };
+  }
+  if (file.size > 5 * 1024 * 1024) {
+    return { ok: false, error: 'Images must be 5 MB or smaller.' };
+  }
+
+  try {
+    const extension = file.name.split('.').pop()?.toLowerCase() || 'jpg';
+    const path = `${crypto.randomUUID()}.${extension}`;
+    const { data, error } = await sb.storage.from('insights-images').upload(path, file, {
+      cacheControl: '31536000',
+      contentType: file.type,
+      upsert: false,
+    });
+    if (error) return { ok: false, error: error.message };
+    const { data: urlData } = sb.storage.from('insights-images').getPublicUrl(data.path);
+    return { ok: true, data: { url: urlData.publicUrl } };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
 export const getEntitlements = () =>
   selectAll<EntitlementRow>('entitlements', 'id, user_id, course_slug, plan, source, status, created_at');
 

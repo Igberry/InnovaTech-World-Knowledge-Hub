@@ -1,0 +1,110 @@
+<section data-panel="blog" class="panel" hidden aria-labelledby="blog-panel-title">
+  <div class="panel-head">
+    <div>
+      <h2 id="blog-panel-title">Insights blog</h2>
+      <p class="muted">Write posts in Markdown, save drafts, schedule publication, and add a featured image.</p>
+    </div>
+    <button type="button" class="btn btn-secondary" data-blog-new>New post</button>
+  </div>
+
+  <div class="blog-manager">
+    <form class="adm-card blog-form" data-blog-form>
+      <input type="hidden" data-blog-id />
+      <label for="blog-title">Title</label>
+      <input id="blog-title" data-blog-title maxlength="160" required />
+
+      <label for="blog-slug">URL slug</label>
+      <input id="blog-slug" data-blog-slug pattern="[a-z0-9]+(-[a-z0-9]+)*" required />
+      <p class="field-help">Lowercase letters, numbers, and hyphens only.</p>
+
+      <label for="blog-description">Summary for search and sharing</label>
+      <textarea id="blog-description" data-blog-description maxlength="320" rows="3" required></textarea>
+
+      <div class="blog-form-row">
+        <div>
+          <label for="blog-category">Category</label>
+          <input id="blog-category" data-blog-category maxlength="80" />
+        </div>
+        <div>
+          <label for="blog-tags">Tags</label>
+          <input id="blog-tags" data-blog-tags placeholder="careers, learning" />
+          <p class="field-help">Separate tags with commas.</p>
+        </div>
+        <div>
+          <label for="blog-author">Author</label>
+          <input id="blog-author" data-blog-author maxlength="120" value="InnovaTech World" />
+        </div>
+      </div>
+
+      <label for="blog-body">Article (Markdown)</label>
+      <textarea id="blog-body" data-blog-body rows="16" required></textarea>
+
+      <fieldset class="blog-image-field">
+        <legend>Featured image (optional)</legend>
+        <label for="blog-image-file">Upload JPG, PNG, WebP, or AVIF (up to 5 MB)</label>
+        <input id="blog-image-file" data-blog-image-file type="file" accept="image/jpeg,image/png,image/webp,image/avif" />
+        <label for="blog-image-alt">Alternative text</label>
+        <input id="blog-image-alt" data-blog-image-alt maxlength="200" />
+        <input type="hidden" data-blog-image-url />
+        <img data-blog-image-preview alt="" hidden />
+        <button type="button" class="btn btn-secondary" data-blog-image-clear hidden>Remove featured image</button>
+      </fieldset>
+
+      <div class="blog-form-row blog-publish-row">
+        <div>
+          <label for="blog-status">Publication status</label>
+          <select id="blog-status" data-blog-status>
+            <option value="draft">Draft</option>
+            <option value="scheduled">Scheduled</option>
+            <option value="published">Published</option>
+          </select>
+        </div>
+        <div data-blog-schedule-field hidden>
+          <label for="blog-scheduled-at">Publish date and time</label>
+          <input id="blog-scheduled-at" data-blog-scheduled-at type="datetime-local" />
+        </div>
+      </div>
+
+      <div class="adm-row blog-actions">
+        <button type="submit" class="btn btn-primary" data-blog-save>Save post</button>
+        <button type="button" class="btn btn-secondary" data-blog-cancel>Clear form</button>
+        <span data-blog-message role="status" aria-live="polite"></span>
+      </div>
+    </form>
+
+    <section class="blog-post-list" aria-labelledby="blog-post-list-title">
+      <h3 id="blog-post-list-title">Saved posts</h3>
+      <div data-blog-post-list role="region" aria-label="Saved Insights posts" aria-live="polite">
+        <p class="muted">Loading posts…</p>
+      </div>
+    </section>
+  </div>
+</section>
+
+<style is:global>
+  #admin .blog-manager { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr); gap: 1rem; align-items: start; }
+  #admin .blog-form { display: grid; gap: 0.45rem; min-width: 0; }
+  #admin .blog-form label,
+  #admin .blog-image-field legend { font-weight: 600; font-size: 0.88rem; }
+  #admin .blog-form input:not([type='file']):not([type='hidden']),
+  #admin .blog-form textarea,
+  #admin .blog-form select { width: 100%; min-width: 0; box-sizing: border-box; }
+  #admin .blog-form textarea { resize: vertical; }
+  #admin .field-help { margin: -0.3rem 0 0.3rem; color: var(--color-muted); font-size: 0.8rem; }
+  #admin .blog-form-row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
+  #admin .blog-form-row > div { min-width: 0; }
+  #admin .blog-image-field { display: grid; gap: 0.5rem; border: 1px solid var(--color-border); border-radius: 0.55rem; padding: 0.75rem; min-width: 0; }
+  #admin [data-blog-image-preview] { max-width: 100%; max-height: 12rem; object-fit: contain; justify-self: start; }
+  #admin .blog-post-list { min-width: 0; }
+  #admin .blog-post-list h3 { font-size: 1.1rem; }
+  #admin .blog-post-card { border: 1px solid var(--color-border); border-radius: 0.6rem; padding: 0.85rem; margin-bottom: 0.65rem; overflow-wrap: anywhere; }
+  #admin .blog-post-card h4 { margin: 0 0 0.3rem; }
+  #admin .blog-post-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; color: var(--color-muted); font-size: 0.8rem; }
+  #admin .blog-post-actions { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.65rem; }
+  #admin .blog-post-actions button { min-height: 2.4rem; }
+  #admin .blog-status { display: inline-block; border-radius: 999px; padding: 0.1rem 0.55rem; background: var(--color-burgundy-50); color: var(--color-burgundy-900); font-weight: 600; }
+  @media (max-width: 760px) {
+    #admin .blog-manager { grid-template-columns: minmax(0, 1fr); }
+    #admin .blog-form-row { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>

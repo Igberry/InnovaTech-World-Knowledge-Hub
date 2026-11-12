@@ -11,7 +11,7 @@
     "check:supabase": "node scripts/check-supabase-target.mjs",
     "dev": "npm run check:supabase && astro dev",
     "start": "npm run dev",
-    "build": "npm run check:supabase && astro build && pagefind --site dist",
+    "build": "npm run check:supabase && astro build && pagefind --site dist/client --output-path .vercel/output/static/pagefind",
     "preview": "astro preview",
     "astro": "astro",
     "check:astro": "astro check",
@@ -26,21 +26,27 @@
   "dependencies": {
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/vercel": "^9.0.5",
     "@fontsource/poppins": "^5.1.1",
     "@iconify-json/lucide": "^1.2.18",
     "@supabase/supabase-js": "^2.119.0",
-    "nodemailer": "^6.9.14",
     "astro": "^5.1.1",
     "astro-icon": "^1.1.5",
+    "marked": "^18.2.0",
+    "nodemailer": "^6.9.14",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-slug": "^6.0.0",
+    "sanitize-html": "^2.18.2",
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
     "@tailwindcss/vite": "^4.0.0",
     "@types/node": "^22.10.2",
+    "@types/sanitize-html": "^2.16.2",
     "pagefind": "^1.6.0",
     "tailwindcss": "^4.0.0",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.2",
+    "vite": "^6.4.6"
   }
 }

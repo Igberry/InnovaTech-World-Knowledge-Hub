@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import Analytics from '../components/Analytics.astro';
 import AuthRedirect from '../components/AuthRedirect.astro';
 import PasswordToggle from '../components/PasswordToggle.astro';
+import SessionTimeout from '../components/SessionTimeout.astro';
 import { site } from '../config/site';
 import { withBase } from '../utils/links';
 
@@ -28,8 +29,45 @@ const {
 } = Astro.props;
 
 const pageTitle = title ? `${title} · ${site.shortName}` : `${site.name} - ${site.tagline}`;
-const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://example.com').toString();
-const ogImage = new URL(withBase(image), Astro.site ?? 'https://example.com').toString();
+const siteOrigin = Astro.site?.origin ?? new URL(Astro.url).origin;
+const canonical = new URL(Astro.url.pathname, siteOrigin).toString();
+const ogImage = new URL(withBase(image), siteOrigin).toString();
+const rootUrl = new URL(withBase('/'), siteOrigin).toString();
+const sameAs = Object.values(site.social).filter((url) => url && url !== 'TODO');
+const siteJsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'EducationalOrganization',
+    name: 'InnovaTech World',
+    description: site.description,
+    url: rootUrl,
+    logo: new URL(withBase('/images/logo.png'), siteOrigin).toString(),
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Yenagoa',
+      addressRegion: 'Bayelsa State',
+      addressCountry: 'NG',
+    },
+    founder: { '@type': 'Person', name: site.facilitator.name },
+    ...(sameAs.length ? { sameAs } : {}),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: site.name,
+    url: rootUrl,
+    inLanguage: 'en-NG',
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${new URL(withBase('/search/'), siteOrigin).toString()}?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  },
+];
+
+function jsonLdString(value: Record<string, unknown>): string {
+  return JSON.stringify(value).replace(/</g, '\\u003c');
+}
 ---
 
 <!doctype html>
@@ -66,14 +104,15 @@ const ogImage = new URL(withBase(image), Astro.site ?? 'https://example.com').to
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_NG" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title ?? site.name} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
     {
-      jsonLd.map((obj) => (
-        <script type="application/ld+json" set:html={JSON.stringify(obj)} />
+      [...siteJsonLd, ...jsonLd].map((obj) => (
+        <script type="application/ld+json" set:html={jsonLdString(obj)} />
       ))
     }
 
@@ -83,6 +122,7 @@ const ogImage = new URL(withBase(image), Astro.site ?? 'https://example.com').to
     <a href="#main" class="skip-link">Skip to content</a>
     <AuthRedirect />
     <PasswordToggle />
+    <SessionTimeout />
     <Header />
     <main id="main" class={wide ? '' : 'container'} style={wide ? '' : 'padding-block: 2rem 3rem;'}>
       <slot />

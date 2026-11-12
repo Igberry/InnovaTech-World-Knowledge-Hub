@@ -20,6 +20,20 @@ automatically; you run the SQL yourself in your own Supabase project.
 4. **Already ran an older schema.sql?** Then run `supabase/migrations/0002_certificates.sql` on its own
    to add the certificates table and the `verify_certificate` function.
 
+### Insights CMS migration
+
+The admin portal's Blog tab and the public SSR Insights pages also require
+`supabase/migrations/0006_insights_cms.sql`. After confirming you are in the approved project,
+run that migration manually in its own SQL Editor query after migrations 0001–0005. It creates
+the `insight_posts` table, its RLS policies, and the public `insights-images` bucket. Do not run
+this migration from the website or an agent. Until it has been applied, do not enable the CMS
+environment variables; the SSR Insights routes will report a database error when they query it.
+
+Once applied, admins can create drafts, publish immediately, schedule posts, and upload featured
+images from **/admin/** → **Blog**. Published and due scheduled posts appear on `/insights/`
+without a rebuild; draft posts remain private. Markdown files in `src/content/insights/` continue
+to work as before.
+
 ## 3. Turn off public sign-ups, set URLs
 1. **Authentication → Providers → Email**: keep **Email** enabled; enable **magic link**.
 2. **Authentication → Sign In / Providers** (or **Settings**) — choose your model:
@@ -61,9 +75,8 @@ Supabase's built-in email is rate-limited and for testing only. For real use, se
 3. **Redeploy** so the vars apply: **Vercel → Deployments → latest → ⋯ → Redeploy** (or push any commit).
    The portal turns on automatically; without these variables the site still works as a public site.
 
-> **Hosting on GitHub Pages instead?** Put the same two values in **GitHub → Settings → Secrets and
-> variables → Actions → Variables**, then run the Pages workflow (**Actions → Deploy to GitHub Pages
-> → Run workflow**). That workflow is manual-only now because the site is set up for Vercel.
+Vercel is required for the server-rendered Insights routes and CMS. GitHub Pages cannot serve these
+routes; do not deploy this version of the site there.
 
 ## 7. Invite and enrol students
 1. **Authentication → Users → Invite user** for each student.

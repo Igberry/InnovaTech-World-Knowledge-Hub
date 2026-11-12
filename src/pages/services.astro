@@ -1,0 +1,113 @@
+---
+import { Icon } from 'astro-icon/components';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../config/site';
+import { withBase } from '../utils/links';
+
+const services = site.services;
+const serviceList = services.map((name) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name,
+  provider: {
+    '@type': 'Organization',
+    name: 'InnovaTech World',
+  },
+}));
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'What services does InnovaTech World currently offer?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: `${services.join(', ')}. More services may be added over time.`,
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How can I discuss a service?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Contact InnovaTech World through the Contact page to discuss your needs.',
+      },
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title="Services"
+  description="Web development, data analysis, automation, graphic design, SEO, AEO, GEO, and virtual-assistance services from InnovaTech World."
+  jsonLd={[...serviceList, faqJsonLd]}
+>
+  <header class="page-head">
+    <span class="eyebrow">InnovaTech World</span>
+    <h1>Services</h1>
+    <p>Explore our current digital services. More offerings will be added over time.</p>
+  </header>
+
+  <ul class="service-grid" aria-label="Our services">
+    {services.map((service) => (
+      <li class="card service-card">
+        <Icon name="lucide:check" width={20} height={20} aria-hidden="true" />
+        <h2>{service}</h2>
+      </li>
+    ))}
+  </ul>
+
+  <section class="service-cta" aria-labelledby="service-contact-title">
+    <h2 id="service-contact-title">Discuss a service</h2>
+    <p>Contact InnovaTech World to discuss what you need.</p>
+    <a class="btn btn-primary" href={withBase('/contact/')}>Contact us</a>
+  </section>
+
+  <section class="service-faq" aria-labelledby="service-faq-title">
+    <h2 id="service-faq-title">Frequently asked questions</h2>
+    <details>
+      <summary>What services does InnovaTech World currently offer?</summary>
+      <p>{services.join(', ')}. More services may be added over time.</p>
+    </details>
+    <details>
+      <summary>How can I discuss a service?</summary>
+      <p>Contact InnovaTech World through the <a href={withBase('/contact/')}>Contact page</a> to discuss your needs.</p>
+    </details>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-head { margin: 0.5rem 0 1.5rem; }
+  .page-head h1 { font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem); }
+  .page-head p { color: var(--color-muted); font-size: 1.1rem; max-width: 55ch; }
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+    gap: 1rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .service-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1.25rem;
+  }
+  .service-card svg { flex: 0 0 auto; color: var(--color-burgundy-600); }
+  .service-card h2 { font-size: 1.1rem; margin: 0; }
+  .service-cta {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-left: 4px solid var(--color-burgundy-600);
+    background: var(--surface-2);
+  }
+  .service-cta h2 { font-size: 1.25rem; }
+  .service-cta p { color: var(--color-muted); }
+  .service-faq { margin-top: 2rem; }
+  .service-faq h2 { font-size: 1.35rem; }
+  .service-faq details { border-bottom: 1px solid var(--color-border); padding: 0.9rem 0; }
+  .service-faq summary { cursor: pointer; font-weight: 600; }
+  .service-faq p { color: var(--color-muted); margin: 0.5rem 0 0; }
+</style>

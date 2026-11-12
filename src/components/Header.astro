@@ -12,6 +12,10 @@ function isActive(href: string): boolean {
   if (href === '/') return current === target || current === withBase('/');
   return current.startsWith(target);
 }
+
+function isNavItemActive(item: (typeof site.nav)[number]): boolean {
+  return isActive(item.href) || ('children' in item && item.children.some((child) => isActive(child.href)));
+}
 ---
 
 <header class="site-header" data-pagefind-ignore>
@@ -25,12 +29,31 @@ function isActive(href: string): boolean {
         {
           site.nav.map((item) => (
             <li>
-              <a
-                href={withBase(item.href)}
-                aria-current={isActive(item.href) ? 'page' : undefined}
-              >
-                {item.label}
-              </a>
+              {'children' in item ? (
+                <details class="nav-dropdown">
+                  <summary
+                    class:list={{ 'is-active': isNavItemActive(item) }}
+                    aria-controls="about-subnav"
+                    aria-expanded="false"
+                  >
+                    {item.label}
+                    <Icon name="lucide:chevron-down" width={15} height={15} aria-hidden="true" />
+                  </summary>
+                  <ul id="about-subnav" class="nav-dropdown-menu">
+                    {item.children.map((child) => (
+                      <li>
+                        <a href={withBase(child.href)} aria-current={isActive(child.href) ? 'page' : undefined}>
+                          {child.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </details>
+              ) : (
+                <a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>
+                  {item.label}
+                </a>
+              )}
             </li>
           ))
         }
@@ -47,6 +70,7 @@ function isActive(href: string): boolean {
       <ThemeToggle />
       <button
         class="nav-toggle"
+        type="button"
         aria-label="Open menu"
         aria-expanded="false"
         aria-controls="primary-nav"
@@ -134,6 +158,52 @@ function isActive(href: string): boolean {
     color: var(--color-blue-700);
     background: var(--color-blue-50);
   }
+  .nav-dropdown {
+    position: relative;
+  }
+  .nav-dropdown summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.4rem 0.55rem;
+    border-radius: 0.5rem;
+    color: var(--color-ink);
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    list-style: none;
+    white-space: nowrap;
+  }
+  .nav-dropdown summary::-webkit-details-marker {
+    display: none;
+  }
+  .nav-dropdown summary:hover,
+  .nav-dropdown summary.is-active {
+    background: var(--color-blue-50);
+    color: var(--color-blue-700);
+  }
+  .nav-dropdown[open] summary svg {
+    transform: rotate(180deg);
+  }
+  .nav-dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: absolute;
+    z-index: 60;
+    top: calc(100% + 0.45rem);
+    left: 0;
+    min-width: 11rem;
+    padding: 0.4rem !important;
+    border: 1px solid var(--color-border);
+    border-radius: 0.65rem;
+    background: #fff;
+    box-shadow: 0 10px 24px rgba(4, 23, 43, 0.12);
+  }
+  .nav-dropdown-menu a {
+    display: block;
+    width: 100%;
+  }
   .nav-cta {
     margin-left: 0.5rem;
     white-space: nowrap;
@@ -145,7 +215,7 @@ function isActive(href: string): boolean {
     color: #fff;
   }
   .primary-nav a.nav-cta:hover {
-    background: var(--color-blue-700);
+    background: var(--color-burgundy-700);
   }
   .nav-search {
     display: flex;
@@ -191,6 +261,21 @@ function isActive(href: string): boolean {
       align-items: stretch;
       gap: 0.25rem;
     }
+    .nav-dropdown-menu {
+      display: flex;
+      flex-direction: column;
+      position: static;
+      min-width: 0;
+      margin: 0.25rem 0 0 0.75rem !important;
+      border: 0;
+      border-left: 2px solid var(--color-blue-200);
+      border-radius: 0;
+      box-shadow: none;
+    }
+    .nav-dropdown summary {
+      justify-content: space-between;
+      width: 100%;
+    }
     .primary-nav.open .nav-cta {
       margin-left: 0;
       text-align: center;
@@ -223,6 +308,13 @@ function isActive(href: string): boolean {
   const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
   const nav = document.getElementById('primary-nav');
   if (toggle && nav) {
+    const dropdowns = nav.querySelectorAll<HTMLDetailsElement>('.nav-dropdown');
+    dropdowns.forEach((dropdown) => {
+      const summary = dropdown.querySelector('summary');
+      dropdown.addEventListener('toggle', () => {
+        summary?.setAttribute('aria-expanded', String(dropdown.open));
+      });
+    });
     toggle.addEventListener('click', () => {
       const open = nav.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(open));
@@ -235,10 +327,16 @@ function isActive(href: string): boolean {
       }
     });
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && nav.classList.contains('open')) {
-        nav.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.focus();
+      if (e.key === 'Escape') {
+        const openDropdown = nav.querySelector<HTMLDetailsElement>('.nav-dropdown[open]');
+        if (openDropdown) {
+          openDropdown.open = false;
+          openDropdown.querySelector('summary')?.focus();
+        } else if (nav.classList.contains('open')) {
+          nav.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+          toggle.focus();
+        }
       }
     });
   }

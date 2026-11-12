@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
+import vercel from '@astrojs/vercel';
 import tailwindcss from '@tailwindcss/vite';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -27,6 +28,7 @@ const SITE_URL =
 const BASE_PATH = process.env.BASE_PATH || (onVercel ? '/' : '/innovatech-knowledge-hub');
 
 export default defineConfig({
+  adapter: vercel(),
   site: SITE_URL,
   base: BASE_PATH,
   trailingSlash: 'always',
