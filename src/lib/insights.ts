@@ -70,23 +70,26 @@ export async function getPublicInsights(): Promise<PublicInsight[]> {
   if (!sb) return markdownPosts.sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime());
 
   const now = new Date().toISOString();
-  const { data, error } = await sb
-    .from('insight_posts')
-    .select(INSIGHT_COLUMNS)
-    .or(`status.eq.published,and(status.eq.scheduled,scheduled_at.lte.${now})`);
-  if (error) {
-    if (error.code === '42P01' || error.code === 'PGRST205') {
-      console.warn(
-        'The Insights CMS table is unavailable. Showing bundled Markdown articles only; apply migration 0006_insights_cms.sql to enable CMS posts.',
-        error.message,
-      );
-      return markdownPosts.sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime());
-    }
-    throw new Error(`Could not load published Insights from Supabase: ${error.message}. Apply migration 0006_insights_cms.sql and check the public read policy.`);
+  const useMarkdownOnly = (reason: string) => {
+    console.error(
+      `Could not load CMS Insights (${reason}). Showing bundled Markdown articles only; check migration 0006_insights_cms.sql, the public read policy, and Supabase availability.`,
+    );
+    return markdownPosts.sort((a, b) => b.publishDate.getTime() - a.publishDate.getTime());
+  };
+  let cmsPosts: CmsInsight[] | null;
+  try {
+    const { data, error } = await sb
+      .from('insight_posts')
+      .select(INSIGHT_COLUMNS)
+      .or(`status.eq.published,and(status.eq.scheduled,scheduled_at.lte.${now})`);
+    if (error) return useMarkdownOnly(`${error.code}: ${error.message}`);
+    cmsPosts = data as CmsInsight[] | null;
+  } catch (error) {
+    return useMarkdownOnly(error instanceof Error ? error.message : String(error));
   }
 
   const postsBySlug = new Map(markdownPosts.map((post) => [post.slug, post]));
-  for (const raw of (data ?? []) as CmsInsight[]) {
+  for (const raw of cmsPosts ?? []) {
     const publishDate = raw.published_at ?? raw.scheduled_at ?? raw.created_at;
     postsBySlug.set(raw.slug, {
       slug: raw.slug,

@@ -1,5 +1,5 @@
 <section data-panel="blog" class="panel" hidden aria-labelledby="blog-panel-title">
-  <div class="panel-head">
+  <div class="panel-head blog-panel-head">
     <div>
       <h2 id="blog-panel-title">Insights blog</h2>
       <p class="muted">Write posts in Markdown, save drafts, schedule publication, and add a featured image.</p>
@@ -23,7 +23,14 @@
       <div class="blog-form-row">
         <div>
           <label for="blog-category">Category</label>
-          <input id="blog-category" data-blog-category maxlength="80" />
+          <select id="blog-category" data-blog-category>
+            <option value="">Select a category</option>
+            <option value="Careers">Careers</option>
+            <option value="Digital Skills">Digital Skills</option>
+            <option value="Remote Work">Remote Work</option>
+            <option value="Learning Tips">Learning Tips</option>
+            <option value="Industry Insights">Industry Insights</option>
+          </select>
         </div>
         <div>
           <label for="blog-tags">Tags</label>
@@ -83,6 +90,7 @@
 
 <style is:global>
   #admin .blog-manager { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(16rem, 0.8fr); gap: 1rem; align-items: start; }
+  #admin .blog-panel-head { margin-bottom: 1rem; }
   #admin .blog-form { display: grid; gap: 0.45rem; min-width: 0; }
   #admin .blog-form label,
   #admin .blog-image-field legend { font-weight: 600; font-size: 0.88rem; }
