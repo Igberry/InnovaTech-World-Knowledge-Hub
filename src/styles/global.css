@@ -213,6 +213,16 @@ a:hover {
   border-color: var(--color-burgundy-700);
   color: #fff;
 }
+.btn-success {
+  background: #15803d;
+  color: #fff;
+  border-color: #15803d;
+}
+.btn-success:hover {
+  background: #166534;
+  border-color: #166534;
+  color: #fff;
+}
 .btn-secondary {
   background: var(--surface);
   color: var(--color-burgundy-text);
