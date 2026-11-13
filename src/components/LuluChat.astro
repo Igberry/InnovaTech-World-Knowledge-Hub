@@ -12,6 +12,7 @@ const whatsapp = whatsappUrl('training');
     data-lulu
     data-index-url={withBase('/lulu-index.json')}
     data-contact={withBase('/contact/')}
+    data-courses={withBase('/courses/')}
     data-whatsapp={whatsapp ?? withBase('/contact/')}
   >
     <section class="lulu-panel" id="lulu-panel" role="dialog" aria-modal="false" aria-labelledby="lulu-title" hidden>
@@ -163,10 +164,11 @@ const whatsapp = whatsappUrl('training');
 
     function answerFrom(excerpts: string[]): string {
       const contact = root?.dataset.contact ?? '/contact/';
+      const courses = root?.dataset.courses ?? '/courses/';
       if (!excerpts.length) {
-        return `I couldn’t find a matching answer in the published pages. Try another wording, or contact InnovaTech: ${contact}`;
+        return `I couldn’t find that on InnovaTech’s pages. Try rephrasing, browse the courses at ${courses}, or contact InnovaTech: ${contact}`;
       }
-      return `Here are the closest matches from InnovaTech’s published pages:\n\n${excerpts.join('\n\n---\n\n')}\n\nFor a confirmed answer, contact InnovaTech: ${contact}`;
+      return `Here’s what I found on InnovaTech’s pages:\n\n${excerpts.join('\n\n')}\n\nWant a person to confirm? Contact InnovaTech: ${contact}`;
     }
 
     openButton?.addEventListener('click', () => setOpen(panel?.hidden ?? true));
@@ -188,7 +190,8 @@ const whatsapp = whatsappUrl('training');
         if (isGreeting(message)) {
           answer = 'Hi! I can search InnovaTech’s published pages for courses, services, resources, and Insights. What would you like to find?';
         } else if (needsPricingConfirmation(message)) {
-          answer = `The published site does not list current course prices or payment methods. Please confirm them with InnovaTech: ${root.dataset.contact ?? '/contact/'}`;
+          const courses = root.dataset.courses ?? '/courses/';
+          answer = `Each course page shows its plans and prices (Basic, Advanced and Premium) and lets you pay securely online. Browse the courses here: ${courses}\n\nIf you'd like help choosing a plan, contact InnovaTech: ${root.dataset.contact ?? '/contact/'}`;
         } else {
           const documents = await loadKnowledge();
           const excerpts = selectKnowledge(documents, message, { maxSnippets: 3, maxCharacters: 3000 });
@@ -259,25 +262,25 @@ const whatsapp = whatsappUrl('training');
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0.55rem 0.75rem;
-    border-bottom: 1px solid var(--color-border);
-    background: var(--color-blue-50);
+    padding: 0.6rem 0.5rem 0.6rem 0.9rem;
+    background: var(--color-burgundy-600);
+    color: #fff;
   }
-  .lulu-header h2 { margin: 0; font-size: 0.95rem; }
-  .lulu-controls { display: flex; align-items: center; gap: 0.35rem; }
+  .lulu-header h2 { margin: 0; font-size: 0.95rem; color: #fff; }
+  .lulu-controls { display: flex; align-items: center; gap: 0.25rem; }
   .lulu-control {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 2.25rem;
-    min-height: 2.25rem;
+    min-width: 2.1rem;
+    min-height: 2.1rem;
     border: 0;
     border-radius: 0.4rem;
     background: transparent;
-    color: var(--color-ink);
+    color: #fff;
     cursor: pointer;
   }
-  .lulu-control:hover { background: var(--surface); }
+  .lulu-control:hover { background: rgb(255 255 255 / 18%); }
   .lulu-messages {
     display: flex;
     flex: 1 1 auto;
