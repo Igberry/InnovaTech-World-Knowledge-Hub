@@ -1,0 +1,278 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import passages from '../../data/typing-passages.json';
+---
+
+<BaseLayout
+  title="Typing Practice"
+  description="Practise typing with original passages, timed tests and private on-device results."
+>
+  <section class="typing-tool" aria-labelledby="typing-title">
+    <p class="eyebrow">Typing Skills</p>
+    <h1 id="typing-title">Typing Practice</h1>
+    <p>Choose an original passage and a test length. The timer begins with your first keystroke. A physical keyboard is recommended; phone typing scores are not comparable.</p>
+    <p class="offline-note" id="offline-note" role="status">Preparing this page for offline practice…</p>
+
+    <div class="controls">
+      <label for="passage-choice">Passage
+        <select id="passage-choice">
+          {passages.map((passage, index) => <option value={index}>{passage.title}</option>)}
+        </select>
+      </label>
+      <label for="duration-choice">Test length
+        <select id="duration-choice">
+          <option value="1">1 minute</option>
+          <option value="3">3 minutes</option>
+          <option value="5">5 minutes</option>
+        </select>
+      </label>
+      <button class="btn btn-secondary" type="button" id="reset-test">Reset test</button>
+    </div>
+
+    <section class="practice-card" aria-label="Typing test">
+      <h2 id="passage-title">{passages[0].title}</h2>
+      <p class="passage-instructions" id="passage-help">Type the passage below. Correct characters are shown in green; mismatches are marked in burgundy.</p>
+      <div class="passage" id="passage" aria-hidden="true"></div>
+      <label for="typed-text">Your typing</label>
+      <textarea id="typed-text" rows="4" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="passage-help" placeholder="Click here and begin typing…"></textarea>
+      <div class="test-status">
+        <p id="countdown" aria-live="off">Time: 1:00</p>
+        <p id="live-metrics" aria-live="off">WPM: 0 · Accuracy: 0%</p>
+      </div>
+      <progress id="test-progress" value="0" max="1" aria-label="Test time elapsed"></progress>
+      <p id="result" role="status" aria-live="polite"></p>
+      <p id="save-status" role="status" aria-live="polite">Results stay in this browser on this device.</p>
+    </section>
+
+    <details class="saved-results">
+      <summary>Recent results saved on this device</summary>
+      <ul id="saved-results-list">
+        <li>No tests saved yet.</li>
+      </ul>
+    </details>
+  </section>
+</BaseLayout>
+
+<script>
+  import { measureTyping } from '../../lib/typing-metrics.mjs';
+  import passages from '../../data/typing-passages.json';
+
+  type Passage = { title: string; text: string };
+  type SavedResult = {
+    date: string;
+    passage: string;
+    duration: number;
+    wpm: number;
+    accuracy: number;
+  };
+
+  const passageList = passages as Passage[];
+  const passageSelect = document.querySelector<HTMLSelectElement>('#passage-choice')!;
+  const durationSelect = document.querySelector<HTMLSelectElement>('#duration-choice')!;
+  const passageTitle = document.querySelector<HTMLElement>('#passage-title')!;
+  const passageView = document.querySelector<HTMLElement>('#passage')!;
+  const input = document.querySelector<HTMLTextAreaElement>('#typed-text')!;
+  const countdown = document.querySelector<HTMLElement>('#countdown')!;
+  const liveMetrics = document.querySelector<HTMLElement>('#live-metrics')!;
+  const progress = document.querySelector<HTMLProgressElement>('#test-progress')!;
+  const result = document.querySelector<HTMLElement>('#result')!;
+  const saveStatus = document.querySelector<HTMLElement>('#save-status')!;
+  const savedResultsList = document.querySelector<HTMLUListElement>('#saved-results-list')!;
+  const offlineNote = document.querySelector<HTMLElement>('#offline-note')!;
+  const storageKey = 'itw-typing-practice-results';
+  let startedAt: number | null = null;
+  let timer: number | undefined;
+  let finished = false;
+
+  function selectedPassage(): Passage {
+    return passageList[Number(passageSelect.value)] ?? passageList[0];
+  }
+
+  function selectedDuration(): number {
+    return Number(durationSelect.value);
+  }
+
+  function formatTime(seconds: number): string {
+    const safeSeconds = Math.max(0, Math.ceil(seconds));
+    return `${Math.floor(safeSeconds / 60)}:${String(safeSeconds % 60).padStart(2, '0')}`;
+  }
+
+  function renderPassage(): void {
+    const target = Array.from(selectedPassage().text);
+    const typed = Array.from(input.value);
+    const fragment = document.createDocumentFragment();
+    target.forEach((character, index) => {
+      const span = document.createElement('span');
+      span.textContent = character;
+      if (index < typed.length) {
+        span.className = typed[index] === character ? 'correct' : 'incorrect';
+      } else if (index === typed.length && !finished) {
+        span.className = 'current';
+      }
+      fragment.append(span);
+    });
+    passageView.replaceChildren(fragment);
+  }
+
+  function readSavedResults(): SavedResult[] {
+    const stored: unknown = JSON.parse(localStorage.getItem(storageKey) ?? '[]');
+    if (!Array.isArray(stored)) throw new Error('Saved typing results are not in the expected format.');
+    return stored.filter((entry): entry is SavedResult => (
+      typeof entry === 'object'
+      && entry !== null
+      && typeof entry.date === 'string'
+      && typeof entry.passage === 'string'
+      && typeof entry.duration === 'number'
+      && typeof entry.wpm === 'number'
+      && typeof entry.accuracy === 'number'
+    ));
+  }
+
+  function refreshSavedResults(): void {
+    try {
+      const list = readSavedResults().slice(0, 5);
+      if (!list.length) {
+        savedResultsList.innerHTML = '<li>No tests saved yet.</li>';
+        return;
+      }
+      savedResultsList.replaceChildren(...list.map((entry) => {
+        const item = document.createElement('li');
+        item.textContent = `${new Date(entry.date).toLocaleDateString()} — ${entry.passage}, ${entry.duration} min: ${entry.wpm} WPM, ${entry.accuracy}% accuracy`;
+        return item;
+      }));
+    } catch (error) {
+      saveStatus.textContent = error instanceof Error
+        ? `Saved results could not be read: ${error.message}`
+        : 'Saved results could not be read.';
+    }
+  }
+
+  function currentElapsed(): number {
+    if (startedAt === null) return 0;
+    return Math.min(selectedDuration() * 60, (performance.now() - startedAt) / 1000);
+  }
+
+  function finishTest(): void {
+    if (finished) return;
+    finished = true;
+    window.clearInterval(timer);
+    const metrics = measureTyping(selectedPassage().text, input.value, currentElapsed());
+    input.disabled = true;
+    renderPassage();
+    result.textContent = `Test complete: ${metrics.wpm} WPM, ${metrics.accuracy}% accuracy (${metrics.correctCharacters} correct of ${metrics.totalTypedCharacters} typed characters).`;
+
+    try {
+      const previous = readSavedResults();
+      const entry: SavedResult = {
+        date: new Date().toISOString(),
+        passage: selectedPassage().title,
+        duration: selectedDuration(),
+        wpm: metrics.wpm,
+        accuracy: metrics.accuracy,
+      };
+      localStorage.setItem(storageKey, JSON.stringify([entry, ...previous].slice(0, 20)));
+      saveStatus.textContent = 'This summary was saved only in local storage on this device and browser.';
+      refreshSavedResults();
+    } catch (error) {
+      saveStatus.textContent = error instanceof Error
+        ? `The test finished, but its result was not saved: ${error.message}`
+        : 'The test finished, but its result could not be saved in this browser.';
+    }
+  }
+
+  function updateTimer(): void {
+    if (startedAt === null || finished) return;
+    const elapsed = currentElapsed();
+    const remaining = selectedDuration() * 60 - elapsed;
+    countdown.textContent = `Time: ${formatTime(remaining)}`;
+    progress.value = elapsed;
+    const metrics = measureTyping(selectedPassage().text, input.value, elapsed);
+    liveMetrics.textContent = `WPM: ${metrics.wpm} · Accuracy: ${metrics.accuracy}%`;
+    if (remaining <= 0 || input.value.length >= selectedPassage().text.length) finishTest();
+  }
+
+  function resetTest(): void {
+    window.clearInterval(timer);
+    startedAt = null;
+    finished = false;
+    input.disabled = false;
+    input.value = '';
+    result.textContent = '';
+    progress.max = selectedDuration() * 60;
+    progress.value = 0;
+    countdown.textContent = `Time: ${formatTime(selectedDuration() * 60)}`;
+    liveMetrics.textContent = 'WPM: 0 · Accuracy: 0%';
+    passageTitle.textContent = selectedPassage().title;
+    renderPassage();
+  }
+
+  input.addEventListener('input', () => {
+    if (finished) return;
+    if (startedAt === null && input.value.length > 0) {
+      startedAt = performance.now();
+      timer = window.setInterval(updateTimer, 250);
+    }
+    renderPassage();
+    updateTimer();
+  });
+  input.addEventListener('paste', (event) => {
+    event.preventDefault();
+    saveStatus.textContent = 'Paste is disabled so the result measures typing practice.';
+  });
+  passageSelect.addEventListener('change', resetTest);
+  durationSelect.addEventListener('change', resetTest);
+  document.querySelector<HTMLButtonElement>('#reset-test')!.addEventListener('click', resetTest);
+  progress.max = selectedDuration() * 60;
+  renderPassage();
+  refreshSavedResults();
+
+  if ('serviceWorker' in navigator) {
+    const swUrl = `${import.meta.env.BASE_URL}tools/typing-practice/sw.js`;
+    const scope = `${import.meta.env.BASE_URL}tools/typing-practice/`;
+    navigator.serviceWorker.register(swUrl, { scope }).then(async (registration) => {
+      await navigator.serviceWorker.ready;
+      const worker = registration.active;
+      if (!worker) throw new Error('The offline worker did not become active.');
+      const cachedUrls = [
+        location.href,
+        ...Array.from(document.querySelectorAll<HTMLScriptElement | HTMLLinkElement>('script[src], link[rel="stylesheet"]'))
+          .map((element) => element instanceof HTMLScriptElement ? element.src : element.href),
+      ].filter((url) => new URL(url).origin === location.origin);
+      const cache = await caches.open('itw-typing-practice-v1');
+      await cache.addAll(cachedUrls);
+      offlineNote.textContent = 'Offline support is ready for future visits after this page has loaded its local files.';
+    }).catch((error: unknown) => {
+      offlineNote.textContent = error instanceof Error
+        ? `Offline caching is unavailable: ${error.message}`
+        : 'Offline caching is unavailable in this browser.';
+    });
+  } else {
+    offlineNote.textContent = 'This browser does not support offline caching; the typing test still works online.';
+  }
+</script>
+
+<style is:global>
+  .typing-tool { max-width: 58rem; margin-inline: auto; }
+  .typing-tool h1 { margin-top: 0; }
+  .typing-tool .controls { display: flex; flex-wrap: wrap; align-items: end; gap: 1rem; margin: 1.5rem 0; }
+  .typing-tool label { display: grid; gap: 0.35rem; font-weight: 600; }
+  .typing-tool select, .typing-tool textarea {
+    box-sizing: border-box; max-width: 100%; padding: 0.6rem 0.75rem;
+    border: 1px solid var(--color-border); border-radius: 0.5rem;
+    background: var(--surface); color: var(--color-ink); font: inherit;
+  }
+  .typing-tool .practice-card { padding: 1.25rem; border: 1px solid var(--color-border); border-radius: 0.875rem; background: var(--surface); }
+  .typing-tool .practice-card h2 { font-size: 1.2rem; }
+  .typing-tool .passage { min-height: 7rem; margin: 1rem 0; padding: 1rem; border-radius: 0.5rem; background: var(--surface-2); line-height: 1.9; overflow-wrap: anywhere; }
+  .typing-tool .passage .correct { color: #15803d; }
+  .typing-tool .passage .incorrect { color: var(--color-burgundy-600); text-decoration: underline; text-decoration-thickness: 2px; }
+  .typing-tool .passage .current { border-left: 2px solid var(--color-blue-600); }
+  .typing-tool textarea { display: block; width: 100%; min-height: 7rem; resize: vertical; }
+  .typing-tool .test-status { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; }
+  .typing-tool progress { width: 100%; }
+  .typing-tool .offline-note, .typing-tool .saved-results { color: var(--color-muted); font-size: 0.9rem; }
+  @media (max-width: 480px) {
+    .typing-tool .practice-card { padding: 0.8rem; }
+    .typing-tool .controls > * { width: 100%; }
+  }
+</style>

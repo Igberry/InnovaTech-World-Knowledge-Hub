@@ -275,6 +275,16 @@ const catalog = await buildCatalog();
   #admin .mfa-msg { min-height: 1.2em; margin: 0.5rem 0 0; }
   #admin .mfa-msg.ok { color: var(--color-success); }
   #admin .mfa-msg.err { color: var(--color-danger); }
+  #admin .cert-form,
+  #admin .cert-form * { box-sizing: border-box; }
+  #admin .cert-form,
+  #admin .cert-grid,
+  #admin .cert-code-row { min-width: 0; max-width: 100%; }
+  #admin .cert-form input,
+  #admin .cert-form select,
+  #admin .cert-form textarea { display: block; width: 100%; min-width: 0; max-width: 100%; }
+  #admin .cert-code-row { display: flex; width: 100%; gap: 0.5rem; }
+  #admin .cert-code-row input { flex: 1 1 0; }
 </style>
 
 <script>
