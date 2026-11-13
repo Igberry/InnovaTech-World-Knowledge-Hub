@@ -184,70 +184,6 @@ const catalog = await buildCatalog();
   }
   .err { color: var(--color-danger); font-size: 0.85rem; }
   .ok { color: var(--color-success); font-size: 0.85rem; }
-  .price-course {
-    margin: 0 0 1.5rem; border: 1px solid var(--color-border); border-radius: 0.6rem;
-    background: var(--surface); overflow: hidden;
-  }
-  .price-course-head {
-    display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem;
-    padding: 0.7rem 0.9rem; background: var(--color-blue-600); color: #fff;
-  }
-  .price-course-head h4 { margin: 0; font-size: 1rem; font-weight: 600; color: #fff; }
-  .price-course-count { font-size: 0.75rem; font-weight: 600; opacity: 0.85; white-space: nowrap; }
-  .price-plans {
-    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.85rem; padding: 0.9rem;
-  }
-  .plan-card {
-    display: flex; flex-direction: column; gap: 0.65rem;
-    border: 1px solid var(--color-border); border-top: 3px solid var(--color-border);
-    border-radius: 0.5rem; padding: 0.8rem; background: var(--surface-2);
-  }
-  .plan-card[data-tier='basic'] { border-top-color: var(--color-blue-500); }
-  .plan-card[data-tier='advanced'] { border-top-color: var(--color-burgundy-600); }
-  .plan-card[data-tier='premium'] { border-top-color: var(--color-blue-900, #04172b); }
-  .plan-card.is-inactive { opacity: 0.6; }
-  .plan-card-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
-  .plan-tier { font-size: 0.95rem; font-weight: 700; color: var(--color-ink); }
-  .plan-active { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 600; color: var(--color-muted); }
-  .plan-price { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.78rem; font-weight: 600; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.03em; }
-  .plan-price-field {
-    display: flex; align-items: center; border: 1px solid var(--color-border);
-    border-radius: 0.4rem; background: var(--surface); overflow: hidden;
-  }
-  .plan-price-field:focus-within { border-color: var(--color-blue-500); box-shadow: 0 0 0 2px var(--color-blue-50); }
-  .plan-naira { padding: 0 0.55rem; font-weight: 700; color: var(--color-ink); border-right: 1px solid var(--color-border); align-self: stretch; display: flex; align-items: center; }
-  .plan-price-field input[type='number'] { flex: 1; min-width: 0; border: 0; background: transparent; padding: 0.45rem 0.55rem; font-size: 1rem; font-weight: 600; color: var(--color-ink); }
-  .plan-price-field input[type='number']:focus { outline: none; }
-  .plan-feat-btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
-    width: 100%; padding: 0.45rem 0.6rem; font: inherit; font-size: 0.82rem; font-weight: 600;
-    cursor: pointer; color: var(--color-blue-600); background: var(--surface);
-    border: 1px solid var(--color-blue-600); border-radius: 0.4rem;
-  }
-  .plan-feat-btn:hover { background: var(--color-blue-50); }
-  .plan-feat-count {
-    display: inline-flex; align-items: center; justify-content: center; min-width: 1.3rem;
-    padding: 0 0.35rem; font-size: 0.72rem; font-weight: 700; line-height: 1.5;
-    color: #fff; background: var(--color-blue-600); border-radius: 999px;
-  }
-  .plan-card-foot { display: flex; align-items: center; gap: 0.6rem; margin-top: auto; }
-  .plan-card-foot .btn { padding-block: 0.4rem; }
-  .plan-msg { font-size: 0.8rem; }
-  .feat-modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem; }
-  .feat-modal[hidden] { display: none; }
-  .feat-modal-backdrop { position: absolute; inset: 0; background: rgb(4 23 43 / 55%); }
-  .feat-modal-box {
-    position: relative; width: 100%; max-width: 32rem; max-height: 90vh; overflow: auto;
-    background: var(--surface); color: var(--color-ink);
-    border: 1px solid var(--color-border); border-top: 4px solid var(--color-burgundy-600);
-    border-radius: 0.6rem; padding: 1.1rem 1.2rem; box-shadow: 0 12px 32px rgb(4 23 43 / 30%);
-  }
-  .feat-modal-box h3 { margin: 0 0 0.75rem; font-size: 1.05rem; }
-  .feat-modal-label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--color-muted); margin-bottom: 0.3rem; }
-  .feat-modal-box textarea { width: 100%; box-sizing: border-box; resize: vertical; font: inherit; font-size: 0.9rem; }
-  .feat-modal-actions { display: flex; align-items: center; justify-content: flex-end; gap: 0.6rem; margin-top: 0.9rem; }
-  .feat-modal-actions .plan-msg { margin-right: auto; }
   .adm-table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .adm-table-wrap:focus-visible { outline-offset: -2px; }
   .panel, .adm-card, [data-pricing], [data-vouchers], [data-entitlements], [data-payments] { min-width: 0; }
@@ -256,7 +192,6 @@ const catalog = await buildCatalog();
     .att-controls { align-items: stretch; }
     .att-controls label { width: 100%; min-width: 0; }
     .att-controls input, .att-controls select { max-width: 100%; box-sizing: border-box; }
-    .price-plans { grid-template-columns: 1fr; gap: 0.7rem; padding: 0.7rem; }
     .panel-head > button { width: 100%; }
     .adm-table-wrap table { min-width: 38rem; }
   }
@@ -283,6 +218,74 @@ const catalog = await buildCatalog();
   /* The students/submissions/attendance/enrolments/certificates tables and cards
      are injected with JavaScript, so Astro's scoped styles can't reach them.
      These #admin-prefixed global rules style that injected content. */
+  /* Pricing editor (injected by JS, so styled here, not in the scoped block). */
+  #admin .price-course {
+    margin: 0 0 1.25rem; border: 1px solid var(--color-border); border-radius: 0.6rem;
+    background: var(--surface); overflow: hidden;
+  }
+  #admin .price-course-head {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem;
+    padding: 0.7rem 0.9rem; background: var(--color-blue-600); color: #fff;
+  }
+  #admin .price-course-head h4 { margin: 0; font-size: 1rem; font-weight: 600; color: #fff; }
+  #admin .price-course-count { font-size: 0.75rem; font-weight: 600; opacity: 0.85; white-space: nowrap; }
+  #admin .price-plans {
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem; padding: 0.9rem;
+  }
+  #admin .plan-card {
+    display: flex; flex-direction: column; gap: 0.7rem;
+    border: 1px solid var(--color-border); border-top: 3px solid var(--color-border);
+    border-radius: 0.5rem; padding: 0.85rem; background: var(--surface-2);
+  }
+  #admin .plan-card[data-tier='basic'] { border-top-color: var(--color-blue-500); }
+  #admin .plan-card[data-tier='advanced'] { border-top-color: var(--color-burgundy-600); }
+  #admin .plan-card[data-tier='premium'] { border-top-color: var(--color-blue-900, #04172b); }
+  #admin .plan-card.is-inactive { opacity: 0.6; }
+  #admin .plan-card-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+  #admin .plan-tier { font-size: 1rem; font-weight: 700; color: var(--color-ink); }
+  #admin .plan-active { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 600; color: var(--color-muted); }
+  #admin .plan-price { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.72rem; font-weight: 700; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  #admin .plan-price-field {
+    display: flex; align-items: stretch; border: 1px solid var(--color-border);
+    border-radius: 0.4rem; background: var(--surface); overflow: hidden;
+  }
+  #admin .plan-price-field:focus-within { border-color: var(--color-blue-500); box-shadow: 0 0 0 2px var(--color-blue-50); }
+  #admin .plan-naira { padding: 0 0.55rem; font-weight: 700; color: var(--color-ink); border-right: 1px solid var(--color-border); display: flex; align-items: center; }
+  #admin .plan-price-field input[type='number'] { flex: 1; min-width: 0; border: 0; background: transparent; padding: 0.5rem 0.55rem; font-size: 1rem; font-weight: 600; color: var(--color-ink); }
+  #admin .plan-price-field input[type='number']:focus { outline: none; }
+  #admin .plan-feat-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+    width: 100%; padding: 0.5rem 0.6rem; font: inherit; font-size: 0.82rem; font-weight: 600;
+    cursor: pointer; color: var(--color-blue-600); background: var(--surface);
+    border: 1px solid var(--color-blue-600); border-radius: 0.4rem;
+  }
+  #admin .plan-feat-btn:hover { background: var(--color-blue-50); }
+  #admin .plan-feat-count {
+    display: inline-flex; align-items: center; justify-content: center; min-width: 1.3rem;
+    padding: 0 0.35rem; font-size: 0.72rem; font-weight: 700; line-height: 1.5;
+    color: #fff; background: var(--color-blue-600); border-radius: 999px;
+  }
+  #admin .plan-card-foot { display: flex; align-items: center; gap: 0.6rem; margin-top: auto; }
+  #admin .plan-card-foot .btn { padding-block: 0.4rem; }
+  #admin .plan-msg { font-size: 0.8rem; }
+  #admin .feat-modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+  #admin .feat-modal[hidden] { display: none; }
+  #admin .feat-modal-backdrop { position: absolute; inset: 0; background: rgb(4 23 43 / 55%); }
+  #admin .feat-modal-box {
+    position: relative; width: 100%; max-width: 32rem; max-height: 90vh; overflow: auto;
+    background: var(--surface); color: var(--color-ink);
+    border: 1px solid var(--color-border); border-top: 4px solid var(--color-burgundy-600);
+    border-radius: 0.6rem; padding: 1.1rem 1.2rem; box-shadow: 0 12px 32px rgb(4 23 43 / 30%);
+  }
+  #admin .feat-modal-box h3 { margin: 0 0 0.75rem; font-size: 1.05rem; }
+  #admin .feat-modal-label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--color-muted); margin-bottom: 0.3rem; }
+  #admin .feat-modal-box textarea { width: 100%; box-sizing: border-box; resize: vertical; font: inherit; font-size: 0.9rem; }
+  #admin .feat-modal-actions { display: flex; align-items: center; justify-content: flex-end; gap: 0.6rem; margin-top: 0.9rem; }
+  #admin .feat-modal-actions .plan-msg { margin-right: auto; }
+  @media (max-width: 720px) {
+    #admin .price-plans { grid-template-columns: 1fr; gap: 0.7rem; padding: 0.7rem; }
+  }
   #admin table.admin { width: 100%; border-collapse: collapse; font-size: 0.92rem; min-width: 560px; }
   #admin table.admin th,
   #admin table.admin td { border: 1px solid var(--color-border); padding: 0.6rem 0.85rem; text-align: left; vertical-align: top; }
