@@ -1,0 +1,101 @@
+SaleID,Date,City,Product,Category,Quantity,Unit_Price_NGN,Sales_NGN,Payment_Method
+FB-S001,2026-10-01,Yenagoa,Breakfast Pack,Meal,1,5000,5000,Transfer
+FB-S002,2026-10-02,Port Harcourt,Snack Box,Snack,2,2500,5000,Card
+FB-S003,2026-10-03,Lagos,Lunch Box,Meal,3,6500,19500,Cash
+FB-S004,2026-10-04,Benin City,Refreshment Pack,Drink,4,3500,14000,Transfer
+FB-S005,2026-10-05,Warri,Catering Tray,Event,5,12000,60000,Card
+FB-S006,2026-10-06,Yenagoa,Lunch Box,Meal,1,6500,6500,Cash
+FB-S007,2026-10-07,Port Harcourt,Refreshment Pack,Drink,2,3500,7000,Transfer
+FB-S008,2026-10-08,Lagos,Catering Tray,Event,3,12000,36000,Card
+FB-S009,2026-10-09,Benin City,Breakfast Pack,Meal,4,5000,20000,Cash
+FB-S010,2026-10-10,Warri,Snack Box,Snack,5,2500,12500,Transfer
+FB-S011,2026-10-11,Yenagoa,Catering Tray,Event,1,12000,12000,Card
+FB-S012,2026-10-12,Port Harcourt,Breakfast Pack,Meal,2,5000,10000,Cash
+FB-S013,2026-10-13,Lagos,Snack Box,Snack,3,2500,7500,Transfer
+FB-S014,2026-10-14,Benin City,Lunch Box,Meal,4,6500,26000,Card
+FB-S015,2026-10-15,Warri,Refreshment Pack,Drink,5,3500,17500,Cash
+FB-S016,2026-10-16,Yenagoa,Snack Box,Snack,1,2500,2500,Transfer
+FB-S017,2026-10-17,Port Harcourt,Lunch Box,Meal,2,6500,13000,Card
+FB-S018,2026-10-18,Lagos,Refreshment Pack,Drink,3,3500,10500,Cash
+FB-S019,2026-10-19,Benin City,Catering Tray,Event,4,12000,48000,Transfer
+FB-S020,2026-10-20,Warri,Breakfast Pack,Meal,5,5000,25000,Card
+FB-S021,2026-10-21,Yenagoa,Refreshment Pack,Drink,1,3500,3500,Cash
+FB-S022,2026-10-22,Port Harcourt,Catering Tray,Event,2,12000,24000,Transfer
+FB-S023,2026-10-23,Lagos,Breakfast Pack,Meal,3,5000,15000,Card
+FB-S024,2026-10-24,Benin City,Snack Box,Snack,4,2500,10000,Cash
+FB-S025,2026-10-25,Warri,Lunch Box,Meal,5,6500,32500,Transfer
+FB-S026,2026-10-26,Yenagoa,Breakfast Pack,Meal,1,5000,5000,Card
+FB-S027,2026-10-27,Port Harcourt,Snack Box,Snack,2,2500,5000,Cash
+FB-S028,2026-10-28,Lagos,Lunch Box,Meal,3,6500,19500,Transfer
+FB-S029,2026-10-29,Benin City,Refreshment Pack,Drink,4,3500,14000,Card
+FB-S030,2026-10-30,Warri,Catering Tray,Event,5,12000,60000,Cash
+FB-S031,2026-10-31,Yenagoa,Lunch Box,Meal,1,6500,6500,Transfer
+FB-S032,2026-11-01,Port Harcourt,Refreshment Pack,Drink,2,3500,7000,Card
+FB-S033,2026-11-02,Lagos,Catering Tray,Event,3,12000,36000,Cash
+FB-S034,2026-11-03,Benin City,Breakfast Pack,Meal,4,5000,20000,Transfer
+FB-S035,2026-11-04,Warri,Snack Box,Snack,5,2500,12500,Card
+FB-S036,2026-11-05,Yenagoa,Catering Tray,Event,1,12000,12000,Cash
+FB-S037,2026-11-06,Port Harcourt,Breakfast Pack,Meal,2,5000,10000,Transfer
+FB-S038,2026-11-07,Lagos,Snack Box,Snack,3,2500,7500,Card
+FB-S039,2026-11-08,Benin City,Lunch Box,Meal,4,6500,26000,Cash
+FB-S040,2026-11-09,Warri,Refreshment Pack,Drink,5,3500,17500,Transfer
+FB-S041,2026-11-10,Yenagoa,Snack Box,Snack,1,2500,2500,Card
+FB-S042,2026-11-11,Port Harcourt,Lunch Box,Meal,2,6500,13000,Cash
+FB-S043,2026-11-12,Lagos,Refreshment Pack,Drink,3,3500,10500,Transfer
+FB-S044,2026-11-13,Benin City,Catering Tray,Event,4,12000,48000,Card
+FB-S045,2026-11-14,Warri,Breakfast Pack,Meal,5,5000,25000,Cash
+FB-S046,2026-11-15,Yenagoa,Refreshment Pack,Drink,1,3500,3500,Transfer
+FB-S047,2026-11-16,Port Harcourt,Catering Tray,Event,2,12000,24000,Card
+FB-S048,2026-11-17,Lagos,Breakfast Pack,Meal,3,5000,15000,Cash
+FB-S049,2026-11-18,Benin City,Snack Box,Snack,4,2500,10000,Transfer
+FB-S050,2026-11-19,Warri,Lunch Box,Meal,5,6500,32500,Card
+FB-S051,2026-11-20,Yenagoa,Breakfast Pack,Meal,1,5000,5000,Cash
+FB-S052,2026-11-21,Port Harcourt,Snack Box,Snack,2,2500,5000,Transfer
+FB-S053,2026-11-22,Lagos,Lunch Box,Meal,3,6500,19500,Card
+FB-S054,2026-11-23,Benin City,Refreshment Pack,Drink,4,3500,14000,Cash
+FB-S055,2026-11-24,Warri,Catering Tray,Event,5,12000,60000,Transfer
+FB-S056,2026-11-25,Yenagoa,Lunch Box,Meal,1,6500,6500,Card
+FB-S057,2026-11-26,Port Harcourt,Refreshment Pack,Drink,2,3500,7000,Cash
+FB-S058,2026-11-27,Lagos,Catering Tray,Event,3,12000,36000,Transfer
+FB-S059,2026-11-28,Benin City,Breakfast Pack,Meal,4,5000,20000,Card
+FB-S060,2026-11-29,Warri,Snack Box,Snack,5,2500,12500,Cash
+FB-S061,2026-11-30,Yenagoa,Catering Tray,Event,1,12000,12000,Transfer
+FB-S062,2026-12-01,Port Harcourt,Breakfast Pack,Meal,2,5000,10000,Card
+FB-S063,2026-12-02,Lagos,Snack Box,Snack,3,2500,7500,Cash
+FB-S064,2026-12-03,Benin City,Lunch Box,Meal,4,6500,26000,Transfer
+FB-S065,2026-12-04,Warri,Refreshment Pack,Drink,5,3500,17500,Card
+FB-S066,2026-12-05,Yenagoa,Snack Box,Snack,1,2500,2500,Cash
+FB-S067,2026-12-06,Port Harcourt,Lunch Box,Meal,2,6500,13000,Transfer
+FB-S068,2026-12-07,Lagos,Refreshment Pack,Drink,3,3500,10500,Card
+FB-S069,2026-12-08,Benin City,Catering Tray,Event,4,12000,48000,Cash
+FB-S070,2026-12-09,Warri,Breakfast Pack,Meal,5,5000,25000,Transfer
+FB-S071,2026-12-10,Yenagoa,Refreshment Pack,Drink,1,3500,3500,Card
+FB-S072,2026-12-11,Port Harcourt,Catering Tray,Event,2,12000,24000,Cash
+FB-S073,2026-12-12,Lagos,Breakfast Pack,Meal,3,5000,15000,Transfer
+FB-S074,2026-12-13,Benin City,Snack Box,Snack,4,2500,10000,Card
+FB-S075,2026-12-14,Warri,Lunch Box,Meal,5,6500,32500,Cash
+FB-S076,2026-12-15,Yenagoa,Breakfast Pack,Meal,1,5000,5000,Transfer
+FB-S077,2026-12-16,Port Harcourt,Snack Box,Snack,2,2500,5000,Card
+FB-S078,2026-12-17,Lagos,Lunch Box,Meal,3,6500,19500,Cash
+FB-S079,2026-12-18,Benin City,Refreshment Pack,Drink,4,3500,14000,Transfer
+FB-S080,2026-12-19,Warri,Catering Tray,Event,5,12000,60000,Card
+FB-S081,2026-12-20,Yenagoa,Lunch Box,Meal,1,6500,6500,Cash
+FB-S082,2026-12-21,Port Harcourt,Refreshment Pack,Drink,2,3500,7000,Transfer
+FB-S083,2026-12-22,Lagos,Catering Tray,Event,3,12000,36000,Card
+FB-S084,2026-12-23,Benin City,Breakfast Pack,Meal,4,5000,20000,Cash
+FB-S085,2026-12-24,Warri,Snack Box,Snack,5,2500,12500,Transfer
+FB-S086,2026-12-25,Yenagoa,Catering Tray,Event,1,12000,12000,Card
+FB-S087,2026-12-26,Port Harcourt,Breakfast Pack,Meal,2,5000,10000,Cash
+FB-S088,2026-12-27,Lagos,Snack Box,Snack,3,2500,7500,Transfer
+FB-S089,2026-12-28,Benin City,Lunch Box,Meal,4,6500,26000,Card
+FB-S090,2026-12-29,Warri,Refreshment Pack,Drink,5,3500,17500,Cash
+FB-S091,2026-12-30,Yenagoa,Snack Box,Snack,1,2500,2500,Transfer
+FB-S092,2026-12-31,Port Harcourt,Lunch Box,Meal,2,6500,13000,Card
+FB-S093,2027-01-01,Lagos,Refreshment Pack,Drink,3,3500,10500,Cash
+FB-S094,2027-01-02,Benin City,Catering Tray,Event,4,12000,48000,Transfer
+FB-S095,2027-01-03,Warri,Breakfast Pack,Meal,5,5000,25000,Card
+FB-S096,2027-01-04,Yenagoa,Refreshment Pack,Drink,1,3500,3500,Cash
+FB-S097,2027-01-05,Port Harcourt,Catering Tray,Event,2,12000,24000,Transfer
+FB-S098,2027-01-06,Lagos,Breakfast Pack,Meal,3,5000,15000,Card
+FB-S099,2027-01-07,Benin City,Snack Box,Snack,4,2500,10000,Cash
+FB-S100,2027-01-08,Warri,Lunch Box,Meal,5,6500,32500,Transfer

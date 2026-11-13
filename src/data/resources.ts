@@ -19,6 +19,11 @@ const yt = (channel: string) =>
 export const resources: Resource[] = [
   // Official docs & training
   { title: 'Microsoft Learn', url: 'https://learn.microsoft.com', category: 'Official docs & training', description: 'Official Excel and Power BI training from Microsoft.' },
+  { title: 'Microsoft Support: XLOOKUP', url: 'https://support.microsoft.com/en-us/excel/functions/xlookup', category: 'Microsoft Office skills', description: 'Official XLOOKUP syntax and version availability, including the Excel 2016/2019 limitation (checked November 2026).' },
+  { title: 'Microsoft 365 for the web', url: 'https://www.microsoft.com/en-us/microsoft-365/free-office-online-for-the-web', category: 'Microsoft Office skills', description: 'Official overview of free web versions of Word, Excel and PowerPoint; check current account and regional availability (checked November 2026).' },
+  { title: 'OneDrive plans and features', url: 'https://www.microsoft.com/en-us/microsoft-365/onedrive/free-online-cloud-storage', category: 'Microsoft Office skills', description: 'Official OneDrive overview, including its free account option; check current terms and storage in your region (checked November 2026).' },
+  { title: 'Microsoft Office Specialist: Associate (Microsoft 365 Apps)', url: 'https://learn.microsoft.com/en-us/credentials/certifications/microsoft-office-specialist-associate-m365-apps/', category: 'Microsoft Office skills', description: 'Official certification requirements and qualifying exams; exam fees depend on country or region (checked November 2026).' },
+  { title: 'LibreOffice', url: 'https://www.libreoffice.org/', category: 'Microsoft Office skills', description: 'Official site for the free, open-source Writer, Calc and Impress desktop suite (checked November 2026).' },
   { title: 'pandas documentation', url: 'https://pandas.pydata.org/docs', category: 'Official docs & training', description: 'The reference for Python data analysis with pandas.' },
 
   // Interactive practice

@@ -1,0 +1,11 @@
+CustomerID,FirstName,LastName,Email,Company,CustomerType,PreferredPackage
+FB-C001,Abena,Sample,abena.sample@example.invalid,Practice Client One,Office,Tea and snack tray
+FB-C002,Chidi,Demo,chidi.demo@example.invalid,Practice Client Two,Training,Lunch box
+FB-C003,Emeka,Example,emeka.example@example.invalid,Practice Client Three,Community,Refreshment pack
+FB-C004,Folake,Practice,folake.practice@example.invalid,Practice Client Four,Office,Small event tray
+FB-C005,Ifeoma,Mock,ifeoma.mock@example.invalid,Practice Client Five,Training,Lunch box
+FB-C006,Kelechi,Sample,kelechi.sample@example.invalid,Practice Client Six,Community,Tea and snack tray
+FB-C007,Lami,Demo,lami.demo@example.invalid,Practice Client Seven,Office,Refreshment pack
+FB-C008,Musa,Example,musa.example@example.invalid,Practice Client Eight,Training,Small event tray
+FB-C009,Nneka,Practice,nneka.practice@example.invalid,Practice Client Nine,Community,Lunch box
+FB-C010,Tari,Mock,tari.mock@example.invalid,Practice Client Ten,Office,Tea and snack tray
