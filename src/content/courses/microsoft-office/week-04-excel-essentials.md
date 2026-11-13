@@ -55,7 +55,7 @@ The value stored in a cell and the way it is displayed are different. The number
 
 Dates should be stored as dates, not mixed text such as `12 Nov`, `11/12/26` and `2026-11-12`. Pick a clear format, such as `yyyy-mm-dd`, and verify that sorting places dates in the expected order. Percentages are fractions: `0.15` formatted as a percentage displays `15%`. If you type `15` and format it as a percentage, the result may display `1500%`. Always test one value.
 
-For the practice budget, format money columns consistently and dates as dates. A title like "Practice budget — fictional values" helps prevent a screenshot from being mistaken for a real financial report.
+For the practice budget, format money columns consistently and dates as dates. A title like "Practice budget - fictional values" helps prevent a screenshot from being mistaken for a real financial report.
 
 ### Lesson 3: Formulas, functions and references
 

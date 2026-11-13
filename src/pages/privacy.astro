@@ -32,10 +32,12 @@ const contactLabel = !isTodo(site.contact.email)
       <li>Your <strong>course progress</strong> - which lessons you complete.</li>
       <li>Your <strong>assignment submissions</strong> - the links you share and any notes - and the feedback and scores on them.</li>
       <li>Your <strong>attendance</strong> at mentoring sessions.</li>
+      <li>Your <strong>enrolment and payment records</strong> - which course and plan you bought, the amount, the Paystack reference, the status, and any discount code used.</li>
     </ul>
     <p>
-      We do <strong>not</strong> collect home addresses, government ID numbers, or payment details
-      through the Site, and we do not ask for sensitive personal data. Public pages (lessons,
+      Card and bank details are entered on <strong>Paystack's</strong> secure checkout, not on our
+      Site - we never see or store your full card number. We do <strong>not</strong> collect home
+      addresses, government ID numbers, or other sensitive personal data. Public pages (lessons,
       resources) can be read without an account and without signing in.
     </p>
 
@@ -53,6 +55,16 @@ const contactLabel = !isTodo(site.contact.email)
       storage. Messages remain in the current page only and are cleared when you reload or leave it.
       The browser downloads the published search index from the Site, but does not send your question
       when searching it. The Site's code does not send questions to an external AI service.
+    </p>
+
+    <h2>Payments</h2>
+    <p>
+      When you buy a course, the payment is processed by <strong>Paystack</strong>, a licensed
+      payment provider that acts as a separate controller for the transaction. You enter your card or
+      bank details on Paystack's secure checkout; we never receive or store them. We keep a record of
+      the transaction - the course and plan, the amount, the Paystack reference, its status, and any
+      discount code - so we can give you access and keep accurate accounts. Paystack's own privacy
+      policy governs how they handle your payment data.
     </p>
 
     <h2>Why we collect it</h2>
