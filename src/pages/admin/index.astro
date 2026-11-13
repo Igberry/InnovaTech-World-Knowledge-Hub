@@ -815,9 +815,14 @@ const catalog = await buildCatalog();
 
   let featCard: HTMLElement | null = null;
 
+  function groupThousands(raw: string) {
+    const digits = (raw || '').replace(/\D/g, '');
+    return digits ? Number(digits).toLocaleString('en-US') : '';
+  }
+
   async function savePlan(row: HTMLElement) {
     const id = row.dataset.planId!;
-    const price = Math.round(Number((row.querySelector('[data-price]') as HTMLInputElement).value) || 0);
+    const price = Math.round(Number(String((row.querySelector('[data-price]') as HTMLInputElement).value).replace(/[^\d]/g, '')) || 0);
     const active = (row.querySelector('[data-active]') as HTMLInputElement).checked;
     const features = (row.querySelector('[data-features]') as HTMLTextAreaElement).value
       .split('\n').map((s) => s.trim()).filter(Boolean);
@@ -851,7 +856,7 @@ const catalog = await buildCatalog();
             <label class="plan-active"><input type="checkbox" ${p.active ? 'checked' : ''} data-active /> Active</label>
           </div>
           <label class="plan-price">Price
-            <span class="plan-price-field"><span class="plan-naira">₦</span><input type="number" min="0" step="1000" value="${Math.round(p.price_kobo / 100)}" data-price inputmode="numeric" /></span>
+            <span class="plan-price-field"><span class="plan-naira">₦</span><input type="text" value="${Math.round(p.price_kobo / 100).toLocaleString('en-US')}" data-price inputmode="numeric" autocomplete="off" /></span>
           </label>
           <textarea data-features hidden>${esc(feats.join('\n'))}</textarea>
           <button type="button" class="plan-feat-btn" data-edit-feats>Edit features <span class="plan-feat-count" data-feat-count>${feats.length}</span></button>
@@ -893,6 +898,21 @@ const catalog = await buildCatalog();
       m.textContent = r.ok ? 'Saved.' : r.error; m.className = 'plan-msg ' + (r.ok ? 'ok' : 'err');
       if (r.ok) { coursePlans = await getCoursePlans(); renderPricing(); }
     }));
+
+    box.querySelectorAll('[data-price]').forEach((el) => {
+      const inp = el as HTMLInputElement;
+      inp.addEventListener('input', () => {
+        const caret = inp.selectionStart ?? inp.value.length;
+        const digitsBefore = inp.value.slice(0, caret).replace(/\D/g, '').length;
+        inp.value = groupThousands(inp.value);
+        let pos = 0, seen = 0;
+        while (pos < inp.value.length && seen < digitsBefore) {
+          if (/\d/.test(inp.value[pos])) seen += 1;
+          pos += 1;
+        }
+        inp.setSelectionRange(pos, pos);
+      });
+    });
 
     const modal = box.querySelector('[data-feat-modal]') as HTMLElement;
     const modalText = modal.querySelector('[data-feat-text]') as HTMLTextAreaElement;
