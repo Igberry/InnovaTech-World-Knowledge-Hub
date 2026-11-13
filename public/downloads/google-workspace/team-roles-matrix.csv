@@ -1,0 +1,7 @@
+"role","access_need","drive_folder_level","files_to_edit","files_view_only"
+"Owner","Approve workspace structure and access","Owner role in the practice plan","Approved templates and final decisions","Routine order detail"
+"Cook lead","Update preparation process and menu availability","Kitchen folder editor","Kitchen SOP and prep tracker","Feedback summary"
+"Cook assistant","View current preparation instructions","Kitchen folder commenter","Assigned prep checklist","Order history beyond current work"
+"Counter lead","Create and update fictional order records","Counter folder editor","Order form and daily checklist","Kitchen draft notes"
+"Counter assistant","Record collection status and feedback totals","Counter folder commenter","Assigned status fields","Other role folders"
+"Rider","View assigned delivery details only","Delivery folder viewer","Assigned route sheet only","All other customer data"
