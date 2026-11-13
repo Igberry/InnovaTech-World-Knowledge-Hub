@@ -1,27 +1,26 @@
 /**
  * POST /api/lulu-chat  (Vercel serverless function)
  *
- * Lulu, the InnovaTech World site assistant, powered by Claude. The browser
- * sends the conversation so far; this function adds a full InnovaTech knowledge
- * system prompt (with LIVE pricing pulled from Supabase) and returns Claude's
- * reply. No chat transcripts are stored.
+ * Lulu, the InnovaTech World site assistant, powered by Google's Gemini. The
+ * browser sends the conversation so far; this function adds a full InnovaTech
+ * knowledge system prompt (with LIVE pricing pulled from Supabase) and returns
+ * Gemini's reply. No chat transcripts are stored.
  *
  * Required Vercel env var (Project -> Settings -> Environment Variables):
- *   ANTHROPIC_API_KEY        the Claude API key (NEVER commit it)
+ *   GEMINI_API_KEY           the Google Gemini (AI Studio) API key (NEVER commit it)
  * Optional:
- *   LULU_MODEL               model id (default: claude-haiku-5-5)
+ *   GEMINI_MODEL             model id (default: gemini-2.5-flash, on the free tier)
  * Reused from the portal (already set):
  *   PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY   for live pricing
  *
  * Security / cost guards:
  *   - POST only; message count and length are capped.
  *   - Best-effort per-IP rate limit (per warm instance).
- *   - Thinking is off and max_tokens is small to keep replies fast and cheap.
- *   - Prompt caching on the big system block cuts repeat input cost ~90%.
+ *   - Small max output tokens to keep replies fast and cheap.
+ *   - The key is sent in a header (x-goog-api-key), never in the URL.
  */
-import Anthropic from '@anthropic-ai/sdk';
 
-const MODEL = process.env.LULU_MODEL || 'claude-haiku-5-5';
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
 
 const send = (res, status, body) => {
   res.statusCode = status;
@@ -170,9 +169,12 @@ async function readBody(req) {
   }
 }
 
+const REDIRECT = 'https://wa.me/2349121681159';
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') return send(res, 405, { error: 'Method not allowed.' });
-  if (!process.env.ANTHROPIC_API_KEY) {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
     return send(res, 503, { error: 'Lulu is not configured yet. Please contact InnovaTech: /contact/' });
   }
 
@@ -190,42 +192,56 @@ export default async function handler(req, res) {
 
   try {
     const pricing = await livePricing();
-    const client = new Anthropic();
-    const response = await client.messages.create({
-      model: MODEL,
-      max_tokens: 800,
-      thinking: { type: 'disabled' },
-      system: [
-        { type: 'text', text: `${BASE_KNOWLEDGE}\n\n${pricing}`, cache_control: { type: 'ephemeral' } },
-      ],
-      messages,
-    });
+    // Gemini uses roles "user" and "model" (not "assistant").
+    const contents = messages.map((m) => ({
+      role: m.role === 'assistant' ? 'model' : 'user',
+      parts: [{ text: m.content }],
+    }));
 
-    if (response.stop_reason === 'refusal') {
-      return send(res, 200, {
-        reply:
-          "Sorry, I can't help with that. If it's about InnovaTech courses or your account, please contact InnovaTech: https://wa.me/2349121681159",
+    const r = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(GEMINI_MODEL)}:generateContent`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
+        body: JSON.stringify({
+          system_instruction: { parts: [{ text: `${BASE_KNOWLEDGE}\n\n${pricing}` }] },
+          contents,
+          generationConfig: { maxOutputTokens: 800, temperature: 0.4 },
+        }),
+      },
+    );
+
+    if (!r.ok) {
+      const status = r.status === 429 ? 429 : 502;
+      return send(res, status, {
+        error:
+          status === 429
+            ? 'Lulu is busy right now. Please try again shortly.'
+            : `Lulu could not reply right now. Please contact InnovaTech: ${REDIRECT}`,
       });
     }
 
-    const reply = response.content
-      .filter((b) => b.type === 'text')
-      .map((b) => b.text)
+    const data = await r.json();
+
+    // Blocked prompt or safety stop -> polite redirect.
+    const finish = data.candidates?.[0]?.finishReason;
+    if (data.promptFeedback?.blockReason || finish === 'SAFETY' || finish === 'BLOCKLIST' || finish === 'PROHIBITED_CONTENT') {
+      return send(res, 200, {
+        reply: `Sorry, I can't help with that. If it's about InnovaTech courses or your account, please contact InnovaTech: ${REDIRECT}`,
+      });
+    }
+
+    const reply = (data.candidates?.[0]?.content?.parts || [])
+      .map((p) => p.text || '')
       .join('')
       .trim();
 
     return send(res, 200, {
-      reply:
-        reply ||
-        'Sorry, I could not find an answer. Please contact InnovaTech: https://wa.me/2349121681159',
+      reply: reply || `Sorry, I could not find an answer. Please contact InnovaTech: ${REDIRECT}`,
     });
-  } catch (err) {
-    const status = err?.status === 429 ? 429 : 502;
-    return send(res, status, {
-      error:
-        status === 429
-          ? 'Lulu is busy right now. Please try again shortly.'
-          : "Lulu could not reply right now. Please contact InnovaTech: https://wa.me/2349121681159",
+  } catch {
+    return send(res, 502, {
+      error: `Lulu could not reply right now. Please contact InnovaTech: ${REDIRECT}`,
     });
   }
 }
