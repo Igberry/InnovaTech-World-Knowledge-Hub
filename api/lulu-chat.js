@@ -212,12 +212,14 @@ export default async function handler(req, res) {
     );
 
     if (!r.ok) {
+      const detail = (await r.text().catch(() => '')).slice(0, 500);
       const status = r.status === 429 ? 429 : 502;
       return send(res, status, {
         error:
           status === 429
             ? 'Lulu is busy right now. Please try again shortly.'
             : `Lulu could not reply right now. Please contact InnovaTech: ${REDIRECT}`,
+        debug: { upstreamStatus: r.status, detail },
       });
     }
 
@@ -239,9 +241,10 @@ export default async function handler(req, res) {
     return send(res, 200, {
       reply: reply || `Sorry, I could not find an answer. Please contact InnovaTech: ${REDIRECT}`,
     });
-  } catch {
+  } catch (err) {
     return send(res, 502, {
       error: `Lulu could not reply right now. Please contact InnovaTech: ${REDIRECT}`,
+      debug: { exception: String(err?.message || err).slice(0, 300) },
     });
   }
 }
