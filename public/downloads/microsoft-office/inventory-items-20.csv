@@ -1,0 +1,21 @@
+ItemID,Item,Category,Qty_On_Hand,Reorder_Level,Unit_Cost_NGN
+FB-I001,Long-grain rice,Staples,24,10,45000
+FB-I002,Vegetable oil,Staples,7,8,7200
+FB-I003,Tomato paste,Produce,15,12,1800
+FB-I004,Fresh tomatoes,Produce,9,10,14000
+FB-I005,Chicken portions,Protein,18,12,6500
+FB-I006,Smoked fish,Protein,5,6,9000
+FB-I007,Plantain,Produce,22,10,2800
+FB-I008,Onions,Produce,8,10,5200
+FB-I009,Takeaway bowls,Packaging,40,25,250
+FB-I010,Paper napkins,Packaging,18,20,1800
+FB-I011,Drinking water,Catering,36,24,250
+FB-I012,Reusable serving trays,Equipment,6,4,12500
+FB-I013,Hand soap,Sanitation,4,5,2200
+FB-I014,Disposable gloves,Sanitation,28,20,3500
+FB-I015,Flour,Staples,12,8,6200
+FB-I016,Beans,Staples,16,10,7800
+FB-I017,Fresh pepper,Produce,11,10,3100
+FB-I018,Food labels,Packaging,3,5,1600
+FB-I019,Serving spoons,Equipment,9,6,1800
+FB-I020,Sealed juice packs,Catering,14,18,650
