@@ -184,15 +184,47 @@ const catalog = await buildCatalog();
   }
   .err { color: var(--color-danger); font-size: 0.85rem; }
   .ok { color: var(--color-success); font-size: 0.85rem; }
-  .price-course { margin: 0 0 1.25rem; }
-  .price-course h4 { margin: 0 0 0.4rem; }
-  .price-row {
-    display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center;
-    margin: 0.4rem 0; padding: 0.5rem 0.6rem; border: 1px solid var(--color-border); border-radius: 0.45rem;
+  .price-course {
+    margin: 0 0 1.5rem; border: 1px solid var(--color-border); border-radius: 0.6rem;
+    background: var(--surface); overflow: hidden;
   }
-  .price-row label { display: inline-flex; gap: 0.3rem; align-items: center; font-size: 0.85rem; font-weight: 600; }
-  .price-row input[type='number'] { width: 7rem; }
-  .price-row textarea { min-width: 260px; }
+  .price-course-head {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem;
+    padding: 0.7rem 0.9rem; background: var(--color-blue-600); color: #fff;
+  }
+  .price-course-head h4 { margin: 0; font-size: 1rem; font-weight: 600; color: #fff; }
+  .price-course-count { font-size: 0.75rem; font-weight: 600; opacity: 0.85; white-space: nowrap; }
+  .price-plans {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 0.85rem; padding: 0.9rem;
+  }
+  .plan-card {
+    display: flex; flex-direction: column; gap: 0.65rem;
+    border: 1px solid var(--color-border); border-top: 3px solid var(--color-border);
+    border-radius: 0.5rem; padding: 0.8rem; background: var(--surface-2);
+  }
+  .plan-card[data-tier='basic'] { border-top-color: var(--color-blue-500); }
+  .plan-card[data-tier='advanced'] { border-top-color: var(--color-burgundy-600); }
+  .plan-card[data-tier='premium'] { border-top-color: var(--color-blue-900, #04172b); }
+  .plan-card.is-inactive { opacity: 0.6; }
+  .plan-card-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
+  .plan-tier { font-size: 0.95rem; font-weight: 700; color: var(--color-ink); }
+  .plan-active { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 600; color: var(--color-muted); }
+  .plan-price { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.78rem; font-weight: 600; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.03em; }
+  .plan-price-field {
+    display: flex; align-items: center; border: 1px solid var(--color-border);
+    border-radius: 0.4rem; background: var(--surface); overflow: hidden;
+  }
+  .plan-price-field:focus-within { border-color: var(--color-blue-500); box-shadow: 0 0 0 2px var(--color-blue-50); }
+  .plan-naira { padding: 0 0.55rem; font-weight: 700; color: var(--color-ink); border-right: 1px solid var(--color-border); align-self: stretch; display: flex; align-items: center; }
+  .plan-price-field input[type='number'] { flex: 1; min-width: 0; border: 0; background: transparent; padding: 0.45rem 0.55rem; font-size: 1rem; font-weight: 600; color: var(--color-ink); }
+  .plan-price-field input[type='number']:focus { outline: none; }
+  .plan-features { font-size: 0.82rem; }
+  .plan-features summary { cursor: pointer; font-weight: 600; color: var(--color-blue-600); }
+  .plan-features textarea { width: 100%; box-sizing: border-box; margin-top: 0.4rem; }
+  .plan-card-foot { display: flex; align-items: center; gap: 0.6rem; margin-top: auto; }
+  .plan-card-foot .btn { padding-block: 0.4rem; }
+  .plan-msg { font-size: 0.8rem; }
   .adm-table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .adm-table-wrap:focus-visible { outline-offset: -2px; }
   .panel, .adm-card, [data-pricing], [data-vouchers], [data-entitlements], [data-payments] { min-width: 0; }
@@ -201,11 +233,7 @@ const catalog = await buildCatalog();
     .att-controls { align-items: stretch; }
     .att-controls label { width: 100%; min-width: 0; }
     .att-controls input, .att-controls select { max-width: 100%; box-sizing: border-box; }
-    .price-row { align-items: stretch; flex-direction: column; }
-    .price-row label { justify-content: space-between; }
-    .price-row input[type='number'] { width: 100%; max-width: 12rem; }
-    .price-row textarea { min-width: 0; width: 100%; box-sizing: border-box; }
-    .price-row details { width: 100%; }
+    .price-plans { grid-template-columns: 1fr; gap: 0.7rem; padding: 0.7rem; }
     .panel-head > button { width: 100%; }
     .adm-table-wrap table { min-width: 38rem; }
   }
@@ -766,17 +794,32 @@ const catalog = await buildCatalog();
     const ord: Record<string, number> = { basic: 1, advanced: 2, premium: 3 };
     const byCourse: Record<string, CoursePlanRow[]> = {};
     coursePlans.forEach((p) => { (byCourse[p.course_slug] = byCourse[p.course_slug] || []).push(p); });
+    const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
     box.innerHTML = Object.keys(byCourse).sort().map((slug) => {
-      const rows = byCourse[slug].sort((a, b) => (ord[a.plan] || 9) - (ord[b.plan] || 9)).map((p) => `
-        <div class="price-row" data-plan-id="${p.id}">
-          <strong style="min-width:5rem">${esc(p.plan)}</strong>
-          <label>₦ <input type="number" min="0" step="1000" value="${Math.round(p.price_kobo / 100)}" data-price /></label>
-          <label>Active <input type="checkbox" ${p.active ? 'checked' : ''} data-active /></label>
-          <details><summary>Features</summary><textarea rows="3" data-features>${esc((p.features || []).join('\n'))}</textarea></details>
-          <button type="button" class="btn btn-success" data-save-plan>Save</button>
-          <span data-plan-msg></span>
-        </div>`).join('');
-      return `<div class="price-course"><h4>${esc(courseTitle(slug))}</h4>${rows}</div>`;
+      const plans = byCourse[slug].sort((a, b) => (ord[a.plan] || 9) - (ord[b.plan] || 9));
+      const count = plans.length;
+      const cards = plans.map((p) => `
+        <article class="plan-card${p.active ? '' : ' is-inactive'}" data-plan-id="${p.id}" data-tier="${esc(p.plan)}">
+          <div class="plan-card-head">
+            <span class="plan-tier">${esc(cap(p.plan))}</span>
+            <label class="plan-active"><input type="checkbox" ${p.active ? 'checked' : ''} data-active /> Active</label>
+          </div>
+          <label class="plan-price">Price
+            <span class="plan-price-field"><span class="plan-naira">₦</span><input type="number" min="0" step="1000" value="${Math.round(p.price_kobo / 100)}" data-price inputmode="numeric" /></span>
+          </label>
+          <details class="plan-features"><summary>Features</summary><textarea rows="4" data-features placeholder="One perk per line">${esc((p.features || []).join('\n'))}</textarea></details>
+          <div class="plan-card-foot">
+            <button type="button" class="btn btn-success" data-save-plan>Save</button>
+            <span data-plan-msg class="plan-msg"></span>
+          </div>
+        </article>`).join('');
+      return `<section class="price-course">
+        <header class="price-course-head">
+          <h4>${esc(courseTitle(slug))}</h4>
+          <span class="price-course-count">${count} plan${count === 1 ? '' : 's'}</span>
+        </header>
+        <div class="price-plans">${cards}</div>
+      </section>`;
     }).join('');
     box.querySelectorAll('[data-save-plan]').forEach((btn) => btn.addEventListener('click', async () => {
       const row = (btn as HTMLElement).closest('[data-plan-id]') as HTMLElement;
