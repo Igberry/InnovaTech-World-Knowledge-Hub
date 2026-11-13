@@ -188,16 +188,34 @@ export default async function handler(req, res) {
 
   const body = await readBody(req);
 
-  // TEMP probe: list models this key can use with generateContent.
-  if (body && body.op === 'listmodels') {
-    const lr = await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200', {
-      headers: { 'x-goog-api-key': apiKey },
-    });
-    const lj = await lr.json().catch(() => ({}));
-    const models = (lj.models || [])
-      .filter((m) => (m.supportedGenerationMethods || []).includes('generateContent'))
-      .map((m) => m.name);
-    return send(res, 200, { status: lr.status, models, error: lj.error });
+  // TEMP probe: time a tiny generateContent across candidate models (parallel, bounded).
+  if (body && body.op === 'testmodels') {
+    const cands = ['gemini-flash-latest', 'gemini-flash-lite-latest', 'gemini-2.5-flash-lite', 'gemini-3.6-flash'];
+    const tryModel = async (m) => {
+      const ac = new AbortController();
+      const timer = setTimeout(() => ac.abort(), 7000);
+      const t0 = Date.now();
+      try {
+        const rr = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
+          body: JSON.stringify({
+            contents: [{ role: 'user', parts: [{ text: 'Reply with just: OK' }] }],
+            generationConfig: { maxOutputTokens: 40, thinkingConfig: { thinkingBudget: 0 } },
+          }),
+          signal: ac.signal,
+        });
+        const jj = await rr.json().catch(() => ({}));
+        const reply = (jj.candidates?.[0]?.content?.parts || []).map((p) => p.text || '').join('');
+        return { m, status: rr.status, ms: Date.now() - t0, finish: jj.candidates?.[0]?.finishReason, reply: reply.slice(0, 40), err: jj.error?.message?.slice(0, 140) };
+      } catch (e) {
+        return { m, ms: Date.now() - t0, error: String(e?.name || e).slice(0, 60) };
+      } finally {
+        clearTimeout(timer);
+      }
+    };
+    const results = await Promise.all(cands.map(tryModel));
+    return send(res, 200, { results });
   }
 
   const messages = cleanMessages(body.messages);
