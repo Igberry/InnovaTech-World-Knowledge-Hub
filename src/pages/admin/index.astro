@@ -225,7 +225,7 @@ const catalog = await buildCatalog();
   }
   #admin .price-course-head {
     display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem;
-    padding: 0.7rem 0.9rem; background: var(--color-blue-600); color: #fff;
+    padding: 0.7rem 0.9rem; background: var(--color-burgundy-600); color: #fff;
   }
   #admin .price-course-head h4 { margin: 0; font-size: 1rem; font-weight: 600; color: #fff; }
   #admin .price-course-count { font-size: 0.75rem; font-weight: 600; opacity: 0.85; white-space: nowrap; }
@@ -238,33 +238,34 @@ const catalog = await buildCatalog();
     border: 1px solid var(--color-border); border-top: 3px solid var(--color-border);
     border-radius: 0.5rem; padding: 0.85rem; background: var(--surface-2);
   }
-  #admin .plan-card[data-tier='basic'] { border-top-color: var(--color-blue-500); }
+  #admin .plan-card[data-tier='basic'] { border-top-color: var(--color-burgundy-600); }
   #admin .plan-card[data-tier='advanced'] { border-top-color: var(--color-burgundy-600); }
-  #admin .plan-card[data-tier='premium'] { border-top-color: var(--color-blue-900, #04172b); }
+  #admin .plan-card[data-tier='premium'] { border-top-color: var(--color-burgundy-700); }
   #admin .plan-card.is-inactive { opacity: 0.6; }
   #admin .plan-card-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; }
   #admin .plan-tier { font-size: 1rem; font-weight: 700; color: var(--color-ink); }
   #admin .plan-active { display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.78rem; font-weight: 600; color: var(--color-muted); }
+  #admin .plan-card-head input[type='checkbox'] { accent-color: var(--color-burgundy-600); }
   #admin .plan-price { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.72rem; font-weight: 700; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.04em; }
   #admin .plan-price-field {
     display: flex; align-items: stretch; border: 1px solid var(--color-border);
     border-radius: 0.4rem; background: var(--surface); overflow: hidden;
   }
-  #admin .plan-price-field:focus-within { border-color: var(--color-blue-500); box-shadow: 0 0 0 2px var(--color-blue-50); }
+  #admin .plan-price-field:focus-within { border-color: var(--color-burgundy-600); box-shadow: 0 0 0 2px var(--color-burgundy-50); }
   #admin .plan-naira { padding: 0 0.55rem; font-weight: 700; color: var(--color-ink); border-right: 1px solid var(--color-border); display: flex; align-items: center; }
-  #admin .plan-price-field input[type='number'] { flex: 1; min-width: 0; border: 0; background: transparent; padding: 0.5rem 0.55rem; font-size: 1rem; font-weight: 600; color: var(--color-ink); }
-  #admin .plan-price-field input[type='number']:focus { outline: none; }
+  #admin .plan-price-field input { flex: 1; min-width: 0; border: 0; background: transparent; padding: 0.5rem 0.55rem; font-size: 1rem; font-weight: 600; color: var(--color-ink); }
+  #admin .plan-price-field input:focus { outline: none; }
   #admin .plan-feat-btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
     width: 100%; padding: 0.5rem 0.6rem; font: inherit; font-size: 0.82rem; font-weight: 600;
-    cursor: pointer; color: var(--color-blue-600); background: var(--surface);
-    border: 1px solid var(--color-blue-600); border-radius: 0.4rem;
+    cursor: pointer; color: var(--color-burgundy-600); background: var(--surface);
+    border: 1px solid var(--color-burgundy-600); border-radius: 0.4rem;
   }
-  #admin .plan-feat-btn:hover { background: var(--color-blue-50); }
+  #admin .plan-feat-btn:hover { background: var(--color-burgundy-50); }
   #admin .plan-feat-count {
     display: inline-flex; align-items: center; justify-content: center; min-width: 1.3rem;
     padding: 0 0.35rem; font-size: 0.72rem; font-weight: 700; line-height: 1.5;
-    color: #fff; background: var(--color-blue-600); border-radius: 999px;
+    color: #fff; background: var(--color-burgundy-600); border-radius: 999px;
   }
   #admin .plan-card-foot { display: flex; align-items: center; gap: 0.6rem; margin-top: auto; }
   #admin .plan-card-foot .btn { padding-block: 0.4rem; }

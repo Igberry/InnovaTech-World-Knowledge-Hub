@@ -9,7 +9,7 @@
  * Required Vercel env var (Project -> Settings -> Environment Variables):
  *   GEMINI_API_KEY           the Google Gemini (AI Studio) API key (NEVER commit it)
  * Optional:
- *   GEMINI_MODEL             model id (default: gemini-2.5-flash, on the free tier)
+ *   GEMINI_MODEL             model id (default: gemini-3.8-flash, on the free tier)
  * Reused from the portal (already set):
  *   PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY   for live pricing
  *
@@ -20,7 +20,7 @@
  *   - The key is sent in a header (x-goog-api-key), never in the URL.
  */
 
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
 
 const send = (res, status, body) => {
   res.statusCode = status;
@@ -212,14 +212,12 @@ export default async function handler(req, res) {
     );
 
     if (!r.ok) {
-      const detail = (await r.text().catch(() => '')).slice(0, 500);
       const status = r.status === 429 ? 429 : 502;
       return send(res, status, {
         error:
           status === 429
             ? 'Lulu is busy right now. Please try again shortly.'
             : `Lulu could not reply right now. Please contact InnovaTech: ${REDIRECT}`,
-        debug: { upstreamStatus: r.status, detail },
       });
     }
 
@@ -241,10 +239,9 @@ export default async function handler(req, res) {
     return send(res, 200, {
       reply: reply || `Sorry, I could not find an answer. Please contact InnovaTech: ${REDIRECT}`,
     });
-  } catch (err) {
+  } catch {
     return send(res, 502, {
       error: `Lulu could not reply right now. Please contact InnovaTech: ${REDIRECT}`,
-      debug: { exception: String(err?.message || err).slice(0, 300) },
     });
   }
 }
