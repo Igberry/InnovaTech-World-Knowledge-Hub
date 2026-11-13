@@ -57,7 +57,7 @@ Use one main point per slide. A title such as "Shorter waits are the next proces
 
 ### Lesson 2: Themes, layouts and charts
 
-Choose a consistent theme and use the built-in layouts so titles and body content stay aligned. Google Slides may label its master-editing interface as a theme builder or use different menu names over time. Learn the task—change a repeated layout once—then follow the current Help page if the label differs. Use a small set of fonts and colours with strong contrast. Avoid relying on red and green alone to distinguish a result.
+Choose a consistent theme and use the built-in layouts so titles and body content stay aligned. Google Slides may label its master-editing interface as a theme builder or use different menu names over time. Learn the task (change a repeated layout once), then follow the current Help page if the label differs. Use a small set of fonts and colours with strong contrast. Avoid relying on red and green alone to distinguish a result.
 
 Use charts to compare data. A bar chart is often easier to compare than a pie chart when there are several categories. Add a title, units and clear labels. If you copy a chart from Sheets, decide whether it should remain linked to the spreadsheet. A linked chart can be refreshed from its source; check the link and update state before presenting. Do not leave a chart linked to a workbook that the audience cannot access.
 

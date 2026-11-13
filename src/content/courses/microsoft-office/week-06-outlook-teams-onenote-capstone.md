@@ -46,7 +46,7 @@ Use Outlook, Teams and OneNote where your personal, school or work account provi
 
 ### Lesson 1: Outlook email and professional etiquette
 
-Email is useful for messages that need a clear record. Start with a specific subject such as **“Practice menu review — response requested by Friday”** rather than “Hello” or “Important”. Put the request or main point near the top, include only necessary context, and close politely. Reread the message as the recipient would.
+Email is useful for messages that need a clear record. Start with a specific subject such as **“Practice menu review - response requested by Friday”** rather than “Hello” or “Important”. Put the request or main point near the top, include only necessary context, and close politely. Reread the message as the recipient would.
 
 Use folders to organise messages, **categories** to label them across views, **flags** to mark follow-up, and **rules** to sort predictable messages where supported. Search is often faster than creating many nested folders. A signature should contain only approved professional details. An out-of-office response should state when you expect to return and identify an approved alternative contact only if the organisation permits it.
 
@@ -126,7 +126,7 @@ This course is a practical introduction and does not claim to meet that experien
 7. Describe two Office tasks honestly on a CV using evidence from the course artifacts.
 8. Review the optional certification page and note one requirement and one detail you would verify before registering.
 
-## Weekly Assignment (Capstone — due at course completion)
+## Weekly Assignment (Capstone, due at course completion)
 
 Submit the **Office Admin Pack** for the fictional Fresh Bites case:
 
