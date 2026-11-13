@@ -289,14 +289,14 @@ const whatsapp = whatsappUrl('training');
     padding: 0.9rem 0.75rem;
     list-style: none;
   }
-  .lulu-message { display: flex; flex-direction: column; gap: 0.3rem; max-width: 92%; }
-  .lulu-speaker { color: var(--color-muted); font-size: 0.75rem; }
-  .lulu-bubble { margin: 0; padding: 0.65rem 0.8rem; border-radius: 1rem; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 0.9rem; }
-  .lulu-message a { overflow-wrap: anywhere; }
-  .lulu-assistant { align-self: flex-start; align-items: flex-start; }
-  .lulu-assistant .lulu-bubble { background: var(--color-blue-50); }
-  .lulu-user { align-self: flex-end; align-items: flex-end; }
-  .lulu-user .lulu-bubble { background: var(--color-burgundy-50); }
+  .lulu-messages :global(.lulu-message) { display: flex; flex-direction: column; gap: 0.3rem; max-width: 92%; }
+  .lulu-messages :global(.lulu-speaker) { color: var(--color-muted); font-size: 0.75rem; }
+  .lulu-messages :global(.lulu-bubble) { margin: 0; padding: 0.65rem 0.8rem; border-radius: 1rem; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 0.9rem; }
+  .lulu-messages :global(.lulu-message a) { overflow-wrap: anywhere; }
+  .lulu-messages :global(.lulu-assistant) { align-self: flex-start; align-items: flex-start; }
+  .lulu-messages :global(.lulu-assistant .lulu-bubble) { background: var(--color-blue-50); }
+  .lulu-messages :global(.lulu-user) { align-self: flex-end; align-items: flex-end; }
+  .lulu-messages :global(.lulu-user .lulu-bubble) { background: var(--color-burgundy-50); }
   .lulu-info { padding: 0.4rem 0.75rem; border-top: 1px solid var(--color-border); color: var(--color-muted); font-size: 0.72rem; }
   .lulu-info summary { width: fit-content; cursor: pointer; }
   .lulu-privacy { display: grid; gap: 0.25rem; margin: 0.4rem 0 0; }
