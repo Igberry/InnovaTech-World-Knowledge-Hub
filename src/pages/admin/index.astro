@@ -104,7 +104,7 @@ const catalog = await buildCatalog();
       </div>
 
       <div class="adm-card">
-        <div class="panel-head"><h3>Services pricing (naira)</h3><span data-service-pricing-msg></span></div>
+        <div class="panel-head"><h3>Services pricing (USD / hour)</h3><span data-service-pricing-msg></span></div>
         <div data-service-pricing><p class="muted">Loading…</p></div>
       </div>
 
@@ -842,6 +842,7 @@ const catalog = await buildCatalog();
     reload: () => Promise<void>;
     update: (id: string, patch: { price_kobo?: number; features?: string[]; active?: boolean }) => Promise<Result>;
     emptyMsg: string;
+    currencySymbol?: string;
   }
 
   function makePricingEditor(opts: PricingEditorOpts) {
@@ -887,7 +888,7 @@ const catalog = await buildCatalog();
                 <label class="plan-active"><input type="checkbox" ${p.active ? 'checked' : ''} data-active /> Active</label>
               </div>
               <label class="plan-price">Price
-                <span class="plan-price-field"><span class="plan-naira">₦</span><input type="text" value="${Math.round(p.price_kobo / 100).toLocaleString('en-US')}" data-price inputmode="numeric" autocomplete="off" /></span>
+                <span class="plan-price-field"><span class="plan-naira">${opts.currencySymbol || '₦'}</span><input type="text" value="${Math.round(p.price_kobo / 100).toLocaleString('en-US')}" data-price inputmode="numeric" autocomplete="off" /></span>
               </label>
               <textarea data-features hidden>${esc(feats.join('\n'))}</textarea>
               <button type="button" class="plan-feat-btn" data-edit-feats>Edit features <span class="plan-feat-count" data-feat-count>${feats.length}</span></button>
@@ -991,7 +992,8 @@ const catalog = await buildCatalog();
     titleOf: serviceTitle,
     reload: async () => { servicePlans = await getServicePlans(); },
     update: updateServicePlan,
-    emptyMsg: 'No service plans found. Run migration 0008 to seed pricing.',
+    emptyMsg: 'No service plans found. Run migrations 0008 and 0009 to seed pricing.',
+    currencySymbol: '$',
   });
 
   function renderVouchers() {

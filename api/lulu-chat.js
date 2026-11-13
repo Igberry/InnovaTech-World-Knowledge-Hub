@@ -61,15 +61,15 @@ const COURSES = [
   ['social-media-marketing', 'Social Media Marketing', 'coming-soon', '', '', 'Plan content, grow an audience and run campaigns that reach the right people.'],
 ];
 
-// Agency services (done-for-you). Packages/prices live in Supabase service_plans.
+// Agency services (done-for-you). Rates live in Supabase service_plans (USD per hour).
 const SERVICES = [
-  ['full-stack-web-development', 'Full Stack Web Development', 'project'],
-  ['wordpress-web-development', 'WordPress Web Development', 'project'],
-  ['data-analysis', 'Data Analysis', 'project'],
-  ['automation', 'Automation', 'project'],
-  ['graphics-design', 'Graphics Design', 'project'],
-  ['seo-aeo-geo', 'SEO, AEO & GEO', 'month'],
-  ['virtual-assistance', 'Virtual Assistance', 'month'],
+  ['full-stack-web-development', 'Full Stack Web Development'],
+  ['wordpress-web-development', 'WordPress Web Development'],
+  ['data-analysis', 'Data Analysis'],
+  ['automation', 'Automation'],
+  ['graphics-design', 'Graphics Design'],
+  ['seo-aeo-geo', 'SEO, AEO & GEO'],
+  ['virtual-assistance', 'Virtual Assistance'],
 ];
 
 const BASE_KNOWLEDGE = `You are Lulu, the friendly assistant for the InnovaTech World Knowledge Hub website.
@@ -104,20 +104,21 @@ ${COURSES.map(([slug, title, status, level, dur, sum]) =>
 ).join('\n')}
 
 SERVICES (done-for-you work, each offered in Basic / Advanced / Premium packages). See /services/:
-${SERVICES.map(([, title, cadence]) => `- ${title}${cadence === 'month' ? ' (billed per month)' : ' (per project)'}`).join('\n')}
-- Package prices appear below under "LIVE SERVICE PRICING" when available. Services are not bought through the website checkout: the client books a free consultation (Calendly link above) or uses /contact/, and the work is quoted and arranged directly.
+${SERVICES.map(([, title]) => `- ${title}`).join('\n')}
+- Service rates are quoted PER HOUR in US Dollars (USD). Clients PAY IN NAIRA, at the current Naira equivalent of the Dollar amount. Package rates appear below under "LIVE SERVICE PRICING" when available (a "/hr" suffix means per hour).
+- Services are not bought through the website checkout: the client books a free consultation (Calendly link above) or uses /contact/, and the work is quoted and arranged directly.
 
 HIRE TALENT (for employers)
 - Besides done-for-you projects, InnovaTech recruits, trains and places vetted talent into a client's team (remote, part-time or full-time) for roles such as web development, data analysis, virtual assistance and design. To hire, book a call or use /contact/ and describe the role.
 
 REFUNDS
-- Courses: fees are generally non-refundable because materials open immediately; if charged in error or unable to access, contact within 7 days. Services: deposits are non-refundable once a project starts; you can cancel monthly services anytime (no refund for the month already started). Full policy: /refunds/.
+- Courses: fees are generally non-refundable because materials open immediately; if charged in error or unable to access, contact within 7 days. Services: billed per hour; deposits and prepaid hours are non-refundable once work starts, but unused prepaid hours can be refunded or carried over. Full policy: /refunds/.
 
 HOW TO ANSWER
 - Be warm, clear and concise (usually 2-5 sentences). Plain text only. No emoji.
 - Use only the information in this prompt and the live pricing provided. If you are unsure or it is not covered, say so briefly and point the person to /contact/ or WhatsApp — do NOT invent prices, dates, URLs, phone numbers, policies or course details.
 - When useful, include a site link as a plain relative path, e.g. /courses/data-analysis/ or /contact/.
-- Prices are in Nigerian Naira (write them like ₦30,000). Only quote prices from the LIVE COURSE PRICING / LIVE SERVICE PRICING sections; if something is not listed there, say the price is on the course page or /services/. A "/mo" suffix means the service is billed per month.
+- Course prices are in Nigerian Naira (e.g. ₦30,000). Service rates are per hour in US Dollars (e.g. $20/hr) and are PAID IN NAIRA at the current Naira equivalent. Only quote prices from the LIVE COURSE PRICING / LIVE SERVICE PRICING sections; if something is not listed there, say the price is on the course page or /services/.
 - Never promise or guarantee a job, income or specific results. Say the courses build "job-ready skills", not guaranteed outcomes.
 - Never ask for, and never accept, passwords, one-time codes, full card numbers or student records. If a user shares something sensitive, gently tell them not to and continue safely.
 - For account access, payment problems, refunds, enrolment decisions, or anything needing a person, direct them to /contact/ or WhatsApp (https://wa.me/2349121681159).
@@ -141,7 +142,7 @@ async function livePricing() {
     const section = async (table, slugCol, titles, heading, suffixOf) => {
       try {
         const r = await fetch(
-          `${url}/rest/v1/${table}?select=${slugCol},plan,price_kobo,active&active=eq.true`,
+          `${url}/rest/v1/${table}?select=${slugCol},plan,price_kobo,currency,active&active=eq.true`,
           { headers },
         );
         if (!r.ok) return '';
@@ -151,7 +152,13 @@ async function livePricing() {
         const lines = Object.keys(by).sort().map((slug) => {
           const plans = by[slug]
             .sort((a, b) => (order[a.plan] || 9) - (order[b.plan] || 9))
-            .map((p) => `${p.plan} ₦${Math.round(p.price_kobo / 100).toLocaleString('en-NG')}${suffixOf ? suffixOf(slug) : ''}`)
+            .map((p) => {
+              const major = Math.round(p.price_kobo / 100);
+              const amt = p.currency === 'USD'
+                ? `$${major.toLocaleString('en-US')}`
+                : `₦${major.toLocaleString('en-NG')}`;
+              return `${p.plan} ${amt}${suffixOf ? suffixOf(slug) : ''}`;
+            })
             .join(', ');
           return `- ${titles[slug] || slug}: ${plans}`;
         });
@@ -162,11 +169,10 @@ async function livePricing() {
     };
     const courseTitles = Object.fromEntries(COURSES.map(([s, t]) => [s, t]));
     const serviceTitles = Object.fromEntries(SERVICES.map(([s, t]) => [s, t]));
-    const serviceCadence = Object.fromEntries(SERVICES.map(([s, , c]) => [s, c]));
     const [courses, servicesText] = await Promise.all([
       section('course_plans', 'course_slug', courseTitles, 'LIVE COURSE PRICING (Nigerian Naira)'),
-      section('service_plans', 'service_slug', serviceTitles, 'LIVE SERVICE PRICING (Nigerian Naira)',
-        (slug) => (serviceCadence[slug] === 'month' ? '/mo' : '')),
+      section('service_plans', 'service_slug', serviceTitles,
+        'LIVE SERVICE PRICING (US Dollars per hour; clients pay the Naira equivalent)', () => '/hr'),
     ]);
     const parts = [courses, servicesText].filter(Boolean);
     if (parts.length) text = parts.join('\n\n');

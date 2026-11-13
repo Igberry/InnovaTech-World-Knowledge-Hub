@@ -26,8 +26,8 @@ const faqs = [
     a: 'Yes. If none of the three packages fits, book a consultation and we will scope a custom package and quote for your project.',
   },
   {
-    q: 'How do I pay, and when?',
-    a: 'For most projects we take a deposit to begin and the balance on delivery; monthly services (such as SEO or a virtual assistant) are billed per month. We confirm the exact terms in writing before any work starts.',
+    q: 'What currency are the prices in, and how do I pay?',
+    a: 'Our rates are quoted per hour in US Dollars (USD). You pay in Nigerian Naira, at the current Naira equivalent of the Dollar amount. For most work we agree an estimated number of hours upfront and take a deposit to begin, then confirm everything in writing before we start.',
   },
   {
     q: 'Can I hire trained talent instead of a done-for-you project?',
@@ -75,6 +75,11 @@ const faqJsonLd = {
       <a class="btn btn-primary" href={calendly} target="_blank" rel="noopener noreferrer">Book a free consultation</a>
     )}
   </header>
+
+  <p class="svc-currency-note" role="note">
+    <strong>Note:</strong> all service rates are shown per hour in US Dollars ($). You pay in Nigerian Naira,
+    at the current Naira equivalent of the Dollar amount.
+  </p>
 
   <div class="svc-list">
     {services.map((s) => (
@@ -143,7 +148,7 @@ const faqJsonLd = {
 </BaseLayout>
 
 <script>
-  import { getServicePlans, nairaFromKobo } from '../lib/payments';
+  import { getServicePlans } from '../lib/payments';
   import { site, isTodo } from '../config/site';
   import { withBase } from '../utils/links';
 
@@ -154,13 +159,20 @@ const faqJsonLd = {
   const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   const order: Record<string, number> = { basic: 1, advanced: 2, premium: 3 };
 
+  // Rates are stored in the currency's minor units (USD -> cents, NGN -> kobo).
+  const money = (minor: number, currency: string) => {
+    const major = Math.round((minor || 0) / 100);
+    return currency === 'USD'
+      ? '$' + major.toLocaleString('en-US')
+      : '₦' + major.toLocaleString('en-NG');
+  };
+
   (async () => {
     const plans = await getServicePlans();
     const containers = Array.from(document.querySelectorAll<HTMLElement>('[data-service-plans]'));
 
     for (const box of containers) {
       const slug = box.dataset.servicePlans!;
-      const cadence = box.dataset.cadence === 'month' ? '<span class="svc-per">/mo</span>' : '';
       const list = plans
         .filter((p) => p.service_slug === slug)
         .sort((a, b) => (order[a.plan] || 9) - (order[b.plan] || 9));
@@ -174,7 +186,7 @@ const faqJsonLd = {
         <article class="svc-plan${p.plan === 'advanced' ? ' is-popular' : ''}">
           ${p.plan === 'advanced' ? '<span class="svc-badge">Most popular</span>' : ''}
           <h3>${esc(cap(p.plan))}</h3>
-          <div class="svc-price">${nairaFromKobo(p.price_kobo)}${cadence}</div>
+          <div class="svc-price">${money(p.price_kobo, p.currency)}<span class="svc-per">/hr</span></div>
           <ul>${(p.features || []).map((f) => `<li>${esc(f)}</li>`).join('')}</ul>
           <a class="btn ${p.plan === 'advanced' ? 'btn-primary' : 'btn-secondary'}" href="${bookHref}"${calendly ? ' target="_blank" rel="noopener noreferrer"' : ''}>Request ${esc(cap(p.plan))}</a>
         </article>`).join('');
@@ -187,6 +199,16 @@ const faqJsonLd = {
   .page-head h1 { font-size: clamp(2rem, 1.5rem + 2.5vw, 3rem); }
   .page-head p { color: var(--color-muted); font-size: 1.1rem; max-width: 60ch; }
   .page-head .btn { margin-top: 1rem; }
+
+  .svc-currency-note {
+    margin: 0 0 1.25rem;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid var(--color-burgundy-600);
+    background: var(--color-burgundy-50);
+    color: var(--color-ink);
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-size: 0.95rem;
+  }
 
   .svc-list { display: flex; flex-direction: column; gap: 1.75rem; margin-top: 1rem; }
   .svc {
