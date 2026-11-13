@@ -840,9 +840,11 @@ const catalog = await buildCatalog();
     slugOf: (p: PlanLike) => string;
     titleOf: (slug: string) => string;
     reload: () => Promise<void>;
-    update: (id: string, patch: { price_kobo?: number; features?: string[]; active?: boolean }) => Promise<Result>;
+    update: (id: string, patch: any) => Promise<Result>;
     emptyMsg: string;
     currencySymbol?: string;
+    priceLabel?: string;
+    secondField?: { patchKey: string; label: string; symbol: string; valueOf: (p: PlanLike) => number };
   }
 
   function makePricingEditor(opts: PricingEditorOpts) {
@@ -864,7 +866,13 @@ const catalog = await buildCatalog();
       const active = (row.querySelector('[data-active]') as HTMLInputElement).checked;
       const features = (row.querySelector('[data-features]') as HTMLTextAreaElement).value
         .split('\n').map((s) => s.trim()).filter(Boolean);
-      return opts.update(id, { price_kobo: price * 100, features, active });
+      const patch: Record<string, unknown> = { price_kobo: price * 100, features, active };
+      if (opts.secondField) {
+        const el2 = row.querySelector('[data-price2]') as HTMLInputElement | null;
+        const v2 = Math.round(Number(String(el2?.value ?? '').replace(/[^\d]/g, '')) || 0);
+        patch[opts.secondField.patchKey] = v2 * 100;
+      }
+      return opts.update(id, patch);
     }
 
     function render() {
@@ -887,9 +895,12 @@ const catalog = await buildCatalog();
                 <span class="plan-tier">${esc(cap(p.plan))}</span>
                 <label class="plan-active"><input type="checkbox" ${p.active ? 'checked' : ''} data-active /> Active</label>
               </div>
-              <label class="plan-price">Price
+              <label class="plan-price">${esc(opts.priceLabel || 'Price')}
                 <span class="plan-price-field"><span class="plan-naira">${opts.currencySymbol || '₦'}</span><input type="text" value="${Math.round(p.price_kobo / 100).toLocaleString('en-US')}" data-price inputmode="numeric" autocomplete="off" /></span>
               </label>
+              ${opts.secondField ? `<label class="plan-price">${esc(opts.secondField.label)}
+                <span class="plan-price-field"><span class="plan-naira">${esc(opts.secondField.symbol)}</span><input type="text" value="${Math.round((opts.secondField.valueOf(p) || 0) / 100).toLocaleString('en-US')}" data-price2 inputmode="numeric" autocomplete="off" /></span>
+              </label>` : ''}
               <textarea data-features hidden>${esc(feats.join('\n'))}</textarea>
               <button type="button" class="plan-feat-btn" data-edit-feats>Edit features <span class="plan-feat-count" data-feat-count>${feats.length}</span></button>
               <div class="plan-card-foot">
@@ -931,7 +942,7 @@ const catalog = await buildCatalog();
         if (r.ok) { await opts.reload(); render(); }
       }));
 
-      box.querySelectorAll('[data-price]').forEach((el) => {
+      box.querySelectorAll('[data-price], [data-price2]').forEach((el) => {
         const inp = el as HTMLInputElement;
         inp.addEventListener('input', () => {
           const caret = inp.selectionStart ?? inp.value.length;
@@ -992,8 +1003,15 @@ const catalog = await buildCatalog();
     titleOf: serviceTitle,
     reload: async () => { servicePlans = await getServicePlans(); },
     update: updateServicePlan,
-    emptyMsg: 'No service plans found. Run migrations 0008 and 0009 to seed pricing.',
+    emptyMsg: 'No service plans found. Run migrations 0008, 0009 and 0010 to seed pricing.',
     currencySymbol: '$',
+    priceLabel: 'Hourly (USD)',
+    secondField: {
+      patchKey: 'fixed_price_kobo',
+      label: 'Fixed one-time (₦)',
+      symbol: '₦',
+      valueOf: (p) => (p as ServicePlanRow).fixed_price_kobo || 0,
+    },
   });
 
   function renderVouchers() {

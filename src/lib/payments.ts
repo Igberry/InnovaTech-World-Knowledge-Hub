@@ -18,7 +18,10 @@ export async function getPlans(course: string): Promise<Plan[]> {
   return error ? [] : ((data as Plan[]) ?? []);
 }
 
-export interface ServicePlan { service_slug: string; plan: string; price_kobo: number; currency: string; features: string[] }
+export interface ServicePlan {
+  service_slug: string; plan: string; price_kobo: number; fixed_price_kobo: number;
+  currency: string; features: string[];
+}
 
 /** All active service packages (for the public Services page). Anon-readable via RLS. */
 export async function getServicePlans(): Promise<ServicePlan[]> {
@@ -26,7 +29,7 @@ export async function getServicePlans(): Promise<ServicePlan[]> {
   if (!sb) return [];
   const { data, error } = await sb
     .from('service_plans')
-    .select('service_slug, plan, price_kobo, currency, features')
+    .select('service_slug, plan, price_kobo, fixed_price_kobo, currency, features')
     .eq('active', true);
   return error ? [] : ((data as ServicePlan[]) ?? []);
 }
