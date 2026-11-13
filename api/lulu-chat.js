@@ -9,7 +9,7 @@
  * Required Vercel env var (Project -> Settings -> Environment Variables):
  *   GEMINI_API_KEY           the Google Gemini (AI Studio) API key (NEVER commit it)
  * Optional:
- *   GEMINI_MODEL             model id (default: gemini-3.8-flash, on the free tier)
+ *   GEMINI_MODEL             model id (default: gemini-flash-lite-latest, fast + free tier)
  * Reused from the portal (already set):
  *   PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY   for live pricing
  *
@@ -20,7 +20,7 @@
  *   - The key is sent in a header (x-goog-api-key), never in the URL.
  */
 
-const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-3.8-flash';
+const GEMINI_MODEL = process.env.GEMINI_MODEL || 'gemini-flash-lite-latest';
 
 const send = (res, status, body) => {
   res.statusCode = status;
@@ -73,6 +73,7 @@ CONTACT
 - Email: info.innovatech.expertise@gmail.com
 - Phone: +234 912 168 1159
 - Contact page: /contact/
+- Book a free 30-minute consultation call: https://calendly.com/davidigberichuks/30min  (best when someone wants tailored course advice, to discuss done-for-you services, or to talk to a person)
 
 HOW THE SITE WORKS
 - Browse all courses at /courses/. Each course has its own page with lessons, outcomes, downloads and a "Plans & pricing" section.
@@ -99,6 +100,7 @@ HOW TO ANSWER
 - Never promise or guarantee a job, income or specific results. Say the courses build "job-ready skills", not guaranteed outcomes.
 - Never ask for, and never accept, passwords, one-time codes, full card numbers or student records. If a user shares something sensitive, gently tell them not to and continue safely.
 - For account access, payment problems, refunds, enrolment decisions, or anything needing a person, direct them to /contact/ or WhatsApp (https://wa.me/2349121681159).
+- If someone wants tailored advice, to discuss done-for-you services, or to speak with the team, you may offer the consultation booking link (https://calendly.com/davidigberichuks/30min) alongside WhatsApp.
 - Stay on InnovaTech topics. If asked something unrelated, briefly steer back to how you can help with InnovaTech courses and services.
 - You may reply in the language the user writes in; default to clear English.`;
 
@@ -187,42 +189,6 @@ export default async function handler(req, res) {
   }
 
   const body = await readBody(req);
-
-  // TEMP probe: time a tiny generateContent across candidate models (parallel, bounded).
-  if (body && body.op === 'testmodels') {
-    const cands = [
-      { m: 'gemini-3.5-flash-lite', think: false },
-      { m: 'gemini-3.5-flash-lite', think: true },
-      { m: 'gemini-flash-lite-latest', think: false },
-      { m: 'gemini-3.5-flash', think: false },
-      { m: 'gemini-3.5-flash', think: true },
-    ];
-    const tryModel = async ({ m, think }) => {
-      const ac = new AbortController();
-      const timer = setTimeout(() => ac.abort(), 9000);
-      const t0 = Date.now();
-      const gen = { maxOutputTokens: 40 };
-      if (think) gen.thinkingConfig = { thinkingBudget: 0 };
-      try {
-        const rr = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'x-goog-api-key': apiKey },
-          body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: 'Reply with just: OK' }] }], generationConfig: gen }),
-          signal: ac.signal,
-        });
-        const jj = await rr.json().catch(() => ({}));
-        const reply = (jj.candidates?.[0]?.content?.parts || []).map((p) => p.text || '').join('');
-        return { m, think, status: rr.status, ms: Date.now() - t0, finish: jj.candidates?.[0]?.finishReason, reply: reply.slice(0, 40), err: jj.error?.message?.slice(0, 140) };
-      } catch (e) {
-        return { m, think, ms: Date.now() - t0, error: String(e?.name || e).slice(0, 60) };
-      } finally {
-        clearTimeout(timer);
-      }
-    };
-    const results = await Promise.all(cands.map(tryModel));
-    return send(res, 200, { results });
-  }
-
   const messages = cleanMessages(body.messages);
   if (!messages) return send(res, 400, { error: 'No valid message to answer.' });
 
@@ -248,14 +214,12 @@ export default async function handler(req, res) {
     );
 
     if (!r.ok) {
-      const detail = (await r.text().catch(() => '')).slice(0, 500);
       const status = r.status === 429 ? 429 : 502;
       return send(res, status, {
         error:
           status === 429
             ? 'Lulu is busy right now. Please try again shortly.'
             : `Lulu could not reply right now. Please contact InnovaTech: ${REDIRECT}`,
-        debug: { upstreamStatus: r.status, detail },
       });
     }
 
