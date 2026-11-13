@@ -42,19 +42,17 @@ const contactLabel = !isTodo(site.contact.email)
     <h2>Chat assistant (Lulu)</h2>
     <p>
       Lulu is an automated site guide, not a human employee or generative AI. When you send a question,
-      the Site searches published public pages and returns matching excerpts and links. The question is
-      processed by the Site's Vercel-hosted endpoint; it is not sent to OpenAI or another AI provider.
-      Each question is handled independently; no conversation history is sent to the endpoint. Do not
-      send passwords, verification codes, payment details, student records, government IDs, or other
+      your browser searches a static index of published public pages and displays matching excerpts and
+      links. The question is not sent to the Site's server, OpenAI, or another AI provider. Do not send
+      passwords, verification codes, payment details, student records, government IDs, or other
       sensitive information. Search results may be incomplete or out of date; verify important
       information with InnovaTech.
     </p>
     <p>
       InnovaTech does not save Lulu chat transcripts in the Site, Supabase, or your browser's local
       storage. Messages remain in the current page only and are cleared when you reload or leave it.
-      Vercel processes the request and network information to provide the endpoint and may retain
-      operational records under its current terms and settings. The Site's code does not send questions
-      to an external AI service.
+      The browser downloads the published search index from the Site, but does not send your question
+      when searching it. The Site's code does not send questions to an external AI service.
     </p>
 
     <h2>Why we collect it</h2>

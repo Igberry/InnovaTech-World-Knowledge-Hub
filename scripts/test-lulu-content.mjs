@@ -1,6 +1,5 @@
 import assert from 'node:assert/strict';
 import { isGreeting, needsPricingConfirmation, removeHiddenContent, selectKnowledge } from '../src/lib/lulu-content.mjs';
-import { createLocalRateLimiter } from '../src/lib/lulu-rate-limit.mjs';
 
 const sample = [
   '# Public course',
@@ -33,14 +32,4 @@ assert.equal(needsPricingConfirmation('How long is the course?'), false);
 assert.equal(isGreeting('Hi Lulu'), true);
 assert.equal(isGreeting('How long is the course?'), false);
 
-const limiter = createLocalRateLimiter({ tenMinuteLimit: 2, dailyLimit: 3 });
-const baseTime = 1800000000000;
-assert.equal(limiter('hashed-client', baseTime).allowed, true);
-assert.equal(limiter('hashed-client', baseTime + 1).allowed, true);
-assert.equal(limiter('hashed-client', baseTime + 2).reason, 'burst');
-assert.equal(limiter('other-client', baseTime + 2).allowed, true);
-assert.equal(limiter('hashed-client', baseTime + 600000).allowed, true);
-assert.equal(limiter('hashed-client', baseTime + 600001).reason, 'daily');
-assert.equal(limiter('hashed-client', baseTime + 86400000).allowed, true);
-
-console.log('[lulu-test] OK — facilitator content is removed, retrieval is relevant, and caps are enforced per instance.');
+console.log('[lulu-test] OK — facilitator content is removed, retrieval is relevant, and safe fallbacks are used.');

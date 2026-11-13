@@ -3,7 +3,7 @@ import { site } from '../config/site';
 import { resources } from '../data/resources';
 import { HIDDEN_SECTION_HEADINGS } from '../config/hidden-sections.mjs';
 import { emailUrl, phoneUrl, whatsappUrl, withBase } from '../utils/links';
-import { removeHiddenContent, selectKnowledge } from './lulu-content.mjs';
+import { removeHiddenContent } from './lulu-content.mjs';
 
 interface KnowledgeDocument {
   title: string;
@@ -114,11 +114,10 @@ async function loadPublicKnowledge(): Promise<KnowledgeDocument[]> {
   return result.filter((document) => document.content.trim().length > 0);
 }
 
-export async function getRelevantLuluKnowledge(query: string): Promise<string[]> {
+export async function getPublicLuluKnowledge(): Promise<KnowledgeDocument[]> {
   const currentDocuments = documentsPromise ??= loadPublicKnowledge();
   try {
-    const documents = await currentDocuments;
-    return selectKnowledge(documents, query, { maxSnippets: 3, maxCharacters: 3000 });
+    return await currentDocuments;
   } catch (error) {
     if (documentsPromise === currentDocuments) documentsPromise = undefined;
     throw error;
