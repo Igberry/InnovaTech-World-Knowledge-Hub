@@ -4,7 +4,7 @@
 // the slug that links a service to its pricing rows. Keep slugs in sync with
 // supabase/migrations/0008_service_plans.sql.
 
-export type ServiceCadence = 'project' | 'month';
+export type ServiceCadence = 'hour';
 
 export interface ServiceMeta {
   slug: string;
@@ -23,7 +23,7 @@ export const services: ServiceMeta[] = [
     description:
       'We design, build and deploy fast, modern websites and full web applications, coded from the ground up for your exact needs.',
     icon: 'lucide:code',
-    cadence: 'project',
+    cadence: 'hour',
   },
   {
     slug: 'wordpress-web-development',
@@ -32,7 +32,7 @@ export const services: ServiceMeta[] = [
     description:
       'Polished, secure WordPress sites and online stores, set up so you can update content on your own with confidence.',
     icon: 'lucide:layout-template',
-    cadence: 'project',
+    cadence: 'hour',
   },
   {
     slug: 'data-analysis',
@@ -41,7 +41,7 @@ export const services: ServiceMeta[] = [
     description:
       'We clean, analyse and visualise your data into dashboards and reports that show what is really happening and what to do next.',
     icon: 'lucide:bar-chart-3',
-    cadence: 'project',
+    cadence: 'hour',
   },
   {
     slug: 'automation',
@@ -50,7 +50,7 @@ export const services: ServiceMeta[] = [
     description:
       'We map your repetitive tasks and build dependable automations that save hours every week, using affordable no-code tools.',
     icon: 'lucide:workflow',
-    cadence: 'project',
+    cadence: 'hour',
   },
   {
     slug: 'graphics-design',
@@ -59,7 +59,7 @@ export const services: ServiceMeta[] = [
     description:
       'Logos, brand kits and social media designs that make your business look credible and consistent everywhere it appears.',
     icon: 'lucide:palette',
-    cadence: 'project',
+    cadence: 'hour',
   },
   {
     slug: 'seo-aeo-geo',
@@ -68,7 +68,7 @@ export const services: ServiceMeta[] = [
     description:
       'We optimise your site so people find you on Google (SEO), in AI answer engines (AEO) and in generative results (GEO).',
     icon: 'lucide:search',
-    cadence: 'month',
+    cadence: 'hour',
   },
   {
     slug: 'virtual-assistance',
@@ -77,7 +77,7 @@ export const services: ServiceMeta[] = [
     description:
       'Reliable, trained virtual assistants who manage your inbox, schedule, customers and admin so you can focus on the work that grows your business.',
     icon: 'lucide:headset',
-    cadence: 'month',
+    cadence: 'hour',
   },
 ];
 
@@ -85,4 +85,4 @@ export const serviceTitle = (slug: string): string =>
   services.find((s) => s.slug === slug)?.title ?? slug;
 
 export const serviceCadence = (slug: string): ServiceCadence =>
-  services.find((s) => s.slug === slug)?.cadence ?? 'project';
+  services.find((s) => s.slug === slug)?.cadence ?? 'hour';
