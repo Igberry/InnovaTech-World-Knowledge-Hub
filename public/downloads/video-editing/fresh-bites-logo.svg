@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="180" viewBox="0 0 640 180" role="img" aria-labelledby="title desc">
+  <title id="title">Fictional Fresh Bites wordmark</title>
+  <desc id="desc">A simple green leaf beside the words Fresh Bites in dark navy.</desc>
+  <rect width="640" height="180" rx="24" fill="#ffffff"/>
+  <path d="M92 124C48 92 70 42 137 31c-2 47-13 78-45 93Z" fill="#2f7653"/>
+  <path d="M91 124c10-30 27-51 49-70" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+  <text x="170" y="112" fill="#0b3b66" font-family="Arial, sans-serif" font-size="66" font-weight="700">Fresh Bites</text>
+</svg>

@@ -83,6 +83,12 @@ export const resources: Resource[] = [
   { title: 'AI for Everyone (Coursera)', url: 'https://www.coursera.org/learn/ai-for-everyone', category: 'Artificial intelligence', description: 'A non-technical overview of AI and how to use it (audit for free).' },
   { title: 'Microsoft Learn - AI', url: 'https://learn.microsoft.com/training/', category: 'Artificial intelligence', description: 'Free, structured training modules, including AI basics.' },
 
+  // Video editing
+  { title: 'CapCut', url: 'https://www.capcut.com/', category: 'Video editing', description: 'Official CapCut site; check the current desktop/mobile features, terms, export limits and availability before use.' },
+  { title: 'DaVinci Resolve', url: 'https://www.blackmagicdesign.com/products/davinciresolve', category: 'Video editing', description: 'Official Blackmagic Design product page and download information; verify current system requirements and free-version features.' },
+  { title: 'Shotcut', url: 'https://shotcut.org/', category: 'Video editing', description: 'Official open-source Shotcut editor site; check current downloads and system requirements.' },
+  { title: 'YouTube Audio Library help', url: 'https://support.google.com/youtube/answer/3376882', category: 'Video editing', description: 'Official YouTube guidance for audio-library use; review the current licence and attribution requirements for each track.' },
+
   // Virtual assistant tools
   { title: 'Trello', url: 'https://trello.com', category: 'Virtual assistant tools', description: 'A simple task board for tracking work per client.' },
   { title: 'ClickUp', url: 'https://clickup.com', category: 'Virtual assistant tools', description: 'Tasks, docs and projects in one tool (free tier).' },
