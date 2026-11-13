@@ -187,6 +187,19 @@ export default async function handler(req, res) {
   }
 
   const body = await readBody(req);
+
+  // TEMP probe: list models this key can use with generateContent.
+  if (body && body.op === 'listmodels') {
+    const lr = await fetch('https://generativelanguage.googleapis.com/v1beta/models?pageSize=200', {
+      headers: { 'x-goog-api-key': apiKey },
+    });
+    const lj = await lr.json().catch(() => ({}));
+    const models = (lj.models || [])
+      .filter((m) => (m.supportedGenerationMethods || []).includes('generateContent'))
+      .map((m) => m.name);
+    return send(res, 200, { status: lr.status, models, error: lj.error });
+  }
+
   const messages = cleanMessages(body.messages);
   if (!messages) return send(res, 400, { error: 'No valid message to answer.' });
 
@@ -212,12 +225,14 @@ export default async function handler(req, res) {
     );
 
     if (!r.ok) {
+      const detail = (await r.text().catch(() => '')).slice(0, 500);
       const status = r.status === 429 ? 429 : 502;
       return send(res, status, {
         error:
           status === 429
             ? 'Lulu is busy right now. Please try again shortly.'
             : `Lulu could not reply right now. Please contact InnovaTech: ${REDIRECT}`,
+        debug: { upstreamStatus: r.status, detail },
       });
     }
 
