@@ -31,8 +31,9 @@ import passages from '../../data/typing-passages.json';
 
     <section class="practice-card" aria-label="Typing test">
       <h2 id="passage-title">{passages[0].title}</h2>
-      <p class="passage-instructions" id="passage-help">Type the passage below. Correct characters are shown in green; mismatches are marked in burgundy.</p>
+      <p class="passage-instructions" id="passage-help">Type the passage below. Correct characters show in green; mismatches in burgundy. The next key to press is highlighted on the keyboard guide, so you can learn to type without looking down.</p>
       <div class="passage" id="passage" aria-hidden="true"></div>
+      <div class="keyboard" id="keyboard" aria-hidden="true"></div>
       <label for="typed-text">Your typing</label>
       <textarea id="typed-text" rows="4" spellcheck="false" autocomplete="off" autocapitalize="off" aria-describedby="passage-help" placeholder="Click here and begin typing…"></textarea>
       <div class="test-status">
@@ -79,7 +80,54 @@ import passages from '../../data/typing-passages.json';
   const saveStatus = document.querySelector<HTMLElement>('#save-status')!;
   const savedResultsList = document.querySelector<HTMLUListElement>('#saved-results-list')!;
   const offlineNote = document.querySelector<HTMLElement>('#offline-note')!;
+  const keyboard = document.querySelector<HTMLElement>('#keyboard')!;
   const storageKey = 'itw-typing-practice-results';
+
+  // On-screen keyboard guide: highlights the next key to press.
+  const KEY_ROWS = [
+    ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'],
+    ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+    ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';'],
+    ['z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/'],
+  ];
+  const HOME_KEYS = new Set(['a', 's', 'd', 'f', 'j', 'k', 'l', ';']);
+  const keyElements = new Map<string, HTMLElement>();
+
+  function buildKeyboard(): void {
+    const fragment = document.createDocumentFragment();
+    for (const row of KEY_ROWS) {
+      const rowEl = document.createElement('div');
+      rowEl.className = 'kb-row';
+      for (const key of row) {
+        const keyEl = document.createElement('span');
+        keyEl.className = 'kb-key';
+        if (HOME_KEYS.has(key)) keyEl.classList.add('kb-home');
+        if (key === 'f' || key === 'j') keyEl.classList.add('kb-bump');
+        keyEl.textContent = key;
+        keyElements.set(key, keyEl);
+        rowEl.append(keyEl);
+      }
+      fragment.append(rowEl);
+    }
+    const spaceRow = document.createElement('div');
+    spaceRow.className = 'kb-row';
+    const spaceEl = document.createElement('span');
+    spaceEl.className = 'kb-key kb-space';
+    spaceEl.textContent = 'space';
+    keyElements.set(' ', spaceEl);
+    spaceRow.append(spaceEl);
+    fragment.append(spaceRow);
+    keyboard.replaceChildren(fragment);
+  }
+
+  function highlightNextKey(): void {
+    keyElements.forEach((el) => el.classList.remove('kb-next'));
+    if (finished) return;
+    const nextChar = Array.from(selectedPassage().text)[Array.from(input.value).length];
+    if (!nextChar) return;
+    const target = keyElements.get(nextChar.toLowerCase());
+    if (target) target.classList.add('kb-next');
+  }
   let startedAt: number | null = null;
   let timer: number | undefined;
   let finished = false;
@@ -112,6 +160,7 @@ import passages from '../../data/typing-passages.json';
       fragment.append(span);
     });
     passageView.replaceChildren(fragment);
+    highlightNextKey();
   }
 
   function readSavedResults(): SavedResult[] {
@@ -223,6 +272,7 @@ import passages from '../../data/typing-passages.json';
   durationSelect.addEventListener('change', resetTest);
   document.querySelector<HTMLButtonElement>('#reset-test')!.addEventListener('click', resetTest);
   progress.max = selectedDuration() * 60;
+  buildKeyboard();
   renderPassage();
   refreshSavedResults();
 
@@ -267,6 +317,28 @@ import passages from '../../data/typing-passages.json';
   .typing-tool .passage .correct { color: #15803d; }
   .typing-tool .passage .incorrect { color: var(--color-burgundy-600); text-decoration: underline; text-decoration-thickness: 2px; }
   .typing-tool .passage .current { border-left: 2px solid var(--color-blue-600); }
+  .typing-tool .keyboard { display: grid; gap: 0.3rem; margin: 1rem 0; user-select: none; }
+  .typing-tool .kb-row { display: flex; justify-content: center; gap: 0.3rem; }
+  .typing-tool .kb-key {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-width: 2rem; height: 2.2rem; padding: 0 0.4rem;
+    border: 1px solid var(--color-border); border-radius: 0.4rem;
+    background: var(--surface-2); color: var(--color-ink);
+    font-size: 0.85rem; text-transform: uppercase; transition: background 0.08s ease;
+  }
+  .typing-tool .kb-key.kb-space { flex: 1 1 16rem; max-width: 18rem; text-transform: lowercase; letter-spacing: 0.1em; }
+  .typing-tool .kb-key.kb-home { border-color: var(--color-blue-500); }
+  .typing-tool .kb-key.kb-bump { position: relative; }
+  .typing-tool .kb-key.kb-bump::after {
+    content: ''; position: absolute; bottom: 4px; left: 50%; width: 10px; height: 2px;
+    transform: translateX(-50%); background: var(--color-blue-600); border-radius: 2px;
+  }
+  .typing-tool .kb-key.kb-next {
+    background: var(--color-burgundy-600); color: #fff; border-color: var(--color-burgundy-600); font-weight: 700;
+  }
+  @media (max-width: 480px) {
+    .typing-tool .kb-key { min-width: 1.55rem; height: 1.95rem; font-size: 0.72rem; padding: 0 0.2rem; }
+  }
   .typing-tool textarea { display: block; width: 100%; min-height: 7rem; resize: vertical; }
   .typing-tool .test-status { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; }
   .typing-tool progress { width: 100%; }
