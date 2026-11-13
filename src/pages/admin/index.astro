@@ -267,6 +267,10 @@ const catalog = await buildCatalog();
     padding: 0 0.35rem; font-size: 0.72rem; font-weight: 700; line-height: 1.5;
     color: #fff; background: var(--color-burgundy-600); border-radius: 999px;
   }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) #admin .plan-feat-btn { color: #fff; border-color: var(--color-burgundy-200); }
+  }
+  :root[data-theme='dark'] #admin .plan-feat-btn { color: #fff; border-color: var(--color-burgundy-200); }
   #admin .plan-card-foot { display: flex; align-items: center; gap: 0.6rem; margin-top: auto; }
   #admin .plan-card-foot .btn { padding-block: 0.4rem; }
   #admin .plan-msg { font-size: 0.8rem; }
