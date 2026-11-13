@@ -1,5 +1,5 @@
 ---
-title: "Automation (Work Less, Done More)"
+title: "Automation (Less Work, More Done)"
 slug: "automation"
 status: "available"
 category: "AI & Automation"
