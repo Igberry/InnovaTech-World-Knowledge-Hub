@@ -25,7 +25,10 @@ export function whatsappUrl(course?: string): string | null {
     '{course}',
     course ?? 'training',
   );
-  return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
+  const encodedMessage = encodeURIComponent(message).replace(/[!'()*]/g, (character) =>
+    `%${character.charCodeAt(0).toString(16).toUpperCase()}`,
+  );
+  return `https://wa.me/${number}?text=${encodedMessage}`;
 }
 
 /** tel: link for the office call line, or null if not configured. */

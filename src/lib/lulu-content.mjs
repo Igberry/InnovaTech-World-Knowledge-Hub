@@ -79,6 +79,21 @@ export function knowledgeTerms(value) {
 }
 
 /**
+ * Pricing and payment details require confirmation from the business.
+ * @param {string} query
+ */
+export function needsPricingConfirmation(query) {
+  return /\b(?:price|pricing|cost|fee|fees|pay|paid|payment|payments|tuition|refund|discount|free|installments?|instalments?)\b|\bhow much\b/i.test(query);
+}
+
+/**
+ * @param {string} query
+ */
+export function isGreeting(query) {
+  return /^(?:(?:hi|hello|hey)(?:\s+lulu)?|good\s+(?:morning|afternoon|evening))[!.,\s]*$/i.test(query.trim());
+}
+
+/**
  * @typedef {{ title: string; content: string; reference?: string; category?: string }} KnowledgeDocument
  */
 

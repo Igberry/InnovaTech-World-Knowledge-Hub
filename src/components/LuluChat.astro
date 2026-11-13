@@ -126,7 +126,19 @@ const whatsapp = whatsappUrl('training');
           body: JSON.stringify({ message }),
           signal: AbortSignal.timeout(30000),
         });
-        const result = await response.json() as { answer?: unknown; error?: unknown };
+        const responseText = await response.text();
+        let payload: unknown;
+        try {
+          payload = JSON.parse(responseText);
+        } catch {
+          const error = response.status === 404
+            ? 'Lulu’s search service is not available on this deployment yet.'
+            : 'Lulu received an unexpected response. Please try again later.';
+          throw new Error(error);
+        }
+        const result = payload && typeof payload === 'object'
+          ? payload as { answer?: unknown; error?: unknown }
+          : {};
         if (!response.ok || typeof result.answer !== 'string') {
           throw new Error(typeof result.error === 'string' ? result.error : 'Lulu could not answer right now.');
         }
