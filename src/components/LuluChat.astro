@@ -16,35 +16,38 @@ const whatsapp = whatsappUrl('training');
   >
     <section class="lulu-panel" id="lulu-panel" role="dialog" aria-modal="false" aria-labelledby="lulu-title" hidden>
       <header class="lulu-header">
-        <div>
-          <h2 id="lulu-title">Chat with Lulu</h2>
-          <p>Lulu is an automated guide to InnovaTech’s published pages.</p>
-        </div>
-        <button class="lulu-close" type="button" aria-label="Close Lulu chat" data-lulu-close>
+        <h2 id="lulu-title">Chat with Lulu</h2>
+        <div class="lulu-controls">
+          <button class="lulu-control" type="button" aria-label="Minimize Lulu chat" data-lulu-minimize>
+            <Icon name="lucide:minus" width={20} height={20} aria-hidden="true" />
+          </button>
+          <button class="lulu-control" type="button" aria-label="Close Lulu chat" data-lulu-close>
           <Icon name="lucide:x" width={20} height={20} aria-hidden="true" />
-        </button>
+          </button>
+        </div>
       </header>
       <ol class="lulu-messages" data-lulu-messages role="log" aria-live="polite" aria-relevant="additions text">
         <li class="lulu-message lulu-assistant">
-          <p>Hello, I’m Lulu, InnovaTech’s automated site guide. I search published pages and show relevant passages; I don’t generate answers. Please don’t share passwords, payment details, student records or other sensitive information.</p>
+          <span class="lulu-speaker">Lulu</span>
+          <p class="lulu-bubble">Hello, I’m Lulu, InnovaTech’s automated site guide. I search published pages and show relevant passages; I don’t generate answers. Please don’t share passwords, payment details, student records or other sensitive information.</p>
         </li>
       </ol>
-      <p class="lulu-privacy">
-        Your question is searched against published pages. No AI provider is used, and InnovaTech does not save chat transcripts.
-        <a href={withBase('/privacy/')}>Privacy details</a>
-      </p>
+      <details class="lulu-info">
+        <summary>Privacy and contact</summary>
+        <p class="lulu-privacy">
+          Your question is searched against published pages. No AI provider is used, and InnovaTech does not save chat transcripts.
+          <a href={withBase('/privacy/')}>Privacy details</a>
+          <span>Need a person? <a href={whatsapp ?? withBase('/contact/')} target={whatsapp ? '_blank' : undefined} rel={whatsapp ? 'noopener noreferrer' : undefined}>Contact InnovaTech</a></span>
+        </p>
+      </details>
       <form class="lulu-form" data-lulu-form>
         <label class="sr-only" for="lulu-input">Your question</label>
-        <input id="lulu-input" name="message" type="text" maxlength="1500" autocomplete="off" placeholder="Ask Lulu a question" required />
-        <button class="btn btn-primary" type="submit" data-lulu-send>
-          <span>Send</span>
+        <input id="lulu-input" name="message" type="text" maxlength="1500" autocomplete="off" placeholder="Enter your message..." required />
+        <button class="btn btn-primary lulu-send" type="submit" aria-label="Send message" data-lulu-send>
           <Icon name="lucide:send" width={17} height={17} aria-hidden="true" />
         </button>
       </form>
       <p class="lulu-status" data-lulu-status role="status" aria-live="polite"></p>
-      <p class="lulu-handoff">
-        Need a person? <a href={whatsapp ?? withBase('/contact/')} target={whatsapp ? '_blank' : undefined} rel={whatsapp ? 'noopener noreferrer' : undefined}>Contact InnovaTech</a>
-      </p>
     </section>
     <button class="lulu-launch" type="button" aria-expanded="false" aria-controls="lulu-panel" data-lulu-open>
       <Icon name="lucide:message-circle" width={21} height={21} aria-hidden="true" />
@@ -68,6 +71,7 @@ const whatsapp = whatsappUrl('training');
     const panel = document.getElementById('lulu-panel');
     const openButton = root?.querySelector<HTMLButtonElement>('[data-lulu-open]');
     const closeButton = root?.querySelector<HTMLButtonElement>('[data-lulu-close]');
+    const minimizeButton = root?.querySelector<HTMLButtonElement>('[data-lulu-minimize]');
     const form = root?.querySelector<HTMLFormElement>('[data-lulu-form]');
     const input = root?.querySelector<HTMLInputElement>('#lulu-input');
     const messages = root?.querySelector<HTMLOListElement>('[data-lulu-messages]');
@@ -88,7 +92,11 @@ const whatsapp = whatsappUrl('training');
       if (!messages) return;
       const item = document.createElement('li');
       item.className = `lulu-message lulu-${role}`;
+      const speaker = document.createElement('span');
+      speaker.className = 'lulu-speaker';
+      speaker.textContent = role === 'user' ? 'me' : 'Lulu';
       const paragraph = document.createElement('p');
+      paragraph.className = 'lulu-bubble';
       const linkPattern = /(https?:\/\/[^\s<>"']+|\/[a-zA-Z0-9._~!$&'()*+,;=:@%/-]+)/g;
       let offset = 0;
       for (const match of text.matchAll(linkPattern)) {
@@ -117,6 +125,7 @@ const whatsapp = whatsappUrl('training');
         offset = index + match[0].length;
       }
       if (offset < text.length) paragraph.append(document.createTextNode(text.slice(offset)));
+      item.append(speaker);
       item.append(paragraph);
       messages.append(item);
       messages.scrollTop = messages.scrollHeight;
@@ -162,6 +171,7 @@ const whatsapp = whatsappUrl('training');
 
     openButton?.addEventListener('click', () => setOpen(panel?.hidden ?? true));
     closeButton?.addEventListener('click', () => setOpen(false));
+    minimizeButton?.addEventListener('click', () => setOpen(false));
     form?.addEventListener('submit', async (event) => {
       event.preventDefault();
       const message = input?.value.trim();
@@ -234,8 +244,8 @@ const whatsapp = whatsappUrl('training');
     bottom: calc(100% + 0.75rem);
     display: flex;
     flex-direction: column;
-    width: min(25rem, calc(100vw - 2rem));
-    max-height: min(40rem, calc(100dvh - 7rem));
+    width: min(22rem, calc(100vw - 1.5rem));
+    max-height: min(36rem, calc(100dvh - 5.5rem));
     overflow: hidden;
     border: 1px solid var(--color-border);
     border-radius: 1rem;
@@ -249,62 +259,65 @@ const whatsapp = whatsappUrl('training');
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
-    padding: 0.9rem 1rem;
+    padding: 0.55rem 0.75rem;
     border-bottom: 1px solid var(--color-border);
     background: var(--color-blue-50);
   }
-  .lulu-header h2 { margin: 0; font-size: 1.05rem; }
-  .lulu-header p { margin: 0.15rem 0 0; color: var(--color-muted); font-size: 0.8rem; }
-  .lulu-close {
+  .lulu-header h2 { margin: 0; font-size: 0.95rem; }
+  .lulu-controls { display: flex; align-items: center; gap: 0.35rem; }
+  .lulu-control {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-width: 2.5rem;
-    min-height: 2.5rem;
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
-    background: var(--surface);
+    min-width: 2.25rem;
+    min-height: 2.25rem;
+    border: 0;
+    border-radius: 0.4rem;
+    background: transparent;
     color: var(--color-ink);
     cursor: pointer;
   }
+  .lulu-control:hover { background: var(--surface); }
   .lulu-messages {
     display: flex;
     flex: 1 1 auto;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.85rem;
     min-height: 10rem;
     overflow-y: auto;
     margin: 0;
-    padding: 1rem;
+    padding: 0.9rem 0.75rem;
     list-style: none;
   }
-  .lulu-message { max-width: 92%; padding: 0.7rem 0.8rem; border-radius: 0.75rem; }
-  .lulu-message p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 0.9rem; }
+  .lulu-message { display: flex; flex-direction: column; gap: 0.3rem; max-width: 92%; }
+  .lulu-speaker { color: var(--color-muted); font-size: 0.75rem; }
+  .lulu-bubble { margin: 0; padding: 0.65rem 0.8rem; border-radius: 1rem; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 0.9rem; }
   .lulu-message a { overflow-wrap: anywhere; }
-  .lulu-assistant { align-self: flex-start; background: var(--color-blue-50); }
-  .lulu-user { align-self: flex-end; background: var(--color-burgundy-50); }
-  .lulu-privacy { margin: 0; padding: 0 1rem 0.65rem; color: var(--color-muted); font-size: 0.73rem; }
-  .lulu-privacy a, .lulu-handoff a { color: var(--color-burgundy-text); }
-  .lulu-form { display: flex; gap: 0.5rem; padding: 0.75rem 1rem; border-top: 1px solid var(--color-border); }
+  .lulu-assistant { align-self: flex-start; align-items: flex-start; }
+  .lulu-assistant .lulu-bubble { background: var(--color-blue-50); }
+  .lulu-user { align-self: flex-end; align-items: flex-end; }
+  .lulu-user .lulu-bubble { background: var(--color-burgundy-50); }
+  .lulu-info { padding: 0.4rem 0.75rem; border-top: 1px solid var(--color-border); color: var(--color-muted); font-size: 0.72rem; }
+  .lulu-info summary { width: fit-content; cursor: pointer; }
+  .lulu-privacy { display: grid; gap: 0.25rem; margin: 0.4rem 0 0; }
+  .lulu-privacy a { color: var(--color-burgundy-text); }
+  .lulu-form { display: flex; gap: 0.5rem; padding: 0.5rem 0.65rem; border-top: 1px solid var(--color-border); }
   .lulu-form input {
     min-width: 0;
     flex: 1 1 auto;
-    padding: 0.65rem 0.75rem;
-    border: 1px solid var(--color-border);
-    border-radius: 0.5rem;
+    padding: 0.6rem 0.65rem;
+    border: 0;
+    border-radius: 0.25rem;
     background: var(--bg);
     color: var(--color-ink);
     font: inherit;
   }
-  .lulu-form .btn { flex: 0 0 auto; padding: 0.6rem 0.75rem; }
+  .lulu-form .btn { flex: 0 0 auto; min-width: 2.5rem; min-height: 2.5rem; padding: 0.55rem; }
   .lulu-form .btn:disabled { cursor: wait; opacity: 0.65; }
-  .lulu-status { min-height: 1.25rem; margin: 0; padding: 0 1rem; color: var(--color-muted); font-size: 0.78rem; }
-  .lulu-handoff { margin: 0; padding: 0.35rem 1rem 0.8rem; color: var(--color-muted); font-size: 0.8rem; }
+  .lulu-status { min-height: 0; margin: 0; padding: 0 0.75rem 0.3rem; color: var(--color-muted); font-size: 0.75rem; }
   .lulu :focus-visible { outline: 3px solid var(--color-burgundy-600); outline-offset: 2px; }
   @media (max-width: 420px) {
     .lulu { right: max(0.75rem, env(safe-area-inset-right)); bottom: max(0.75rem, env(safe-area-inset-bottom)); }
-    .lulu-panel { width: calc(100vw - 1.5rem); max-height: calc(100dvh - 6rem); }
-    .lulu-form .btn span { display: none; }
-    .lulu-form .btn { min-width: 2.75rem; padding-inline: 0.65rem; }
+    .lulu-panel { width: calc(100vw - 1.5rem); max-height: calc(100dvh - 5.5rem); }
   }
 </style>
