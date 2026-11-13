@@ -4,6 +4,8 @@ Lulu is a keyless, keyword-based site search assistant. It searches published pu
 
 The chat widget is enabled by default. To hide it for a deployment, set the build-time variable `PUBLIC_LULU_ENABLED=false` and rebuild. To disable API responses without a rebuild, set the server-side variable `LULU_ENABLED=false`; it is enabled when this variable is unset.
 
+The endpoint is a Vercel server route, not a static file. In Vercel project settings, keep the Astro framework preset and leave any custom Output Directory override blank so the Vercel adapter's `.vercel/output` (including its server function) is deployed. GitHub Pages and static-only deployments cannot run the endpoint. After deployment, a `POST` to `/api/lulu/` with JSON `{"message":"What courses are available?"}` should return JSON. A Vercel `NOT_FOUND` response means the deployed project is missing the server function; confirm the correct Vercel project/deployment and build settings, then redeploy.
+
 ## What it searches
 
 Lulu searches public business information, services, resources, available courses and lessons, and published non-draft Insights. Coming-soon courses, draft lessons and Insights, admin/student data, database content, facilitator notes, and unpublished working-tree changes are excluded. Course and Insights content is loaded from the current deployment. Public content changes take effect after redeploying.

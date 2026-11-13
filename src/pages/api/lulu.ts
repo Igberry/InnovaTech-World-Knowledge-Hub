@@ -1,6 +1,7 @@
 import { createHmac, randomBytes } from 'node:crypto';
 import type { APIRoute } from 'astro';
 import { getRelevantLuluKnowledge } from '../../lib/lulu-knowledge';
+import { isGreeting, needsPricingConfirmation } from '../../lib/lulu-content.mjs';
 import { createLocalRateLimiter } from '../../lib/lulu-rate-limit.mjs';
 import { withBase } from '../../utils/links';
 
@@ -75,9 +76,21 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     );
   }
 
+  const query = body.message.trim();
+  if (isGreeting(query)) {
+    return jsonResponse(200, {
+      answer: 'Hi! I can search InnovaTech’s published pages for courses, services, resources, and Insights. What would you like to find?',
+    });
+  }
+  if (needsPricingConfirmation(query)) {
+    return jsonResponse(200, {
+      answer: `The published site does not list current course prices or payment methods. Please confirm them with InnovaTech: ${withBase('/contact/')}`,
+    });
+  }
+
   let excerpts: string[];
   try {
-    excerpts = await getRelevantLuluKnowledge(body.message.trim());
+    excerpts = await getRelevantLuluKnowledge(query);
   } catch {
     console.error('[lulu] Public knowledge could not be loaded.');
     return jsonResponse(503, { error: 'Lulu could not search the published information. Please try again later.' });

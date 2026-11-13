@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { removeHiddenContent, selectKnowledge } from '../src/lib/lulu-content.mjs';
+import { isGreeting, needsPricingConfirmation, removeHiddenContent, selectKnowledge } from '../src/lib/lulu-content.mjs';
 import { createLocalRateLimiter } from '../src/lib/lulu-rate-limit.mjs';
 
 const sample = [
@@ -28,6 +28,10 @@ const snippets = selectKnowledge([
 assert.equal(snippets.length, 1);
 assert.match(snippets[0], /eight weeks/);
 assert.deepEqual(selectKnowledge([], 'Any question'), []);
+assert.equal(needsPricingConfirmation('How do I pay for the courses?'), true);
+assert.equal(needsPricingConfirmation('How long is the course?'), false);
+assert.equal(isGreeting('Hi Lulu'), true);
+assert.equal(isGreeting('How long is the course?'), false);
 
 const limiter = createLocalRateLimiter({ tenMinuteLimit: 2, dailyLimit: 3 });
 const baseTime = 1800000000000;
