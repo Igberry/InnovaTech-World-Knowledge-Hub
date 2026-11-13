@@ -56,7 +56,13 @@ export const resources: Resource[] = [
   { title: 'Upwork', url: 'https://www.upwork.com', category: 'Remote work & careers', description: 'A major freelance platform (check current fees and terms).' },
   { title: 'Trello', url: 'https://trello.com', category: 'Remote work & careers', description: 'A simple task board for organising work.' },
   { title: 'Notion', url: 'https://www.notion.so', category: 'Remote work & careers', description: 'Notes, documents and task boards in one place.' },
-  { title: 'Google Workspace', url: 'https://workspace.google.com', category: 'Remote work & careers', description: 'Free Docs, Sheets and Drive for remote work.' },
+  { title: 'Google Workspace', url: 'https://workspace.google.com', category: 'Google Workspace skills', description: 'Official overview of Google productivity apps; personal accounts and paid Workspace plans have different features.' },
+  { title: 'Google Workspace Learning Center', url: 'https://support.google.com/a/users/', category: 'Google Workspace skills', description: 'Official how-to guides for Gmail, Calendar, Drive, Docs, Sheets and other Workspace apps (checked November 2026).' },
+  { title: 'Google Docs, Sheets and Slides offline', url: 'https://support.google.com/docs/answer/6388102', category: 'Google Workspace skills', description: 'Official offline setup steps and browser requirements; account administrators may restrict access (checked November 2026).' },
+  { title: 'Gmail search operators', url: 'https://support.google.com/mail/answer/7190', category: 'Google Workspace skills', description: 'Official examples for searching messages and creating filters (checked November 2026).' },
+  { title: 'Google Sheets QUERY function', url: 'https://support.google.com/docs/answer/3093343', category: 'Google Workspace skills', description: 'Official syntax and examples for summarising Sheets data with QUERY (checked November 2026).' },
+  { title: 'Google Sites publish and share', url: 'https://support.google.com/sites/answer/6372880', category: 'Google Workspace skills', description: 'Official publishing and audience settings; review who can view a site before sharing (checked November 2026).' },
+  { title: 'Associate Google Workspace Administrator', url: 'https://cloud.google.com/learn/certification/associate-google-workspace-administrator', category: 'Google Workspace skills', description: 'Official certification exam details and recommended experience; verify current eligibility, fee and regional access before registering (checked November 2026).' },
 
   // Cybersecurity
   { title: 'Have I Been Pwned', url: 'https://haveibeenpwned.com', category: 'Cybersecurity', description: 'Check whether your email appeared in a known data breach.' },
