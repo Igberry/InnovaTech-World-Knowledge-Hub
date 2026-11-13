@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: 'What currency are the prices in, and how do I pay?',
-    a: 'Our rates are quoted per hour in US Dollars (USD). You pay in Nigerian Naira, at the current Naira equivalent of the Dollar amount. For most work we agree an estimated number of hours upfront and take a deposit to begin, then confirm everything in writing before we start.',
+    a: 'Hourly rates are quoted in US Dollars (USD) and paid in Nigerian Naira, at the current Naira equivalent. For a one-off job you can instead choose the fixed one-time price, shown in Naira (₦). For hourly work we agree an estimated number of hours upfront and take a deposit to begin, then confirm everything in writing before we start.',
   },
   {
     q: 'Can I hire trained talent instead of a done-for-you project?',
@@ -77,8 +77,8 @@ const faqJsonLd = {
   </header>
 
   <p class="svc-currency-note" role="note">
-    <strong>Note:</strong> all service rates are shown per hour in US Dollars ($). You pay in Nigerian Naira,
-    at the current Naira equivalent of the Dollar amount.
+    <strong>Note:</strong> hourly rates are shown in US Dollars ($) and are paid in Nigerian Naira, at the
+    current Naira equivalent. Prefer a one-off job? Each package also has a fixed one-time price in Naira (₦).
   </p>
 
   <div class="svc-list">
@@ -187,6 +187,7 @@ const faqJsonLd = {
           ${p.plan === 'advanced' ? '<span class="svc-badge">Most popular</span>' : ''}
           <h3>${esc(cap(p.plan))}</h3>
           <div class="svc-price">${money(p.price_kobo, p.currency)}<span class="svc-per">/hr</span></div>
+          ${p.fixed_price_kobo ? `<div class="svc-fixed">or ${money(p.fixed_price_kobo, 'NGN')} one-time</div>` : ''}
           <ul>${(p.features || []).map((f) => `<li>${esc(f)}</li>`).join('')}</ul>
           <a class="btn ${p.plan === 'advanced' ? 'btn-primary' : 'btn-secondary'}" href="${bookHref}"${calendly ? ' target="_blank" rel="noopener noreferrer"' : ''}>Request ${esc(cap(p.plan))}</a>
         </article>`).join('');
@@ -252,8 +253,9 @@ const faqJsonLd = {
     padding: 0.2rem 0.55rem; border-radius: 999px; text-transform: uppercase;
   }
   .svc-plans :global(.svc-plan h3) { margin: 0.3rem 0 0.4rem; font-size: 1.15rem; }
-  .svc-plans :global(.svc-price) { font-size: 1.7rem; font-weight: 700; color: var(--color-burgundy-text); margin-bottom: 0.9rem; }
+  .svc-plans :global(.svc-price) { font-size: 1.7rem; font-weight: 700; color: var(--color-burgundy-text); margin-bottom: 0.2rem; }
   .svc-plans :global(.svc-price .svc-per) { font-size: 0.9rem; font-weight: 600; color: var(--color-muted); }
+  .svc-plans :global(.svc-fixed) { font-size: 0.9rem; color: var(--color-muted); margin-bottom: 0.9rem; }
   .svc-plans :global(.svc-plan ul) { list-style: none; margin: 0 0 1.2rem; padding: 0; display: grid; gap: 0.45rem; }
   .svc-plans :global(.svc-plan li) { position: relative; padding-left: 1.4rem; color: var(--color-ink); font-size: 0.92rem; }
   .svc-plans :global(.svc-plan li)::before {

@@ -117,14 +117,14 @@ export async function updateCoursePlan(
 // ---------- Service packages & pricing ----------
 export interface ServicePlanRow {
   id: string; service_slug: string; plan: string; price_kobo: number;
-  currency: string; features: string[]; active: boolean;
+  fixed_price_kobo: number; currency: string; features: string[]; active: boolean;
 }
 export const getServicePlans = () =>
-  selectAll<ServicePlanRow>('service_plans', 'id, service_slug, plan, price_kobo, currency, features, active, sort');
+  selectAll<ServicePlanRow>('service_plans', 'id, service_slug, plan, price_kobo, fixed_price_kobo, currency, features, active, sort');
 
 export async function updateServicePlan(
   id: string,
-  patch: { price_kobo?: number; features?: string[]; active?: boolean },
+  patch: { price_kobo?: number; fixed_price_kobo?: number; features?: string[]; active?: boolean },
 ): Promise<Result> {
   const sb = getSupabase();
   if (!sb) return { ok: false, error: 'Portal not configured.' };

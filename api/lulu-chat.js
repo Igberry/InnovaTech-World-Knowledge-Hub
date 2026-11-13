@@ -105,7 +105,7 @@ ${COURSES.map(([slug, title, status, level, dur, sum]) =>
 
 SERVICES (done-for-you work, each offered in Basic / Advanced / Premium packages). See /services/:
 ${SERVICES.map(([, title]) => `- ${title}`).join('\n')}
-- Service rates are quoted PER HOUR in US Dollars (USD). Clients PAY IN NAIRA, at the current Naira equivalent of the Dollar amount. Package rates appear below under "LIVE SERVICE PRICING" when available (a "/hr" suffix means per hour).
+- Service rates are quoted PER HOUR in US Dollars (USD) and PAID IN NAIRA at the current Naira equivalent. For a one-off job, each package also has a FIXED one-time price in Naira (₦). Package rates appear below under "LIVE SERVICE PRICING" when available ("/hr" = hourly USD; "one-time" = fixed Naira). Each package also lists an estimated timeline.
 - Services are not bought through the website checkout: the client books a free consultation (Calendly link above) or uses /contact/, and the work is quoted and arranged directly.
 
 HIRE TALENT (for employers)
@@ -139,10 +139,10 @@ async function livePricing() {
   if (url && key && !/PASTE_/i.test(key)) {
     const headers = { apikey: key, Authorization: `Bearer ${key}` };
     const order = { basic: 1, advanced: 2, premium: 3 };
-    const section = async (table, slugCol, titles, heading, suffixOf) => {
+    const section = async (table, slugCol, titles, heading, suffixOf, extraCols = '', fixedOf = null) => {
       try {
         const r = await fetch(
-          `${url}/rest/v1/${table}?select=${slugCol},plan,price_kobo,currency,active&active=eq.true`,
+          `${url}/rest/v1/${table}?select=${slugCol},plan,price_kobo,currency${extraCols}&active=eq.true`,
           { headers },
         );
         if (!r.ok) return '';
@@ -157,7 +157,7 @@ async function livePricing() {
               const amt = p.currency === 'USD'
                 ? `$${major.toLocaleString('en-US')}`
                 : `₦${major.toLocaleString('en-NG')}`;
-              return `${p.plan} ${amt}${suffixOf ? suffixOf(slug) : ''}`;
+              return `${p.plan} ${amt}${suffixOf ? suffixOf(slug) : ''}${fixedOf ? fixedOf(p) : ''}`;
             })
             .join(', ');
           return `- ${titles[slug] || slug}: ${plans}`;
@@ -169,10 +169,14 @@ async function livePricing() {
     };
     const courseTitles = Object.fromEntries(COURSES.map(([s, t]) => [s, t]));
     const serviceTitles = Object.fromEntries(SERVICES.map(([s, t]) => [s, t]));
+    const fixedOf = (p) => (p.fixed_price_kobo
+      ? ` (or ₦${Math.round(p.fixed_price_kobo / 100).toLocaleString('en-NG')} one-time)`
+      : '');
     const [courses, servicesText] = await Promise.all([
       section('course_plans', 'course_slug', courseTitles, 'LIVE COURSE PRICING (Nigerian Naira)'),
       section('service_plans', 'service_slug', serviceTitles,
-        'LIVE SERVICE PRICING (US Dollars per hour; clients pay the Naira equivalent)', () => '/hr'),
+        'LIVE SERVICE PRICING (hourly rate in US Dollars, paid in the Naira equivalent; or a fixed one-time Naira price)',
+        () => '/hr', ',fixed_price_kobo', fixedOf),
     ]);
     const parts = [courses, servicesText].filter(Boolean);
     if (parts.length) text = parts.join('\n\n');
