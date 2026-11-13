@@ -42,6 +42,7 @@ const FORBIDDEN = [
 const REQUIRED_SOMEWHERE = ['Mentoring Session Plan', 'Self-Check Questions'];
 
 const failures = [];
+const luluIndexPath = join(DIST, 'client', 'lulu-index.json');
 
 for (const { file, body } of html) {
   for (const bad of FORBIDDEN) {
@@ -56,10 +57,32 @@ for (const need of REQUIRED_SOMEWHERE) {
   if (!found) failures.push(`EXPECTED "${need}" not found in any built page (over-stripped?)`);
 }
 
+if (!existsSync(luluIndexPath)) {
+  failures.push('Lulu public knowledge index was not emitted');
+} else {
+  const index = readFileSync(luluIndexPath, 'utf8');
+  let documents;
+  try {
+    documents = JSON.parse(index);
+  } catch {
+    failures.push('Lulu public knowledge index is not valid JSON');
+  }
+
+  if (Array.isArray(documents)) {
+    for (const bad of FORBIDDEN) {
+      if (index.toLowerCase().includes(bad.toLowerCase())) {
+        failures.push(`FORBIDDEN "${bad}" found in Lulu public knowledge index`);
+      }
+    }
+  } else if (documents !== undefined) {
+    failures.push('Lulu public knowledge index must contain a document array');
+  }
+}
+
 if (failures.length) {
   console.error(`\n[facilitator-test] FAILED (${failures.length}):`);
   for (const f of failures) console.error('  - ' + f);
   console.error('');
   process.exit(1);
 }
-console.log(`[facilitator-test] OK — no facilitator-only content in ${html.length} pages; kept sections present.`);
+console.log(`[facilitator-test] OK — no facilitator-only content in ${html.length} pages or Lulu's knowledge index; kept sections present.`);
