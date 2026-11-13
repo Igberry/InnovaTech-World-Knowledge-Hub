@@ -6,6 +6,7 @@ import Analytics from '../components/Analytics.astro';
 import AuthRedirect from '../components/AuthRedirect.astro';
 import PasswordToggle from '../components/PasswordToggle.astro';
 import SessionTimeout from '../components/SessionTimeout.astro';
+import LuluChat from '../components/LuluChat.astro';
 import { site } from '../config/site';
 import { withBase } from '../utils/links';
 
@@ -128,5 +129,10 @@ function jsonLdString(value: Record<string, unknown>): string {
       <slot />
     </main>
     <Footer />
+    {
+      !['/admin/', '/account/', '/login/'].some((path) => Astro.url.pathname.includes(path)) && (
+        <LuluChat />
+      )
+    }
   </body>
 </html>
