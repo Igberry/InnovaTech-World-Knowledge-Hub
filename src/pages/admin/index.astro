@@ -104,6 +104,11 @@ const catalog = await buildCatalog();
       </div>
 
       <div class="adm-card">
+        <div class="panel-head"><h3>Services pricing (naira)</h3><span data-service-pricing-msg></span></div>
+        <div data-service-pricing><p class="muted">Loading…</p></div>
+      </div>
+
+      <div class="adm-card">
         <h3>Who has access</h3>
         <div data-entitlements><p class="muted">Loading…</p></div>
       </div>
@@ -350,17 +355,20 @@ const catalog = await buildCatalog();
   import { isPortalEnabled, getSupabase } from '../../lib/supabase';
   import {
     currentUser, isAdminMember, getAAL, listVerifiedTotp, enrollTotp, verifyTotp, stepUpTotp,
+    type Result,
   } from '../../lib/auth';
   import {
     getProfiles, getEnrollments, getProgress, getSubmissions, getReviews, getAttendance,
     getCertificates, issueCertificate, deleteCertificate,
     saveReview, setEnrollment, saveAttendance, downloadCsv,
-    getCoursePlans, updateCoursePlan, getVouchers, createVoucher, setVoucherActive,
+    getCoursePlans, updateCoursePlan, getServicePlans, updateServicePlan,
+    getVouchers, createVoucher, setVoucherActive,
     getPayments, getEntitlements, grantFreePass, revokeEntitlement,
     type AdminProfile, type AdminEnrollment, type AdminProgress,
     type AdminSubmission, type AdminReview, type AdminAttendance, type AdminCertificate,
-    type CoursePlanRow, type VoucherRow, type PaymentRow, type EntitlementRow,
+    type CoursePlanRow, type ServicePlanRow, type VoucherRow, type PaymentRow, type EntitlementRow,
   } from '../../lib/admin';
+  import { serviceTitle } from '../../data/services';
   import { withBase } from '../../utils/links';
 
   type Lesson = { slug: string; title: string };
@@ -814,136 +822,177 @@ const catalog = await buildCatalog();
       .map((c) => `<option value="${esc(c.slug)}">${esc(c.title)}</option>`).join('');
 
   let coursePlans: CoursePlanRow[] = [];
+  let servicePlans: ServicePlanRow[] = [];
   let vouchers: VoucherRow[] = [];
   let payments: PaymentRow[] = [];
   let entitlements: EntitlementRow[] = [];
-
-  let featCard: HTMLElement | null = null;
 
   function groupThousands(raw: string) {
     const digits = (raw || '').replace(/\D/g, '');
     return digits ? Number(digits).toLocaleString('en-US') : '';
   }
 
-  async function savePlan(row: HTMLElement) {
-    const id = row.dataset.planId!;
-    const price = Math.round(Number(String((row.querySelector('[data-price]') as HTMLInputElement).value).replace(/[^\d]/g, '')) || 0);
-    const active = (row.querySelector('[data-active]') as HTMLInputElement).checked;
-    const features = (row.querySelector('[data-features]') as HTMLTextAreaElement).value
-      .split('\n').map((s) => s.trim()).filter(Boolean);
-    return updateCoursePlan(id, { price_kobo: price * 100, features, active });
+  // Reusable Basic/Advanced/Premium pricing editor (shared by courses and services).
+  type PlanLike = { id: string; plan: string; price_kobo: number; features: string[]; active: boolean };
+  interface PricingEditorOpts {
+    boxSelector: string;
+    getPlans: () => PlanLike[];
+    slugOf: (p: PlanLike) => string;
+    titleOf: (slug: string) => string;
+    reload: () => Promise<void>;
+    update: (id: string, patch: { price_kobo?: number; features?: string[]; active?: boolean }) => Promise<Result>;
+    emptyMsg: string;
   }
 
-  function closeFeatModal() {
-    const modal = root.querySelector('[data-feat-modal]') as HTMLElement | null;
-    if (modal) modal.hidden = true;
-    featCard = null;
-  }
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeFeatModal(); });
-
-  function renderPricing() {
-    const box = root.querySelector('[data-pricing]') as HTMLElement;
-    if (!box) return;
-    if (coursePlans.length === 0) { box.innerHTML = '<p class="muted">No plans found. Run migration 0004 to seed pricing.</p>'; return; }
-    const ord: Record<string, number> = { basic: 1, advanced: 2, premium: 3 };
-    const byCourse: Record<string, CoursePlanRow[]> = {};
-    coursePlans.forEach((p) => { (byCourse[p.course_slug] = byCourse[p.course_slug] || []).push(p); });
+  function makePricingEditor(opts: PricingEditorOpts) {
     const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
-    const courses = Object.keys(byCourse).sort().map((slug) => {
-      const plans = byCourse[slug].sort((a, b) => (ord[a.plan] || 9) - (ord[b.plan] || 9));
-      const count = plans.length;
-      const cards = plans.map((p) => {
-        const feats = p.features || [];
-        return `
-        <article class="plan-card${p.active ? '' : ' is-inactive'}" data-plan-id="${p.id}" data-tier="${esc(p.plan)}" data-course="${esc(courseTitle(slug))}">
-          <div class="plan-card-head">
-            <span class="plan-tier">${esc(cap(p.plan))}</span>
-            <label class="plan-active"><input type="checkbox" ${p.active ? 'checked' : ''} data-active /> Active</label>
-          </div>
-          <label class="plan-price">Price
-            <span class="plan-price-field"><span class="plan-naira">₦</span><input type="text" value="${Math.round(p.price_kobo / 100).toLocaleString('en-US')}" data-price inputmode="numeric" autocomplete="off" /></span>
-          </label>
-          <textarea data-features hidden>${esc(feats.join('\n'))}</textarea>
-          <button type="button" class="plan-feat-btn" data-edit-feats>Edit features <span class="plan-feat-count" data-feat-count>${feats.length}</span></button>
-          <div class="plan-card-foot">
-            <button type="button" class="btn btn-success" data-save-plan>Save</button>
-            <span data-plan-msg class="plan-msg"></span>
-          </div>
-        </article>`;
-      }).join('');
-      return `<section class="price-course">
-        <header class="price-course-head">
-          <h4>${esc(courseTitle(slug))}</h4>
-          <span class="price-course-count">${count} plan${count === 1 ? '' : 's'}</span>
-        </header>
-        <div class="price-plans">${cards}</div>
-      </section>`;
-    }).join('');
+    const ord: Record<string, number> = { basic: 1, advanced: 2, premium: 3 };
+    let featCard: HTMLElement | null = null;
 
-    box.innerHTML = courses + `
-      <div class="feat-modal" data-feat-modal hidden>
-        <div class="feat-modal-backdrop" data-feat-close></div>
-        <div class="feat-modal-box" role="dialog" aria-modal="true" aria-labelledby="feat-modal-title">
-          <h3 id="feat-modal-title" data-feat-title>Edit features</h3>
-          <label class="feat-modal-label" for="feat-modal-text">One perk per line</label>
-          <textarea id="feat-modal-text" data-feat-text rows="8" placeholder="One perk per line"></textarea>
-          <div class="feat-modal-actions">
-            <span class="plan-msg" data-feat-msg></span>
-            <button type="button" class="btn btn-ghost" data-feat-close>Cancel</button>
-            <button type="button" class="btn btn-success" data-feat-save>Save features</button>
+    function closeModal() {
+      const box = root.querySelector(opts.boxSelector) as HTMLElement | null;
+      const modal = box?.querySelector('[data-feat-modal]') as HTMLElement | null;
+      if (modal) modal.hidden = true;
+      featCard = null;
+    }
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    async function savePlan(row: HTMLElement) {
+      const id = row.dataset.planId!;
+      const price = Math.round(Number(String((row.querySelector('[data-price]') as HTMLInputElement).value).replace(/[^\d]/g, '')) || 0);
+      const active = (row.querySelector('[data-active]') as HTMLInputElement).checked;
+      const features = (row.querySelector('[data-features]') as HTMLTextAreaElement).value
+        .split('\n').map((s) => s.trim()).filter(Boolean);
+      return opts.update(id, { price_kobo: price * 100, features, active });
+    }
+
+    function render() {
+      const box = root.querySelector(opts.boxSelector) as HTMLElement | null;
+      if (!box) return;
+      const plans = opts.getPlans();
+      if (plans.length === 0) { box.innerHTML = `<p class="muted">${esc(opts.emptyMsg)}</p>`; return; }
+      const byGroup: Record<string, PlanLike[]> = {};
+      plans.forEach((p) => { const g = opts.slugOf(p); (byGroup[g] = byGroup[g] || []).push(p); });
+      const groups = Object.keys(byGroup)
+        .sort((a, b) => opts.titleOf(a).localeCompare(opts.titleOf(b)))
+        .map((slug) => {
+          const title = opts.titleOf(slug);
+          const list = byGroup[slug].sort((a, b) => (ord[a.plan] || 9) - (ord[b.plan] || 9));
+          const cards = list.map((p) => {
+            const feats = p.features || [];
+            return `
+            <article class="plan-card${p.active ? '' : ' is-inactive'}" data-plan-id="${p.id}" data-tier="${esc(p.plan)}" data-group="${esc(title)}">
+              <div class="plan-card-head">
+                <span class="plan-tier">${esc(cap(p.plan))}</span>
+                <label class="plan-active"><input type="checkbox" ${p.active ? 'checked' : ''} data-active /> Active</label>
+              </div>
+              <label class="plan-price">Price
+                <span class="plan-price-field"><span class="plan-naira">₦</span><input type="text" value="${Math.round(p.price_kobo / 100).toLocaleString('en-US')}" data-price inputmode="numeric" autocomplete="off" /></span>
+              </label>
+              <textarea data-features hidden>${esc(feats.join('\n'))}</textarea>
+              <button type="button" class="plan-feat-btn" data-edit-feats>Edit features <span class="plan-feat-count" data-feat-count>${feats.length}</span></button>
+              <div class="plan-card-foot">
+                <button type="button" class="btn btn-success" data-save-plan>Save</button>
+                <span data-plan-msg class="plan-msg"></span>
+              </div>
+            </article>`;
+          }).join('');
+          return `<section class="price-course">
+            <header class="price-course-head">
+              <h4>${esc(title)}</h4>
+              <span class="price-course-count">${list.length} plan${list.length === 1 ? '' : 's'}</span>
+            </header>
+            <div class="price-plans">${cards}</div>
+          </section>`;
+        }).join('');
+
+      box.innerHTML = groups + `
+        <div class="feat-modal" data-feat-modal hidden>
+          <div class="feat-modal-backdrop" data-feat-close></div>
+          <div class="feat-modal-box" role="dialog" aria-modal="true" aria-labelledby="feat-modal-title">
+            <h3 id="feat-modal-title" data-feat-title>Edit features</h3>
+            <label class="feat-modal-label" for="feat-modal-text">One perk per line</label>
+            <textarea id="feat-modal-text" data-feat-text rows="8" placeholder="One perk per line"></textarea>
+            <div class="feat-modal-actions">
+              <span class="plan-msg" data-feat-msg></span>
+              <button type="button" class="btn btn-ghost" data-feat-close>Cancel</button>
+              <button type="button" class="btn btn-success" data-feat-save>Save features</button>
+            </div>
           </div>
-        </div>
-      </div>`;
+        </div>`;
 
-    box.querySelectorAll('[data-save-plan]').forEach((btn) => btn.addEventListener('click', async () => {
-      const row = (btn as HTMLElement).closest('[data-plan-id]') as HTMLElement;
-      const m = row.querySelector('[data-plan-msg]') as HTMLElement;
-      m.textContent = 'Saving...'; m.className = 'plan-msg';
-      const r = await savePlan(row);
-      m.textContent = r.ok ? 'Saved.' : r.error; m.className = 'plan-msg ' + (r.ok ? 'ok' : 'err');
-      if (r.ok) { coursePlans = await getCoursePlans(); renderPricing(); }
-    }));
+      box.querySelectorAll('[data-save-plan]').forEach((btn) => btn.addEventListener('click', async () => {
+        const row = (btn as HTMLElement).closest('[data-plan-id]') as HTMLElement;
+        const m = row.querySelector('[data-plan-msg]') as HTMLElement;
+        m.textContent = 'Saving...'; m.className = 'plan-msg';
+        const r = await savePlan(row);
+        m.textContent = r.ok ? 'Saved.' : r.error; m.className = 'plan-msg ' + (r.ok ? 'ok' : 'err');
+        if (r.ok) { await opts.reload(); render(); }
+      }));
 
-    box.querySelectorAll('[data-price]').forEach((el) => {
-      const inp = el as HTMLInputElement;
-      inp.addEventListener('input', () => {
-        const caret = inp.selectionStart ?? inp.value.length;
-        const digitsBefore = inp.value.slice(0, caret).replace(/\D/g, '').length;
-        inp.value = groupThousands(inp.value);
-        let pos = 0, seen = 0;
-        while (pos < inp.value.length && seen < digitsBefore) {
-          if (/\d/.test(inp.value[pos])) seen += 1;
-          pos += 1;
-        }
-        inp.setSelectionRange(pos, pos);
+      box.querySelectorAll('[data-price]').forEach((el) => {
+        const inp = el as HTMLInputElement;
+        inp.addEventListener('input', () => {
+          const caret = inp.selectionStart ?? inp.value.length;
+          const digitsBefore = inp.value.slice(0, caret).replace(/\D/g, '').length;
+          inp.value = groupThousands(inp.value);
+          let pos = 0, seen = 0;
+          while (pos < inp.value.length && seen < digitsBefore) {
+            if (/\d/.test(inp.value[pos])) seen += 1;
+            pos += 1;
+          }
+          inp.setSelectionRange(pos, pos);
+        });
       });
-    });
 
-    const modal = box.querySelector('[data-feat-modal]') as HTMLElement;
-    const modalText = modal.querySelector('[data-feat-text]') as HTMLTextAreaElement;
-    const modalTitle = modal.querySelector('[data-feat-title]') as HTMLElement;
-    const modalMsg = modal.querySelector('[data-feat-msg]') as HTMLElement;
+      const modal = box.querySelector('[data-feat-modal]') as HTMLElement;
+      const modalText = modal.querySelector('[data-feat-text]') as HTMLTextAreaElement;
+      const modalTitle = modal.querySelector('[data-feat-title]') as HTMLElement;
+      const modalMsg = modal.querySelector('[data-feat-msg]') as HTMLElement;
 
-    box.querySelectorAll('[data-edit-feats]').forEach((btn) => btn.addEventListener('click', () => {
-      const card = (btn as HTMLElement).closest('[data-plan-id]') as HTMLElement;
-      featCard = card;
-      modalTitle.textContent = `${card.dataset.course} - ${cap(card.dataset.tier || '')} features`;
-      modalText.value = (card.querySelector('[data-features]') as HTMLTextAreaElement).value;
-      modalMsg.textContent = ''; modalMsg.className = 'plan-msg';
-      modal.hidden = false;
-      modalText.focus();
-    }));
+      box.querySelectorAll('[data-edit-feats]').forEach((btn) => btn.addEventListener('click', () => {
+        const card = (btn as HTMLElement).closest('[data-plan-id]') as HTMLElement;
+        featCard = card;
+        modalTitle.textContent = `${card.dataset.group} - ${cap(card.dataset.tier || '')} features`;
+        modalText.value = (card.querySelector('[data-features]') as HTMLTextAreaElement).value;
+        modalMsg.textContent = ''; modalMsg.className = 'plan-msg';
+        modal.hidden = false;
+        modalText.focus();
+      }));
 
-    modal.querySelectorAll('[data-feat-close]').forEach((el) => el.addEventListener('click', closeFeatModal));
-    (modal.querySelector('[data-feat-save]') as HTMLElement).addEventListener('click', async () => {
-      if (!featCard) return;
-      (featCard.querySelector('[data-features]') as HTMLTextAreaElement).value = modalText.value;
-      modalMsg.textContent = 'Saving...'; modalMsg.className = 'plan-msg';
-      const r = await savePlan(featCard);
-      if (r.ok) { coursePlans = await getCoursePlans(); closeFeatModal(); renderPricing(); }
-      else { modalMsg.textContent = r.error; modalMsg.className = 'plan-msg err'; }
-    });
+      modal.querySelectorAll('[data-feat-close]').forEach((el) => el.addEventListener('click', closeModal));
+      (modal.querySelector('[data-feat-save]') as HTMLElement).addEventListener('click', async () => {
+        if (!featCard) return;
+        (featCard.querySelector('[data-features]') as HTMLTextAreaElement).value = modalText.value;
+        modalMsg.textContent = 'Saving...'; modalMsg.className = 'plan-msg';
+        const r = await savePlan(featCard);
+        if (r.ok) { await opts.reload(); closeModal(); render(); }
+        else { modalMsg.textContent = r.error; modalMsg.className = 'plan-msg err'; }
+      });
+    }
+
+    return render;
   }
+
+  const renderPricing = makePricingEditor({
+    boxSelector: '[data-pricing]',
+    getPlans: () => coursePlans,
+    slugOf: (p) => (p as CoursePlanRow).course_slug,
+    titleOf: courseTitle,
+    reload: async () => { coursePlans = await getCoursePlans(); },
+    update: updateCoursePlan,
+    emptyMsg: 'No plans found. Run migration 0004 to seed pricing.',
+  });
+
+  const renderServicePricing = makePricingEditor({
+    boxSelector: '[data-service-pricing]',
+    getPlans: () => servicePlans,
+    slugOf: (p) => (p as ServicePlanRow).service_slug,
+    titleOf: serviceTitle,
+    reload: async () => { servicePlans = await getServicePlans(); },
+    update: updateServicePlan,
+    emptyMsg: 'No service plans found. Run migration 0008 to seed pricing.',
+  });
 
   function renderVouchers() {
     const box = root.querySelector('[data-vouchers]') as HTMLElement;
@@ -1030,10 +1079,10 @@ const catalog = await buildCatalog();
   async function renderAccess() {
     const fpC = root.querySelector('[data-fp-course]') as HTMLSelectElement; if (fpC) fpC.innerHTML = availableCourseOptions(false);
     const vcC = root.querySelector('[data-vc-course]') as HTMLSelectElement; if (vcC) vcC.innerHTML = availableCourseOptions(true);
-    [coursePlans, vouchers, payments, entitlements] = await Promise.all([
-      getCoursePlans(), getVouchers(), getPayments(), getEntitlements(),
+    [coursePlans, servicePlans, vouchers, payments, entitlements] = await Promise.all([
+      getCoursePlans(), getServicePlans(), getVouchers(), getPayments(), getEntitlements(),
     ]);
-    renderPricing(); renderVouchers(); renderEntitlementsList(); renderPayments();
+    renderPricing(); renderServicePricing(); renderVouchers(); renderEntitlementsList(); renderPayments();
     bindAccessForms();
   }
 

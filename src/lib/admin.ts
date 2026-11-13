@@ -114,6 +114,31 @@ export async function updateCoursePlan(
   }
 }
 
+// ---------- Service packages & pricing ----------
+export interface ServicePlanRow {
+  id: string; service_slug: string; plan: string; price_kobo: number;
+  currency: string; features: string[]; active: boolean;
+}
+export const getServicePlans = () =>
+  selectAll<ServicePlanRow>('service_plans', 'id, service_slug, plan, price_kobo, currency, features, active, sort');
+
+export async function updateServicePlan(
+  id: string,
+  patch: { price_kobo?: number; features?: string[]; active?: boolean },
+): Promise<Result> {
+  const sb = getSupabase();
+  if (!sb) return { ok: false, error: 'Portal not configured.' };
+  try {
+    const { error } = await sb
+      .from('service_plans')
+      .update({ ...patch, updated_at: new Date().toISOString() })
+      .eq('id', id);
+    return error ? { ok: false, error: error.message } : { ok: true, data: undefined };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : 'Update failed.' };
+  }
+}
+
 export interface VoucherRow {
   id: string; code: string; kind: string; value: number;
   course_slug: string | null; plan: string | null;

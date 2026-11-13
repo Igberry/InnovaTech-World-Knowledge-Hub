@@ -40,6 +40,8 @@ export const site = {
     email: 'info.innovatech.expertise@gmail.com',
     // Office call line, full international format with "+". Shown as a "Call us" link.
     phone: '+2349121681159',
+    // Calendly booking link for a consultation call. Set to 'TODO' to hide it.
+    calendly: 'https://calendly.com/davidigberichuks/30min',
     whatsappDefaultMessage:
       "Hello InnovaTech World, I'd like to know more about the {course} course.",
   },

@@ -61,12 +61,23 @@ const COURSES = [
   ['social-media-marketing', 'Social Media Marketing', 'coming-soon', '', '', 'Plan content, grow an audience and run campaigns that reach the right people.'],
 ];
 
+// Agency services (done-for-you). Packages/prices live in Supabase service_plans.
+const SERVICES = [
+  ['full-stack-web-development', 'Full Stack Web Development', 'project'],
+  ['wordpress-web-development', 'WordPress Web Development', 'project'],
+  ['data-analysis', 'Data Analysis', 'project'],
+  ['automation', 'Automation', 'project'],
+  ['graphics-design', 'Graphics Design', 'project'],
+  ['seo-aeo-geo', 'SEO, AEO & GEO', 'month'],
+  ['virtual-assistance', 'Virtual Assistance', 'month'],
+];
+
 const BASE_KNOWLEDGE = `You are Lulu, the friendly assistant for the InnovaTech World Knowledge Hub website.
 
 ABOUT INNOVATECH WORLD
 - InnovaTech World is a digital-skills training provider based in Yenagoa, Bayelsa State, Nigeria. Founder and Lead Facilitator: David C. Igberi.
 - The Knowledge Hub offers practical, beginner-friendly courses with weekly lessons, downloadable datasets/templates, in-person or live mentoring, a portfolio focus, and a verifiable certificate on completion.
-- InnovaTech World also offers done-for-you services (an agency side): Full Stack Web Development, Data Analysis, Automation, Graphics Design, WordPress Web Development, SEO/AEO/GEO, and Virtual Assistance. See /services/.
+- InnovaTech World is also a digital agency and a talent partner: it does done-for-you work for clients AND recruits, trains and places vetted talent into client teams for a role. See /services/.
 
 CONTACT
 - WhatsApp: https://wa.me/2349121681159  (best for a quick human reply)
@@ -92,11 +103,21 @@ ${COURSES.map(([slug, title, status, level, dur, sum]) =>
   `- ${title} [/courses/${slug}/] — ${status}${level ? `, ${level}` : ''}${dur ? `, ${dur}` : ''}. ${sum}`,
 ).join('\n')}
 
+SERVICES (done-for-you work, each offered in Basic / Advanced / Premium packages). See /services/:
+${SERVICES.map(([, title, cadence]) => `- ${title}${cadence === 'month' ? ' (billed per month)' : ' (per project)'}`).join('\n')}
+- Package prices appear below under "LIVE SERVICE PRICING" when available. Services are not bought through the website checkout: the client books a free consultation (Calendly link above) or uses /contact/, and the work is quoted and arranged directly.
+
+HIRE TALENT (for employers)
+- Besides done-for-you projects, InnovaTech recruits, trains and places vetted talent into a client's team (remote, part-time or full-time) for roles such as web development, data analysis, virtual assistance and design. To hire, book a call or use /contact/ and describe the role.
+
+REFUNDS
+- Courses: fees are generally non-refundable because materials open immediately; if charged in error or unable to access, contact within 7 days. Services: deposits are non-refundable once a project starts; you can cancel monthly services anytime (no refund for the month already started). Full policy: /refunds/.
+
 HOW TO ANSWER
 - Be warm, clear and concise (usually 2-5 sentences). Plain text only. No emoji.
 - Use only the information in this prompt and the live pricing provided. If you are unsure or it is not covered, say so briefly and point the person to /contact/ or WhatsApp — do NOT invent prices, dates, URLs, phone numbers, policies or course details.
 - When useful, include a site link as a plain relative path, e.g. /courses/data-analysis/ or /contact/.
-- Prices are in Nigerian Naira (write them like ₦30,000). Only quote prices from the LIVE PRICING section; if a course is not listed there, say pricing is on the course page.
+- Prices are in Nigerian Naira (write them like ₦30,000). Only quote prices from the LIVE COURSE PRICING / LIVE SERVICE PRICING sections; if something is not listed there, say the price is on the course page or /services/. A "/mo" suffix means the service is billed per month.
 - Never promise or guarantee a job, income or specific results. Say the courses build "job-ready skills", not guaranteed outcomes.
 - Never ask for, and never accept, passwords, one-time codes, full card numbers or student records. If a user shares something sensitive, gently tell them not to and continue safely.
 - For account access, payment problems, refunds, enrolment decisions, or anything needing a person, direct them to /contact/ or WhatsApp (https://wa.me/2349121681159).
@@ -113,31 +134,42 @@ async function livePricing() {
   if (pricingCache.text && now - pricingCache.at < PRICING_TTL_MS) return pricingCache.text;
   const url = process.env.PUBLIC_SUPABASE_URL;
   const key = process.env.PUBLIC_SUPABASE_ANON_KEY;
-  let text = 'LIVE PRICING: unavailable right now — tell the user prices are shown on each course page.';
+  let text = 'LIVE PRICING: unavailable right now — tell the user prices are shown on each course page or /services/.';
   if (url && key && !/PASTE_/i.test(key)) {
-    try {
-      const r = await fetch(
-        `${url}/rest/v1/course_plans?select=course_slug,plan,price_kobo,active&active=eq.true&order=course_slug,price_kobo`,
-        { headers: { apikey: key, Authorization: `Bearer ${key}` } },
-      );
-      if (r.ok) {
+    const headers = { apikey: key, Authorization: `Bearer ${key}` };
+    const order = { basic: 1, advanced: 2, premium: 3 };
+    const section = async (table, slugCol, titles, heading, suffixOf) => {
+      try {
+        const r = await fetch(
+          `${url}/rest/v1/${table}?select=${slugCol},plan,price_kobo,active&active=eq.true`,
+          { headers },
+        );
+        if (!r.ok) return '';
         const rows = await r.json();
-        const title = Object.fromEntries(COURSES.map(([s, t]) => [s, t]));
-        const byCourse = {};
-        for (const row of rows) (byCourse[row.course_slug] ||= []).push(row);
-        const order = { basic: 1, advanced: 2, premium: 3 };
-        const lines = Object.keys(byCourse).sort().map((slug) => {
-          const plans = byCourse[slug]
+        const by = {};
+        for (const row of rows) (by[row[slugCol]] ||= []).push(row);
+        const lines = Object.keys(by).sort().map((slug) => {
+          const plans = by[slug]
             .sort((a, b) => (order[a.plan] || 9) - (order[b.plan] || 9))
-            .map((p) => `${p.plan} ₦${Math.round(p.price_kobo / 100).toLocaleString('en-NG')}`)
+            .map((p) => `${p.plan} ₦${Math.round(p.price_kobo / 100).toLocaleString('en-NG')}${suffixOf ? suffixOf(slug) : ''}`)
             .join(', ');
-          return `- ${title[slug] || slug}: ${plans}`;
+          return `- ${titles[slug] || slug}: ${plans}`;
         });
-        if (lines.length) text = `LIVE PRICING (Nigerian Naira):\n${lines.join('\n')}`;
+        return lines.length ? `${heading}:\n${lines.join('\n')}` : '';
+      } catch {
+        return '';
       }
-    } catch {
-      /* keep the fallback text */
-    }
+    };
+    const courseTitles = Object.fromEntries(COURSES.map(([s, t]) => [s, t]));
+    const serviceTitles = Object.fromEntries(SERVICES.map(([s, t]) => [s, t]));
+    const serviceCadence = Object.fromEntries(SERVICES.map(([s, , c]) => [s, c]));
+    const [courses, servicesText] = await Promise.all([
+      section('course_plans', 'course_slug', courseTitles, 'LIVE COURSE PRICING (Nigerian Naira)'),
+      section('service_plans', 'service_slug', serviceTitles, 'LIVE SERVICE PRICING (Nigerian Naira)',
+        (slug) => (serviceCadence[slug] === 'month' ? '/mo' : '')),
+    ]);
+    const parts = [courses, servicesText].filter(Boolean);
+    if (parts.length) text = parts.join('\n\n');
   }
   pricingCache = { text, at: now };
   return text;
