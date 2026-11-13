@@ -43,18 +43,19 @@ const contactLabel = !isTodo(site.contact.email)
 
     <h2>Chat assistant (Lulu)</h2>
     <p>
-      Lulu is an automated site guide, not a human employee or generative AI. When you send a question,
-      your browser searches a static index of published public pages and displays matching excerpts and
-      links. The question is not sent to the Site's server, OpenAI, or another AI provider. Do not send
-      passwords, verification codes, payment details, student records, government IDs, or other
-      sensitive information. Search results may be incomplete or out of date; verify important
-      information with InnovaTech.
+      Lulu is an automated AI assistant that answers questions about InnovaTech's courses, plans,
+      services, and how the Site works. When you send a message, the Site's server sends your message
+      (and the earlier messages in that chat) to <strong>Anthropic</strong>, which runs the Claude AI
+      model that generates the reply. Anthropic processes the message to produce the response and acts
+      as a processor for this purpose. Lulu's answers may be incomplete or out of date; verify important
+      information, prices, and dates with InnovaTech before relying on them.
     </p>
     <p>
-      InnovaTech does not save Lulu chat transcripts in the Site, Supabase, or your browser's local
-      storage. Messages remain in the current page only and are cleared when you reload or leave it.
-      The browser downloads the published search index from the Site, but does not send your question
-      when searching it. The Site's code does not send questions to an external AI service.
+      Do not send passwords, verification codes, payment details, student records, government IDs, or
+      other sensitive information to Lulu. InnovaTech does not save Lulu chat transcripts in the Site,
+      Supabase, or your browser's local storage; the conversation remains in the current page only and
+      is cleared when you reload or leave it. Lulu is for general guidance and does not access your
+      account, your enrolment, or your payment records.
     </p>
 
     <h2>Payments</h2>

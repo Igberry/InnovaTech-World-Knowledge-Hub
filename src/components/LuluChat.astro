@@ -10,7 +10,7 @@ const whatsapp = whatsappUrl('training');
   <aside
     class="lulu"
     data-lulu
-    data-index-url={withBase('/lulu-index.json')}
+    data-endpoint="/api/lulu-chat"
     data-contact={withBase('/contact/')}
     data-courses={withBase('/courses/')}
     data-whatsapp={whatsapp ?? withBase('/contact/')}
@@ -30,13 +30,13 @@ const whatsapp = whatsappUrl('training');
       <ol class="lulu-messages" data-lulu-messages role="log" aria-live="polite" aria-relevant="additions text">
         <li class="lulu-message lulu-assistant">
           <span class="lulu-speaker">Lulu</span>
-          <p class="lulu-bubble">Hello, I’m Lulu, InnovaTech’s automated site guide. I search published pages and show relevant passages; I don’t generate answers. Please don’t share passwords, payment details, student records or other sensitive information.</p>
+          <p class="lulu-bubble">Hi, I’m Lulu, InnovaTech’s AI assistant. Ask me about our courses, plans and prices, services, or how the site works. Please don’t share passwords, payment details, student records or other sensitive information.</p>
         </li>
       </ol>
       <details class="lulu-info">
         <summary>Privacy and contact</summary>
         <p class="lulu-privacy">
-          Your question is searched against published pages. No AI provider is used, and InnovaTech does not save chat transcripts.
+          Your message is sent to InnovaTech’s AI assistant (powered by Anthropic’s Claude) to generate a reply. InnovaTech does not save chat transcripts.
           <a href={withBase('/privacy/')}>Privacy details</a>
           <span>Need a person? <a href={whatsapp ?? withBase('/contact/')} target={whatsapp ? '_blank' : undefined} rel={whatsapp ? 'noopener noreferrer' : undefined}>Contact InnovaTech</a></span>
         </p>
@@ -59,14 +59,7 @@ const whatsapp = whatsappUrl('training');
 
 {enabled && (
   <script>
-    import { isGreeting, needsPricingConfirmation, selectKnowledge } from '../lib/lulu-content.mjs';
-
-    type KnowledgeDocument = {
-      title: string;
-      content: string;
-      reference?: string;
-      category?: string;
-    };
+    type ChatTurn = { role: 'user' | 'assistant'; content: string };
 
     const root = document.querySelector<HTMLElement>('[data-lulu]');
     const panel = document.getElementById('lulu-panel');
@@ -78,7 +71,7 @@ const whatsapp = whatsappUrl('training');
     const messages = root?.querySelector<HTMLOListElement>('[data-lulu-messages]');
     const status = root?.querySelector<HTMLElement>('[data-lulu-status]');
     const sendButton = root?.querySelector<HTMLButtonElement>('[data-lulu-send]');
-    let knowledgePromise: Promise<KnowledgeDocument[]> | undefined;
+    const history: ChatTurn[] = [];
     let sending = false;
 
     function setOpen(open: boolean) {
@@ -132,45 +125,6 @@ const whatsapp = whatsappUrl('training');
       messages.scrollTop = messages.scrollHeight;
     }
 
-    function isKnowledgeDocument(value: unknown): value is KnowledgeDocument {
-      if (!value || typeof value !== 'object') return false;
-      const document = value as Record<string, unknown>;
-      return (
-        typeof document.title === 'string' &&
-        typeof document.content === 'string' &&
-        (document.reference === undefined || typeof document.reference === 'string') &&
-        (document.category === undefined || typeof document.category === 'string')
-      );
-    }
-
-    function loadKnowledge(): Promise<KnowledgeDocument[]> {
-      if (!knowledgePromise) {
-        knowledgePromise = fetch(root?.dataset.indexUrl ?? '')
-          .then(async (response) => {
-            if (!response.ok) throw new Error('The published search index is unavailable.');
-            const value: unknown = await response.json();
-            if (!Array.isArray(value) || !value.every(isKnowledgeDocument)) {
-              throw new Error('The published search index has an invalid format.');
-            }
-            return value;
-          })
-          .catch((error: unknown) => {
-            knowledgePromise = undefined;
-            throw error;
-          });
-      }
-      return knowledgePromise;
-    }
-
-    function answerFrom(excerpts: string[]): string {
-      const contact = root?.dataset.contact ?? '/contact/';
-      const courses = root?.dataset.courses ?? '/courses/';
-      if (!excerpts.length) {
-        return `I couldn’t find that on InnovaTech’s pages. Try rephrasing, browse the courses at ${courses}, or contact InnovaTech: ${contact}`;
-      }
-      return `Here’s what I found on InnovaTech’s pages:\n\n${excerpts.join('\n\n')}\n\nWant a person to confirm? Contact InnovaTech: ${contact}`;
-    }
-
     openButton?.addEventListener('click', () => setOpen(panel?.hidden ?? true));
     closeButton?.addEventListener('click', () => setOpen(false));
     minimizeButton?.addEventListener('click', () => setOpen(false));
@@ -179,30 +133,41 @@ const whatsapp = whatsappUrl('training');
       const message = input?.value.trim();
       if (!message || sending || !root) return;
       addMessage('user', message);
+      history.push({ role: 'user', content: message });
       if (input) input.value = '';
       sending = true;
       if (sendButton) sendButton.disabled = true;
       if (input) input.disabled = true;
-      if (status) status.textContent = 'Searching published pages…';
+      if (status) status.textContent = 'Lulu is typing…';
 
+      const endpoint = root.dataset.endpoint ?? '/api/lulu-chat';
+      const fallback = root.dataset.whatsapp ?? '/contact/';
       try {
-        let answer: string;
-        if (isGreeting(message)) {
-          answer = 'Hi! I can search InnovaTech’s published pages for courses, services, resources, and Insights. What would you like to find?';
-        } else if (needsPricingConfirmation(message)) {
-          const courses = root.dataset.courses ?? '/courses/';
-          answer = `Each course page shows its plans and prices (Basic, Advanced and Premium) and lets you pay securely online. Browse the courses here: ${courses}\n\nIf you'd like help choosing a plan, contact InnovaTech: ${root.dataset.contact ?? '/contact/'}`;
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          // Send a trimmed, recent window of the conversation.
+          body: JSON.stringify({ messages: history.slice(-12) }),
+        });
+        const data: unknown = await response.json().catch(() => ({}));
+        const payload = (data && typeof data === 'object' ? data : {}) as {
+          reply?: string;
+          error?: string;
+        };
+        if (response.ok && payload.reply) {
+          addMessage('assistant', payload.reply);
+          history.push({ role: 'assistant', content: payload.reply });
+          if (status) status.textContent = '';
         } else {
-          const documents = await loadKnowledge();
-          const excerpts = selectKnowledge(documents, message, { maxSnippets: 3, maxCharacters: 3000 });
-          answer = answerFrom(excerpts);
+          const notice = payload.error || 'Lulu could not reply right now.';
+          addMessage('assistant', `${notice} You can reach a person here: ${fallback}`);
+          // Don't keep an unanswered user turn that would confuse the next request.
+          if (history[history.length - 1]?.role === 'user') history.pop();
+          if (status) status.textContent = 'The reply could not be completed.';
         }
-        addMessage('assistant', answer);
-        if (status) status.textContent = '';
-      } catch (error) {
-        const fallback = root.dataset.whatsapp ?? '/contact/';
-        const notice = error instanceof Error ? error.message : 'Lulu could not search right now.';
-        addMessage('assistant', `${notice} You can contact InnovaTech here: ${fallback}`);
+      } catch {
+        addMessage('assistant', `Lulu could not reach the server. You can contact InnovaTech here: ${fallback}`);
+        if (history[history.length - 1]?.role === 'user') history.pop();
         if (status) status.textContent = 'The reply could not be completed.';
       } finally {
         sending = false;
