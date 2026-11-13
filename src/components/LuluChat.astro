@@ -1,0 +1,259 @@
+---
+import { Icon } from 'astro-icon/components';
+import { withBase, whatsappUrl } from '../utils/links';
+
+const enabled = import.meta.env.PUBLIC_LULU_ENABLED === 'true';
+const whatsapp = whatsappUrl('training');
+---
+
+{enabled && (
+  <aside class="lulu" data-lulu data-endpoint={withBase('/api/lulu/')} data-whatsapp={whatsapp ?? withBase('/contact/')}>
+    <section class="lulu-panel" id="lulu-panel" role="dialog" aria-modal="false" aria-labelledby="lulu-title" hidden>
+      <header class="lulu-header">
+        <div>
+          <h2 id="lulu-title">Chat with Lulu</h2>
+          <p>Lulu is InnovaTech’s AI assistant.</p>
+        </div>
+        <button class="lulu-close" type="button" aria-label="Close Lulu chat" data-lulu-close>
+          <Icon name="lucide:x" width={20} height={20} aria-hidden="true" />
+        </button>
+      </header>
+      <ol class="lulu-messages" data-lulu-messages role="log" aria-live="polite" aria-relevant="additions text">
+        <li class="lulu-message lulu-assistant">
+          <p>Hello, I’m Lulu, an AI assistant for InnovaTech World. I can help with information published on this website. Please don’t share passwords, payment details, student records or other sensitive information.</p>
+        </li>
+      </ol>
+      <p class="lulu-privacy">
+        Messages are sent to OpenAI to generate replies. InnovaTech does not save chat transcripts.
+        <a href={withBase('/privacy/')}>Privacy details</a>
+      </p>
+      <form class="lulu-form" data-lulu-form>
+        <label class="sr-only" for="lulu-input">Your question</label>
+        <input id="lulu-input" name="message" type="text" maxlength="1500" autocomplete="off" placeholder="Ask Lulu a question" required />
+        <button class="btn btn-primary" type="submit" data-lulu-send>
+          <span>Send</span>
+          <Icon name="lucide:send" width={17} height={17} aria-hidden="true" />
+        </button>
+      </form>
+      <p class="lulu-status" data-lulu-status role="status" aria-live="polite"></p>
+      <p class="lulu-handoff">
+        Need a person? <a href={whatsapp ?? withBase('/contact/')} target={whatsapp ? '_blank' : undefined} rel={whatsapp ? 'noopener noreferrer' : undefined}>Contact InnovaTech</a>
+      </p>
+    </section>
+    <button class="lulu-launch" type="button" aria-expanded="false" aria-controls="lulu-panel" data-lulu-open>
+      <Icon name="lucide:message-circle" width={21} height={21} aria-hidden="true" />
+      <span>Chat with Lulu</span>
+    </button>
+  </aside>
+)}
+
+{enabled && (
+  <script>
+    const root = document.querySelector<HTMLElement>('[data-lulu]');
+    const panel = document.getElementById('lulu-panel');
+    const openButton = root?.querySelector<HTMLButtonElement>('[data-lulu-open]');
+    const closeButton = root?.querySelector<HTMLButtonElement>('[data-lulu-close]');
+    const form = root?.querySelector<HTMLFormElement>('[data-lulu-form]');
+    const input = root?.querySelector<HTMLInputElement>('#lulu-input');
+    const messages = root?.querySelector<HTMLOListElement>('[data-lulu-messages]');
+    const status = root?.querySelector<HTMLElement>('[data-lulu-status]');
+    const sendButton = root?.querySelector<HTMLButtonElement>('[data-lulu-send]');
+    const history: Array<{ role: 'user' | 'assistant'; content: string }> = [];
+    let sending = false;
+
+    function setOpen(open: boolean) {
+      if (!panel || !openButton) return;
+      panel.hidden = !open;
+      openButton.setAttribute('aria-expanded', String(open));
+      if (open) input?.focus();
+      else openButton.focus();
+    }
+
+    function addMessage(role: 'user' | 'assistant', text: string) {
+      if (!messages) return;
+      const item = document.createElement('li');
+      item.className = `lulu-message lulu-${role}`;
+      const paragraph = document.createElement('p');
+      const linkPattern = /(https?:\/\/[^\s<>"']+|\/[a-zA-Z0-9._~!$&'()*+,;=:@%/-]+)/g;
+      let offset = 0;
+      for (const match of text.matchAll(linkPattern)) {
+        const index = match.index ?? 0;
+        if (index > offset) paragraph.append(document.createTextNode(text.slice(offset, index)));
+        const rawLink = match[0].replace(/[.,!?;:]+$/, '');
+        const trailing = match[0].slice(rawLink.length);
+        try {
+          const url = new URL(rawLink, window.location.origin);
+          if (url.protocol === 'https:' || url.protocol === 'http:') {
+            const link = document.createElement('a');
+            link.href = url.href;
+            link.textContent = rawLink;
+            if (url.origin !== window.location.origin) {
+              link.target = '_blank';
+              link.rel = 'noopener noreferrer';
+            }
+            paragraph.append(link);
+          } else {
+            paragraph.append(document.createTextNode(rawLink));
+          }
+        } catch {
+          paragraph.append(document.createTextNode(rawLink));
+        }
+        if (trailing) paragraph.append(document.createTextNode(trailing));
+        offset = index + match[0].length;
+      }
+      if (offset < text.length) paragraph.append(document.createTextNode(text.slice(offset)));
+      item.append(paragraph);
+      messages.append(item);
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    openButton?.addEventListener('click', () => setOpen(panel?.hidden ?? true));
+    closeButton?.addEventListener('click', () => setOpen(false));
+    form?.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const message = input?.value.trim();
+      if (!message || sending || !root) return;
+      addMessage('user', message);
+      if (input) input.value = '';
+      sending = true;
+      if (sendButton) sendButton.disabled = true;
+      if (input) input.disabled = true;
+      if (status) status.textContent = 'Lulu is preparing a reply…';
+
+      try {
+        const response = await fetch(root.dataset.endpoint ?? '', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message, history: history.slice(-6) }),
+          signal: AbortSignal.timeout(30000),
+        });
+        const result = await response.json() as { answer?: unknown; error?: unknown };
+        if (!response.ok || typeof result.answer !== 'string') {
+          throw new Error(typeof result.error === 'string' ? result.error : 'Lulu could not answer right now.');
+        }
+        addMessage('assistant', result.answer);
+        history.push({ role: 'user', content: message }, { role: 'assistant', content: result.answer });
+        if (history.length > 6) history.splice(0, history.length - 6);
+        if (status) status.textContent = '';
+      } catch (error) {
+        const fallback = root.dataset.whatsapp ?? '/contact/';
+        const notice = error instanceof Error ? error.message : 'Lulu could not connect right now.';
+        addMessage('assistant', `${notice} You can contact InnovaTech here: ${fallback}`);
+        if (status) status.textContent = 'The reply could not be completed.';
+      } finally {
+        sending = false;
+        if (sendButton) sendButton.disabled = false;
+        if (input) {
+          input.disabled = false;
+          input.focus();
+        }
+      }
+    });
+  </script>
+)}
+
+<style>
+  .lulu {
+    position: fixed;
+    z-index: 60;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
+    font-family: var(--font-sans);
+  }
+  .lulu-launch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    min-height: 3rem;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--color-burgundy-600);
+    border-radius: 999px;
+    background: var(--color-burgundy-600);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    box-shadow: 0 4px 16px rgb(15 23 42 / 20%);
+    cursor: pointer;
+  }
+  .lulu-launch:hover { background: var(--color-burgundy-700); }
+  .lulu-panel {
+    position: absolute;
+    right: 0;
+    bottom: calc(100% + 0.75rem);
+    display: flex;
+    flex-direction: column;
+    width: min(25rem, calc(100vw - 2rem));
+    max-height: min(40rem, calc(100dvh - 7rem));
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: 1rem;
+    background: var(--surface);
+    color: var(--color-ink);
+    box-shadow: 0 12px 40px rgb(15 23 42 / 22%);
+  }
+  .lulu-panel[hidden] { display: none; }
+  .lulu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-blue-50);
+  }
+  .lulu-header h2 { margin: 0; font-size: 1.05rem; }
+  .lulu-header p { margin: 0.15rem 0 0; color: var(--color-muted); font-size: 0.8rem; }
+  .lulu-close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: var(--surface);
+    color: var(--color-ink);
+    cursor: pointer;
+  }
+  .lulu-messages {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-height: 10rem;
+    overflow-y: auto;
+    margin: 0;
+    padding: 1rem;
+    list-style: none;
+  }
+  .lulu-message { max-width: 92%; padding: 0.7rem 0.8rem; border-radius: 0.75rem; }
+  .lulu-message p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 0.9rem; }
+  .lulu-message a { overflow-wrap: anywhere; }
+  .lulu-assistant { align-self: flex-start; background: var(--color-blue-50); }
+  .lulu-user { align-self: flex-end; background: var(--color-burgundy-50); }
+  .lulu-privacy { margin: 0; padding: 0 1rem 0.65rem; color: var(--color-muted); font-size: 0.73rem; }
+  .lulu-privacy a, .lulu-handoff a { color: var(--color-burgundy-text); }
+  .lulu-form { display: flex; gap: 0.5rem; padding: 0.75rem 1rem; border-top: 1px solid var(--color-border); }
+  .lulu-form input {
+    min-width: 0;
+    flex: 1 1 auto;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 0.5rem;
+    background: var(--bg);
+    color: var(--color-ink);
+    font: inherit;
+  }
+  .lulu-form .btn { flex: 0 0 auto; padding: 0.6rem 0.75rem; }
+  .lulu-form .btn:disabled { cursor: wait; opacity: 0.65; }
+  .lulu-status { min-height: 1.25rem; margin: 0; padding: 0 1rem; color: var(--color-muted); font-size: 0.78rem; }
+  .lulu-handoff { margin: 0; padding: 0.35rem 1rem 0.8rem; color: var(--color-muted); font-size: 0.8rem; }
+  .lulu :focus-visible { outline: 3px solid var(--color-burgundy-600); outline-offset: 2px; }
+  @media (max-width: 420px) {
+    .lulu { right: max(0.75rem, env(safe-area-inset-right)); bottom: max(0.75rem, env(safe-area-inset-bottom)); }
+    .lulu-panel { width: calc(100vw - 1.5rem); max-height: calc(100dvh - 6rem); }
+    .lulu-form .btn span { display: none; }
+    .lulu-form .btn { min-width: 2.75rem; padding-inline: 0.65rem; }
+  }
+</style>

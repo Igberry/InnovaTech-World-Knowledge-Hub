@@ -18,9 +18,10 @@
     "check:links": "node scripts/check-links.mjs",
     "test:facilitator": "node scripts/test-facilitator-stripped.mjs",
     "test:typing-metrics": "node scripts/test-typing-metrics.mjs",
+    "test:lulu": "node scripts/test-lulu-content.mjs",
     "test:rls": "node supabase/tests/rls.test.mjs",
     "check:secrets": "node scripts/check-no-secrets.mjs",
-    "verify": "npm run build && npm run check:links && npm run test:facilitator && npm run check:secrets",
+    "verify": "npm run build && npm run check:links && npm run test:facilitator && npm run test:lulu && npm run check:secrets",
     "import:data-analysis": "node scripts/import-data-analysis-course.mjs",
     "generate:assets": "node scripts/generate-assets.mjs"
   },
