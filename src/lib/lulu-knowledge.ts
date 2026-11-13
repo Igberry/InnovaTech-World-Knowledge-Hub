@@ -72,6 +72,7 @@ async function loadPublicKnowledge(): Promise<KnowledgeDocument[]> {
 
   for (const course of courses) {
     const data = course.data;
+    if (data.status !== 'available') continue;
     result.push({
       title: `${data.title} course`,
       category: data.category,
@@ -117,7 +118,7 @@ export async function getRelevantLuluKnowledge(query: string): Promise<string[]>
   const currentDocuments = documentsPromise ??= loadPublicKnowledge();
   try {
     const documents = await currentDocuments;
-    return selectKnowledge(documents, query, { maxSnippets: 8, maxCharacters: 9000 });
+    return selectKnowledge(documents, query, { maxSnippets: 3, maxCharacters: 3000 });
   } catch (error) {
     if (documentsPromise === currentDocuments) documentsPromise = undefined;
     throw error;
