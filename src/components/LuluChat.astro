@@ -7,7 +7,13 @@ const whatsapp = whatsappUrl('training');
 ---
 
 {enabled && (
-  <aside class="lulu" data-lulu data-endpoint={withBase('/api/lulu/')} data-whatsapp={whatsapp ?? withBase('/contact/')}>
+  <aside
+    class="lulu"
+    data-lulu
+    data-index-url={withBase('/lulu-index.json')}
+    data-contact={withBase('/contact/')}
+    data-whatsapp={whatsapp ?? withBase('/contact/')}
+  >
     <section class="lulu-panel" id="lulu-panel" role="dialog" aria-modal="false" aria-labelledby="lulu-title" hidden>
       <header class="lulu-header">
         <div>
@@ -49,6 +55,15 @@ const whatsapp = whatsappUrl('training');
 
 {enabled && (
   <script>
+    import { isGreeting, needsPricingConfirmation, selectKnowledge } from '../lib/lulu-content.mjs';
+
+    type KnowledgeDocument = {
+      title: string;
+      content: string;
+      reference?: string;
+      category?: string;
+    };
+
     const root = document.querySelector<HTMLElement>('[data-lulu]');
     const panel = document.getElementById('lulu-panel');
     const openButton = root?.querySelector<HTMLButtonElement>('[data-lulu-open]');
@@ -58,6 +73,7 @@ const whatsapp = whatsappUrl('training');
     const messages = root?.querySelector<HTMLOListElement>('[data-lulu-messages]');
     const status = root?.querySelector<HTMLElement>('[data-lulu-status]');
     const sendButton = root?.querySelector<HTMLButtonElement>('[data-lulu-send]');
+    let knowledgePromise: Promise<KnowledgeDocument[]> | undefined;
     let sending = false;
 
     function setOpen(open: boolean) {
@@ -106,6 +122,44 @@ const whatsapp = whatsappUrl('training');
       messages.scrollTop = messages.scrollHeight;
     }
 
+    function isKnowledgeDocument(value: unknown): value is KnowledgeDocument {
+      if (!value || typeof value !== 'object') return false;
+      const document = value as Record<string, unknown>;
+      return (
+        typeof document.title === 'string' &&
+        typeof document.content === 'string' &&
+        (document.reference === undefined || typeof document.reference === 'string') &&
+        (document.category === undefined || typeof document.category === 'string')
+      );
+    }
+
+    function loadKnowledge(): Promise<KnowledgeDocument[]> {
+      if (!knowledgePromise) {
+        knowledgePromise = fetch(root?.dataset.indexUrl ?? '')
+          .then(async (response) => {
+            if (!response.ok) throw new Error('The published search index is unavailable.');
+            const value: unknown = await response.json();
+            if (!Array.isArray(value) || !value.every(isKnowledgeDocument)) {
+              throw new Error('The published search index has an invalid format.');
+            }
+            return value;
+          })
+          .catch((error: unknown) => {
+            knowledgePromise = undefined;
+            throw error;
+          });
+      }
+      return knowledgePromise;
+    }
+
+    function answerFrom(excerpts: string[]): string {
+      const contact = root?.dataset.contact ?? '/contact/';
+      if (!excerpts.length) {
+        return `I couldn’t find a matching answer in the published pages. Try another wording, or contact InnovaTech: ${contact}`;
+      }
+      return `Here are the closest matches from InnovaTech’s published pages:\n\n${excerpts.join('\n\n---\n\n')}\n\nFor a confirmed answer, contact InnovaTech: ${contact}`;
+    }
+
     openButton?.addEventListener('click', () => setOpen(panel?.hidden ?? true));
     closeButton?.addEventListener('click', () => setOpen(false));
     form?.addEventListener('submit', async (event) => {
@@ -120,29 +174,17 @@ const whatsapp = whatsappUrl('training');
       if (status) status.textContent = 'Searching published pages…';
 
       try {
-        const response = await fetch(root.dataset.endpoint ?? '', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message }),
-          signal: AbortSignal.timeout(30000),
-        });
-        const responseText = await response.text();
-        let payload: unknown;
-        try {
-          payload = JSON.parse(responseText);
-        } catch {
-          const error = response.status === 404
-            ? 'Lulu’s search service is not available on this deployment yet.'
-            : 'Lulu received an unexpected response. Please try again later.';
-          throw new Error(error);
+        let answer: string;
+        if (isGreeting(message)) {
+          answer = 'Hi! I can search InnovaTech’s published pages for courses, services, resources, and Insights. What would you like to find?';
+        } else if (needsPricingConfirmation(message)) {
+          answer = `The published site does not list current course prices or payment methods. Please confirm them with InnovaTech: ${root.dataset.contact ?? '/contact/'}`;
+        } else {
+          const documents = await loadKnowledge();
+          const excerpts = selectKnowledge(documents, message, { maxSnippets: 3, maxCharacters: 3000 });
+          answer = answerFrom(excerpts);
         }
-        const result = payload && typeof payload === 'object'
-          ? payload as { answer?: unknown; error?: unknown }
-          : {};
-        if (!response.ok || typeof result.answer !== 'string') {
-          throw new Error(typeof result.error === 'string' ? result.error : 'Lulu could not answer right now.');
-        }
-        addMessage('assistant', result.answer);
+        addMessage('assistant', answer);
         if (status) status.textContent = '';
       } catch (error) {
         const fallback = root.dataset.whatsapp ?? '/contact/';
