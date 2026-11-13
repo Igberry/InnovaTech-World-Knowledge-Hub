@@ -195,7 +195,7 @@ const catalog = await buildCatalog();
   .price-course-head h4 { margin: 0; font-size: 1rem; font-weight: 600; color: #fff; }
   .price-course-count { font-size: 0.75rem; font-weight: 600; opacity: 0.85; white-space: nowrap; }
   .price-plans {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.85rem; padding: 0.9rem;
   }
   .plan-card {
@@ -219,11 +219,35 @@ const catalog = await buildCatalog();
   .plan-naira { padding: 0 0.55rem; font-weight: 700; color: var(--color-ink); border-right: 1px solid var(--color-border); align-self: stretch; display: flex; align-items: center; }
   .plan-price-field input[type='number'] { flex: 1; min-width: 0; border: 0; background: transparent; padding: 0.45rem 0.55rem; font-size: 1rem; font-weight: 600; color: var(--color-ink); }
   .plan-price-field input[type='number']:focus { outline: none; }
-  .plan-features { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.78rem; font-weight: 600; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.03em; }
-  .plan-features textarea { width: 100%; box-sizing: border-box; font-size: 0.85rem; font-weight: 400; text-transform: none; letter-spacing: normal; resize: vertical; }
+  .plan-feat-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+    width: 100%; padding: 0.45rem 0.6rem; font: inherit; font-size: 0.82rem; font-weight: 600;
+    cursor: pointer; color: var(--color-blue-600); background: var(--surface);
+    border: 1px solid var(--color-blue-600); border-radius: 0.4rem;
+  }
+  .plan-feat-btn:hover { background: var(--color-blue-50); }
+  .plan-feat-count {
+    display: inline-flex; align-items: center; justify-content: center; min-width: 1.3rem;
+    padding: 0 0.35rem; font-size: 0.72rem; font-weight: 700; line-height: 1.5;
+    color: #fff; background: var(--color-blue-600); border-radius: 999px;
+  }
   .plan-card-foot { display: flex; align-items: center; gap: 0.6rem; margin-top: auto; }
   .plan-card-foot .btn { padding-block: 0.4rem; }
   .plan-msg { font-size: 0.8rem; }
+  .feat-modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; padding: 1rem; }
+  .feat-modal[hidden] { display: none; }
+  .feat-modal-backdrop { position: absolute; inset: 0; background: rgb(4 23 43 / 55%); }
+  .feat-modal-box {
+    position: relative; width: 100%; max-width: 32rem; max-height: 90vh; overflow: auto;
+    background: var(--surface); color: var(--color-ink);
+    border: 1px solid var(--color-border); border-top: 4px solid var(--color-burgundy-600);
+    border-radius: 0.6rem; padding: 1.1rem 1.2rem; box-shadow: 0 12px 32px rgb(4 23 43 / 30%);
+  }
+  .feat-modal-box h3 { margin: 0 0 0.75rem; font-size: 1.05rem; }
+  .feat-modal-label { display: block; font-size: 0.78rem; font-weight: 600; color: var(--color-muted); margin-bottom: 0.3rem; }
+  .feat-modal-box textarea { width: 100%; box-sizing: border-box; resize: vertical; font: inherit; font-size: 0.9rem; }
+  .feat-modal-actions { display: flex; align-items: center; justify-content: flex-end; gap: 0.6rem; margin-top: 0.9rem; }
+  .feat-modal-actions .plan-msg { margin-right: auto; }
   .adm-table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
   .adm-table-wrap:focus-visible { outline-offset: -2px; }
   .panel, .adm-card, [data-pricing], [data-vouchers], [data-entitlements], [data-payments] { min-width: 0; }
@@ -786,6 +810,24 @@ const catalog = await buildCatalog();
   let payments: PaymentRow[] = [];
   let entitlements: EntitlementRow[] = [];
 
+  let featCard: HTMLElement | null = null;
+
+  async function savePlan(row: HTMLElement) {
+    const id = row.dataset.planId!;
+    const price = Math.round(Number((row.querySelector('[data-price]') as HTMLInputElement).value) || 0);
+    const active = (row.querySelector('[data-active]') as HTMLInputElement).checked;
+    const features = (row.querySelector('[data-features]') as HTMLTextAreaElement).value
+      .split('\n').map((s) => s.trim()).filter(Boolean);
+    return updateCoursePlan(id, { price_kobo: price * 100, features, active });
+  }
+
+  function closeFeatModal() {
+    const modal = root.querySelector('[data-feat-modal]') as HTMLElement | null;
+    if (modal) modal.hidden = true;
+    featCard = null;
+  }
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeFeatModal(); });
+
   function renderPricing() {
     const box = root.querySelector('[data-pricing]') as HTMLElement;
     if (!box) return;
@@ -794,11 +836,13 @@ const catalog = await buildCatalog();
     const byCourse: Record<string, CoursePlanRow[]> = {};
     coursePlans.forEach((p) => { (byCourse[p.course_slug] = byCourse[p.course_slug] || []).push(p); });
     const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
-    box.innerHTML = Object.keys(byCourse).sort().map((slug) => {
+    const courses = Object.keys(byCourse).sort().map((slug) => {
       const plans = byCourse[slug].sort((a, b) => (ord[a.plan] || 9) - (ord[b.plan] || 9));
       const count = plans.length;
-      const cards = plans.map((p) => `
-        <article class="plan-card${p.active ? '' : ' is-inactive'}" data-plan-id="${p.id}" data-tier="${esc(p.plan)}">
+      const cards = plans.map((p) => {
+        const feats = p.features || [];
+        return `
+        <article class="plan-card${p.active ? '' : ' is-inactive'}" data-plan-id="${p.id}" data-tier="${esc(p.plan)}" data-course="${esc(courseTitle(slug))}">
           <div class="plan-card-head">
             <span class="plan-tier">${esc(cap(p.plan))}</span>
             <label class="plan-active"><input type="checkbox" ${p.active ? 'checked' : ''} data-active /> Active</label>
@@ -806,14 +850,14 @@ const catalog = await buildCatalog();
           <label class="plan-price">Price
             <span class="plan-price-field"><span class="plan-naira">₦</span><input type="number" min="0" step="1000" value="${Math.round(p.price_kobo / 100)}" data-price inputmode="numeric" /></span>
           </label>
-          <label class="plan-features">Features
-            <textarea rows="5" data-features placeholder="One perk per line">${esc((p.features || []).join('\n'))}</textarea>
-          </label>
+          <textarea data-features hidden>${esc(feats.join('\n'))}</textarea>
+          <button type="button" class="plan-feat-btn" data-edit-feats>Edit features <span class="plan-feat-count" data-feat-count>${feats.length}</span></button>
           <div class="plan-card-foot">
             <button type="button" class="btn btn-success" data-save-plan>Save</button>
             <span data-plan-msg class="plan-msg"></span>
           </div>
-        </article>`).join('');
+        </article>`;
+      }).join('');
       return `<section class="price-course">
         <header class="price-course-head">
           <h4>${esc(courseTitle(slug))}</h4>
@@ -822,18 +866,55 @@ const catalog = await buildCatalog();
         <div class="price-plans">${cards}</div>
       </section>`;
     }).join('');
+
+    box.innerHTML = courses + `
+      <div class="feat-modal" data-feat-modal hidden>
+        <div class="feat-modal-backdrop" data-feat-close></div>
+        <div class="feat-modal-box" role="dialog" aria-modal="true" aria-labelledby="feat-modal-title">
+          <h3 id="feat-modal-title" data-feat-title>Edit features</h3>
+          <label class="feat-modal-label" for="feat-modal-text">One perk per line</label>
+          <textarea id="feat-modal-text" data-feat-text rows="8" placeholder="One perk per line"></textarea>
+          <div class="feat-modal-actions">
+            <span class="plan-msg" data-feat-msg></span>
+            <button type="button" class="btn btn-ghost" data-feat-close>Cancel</button>
+            <button type="button" class="btn btn-success" data-feat-save>Save features</button>
+          </div>
+        </div>
+      </div>`;
+
     box.querySelectorAll('[data-save-plan]').forEach((btn) => btn.addEventListener('click', async () => {
       const row = (btn as HTMLElement).closest('[data-plan-id]') as HTMLElement;
-      const id = row.dataset.planId!;
-      const price = Math.round(Number((row.querySelector('[data-price]') as HTMLInputElement).value) || 0);
-      const active = (row.querySelector('[data-active]') as HTMLInputElement).checked;
-      const features = (row.querySelector('[data-features]') as HTMLTextAreaElement).value.split('\n').map((s) => s.trim()).filter(Boolean);
       const m = row.querySelector('[data-plan-msg]') as HTMLElement;
-      m.textContent = 'Saving...'; m.className = '';
-      const r = await updateCoursePlan(id, { price_kobo: price * 100, features, active });
-      m.textContent = r.ok ? 'Saved.' : r.error; m.className = r.ok ? 'ok' : 'err';
-      if (r.ok) coursePlans = await getCoursePlans();
+      m.textContent = 'Saving...'; m.className = 'plan-msg';
+      const r = await savePlan(row);
+      m.textContent = r.ok ? 'Saved.' : r.error; m.className = 'plan-msg ' + (r.ok ? 'ok' : 'err');
+      if (r.ok) { coursePlans = await getCoursePlans(); renderPricing(); }
     }));
+
+    const modal = box.querySelector('[data-feat-modal]') as HTMLElement;
+    const modalText = modal.querySelector('[data-feat-text]') as HTMLTextAreaElement;
+    const modalTitle = modal.querySelector('[data-feat-title]') as HTMLElement;
+    const modalMsg = modal.querySelector('[data-feat-msg]') as HTMLElement;
+
+    box.querySelectorAll('[data-edit-feats]').forEach((btn) => btn.addEventListener('click', () => {
+      const card = (btn as HTMLElement).closest('[data-plan-id]') as HTMLElement;
+      featCard = card;
+      modalTitle.textContent = `${card.dataset.course} - ${cap(card.dataset.tier || '')} features`;
+      modalText.value = (card.querySelector('[data-features]') as HTMLTextAreaElement).value;
+      modalMsg.textContent = ''; modalMsg.className = 'plan-msg';
+      modal.hidden = false;
+      modalText.focus();
+    }));
+
+    modal.querySelectorAll('[data-feat-close]').forEach((el) => el.addEventListener('click', closeFeatModal));
+    (modal.querySelector('[data-feat-save]') as HTMLElement).addEventListener('click', async () => {
+      if (!featCard) return;
+      (featCard.querySelector('[data-features]') as HTMLTextAreaElement).value = modalText.value;
+      modalMsg.textContent = 'Saving...'; modalMsg.className = 'plan-msg';
+      const r = await savePlan(featCard);
+      if (r.ok) { coursePlans = await getCoursePlans(); closeFeatModal(); renderPricing(); }
+      else { modalMsg.textContent = r.error; modalMsg.className = 'plan-msg err'; }
+    });
   }
 
   function renderVouchers() {
