@@ -27,6 +27,7 @@ const snippets = selectKnowledge([
 ], 'How long is the Video Editing course?');
 assert.equal(snippets.length, 1);
 assert.match(snippets[0], /eight weeks/);
+assert.deepEqual(selectKnowledge([], 'Any question'), []);
 
 const limiter = createLocalRateLimiter({ tenMinuteLimit: 2, dailyLimit: 3 });
 const baseTime = 1800000000000;

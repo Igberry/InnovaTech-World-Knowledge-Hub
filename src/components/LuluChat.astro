@@ -2,7 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { withBase, whatsappUrl } from '../utils/links';
 
-const enabled = import.meta.env.PUBLIC_LULU_ENABLED === 'true';
+const enabled = import.meta.env.PUBLIC_LULU_ENABLED !== 'false';
 const whatsapp = whatsappUrl('training');
 ---
 
@@ -12,7 +12,7 @@ const whatsapp = whatsappUrl('training');
       <header class="lulu-header">
         <div>
           <h2 id="lulu-title">Chat with Lulu</h2>
-          <p>Lulu is InnovaTech’s AI assistant.</p>
+          <p>Lulu is an automated guide to InnovaTech’s published pages.</p>
         </div>
         <button class="lulu-close" type="button" aria-label="Close Lulu chat" data-lulu-close>
           <Icon name="lucide:x" width={20} height={20} aria-hidden="true" />
@@ -20,11 +20,11 @@ const whatsapp = whatsappUrl('training');
       </header>
       <ol class="lulu-messages" data-lulu-messages role="log" aria-live="polite" aria-relevant="additions text">
         <li class="lulu-message lulu-assistant">
-          <p>Hello, I’m Lulu, an AI assistant for InnovaTech World. I can help with information published on this website. Please don’t share passwords, payment details, student records or other sensitive information.</p>
+          <p>Hello, I’m Lulu, InnovaTech’s automated site guide. I search published pages and show relevant passages; I don’t generate answers. Please don’t share passwords, payment details, student records or other sensitive information.</p>
         </li>
       </ol>
       <p class="lulu-privacy">
-        Messages are sent to OpenAI to generate replies. InnovaTech does not save chat transcripts.
+        Your question is searched against published pages. No AI provider is used, and InnovaTech does not save chat transcripts.
         <a href={withBase('/privacy/')}>Privacy details</a>
       </p>
       <form class="lulu-form" data-lulu-form>
@@ -58,7 +58,6 @@ const whatsapp = whatsappUrl('training');
     const messages = root?.querySelector<HTMLOListElement>('[data-lulu-messages]');
     const status = root?.querySelector<HTMLElement>('[data-lulu-status]');
     const sendButton = root?.querySelector<HTMLButtonElement>('[data-lulu-send]');
-    const history: Array<{ role: 'user' | 'assistant'; content: string }> = [];
     let sending = false;
 
     function setOpen(open: boolean) {
@@ -118,13 +117,13 @@ const whatsapp = whatsappUrl('training');
       sending = true;
       if (sendButton) sendButton.disabled = true;
       if (input) input.disabled = true;
-      if (status) status.textContent = 'Lulu is preparing a reply…';
+      if (status) status.textContent = 'Searching published pages…';
 
       try {
         const response = await fetch(root.dataset.endpoint ?? '', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message, history: history.slice(-6) }),
+          body: JSON.stringify({ message }),
           signal: AbortSignal.timeout(30000),
         });
         const result = await response.json() as { answer?: unknown; error?: unknown };
@@ -132,12 +131,10 @@ const whatsapp = whatsappUrl('training');
           throw new Error(typeof result.error === 'string' ? result.error : 'Lulu could not answer right now.');
         }
         addMessage('assistant', result.answer);
-        history.push({ role: 'user', content: message }, { role: 'assistant', content: result.answer });
-        if (history.length > 6) history.splice(0, history.length - 6);
         if (status) status.textContent = '';
       } catch (error) {
         const fallback = root.dataset.whatsapp ?? '/contact/';
-        const notice = error instanceof Error ? error.message : 'Lulu could not connect right now.';
+        const notice = error instanceof Error ? error.message : 'Lulu could not search right now.';
         addMessage('assistant', `${notice} You can contact InnovaTech here: ${fallback}`);
         if (status) status.textContent = 'The reply could not be completed.';
       } finally {
