@@ -219,9 +219,8 @@ const catalog = await buildCatalog();
   .plan-naira { padding: 0 0.55rem; font-weight: 700; color: var(--color-ink); border-right: 1px solid var(--color-border); align-self: stretch; display: flex; align-items: center; }
   .plan-price-field input[type='number'] { flex: 1; min-width: 0; border: 0; background: transparent; padding: 0.45rem 0.55rem; font-size: 1rem; font-weight: 600; color: var(--color-ink); }
   .plan-price-field input[type='number']:focus { outline: none; }
-  .plan-features { font-size: 0.82rem; }
-  .plan-features summary { cursor: pointer; font-weight: 600; color: var(--color-blue-600); }
-  .plan-features textarea { width: 100%; box-sizing: border-box; margin-top: 0.4rem; }
+  .plan-features { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.78rem; font-weight: 600; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.03em; }
+  .plan-features textarea { width: 100%; box-sizing: border-box; font-size: 0.85rem; font-weight: 400; text-transform: none; letter-spacing: normal; resize: vertical; }
   .plan-card-foot { display: flex; align-items: center; gap: 0.6rem; margin-top: auto; }
   .plan-card-foot .btn { padding-block: 0.4rem; }
   .plan-msg { font-size: 0.8rem; }
@@ -807,7 +806,9 @@ const catalog = await buildCatalog();
           <label class="plan-price">Price
             <span class="plan-price-field"><span class="plan-naira">₦</span><input type="number" min="0" step="1000" value="${Math.round(p.price_kobo / 100)}" data-price inputmode="numeric" /></span>
           </label>
-          <details class="plan-features"><summary>Features</summary><textarea rows="4" data-features placeholder="One perk per line">${esc((p.features || []).join('\n'))}</textarea></details>
+          <label class="plan-features">Features
+            <textarea rows="5" data-features placeholder="One perk per line">${esc((p.features || []).join('\n'))}</textarea>
+          </label>
           <div class="plan-card-foot">
             <button type="button" class="btn btn-success" data-save-plan>Save</button>
             <span data-plan-msg class="plan-msg"></span>
