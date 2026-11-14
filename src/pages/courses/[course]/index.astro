@@ -367,7 +367,9 @@ const courseJsonLd = {
     background: color-mix(in srgb, var(--color-success) 10%, transparent); font-weight: 600;
   }
   .voucher-row { margin: 0.5rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
-  .voucher-row input { font: inherit; padding: 0.5rem 0.65rem; border: 1px solid var(--color-border); border-radius: 0.5rem; background: var(--surface); color: var(--color-ink); }
+  .voucher-row input { font: inherit; padding: 0.55rem 0.7rem; border: 1.5px solid var(--color-muted); border-radius: 0.5rem; background: var(--surface); color: var(--color-ink); min-width: 13rem; }
+  .voucher-row input::placeholder { color: var(--color-muted); }
+  .voucher-row input:focus-visible { outline: none; border-color: var(--color-burgundy-600); box-shadow: 0 0 0 3px var(--color-burgundy-50); }
 </style>
 
 <script>
