@@ -70,13 +70,11 @@
     // Load the Supabase client only when the portal is on (keeps it off public builds).
     const { onAuthChange, isAdmin, getProfile, signOut } = await import('../lib/auth');
     el.hidden = false;
-    const render = async (loggedIn: boolean) => {
+    const paint = (loggedIn: boolean, admin: boolean, name: string) => {
       if (!loggedIn) {
         el.innerHTML = `<a href="${withBase('/login/')}">Log in</a>`;
         return;
       }
-      const [admin, profile] = await Promise.all([isAdmin(), getProfile()]);
-      const name = profile?.full_name?.trim() || 'My account';
       el.innerHTML =
         `<a href="${withBase('/account/')}">My Learning</a>` +
         (admin ? `<a href="${withBase('/admin/')}">Admin</a>` : '') +
@@ -87,6 +85,28 @@
         window.location.href = withBase('/');
       });
     };
-    onAuthChange((user) => render(!!user));
+
+    const render = async (loggedIn: boolean) => {
+      if (!loggedIn) {
+        paint(false, false, '');
+        return;
+      }
+      const [admin, profile] = await Promise.all([isAdmin(), getProfile()]);
+      const name = profile?.full_name?.trim() || 'My account';
+      paint(true, admin, name);
+      // Right after sign-in the admin RPC can resolve `false` before the session
+      // token is attached, which would hide the Admin link. Re-check once shortly
+      // after; if the user really is an admin, repaint with the link showing.
+      if (!admin) {
+        setTimeout(async () => {
+          if (await isAdmin()) paint(true, true, name);
+        }, 600);
+      }
+    };
+
+    // Supabase runs onAuthStateChange callbacks inside an auth lock; awaiting
+    // other Supabase calls directly here can see a not-yet-attached session.
+    // Defer with setTimeout(0) so isAdmin()/getProfile() run with a live token.
+    onAuthChange((user) => setTimeout(() => render(!!user), 0));
   }
 </script>
