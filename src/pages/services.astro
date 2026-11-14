@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     q: 'What currency are the prices in, and how do I pay?',
-    a: 'Hourly rates are quoted in US Dollars (USD) and paid in Nigerian Naira, at the current Naira equivalent. For a one-off job you can instead choose the fixed one-time price, shown in Naira (₦). For hourly work we agree an estimated number of hours upfront and take a deposit to begin, then confirm everything in writing before we start.',
+    a: 'Each package is a fixed one-time price in Nigerian Naira (₦). You can also hire a service by the hour for contract or ongoing work; hourly rates are quoted in US Dollars (USD) and paid in the current Naira equivalent. We confirm the scope and terms in writing before we start.',
   },
   {
     q: 'Can I hire trained talent instead of a done-for-you project?',
@@ -77,8 +77,9 @@ const faqJsonLd = {
   </header>
 
   <p class="svc-currency-note" role="note">
-    <strong>Note:</strong> hourly rates are shown in US Dollars ($) and are paid in Nigerian Naira, at the
-    current Naira equivalent. Prefer a one-off job? Each package also has a fixed one-time price in Naira (₦).
+    <strong>Note:</strong> each package below is a fixed one-time price in Nigerian Naira (₦). You can also
+    hire any service by the hour for contract or ongoing work — those rates are quoted in US Dollars ($) and
+    paid in the current Naira equivalent.
   </p>
 
   <div class="svc-list">
@@ -92,7 +93,8 @@ const faqJsonLd = {
           </div>
         </div>
         <p class="svc-desc">{s.description}</p>
-        <div class="svc-plans" data-service-plans={s.slug} data-cadence={s.cadence}>
+        <p class="svc-hourly" data-service-hourly={s.slug} hidden></p>
+        <div class="svc-plans" data-service-plans={s.slug}>
           <p class="muted">Loading packages…</p>
         </div>
       </section>
@@ -148,7 +150,7 @@ const faqJsonLd = {
 </BaseLayout>
 
 <script>
-  import { getServicePlans } from '../lib/payments';
+  import { getServicePlans, getServiceRates } from '../lib/payments';
   import { site, isTodo } from '../config/site';
   import { withBase } from '../utils/links';
 
@@ -159,7 +161,7 @@ const faqJsonLd = {
   const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
   const order: Record<string, number> = { basic: 1, advanced: 2, premium: 3 };
 
-  // Rates are stored in the currency's minor units (USD -> cents, NGN -> kobo).
+  // Amounts are stored in the currency's minor units (USD -> cents, NGN -> kobo).
   const money = (minor: number, currency: string) => {
     const major = Math.round((minor || 0) / 100);
     return currency === 'USD'
@@ -168,10 +170,18 @@ const faqJsonLd = {
   };
 
   (async () => {
-    const plans = await getServicePlans();
-    const containers = Array.from(document.querySelectorAll<HTMLElement>('[data-service-plans]'));
+    const [plans, rates] = await Promise.all([getServicePlans(), getServiceRates()]);
 
-    for (const box of containers) {
+    // Per-service hourly rate line (for contract / ongoing hire).
+    for (const el of Array.from(document.querySelectorAll<HTMLElement>('[data-service-hourly]'))) {
+      const rate = rates.find((r) => r.service_slug === el.dataset.serviceHourly);
+      if (rate && rate.hourly_price_kobo) {
+        el.innerHTML = `Prefer to hire by the hour (contract or ongoing)? <strong>${money(rate.hourly_price_kobo, rate.currency)}/hr</strong>, paid in the Naira equivalent.`;
+        el.hidden = false;
+      }
+    }
+
+    for (const box of Array.from(document.querySelectorAll<HTMLElement>('[data-service-plans]'))) {
       const slug = box.dataset.servicePlans!;
       const list = plans
         .filter((p) => p.service_slug === slug)
@@ -186,8 +196,7 @@ const faqJsonLd = {
         <article class="svc-plan${p.plan === 'advanced' ? ' is-popular' : ''}">
           ${p.plan === 'advanced' ? '<span class="svc-badge">Most popular</span>' : ''}
           <h3>${esc(cap(p.plan))}</h3>
-          <div class="svc-price">${money(p.price_kobo, p.currency)}<span class="svc-per">/hr</span></div>
-          ${p.fixed_price_kobo ? `<div class="svc-fixed">or ${money(p.fixed_price_kobo, 'NGN')} one-time</div>` : ''}
+          <div class="svc-price">${p.fixed_price_kobo ? money(p.fixed_price_kobo, 'NGN') : 'On request'}<span class="svc-per">${p.fixed_price_kobo ? 'one-time' : ''}</span></div>
           <ul>${(p.features || []).map((f) => `<li>${esc(f)}</li>`).join('')}</ul>
           <a class="btn ${p.plan === 'advanced' ? 'btn-primary' : 'btn-secondary'}" href="${bookHref}"${calendly ? ' target="_blank" rel="noopener noreferrer"' : ''}>Request ${esc(cap(p.plan))}</a>
         </article>`).join('');
@@ -226,7 +235,11 @@ const faqJsonLd = {
   }
   .svc-head h2 { margin: 0; font-size: 1.4rem; }
   .svc-tagline { margin: 0.15rem 0 0; color: var(--color-burgundy-text); font-weight: 600; }
-  .svc-desc { color: var(--color-muted); margin: 0.9rem 0 1.2rem; max-width: 70ch; }
+  .svc-desc { color: var(--color-muted); margin: 0.9rem 0 1rem; max-width: 70ch; }
+  .svc-hourly {
+    margin: 0 0 1.1rem; padding: 0.6rem 0.8rem; font-size: 0.95rem; color: var(--color-ink);
+    background: var(--surface-2); border: 1px dashed var(--color-border); border-radius: 0.5rem;
+  }
 
   .svc-plans {
     display: grid;
