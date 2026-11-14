@@ -81,7 +81,7 @@ becomes a real income.
 1. Note how you'll over-communicate in the first month to build trust.
 2. Pick the gentle script you'll use to ask for feedback and a testimonial.
 3. Set a **90-day goal** using the [template](/downloads/virtual-assistant/ninety-day-goal-template.md):
-   clients, income, and the skills you'll keep learning (other InnovaTech courses help here).
+   clients, income, and the skills you'll keep learning (other Innovatech World courses help here).
 
 **You've got it when:** you have a specific, realistic 90-day client and income goal written down.
 

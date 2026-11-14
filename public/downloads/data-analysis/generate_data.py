@@ -1,5 +1,5 @@
 """
-InnovaTech World - Practice Dataset Generator
+Innovatech World - Practice Dataset Generator
 Creates a fictional retail business ("NaijaMart") dataset used across all 12 weeks.
 Run:  python generate_data.py
 Outputs: customers.csv, products.csv, orders_clean.csv, orders_raw.csv (deliberately messy)

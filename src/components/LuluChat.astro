@@ -30,15 +30,15 @@ const whatsapp = whatsappUrl();
       <ol class="lulu-messages" data-lulu-messages role="log" aria-live="polite" aria-relevant="additions text">
         <li class="lulu-message lulu-assistant">
           <span class="lulu-speaker">Lulu</span>
-          <p class="lulu-bubble">Hi, I’m Lulu, InnovaTech’s AI assistant. Ask me about our courses, plans and prices, services, or how the site works. Please don’t share passwords, payment details, student records or other sensitive information.</p>
+          <p class="lulu-bubble">Hi, I’m Lulu, Innovatech World’s AI assistant. Ask me about our courses, plans and prices, services, or how the site works. Please don’t share passwords, payment details, student records or other sensitive information.</p>
         </li>
       </ol>
       <details class="lulu-info">
         <summary>Privacy and contact</summary>
         <p class="lulu-privacy">
-          Your message is sent to InnovaTech’s AI assistant (powered by Google’s Gemini) to generate a reply. InnovaTech does not save chat transcripts.
+          Your message is sent to Innovatech World’s AI assistant (powered by Google’s Gemini) to generate a reply. Innovatech World does not save chat transcripts.
           <a href={withBase('/privacy/')}>Privacy details</a>
-          <span>Need a person? <a href={whatsapp ?? withBase('/contact/')} target={whatsapp ? '_blank' : undefined} rel={whatsapp ? 'noopener noreferrer' : undefined}>Contact InnovaTech</a></span>
+          <span>Need a person? <a href={whatsapp ?? withBase('/contact/')} target={whatsapp ? '_blank' : undefined} rel={whatsapp ? 'noopener noreferrer' : undefined}>Contact Innovatech World</a></span>
         </p>
       </details>
       <form class="lulu-form" data-lulu-form>
@@ -166,7 +166,7 @@ const whatsapp = whatsappUrl();
           if (status) status.textContent = 'The reply could not be completed.';
         }
       } catch {
-        addMessage('assistant', `Lulu could not reach the server. You can contact InnovaTech here: ${fallback}`);
+        addMessage('assistant', `Lulu could not reach the server. You can contact Innovatech World here: ${fallback}`);
         if (history[history.length - 1]?.role === 'user') history.pop();
         if (status) status.textContent = 'The reply could not be completed.';
       } finally {

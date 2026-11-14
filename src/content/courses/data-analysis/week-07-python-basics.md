@@ -19,7 +19,7 @@ tools: ["Python", "Google Colab"]
 
 ## Before you start (about 10 minutes)
 - Open Google Colab (colab.research.google.com) and click **New notebook**. No install needed. See the [Setup Guide](/courses/data-analysis/00-setup-guide/) for the Anaconda alternative.
-- Warm-up: in the first cell type `print("Hello, InnovaTech")` and press **Shift+Enter**.
+- Warm-up: in the first cell type `print("Hello, Innovatech World")` and press **Shift+Enter**.
 - Optional: start the free **Kaggle Learn -> Python** micro-course.
 
 ## Try it 1 - Store and show values

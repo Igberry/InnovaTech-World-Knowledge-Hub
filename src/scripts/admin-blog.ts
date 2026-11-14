@@ -59,7 +59,7 @@ export function initAdminBlog(): void {
   const resetForm = () => {
     form.reset();
     (form.querySelector('[data-blog-id]') as HTMLInputElement).value = '';
-    (form.querySelector('[data-blog-author]') as HTMLInputElement).value = 'InnovaTech World';
+    (form.querySelector('[data-blog-author]') as HTMLInputElement).value = 'Innovatech World';
     setImage('', '');
     scheduledAt.value = '';
     scheduleField.hidden = status.value !== 'scheduled';

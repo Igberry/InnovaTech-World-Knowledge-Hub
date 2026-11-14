@@ -89,7 +89,7 @@ a strength here, not a weakness.
 4. **Your checks**: facts verified, privacy protected, rights and honesty handled.
 5. **Honest reflection**: what AI did well, where it fell short, what you'd do differently.
 
-For hosting a simple portfolio for free, see the InnovaTech
+For hosting a simple portfolio for free, see the Innovatech World
 [Remote Ready](/courses/remote-ready/) course.
 
 **You've got it when:** you have a portfolio-ready version with all private details removed.

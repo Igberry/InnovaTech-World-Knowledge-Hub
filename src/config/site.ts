@@ -10,11 +10,11 @@
 import { HIDDEN_SECTION_HEADINGS } from './hidden-sections.mjs';
 
 export const site = {
-  name: 'InnovaTech World Knowledge Hub',
-  shortName: 'InnovaTech Hub',
+  name: 'Innovatech World Knowledge Hub',
+  shortName: 'Innovatech World',
   tagline: 'Learn digital skills. Build a global career.',
   description:
-    'Practical, beginner-friendly digital-skills training from InnovaTech World in Yenagoa, Bayelsa State, Nigeria. Follow weekly lessons, download real datasets, and build a job-ready portfolio.',
+    'Practical, beginner-friendly digital-skills training from Innovatech World in Yenagoa, Bayelsa State, Nigeria. Follow weekly lessons, download real datasets, and build a job-ready portfolio.',
 
   // Deployment - these are overridden by SITE_URL / BASE_PATH env vars at build
   // time (see astro.config.mjs). Kept here only for display/fallback.
@@ -44,11 +44,11 @@ export const site = {
     calendly: 'https://calendly.com/davidigberichuks/30min',
     // Used by the per-course "Ask about this course" button ({course} is filled in).
     whatsappDefaultMessage:
-      "Hello InnovaTech World, I'd like to know more about the {course} course.",
+      "Hello Innovatech World, I'd like to know more about the {course} course.",
     // Used by every other WhatsApp button, where no specific course is in context.
     // Covers both learners and clients who want to work with the team.
     whatsappGeneralMessage:
-      "Hello InnovaTech World, I'd like to know more about what you offer - your training and working with your team.",
+      "Hello Innovatech World, I'd like to know more about what you offer - your training and working with your team.",
   },
 
   social: {

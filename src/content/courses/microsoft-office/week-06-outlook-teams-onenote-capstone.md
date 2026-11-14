@@ -163,7 +163,7 @@ Assemble the full pack for the fictional Fresh Bites case:
 
 Microsoft Learn's pages (checked 12 November 2026) describe the **Microsoft Office Specialist: Associate (Microsoft 365 Apps)** pathway as three qualifying exams, including at least one Microsoft 365 Apps exam. Current examples are Word **MO-110**, Excel **MO-210** and PowerPoint **MO-310**; Office 2019 options are also listed. Exam price depends on the country where it is proctored, and the Word and Excel pages suggest about 150 hours of instruction and practice.
 
-This course is a practical introduction and does not claim to meet that guidance or prepare you to pass an exam. The certification is optional and separate from your InnovaTech completion record. Check the current Microsoft Learn page and its exam provider before planning or paying. Do not buy an exam or subscription because of a course example.
+This course is a practical introduction and does not claim to meet that guidance or prepare you to pass an exam. The certification is optional and separate from your Innovatech World completion record. Check the current Microsoft Learn page and its exam provider before planning or paying. Do not buy an exam or subscription because of a course example.
 
 ## Mentoring Session Plan (90 min)
 

@@ -27,7 +27,7 @@ async function loadPublicKnowledge(): Promise<KnowledgeDocument[]> {
   const courseBySlug = new Map(courses.map((course) => [course.data.slug, course]));
   const result: KnowledgeDocument[] = [
     {
-      title: 'InnovaTech World Knowledge Hub',
+      title: 'Innovatech World Knowledge Hub',
       category: 'Business information',
       reference: withBase('/about/'),
       content: [
@@ -60,7 +60,7 @@ async function loadPublicKnowledge(): Promise<KnowledgeDocument[]> {
       title: service,
       category: 'Services',
       reference: withBase('/services/'),
-      content: `InnovaTech World lists ${service} among its services. Details, availability, scope and pricing should be confirmed with the business through its published contact channels.`,
+      content: `Innovatech World lists ${service} among its services. Details, availability, scope and pricing should be confirmed with the business through its published contact channels.`,
     })),
     ...resources.map((resource) => ({
       title: resource.title,

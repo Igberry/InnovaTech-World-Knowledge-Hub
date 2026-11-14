@@ -34,7 +34,7 @@ a short case study, plus one reference requested. You build it this week from wo
 work count.
 
 **Do this now:**
-1. In a doc, list every piece of work you could show: InnovaTech projects, volunteer work, personal pages,
+1. In a doc, list every piece of work you could show: Innovatech World projects, volunteer work, personal pages,
    spreadsheets you organised, content you wrote.
 2. Add any **before/after** examples (a messy inbox you tidied, a document you cleaned up).
 3. Note any **results** others saw (followers grown, time saved, errors reduced).

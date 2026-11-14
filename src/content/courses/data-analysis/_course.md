@@ -14,7 +14,7 @@ icon: "bar-chart-3"
 order: 1
 featured: true
 ---
-**InnovaTech World**
+**Innovatech World**
 *Beginner to job-ready portfolio in Excel, SQL, Python and Power BI*
 
 ---
@@ -113,7 +113,7 @@ A **Certificate of Completion** is issued at **70% or above overall**.
 | GitHub account | Free | 6 |
 | Kaggle account | Free | 9 |
 
-> **Check early:** Power BI Desktop does not run on Mac. Confirm each student's laptop operating system in Week 1 so there is time to arrange a Windows machine (e.g., the InnovaTech office computer) for Weeks 10–11.
+> **Check early:** Power BI Desktop does not run on Mac. Confirm each student's laptop operating system in Week 1 so there is time to arrange a Windows machine (e.g., the Innovatech World office computer) for Weeks 10–11.
 
 Full installation steps: see [Setup Guide](/courses/data-analysis/00-setup-guide/).
 

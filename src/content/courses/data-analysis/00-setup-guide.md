@@ -53,7 +53,7 @@ tools: ["Excel", "SQLite", "Python", "Power BI"]
 **Do this now (easiest route, no install):**
 1. Go to **colab.research.google.com** and sign in with a Google account.
 2. Click **New notebook**.
-3. In the first cell type `print("Hello, InnovaTech")` and press **Shift+Enter**.
+3. In the first cell type `print("Hello, Innovatech World")` and press **Shift+Enter**.
 4. Upload a CSV with the folder icon on the left when you need one.
 
 **You've got it when:** the cell prints your message with no error.

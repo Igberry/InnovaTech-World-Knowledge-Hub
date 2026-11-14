@@ -56,7 +56,7 @@ gets you shortlisted. Numbers make you believable.
 | Helped customers | Resolved 30+ customer queries a day over chat |
 | Managed social media | Grew a local page from 200 to 1,500 followers in 4 months |
 
-If you're new, use **projects, volunteering or coursework** (including your InnovaTech projects) the same way.
+If you're new, use **projects, volunteering or coursework** (including your Innovatech World projects) the same way.
 
 **You've got it when:** three of your bullets start with an action verb and carry a real number.
 
@@ -135,7 +135,7 @@ Deliver all three, ready to send to a real employer:
 ## Extra quick wins (optional)
 
 - Ask someone to review your CV and apply one piece of their feedback.
-- Add your InnovaTech course and projects to your LinkedIn profile.
+- Add your Innovatech World course and projects to your LinkedIn profile.
 - Ask an AI assistant to suggest stronger action verbs, then pick the honest ones yourself.
 
 ## Mentoring Session Plan (90 min)

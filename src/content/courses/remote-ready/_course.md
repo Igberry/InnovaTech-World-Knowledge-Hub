@@ -22,12 +22,12 @@ featured: true
 
 **Remote work opens doors far beyond Yenagoa.** This 6-week course gets you ready to compete for
 remote and freelance roles: a credible professional brand, proof of your skills, a smart job search,
-and the confidence to interview and get hired. It pairs well with any InnovaTech skills course - those
+and the confidence to interview and get hired. It pairs well with any Innovatech World skills course - those
 teach the skill; this one helps you get the work.
 
 ## Who this is for
 
-Anyone preparing for remote or freelance work - whether you're taking another InnovaTech course (Data
+Anyone preparing for remote or freelance work - whether you're taking another Innovatech World course (Data
 Analysis, Web Development) or already have a skill to offer. You need basic computer and internet
 skills and a willingness to practise. Every tool used is free.
 

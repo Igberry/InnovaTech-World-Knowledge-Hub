@@ -96,7 +96,7 @@ Now draw the same table for *your* repeated task.
 ## Make it yours - spot what could be automated later
 
 Once a workflow is clear and repeatable, parts of it can sometimes be **automated** to run with less manual
-effort - the subject of the InnovaTech [Automation](/courses/) path. For now, notice which of your steps are so
+effort - the subject of the Innovatech World [Automation](/courses/) path. For now, notice which of your steps are so
 repetitive and rule-based that automating them later would help. Documenting the workflow is the first step
 toward that.
 

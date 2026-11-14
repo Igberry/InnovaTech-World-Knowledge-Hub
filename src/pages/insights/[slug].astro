@@ -26,7 +26,7 @@ const jsonLd = post ? {
   datePublished: post.publishDate.toISOString(),
   ...(post.updatedDate ? { dateModified: post.updatedDate.toISOString() } : {}),
   author: { '@type': 'Person', name: post.author || site.facilitator.name },
-  publisher: { '@type': 'Organization', name: 'InnovaTech World' },
+  publisher: { '@type': 'Organization', name: 'Innovatech World' },
   mainEntityOfPage: canonical,
   url: canonical,
   ...(post.image ? { image: post.image } : {}),

@@ -17,7 +17,7 @@ Tick each item. A complete, clear profile is often the first thing a remote empl
 ## Experience & skills
 - [ ] Each role has 2-4 bullet achievements (action verb + result)
 - [ ] 5-10 relevant **skills** listed
-- [ ] Any InnovaTech course added under "Licenses & certifications" or "Education" once completed
+- [ ] Any Innovatech World course added under "Licenses & certifications" or "Education" once completed
 - [ ] Projects or a portfolio link added
 
 ## Proof & activity

@@ -30,7 +30,7 @@ people. It is practical and tool-focused, not a maths or machine-learning course
 
 Anyone who wants to use AI to do real work better, whether for a job, a business, studies, or freelancing.
 You need basic computer and internet skills and a willingness to try things and check your results. Every
-tool used has a free way to start. This course pairs well with every other InnovaTech course: AI is a
+tool used has a free way to start. This course pairs well with every other Innovatech World course: AI is a
 multiplier on skills you already have.
 
 ## What you'll be able to do

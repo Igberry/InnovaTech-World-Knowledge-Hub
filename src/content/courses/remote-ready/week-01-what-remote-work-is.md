@@ -54,7 +54,7 @@ chasing the wrong jobs.
 3. "data entry remote" or "data analyst remote"
 4. "social media remote" or "content writer remote"
 
-Pair a **skill** (from an InnovaTech course or your own experience) with the **remote-readiness** you build
+Pair a **skill** (from an Innovatech World course or your own experience) with the **remote-readiness** you build
 here, and you have something real to offer.
 
 **You've got it when:** you've found at least five live adverts that could realistically fit you, and saved them.

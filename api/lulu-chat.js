@@ -1,8 +1,8 @@
 /**
  * POST /api/lulu-chat  (Vercel serverless function)
  *
- * Lulu, the InnovaTech World site assistant, powered by Google's Gemini. The
- * browser sends the conversation so far; this function adds a full InnovaTech
+ * Lulu, the Innovatech World site assistant, powered by Google's Gemini. The
+ * browser sends the conversation so far; this function adds a full Innovatech World
  * knowledge system prompt (with LIVE pricing pulled from Supabase) and returns
  * Gemini's reply. No chat transcripts are stored.
  *
@@ -72,12 +72,12 @@ const SERVICES = [
   ['virtual-assistance', 'Virtual Assistance'],
 ];
 
-const BASE_KNOWLEDGE = `You are Lulu, the friendly assistant for the InnovaTech World Knowledge Hub website.
+const BASE_KNOWLEDGE = `You are Lulu, the friendly assistant for the Innovatech World Knowledge Hub website.
 
-ABOUT INNOVATECH WORLD
-- InnovaTech World is a digital-skills training provider based in Yenagoa, Bayelsa State, Nigeria. Founder and Lead Facilitator: David C. Igberi.
+ABOUT Innovatech World
+- Innovatech World is a digital-skills training provider based in Yenagoa, Bayelsa State, Nigeria. Founder and Lead Facilitator: David C. Igberi.
 - The Knowledge Hub offers practical, beginner-friendly courses with weekly lessons, downloadable datasets/templates, in-person or live mentoring, a portfolio focus, and a verifiable certificate on completion.
-- InnovaTech World is also a digital agency and a talent partner: it does done-for-you work for clients AND recruits, trains and places vetted talent into client teams for a role. See /services/.
+- Innovatech World is also a digital agency and a talent partner: it does done-for-you work for clients AND recruits, trains and places vetted talent into client teams for a role. See /services/.
 
 CONTACT
 - WhatsApp: https://wa.me/2349121681159  (best for a quick human reply)
@@ -89,14 +89,14 @@ CONTACT
 HOW THE SITE WORKS
 - Browse all courses at /courses/. Each course has its own page with lessons, outcomes, downloads and a "Plans & pricing" section.
 - To take a paid course a learner creates a free account at /login/, then unlocks the course by choosing a plan and paying online. Lesson progress is saved to their account; see /account/.
-- Payments are handled securely by Paystack (card, bank or transfer). InnovaTech never sees or stores card details. A discount or access code can be entered at checkout.
+- Payments are handled securely by Paystack (card, bank or transfer). Innovatech World never sees or stores card details. A discount or access code can be entered at checkout.
 - Certificates are issued on completion and can be checked at /verify/. Other pages: Resources /resources/, Insights (blog) /insights/, About /about/.
 - Free typing practice tool (no account needed): /tools/typing-practice/.
 
 PLANS
 - Most courses offer three tiers: Basic, Advanced and Premium. Higher tiers add perks such as live mentoring, assignment feedback and 1:1/career support. Exact perks and prices are on each course page.
 - A plan is personal to one learner and must not be shared or resold.
-- Because course materials open immediately on payment, fees are generally non-refundable; if someone was charged in error or cannot access a course they paid for, they should contact InnovaTech within 7 days.
+- Because course materials open immediately on payment, fees are generally non-refundable; if someone was charged in error or cannot access a course they paid for, they should contact Innovatech World within 7 days.
 
 COURSES (status, level, duration, summary):
 ${COURSES.map(([slug, title, status, level, dur, sum]) =>
@@ -109,7 +109,7 @@ ${SERVICES.map(([, title]) => `- ${title}`).join('\n')}
 - Services are not bought through the website checkout: the client books a free consultation (Calendly link above) or uses /contact/, and the work is quoted and arranged directly.
 
 HIRE TALENT (for employers)
-- Besides done-for-you projects, InnovaTech recruits, trains and places vetted talent into a client's team (remote, part-time or full-time) for roles such as web development, data analysis, virtual assistance and design. To hire, book a call or use /contact/ and describe the role.
+- Besides done-for-you projects, Innovatech World recruits, trains and places vetted talent into a client's team (remote, part-time or full-time) for roles such as web development, data analysis, virtual assistance and design. To hire, book a call or use /contact/ and describe the role.
 
 REFUNDS
 - Courses: fees are generally non-refundable because materials open immediately; if charged in error or unable to access, contact within 7 days. Services: billed per hour; deposits and prepaid hours are non-refundable once work starts, but unused prepaid hours can be refunded or carried over. Full policy: /refunds/.
@@ -123,7 +123,7 @@ HOW TO ANSWER
 - Never ask for, and never accept, passwords, one-time codes, full card numbers or student records. If a user shares something sensitive, gently tell them not to and continue safely.
 - For account access, payment problems, refunds, enrolment decisions, or anything needing a person, direct them to /contact/ or WhatsApp (https://wa.me/2349121681159).
 - If someone wants tailored advice, to discuss done-for-you services, or to speak with the team, you may offer the consultation booking link (https://calendly.com/davidigberichuks/30min) alongside WhatsApp.
-- Stay on InnovaTech topics. If asked something unrelated, briefly steer back to how you can help with InnovaTech courses and services.
+- Stay on Innovatech World topics. If asked something unrelated, briefly steer back to how you can help with Innovatech World courses and services.
 - You may reply in the language the user writes in; default to clear English.`;
 
 // ---- Live pricing from Supabase (cached per warm instance) ----
@@ -230,7 +230,7 @@ export default async function handler(req, res) {
   if (req.method !== 'POST') return send(res, 405, { error: 'Method not allowed.' });
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    return send(res, 503, { error: 'Lulu is not configured yet. Please contact InnovaTech: /contact/' });
+    return send(res, 503, { error: 'Lulu is not configured yet. Please contact Innovatech World: /contact/' });
   }
 
   const ip =
@@ -272,7 +272,7 @@ export default async function handler(req, res) {
         error:
           status === 429
             ? 'Lulu is busy right now. Please try again shortly.'
-            : `Lulu could not reply right now. Please contact InnovaTech: ${REDIRECT}`,
+            : `Lulu could not reply right now. Please contact Innovatech World: ${REDIRECT}`,
       });
     }
 
@@ -282,7 +282,7 @@ export default async function handler(req, res) {
     const finish = data.candidates?.[0]?.finishReason;
     if (data.promptFeedback?.blockReason || finish === 'SAFETY' || finish === 'BLOCKLIST' || finish === 'PROHIBITED_CONTENT') {
       return send(res, 200, {
-        reply: `Sorry, I can't help with that. If it's about InnovaTech courses or your account, please contact InnovaTech: ${REDIRECT}`,
+        reply: `Sorry, I can't help with that. If it's about Innovatech World courses or your account, please contact Innovatech World: ${REDIRECT}`,
       });
     }
 
@@ -292,11 +292,11 @@ export default async function handler(req, res) {
       .trim();
 
     return send(res, 200, {
-      reply: reply || `Sorry, I could not find an answer. Please contact InnovaTech: ${REDIRECT}`,
+      reply: reply || `Sorry, I could not find an answer. Please contact Innovatech World: ${REDIRECT}`,
     });
   } catch {
     return send(res, 502, {
-      error: `Lulu could not reply right now. Please contact InnovaTech: ${REDIRECT}`,
+      error: `Lulu could not reply right now. Please contact Innovatech World: ${REDIRECT}`,
     });
   }
 }

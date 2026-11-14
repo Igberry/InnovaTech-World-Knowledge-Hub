@@ -6,7 +6,7 @@ import { buildCatalog } from '../../utils/catalog';
 const catalog = await buildCatalog();
 ---
 
-<BaseLayout title="Facilitator dashboard" description="Admin dashboard for InnovaTech World facilitators.">
+<BaseLayout title="Facilitator dashboard" description="Admin dashboard for Innovatech World facilitators.">
   <div id="admin-gate" class="gate">Checking access…</div>
 
   <div id="admin" hidden>
@@ -724,8 +724,8 @@ const catalog = await buildCatalog();
     const verifyTarget = f.code ? `${verifyUrl}?id=${encodeURIComponent(f.code)}` : verifyUrl;
     const qr = qrSvg(verifyTarget, 4, 0);
     return `<div class="cert-doc"><div class="cert-border">
-      <img class="cert-logo" src="${logo}" alt="InnovaTech World" />
-      <p class="cert-kicker">InnovaTech World</p>
+      <img class="cert-logo" src="${logo}" alt="Innovatech World" />
+      <p class="cert-kicker">Innovatech World</p>
       <h1 class="cert-h1">Certificate of Completion</h1>
       <p class="cert-sub">This is to certify that</p>
       <p class="cert-name">${esc(f.name) || 'Student Name'}</p>

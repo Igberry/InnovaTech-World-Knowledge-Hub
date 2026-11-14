@@ -31,7 +31,7 @@ and inboxes. Comfortable working async across time zones. Looking for a remote p
 
 ## Education & training
 - [Qualification / course], [Institution] · [Year]
-- InnovaTech World - [Course name], [Year]
+- Innovatech World - [Course name], [Year]
 
 ## Projects (optional, great if you're new)
 - [Project name]: [what it was, the link]

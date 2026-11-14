@@ -66,7 +66,7 @@ function emailHtml(cert, achievements, verifyLink) {
    <tr><td align="center">
     <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background:#ffffff;border-radius:10px;overflow:hidden;border:1px solid #dbe3ec;">
       <tr><td style="background:#04172b;padding:22px 32px;">
-        <p style="margin:0;color:#ffffff;font:700 16px/1.2 Arial,sans-serif;letter-spacing:.02em;">InnovaTech World</p>
+        <p style="margin:0;color:#ffffff;font:700 16px/1.2 Arial,sans-serif;letter-spacing:.02em;">Innovatech World</p>
         <p style="margin:4px 0 0;color:#9fc0e0;font:12px/1.4 Arial,sans-serif;">Knowledge Hub</p>
       </td></tr>
       <tr><td style="padding:28px 32px 6px;">
@@ -74,7 +74,7 @@ function emailHtml(cert, achievements, verifyLink) {
         <p style="margin:0 0 16px;color:#64748b;font:14px/1.6 Arial,sans-serif;">Congratulations, ${esc(cert.student_name)}.</p>
         <p style="margin:0;color:#334155;font:15px/1.7 Arial,sans-serif;">
           This confirms that <strong>${esc(cert.student_name)}</strong> has successfully completed
-          <strong>${esc(cert.course)}</strong>${meta ? ` (${meta})` : ''} with InnovaTech World.
+          <strong>${esc(cert.course)}</strong>${meta ? ` (${meta})` : ''} with Innovatech World.
         </p>
       </td></tr>
       ${skills}
@@ -89,10 +89,10 @@ function emailHtml(cert, achievements, verifyLink) {
       ${verifyBtn}
       <tr><td style="padding:4px 32px 26px;color:#475569;font:14px/1.7 Arial,sans-serif;">
         A copy of your certificate is attached (open it in a browser to print or save as PDF).<br><br>
-        Warm regards,<br>David C. Igberi<br>Lead Facilitator, InnovaTech World
+        Warm regards,<br>David C. Igberi<br>Lead Facilitator, Innovatech World
       </td></tr>
       <tr><td style="background:#f8fafc;border-top:1px solid #e2e8f0;padding:14px 32px;color:#94a3b8;font:12px/1.5 Arial,sans-serif;">
-        Anyone can verify this certificate using the code above on the InnovaTech World verification page.
+        Anyone can verify this certificate using the code above on the Innovatech World verification page.
       </td></tr>
     </table>
    </td></tr>
@@ -128,7 +128,7 @@ function certificateDoc(cert, achievements, verifyLink, signatureUrl) {
   </head><body>
   <div style="max-width:900px;margin:28px auto;background:#fff;padding:14px;">
    <div style="border:3px solid #0b3b66;padding:40px 48px;text-align:center;">
-     <p style="text-transform:uppercase;letter-spacing:.18em;font:700 13px/1 Poppins,Arial,sans-serif;color:#0b3b66;margin:0 0 18px;">InnovaTech World</p>
+     <p style="text-transform:uppercase;letter-spacing:.18em;font:700 13px/1 Poppins,Arial,sans-serif;color:#0b3b66;margin:0 0 18px;">Innovatech World</p>
      <h1 style="font:700 34px/1.2 Poppins,Arial,sans-serif;color:#04172b;margin:0 0 6px;">Certificate of Completion</h1>
      <p style="color:#64748b;font:15px/1.5 Poppins,Arial,sans-serif;margin:14px 0 2px;">This is to certify that</p>
      <p style="font:700 30px/1.2 Poppins,Arial,sans-serif;color:#0b3b66;margin:4px 0 10px;">${esc(cert.student_name)}</p>
@@ -201,9 +201,9 @@ export default async function handler(req, res) {
 
   try {
     await transporter.sendMail({
-      from: `"InnovaTech World" <${GMAIL_USER}>`,
+      from: `"Innovatech World" <${GMAIL_USER}>`,
       to: email,
-      subject: `Your InnovaTech World certificate - ${cert.course}`,
+      subject: `Your Innovatech World certificate - ${cert.course}`,
       html: emailHtml(cert, safeAch, vLink),
       attachments: [{
         filename: `certificate-${String(cert.code).replace(/[^a-z0-9-]/gi, '')}.html`,

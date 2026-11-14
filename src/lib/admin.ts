@@ -321,7 +321,7 @@ export async function saveInsightPost(
       body_markdown: input.body_markdown.trim(),
       category: input.category?.trim() || null,
       tags: input.tags.map((tag) => tag.trim()).filter(Boolean),
-      author: input.author.trim() || 'InnovaTech World',
+      author: input.author.trim() || 'Innovatech World',
       featured_image_alt: input.featured_image_url ? input.featured_image_alt?.trim() : null,
       scheduled_at: input.status === 'scheduled' ? input.scheduled_at : null,
       published_at: input.status === 'published' ? input.published_at ?? now : null,
