@@ -56,8 +56,8 @@ export const site = {
 
   nav: [
     { label: 'Home', href: '/' },
-    { label: 'Academy', href: '/courses/' },
-    { label: 'Services', href: '/services/' },
+    { label: 'Training', href: '/courses/' },
+    { label: 'Work With Us', href: '/services/' },
     {
       label: 'About',
       href: '/about/',
