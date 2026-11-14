@@ -215,14 +215,14 @@ const catalog = await buildCatalog();
   .cert-form h3 { font-size: 1.1rem; margin-bottom: 0.75rem; }
   .cert-form label { display: flex; flex-direction: column; gap: 0.25rem; font-size: 0.85rem; font-weight: 600; }
   .cert-form input { font-weight: 400; }
-  .cert-grid { display: grid; grid-template-columns: 1fr; gap: 0.75rem; }
+  .cert-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0.75rem; }
   .cert-code-row { display: flex; gap: 0.5rem; }
   .cert-code-row input { flex: 1; }
   .cert-preview-title { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
   .cert-preview-wrap { overflow-x: auto; border: 1px solid var(--color-border); border-radius: 0.6rem; padding: 1rem; background: #eef2f7; margin-bottom: 1.5rem; }
   .cert-preview { max-width: 820px; min-width: 620px; margin: 0 auto; }
   .link-btn-danger { background: none; border: none; color: var(--color-danger); font: inherit; cursor: pointer; padding: 0; }
-  @media (min-width: 640px) { .cert-grid { grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 640px) { .cert-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
 </style>
 
 <style is:global>
@@ -358,6 +358,7 @@ const catalog = await buildCatalog();
   #admin .cert-form * { box-sizing: border-box; }
   #admin .cert-form,
   #admin .cert-grid,
+  #admin .cert-form label,
   #admin .cert-code-row { min-width: 0; max-width: 100%; }
   #admin .cert-form input,
   #admin .cert-form select,
