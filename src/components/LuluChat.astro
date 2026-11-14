@@ -3,7 +3,7 @@ import { Icon } from 'astro-icon/components';
 import { withBase, whatsappUrl } from '../utils/links';
 
 const enabled = import.meta.env.PUBLIC_LULU_ENABLED !== 'false';
-const whatsapp = whatsappUrl('training');
+const whatsapp = whatsappUrl();
 ---
 
 {enabled && (

@@ -46,7 +46,7 @@ async function loadPublicKnowledge(): Promise<KnowledgeDocument[]> {
         `Location: ${site.location}.`,
         emailUrl() ? `Email: ${site.contact.email}.` : '',
         phoneUrl() ? `Phone: ${site.contact.phone}.` : '',
-        whatsappUrl('training') ? `WhatsApp contact: ${whatsappUrl('training')}.` : '',
+        whatsappUrl() ? `WhatsApp contact: ${whatsappUrl()}.` : '',
         'If a question needs a staff member, is not answered by published information, or concerns a specific enrolment, offer the official Contact page and configured WhatsApp contact.',
       ].filter(Boolean).join('\n\n'),
     },

@@ -42,8 +42,13 @@ export const site = {
     phone: '+2349121681159',
     // Calendly booking link for a consultation call. Set to 'TODO' to hide it.
     calendly: 'https://calendly.com/davidigberichuks/30min',
+    // Used by the per-course "Ask about this course" button ({course} is filled in).
     whatsappDefaultMessage:
       "Hello InnovaTech World, I'd like to know more about the {course} course.",
+    // Used by every other WhatsApp button, where no specific course is in context.
+    // Covers both learners and clients who want to work with the team.
+    whatsappGeneralMessage:
+      "Hello InnovaTech World, I'd like to know more about what you offer - your training and working with your team.",
   },
 
   social: {

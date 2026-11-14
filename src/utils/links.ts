@@ -21,10 +21,11 @@ export function withBase(path: string): string {
 export function whatsappUrl(course?: string): string | null {
   if (isTodo(site.contact.whatsappNumber)) return null;
   const number = site.contact.whatsappNumber.replace(/[^\d]/g, '');
-  const message = site.contact.whatsappDefaultMessage.replace(
-    '{course}',
-    course ?? 'training',
-  );
+  // With a specific course, name it. Otherwise use the general message that
+  // covers both training and clients who want to work with the team.
+  const message = course
+    ? site.contact.whatsappDefaultMessage.replace('{course}', course)
+    : site.contact.whatsappGeneralMessage;
   const encodedMessage = encodeURIComponent(message).replace(/[!'()*]/g, (character) =>
     `%${character.charCodeAt(0).toString(16).toUpperCase()}`,
   );
