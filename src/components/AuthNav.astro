@@ -68,7 +68,7 @@
   const el = document.querySelector<HTMLElement>('[data-auth-nav]');
   if (el && isPortalEnabled) {
     // Load the Supabase client only when the portal is on (keeps it off public builds).
-    const { onAuthChange, isAdmin, getProfile, signOut } = await import('../lib/auth');
+    const { onAuthChange, isAdminMember, getProfile, signOut } = await import('../lib/auth');
     el.hidden = false;
     const paint = (loggedIn: boolean, admin: boolean, name: string) => {
       if (!loggedIn) {
@@ -91,15 +91,18 @@
         paint(false, false, '');
         return;
       }
-      const [admin, profile] = await Promise.all([isAdmin(), getProfile()]);
+      // Show the Admin link based on admin MEMBERSHIP, not completed 2FA.
+      // (is_admin() requires AAL2, which the session only reaches after the 2FA
+      // step-up done on the /admin page itself - so it is wrong for the nav.)
+      const [admin, profile] = await Promise.all([isAdminMember(), getProfile()]);
       const name = profile?.full_name?.trim() || 'My account';
       paint(true, admin, name);
-      // Right after sign-in the admin RPC can resolve `false` before the session
-      // token is attached, which would hide the Admin link. Re-check once shortly
-      // after; if the user really is an admin, repaint with the link showing.
+      // Right after sign-in the membership RPC can resolve `false` before the
+      // session token is attached, which would hide the Admin link. Re-check once
+      // shortly after; if the user really is an admin, repaint with the link.
       if (!admin) {
         setTimeout(async () => {
-          if (await isAdmin()) paint(true, true, name);
+          if (await isAdminMember()) paint(true, true, name);
         }, 600);
       }
     };
