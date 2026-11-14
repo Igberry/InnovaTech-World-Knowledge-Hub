@@ -1,6 +1,7 @@
 ---
 title: "Microsoft Office Skills"
 slug: microsoft-office
+requirements: ["A Windows laptop or desktop with Microsoft Office or Microsoft 365", "Stable internet connection", "About 6-8 hours per week to practice", "No prior experience needed"]
 status: available
 category: "Office & Productivity"
 level: "Beginner"

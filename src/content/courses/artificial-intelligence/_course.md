@@ -1,6 +1,7 @@
 ---
 title: "Artificial Intelligence (AI at Work)"
 slug: "artificial-intelligence"
+requirements: ["A laptop, desktop or smartphone", "Stable internet connection", "A free AI assistant account (e.g. ChatGPT or Gemini)", "About 6-8 hours per week to practice", "No technical background needed"]
 status: "available"
 category: "AI & Automation"
 level: "Beginner"

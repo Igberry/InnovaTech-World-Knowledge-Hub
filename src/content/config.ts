@@ -25,6 +25,7 @@ const courses = defineCollection({
       format: z.string().optional(),
       outcomes: z.array(z.string()).optional(),
       tools: z.array(z.string()).optional(),
+      requirements: z.array(z.string()).optional(),
       featured: z.boolean().default(false),
     })
     .superRefine((data, ctx) => {

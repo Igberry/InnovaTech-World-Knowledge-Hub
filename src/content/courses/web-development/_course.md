@@ -1,6 +1,7 @@
 ---
 title: "Web Development Career Launch"
 slug: web-development
+requirements: ["A laptop or desktop computer", "Stable internet connection", "A free GitHub account", "About 8-10 hours per week to practice", "No prior coding experience needed"]
 status: available
 category: "Software & Web"
 level: "Beginner"

@@ -1,6 +1,7 @@
 ---
 title: "Social Media Marketing"
 slug: "social-media-marketing"
+requirements: ["A laptop or desktop computer", "A smartphone with social media apps", "Stable internet connection", "About 6-8 hours per week to practice"]
 status: "coming-soon"
 category: "Marketing"
 summary: "Plan content, grow an audience, and run campaigns that reach the right people."

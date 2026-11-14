@@ -1,6 +1,7 @@
 ---
 title: "Remote Ready"
 slug: remote-ready
+requirements: ["A laptop or desktop computer", "A smartphone", "Stable internet connection", "A professional email address", "About 6-8 hours per week to practice"]
 status: available
 category: "Career"
 level: "Beginner"
