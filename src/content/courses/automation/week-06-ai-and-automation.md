@@ -4,7 +4,7 @@ course: automation
 order: 6
 week: 6
 phase: "Putting It Together"
-summary: "Add AI steps to your automations for smarter workflows, drafting, sorting, and summarising automatically, while keeping accuracy and a human in charge."
+summary: "Drop an AI step into your automation so it reads, sorts, and summarises messages on its own - then build the human checkpoints that keep it accurate and honest. The clever week."
 estimatedHours: 8
 tools: ["A no-code automation tool", "An AI chat assistant", "A spreadsheet"]
 downloads:
@@ -12,101 +12,76 @@ downloads:
     href: "/downloads/automation/automation-blueprint.md"
 ---
 
-**Goal:** Combine AI with automation to build smarter workflows, where an AI step drafts, sorts, or
-summarises automatically, while you keep accuracy, privacy, and judgement under control.
+**Goal:** Combine AI with automation to build a smarter workflow - an AI step that drafts, sorts, or
+summarises automatically - while you keep accuracy, privacy, and judgement firmly in charge. You build it,
+test it on samples, and place the human checkpoints yourself.
 
-## Learning Objectives
-
-By the end of this week you can:
+## What you'll be able to do
 
 - Explain how an AI step fits inside an automation
-- Identify tasks where AI adds value to an automated workflow
+- Spot tasks where AI adds value to an automated workflow
 - Build an automation that includes an AI step
-- Keep accuracy and privacy safe when AI runs automatically
+- Keep accuracy and privacy safe when AI runs on its own
 - Decide where a human must still check the AI's output
 
-## Tools / Accounts Needed This Week
+## Before you start (about 10 minutes)
 
-- Your no-code automation tool and an AI chat assistant (many tools offer an AI action)
-- A spreadsheet, and the [automation blueprint](/downloads/automation/automation-blueprint.md)
+- Open your no-code tool and an AI chat assistant (many tools offer a built-in "AI" action), plus the
+  [automation blueprint](/downloads/automation/automation-blueprint.md).
+- Warm-up: paste a long enquiry into your AI assistant and ask it to "summarise this in one line and tag it
+  as sales, support, or other." That one move is exactly what you will automate this week.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - See where AI fits
 
-- Review: the [Artificial Intelligence](/courses/artificial-intelligence/) course, especially prompting
-  (Week 2) and fact-checking (Week 5).
-- Watch: *Search YouTube: "[your automation tool] AI step tutorial"* if your tool offers one.
-- Reflect: which of your automations would be better if a step could "understand" text?
+**Why it matters:** earlier actions were fixed (add a row, send an email). An AI step can work with
+language - draft, summarise, sort, or extract - right inside the flow.
 
-## Lesson 1: Where AI fits in automation
+**Do this now:**
+1. In your tool, find the **AI action** (it may be called "AI", "ChatGPT", "run a prompt", or similar).
+2. Picture the shape: WHEN a new enquiry arrives, DO ask AI to summarise it, DO add the summary to a sheet, DO notify the team.
+3. Note which part the AI does: the "understanding", while the rest just moves the result around.
 
-In earlier weeks, each action was a fixed step (add a row, send an email). AI adds a step that can **work
-with language**: draft a reply, summarise a message, sort text into categories, or pull key details out of
-a form. Many no-code tools now offer an "AI" action you can drop into a workflow.
+**You've got it when:** you can point to the one step in a flow where AI does the thinking.
 
-The shape is the same, with an AI step in the middle:
+## Try it 2 - Pick good jobs for the AI step
 
-> WHEN a new enquiry arrives, DO ask AI to summarise it in one line, DO add that summary to a spreadsheet,
-> DO notify the team.
+**Why it matters:** AI shines on messy language and is risky where exact facts matter or output goes out unseen.
 
-The AI does the "understanding" part; the rest of the automation moves the result around.
+**Do this now - try each of these in your AI assistant on a sample message, and rate how well it did:**
+1. **Summarise:** turn a long enquiry into one clear line.
+2. **Categorise:** sort a message into "sales / support / spam".
+3. **Draft:** write a first-draft reply for a human to approve.
+4. **Extract:** pull the name, date, or amount out of free text.
 
-## Lesson 2: Good tasks for an AI step
+**You've got it when:** you can name three jobs AI handles well and one where you would keep a human.
 
-AI steps shine when a workflow needs to handle **messy language**:
+## Try it 3 - Build an AI-assisted automation
 
-- **Summarise:** turn a long enquiry or review into one clear line
-- **Categorise / tag:** sort incoming messages into "sales / support / spam"
-- **Draft:** write a first-draft reply for a human to approve
-- **Extract:** pull the name, date, or amount out of free text
-- **Rewrite:** tidy or shorten text automatically
+**Why it matters:** this is the real build - an AI step working automatically inside a tested flow.
 
-They are weak, and risky, where exact facts matter or a mistake goes out unseen. That is where you keep a
-human check.
+**Do this now:**
+1. Build: WHEN a new support email arrives, DO ask AI to categorise it and summarise it in one line.
+2. DO add the category and summary to a spreadsheet.
+3. DO, if it is "support", create a task for the team.
+4. Write the AI prompt carefully: say exactly what to do and what format to return. A vague prompt gives messy output.
+5. Test with five sample emails you write yourself and check each result.
 
-## Lesson 3: Build an AI-assisted automation
+**You've got it when:** your flow categorises and summarises test emails sensibly, from a clear prompt.
 
-A safe, useful pattern:
+## Try it 4 - Put the human checkpoint where the risk is
 
-> WHEN a new support email arrives:
-> 1. Ask AI to categorise it (sales / support / other) and summarise it in one line
-> 2. Add the category and summary to a spreadsheet
-> 3. If it is "support", create a task for the team
+**Why it matters:** automated AI has the same risks as manual AI, now running without you watching each time.
+An unchecked AI step can repeat a hallucination to every customer.
 
-Build it, and **test with sample emails** you write yourself. Check the AI categorised and summarised them
-sensibly before trusting it on real mail. Prompting still matters: give the AI step a clear instruction,
-just as you learned in the AI course.
+**Do this now:**
+1. Mark which steps are safe to run automatically (sorting, summarising for internal use).
+2. Add a **human-approval point** before anything customer-facing sends.
+3. Decide what data you will and will not allow into the AI step (no sensitive personal or financial data without good reason).
+4. Write these checkpoints into your blueprint so they always happen.
 
-> **Tip:** For an AI step, write the prompt as carefully as you would by hand: say exactly what to do and
-> what format to return. A vague prompt gives messy, hard-to-use output inside your workflow.
+**You've got it when:** a human approves anything customer-facing or fact-sensitive, and you know exactly what data flows into the AI step.
 
-## Lesson 4: Keep accuracy and privacy safe
-
-Automated AI has the same risks as manual AI, now running without you watching each time. So build the
-safeguards in:
-
-- **Accuracy:** do not let an AI step send facts, numbers, or prices straight to a customer unchecked.
-  Have it draft for a human to approve, or restrict it to low-risk tasks (sorting, summarising for internal
-  use).
-- **Privacy:** be careful what data flows into an AI step. Do not route sensitive personal, financial, or
-  confidential information through it without good reason and the right permissions.
-- **Honesty:** if AI drafts customer replies, a human should approve them, and you should be comfortable
-  that customers are not being misled.
-
-> **Warning:** An AI step that auto-sends unchecked messages can repeat a hallucination to every customer.
-> For anything customer-facing or fact-sensitive, have AI draft and a human approve.
-
-## Lesson 5: Where the human stays in charge
-
-The best AI-automation keeps people responsible for judgement and final checks. Put the human checkpoint
-where the risk is:
-
-- AI **sorts and summarises** for internal use: usually safe to run automatically.
-- AI **drafts** a customer reply: a human approves before it sends.
-- AI touches **money, legal, or sensitive** matters: a human decides, every time.
-
-Write these checkpoints into your blueprint so they always happen.
-
-### Common mistakes
+### Watch out for
 
 - Letting an AI step auto-send customer messages with no human approval
 - Routing sensitive data through an AI step without need or permission
@@ -114,17 +89,7 @@ Write these checkpoints into your blueprint so they always happen.
 - Trusting AI categorisation without testing it on samples
 - Forgetting that an automated AI mistake repeats on every run
 
-## Practice Exercises
-
-1. List three of your workflows and where an AI step could help.
-2. Write a clear prompt for an AI step that categorises incoming messages.
-3. Build an automation with an AI summarise/categorise step; test with sample text.
-4. Check the AI step's output on five samples; note any it got wrong.
-5. Add a human-approval point before any customer-facing action.
-6. Decide what data you will and will not allow into the AI step, and why.
-7. Document the AI-assisted workflow in a blueprint, marking the human checkpoints.
-
-## Weekly Assignment (Due Before Week 7)
+## This week's build: one AI-assisted automation
 
 Build and document **one AI-assisted automation**:
 
@@ -149,6 +114,12 @@ Build and document **one AI-assisted automation**:
 - [ ] A data/privacy and approval note
 - [ ] An accuracy check with errors noted
 
+## Extra quick wins (optional)
+
+- Compare a vague prompt and a clear prompt on the same message - see the difference in the output.
+- Add an AI step that extracts just the phone number from an enquiry into its own column.
+- Ask your AI to draft three reply templates, then fact-check and save the best.
+
 ## Mentoring Session Plan (90 minutes)
 
 | Time | Activity |
@@ -167,7 +138,7 @@ the human-checkpoint lesson real. Stress two rules: AI drafts, humans approve an
 fact-sensitive; and be careful what data enters an AI step. If a learner's tool lacks an AI action, they can
 pair the AI manually within the workflow or describe the design. Keep data fictional.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What kind of step does AI add to an automation?
 2. Name three good tasks for an AI step and one risky one.

@@ -4,7 +4,7 @@ course: cybersecurity
 order: 5
 week: 5
 phase: "Protecting What You Have"
-summary: "Browse, connect, and share more safely: HTTPS, public Wi-Fi risks, VPN basics, privacy settings, and avoiding oversharing."
+summary: "Shrink your exposure online by doing: inspect a site's real address, set your public Wi-Fi rules, judge what a VPN actually does, and clean up what strangers can learn about you."
 estimatedHours: 8
 tools: ["A web browser", "A device you own"]
 downloads:
@@ -12,98 +12,90 @@ downloads:
     href: "/downloads/cybersecurity/security-checklist.md"
 ---
 
-**Goal:** Reduce risk when you browse, use networks, and share online, by understanding secure connections,
-public Wi-Fi, VPNs, privacy settings, and the dangers of oversharing.
+**Goal:** By the end of this week you will have verified a real site's address, written your own public Wi-Fi
+rules, and tightened the privacy on an account you actually use. You learn by inspecting and adjusting your own
+settings, not by reading about them.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
-
-- Check that a connection is secure before entering sensitive details
-- Explain the risks of public Wi-Fi and how to use it safely
+- Check a connection is genuine and secure before you enter anything sensitive
+- Set clear rules for using public Wi-Fi safely
 - Explain in plain words what a VPN does and does not do
-- Tighten privacy settings on your key accounts
-- Avoid oversharing that helps attackers
+- Tighten privacy settings and cut the oversharing that helps attackers
 
-## Tools / Accounts Needed This Week
+## Before you start (about 10 minutes)
 
-- A web browser and your devices
-- The [security checklist](/downloads/cybersecurity/security-checklist.md)
+- Open your web browser and one social account you use often.
+- Warm-up: on that social account, find one setting that shows your posts to the public. Note it; you will tighten
+  it in Try it 4.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - Inspect a site's real address
 
-- Read: search the web for "what does HTTPS mean" and read one short explainer.
-- Read: search "is public wifi safe" from a trusted security source.
-- Try: review the privacy settings on one social account and note what is public.
+**Why it matters:** the padlock only means the connection is encrypted - not that the site is honest. Scammers
+use HTTPS too, on look-alike addresses.
 
-## Lesson 1: Secure connections (HTTPS)
+**Do this now:**
+1. Open a site you log in to (your bank or email) and look at the address bar.
+2. Confirm it starts with **https** and read the domain character by character - is it the real one, or a
+   near-copy with a small misspelling?
+3. Click the padlock and look at the connection details.
 
-When you enter passwords or payment details, the connection should be **encrypted** so others cannot read it in
-transit. That is what **HTTPS** provides (the padlock/lock indicator in the address bar).
-
-- Before logging in or paying, check the site uses **https** and the address is the **real** one.
-- A padlock means the connection is encrypted; it does **not** guarantee the site is honest, scammers can use
-  HTTPS too. So check the **address** carefully, not just the lock.
-- Be wary of links that lead to look-alike addresses (small misspellings of a real site).
+**You've got it when:** you can say what the padlock guarantees (encrypted) and what it does not (honest) - and
+you checked the address, not just the lock.
 
 > **Note:** The lock icon means "no one is eavesdropping on this connection." It does not mean "this website is
 > trustworthy." Always check you are on the genuine site.
 
-## Lesson 2: Public Wi-Fi
+## Try it 2 - Write your public Wi-Fi rules
 
-Public Wi-Fi (cafés, airports, hotels) is convenient but you do not control it. Risks include fake hotspots and
-snooping. Stay safe:
+**Why it matters:** public Wi-Fi (cafés, airports, hotels) is not yours to control, and fake hotspots are easy
+to set up.
 
-- Prefer your **own mobile data** for anything sensitive (banking, logging in).
-- On public Wi-Fi, stick to **HTTPS** sites and avoid sensitive tasks, or use a VPN (next lesson).
-- Watch for **fake hotspots** with names mimicking a real place; confirm the real network name with staff.
-- Turn off **auto-connect** to open networks.
+**Do this now - write your personal rules, including:**
+1. Which sensitive tasks you will only do on your **own mobile data** (banking, logging in).
+2. How you will confirm the real network name with staff before connecting.
+3. Turning off **auto-connect** to open networks on your phone - do it now.
 
-Thanks to HTTPS, public Wi-Fi is less dangerous than it once was, but it is still not the place for your most
-sensitive activity if you can avoid it.
+**You've got it when:** you have a short written list of what you will and will not do on public Wi-Fi.
 
-## Lesson 3: VPNs, honestly
+## Try it 3 - Judge what a VPN really does
 
-A **VPN (Virtual Private Network)** creates an encrypted tunnel between your device and a VPN server, hiding
-your traffic from the local network and your location from sites.
+**Why it matters:** a VPN is a useful tool, not magic. Knowing its limits stops you relying on it for things it
+cannot do.
 
-What a VPN **does**:
-- Protects your traffic on untrusted networks (like public Wi-Fi)
-- Hides your IP/location from websites
-- Can help access region-limited content
+**Do this now - in your own words, write two short lists:**
+1. What a VPN **does**: protects traffic on untrusted networks, hides your IP/location from sites.
+2. What a VPN **does not** do: it will not stop phishing, malware, or a weak password, and it does not make you
+   anonymous - you now trust the VPN provider instead, so avoid "free" ones that may sell your data.
 
-What a VPN **does not** do:
-- Make you anonymous or "unhackable"
-- Protect you from phishing, malware, or weak passwords
-- Remove the need to trust someone, now you trust the **VPN provider** with your traffic, so choose a reputable
-  one and be cautious of "free" VPNs that may sell your data.
+**You've got it when:** you can explain, without notes, one thing a VPN protects and one thing it cannot help.
 
-> **Warning:** A VPN is a useful tool, not magic. It does nothing against a phishing message, a reused password,
-> or malware. The basics from earlier weeks matter far more.
+> **Warning:** A VPN does nothing against a phishing message, a reused password, or malware. The basics from
+> earlier weeks matter far more.
 
-## Lesson 4: Privacy settings and your digital footprint
+## Try it 4 - Clean up what strangers can see
 
-The less an attacker (or stranger) can learn about you, the safer you are. Tidy your privacy:
+**Why it matters:** the less an attacker or stranger can learn about you, the harder you are to target or
+impersonate. Personal facts are classic password and security-question answers.
 
-- Review **privacy settings** on social accounts: who can see your posts, friends, photos, and personal details.
-- Limit public **personal details** (birthday, address, phone, workplace) that help attackers guess passwords or
-  impersonate you.
-- Check what **old posts** reveal; tighten or remove as needed.
-- Be mindful of **app permissions** and data sharing (from Week 4).
+**Do this now:**
+1. Open the privacy settings on one social account and tighten who can see your posts, friends, and personal
+   details.
+2. Remove or hide public personal details that help attackers (birthday, address, phone, workplace).
+3. Find three public facts about yourself (search your own name) and decide what to reduce.
 
-## Lesson 5: Oversharing helps attackers
+**You've got it when:** one account is tightened and you have reduced at least one public detail.
 
-Information you share publicly can be used against you:
+## Make it yours - the oversharing test
 
-- **Location/travel** in real time tells people your home is empty, and helps targeted scams.
-- **Personal facts** (pet names, schools, birthdays) are classic password and security-question answers.
-- **Photos** can reveal documents, addresses, or routines in the background.
-- **Work details** can enable convincing impersonation of you or your colleagues.
+You do not have to disappear; just share deliberately. Before you post, apply one test:
 
-You do not have to disappear; just share deliberately. A good test: "Would I be comfortable if a scammer read
-this?"
+> **"Would I be comfortable if a scammer read this?"**
 
-### Common mistakes
+Real-time location tells people your home is empty. Background details in photos reveal documents and routines.
+Work details enable convincing impersonation. Share on purpose, not on autopilot.
+
+### Watch out for
 
 - Trusting the padlock as proof a site is honest
 - Doing banking on public Wi-Fi without care
@@ -111,21 +103,11 @@ this?"
 - Leaving social accounts wide open to the public
 - Posting real-time location and personal details that aid attackers
 
-## Practice Exercises
+## This week's build: your privacy and network review
 
-1. Before a login, check the address is genuine and uses HTTPS; note how you confirmed it.
-2. List which sensitive tasks you will only do on mobile data, not public Wi-Fi.
-3. Write, in your own words, what a VPN does and does not protect against.
-4. Review and tighten privacy settings on one social account.
-5. Find three public personal details about yourself and decide whether to remove them.
-6. Check one app's permissions and data sharing; adjust if needed.
-7. Apply the "would a scammer find this useful?" test to three recent posts.
+Produce a short, practical review:
 
-## Weekly Assignment (Due Before Week 6)
-
-Produce a **privacy and network review**:
-
-1. A short note on **how you verify a secure, genuine site** before logging in
+1. A note on **how you verify a secure, genuine site** before logging in
 2. Your **public Wi-Fi rules** (what you will and will not do, and when you would use a VPN)
 3. A **privacy clean-up**: settings you tightened on at least one account, and public details you reduced
 4. A plain-words explanation of **what a VPN does and does not do**
@@ -146,6 +128,12 @@ Produce a **privacy and network review**:
 - [ ] Privacy settings tightened; public details reduced
 - [ ] Honest VPN explanation
 
+## Extra quick wins (optional)
+
+- Tighten privacy on a second account using the same steps.
+- Check one app's data-sharing settings (building on Week 4) and adjust it.
+- Add your site-verification habit to the [security checklist](/downloads/cybersecurity/security-checklist.md).
+
 ## Mentoring Session Plan (90 minutes)
 
 | Time | Activity |
@@ -159,11 +147,11 @@ Produce a **privacy and network review**:
 ## Facilitator Notes
 
 Correct two common myths this week: that the padlock means a site is trustworthy, and that a VPN makes you safe
-or anonymous. Keep VPNs in proportion, the basics (passwords, 2FA, phishing awareness) matter far more, and
-warn about free VPNs harvesting data. Do a live privacy clean-up on a volunteer's account (with care) so the
-value is concrete. Tie oversharing back to how attackers guess passwords and impersonate people.
+or anonymous. Keep VPNs in proportion, the basics (passwords, 2FA, phishing awareness) matter far more, and warn
+about free VPNs harvesting data. Do a live privacy clean-up on a volunteer's account (with care) so the value is
+concrete. Tie oversharing back to how attackers guess passwords and impersonate people.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What does the padlock/HTTPS guarantee, and what does it not?
 2. How should you handle sensitive tasks on public Wi-Fi?

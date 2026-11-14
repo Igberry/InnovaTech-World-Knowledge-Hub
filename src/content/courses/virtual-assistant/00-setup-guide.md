@@ -3,7 +3,7 @@ title: "Setup Guide: Accounts, Workspace & Live-Session Readiness"
 course: virtual-assistant
 order: 0
 phase: "Getting Started"
-summary: "Set up your professional email, client folder system, video-call readiness, WhatsApp check-in, security, and trackers before Week 1."
+summary: "Get hands-on in one short sitting: build your pro email, client folders, video-call kit, WhatsApp check-in and security, so Week 1 is all learning and no admin."
 estimatedHours: 2
 tools: ["Google Workspace", "Google Meet", "WhatsApp Business", "A password manager"]
 downloads:
@@ -13,85 +13,115 @@ downloads:
     href: "/downloads/virtual-assistant/skills-tracker-template.csv"
 ---
 
-**Goal:** Get your accounts, workspace, video-call setup, and trackers ready so you can start Week 1
-focused on learning, not admin. Do this before your first live session.
+**Goal:** In one short sitting you'll build the exact setup a client expects: a clean email, a tidy folder
+system, a working video-call kit, and secure accounts. Almost no reading, you do each step as you go, and
+you walk into Week 1 ready.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this setup you can:
-
-- Create a professional email and a clean client-folder system
-- Join a live Google Meet session reliably, with a power and data plan
+- Spin up a professional email and a clean client-folder system
+- Join a live Google Meet reliably, with a power and data backup plan
 - Use WhatsApp for the daily check-in that starts in Week 3
-- Protect your accounts with a password manager and two-factor authentication
+- Lock down your accounts with a password manager and two-factor authentication
 - Open and use your Application and Skills Tracker
 
-## 1. Professional email address
+## Before you start (about 10 minutes)
 
-A client judges you in seconds by your email address. Create a clean one, used only for VA work.
+- Have your phone and laptop (or just your phone) in front of you, and a stable internet connection.
+- Warm-up: open your current email address and read it out loud as if you were a client hiring you. Does it
+  sound professional? Keep that first impression in mind, you're about to fix it in Try it 1.
 
-- Good: `firstname.lastname@...` or `firstnamevirtualassistant@...`
-- Avoid nicknames, numbers, and anything unprofessional
-- Add a simple signature: your name, "Virtual Assistant", and how to reach you
+## Try it 1 - Build a client-ready email
 
-## 2. Google account and client folder structure
+**Why it matters:** a client judges you in seconds by your email address, before they read a single word.
 
-Use a free Google account (Drive) and set up this exact folder structure now, so every client's work has
-a home:
+**Do this now:**
+1. Create a new email used only for VA work: `firstname.lastname@...` or `firstnamevirtualassistant@...`.
+2. Avoid nicknames, random numbers, and anything unprofessional.
+3. Add a simple signature: your name, "Virtual Assistant", and how to reach you.
 
-- `01-Clients/` (a sub-folder per client later)
-- `02-Templates/` (your reusable templates)
-- `03-Portfolio/` (your proof of work)
-- `04-Admin-Invoices/` (your rate sheet, invoices, tracker)
+**You've got it when:** your email reads like someone a client would trust with their inbox.
 
-A tidy system is a skill clients pay for. If your own files are a mess, theirs will be too.
+## Try it 2 - Set up your client folders
 
-## 3. Google Meet readiness (for live sessions)
+**Why it matters:** a tidy system is a skill clients pay for. If your own files are a mess, theirs will be too.
 
-Your sessions run on Google Meet. Check all of this before Week 1:
+**Do this now - in a free Google account (Drive), create these four folders exactly:**
+1. `01-Clients/` (a sub-folder per client later)
+2. `02-Templates/` (your reusable templates)
+3. `03-Portfolio/` (your proof of work)
+4. `04-Admin-Invoices/` (your rate sheet, invoices, tracker)
 
-- **Camera** works and is roughly at eye level
-- **Microphone** is clear (test it); use earphones to avoid echo
-- **Lighting**: face a window or light, not with the light behind you
-- **Internet**: test your connection; know your backup (mobile data) if Wi-Fi fails
-- **Power backup plan**: charge your device fully before each session; have a power bank or a backup
-  location in case of an outage, so you never miss a live session
+**You've got it when:** every future piece of work already has a home before you create it.
 
-> **Tip:** Join your first session a few minutes early to test everything. Arriving ready and on time is
-> itself a VA skill clients notice.
+## Try it 3 - Get your video-call kit live-ready
 
-## 4. WhatsApp Business basics (for the daily check-in)
+**Why it matters:** your sessions run on Google Meet, and arriving ready and on time is itself a VA skill
+clients notice.
 
-From Week 3 you send your mentor a short daily "applications sent" message on WhatsApp. Set up WhatsApp
-(or WhatsApp Business) now:
+**Do this now - start a test Meet with yourself and check each one:**
+1. **Camera** works and sits roughly at eye level.
+2. **Microphone** is clear (test it); use earphones to kill echo.
+3. **Lighting**: face a window or light, do not sit with the light behind you.
+4. **Internet**: test it, and know your backup (mobile data) if Wi-Fi drops.
+5. **Power plan**: charge fully before each session; line up a power bank or a backup location in case of an
+   outage, so you never miss a live session.
 
-- A professional display name and photo
-- A short "about" line
-- Know how to send a quick daily update (it can be one line)
+**You've got it when:** you could join a client call right now and look and sound professional.
 
-## 5. Security: password manager and two-factor authentication
+**Quick win:** join your very first session a few minutes early to test everything live.
 
-You will create accounts on several platforms. Protect them from the start:
+## Try it 4 - Ready your WhatsApp check-in
 
-- **Password manager:** creates and stores strong, unique passwords; you remember one master password.
-- **Two-factor authentication (2FA):** a second step at login so a stolen password alone cannot get in.
-  Turn it on for your email first, then every platform account.
+**Why it matters:** from Week 3 you send your mentor a short daily "applications sent" message, so the habit
+starts with a clean, professional WhatsApp.
 
-> **Privacy:** Never reuse passwords across job platforms, and never share a login or a one-time code.
-> Your email is the key to every password reset, so protect it most.
+**Do this now:**
+1. Set a professional display name and photo on WhatsApp (or WhatsApp Business).
+2. Add a short "about" line.
+3. Send yourself a test one-liner so you know the check-in takes 10 seconds, not 10 minutes.
 
-## 6. Your Application and Skills Tracker
+**You've got it when:** your WhatsApp looks professional and you can fire off a daily update in one line.
 
-Download both trackers and save them in `04-Admin-Invoices/`:
+## Try it 5 - Lock down your accounts
 
-- [Application and Skills Tracker](/downloads/virtual-assistant/application-tracker-template.csv), you
-  will log every job application here from Week 3.
-- [Skills tracker](/downloads/virtual-assistant/skills-tracker-template.csv), you will fill this in during
-  Week 1's skills audit.
+**Why it matters:** you'll create logins on several platforms; one weak password can cost you a client's
+trust and data.
 
-Open each in Google Sheets or Excel and delete the example rows once you understand them.
+**Do this now:**
+1. Set up a **password manager**: it creates and stores strong, unique passwords; you only remember one
+   master password.
+2. Turn on **two-factor authentication (2FA)** for your email first, then every platform account.
 
-## 7. Final verification checklist
+**You've got it when:** every account has a unique password and your email is protected by 2FA.
+
+> **Privacy:** Never reuse passwords across job platforms, and never share a login or a one-time code. Your
+> email is the key to every password reset, so protect it most.
+
+## Try it 6 - Open your trackers
+
+**Why it matters:** these two sheets run your whole job hunt and skills record, so get them in place now.
+
+**Do this now:**
+1. Download the [Application and Skills Tracker](/downloads/virtual-assistant/application-tracker-template.csv),
+   you'll log every job application here from Week 3.
+2. Download the [Skills tracker](/downloads/virtual-assistant/skills-tracker-template.csv), you'll fill it in
+   during Week 1's skills audit.
+3. Save both in `04-Admin-Invoices/` and open each in Google Sheets or Excel.
+4. Delete the example rows once you understand them.
+
+**You've got it when:** both trackers live in your folders and you know what each column is for.
+
+### Watch out for
+
+- An email that looks casual or personal, not professional
+- "Anyone with the link can edit" sharing on private client files (you'll meet this again in Week 2)
+- No power or data backup, the fastest way to miss a live session
+- Reusing one password across platforms
+
+## This week's build: your live-ready workspace
+
+Finish this one-time setup so Week 1 is all learning. Tick each item:
 
 - [ ] Professional email created, with a signature
 - [ ] Google Drive folders created (`01-Clients/` to `04-Admin-Invoices/`)
@@ -100,10 +130,10 @@ Open each in Google Sheets or Excel and delete the example rows once you underst
 - [ ] Password manager set up; 2FA on for email
 - [ ] Both trackers downloaded and saved
 
-> **Important:** Bring any setup problems to your Week 1 kickoff, it is better to fix them with your
-> mentor than to miss a live session later.
+> **Important:** Bring any setup problems to your Week 1 kickoff. It's better to fix them with your mentor
+> than to miss a live session later.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What does your client-folder structure look like, and why keep it tidy?
 2. What is your power-and-internet backup plan for live sessions?

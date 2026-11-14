@@ -4,7 +4,7 @@ course: virtual-assistant
 order: 1
 week: 1
 phase: "Foundations"
-summary: "Understand what a VA does, audit your transferable skills, and commit to a clear niche, your first deliverable."
+summary: "Find the skills you already have, pick a niche you can defend, and leave with a one-line pitch clients understand, all by doing, not reading."
 estimatedHours: 6
 tools: ["Google Workspace"]
 downloads:
@@ -18,17 +18,23 @@ downloads:
     href: "/downloads/virtual-assistant/application-tracker-template.csv"
 ---
 
-**Goal:** Understand what a VA does, audit your skills, and commit to a niche.
+**Goal:** Work out what you can already sell as a VA, choose a niche, and write a one-sentence pitch a client
+instantly gets. You do each step with a worksheet in front of you, this is hands-on, not a lecture.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
+- Say what clients actually pay a VA for, in plain words
+- Turn three things you've already done into VA proof
+- Pick a niche using interest, proof, demand, and clarity
+- Write a niche statement a client understands in one read
+- Have your email, folders, and tracker ready to go
 
-- Explain what VAs do and what clients actually pay for
-- List at least three types of VA
-- Complete a skills self-audit
-- Choose a niche and write a niche statement
-- Set up your email, folders, and tracker
+## Before you start (about 10 minutes)
+
+- Open the [skills self-audit worksheet](/downloads/virtual-assistant/skills-self-audit-worksheet.csv) and
+  the [VA niches handout](/downloads/virtual-assistant/va-niches-handout.md).
+- Warm-up: list three things people already ask you to do because you're reliable or organised (at work, at
+  church, in a group chat, for family). You'll turn these into paid skills below.
 
 ## How This Week Runs
 
@@ -41,70 +47,39 @@ By the end of this week you can:
 
 Skim this page before each session so live time is spent practising, not catching up.
 
-## Session A (Teaching, Day 1): Welcome and What a VA Actually Does
+## Try it 1 - Name what clients really buy
 
-This session sets up the whole program and gives you an honest picture of the work.
+**Why it matters:** clients pay for time saved, reliability, and clear communication far more than fancy
+skills. A VA they can relax about beats a flashier one they can't depend on.
 
-**Program overview and weekly rhythm.** Three live sessions a week plus a short reference note, with
-skills and job-hunting running in parallel. You will set up profiles in Week 2, send your first
-applications in Week 3, and apply daily from Week 5.
+**Do this now:**
+1. Write the five main VA types and tick any you've touched before: general admin (inbox, calendar, data,
+   files), executive assistant, social media, e-commerce, and tech/niche.
+2. For each type you ticked, write one thing you've already done that fits.
+3. Quick myth check: a VA is not get-rich-quick, not "just typing", not only for the experienced, and not a
+   guaranteed income. It's real support work that pays when you're good and consistent.
 
-**Types of VAs.** The main kinds you can offer:
+**You've got it when:** you can say in one sentence what clients actually pay a VA for.
 
-- **General admin** (inbox, calendar, data, files)
-- **Executive assistant** (a senior person's whole workflow)
-- **Social media** (scheduling, basic graphics, replies)
-- **E-commerce** (orders, listings, buyer questions)
-- **Tech / niche** (a specific industry or tool)
+## Try it 2 - Mine your transferable skills
 
-**Realistic income (how to think about it honestly).** We do **not** quote "typical" VA earnings as
-fact, because they vary by skill, niche, client, and market, and anyone promising a fixed income is
-selling a dream. Instead, learn the pricing models and how to research real rates:
+**Why it matters:** transferable skills are things you can already do, from life, work, school, or community,
+that a VA does for clients. You almost certainly have more than you think.
 
-- **Pricing models:** hourly (bill for time), per task/package (a fixed price for a defined job), and
-  monthly retainer (a set number of hours for a set fee).
-- **How to research current rates:** read platform listings for your niche, look at real job posts, and
-  ask peers in VA communities. Gather a range, do not guess.
+**Do this now - in the self-audit worksheet, turn real experience into VA proof:**
+1. Running a shop's records becomes **light bookkeeping and data entry**.
+2. Managing church or community programmes becomes **calendar and event coordination**.
+3. Keeping order in a busy group chat becomes **customer service and community support**.
+4. Organising a family or event becomes **admin and scheduling**.
+5. Write **three** of your own: what you did, the VA skill it maps to, and the proof you'd point to.
 
-> **Illustrative worked example (placeholders only, not real market figures):** if you worked **H**
-> billable hours in a month at a rate of **R**, your month would be **H x R**. For instance, 40 x [your
-> researched rate] = your monthly figure. The letters are placeholders, you fill them with rates **you**
-> research. This is a calculation method, not a promise or a market figure.
+**You've got it when:** you have three "I can do X, and here's my proof" lines in writing.
 
-**What clients actually pay for:** time saved, reliability, and clear communication, far more than fancy
-skills. A VA a client can relax about is worth more than a flashier one they cannot depend on.
+## Try it 3 - Decide generalist or specialist
 
-**Myth-busting (what VAs are not):** not a get-rich-quick scheme, not "just typing", not only for people
-with years of experience, and not a path with guaranteed income. It is real, honest support work that
-pays when you are good and consistent.
+**Why it matters:** this choice shapes who you pitch and what you can charge.
 
-*Bring to this session:* your questions and honest doubts.
-
-## Quick Reference (Day 2): Skills Self-Audit Primer
-
-**What "transferable skills" means.** These are things you can already do, from life, work, school, or
-community, that a VA does for clients. You almost certainly have more than you think.
-
-**Local experience that translates into VA proof:**
-
-- Running a shop's records becomes **light bookkeeping and data entry**
-- Managing church or community programmes becomes **calendar and event coordination**
-- Keeping order in a busy group chat becomes **customer service and community support**
-- Organising a family or event becomes **admin and scheduling**
-
-The skill is the same underneath; only the setting changes. Clients pay for the underlying ability:
-being organised, reliable, and clear.
-
-**Prepare before Day 3:** using the [skills self-audit worksheet](/downloads/virtual-assistant/skills-self-audit-worksheet.csv),
-write down **three** of your own transferable skills, what you did, the VA skill it maps to, and the
-proof you could point to. Bring these to Session B.
-
-## Session B (Teaching + Practice, Day 3): Self-Assessment and Choosing Your VA Niche
-
-**Guided skills inventory.** Working from your three prepared skills, the mentor helps you find more and
-turn each into a clear "I can do X, and here is my proof" line.
-
-**Generalist vs specialist:**
+**Do this now - weigh the trade-off:**
 
 | | Generalist (general admin) | Specialist (a focused niche) |
 |---|---|---|
@@ -113,45 +88,50 @@ turn each into a clear "I can do X, and here is my proof" line.
 | Starting pay | Lower | Higher as you prove it |
 | Good for | A fast first client | Growing your income |
 
-**Common niches** (see the [niches handout](/downloads/virtual-assistant/va-niches-handout.md)): social
-media, e-commerce, real estate, coaching/course VA, executive admin, customer service, bookkeeping-lite.
+1. Browse the [niches handout](/downloads/virtual-assistant/va-niches-handout.md): social media, e-commerce,
+   real estate, coaching/course VA, executive admin, customer service, bookkeeping-lite.
+2. Shortlist two niches that excite you.
 
-**How to choose:** look for the overlap of **interest** (you will do it a lot), **proof** (you have a
-transferable skill), **demand** (clients need it), and **one-sentence clarity** (you can say what you do
-in a single sentence).
+**You've got it when:** you can name two niches you'd actually enjoy and defend.
 
-With the mentor coaching you, start drafting your niche statement using the
-[template](/downloads/virtual-assistant/niche-statement-template.md).
+## Try it 4 - Write your niche statement
 
-*Leave this session with:* a **draft niche statement**.
+**Why it matters:** a client decides in one line whether you're for them. Clarity wins the click.
 
-## Session C (Workshop/Review, Day 5): Niche Clarity Workshop
+**Do this now:**
+1. Open the [niche statement template](/downloads/virtual-assistant/niche-statement-template.md).
+2. Find the overlap of **interest** (you'll do it a lot), **proof** (you have a transferable skill),
+   **demand** (clients need it), and **one-sentence clarity**.
+3. Draft one sentence: the VA work you do, who for, and why you're credible.
+4. Torn between niches? Score each on interest, proof, and demand, and let the numbers decide.
 
-A focused 1:1 review to sharpen your niche:
+**You've got it when:** your statement names a specific client and specific work, not "all admin for anyone".
 
-- **Review your niche statement** line by line; make it specific and credible.
-- **Torn between niches?** Use a simple decision matrix: score each candidate on interest, proof, and
-  demand, and let the numbers guide you.
-- **Set up your work environment together:** your professional email, the `01-Clients/` to
-  `04-Admin-Invoices/` folders, and your Application and Skills Tracker.
+### Watch out for
 
-## This Week's Job-Hunt Focus
+- Quoting a "typical" VA income as fact, rates vary by skill, niche, and market; anyone promising a fixed
+  income is selling a dream. Learn to research real rates from platform listings, job posts, and peers.
+- A vague niche ("I help with everything")
+- Underselling your experience ("I have no skills"), you do, you just haven't named them yet
 
-**No applications yet.** This week is setup only:
+> **Pricing, the honest way:** if you worked **H** billable hours in a month at rate **R**, the month would
+> be **H x R**. The letters are placeholders you fill with rates **you** research. This is a method, not a
+> promise or a market figure.
+
+## This week's job-hunt focus
+
+**No applications yet,** this week is setup only, and getting it right now makes every later week smoother:
 
 - Professional email created
 - Folder system in place
 - [Application and Skills Tracker](/downloads/virtual-assistant/application-tracker-template.csv) downloaded and ready
 
-Getting these right now makes every later week smoother.
+## This week's build: your niche + proof pack
 
-## Weekly Assignment / Deliverable (Due Before Week 2)
+Put together a short pack you'll reuse all course:
 
-Submit:
-
-1. Your **Final Niche Statement**, one paragraph: the type of VA work you do, for whom, and why you are
-   credible.
-2. Your **completed Skills Self-Audit worksheet** (at least three transferable skills with proof).
+1. Your **final niche statement**, one paragraph: the VA work you do, for whom, and why you're credible.
+2. Your **completed skills self-audit** (at least three transferable skills with proof).
 3. Confirmation your **setup is done** (email, folders, tracker).
 
 ### Grading guide
@@ -168,7 +148,7 @@ Submit:
 - [ ] At least three transferable skills audited, each with proof
 - [ ] Email, folders, and tracker all set up
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What do clients actually pay a VA for, beyond specific skills?
 2. What is a transferable skill, and what are three of yours?

@@ -4,7 +4,7 @@ course: artificial-intelligence
 order: 4
 week: 4
 phase: "Applying AI"
-summary: "Create and edit images with AI, write prompts that get the look you want, and use them responsibly with an eye on rights and honesty."
+summary: "Make real images this week: generate, refine, and fix pictures with AI, get the look you want on purpose, and learn the rights and honesty rules that keep you out of trouble."
 estimatedHours: 8
 tools: ["An AI image tool", "A document"]
 downloads:
@@ -12,97 +12,93 @@ downloads:
     href: "/downloads/artificial-intelligence/responsible-use-privacy-checklist.md"
 ---
 
-**Goal:** Learn to generate and edit images with AI, prompt for the look you want, and use AI media
-responsibly, with attention to copyright, honesty, and when not to use it.
+**Goal:** This is the fun one. You'll generate and fix images, learn which words actually control the result,
+and finish knowing the rights and honesty rules so you can use AI images with confidence. Lots of making, little
+reading.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
+- Generate an image from a text description and steer subject, style, and framing
+- Refine and vary images to fix common problems
+- Explain the rights and ethics of AI images in your own words
+- Decide when an AI image is the wrong choice and a real photo wins
 
-- Generate images from a text description using an AI image tool
-- Write image prompts that control subject, style, and composition
-- Edit or vary images and fix common problems
-- Explain the rights and ethics issues of AI images
-- Decide when AI images are and are not appropriate
+## Before you start (about 10 minutes)
 
-## Tools / Accounts Needed This Week
+- Open your AI image tool (from Week 0) and a document for prompts and notes.
+- Warm-up: generate one quick image of *"a small shop in a Nigerian town, daytime."* Don't fuss over it - you're
+  just getting the tool working and seeing a first result.
 
-- Your AI image tool (from Week 0)
-- A document to collect your prompts and notes, and the
-  [responsible-use checklist](/downloads/artificial-intelligence/responsible-use-privacy-checklist.md)
+## Try it 1 - See what your words control
 
-## Pre-Session Resources (about 2 hours)
+**Why it matters:** your description controls the picture. Change the words, change the result. See it once and
+the rest is easy.
 
-- Read: search the web for "how AI image generators work simple" and read one beginner guide.
-- Watch: *Search YouTube: "AI image generation prompt tips for beginners"*. Watch one practical video.
-- Try: generate three images of the same subject with different styles. Note what changed the result.
+**Do this now:**
+1. Generate the same subject three times with different styles: *"clean photographic style"*, then *"simple flat
+   illustration"*, then *"warm evening light."*
+2. Line up the three results.
+3. Note which word changed what.
 
-## Lesson 1: How AI image tools work (the plain version)
+**You've got it when:** you can say which prompt words drove each change.
 
-An AI image tool turns a **text description (prompt)** into a picture. Like chat AI, it has learned patterns
-from huge numbers of images and their descriptions, and it generates something that fits your words. You do not
-need the technical detail; you need to know that your **description controls the result**.
+## Try it 2 - Build a prompt that gets the look you want
 
-Because it generates rather than copies, two things follow: you can make images that never existed, and the
-tool can get details wrong (hands, text, counts). Both are normal.
+**Why it matters:** a good image prompt describes a few clear things on purpose, instead of hoping.
 
-## Lesson 2: Writing image prompts
+**Do this now - write one prompt that covers:**
+1. **Subject:** what's in it ("a young woman studying at a desk").
+2. **Setting:** where ("a tidy home office with a window").
+3. **Style:** the look ("simple flat illustration").
+4. **Composition and mood:** framing and feel ("close-up, bright and calm").
+5. **What to avoid:** ("no text in the image, no clutter").
 
-A good image prompt usually describes several of these:
+Try: *"A friendly flat illustration of a small shop in a Nigerian town, bright daytime colours, clean background
+with space at the top for a title, no text in the image."* Then refine it twice.
 
-- **Subject:** what is in the picture ("a young woman studying at a desk")
-- **Setting:** where ("a tidy home office with a window")
-- **Style:** the look ("clean photographic style", "simple flat illustration")
-- **Composition:** framing ("close-up", "from the side", "lots of space around the subject")
-- **Mood / lighting:** ("bright and calm", "warm evening light")
-- **What to avoid:** ("no text", "no clutter")
+**You've got it when:** you can get close to a look you pictured in your head by editing the prompt.
 
-**Example:**
-> A simple, friendly flat illustration of a small shop in a Nigerian town, bright daytime colours, clean
-> background with space at the top for a title, no text in the image.
-
-Generate, look, then **refine the prompt** just as you iterate with chat AI.
-
-> **Tip:** Ask for "no text in the image" when you plan to add your own title later. AI tools are often poor at
+> **Tip:** Ask for "no text in the image" when you'll add your own title later. AI tools are often poor at
 > spelling words inside images.
 
-## Lesson 3: Editing and fixing
+## Try it 3 - Fix and vary the result
 
-Most tools let you **vary** an image (make similar versions) or **edit** parts of it. Common fixes:
+**Why it matters:** the first image is rarely the final one. Fixing is normal and fast.
 
-- Odd hands or faces: regenerate, or choose a different version
-- Wrong details: add a clearer instruction and try again
-- Almost right: ask for variations of the best result
+**Do this now:**
+1. Spot a problem (odd hands, wrong detail) and regenerate, or pick a better version.
+2. Add a clearer instruction for the detail that's wrong and try again.
+3. Take your best result and ask for variations, then choose one and say why.
 
-Expect to generate several options and pick the best. The first image is rarely the final one.
+**You've got it when:** you've improved an image through variations rather than settling for the first try.
 
-## Lesson 4: Rights, honesty, and ethics
+## Try it 4 - Learn the rights and honesty rules (the part that protects you)
 
-This is the part that protects you. AI images raise real issues:
+**Why it matters:** this is what keeps you safe and professional. AI images raise real legal and ethical issues.
 
-- **Usage rights:** before you publish or sell an AI image, check the tool's rules on commercial use. They
-  differ between tools and change over time.
-- **Copyright and likeness:** do not recreate a specific artist's work or a real person's face to pass off as
-  real. Do not imitate a brand's protected assets.
-- **Honesty:** do not present an AI image as a real photo of a real event, person, or product when that would
-  mislead people. If it matters, say it is AI-generated.
-- **Harm:** never make images that deceive, defame, or sexualise anyone, or that could be used to trick people.
+**Do this now:**
+1. Find your image tool's **usage rights** (commercial use) and write them in one sentence in your notes.
+2. Write two examples of an **unethical** AI image use and why each is wrong.
+3. Note the honesty rule: if it matters, say an image is AI-generated; never pass one off as a real photo of a
+   real person or event.
+
+**You've got it when:** you can state your tool's usage rights and name a use you would refuse.
 
 > **Warning:** Creating realistic fake images of real people or events can cause serious harm and may be
 > illegal. Do not make deepfakes or pass off AI images as genuine photos.
 
-## Lesson 5: When not to use AI images
+## Make it yours - know when a real photo wins
 
-AI images are great for illustrations, mock-ups, social graphics, and ideas. They are **not** right when you
+AI images are great for illustrations, mock-ups, social graphics, and ideas. They are the wrong choice when you
 need:
 
-- A true photo of a real product, place, or person (use a real photo)
-- Anything where honesty about what is real matters (news, evidence, ID)
-- Protected or branded material you do not have rights to
+- A **true photo** of a real product, place, or person (use a real photo)
+- Anything where honesty about what's real matters (news, evidence, ID)
+- Protected or branded material you don't have rights to
 
-Choosing not to use an AI image is sometimes the professional answer.
+Choosing *not* to use an AI image is sometimes the professional answer.
 
-### Common mistakes
+### Watch out for
 
 - Expecting a perfect image on the first try
 - Asking for text inside the image and getting misspellings
@@ -110,26 +106,19 @@ Choosing not to use an AI image is sometimes the professional answer.
 - Passing an AI image off as a real photo
 - Imitating a specific artist, person, or brand without rights
 
-## Practice Exercises
+## This week's build: an image set with a responsibility note
 
-1. Generate the same subject in three different styles. Note which prompt words changed the look.
-2. Write an image prompt with subject, setting, style, and "no text", and refine it twice.
-3. Create a simple social graphic background, then add your own title outside the tool.
-4. Make three variations of your best image and choose one, with a reason.
-5. Find the usage-rights rules for your image tool and write them in one sentence.
-6. Write two examples of an unethical AI image use and why each is wrong.
-7. Pick a task where a real photo would be better than an AI image, and explain why.
+Create a small set of images you'd actually use, plus the thinking that makes them safe:
 
-## Weekly Assignment (Due Before Week 5)
-
-Create a small **image set with a responsibility note**:
-
-1. **Three to five images** you generated for a real purpose (e.g., a poster, social post, or illustration),
-   each with the prompt you used
+1. **Three to five images** you generated for a real purpose (a poster, social post, or illustration), each with
+   the prompt you used
 2. A short account of how you **refined** at least one image (prompt changes or variations)
-3. A **rights and ethics note**: the usage rights of your tool, and one honest statement about how you would
-   (and would not) use AI images
+3. A **rights and ethics note**: your tool's usage rights, and one honest statement about how you would and
+   would not use AI images
 4. One task where you decided a **real photo** was the right choice instead
+
+*Tip: make the set for something real - a market stall, a church notice, a small-business post - so it's ready
+to use.*
 
 ### Grading guide
 
@@ -146,6 +135,12 @@ Create a small **image set with a responsibility note**:
 - [ ] A documented refinement
 - [ ] A rights and ethics note in your own words
 - [ ] One "real photo is better here" decision explained
+
+## Extra quick wins (optional)
+
+- Make a social graphic background with "no text", then add your own title outside the tool.
+- Generate a before-and-after: a vague prompt versus a detailed one for the same idea.
+- Write your tool's usage rights as a one-line note you can reuse on every project.
 
 ## Mentoring Session Plan (90 minutes)
 
@@ -164,7 +159,7 @@ give equal weight to the ethics: usage rights, not passing AI images off as real
 deceptive deepfakes. Keep content appropriate. If image-tool free tiers are limited, have learners plan a few
 deliberate generations rather than many random ones. Keep examples local and wholesome.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What parts can you describe in an image prompt to control the result?
 2. Why should you usually ask for "no text in the image"?

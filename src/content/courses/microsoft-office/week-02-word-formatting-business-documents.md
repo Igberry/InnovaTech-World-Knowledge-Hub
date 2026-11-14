@@ -3,7 +3,7 @@ title: "Word I: Formatting and Business Documents"
 course: microsoft-office
 order: 2
 week: 2
-summary: "Use styles and page tools to prepare a clear letter, flyer and fictional CV."
+summary: "Turn plain text into three documents you'd be proud to send: a crisp supplier letter, a catchy flyer and a clean CV - using real styles, never fiddly spaces."
 estimatedHours: 8
 tools: ["Microsoft Word", "LibreOffice Writer (optional)"]
 downloads:
@@ -17,162 +17,158 @@ downloads:
     href: "/downloads/microsoft-office/cv-content-amaka.md"
 draft: false
 ---
-**Goal:** Turn plain text into three readable, consistent business documents without using manual spaces to force alignment.
+**Goal:** Build three real, good-looking business documents with your own hands - a letter, a flyer and a CV - using styles and page tools instead of hammering the spacebar. You learn Word by formatting, not by reading about it.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week, you can:
+- Find any Word command fast using the ribbon, search and views
+- Format text and paragraphs cleanly, with real spacing and indents
+- Apply styles so headings and titles stay consistent across a whole document
+- Build lists, tables, page layouts, headers and page numbers that behave
+- Place images with sensible wrapping and useful alt text
+- Proofread with Find and Replace, word count, print preview and PDF export
 
-- Find common Word commands using the ribbon, Quick Access Toolbar and views.
-- Set consistent character and paragraph formatting, including line spacing and indents.
-- Apply built-in styles for titles and headings rather than formatting every heading by hand.
-- Build and format lists, tab stops, tables, page layouts, headers, footers and page numbers.
-- Place and describe images and shapes with sensible text wrapping.
-- Proofread with Find and Replace, word count, print preview and PDF export.
+## Before you start (about 10 minutes)
 
-## Tools / Accounts Needed This Week
+- Open Word and the four supplied text starters (letter, flyer, CV, messy source).
+- Warm-up: type a line, make it **Heading 1** from the Styles gallery, then open the Navigation pane and watch your heading appear. That is the whole idea of styles in 30 seconds.
+- Stuck finding a command? Press **Alt+Q** and type what you want.
+- Optional 10-minute video: search YouTube for **"Kevin Stratvert Microsoft Word beginner ribbon formatting styles"**.
 
-Use Word desktop or the web version where its features are available. LibreOffice Writer is an alternative for practising transferable concepts. You need the four supplied text starters and a local folder from Week 1. Do not add a real person's personal details to the sample CV, and do not publish the fictional flyer.
+## Try it 1 - Format text and paragraphs the right way
 
-## Pre-Session Resources (about 2 hours)
+**Why it matters:** character formatting changes selected words; paragraph formatting shapes the whole block. Mixing them up creates messy documents.
 
-- Search YouTube: **"Kevin Stratvert Microsoft Word beginner ribbon formatting styles"**.
-- Search YouTube: **"Kevin Stratvert Word page numbers headers footers PDF"**.
-- Search YouTube: **"Microsoft Word table formatting for beginners"**.
-- Rebuild the first page of the deliberately messy source using headings, paragraph spacing and a table. Use Alt+Q or the app's command search if a menu item is not where you expect.
+**Do this now:**
+1. Select a sentence and apply bold, then a readable font size. That is character formatting.
+2. Click once in a paragraph and set spacing after it in the paragraph controls - do not press Enter twice.
+3. Set body text to left alignment. Try justified in a narrow column and watch the ugly gaps appear.
 
-## Lessons
+**You've got it when:** you can add space between paragraphs without a single extra blank line.
 
-### Lesson 1: The ribbon, Quick Access Toolbar and views
+## Try it 2 - Make styles do the heavy lifting
 
-Word's ribbon groups commands by task. Tabs such as **Home**, **Insert**, **Layout**, **Review** and **View** may have different names or positions across desktop, web, Mac and older Office versions. The **Quick Access Toolbar** can keep frequently used commands near the top. In supported versions, press **Alt+Q** and type the name of a command to search. The Navigation pane under View or Find helps move through a longer document.
+**Why it matters:** change a style once and every matching heading updates. Formatting by hand means redoing everything.
 
-Use **Print Layout** when checking how pages will look on paper or as a PDF; **Read Mode** can make review easier. The status bar can show page and word counts. Learn what the command does, not only where one version places its icon.
+**Do this now:**
+1. Apply **Title**, **Heading 1**, **Heading 2** and **Normal** from the Styles gallery.
+2. Open the Navigation pane and confirm your headings appear in a logical order.
+3. Modify the Heading 1 style once and watch every Heading 1 change together.
 
-### Lesson 2: Text and paragraph formatting
+**You've got it when:** your headings show up in the Navigation pane, not just as bigger text.
 
-Character formatting changes selected text: font, size, bold, italic, underline and colour. Paragraph formatting applies to the whole paragraph: alignment, line spacing, space before/after, bullets and indents. Select only the text you intend to change. Use a restrained style and a readable size; do not make a whole page bold to create hierarchy.
+## Try it 3 - Lists, tabs and tables that line up
 
-Set paragraph spacing in the paragraph dialog or layout controls instead of pressing Enter repeatedly to push text down. Use left alignment for body text unless a document standard requires otherwise. Justified text can create uneven gaps, especially in narrow columns. A hanging indent is useful for list items that wrap to a second line. Use the ruler or paragraph settings; repeated spaces will shift when the font or page changes.
+**Why it matters:** spaces drift when the font changes. Real alignment tools hold their position.
 
-For a business letter, keep the body consistent and separate paragraphs with planned spacing. Use a subject line that says what the reader needs to know. Use bold sparingly so the document remains scannable.
-
-### Lesson 3: Styles and heading structure
-
-Styles are named formatting sets that make a document consistent and navigable. Use **Title** for a document title, **Heading 1** for major sections, **Heading 2** for subsections and **Normal** for body text. The exact gallery may vary, but the idea is the same. Apply the style from the Styles gallery or command search, then modify the style once if the whole document needs a change.
-
-Do not make headings by merely selecting a line and increasing its font size. A visual change alone does not reliably communicate structure to the Navigation pane, screen readers or automatic table of contents. After applying styles, inspect the Navigation pane and check that headings appear in a logical order. Avoid skipping from Heading 1 to Heading 4 without a clear hierarchy.
-
-### Lesson 4: Lists, tabs and tab stops
-
-Use bullets for items with no required order and numbering for steps or ranked items. Word manages list indents and spacing better than typed hyphens or manual spaces. Use **Tab** at the start of a list item only when you intend to create a nested level; pressing Tab elsewhere may move focus.
-
-Tab stops align text at a consistent point. The ruler or paragraph dialog can set left, centre, right or decimal tab stops. A right tab can align a date or amount, but a table is often more reliable when information has multiple columns. Do not align a CV or letter using many space characters: different fonts have different character widths, so the layout will drift.
+**Do this now:**
+1. Make a bullet list and a numbered list, then add one nested item with **Tab**.
+2. Set a right or decimal tab stop on the ruler to line up a date or amount.
+3. Insert a real table (**Insert then Table**) for the supplier list: product, unit, sample amount, confirmation needed. Add a clear header row.
 
 | Need | Better tool | Why |
 |---|---|---|
 | Indent a paragraph | Paragraph settings | Keeps the whole paragraph aligned |
-| Align a short label and value | A deliberate tab stop | Maintains a consistent position |
+| Align a label and value | A deliberate tab stop | Holds a consistent position |
 | Compare several fields | A simple table | Keeps related values in rows and columns |
-| Start a new page | Page break | Does not add fragile blank paragraphs |
+| Start a new page | Page break | No fragile blank paragraphs |
 
-### Lesson 5: Tables
+**You've got it when:** nothing in your document is aligned with repeated spaces.
 
-Use **Insert → Table** to create a real table. Add a header row with clear labels, then use Table Design or Layout to adjust borders, shading, column widths and cell alignment. Keep the table readable and avoid merging many cells; merged layouts can be difficult to navigate with a screen reader and hard to edit later.
+## Try it 4 - Page setup, headers and page numbers
 
-For the sample supplier list, a four-column table can show product, unit, fictional sample amount and confirmation needed. Align words left, and amounts consistently. Repeat the header row on a multipage table if your version supports it. If the table is too wide, shorten headings or use landscape orientation rather than shrinking text until it is unreadable. Add a caption or sentence that explains what the table represents.
+**Why it matters:** margins, breaks and automatic numbers are what make a document look finished.
 
-### Lesson 6: Page setup
+**Do this now:**
+1. In **Layout**, set sensible margins and orientation for a one-page CV or flyer.
+2. Use a page break to start a new page, never a stack of blank paragraphs.
+3. On a two-page practice doc, insert automatic page numbers, then turn on **Different First Page**.
 
-Use **Layout** to choose page size, margins, orientation and columns. A one-page CV or flyer usually benefits from adequate margins and uncluttered sections. Use columns for a newsletter-like flyer only when the reading order remains clear. A section break lets one part of a document use different page settings from another; a page break simply starts a new page. Do not use dozens of blank paragraphs to force a new page.
+**You've got it when:** your page numbers update themselves and your cover page stays clean.
 
-For a letter, check that the date, recipient, subject, body and closing fit together. For a flyer, create one clear reading path: business name, message, offer details, next step and practice contact placeholder. For the CV, choose a simple layout that still reads in a text-based or screen-reader view.
+## Try it 5 - Images, wrapping and alt text
 
-### Lesson 7: Headers, footers and page numbers
+**Why it matters:** a floating image that jumps around ruins a layout, and a missing alt text shuts out readers who cannot see it.
 
-Headers and footers hold repeating information such as a short document title, version or page number. Use the built-in page-number command; do not type a page number manually because it will not update. The **Different First Page** option can keep a cover clean. For the Week 2 one-page outputs, a header or footer may be unnecessary. Add repeated information only when it helps the reader.
+**Do this now:**
+1. Insert a permitted image or a clearly labelled placeholder - never an unlicensed photo.
+2. Set wrapping to **In Line with Text** for predictable behaviour.
+3. Add alt text that explains the image's purpose, or mark it decorative.
 
-Check whether the header or footer is linked to the previous section before changing a long document. Section-specific numbering is covered in Week 3. Be careful not to place private information in a header that will appear on every page.
+**You've got it when:** your image stays put when you scroll and has useful alt text.
 
-### Lesson 8: Images, shapes, text boxes and wrapping
+## Try it 6 - Proofread, then export to PDF
 
-Insert an image only when you have permission to use it. Add alternative text that explains the image's purpose for someone who cannot see it, or mark it decorative when the app provides that option. Text wrapping determines how words flow beside an image; **In Line with Text** is the most predictable option for a simple document. Floating layouts may move when the document is opened on another device or software version.
+**Why it matters:** the last 10 minutes of checking are what separate a draft from something you would send.
 
-Use shapes to call attention to a small item, not to decorate every paragraph. Avoid putting essential wording only inside an image. If a practice flyer has no permitted photo, use a labelled placeholder rather than searching for and copying an unlicensed image.
+**Do this now:**
+1. Use **Find** to locate a word, then **Replace** on a copied paragraph - preview the scope before Replace All.
+2. Read the whole document top to bottom. Hunt for double spaces, blank pages and text hidden behind an image.
+3. Open print preview, then export to PDF and reopen it to confirm nothing is clipped.
 
-> **Tip:** A plain, well-spaced document is easier to update than a layout built from text boxes and manual spaces.
+**You've got it when:** your PDF opens clean, with selectable text and no stranded lines.
 
-### Lesson 9: Proofing, Find and Replace, word count
+### Watch out for
 
-Use spelling and grammar suggestions as a review aid, not an authority. Confirm names, dates, currency and technical terms against the source. **Find** locates words or phrases; **Replace** can change all matching instances, so preview the scope and make a backup before using Replace All. Word count helps enforce a length requirement but does not judge whether the document is clear.
+- Manual spaces or repeated tabs to align a letter or CV
+- Visual headings that are not real heading styles
+- Pressing Enter repeatedly to position content or force a page
+- A big image with no wrapping, permission or alt text
+- Replace All without checking what else it changes
+- Exporting a PDF without checking print preview first
+- Presenting fictional CV details or sample amounts as real
 
-Read from beginning to end after formatting. Check for accidental repeated spaces, blank pages, inconsistent punctuation, incorrect table totals and text hidden behind an image. Use **Editor** or proofing tools where available, then perform a human review.
+## This week's build: three documents you'd be proud to send
 
-### Lesson 10: Print preview and PDF export
+Using only the supplied fictional text, create:
 
-Open print preview and inspect page count, margins, page breaks, table width and whether any line is stranded at the top or bottom of a page. Export to PDF from the app's Save As or Export command. Reopen the PDF on the same device and, if possible, a second viewer. Confirm that selectable text is present and the layout is not clipped.
+1. A formal Fresh Bites **supplier letter** with consistent spacing and a clear subject line.
+2. A one-page catering **flyer** with a visible fictional-practice note, a clear message, and a placeholder for any future contact.
+3. A one-page **CV** for the fictional Amaka, using only the invented details and an accessible heading structure.
 
-Keep the editable document in the work folder and put the approved PDF in `07_Exports`. Use the naming convention from Week 1. A PDF is convenient for viewing but does not replace the editable source if future revisions are expected.
+Use styles and real paragraph tools - no spaces for alignment. Export each as PDF and keep the editable copy. Do not send or publish the fictional flyer.
 
-## Common Mistakes
+### Grading guide
 
-- Using manual spaces or repeated tabs to align a letter or CV.
-- Formatting headings visually without applying actual heading styles.
-- Pressing Enter repeatedly to position content or force a new page.
-- Inserting a large image without checking wrapping, permissions or alt text.
-- Using Replace All without checking what other text it will change.
-- Exporting a PDF without checking print preview and page breaks.
-- Presenting fictional CV details, customer claims or sample amounts as real.
+| Criteria | Weight |
+|---|---|
+| Formatting consistency | 40% |
+| Professional appearance | 30% |
+| Correct use of tools | 20% |
+| Proofreading | 10% |
 
-## Practice Exercises
-
-1. Rebuild the supplied messy source with a title, consistent body paragraphs and a four-column table.
-2. Create three named styles for the title, main headings and body text; update one style and observe the affected headings.
-3. Format a paragraph with a bullet list and a numbered process; add one nested item.
-4. Create a short letter and align the subject line without typing spaces for positioning.
-5. Place a permitted image or labelled placeholder into a flyer and add useful alt text.
-6. Add page numbers to a two-page practice document, then turn on Different First Page.
-7. Use Find and Replace on a copied practice paragraph, inspect the changes, and undo if the scope was too broad.
-8. Export a document to PDF and check it in print preview and a PDF viewer.
-
-## Weekly Assignment (Due Before Week 3)
-
-Submit three documents based on the supplied fictional text:
-
-1. A formal Fresh Bites supplier letter using consistent paragraph spacing and a clear subject.
-2. A one-page catering flyer with a visible fictional-practice note, a clear message and a placeholder for any future approved contact.
-3. A one-page CV for the fictional Amaka, using only the supplied invented details and an accessible heading structure.
-
-Use styles, consistent spacing and real paragraph tools. Do not use repeated spaces to align content. Export each document as PDF and include the editable copy. Do not send or publish the fictional flyer.
-
-**Grading guide:** formatting consistency 40%, professional appearance 30%, correct use of tools 20%, proofreading 10%.
-
-**Definition of done**
+### Definition of done
 
 - [ ] Each document has a clear title and a consistent heading/body style.
 - [ ] The letter uses readable paragraphs and does not imply a real order.
 - [ ] The flyer labels its scenario and sample amount as fictional and has no invented contact details.
-- [ ] The CV uses the fictional content only and does not claim real qualifications.
+- [ ] The CV uses the fictional content only and claims no real qualifications.
 - [ ] Editable files and PDFs open; print preview shows no clipping or blank pages.
 - [ ] Spelling, dates, tables, filenames and page layout have been checked.
+
+## Extra quick wins (optional)
+
+- Rebuild the first page of the messy source from scratch and time yourself.
+- Save your three styles as a set and reuse them on a new blank document.
+- Give your CV to a friend and ask what they remember after ten seconds - then sharpen it.
 
 ## Mentoring Session Plan (90 min)
 
 | Time | Activity |
 |---|---|
-| 0–10 min | Review one Week 1 naming or folder decision |
-| 10–25 min | Demonstrate text versus paragraph formatting and the Styles gallery |
-| 25–45 min | Rebuild a messy letter section and format a real table |
-| 45–60 min | Practise page layout, headers and accessible image placement |
-| 60–75 min | Export a PDF and inspect page breaks and proofreading issues |
-| 75–85 min | Peer review using the assignment criteria |
-| 85–90 min | Clarify deliverables and safe use of fictional material |
+| 0-10 min | Review one Week 1 naming or folder decision |
+| 10-25 min | Demo: text versus paragraph formatting and the Styles gallery |
+| 25-45 min | Rebuild a messy letter section and format a real table |
+| 45-60 min | Practise page layout, headers and accessible image placement |
+| 60-75 min | Export a PDF and inspect page breaks and proofreading issues |
+| 75-85 min | Peer review using the assignment criteria |
+| 85-90 min | Clarify deliverables and safe use of fictional material |
 
 ## Facilitator Notes
 
 Have the source text ready offline. Demonstrate both ribbon search and menu navigation without requiring learners to use the same release. If a learner has only a browser app or LibreOffice, let them complete the same outcome and record any feature difference. Review the CV for invented credentials and the flyer for accidental real contact details. Explain that format quality supports readability; decorative complexity is not the goal.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What is the difference between a text style and a heading style?
 2. Why are repeated spaces a poor alignment tool?

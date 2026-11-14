@@ -4,7 +4,7 @@ course: virtual-assistant
 order: 6
 week: 6
 phase: "Getting Work"
-summary: "Perform well when a client responds: handle interviews and trial tasks, hold your rate, and avoid scams, during the highest-intensity application week."
+summary: "When clients reply, be ready: nail interviews and trial tasks, hold your rate, and spot scams, all through live practice in your highest-intensity week."
 estimatedHours: 8
 tools: ["Upwork", "LinkedIn", "Zoom"]
 downloads:
@@ -20,17 +20,23 @@ downloads:
     href: "/downloads/virtual-assistant/rate-negotiation-scripts.md"
 ---
 
-**Goal:** Perform well when a client responds, hold your rate, and avoid scams.
+**Goal:** Turn replies into offers, perform in interviews and trial tasks, hold your rate, and dodge scams.
+This week you rehearse out loud and in writing, interviews, scripts, a real trial task, not just read about them.
 
-## Learning Objectives
-
-By the end of this week you can:
+## What you'll be able to do
 
 - Answer common VA interview questions with proof
-- Approach a trial task professionally, and state a paid-trial policy
+- Approach a trial task professionally and state a paid-trial policy
 - Negotiate rate and scope calmly
 - Spot and avoid scam clients
 - Keep up a full daily application sprint
+
+## Before you start (about 10 minutes)
+
+- Open the [interview question bank](/downloads/virtual-assistant/interview-question-bank.md) and your rate
+  sheet from Week 4.
+- Warm-up: say your answer to "why should I hire you?" out loud once, using your niche statement and one piece
+  of proof. Rough is fine, you'll sharpen it below.
 
 ## How This Week Runs
 
@@ -41,59 +47,83 @@ By the end of this week you can:
 | Session B (Teaching + Practice) | Day 3 | 75 min | Your rate sheet (Week 4) |
 | Session C (Workshop/Review) | Day 5 | 75 to 90 min | Prepared interview answers; be ready for a live mock |
 
-## Session A (Teaching, Day 1): Handling Interviews and Trial Tasks
+## Try it 1 - Build proof-based interview answers
 
-- **What VA clients typically ask** (see the [question bank](/downloads/virtual-assistant/interview-question-bank.md)).
-- **How to answer "why should I hire you"** using your niche statement and proof.
-- **Paid vs unpaid trial tasks:** a clear policy you can state, a short **paid** trial is reasonable; a
-  long unpaid "trial" that is really free work is a red flag.
-- **Presenting sample work** confidently from your portfolio.
-- **Live Q&A on real leads** you bring.
+**Why it matters:** clients hire the VA who backs every claim with an example, not the one who just sounds keen.
 
-*Learner action:* bring any real interview requests or leads.
+**Do this now - using the question bank:**
+1. Pick five common questions and write a one-line answer to each, each ending in a piece of proof.
+2. Draft your "why should I hire you?" answer from your niche statement and portfolio.
+3. Say the top three out loud until they feel natural.
 
-## Quick Reference (Day 2): Scam Client Red Flags
+**You've got it when:** every answer you give points to real proof.
 
-The common patterns (full [checklist](/downloads/virtual-assistant/scam-red-flag-checklist.md)):
+## Try it 2 - Set a trial-task policy
 
-- **Upfront payment** for "training materials" or a "starter kit"
-- **Cheque/overpayment fraud** (overpays, asks you to refund the difference)
-- **Unpaid "trial" work** disguised as a real project
-- Pressure, vagueness, unverifiable identity
+**Why it matters:** a short paid trial is fair; a long unpaid "trial" that's really free work is a red flag,
+and you need a line you can say calmly.
 
-**If unsure:** slow down, verify independently, keep things on-platform, and never pay or move money for a
-"client". The rule that defeats most scams: **a real client pays you; you never pay or refund them.**
+**Do this now:**
+1. Write your one-line policy: a short paid trial is fine; a long unpaid one is not.
+2. Skim the [sample trial task](/downloads/virtual-assistant/sample-trial-task.md) so you know what a real one
+   looks like.
+3. Decide how you'd present sample work from your portfolio if asked.
 
-## Session B (Teaching + Practice, Day 3): Negotiating Rate and Scope + Spotting Scam Clients
+**You've got it when:** you can state your paid-trial policy without hesitating.
 
-- **Live scripting** of responses to lowball offers (see the
-  [negotiation scripts](/downloads/virtual-assistant/rate-negotiation-scripts.md)), flex **scope**, not
-  just price.
-- **Defining scope clearly** before starting, so expectations are set.
-- **Vetting a client:** the checks to run before committing.
-- **Safe payment practices** (recap Week 2; agree method up front).
+## Try it 3 - Script your rate negotiation
 
-*Learner action:* write your personal **rate-negotiation script**.
+**Why it matters:** learners cave fastest on price; a ready script keeps your rate steady under pressure.
 
-## Session C (Workshop/Review, Day 5): Mock Interview and Trial-Task Walkthrough
+**Do this now - using the [negotiation scripts](/downloads/virtual-assistant/rate-negotiation-scripts.md):**
+1. Write your reply to a lowball offer, flex **scope**, not just price.
+2. Write one line that defines scope clearly before you start.
+3. List the checks you'll run to vet a client before committing, and recap safe payment (agree method up front).
 
-- A **full live mock interview**, the mentor plays the client.
-- **Structured 1:1 feedback** using the [scoring rubric](/downloads/virtual-assistant/mock-interview-scoring-rubric.md).
-- A **walkthrough of a sample trial task** under time pressure (see the
-  [sample trial task](/downloads/virtual-assistant/sample-trial-task.md)).
-- You **review your scored feedback immediately** and note your top two fixes.
+**You've got it when:** you have a personal rate-negotiation script you'd actually send.
 
-## This Week's Job-Hunt Focus
+## Try it 4 - Run the scam red-flag drill
 
-**Full daily application sprint continues** (at least 1 per day), **and schedule and attend any interviews
-or trial tasks offered.** This is the highest-intensity week, keep the daily WhatsApp check-in going.
+**Why it matters:** one scam can cost a learner real money, so the rule has to be automatic.
 
-## Weekly Assignment / Deliverable (Due Before Week 7)
+**Do this now:**
+1. Read the common patterns in the [scam checklist](/downloads/virtual-assistant/scam-red-flag-checklist.md):
+   upfront payment for "training", cheque/overpayment "refund the difference", unpaid "trial" work, pressure
+   and vagueness.
+2. Memorise the rule that defeats most scams: **a real client pays you; you never pay or refund them.**
+3. If unsure: slow down, verify independently, and keep things on-platform.
+
+**You've got it when:** you can spot a scam fast and know the one rule that stops it.
+
+## Try it 5 - Do a mock interview and trial task
+
+**Why it matters:** immediate feedback on a realistic run is where the biggest gains happen.
+
+**Do this now (in Session C, with your mentor as the client):**
+1. Take a **full live mock interview**.
+2. Get scored on the [rubric](/downloads/virtual-assistant/mock-interview-scoring-rubric.md) and review it
+   immediately.
+3. Attempt the sample trial task under time pressure, then note your top two fixes.
+
+**You've got it when:** you've done a full mock, read your score, and written two concrete fixes.
+
+### Watch out for
+
+- Accepting a long unpaid "trial", that's free work
+- Dropping your price the moment a client pushes, flex scope instead
+- Any request for you to pay or refund a "client", money never flows from VA to client
+
+## This week's job-hunt focus
+
+**Full daily application sprint continues** (at least 1 per day), **and schedule and attend any interviews or
+trial tasks offered.** This is the highest-intensity week, keep the daily WhatsApp check-in going.
+
+## This week's build: interview-ready sprint record
 
 Submit:
 
-1. Your **tracker, updated daily** (applications and any responses)
-2. A **short note** on any interviews or trial tasks attended and how they went
+1. Your **tracker, updated daily** (applications and any responses).
+2. A **short note** on any interviews or trial tasks attended and how they went.
 
 ### Grading guide
 
@@ -111,7 +141,7 @@ Submit:
 - [ ] Rate-negotiation script written
 - [ ] Any interviews/trial tasks logged with a short reflection
 
-## Self-Check Questions
+## Can you do these now?
 
 1. How do you answer "why should I hire you" using proof?
 2. What is a reasonable trial-task policy, and what trial is a red flag?

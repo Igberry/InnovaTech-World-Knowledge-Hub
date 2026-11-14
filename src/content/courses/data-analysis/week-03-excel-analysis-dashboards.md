@@ -4,7 +4,7 @@ course: "data-analysis"
 order: 3
 week: 3
 phase: "Foundations"
-summary: "Answer business questions quickly and present them in a clean Excel dashboard."
+summary: "Build a real one-page sales dashboard with pivot tables, charts and slicers - the kind you can screenshot and put straight in your portfolio."
 estimatedHours: 10
 tools: ["Excel"]
 downloads:
@@ -15,165 +15,129 @@ downloads:
   - label: "Products CSV"
     href: "/downloads/data-analysis/products.csv"
 ---
-**Goal:** Answer business questions quickly and present them in a clean Excel dashboard.
+**Goal:** By the end of the week you have a clickable, one-page NaijaMart dashboard: KPI cards, charts, and slicers that answer a manager's questions the moment they click. This is the first showpiece for your portfolio.
 
-## Learning Objectives
-- Use `SUMIFS`, `COUNTIFS`, `AVERAGEIFS`
-- Look up data with `XLOOKUP` / `VLOOKUP`
-- Build PivotTables, PivotCharts and Slicers
-- Use conditional formatting
-- Design a one-page dashboard
+## What you'll be able to do
+- Answer questions instantly with `SUMIFS`, `COUNTIFS`, `AVERAGEIFS`
+- Pull in product names with `XLOOKUP` or `VLOOKUP`
+- Build PivotTables, PivotCharts, and Slicers
+- Design and build a clean one-page dashboard
 
-## Pre-Session Videos (about 2.5 hours)
-- Search YouTube: **"Leila Gharani Excel PivotTable tutorial beginners"**
-- Search YouTube: **"Kevin Stratvert Excel XLOOKUP"**
-- Search YouTube: **"Excel dashboard tutorial step by step"** (Leila Gharani or Kevin Stratvert)
+## Before you start (about 10 minutes)
+- Download the three CSVs from the panel: orders, customers, products.
+- Make sure your `Orders` Table has a `net_revenue` column (from Week 1). If not, add it.
+- Warm-up: search YouTube for *"Leila Gharani Excel PivotTable tutorial beginners"* and watch five minutes to see where a pivot lives.
 
-> Use `orders_clean.csv`, `customers.csv`, and `products.csv` this week.
+## Try it 1 - Answer with one formula
 
----
+**Why it matters:** before pivots, see how one `SUMIFS` answers a question that would take ages by hand.
 
-## Lesson 1: Conditional Aggregation
-Assume the data is a Table named `Orders` with a `net_revenue` column from Week 1.
+**Do this now, each in a blank cell:**
+1. Revenue in Yenagoa: `=SUMIFS(Orders[net_revenue],Orders[city],"Yenagoa")`.
+2. Completed revenue in Lagos: `=SUMIFS(Orders[net_revenue],Orders[city],"Lagos",Orders[status],"Completed")`.
+3. Returned orders: `=COUNTIFS(Orders[status],"Returned")`.
+4. Put a city name in a cell and reference it so the formula copies: `=SUMIFS(Orders[net_revenue],Orders[city],$A2)`.
 
+**You've got it when:** changing the city in `A2` instantly changes the revenue number.
+
+## Try it 2 - Bring in the product names
+
+**Why it matters:** orders store a `product_id`, not a name. A lookup joins the two so your report reads in plain English.
+
+**Do this now, in a new column in `Orders`:**
+1. Modern Excel: `=XLOOKUP([@product_id],Products[product_id],Products[product_name],"Not found")`.
+2. Older Excel: `=VLOOKUP([@product_id],Products!A:D,2,FALSE)` (the `FALSE` forces an exact match - always use it).
+3. Add `category` the same way.
+
+**You've got it when:** every order shows a product name and category.
+
+## Try it 3 - Unlock the pivot table
+
+**Why it matters:** the PivotTable is the single biggest time-saver in Excel. One is worth fifty formulas.
+
+**Do this now:**
+1. Click in `Orders`, then **Insert -> PivotTable -> New Worksheet**.
+2. Drag `city` to **Rows** and `net_revenue` to **Values**. Set it to Sum and format as ₦.
+3. Answer these by rearranging fields: revenue by month (group the date), top 5 products (Value Filters -> Top 10 -> 5), payment method share (Count, shown as % of Grand Total), revenue by category and city.
+
+**You've got it when:** you can answer a new question just by dragging fields, no typing.
+
+## Try it 4 - Make charts that say something
+
+**Why it matters:** a chart with a vague title is wallpaper. A chart with an insight title is analysis.
+
+**Do this now:**
+1. From a pivot, **Insert -> PivotChart**. Use a line for trend over time, a bar for comparing cities, a pie only for a few slices.
+2. Give each chart a title that states the finding, for example "Sales peak in December".
+3. Remove clutter: drop gridlines and 3D, sort the bars, label axes with ₦.
+
+**You've got it when:** someone could read only your chart titles and understand the story.
+
+## Try it 5 - Build the dashboard
+
+**Why it matters:** this is the deliverable that gets you interviews.
+
+**Do this now:**
+1. Build each pivot on a **Calc** sheet, then cut and paste the charts onto a new **Dashboard** sheet.
+2. Add KPI cards: big bold cells linked to formulas (Total Revenue, Orders, Avg Order, Return Rate).
+3. **Insert -> Slicer** for `city` and `status`. Right-click a slicer -> **Report Connections** to control every pivot at once.
+4. Hide gridlines (View), use the brand navy, add a title, then click every slicer to be sure nothing breaks.
+
+Layout to aim for:
 ```
-=SUMIFS(Orders[net_revenue], Orders[city], "Yenagoa")
-=SUMIFS(Orders[net_revenue], Orders[city], "Lagos", Orders[status], "Completed")
-=COUNTIFS(Orders[status], "Returned")
-=AVERAGEIFS(Orders[net_revenue], Orders[payment_method], "Card")
-```
-Put city names in cells and reference them so the formula copies down:
-```
-=SUMIFS(Orders[net_revenue], Orders[city], $A2)
-```
-**Date criteria:**
-```
-=SUMIFS(Orders[net_revenue], Orders[order_date], ">="&DATE(2025,3,1), Orders[order_date], "<"&DATE(2025,4,1))
+NAIJAMART SALES DASHBOARD 2025        [Slicers]
+Total Revenue | Orders | Avg Order | Return Rate
+Monthly revenue (line)  | Revenue by city (bar)
+Top 5 products (bar)    | Payment method share (pie)
 ```
 
----
+**You've got it when:** clicking one slicer updates every chart and card together.
 
-## Lesson 2: Lookups
-Orders store `product_id`, not the name. A lookup brings in details from another table.
+## This week's build: the NaijaMart sales dashboard
 
-**XLOOKUP** (Microsoft 365 / Excel 2021+):
-```
-=XLOOKUP([@product_id], Products[product_id], Products[product_name], "Not found")
-```
-**VLOOKUP** (works in all versions):
-```
-=VLOOKUP(D2, Products!A:D, 2, FALSE)
-```
-`FALSE` means exact match. Always use it.
+Submit `week3_dashboard.xlsx` a manager could actually use:
+1. A **Dashboard** sheet: at least 4 KPI cards, 4 charts, 2 connected slicers.
+2. A **Calc** sheet holding the pivots.
+3. An **Insights** box with three findings in plain English, for example "December revenue is twice January - stock up before Q4."
+4. A screenshot of the dashboard saved as an image for your portfolio.
 
-**INDEX/MATCH** (flexible, older but common in interviews):
-```
-=INDEX(Products[category], MATCH([@product_id], Products[product_id], 0))
-```
-Add `product_name` and `category` to Orders using one of these methods.
+*This screenshot is portfolio piece number one. Put it in your GitHub repo.*
 
----
+### Grading guide
 
-## Lesson 3: PivotTables (The Analyst's Superpower)
-**Insert → PivotTable → From Table/Range → New Worksheet.**
-
-| Area | Purpose | Example |
-|---|---|---|
-| **Rows** | Groups down the side | `city` |
-| **Columns** | Groups across the top | `status` |
-| **Values** | What to calculate | Sum of `net_revenue` |
-| **Filters** | Narrow the data | `category` |
-
-### Questions to answer with pivots
-1. Total net revenue by city
-2. Net revenue by month (right-click a date → **Group → Months**; in newer Excel it groups automatically)
-3. Top 5 products by revenue (Value Filters → Top 10 → set to 5)
-4. Orders by payment method (Count of `order_id`, shown as **% of Grand Total**)
-5. Revenue by category × city
-
-### Pivot skills
-- **Value Field Settings:** change Sum to Count/Average, and number format to ₦
-- **Show Values As:** % of column total, running total
-- **Slicers:** Insert → Slicer → pick `city` or `status` (click buttons to filter)
-- **Timeline:** Insert → Timeline for dates
-- **PivotChart:** select the pivot, then Insert → PivotChart
-- **Refresh:** after changing source data, right-click → Refresh
-
----
-
-## Lesson 4: Charts
-| Question | Chart |
+| Criteria | Weight |
 |---|---|
-| Trend over time | Line |
-| Compare categories | Bar / column (sorted) |
-| Share of total (few parts only) | Pie / doughnut (≤5 slices) |
-| Relationship between two numbers | Scatter |
+| Numbers are correct | 35% |
+| Dashboard design and readability | 30% |
+| Quality of the three insights | 25% |
+| Slicers work and are connected | 10% |
 
-**Rules:** one message per chart · clear title that states the insight ("Sales peak in December") · remove clutter (gridlines, 3D) · sort bars · label axes with units (₦).
+### Definition of done
 
----
+- [ ] Product name and category added by lookup
+- [ ] Pivots built on a Calc sheet
+- [ ] Dashboard has 4+ KPI cards, 4+ charts, 2 slicers
+- [ ] Slicers connected to all pivots and tested
+- [ ] Three plain-English insights written, dashboard screenshotted
 
-## Lesson 5: Conditional Formatting
-**Home → Conditional Formatting:** data bars, colour scales, icon sets, "Top 10 items", and custom rules (e.g., highlight returned orders).
-
----
-
-## Lesson 6: Building the Dashboard
-Create a new sheet called **Dashboard**. Layout plan:
-
-```
-┌────────────────────────────────────────────────┐
-│  NAIJAMART SALES DASHBOARD 2025   [Slicers]    │
-├──────────┬──────────┬──────────┬───────────────┤
-│ Total    │ Orders   │ Avg      │ Return        │
-│ Revenue  │          │ Order    │ Rate          │
-├──────────┴──────────┼──────────┴───────────────┤
-│ Monthly revenue     │ Revenue by city          │
-│ (line)              │ (bar)                    │
-├─────────────────────┼──────────────────────────┤
-│ Top 5 products      │ Payment method share     │
-└─────────────────────┴──────────────────────────┘
-```
-**Steps:**
-1. Build each pivot table on a separate **Calc** sheet.
-2. Create the charts and **cut/paste** them onto the Dashboard sheet.
-3. Make KPI cards: cells with large bold numbers linked to formulas (`=SUMIFS(...)`).
-4. Connect **one set of slicers to all pivots**: right-click slicer → **Report Connections**.
-5. Hide gridlines (View), set a consistent colour scheme (navy/gold = InnovaTech), and add a title.
-6. Test every slicer and make sure nothing breaks.
-
----
-
-## Practice Exercises
-1. Which month had the highest net revenue? Which had the lowest?
-2. Which city has the highest **average** order value, and which has the highest **total** revenue? Are they the same? Why?
-3. What is the return rate (Returned ÷ all orders) per category?
-4. Which payment method is most used in each city?
-5. What share of revenue comes from the top 3 products?
-
----
-
-## Weekly Assignment (Due Before Week 4)
-**Submit `week3_dashboard.xlsx` containing:**
-1. A **Dashboard** sheet with at least 4 KPI cards, 4 charts, and 2 slicers
-2. A **Calc** sheet holding the pivots
-3. A **Insights** box on the dashboard: **three business findings in plain English** (e.g., "December revenue is 2× January. Stock up before Q4.")
-4. A screenshot of the dashboard saved as an image (for the portfolio)
-
-**Grading guide:** correctness of numbers (35%), dashboard design and readability (30%), insights quality (25%), slicers working (10%).
-
----
+## Extra quick wins (optional)
+- Add conditional formatting: data bars on revenue, or a red highlight on returned orders (**Home -> Conditional Formatting**).
+- Which city has the highest average order but not the highest total? A great insight line.
 
 ## Mentoring Session Plan (90 min)
 | Time | Activity |
 |---|---|
-| 0–10 min | Review Week 2 cleaning logs, highlight one good decision |
-| 10–35 min | Live: build a pivot from scratch (facilitator), then each student builds a different one |
-| 35–70 min | Dashboard build-along (layout, KPI cards, slicer connections) |
-| 70–85 min | Student presentations: "walk me through your dashboard in 2 minutes" |
-| 85–90 min | Explain the assignment |
+| 0-10 min | Review Week 2 cleaning logs, highlight one good decision |
+| 10-35 min | Live: build a pivot from scratch, then each student builds a different one |
+| 35-70 min | Dashboard build-along: layout, KPI cards, slicer connections |
+| 70-85 min | Student presentations: "walk me through your dashboard in 2 minutes" |
+| 85-90 min | Explain the build |
+
+## Facilitator Notes
+
+The dashboard is the motivator; let students feel the moment a single slicer drives the whole page. Build one pivot live from zero so they see fields dragged into place, then set them loose on a different question. The common stumbles are forgetting `FALSE` in `VLOOKUP`, and slicers that only filter one pivot (fix with Report Connections). Push insight titles over decorative ones - "Sales peak in December" teaches more than any lecture on chart types. Keep the 2-minute walkthrough at the end; presenting their own dashboard builds the exact skill interviews test.
 
 ## Self-Check Questions
 1. When would you use `SUMIFS` instead of a PivotTable?
 2. Why must you use `FALSE` in `VLOOKUP`?
-3. What does a slicer do, and how do you connect it to multiple pivots?
+3. What does a slicer do, and how do you connect it to several pivots?

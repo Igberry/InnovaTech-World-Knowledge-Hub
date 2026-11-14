@@ -4,7 +4,7 @@ course: automation
 order: 5
 week: 5
 phase: "Building Automations"
-summary: "Chain several steps together with conditions and filters, and test and roll back safely so a bigger automation never causes a bigger problem."
+summary: "Chain several steps into one automation, add a condition so it only fires when it should, then test it in stages and build a real off-switch. More power, under control."
 estimatedHours: 8
 tools: ["A no-code automation tool", "A spreadsheet", "Email"]
 downloads:
@@ -14,96 +14,80 @@ downloads:
     href: "/downloads/automation/test-and-rollback-checklist.md"
 ---
 
-**Goal:** Build an automation with several steps, add conditions so it only runs when it should, and test
-and roll it back safely, so more power does not mean more risk.
+**Goal:** Build an automation with several steps, add a condition so it only runs when it should, test it in
+stages, and write a real rollback - so more power does not mean more risk. You build it, break it, and prove
+you can switch it off.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
-
-- Chain multiple actions into one automation
+- Chain several actions into one automation
 - Add conditions and filters so steps run only when appropriate
 - Document a multi-step automation with a blueprint
 - Test a multi-step automation in stages
 - Write a rollback plan and a manual backup
 
-## Tools / Accounts Needed This Week
+## Before you start (about 10 minutes)
 
-- Your no-code automation tool, a spreadsheet, and email
-- The [automation blueprint](/downloads/automation/automation-blueprint.md) and
-  [test and rollback checklist](/downloads/automation/test-and-rollback-checklist.md)
+- Open your tool, a spreadsheet, and email, plus the
+  [automation blueprint](/downloads/automation/automation-blueprint.md) and
+  [test and rollback checklist](/downloads/automation/test-and-rollback-checklist.md).
+- Warm-up: take last week's automation and add one more action to it (for example a second notification).
+  You have just made your first multi-step automation.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - Chain several steps
 
-- Watch: *Search YouTube: "[your automation tool] multi-step / filters tutorial"*.
-- Read: your tool's help page on conditions, filters, or paths.
-- Try: take last week's automation and add one more action to it.
+**Why it matters:** a multi-step automation is one trigger followed by several actions in order. More power,
+and more places a mistake can hide, so each step must earn its place.
 
-## Lesson 1: Chaining steps
+**Do this now - build this chain in your tool with a test form:**
+1. WHEN a new order form is submitted, DO add a row to the orders spreadsheet.
+2. DO send the customer a confirmation email.
+3. DO send the team a notification.
+4. DO create a task to fulfil the order.
+5. Run it once with a test submission and check all four happened in order.
 
-A multi-step automation is just one trigger followed by **several actions** in order. For example:
+**You've got it when:** one test submission triggers all your steps, in sequence.
 
-> WHEN a new order form is submitted:
-> 1. Add a row to the orders spreadsheet
-> 2. Send the customer a confirmation email
-> 3. Send the team a notification
-> 4. Create a task to fulfil the order
+## Try it 2 - Add a condition so it fires only when it should
 
-Each step runs after the one before. The power is real, and so is the responsibility: more steps means more
-places a mistake can happen, so testing matters more (Lesson 4).
+**Why it matters:** often you only want a step to run in certain cases. A condition (or filter) keeps the
+automation sensible.
 
-## Lesson 2: Conditions and filters
+**Do this now:**
+1. Add a filter: ONLY IF the order total is over N10,000, DO also notify the manager.
+2. Or: ONLY continue IF the form includes an email address.
+3. Test both a case that should pass the condition and one that should not.
+4. Keep it to one condition for now - each one makes testing harder.
 
-Often you only want the automation to run, or a step to run, in certain cases. That is a **condition** (or
-filter):
+**You've got it when:** the extra step runs for the right cases and skips the rest.
 
-- ONLY IF the order total is over N10,000, DO also notify the manager.
-- ONLY IF the email is from outside the company, DO create a support ticket.
-- ONLY continue IF the form includes an email address.
+## Try it 3 - Write the blueprint
 
-Conditions keep automations sensible and stop them acting when they should not. Most tools let you add a
-filter step ("only continue if...") or branch into different paths.
+**Why it matters:** once an automation has several steps, an undocumented one is a mystery waiting to break.
+The blueprint is what lets you test, fix, hand over, and trust it.
 
-> **Tip:** Start with one condition at most. Each condition you add makes the automation harder to test and
-> understand. Get the simple path working, then add a condition only if you truly need it.
+**Do this now:**
+1. Open the [blueprint](/downloads/automation/automation-blueprint.md).
+2. Write down the steps, the apps, the condition, and the human checkpoints.
+3. Add the most important line of all: how to turn it off and do the job by hand.
 
-## Lesson 3: Document it with a blueprint
+**You've got it when:** someone else could read your blueprint and run or stop the automation.
 
-Once an automation has several steps, write it down. The
-[blueprint](/downloads/automation/automation-blueprint.md) records the steps, the apps, the conditions, the
-human checkpoints, and, crucially, how to turn it off and do the job by hand. A documented automation is one
-you can test, fix, hand over, and trust. An undocumented multi-step automation is a mystery waiting to break.
+## Try it 4 - Test in stages, then prove the off-switch
 
-## Lesson 4: Test in stages
+**Why it matters:** test step by step, not all at once, so you catch a fault on a test form, not on 200 real
+customers. And every automation needs a way to stop and a way to do the job by hand.
 
-Test a multi-step automation **step by step**, not all at once:
-
-1. **Dry run:** read the blueprint. Does each step do what you expect?
+**Do this now:**
+1. **Dry run:** read the blueprint - does each step do what you expect?
 2. **Test each step** with sample data where the tool allows.
 3. **One full run** with sample data; check every result by hand.
-4. **A few watched real runs** before leaving it alone.
+4. Deliberately **break one step**, confirm your testing catches it, then fix it.
+5. Write the **rollback** (how to switch it off and undo it) and the **manual backup** (how to do it by hand).
 
-If something is wrong, you want to catch it on step 2 with a test form, not on 200 real customers.
+**You've got it when:** you can switch the whole thing off, undo it, and do the task by hand if needed.
 
-> **Warning:** The more steps and the more it sends outward (emails, messages, records), the more a mistake
-> multiplies. Always test multi-step automations with sample data first, and check every output.
-
-## Lesson 5: Rollback and manual backup
-
-Every automation, especially a multi-step one, needs two things before you trust it:
-
-- A **rollback / off switch:** how to turn it off fast, and how to undo what it already did (or why it is
-  safe if you cannot).
-- A **manual backup:** how to do the job by hand if the automation is off. If no one knows how to do it
-  manually, you are dangerously dependent on a tool that can break.
-
-Write both into the blueprint. The [test and rollback checklist](/downloads/automation/test-and-rollback-checklist.md)
-walks you through it.
-
-> **Rule of thumb:** If you cannot turn it off and cannot do the job by hand, it is not ready to run on
-> anything real.
-
-### Common mistakes
+### Watch out for
 
 - Adding many steps and conditions before the simple version works
 - Testing only the whole thing, so you cannot tell which step failed
@@ -111,17 +95,7 @@ walks you through it.
 - No off switch or manual backup
 - Letting a multi-step automation send real messages before testing
 
-## Practice Exercises
-
-1. Extend last week's automation to three steps; write the blueprint.
-2. Add one condition (a filter) so an extra step runs only sometimes.
-3. Test each step with sample data and record the results.
-4. Deliberately break one step; confirm your testing catches it; fix it.
-5. Write the rollback plan: how to switch it off and undo it.
-6. Write the manual backup: how to do the task by hand.
-7. Hand your blueprint to a classmate; can they understand and run it?
-
-## Weekly Assignment (Due Before Week 6)
+## This week's build: one safe multi-step automation
 
 Build and document **one multi-step automation** (at least three steps, one condition):
 
@@ -146,6 +120,12 @@ Build and document **one multi-step automation** (at least three steps, one cond
 - [ ] Tested in stages with sample data
 - [ ] Rollback and manual backup written
 
+## Extra quick wins (optional)
+
+- Hand your blueprint to a classmate - can they understand and run it without you?
+- Add a branch: send a different message for one type of order.
+- Time how long the manual version takes, so next week's reliability work has a number to beat.
+
 ## Mentoring Session Plan (90 minutes)
 
 | Time | Activity |
@@ -164,7 +144,7 @@ learners see staged testing catch it. Insist every automation has an off switch 
 it runs for real. Discourage over-complicating; one condition is plenty at this stage. Keep all test data
 fictional.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. Why does testing matter more as you add steps?
 2. What is a condition (filter), and when would you use one?

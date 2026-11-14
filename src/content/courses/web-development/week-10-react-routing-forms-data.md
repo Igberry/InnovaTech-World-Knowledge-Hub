@@ -4,38 +4,35 @@ course: web-development
 order: 10
 week: 10
 phase: "Tooling & React"
-summary: "Add multiple pages with React Router, build controlled forms, fetch data, and ship a React app."
+summary: "Turn your single React page into a real multi-page app with routing, live data and working forms, then ship your third portfolio project."
 estimatedHours: 12
 tools: ["Node.js", "Vite", "React", "React Router"]
 ---
 
 **Goal:** Turn your single React page into a real multi-page app with **React Router**, **controlled
-forms**, and **data fetching** - then ship **Portfolio Project 3**.
+forms**, and **data fetching**, then ship **Portfolio Project 3**. You build each page and feature by hand
+and see it work.
 
-## Learning Objectives
-
-By the end of this week you can:
+## What you'll be able to do
 
 - Add client-side routing with React Router (pages, links, layouts, 404)
 - Build controlled forms with validation
 - Fetch data in a component with `useEffect`, handling loading and errors
 - Share state across pages with Context (introductory)
-- Deploy a single-page app so refresh/deep links work
+- Deploy a single-page app so refresh and deep links work
 
-## Tools to Install This Week
+## Before you start (about 10 minutes)
 
-React Router (installed per-project with npm).
+- React Router installs per project with npm.
+- Warm-up (2 minutes): open a large single-page app you use and click around, notice the URL changes but the
+  page never fully reloads. You're about to build that.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - Add real pages with React Router
 
-- Read: **reactrouter.com** → "Installation" and the tutorial; **react.dev** → "useEffect", "Reacting to input with state".
-- Watch (search YouTube): *"Net Ninja React Router"* and *"Web Dev Simplified React forms"*.
+**Why it matters:** routing maps URLs to components so your app has proper, shareable pages without full
+reloads.
 
-## Lesson 1: React Router
-
-A single-page app swaps content without a full reload. **React Router** maps URLs to components.
-**Check `reactrouter.com` for the current install command and version** - the API below is the stable
-declarative style that has worked across recent major versions.
+**Do this now:** (check `reactrouter.com` for the current install command and version)
 
 ```bash
 npm install react-router-dom
@@ -47,9 +44,7 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <BrowserRouter><App /></BrowserRouter>
 );
 ```
 
@@ -58,7 +53,6 @@ createRoot(document.getElementById("root")).render(
 import { Routes, Route, NavLink } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Menu from "./pages/Menu.jsx";
-import Reservations from "./pages/Reservations.jsx";
 import NotFound from "./pages/NotFound.jsx";
 
 function App() {
@@ -67,13 +61,10 @@ function App() {
       <nav>
         <NavLink to="/">Home</NavLink>
         <NavLink to="/menu">Menu</NavLink>
-        <NavLink to="/reservations">Reservations</NavLink>
       </nav>
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/menu" element={<Menu />} />
-        <Route path="/reservations" element={<Reservations />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>
@@ -81,13 +72,15 @@ function App() {
 }
 ```
 
-- `<Routes>` holds `<Route>`s; each maps a `path` to an `element`.
-- `<NavLink>`/`<Link>` navigate **without** reloading the page. `NavLink` can style the active link.
-- `path="*"` is the catch-all 404 route.
+**You've got it when:** clicking the nav swaps pages without a full reload, and a made-up URL hits your 404
+route (`path="*"`).
 
-## Lesson 2: Controlled forms
+## Try it 2 - Build a controlled form
 
-In React, a form input's value is driven by state - a **controlled component**:
+**Why it matters:** in React, a form input's value is driven by state. That's a "controlled component", the
+standard React way.
+
+**Do this now:**
 
 ```jsx
 import { useState } from "react";
@@ -97,15 +90,12 @@ function Reservations() {
   const [error, setError] = useState("");
   const [done, setDone] = useState(false);
 
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
-
+  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const handleSubmit = (e) => {
     e.preventDefault();
     if (form.name.trim() === "") return setError("Please enter your name.");
     setError("");
-    setDone(true);
-    // (Week 11: save this to Supabase)
+    setDone(true);               // (Week 11: save this to Supabase)
   };
 
   if (done) return <p>Thank you, {form.name}. Reservation received.</p>;
@@ -114,10 +104,6 @@ function Reservations() {
     <form onSubmit={handleSubmit}>
       <label htmlFor="name">Name</label>
       <input id="name" name="name" value={form.name} onChange={handleChange} />
-
-      <label htmlFor="guests">Guests</label>
-      <input id="guests" name="guests" type="number" value={form.guests} onChange={handleChange} />
-
       {error && <p className="error">{error}</p>}
       <button type="submit">Reserve</button>
     </form>
@@ -125,13 +111,14 @@ function Reservations() {
 }
 ```
 
-- Each input has `value` (from state) and `onChange` (updates state). One `handleChange` can update any
-  field using `[e.target.name]`.
-- Use `htmlFor` instead of `for` on labels (JSX, like `className`).
+**You've got it when:** your form validates on submit and shows a thank-you. Each input has `value` (from
+state) and `onChange` (updates state); use `htmlFor` instead of `for` on labels.
 
-## Lesson 3: Fetching data with useEffect
+## Try it 3 - Fetch data with useEffect
 
-`useEffect` runs code **after** render - perfect for fetching data when a component mounts:
+**Why it matters:** `useEffect` runs code after render, perfect for loading data when a component appears.
+
+**Do this now:**
 
 ```jsx
 import { useState, useEffect } from "react";
@@ -150,30 +137,25 @@ function Weather() {
         const data = await res.json();
         setTemp(data.current.temperature_2m);
         setStatus("ready");
-      } catch {
-        setStatus("error");
-      }
+      } catch { setStatus("error"); }
     }
     load();
   }, []); // [] = run once, after the first render
 
-  if (status === "loading") return <p>Loading weather…</p>;
+  if (status === "loading") return <p>Loading weather...</p>;
   if (status === "error") return <p>Couldn't load the weather.</p>;
-  return <p>Yenagoa: {temp}°C</p>;
+  return <p>Yenagoa: {temp} degrees C</p>;
 }
 ```
 
-- The **dependency array** `[]` means "run once". Values inside it, if any, re-run the effect when they
-  change.
-- Always track loading/error with state and show the right UI - just like Week 7.
+**You've got it when:** your weather shows loading, then the temperature, and the error message if you go
+offline. The dependency array `[]` means "run once".
 
-> **Tip:** A **custom hook** (introductory) extracts reusable logic, e.g. `useWeather()` that returns
-> `{ temp, status }`. You'll meet these more later; for now, know they exist.
+## Try it 4 - Share the cart with Context
 
-## Lesson 4: Context for the cart (introductory)
+**Why it matters:** Context shares state without passing props through many layers ("prop drilling").
 
-Passing the cart through many layers of props gets tedious. **Context** shares state without "prop
-drilling":
+**Do this now:**
 
 ```jsx
 import { createContext, useContext, useState } from "react";
@@ -193,40 +175,32 @@ export function CartProvider({ children }) {
 export const useCart = () => useContext(CartContext);
 ```
 
-Wrap your app in `<CartProvider>` and any component can call `useCart()`. Keep state simple; reach for
-Context only when prop-passing genuinely hurts.
+1. Wrap your app in `<CartProvider>` and call `useCart()` from two different pages.
 
-## Lesson 5: Folder structure, accessibility, deployment
+**You've got it when:** two separate pages read and update the same cart. Reach for Context only when
+prop-passing genuinely hurts, lifted state is fine for simple cases.
 
-- **Structure:** `src/pages/` for route components, `src/components/` for reusable pieces,
-  `src/hooks/` for custom hooks, `src/context/` for providers.
-- **Accessibility in React:** still use labels, semantic elements, and visible focus - JSX doesn't
-  change a11y rules.
-- **Deploying a single-page app:** because routing is client-side, a host must send **all** paths to
-  `index.html`, or a refresh on `/menu` gives a 404. Netlify/Vercel handle this automatically (or with a
-  small redirect rule). On GitHub Pages, a common fix is a `404.html` that loads the app. Check your
-  host's SPA docs.
+## Try it 5 - Deploy the single-page app so refresh works
 
-## Common mistakes
+**Why it matters:** because routing is client-side, a careless deploy makes refreshing `/menu` give a 404.
 
-- Forgetting to wrap the app in `<BrowserRouter>`.
-- An uncontrolled input (value not tied to state) that "won't update".
-- A `useEffect` fetch with the wrong dependency array causing infinite loops.
-- Deploying an SPA without SPA routing, so deep links 404.
+**Do this now:**
+1. Deploy to Netlify or Vercel (they handle SPA routing automatically).
+2. Visit a sub-page like `/menu`, then **refresh**. It should still load, not 404.
 
-## Practice Exercises
+**You've got it when:** refreshing a deep link loads the right page instead of a 404. On GitHub Pages a
+common fix is a `404.html` that loads the app, check your host's SPA docs.
 
-1. **Easy:** Add React Router with Home and Menu pages and a nav.
-2. **Easy:** Add a 404 route.
-3. **Medium:** Build a controlled reservation form with validation.
-4. **Medium:** Fetch the weather with `useEffect` and show loading/error states.
-5. **Medium:** Style the active nav link with `NavLink`.
-6. **Stretch:** Move the cart into Context and use it from two pages.
-7. **Stretch:** Deploy the SPA so refreshing `/menu` works.
+### Watch out for
 
-## Weekly Assignment - Portfolio Project 3 (Due Before Week 11)
+- Forgetting to wrap the app in `<BrowserRouter>`
+- An uncontrolled input (value not tied to state) that "won't update"
+- A `useEffect` fetch with the wrong dependency array causing an infinite loop
+- Deploying an SPA without SPA routing, so deep links 404
 
-Ship a **multi-page React Fresh Bites app** - your third portfolio piece.
+## This week's build: Portfolio Project 3
+
+Ship a **multi-page React Fresh Bites app**, your third portfolio piece:
 
 1. Pages: Home, Menu, Cart, Reservations, About (React Router), plus a 404.
 2. Controlled, validated reservation form.
@@ -234,7 +208,7 @@ Ship a **multi-page React Fresh Bites app** - your third portfolio piece.
 4. Cart shared via Context or lifted state; total shown.
 5. Responsive (Tailwind). Deployed as an SPA (deep links work). README with screenshots + live link.
 
-**Grading guide (100%):**
+### Grading guide
 
 | Criteria | % |
 |---|---|
@@ -244,7 +218,7 @@ Ship a **multi-page React Fresh Bites app** - your third portfolio piece.
 | Shared cart (Context/lifted); total correct | 20 |
 | Deployed SPA (deep links work); README | 20 |
 
-**Definition of done:**
+### Definition of done
 
 - [ ] Multiple routes work, including a 404
 - [ ] Reservation form is controlled and validates
@@ -252,25 +226,31 @@ Ship a **multi-page React Fresh Bites app** - your third portfolio piece.
 - [ ] Cart works across pages; total correct
 - [ ] Deployed; refreshing a sub-page doesn't 404; README has live link
 
+## Extra quick wins (optional)
+
+- Style the active nav link with `NavLink`.
+- Extract the weather logic into a custom hook, `useWeather()`.
+- Add an About page with your real story and a link to your GitHub.
+
 ## Mentoring Session Plan (90 min)
 
 | Time | Activity |
 |---|---|
-| 0–10 | Review the React components assignment |
-| 10–35 | Live: add React Router, pages, nav and 404 |
-| 35–55 | Live: build a controlled form; fetch with `useEffect` |
-| 55–80 | Live: move the cart into Context |
-| 80–90 | Brief Portfolio Project 3; cover SPA deployment |
+| 0-10 | Review the React components build |
+| 10-35 | Live: add React Router, pages, nav and 404 |
+| 35-55 | Live: build a controlled form; fetch with `useEffect` |
+| 55-80 | Live: move the cart into Context |
+| 80-90 | Brief Portfolio Project 3; cover SPA deployment |
 
 ## Facilitator Notes
 
-Routing is usually smooth; controlled forms and `useEffect` dependency arrays are the sticking points.
-Demo an infinite-loop `useEffect` (missing `[]`) so they recognise it. For SPA deployment, pre-check the
-student's host and have the redirect/404 fix ready - a "works locally, 404 on refresh when deployed" bug
-is demoralising if unexplained. Keep Context minimal; some learners are better served by lifted state for
-one more week. Confirm the current React Router install command against reactrouter.com in session.
+Routing is usually smooth; controlled forms and `useEffect` dependency arrays are the sticking points. Demo
+an infinite-loop `useEffect` (missing `[]`) so they recognise it. For SPA deployment, pre-check the
+student's host and have the redirect/404 fix ready, a "works locally, 404 on refresh when deployed" bug is
+demoralising if unexplained. Keep Context minimal; some learners are better served by lifted state for one
+more week. Confirm the current React Router install command against reactrouter.com in session.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What does `<BrowserRouter>` provide, and what do `<Routes>`/`<Route>` do?
 2. What makes a form input "controlled"?

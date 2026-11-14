@@ -3,7 +3,7 @@ title: "Export, Delivery, Business and Capstone"
 course: video-editing
 order: 8
 week: 8
-summary: "Prepare purpose-fit exports, organise a showreel and capstone package, and present a responsible client workflow."
+summary: "Pull it all together: export purpose-fit files, build a showreel, package your capstone, and present it with honest, job-ready skills on show. Make and deliver, don't just read."
 estimatedHours: 10
 tools: ["CapCut", "DaVinci Resolve", "Shotcut", "Local project storage"]
 downloads:
@@ -21,122 +21,114 @@ downloads:
     href: "/downloads/video-editing/capstone-rubric.md"
 draft: false
 ---
-**Goal:** Package a portfolio-ready capstone with a clear showreel, tested delivery files, documented usage rights and an honest presentation.
+**Goal:** Package a portfolio-ready capstone: export files that fit their destination, a tight showreel, documented usage rights and an honest presentation of job-ready skills. This week you finish and deliver real work.
 
-## Learning Objectives
+## What you'll be able to do
 
-- Choose an export workflow based on destination, playback, file size and archive needs.
-- Deliver files with clear names, permissions and a tested backup.
-- Explain licensing, releases and archive responsibilities in a client hand-off.
-- Estimate a project using time, costs, revisions and risk without inventing market rates.
-- Assemble a 60–90 second showreel and a complete capstone package.
-- Present editing choices, constraints and next improvements without guaranteeing business outcomes.
+- Choose export settings based on destination, playback and file size
+- Deliver files with clear names, the right access and a tested backup
+- Explain licensing, releases and archiving in a hand-off
+- Estimate a project with time, costs and revisions, without inventing market rates
+- Assemble a 60 to 90 second showreel and a complete capstone package
+- Present your choices and constraints honestly, with no guaranteed-outcome claims
 
-## Tools / Accounts Needed This Week
+## Before you start (about 10 minutes)
 
-Use the course projects and a computer or phone that can play your exports. The export guide is a checklist rather than a list of fixed platform presets. Check current official destination requirements, editor options and licences before any live client delivery. A public portfolio account is optional; a local presentation is acceptable. Do not include client work, music, faces or contact details without permission.
+- Open the [export and delivery guide](/downloads/video-editing/export-settings-guide.md), [showreel checklist](/downloads/video-editing/showreel-checklist.md), [capstone brief](/downloads/video-editing/capstone-brief.md) and [capstone rubric](/downloads/video-editing/capstone-rubric.md).
+- Gather only footage you can show permission and asset-use evidence for.
+- Warm-up: pick the three to five pieces you are proudest of from the course. That is your showreel shortlist.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - Export the same video two ways
 
-- Search YouTube: **"video export bitrate resolution file size explained beginner"**.
-- Search YouTube: **"beginner video editor showreel structure short portfolio"**.
-- Search YouTube: **"freelance video production quote scope revisions workflow"**.
-- Read the [export and delivery guide](/downloads/video-editing/export-settings-guide.md), [showreel checklist](/downloads/video-editing/showreel-checklist.md) and [capstone rubric](/downloads/video-editing/capstone-rubric.md).
-- Select only footage for which you can show permission and asset-use evidence.
+**Why it matters:** one preset does not fit every destination. A review copy and a delivery master have different jobs.
 
-## Lessons
+**Do this now:**
+1. Export one small review copy and one higher-quality delivery copy of the same video.
+2. Compare file size and how each plays on a second device.
+3. Match dimensions to the destination (vertical post, landscape presentation, review link, archive master). Date-stamp a project note with the current official requirements; do not reuse an old preset blindly.
 
-### Lesson 1: Export settings by purpose
+**You've got it when:** you can say which export is for review and which is for delivery, and both play elsewhere.
 
-An export is a rendered file made from the editor project. Before choosing settings, ask where it will play, how it will be delivered and whether the viewer needs a small review copy or a high-quality master. A phone-first vertical post, a landscape presentation, a WhatsApp review and an archive master may need different dimensions and compression.
+## Try it 2 - Deliver with the right access and a delivery note
 
-Resolution describes frame dimensions; bitrate affects data used per second; a codec and container influence compatibility and size. Larger settings can create files that are slow to transfer or difficult to play on an older device. Smaller files may lose detail. Choose settings based on the source, destination and practical delivery constraints, then test the export on a second device.
+**Why it matters:** a public link to private footage is a serious mistake. Delivery is more than attaching a file.
 
-Do not reuse a preset blindly. Platform duration, frame dimensions, accepted formats, file size limits and safe areas change. Check the current official requirements for the exact destination and date-stamp the project note. The course export guide intentionally leaves out fixed numeric limits because official platform pages were not reachable during preparation.
+**Do this now:**
+1. Decide who needs the file, the file names, and whether they need the project or only exports.
+2. If using a cloud link, set the narrowest access that works and test who can open it. For limited data, arrange a safe local transfer.
+3. Write a delivery note: project name, files, version, destination, date, known limitation, and whether raw footage is included. List project dependencies (fonts, assets, media) and confirm the recipient may use them.
 
-### Lesson 2: Delivery and permissions
+**You've got it when:** your delivery note is complete and the link or transfer gives only the access intended.
 
-A delivery is more than attaching a file. Confirm the recipient, file names, access permission, expiry or retention if relevant, and whether the client needs the editor project or only final exports. A cloud link must use the narrowest access that works; test who can view it. If data is limited, arrange a local transfer that the recipient can use safely.
+## Try it 3 - Make a backup that you have tested
 
-Do not send a public link to private event footage. Use an approved account or storage location. Avoid sharing raw footage unless the scope requires it and rights are clear. A project file may depend on source media, fonts, plugins, templates or licensed assets. If handing it over, list those dependencies and confirm the recipient has permission to use them.
+**Why it matters:** a backup you never opened is a guess. A sync folder can replicate a deletion.
 
-Prepare a delivery note with project name, file names, version, destination, date and known limitation. Include caption files or transcript if agreed. Explain whether raw footage is included, how long the creator will keep it, and when it will be deleted. Follow the written agreement and the client's retention instructions.
+**Do this now:**
+1. Keep original footage, project file and approved export logically separated.
+2. Make a second copy on another device or medium and play a sample from it.
+3. Remove temporary public shares and test links when a project is done. Archive only what the agreement allows, and follow deletion requests.
 
-### Lesson 3: Backups and archiving
+**You've got it when:** a sample plays from your backup and no stray public links remain.
 
-Keep the original footage, project file and approved export logically separated. Make a second copy on another device or storage medium when possible. Reopen or play a sample file from the backup to confirm it copied successfully. A sync folder can replicate accidental deletion, so do not treat it as the only backup.
+## Try it 4 - Clear the rights and quote the work
 
-Archive only what the agreement allows. Some clients want raw files handed over; others ask for deletion after a defined period. Do not keep identifiable footage indefinitely “just in case.” Remove temporary public shares and test links when the project is complete. If a client requests deletion, follow the approved process and document completion without retaining extra copies.
+**Why it matters:** a video bundles many rights, and a real quote is built from your actual time, not a guessed market price.
 
-### Lesson 4: Copyright, music and usage rights
+**Do this now:**
+1. Walk your capstone assets through the licence log: footage, music, sound effects, logos, fonts, photos, locations, likenesses. Replace or omit anything not clearly cleared for the intended use.
+2. Fill the [quote worksheet](/downloads/video-editing/quote-template.md) from a tracked practice project: discovery, planning, travel, filming, editing, captioning, revisions, licensing, storage, delivery and business costs. Define what is included and where extra work starts.
+3. Treat pricing structures (per video, package, retainer, rush fee) and the 50% deposit as methods to discuss, not universal rules. Never state an invented price as a market rate. The agreement outline is a checklist for discussion, not legal advice.
 
-Video projects combine several rights: footage, music, sound effects, logos, fonts, photographs, locations and people's likenesses. The person who recorded an asset may not own every right in it. A client's logo or a track from an editor's library may have limited permitted use. Review the exact terms for the intended purpose, client, territory, platform and duration. Save proof and attribution requirements.
+**You've got it when:** every asset is cleared or omitted, and your quote is built from real tracked time.
 
-Use the licence log and permission notes. If a track is not clearly permitted for client or monetised work, replace it or deliver a version without music. A Creative Commons or “free” label still has conditions, and some licences may not permit commercial use or derivatives. Do not assume one platform's music permission travels with an exported video to another platform.
+## Try it 5 - Cut a showreel and rehearse the pitch
 
-A written agreement can describe who owns the final work, project files and raw material, and how the work may be shown in a portfolio. Do not copy a contract from the internet and treat it as legal advice. The course agreement outline is a checklist for discussion; ask a qualified local adviser to review real terms.
+**Why it matters:** a showreel sells your actual skills in under 90 seconds, and the presentation shows you can talk about your work honestly.
 
-### Lesson 5: Pricing and packaging methods
+**Do this now:**
+1. Assemble a 60 to 90 second reel of three to five permitted pieces, clearest work first, simple transitions, licensed or no music.
+2. Represent your real role: distinguish shooting, editing, captions, colour and sound. No private phone numbers, client addresses or unapproved people.
+3. Ask a viewer what kind of work they think you do and which moment is strongest. Reorder if the answer is unclear.
+4. Rehearse a ten-minute presentation: goal, process, one edit decision, one piece of feedback, rights and permissions, constraints, and what you would improve next. Describe job-ready skills, never guaranteed views, sales, clients or income.
 
-This course teaches a method, not market prices. You can estimate the work by listing discovery, planning, travel, filming, editing, captioning, revisions, licensing, storage, delivery and tax or business costs. Track time on a practice project. Decide what is included and where additional work begins.
+**You've got it when:** a viewer can tell what you do from the reel, and your pitch is honest end to end.
 
-Common pricing structures include **per video**, **a package** of a defined number of deliverables, **a monthly content retainer** with explicit limits, and a **rush fee** when an accelerated schedule creates extra work. These are methods, not promises that any model will suit every client. Define duration, formats, captions, review rounds, raw files, music rights and delivery method before calculating a quote.
+### Watch out for
 
-The brief specifies a 50% deposit as a practice term to discuss. It is not a universal rule or legal requirement. A real deposit, payment timing, cancellation policy, tax treatment and refund terms depend on local law and the written agreement. Verify any payment service's current availability, fees and protections before naming it. Never invent a price or use a class example as a market rate.
+- Exporting the largest file without checking the recipient can open it
+- Assuming an old preset still meets current platform requirements
+- Sharing a cloud link without testing its access setting
+- Keeping client footage indefinitely or deleting it before approval
+- Using music or graphics without checking the exact licence
+- Treating the 50% practice deposit as legal or universal advice
+- Reporting predicted audience or business results as facts
 
-### Lesson 6: Portfolio and showreel
+Be alert to scam patterns too: large unpaid custom work, overpayment-and-refund requests, pressure to buy from a named vendor, or requests for account credentials. Verify identity independently and ask a trusted person or bank if an offer feels unsafe. Freelance platform and payment access in Nigeria must be verified against current official terms; this course recommends none.
 
-A showreel is a short selection of work that demonstrates relevant skills. This course asks for 60–90 seconds and three to five pieces. Put the clearest work first, keep transitions simple, and use only content you may show. The reel should represent your actual role: distinguish shooting, editing, captions, colour and sound contributions accurately.
+## This week's build: your capstone package
 
-Use licensed music or no music. Add a clear end-card with a contact detail only if you choose to publish that detail. Avoid exposing a private phone number, client address, unreleased project or someone who has not agreed to portfolio use. A local file or private presentation can be a portfolio exercise; public hosting is not required.
+Submit the complete portfolio package using the [capstone brief](/downloads/video-editing/capstone-brief.md) and [rubric](/downloads/video-editing/capstone-rubric.md):
 
-Check that the reel plays on a phone and another screen where possible. Ask a viewer what kind of work they think you do and which moment best demonstrates it. If the answer is unclear, change the order or reduce unrelated clips. Keep the original project and a backup.
+1. A 60 to 90 second showreel with three to five permitted pieces.
+2. One two-to-three-minute long-form video.
+3. Three distinct, captioned short-form videos.
+4. A project folder with a brief, quote worksheet, licence log and delivery note.
+5. A ten-minute presentation of your process, decisions, limitations and next steps.
 
-### Lesson 7: Finding work and avoiding scams
+The work may be fictional; any real person or client footage must be permission-cleared. Do not publish without approval. If a deliverable cannot be completed because equipment or permission is unavailable, state the limitation and submit a storyboard, script or local review sample. A truthful, complete process beats unsafe filming or fabricated evidence.
 
-Possible places to learn about video projects include local businesses, schools, events, NGOs, places of worship and creators. This is not a promise of demand or income. Start with a respectful introduction, a clear sample and questions about scope; do not send repeated unsolicited messages or private files.
+### Grading guide
 
-Be cautious if someone asks for a large amount of unpaid custom work, sends an overpayment and asks for a refund, pressures you to buy equipment from a specified vendor, requests account credentials, or wants raw files before agreeing to terms. Verify the person's identity and organisation independently. Do not deposit a suspicious payment and return part of it. Ask a trusted person or financial institution for advice if an offer feels unsafe.
+| Criteria | Weight |
+|---|---|
+| Editing craft | 35% |
+| Storytelling and brief fit | 20% |
+| Professional workflow and documents | 20% |
+| Licensing and ethics | 10% |
+| Presentation | 15% |
 
-Freelance platforms and payment providers can change their country access, rules, fees and dispute processes. Check official current terms before signing up. The course does not recommend a specific payment method or platform because Nigerian access and protections must be verified for the learner's situation.
-
-### Lesson 8: Capstone and presentation
-
-The capstone has five parts: a 60–90 second showreel, a two-to-three-minute long-form video, three short-form videos, a project folder with brief/quote/licence/delivery notes, and a ten-minute presentation. You may use a fictional client or a real client with permission. The three short videos should be distinct and captioned.
-
-Use the capstone rubric to review editing craft (35%), story and brief fit (20%), professional workflow and documents (20%), licensing and ethics (10%), and presentation (15%). The presentation should explain the goal, your process, one edit decision, one piece of feedback, rights and permissions, technical constraints, and what you would improve next. Do not claim guaranteed views, sales, clients, jobs or income.
-
-If a deliverable cannot be completed because equipment or permission is unavailable, state the limitation and submit a storyboard, script or local review sample. A truthful, complete process is better than unsafe filming or fabricated evidence.
-
-## Common Mistakes
-
-- Exporting the largest file without checking whether the recipient can open it.
-- Assuming an old preset still meets a platform's current requirements.
-- Sharing a cloud link without testing its access setting.
-- Keeping client footage indefinitely or deleting it before approval.
-- Using music or graphics without checking the exact licence.
-- Treating the 50% practice deposit as legal or universal advice.
-- Publishing a showreel with work that a client or participant has not approved.
-- Reporting predicted audience or business results as facts.
-
-## Practice Exercises
-
-1. Export one review copy and one delivery copy, then compare size and playback.
-2. Use the official current destination help for a sample project and record its settings and check date.
-3. Create a delivery note and explain why each included file is needed.
-4. Make a two-copy archive and test a sample from the backup.
-5. Complete a quote worksheet without entering an unsupported market price.
-6. Review a music asset's terms and identify permissions still needed.
-7. Assemble a three-piece practice reel and ask a reviewer what it communicates.
-8. Rehearse a ten-minute capstone presentation using the rubric.
-
-## Weekly Assignment (Due Before Course Completion)
-
-Submit the complete portfolio package: a 60–90 second showreel with three to five permitted pieces, one two-to-three-minute long-form video, three short-form videos, a project folder containing a brief, quote worksheet, licence log and delivery note, and a ten-minute presentation. Use the supplied capstone brief and rubric. The work may be fictional; any real person or client footage must be permission-cleared. Do not publish without approval.
-
-**Grading guide:** editing craft 35%, storytelling and brief fit 20%, professional workflow and documents 20%, licensing and ethics 10%, presentation 15%.
-
-**Definition of done**
+### Definition of done
 
 - [ ] The showreel, long-form video and three distinct short-form videos are present.
 - [ ] Captions, sound, title and export have been reviewed.
@@ -145,23 +137,29 @@ Submit the complete portfolio package: a 60–90 second showreel with three to f
 - [ ] The presentation explains process, decisions, limitations and next steps.
 - [ ] No unverified business result, client claim or market price is presented as fact.
 
+## Extra quick wins (optional)
+
+- Export one file for WhatsApp review and one archive master; compare them.
+- Ask a reviewer to watch your reel and name the single strongest ten seconds.
+- Draft a short, respectful introduction you could send a local business with your reel.
+
 ## Mentoring Session Plan (90 min)
 
 | Time | Activity |
 |---|---|
-| 0–10 min | Confirm project permissions and final destinations |
-| 10–25 min | Review export purpose and current destination requirements |
-| 25–40 min | Test delivery, access settings and backup |
-| 40–55 min | Build the showreel order and review usage rights |
-| 55–68 min | Complete quote and delivery worksheets |
-| 68–82 min | Rehearse capstone presentation against rubric |
-| 82–90 min | Set final review and archive/deletion responsibilities |
+| 0-10 min | Confirm project permissions and final destinations |
+| 10-25 min | Review export purpose and current destination requirements |
+| 25-40 min | Test delivery, access settings and backup |
+| 40-55 min | Build the showreel order and review usage rights |
+| 55-68 min | Complete quote and delivery worksheets |
+| 68-82 min | Rehearse capstone presentation against rubric |
+| 82-90 min | Set final review and archive or deletion responsibilities |
 
 ## Facilitator Notes
 
 Do not provide unverified local prices, legal terms, platform access claims or job prospects. The 50% deposit is a prompt-specified exercise term only; clarify that real terms need local professional review. Ask learners to keep client and participant media private. Do not accept a public portfolio link as a requirement for completion.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What should you confirm before choosing export settings?
 2. Why should a backup be tested rather than merely created?

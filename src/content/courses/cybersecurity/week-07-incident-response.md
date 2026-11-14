@@ -4,7 +4,7 @@ course: cybersecurity
 order: 7
 week: 7
 phase: "When Things Go Wrong"
-summary: "Know exactly what to do when an account is hacked, a device is lost, or money is exposed, so you respond calmly and recover fast."
+summary: "Build your emergency playbook before you need it: set up remote wipe, write the exact steps for a hacked account or stolen phone, and store a plan you can reach even without your main device."
 estimatedHours: 8
 tools: ["A document"]
 downloads:
@@ -12,94 +12,83 @@ downloads:
     href: "/downloads/cybersecurity/incident-response-plan.md"
 ---
 
-**Goal:** Prepare to respond calmly and effectively when something goes wrong, a hacked account, a lost
-device, exposed money, or malware, so you limit the damage and recover quickly.
+**Goal:** By the end of this week you will have a finished incident-response plan, remote wipe switched on, and
+your key contacts saved - all done calmly now, while nothing is wrong. You prepare the real thing, not a
+description of it.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
-
-- Explain why having a plan before an incident matters
-- Respond to a hacked account step by step
-- Act fast when money or a device is exposed or lost
+- Respond to a hacked account in the right order
+- Act fast when money is exposed or a device is lost
 - Handle suspected malware or ransomware safely
-- Write your own incident-response plan
+- Store a plan you can reach even without your main device
 
-## Tools / Accounts Needed This Week
+## Before you start (about 10 minutes)
 
-- A document for your plan
-- The [incident response plan](/downloads/cybersecurity/incident-response-plan.md) template
+- Open the [incident response plan](/downloads/cybersecurity/incident-response-plan.md) template.
+- Warm-up: if you lost your phone right now, what is the very first thing you would need to do? Write it down; the
+  plan will make it automatic.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - Write your hacked-account steps
 
-- Read: the [incident response plan](/downloads/cybersecurity/incident-response-plan.md) template.
-- Read: search the web for "what to do if your account is hacked" from a trusted source.
-- Reflect: if you lost your phone right now, what would you need to do first?
+**Why it matters:** in the moment, stress causes mistakes and freezing. Speed and order decide how bad it gets,
+and a written plan gives you both.
 
-## Lesson 1: Why plan before it happens
+**Do this now - write the steps in this exact order (from a device you trust):**
+1. Change the password; change it anywhere you reused it.
+2. Turn on 2FA if it was not on.
+3. Check recovery settings - attackers change the recovery email/phone to lock you out; reset them to yours.
+4. Sign out of all other sessions/devices.
+5. Check for damage (sent messages, forwarding rules, changed details, payments), warn contacts, and report it.
 
-In the moment, an incident is stressful, and stress leads to mistakes or freezing. A plan made calmly in
-advance means you act quickly and correctly when it counts. Security professionals do not assume nothing will
-go wrong; they **prepare to recover well** when it does.
+**You've got it when:** you have the ordered steps written, with **email first** if several accounts are affected.
 
-The two things that decide how bad an incident becomes are **speed** and **order**: acting fast, on the right
-things first. Your plan gives you both.
+## Try it 2 - Set up remote lock and wipe (do it now)
 
-> **Note:** Being targeted is not a failure; everyone is targeted eventually. What matters is responding fast
-> and limiting the harm. A good plan turns a disaster into an inconvenience.
+**Why it matters:** if your phone is stolen, remote wipe is how you protect everything on it - but only if it was
+set up beforehand.
 
-## Lesson 2: A hacked account
+**Do this now:**
+1. Open your phone's "find my device" settings and switch on remote find, lock, and wipe.
+2. Test that you can see the device from another device or a browser.
+3. Write your first-10-minutes plan for a stolen phone: remote lock, change email password, tell your bank if
+   payment apps were on it.
 
-If an account is taken over, act in this order (from a device you trust):
+**You've got it when:** remote wipe is on and you can locate your phone from somewhere else.
 
-1. **Change the password** immediately; change it anywhere you reused it.
-2. **Turn on 2FA** if it was not on.
-3. **Check recovery settings**, attackers change the recovery email/phone to lock you out. Reset them to yours.
-4. **Sign out of all other sessions/devices.**
-5. **Check for damage:** sent messages, new forwarding rules, changed details, payments.
-6. **Warn your contacts** if the attacker may have messaged them.
-7. **Report** to the platform.
+## Try it 3 - Rehearse the money and ransomware responses
 
-Do your **email first** if several accounts are affected, it resets everything else.
+**Why it matters:** with money, minutes matter; with ransomware, a clean backup is your way out, not a payment.
 
-## Lesson 3: Money or a device exposed
+**Do this now - write the steps for each:**
+1. **Money or card details exposed:** contact your bank or mobile money immediately to freeze or secure, change
+   related passwords, enable 2FA, watch for further fraud.
+2. **Suspected ransomware:** disconnect the device from the internet, do not pay, get help from a trusted
+   technician, and restore from the clean backup you set up in Week 4.
 
-**If money or card details are exposed:**
-1. **Contact your bank / mobile money immediately**, minutes matter. Ask them to secure or freeze as needed.
-2. **Change related passwords**, enable 2FA.
-3. **Watch for further fraud** over the following weeks.
-4. **Report** to the bank and, where appropriate, the authorities.
+**You've got it when:** you know which backup you would restore, and why paying a ransom is the wrong move.
 
-**If a device is lost or stolen:**
-1. **Lock or wipe it remotely** if set up (set this up now if not).
-2. **Change passwords** for accounts signed in on it, email first.
-3. **Tell your bank** if payment apps were on it.
+> **Warning:** Paying a ransom is strongly discouraged: there is no guarantee of recovery, it marks you as a payer
+> for future attacks, and it funds crime. A tested backup is your real way out.
 
-## Lesson 4: Suspected malware or ransomware
+## Try it 4 - Save contacts and store the plan
 
-1. **Disconnect** the device from the internet to stop spread.
-2. **Do not pay** a ransom, it rarely restores files and funds criminals.
-3. **Get help** from a trusted technician or IT contact.
-4. **Restore from a clean backup** once the device is cleaned, this is why your Week 4 backups matter.
+**Why it matters:** a plan you cannot reach during an incident is no plan at all.
 
-Prevention (updates, careful downloads, backups) is far easier than recovery, but a clean backup is what turns
-ransomware from catastrophe into a bad day.
+**Do this now:**
+1. Fill in your key contacts while calm: bank, mobile money, email provider, a trusted IT helper.
+2. Add an **after-incident step**: find and fix the weak point that let it happen.
+3. Store the finished plan somewhere reachable **without your main device** (printed, or in a second account).
 
-> **Warning:** Paying a ransom is strongly discouraged: there is no guarantee of recovery, it marks you as a
-> payer for future attacks, and it funds crime. A tested backup is your real way out.
+**You've got it when:** your plan has contacts, scenario steps, and a home you can reach even if your phone is
+gone.
 
-## Lesson 5: Write your plan
+## Make it yours - the two things that decide the outcome
 
-Using the [incident-response plan template](/downloads/cybersecurity/incident-response-plan.md), fill in:
+Everything this week comes back to **speed** and **order**: acting fast, on the right things first. Being
+targeted is not a failure - everyone is eventually. A good plan turns a disaster into an inconvenience.
 
-- Your **key contacts** (bank, email provider, IT/trusted helper), now, while calm
-- The **steps** for each scenario (hacked account, money exposed, lost device, malware)
-- Where your **backups** are and how to restore
-- An **after-incident** step: fix the weak point that let it happen
-
-Keep the plan somewhere you can reach even without your main device.
-
-### Common mistakes
+### Watch out for
 
 - No plan, so panic and delay make it worse
 - Securing other accounts but forgetting email (which resets them all)
@@ -107,19 +96,9 @@ Keep the plan somewhere you can reach even without your main device.
 - Paying a ransom instead of restoring from backup
 - Not fixing the weak point, so it happens again
 
-## Practice Exercises
+## This week's build: your incident-response plan
 
-1. Fill in your key contacts in the incident-response plan.
-2. Write your step-by-step response to a hacked email account.
-3. Set up (or confirm) remote lock/wipe on your phone.
-4. Write what you would do in the first 10 minutes if your phone were stolen.
-5. Describe your ransomware response, including which backup you would restore.
-6. For a past or imagined incident, identify the weak point and how to fix it.
-7. Store your plan somewhere reachable without your main device.
-
-## Weekly Assignment (Due Before Week 8)
-
-Create your **incident-response plan**:
+Finish a plan you could follow on your worst day:
 
 1. A completed plan with **key contacts** and **step-by-step responses** for the four scenarios
 2. Confirmation you set up **remote lock/wipe** and know your **backup restore**
@@ -142,6 +121,12 @@ Create your **incident-response plan**:
 - [ ] Priority order explained
 - [ ] After-incident fix process written
 
+## Extra quick wins (optional)
+
+- Save your bank and mobile-money emergency numbers in your phone now, before you need them.
+- Walk a family member through setting up remote wipe on their phone.
+- For a past or imagined incident, name the weak point and how you would close it.
+
 ## Mentoring Session Plan (90 minutes)
 
 | Time | Activity |
@@ -155,11 +140,11 @@ Create your **incident-response plan**:
 ## Facilitator Notes
 
 Calm and order are the themes. Have learners actually fill in contacts and set up remote wipe in the session,
-preparation only helps if done before the incident. Stress email-first and bank-fast priorities. Be firm on
-not paying ransoms and on the value of the tested backup from Week 4. Normalise being targeted so learners act
+preparation only helps if done before the incident. Stress email-first and bank-fast priorities. Be firm on not
+paying ransoms and on the value of the tested backup from Week 4. Normalise being targeted so learners act
 quickly instead of hiding. Keep scenarios realistic and local (stolen phone with mobile money, hacked WhatsApp).
 
-## Self-Check Questions
+## Can you do these now?
 
 1. Why is it important to have a plan before an incident happens?
 2. In a hacked-account response, why handle email first and re-check recovery settings?

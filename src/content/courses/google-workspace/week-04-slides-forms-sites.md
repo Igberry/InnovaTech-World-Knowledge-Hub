@@ -3,7 +3,7 @@ title: "Google Slides, Forms and Sites"
 course: google-workspace
 order: 4
 week: 4
-summary: "Turn fictional feedback into a readable presentation, a privacy-conscious form and a small restricted site."
+summary: "Turn a pile of fictional feedback into a sharp six-slide report, a privacy-smart form, and a small three-page site."
 estimatedHours: 9
 tools: ["Google Slides", "Google Forms", "Google Sheets", "Google Sites"]
 downloads:
@@ -15,129 +15,148 @@ downloads:
     href: "/downloads/google-workspace/slides-design-checklist.md"
 draft: false
 ---
-**Goal:** Build a useful feedback workflow and present its fictional results in accessible slides and a simple site.
 
-## Learning Objectives
+**Goal:** This week you'll turn a pile of fictional feedback into a sharp six-slide report, build a form that asks only what it needs, and stand up a small three-page site. All hands-on, building things you can show.
 
-By the end of this week, you can:
+## What you'll be able to do
 
-- Plan a short slide deck with a clear message, readable type and accessible visuals.
-- Build a Form with appropriate question types, validation and a privacy notice.
-- Link a Form to a response Sheet and test the workflow with fictional data.
-- Create a three-page Google Site and check its published audience before sharing.
-- Choose whether information belongs in a Doc, Slide deck, Form or Site.
+- Plan a slide deck with one clear message per slide and accessible visuals
+- Build a Form with the right question types, validation and a privacy notice
+- Link a Form to a response Sheet and test the whole workflow
+- Create a three-page Google Site and check its audience before sharing
+- Pick the right tool - Doc, Slides, Form or Site - for a given job
 
-## Tools / Accounts Needed This Week
+## Before you start (about 10 minutes)
 
-Google Slides, Forms, Sheets and Sites in a desktop browser, plus the fictional responses CSV. Use a practice account you control. Publishing is optional; keep a practice site restricted unless you have an explicit reason and permission to make it public.
+- Download the [20 fictional feedback responses](/downloads/google-workspace/feedback-responses-20.csv) and open the [form checklist](/downloads/google-workspace/form-design-checklist.md) and [slides checklist](/downloads/google-workspace/slides-design-checklist.md).
+- Warm-up: skim the feedback CSV and write down two questions a six-slide report could answer.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - Plan the slide story before opening Slides
 
-- Read the official guides for [saving Form responses to Sheets](https://support.google.com/docs/answer/2917686) and [publishing and sharing a Google Site](https://support.google.com/sites/answer/6372880) (about 35 minutes).
-- Review the form and slide checklists in the download box (about 20 minutes).
-- Search YouTube: **"Google Slides chart from Google Sheets accessibility"** and **"Google Forms sections validation link responses to Sheets"**. Choose recent tutorials; watch about 40 minutes total.
-- Open the fictional feedback CSV and identify two questions a six-slide report could answer (about 25 minutes).
+**Why it matters:** a deck works when each slide carries one idea. Planning on paper beats fiddling with fonts.
 
-## Lessons
+**Do this now:**
+1. Sketch six slide titles before picking any colour:
+   1. Purpose and sample (say clearly these are fictional practice figures)
+   2. Overall ratings
+   3. Wait times
+   4. Order accuracy
+   5. What comments suggest (grouped into a few themes)
+   6. Next test (one small action)
+2. Make each title a point, not a label: "Shorter waits are the next process to test" beats "Results".
+3. Park long explanation in speaker notes, not on the slide.
 
-### Lesson 1: Plan a slide story before opening Slides
+**You've got it when:** the six titles alone tell the story, and none of them is just "Results".
 
-A presentation should help an audience understand one message at a time. Begin with the audience, decision or question, and evidence. For the fictional Fresh Bites feedback report, a simple story might be: what responses were collected, what ratings show, what respondents mentioned, and what the team should test next. Do not present fictional data as real customer research.
+## Try it 2 - Build accessible slides with a real chart
 
-Sketch six slide titles before choosing colours:
+**Why it matters:** a labelled chart and strong contrast make your point land for everyone in the room.
 
-1. **Purpose and sample:** explain that the figures are fictional practice data.
-2. **Overall ratings:** show a clearly labelled summary.
-3. **Wait times:** compare the response values without implying causation.
-4. **Order accuracy:** show the count or proportion and define what it means.
-5. **What comments suggest:** group comments into a few themes, noting that the comments are invented.
-6. **Next test:** propose one small action and state what additional evidence would help.
+**Do this now:**
+1. Pick one theme and use the built-in layouts so titles stay aligned.
+2. Import the feedback CSV into Sheets, calculate counts and average ratings, then build one bar chart (easier to compare than a pie).
+3. Give the chart a title and units. Decide whether to keep it linked to the Sheet - do not leave it linked to a workbook the audience cannot open.
+4. Add alt text to meaningful images, keep high contrast, and avoid relying on red and green alone. Use the [Slides design checklist](../../downloads/google-workspace/slides-design-checklist.md) as a final pass.
 
-Use one main point per slide. A title such as "Shorter waits are the next process to test" is more informative than "Results". Keep detailed explanation in speaker notes or a separate Doc rather than squeezing paragraphs onto a slide.
+**You've got it when:** the deck reads at full-screen size, every chart is labelled, and nothing depends on colour alone.
 
-### Lesson 2: Themes, layouts and charts
+## Try it 3 - Build a Form that asks only what it needs
 
-Choose a consistent theme and use the built-in layouts so titles and body content stay aligned. Google Slides may label its master-editing interface as a theme builder or use different menu names over time. Learn the task (change a repeated layout once), then follow the current Help page if the label differs. Use a small set of fonts and colours with strong contrast. Avoid relying on red and green alone to distinguish a result.
+**Why it matters:** collecting less data is safer and gets more honest answers. Good forms respect the person filling them in.
 
-Use charts to compare data. A bar chart is often easier to compare than a pie chart when there are several categories. Add a title, units and clear labels. If you copy a chart from Sheets, decide whether it should remain linked to the spreadsheet. A linked chart can be refreshed from its source; check the link and update state before presenting. Do not leave a chart linked to a workbook that the audience cannot access.
+**Do this now:**
+1. Create a feedback Form: a visit type, a couple of ratings, one optional comment. Do not ask for name, phone, address or sign-in.
+2. Add a short purpose and privacy notice saying the responses are fictional practice data.
+3. Check the settings: email collection, response limits, sign-in, edit-after-submit. Preview on a phone-sized screen and submit one test entry, then delete that test response.
 
-Add alternative text to meaningful images where the editor provides it. Give informative charts a descriptive title and explain the takeaway in text; the visual alone may not be accessible. Keep slide reading order logical, use high contrast, avoid dense text and test the presentation at full-screen size. Use animation sparingly and never make motion necessary to understand the message. The [Slides design checklist](../../downloads/google-workspace/slides-design-checklist.md) is a final review aid.
+**You've got it when:** the Form collects only what the exercise needs, works on a narrow screen, and carries a clear privacy note.
 
-### Lesson 3: Forms that ask only what is needed
+> Quick win: use a required field only where you truly need an answer. Requiring everything just makes people invent replies.
 
-Google Forms can collect answers through question types such as short answer, paragraph, multiple choice, checkboxes, dropdowns and date. Choose the simplest type that fits the question. Use sections to organise a longer form, and branching only when a respondent's answer genuinely changes which question should follow. Mark essential questions as required; requiring every field can make a form frustrating and encourage invented answers.
+## Try it 4 - Link the Form to a response Sheet
 
-For a fictional customer feedback form, ask for a visit type, ratings and an optional comment. Do not request a name, phone number, home address or account sign-in for this exercise. Add a short purpose and privacy notice explaining that the responses are fictional practice data and how the class will use them. If a form needs an email address in a real project, explain why, collect only what is necessary and follow the organisation's policy.
+**Why it matters:** the Form and its response Sheet are two separate files with two separate sharing settings - a classic leak point.
 
-Review the form's settings before sharing. Check whether email collection, response limits, sign-in requirements or response editing are enabled. These options can vary by account and current interface. Preview the form on a phone-sized screen and submit a test entry. Remove that test response before using the supplied fictional CSV as the assignment data. Do not send the form to actual customers.
+**Do this now:**
+1. In the Form's **Responses** area, send responses to a new or existing spreadsheet.
+2. Open that Sheet and inspect its sharing - it does not inherit the Form's permissions.
+3. Import the supplied `feedback-responses-20.csv`, mark it clearly as fictional, and calculate response counts and average ratings for your slides.
 
-If you need to monitor incoming replies, review the current response-notification option and turn it on only when someone is responsible for checking it. Quiz mode and automatic grading are optional learning features, not necessary for a customer feedback form. Do not collect graded answers or personal details in this course's practice data.
+**You've got it when:** you can point to the Form's audience and the Sheet's audience separately and explain why they differ.
 
-When ready, open the Form's **Responses** area and select a destination for responses. Google's current help allows creating a new spreadsheet or selecting an existing spreadsheet. A linked response Sheet is a separate file with its own access settings; sharing the Form does not automatically make every Sheet permission decision for you. Inspect both permissions before the exercise. Do not delete responses without confirming what is being removed; deletion may not be reversible.
+## Try it 5 - Stand up a small Google Site
 
-The supplied `feedback-responses-20.csv` is provided for chart practice, not as the result of a real Form. Import it into Sheets and mark it clearly as fictional. Calculate response counts and average ratings before using those values in a presentation.
+**Why it matters:** a tidy three-page site is a shareable portfolio piece - and a lesson in checking who can see it.
 
-### Lesson 4: A small Google Site with a clear audience
+**Do this now:**
+1. Create three pages: **Home**, **Menu**, **Contact**. Put the most useful information first with short nav labels.
+2. Home explains the fictional purpose; Menu lists example items with no real prices; Contact holds a safe practice note - no fabricated phone number, real address or personal email.
+3. Embed your practice Form, then test the embed from the intended viewer's perspective.
+4. Preview on desktop and a narrow phone width, then keep the site unpublished or Restricted.
 
-Google Sites is useful for a simple information site with pages and embedded Workspace content. It is not a replacement for a custom website or a full content-management system. Create three pages for the fictional business: **Home**, **Menu** and **Contact**. Use short navigation labels and place the most useful information first.
+**You've got it when:** three pages navigate cleanly, work at phone width, and the site is not public by default.
 
-The Home page should explain the fictional purpose. The Menu page can list example items from the inventory data without publishing real prices or claiming actual availability. The Contact page should contain a safe practice note, not a fabricated phone number, real address or personal email. Google Sites can embed Docs, Slides and Forms; embed the practice Form only after checking who can respond and who can view the response data. An embedded item may inherit or require its own sharing configuration. Test the embed from the intended viewer's perspective without exposing a real file.
+> Remember: "ask search engines not to show this site" is not a privacy control. If a page is public, assume anyone can read and forward it.
 
-Preview the Site on desktop and a narrow phone layout. Use headings in a logical order, meaningful link names and readable contrast. Do not hide essential information only in an image. If a page is public, assume anyone may read it and that its address can be forwarded. Google's publish settings offer choices such as Restricted or Public; availability can be different for managed accounts.
+## Try it 6 - Pick the right tool
 
-For this assignment, keep the site unpublished or restricted to your approved practice audience. If you do publish a test site, use only fictional content and inspect the published audience. Google's request to keep a public site out of search results is not a guarantee that search engines will omit it. Read the current [publish and sharing guide](https://support.google.com/sites/answer/6372880) before changing settings.
+**Why it matters:** choosing the right app first saves hours of forcing the wrong one.
 
-### Lesson 5: Choose the right Workspace tool
+**Do this now:** match four sample tasks to the best tool.
 
 | Need | Good starting tool | Why |
 |---|---|---|
-| A procedure or proposal that will be read and edited | Docs | Strong for structured text, comments and revisions |
-| A live talk or visual summary | Slides | One message per slide supports a spoken walkthrough |
-| Collecting the same answers from several people | Forms | Standard questions can feed a response summary |
-| A small set of navigable information pages | Sites | Pages and embedded Workspace content are easy to share |
+| A procedure or proposal to read and edit | Docs | Strong for structured text, comments, revisions |
+| A live talk or visual summary | Slides | One message per slide suits a spoken walkthrough |
+| The same answers from several people | Forms | Standard questions feed a response summary |
+| A small set of navigable pages | Sites | Pages and embedded content are easy to share |
 | Raw records and calculations | Sheets | Rows, formulas, summaries and charts work together |
 
-Use the [Web Development course](/courses/web-development/) when you need custom page behavior, branding, accessibility control or a production website. Use the [Automation course](/courses/automation/) to learn about form-to-sheet workflows and controlled automation. The [Microsoft Office course](/courses/microsoft-office/) compares the transferable office tasks across suites. Choose a tool based on the audience and task, not because a feature is new.
+**You've got it when:** you can justify each pick by the audience and task, not by which feature is newest.
 
-## Common mistakes
+### Watch out for
 
-- Putting a paragraph on every slide instead of writing one takeaway per slide.
-- Using a chart without units, clear labels or an explanation of the sample.
-- Collecting email addresses or other personal data when the assignment does not need them.
+- A paragraph on every slide instead of one takeaway per slide.
+- A chart with no units, labels or note on the sample.
+- Collecting emails or personal data the assignment doesn't need.
 - Assuming Form and response Sheet permissions are automatically identical.
-- Publishing a practice Site publicly because the publish button is prominent.
-- Embedding a file without checking its access from the intended viewer's perspective.
+- Publishing a practice Site publicly because the button is prominent.
 - Claiming a fictional response pattern represents real customer sentiment.
 
-## Practice Exercises
+## This week's build: a feedback workflow, a report and a site
 
-1. Write six slide titles for the supplied feedback sample before creating a presentation.
-2. Build one chart from the CSV and add a text sentence that states what it shows.
-3. Create a feedback Form with three questions and a purpose statement; do not collect contact details.
-4. Preview the Form on a narrow phone layout and test one fictional response.
-5. Link a response Sheet and inspect its permissions separately from the Form.
-6. Draft Home, Menu and Contact pages in Google Sites with only fictional content.
-7. Compare a Doc, Slide deck, Form and Site and explain which tool fits four sample tasks.
+Produce a connected set a small business could use:
 
-## Weekly Assignment (Due Before Week 5)
-
-**Submit:**
-
-1. A feedback or registration Form for Fresh Bites, linked to a response Sheet with a summary tab. Use only necessary fictional questions and include a short privacy notice.
-2. A six-slide report based on the 20 fictional responses. Include a clear title, labelled chart, three observations and one limitation.
-3. A three-page Google Site with Home, Menu and Contact pages and an embedded Form. Keep it restricted or unpublished; use no real contact details.
+1. A feedback or registration **Form** linked to a response Sheet with a summary tab, using only necessary fictional questions and a short privacy notice.
+2. A **six-slide report** on the 20 fictional responses: a clear title, a labelled chart, three observations and one limitation.
+3. A **three-page Site** (Home, Menu, Contact) with an embedded Form, kept Restricted or unpublished, no real contact details.
 4. A short accessibility and privacy checklist covering contrast, headings, link names, response-sheet access and the Site audience.
 
-**Grading guide:** form design and data handling (30%); slide quality (30%); site usability (25%); privacy and accessibility (15%).
+*Tip: open your own Site in a private window to see exactly what a stranger would.*
 
-**Definition of done:**
+### Grading guide
 
-- [ ] The form asks only what the assignment needs and does not collect real personal data.
-- [ ] The response Sheet and Form have been checked as separate sharing surfaces.
-- [ ] Every chart has a clear label and is based on the supplied fictional dataset.
+| Criteria | Weight |
+|---|---|
+| Form design and data handling | 30% |
+| Slide quality | 30% |
+| Site usability | 25% |
+| Privacy and accessibility | 15% |
+
+### Definition of done
+
+- [ ] The form asks only what the assignment needs and collects no real personal data.
+- [ ] The response Sheet and Form were checked as separate sharing surfaces.
+- [ ] Every chart has a clear label and uses the supplied fictional dataset.
 - [ ] The six slides can be understood without relying on colour alone.
 - [ ] The Site has three navigable pages, works at a narrow width and is not public by default.
-- [ ] The submitted notes distinguish practice examples from real business findings.
+- [ ] The notes separate practice examples from real business findings.
+
+## Extra quick wins (optional)
+
+- Add a short Form section with simple branching that only shows a follow-up when it's relevant.
+- Rebuild your bar chart as a line chart and decide which tells the story better.
+- Read the official guides for [saving Form responses to Sheets](https://support.google.com/docs/answer/2917686) and [publishing a Site](https://support.google.com/sites/answer/6372880).
 
 ## Mentoring Session Plan (90 minutes)
 
@@ -155,7 +174,7 @@ Use the [Web Development course](/courses/web-development/) when you need custom
 
 Do not ask learners to publish a public site or collect genuine customer feedback. The supplied response file contains only fictional records. If a learner cannot create Sites or Forms due to an administrator restriction, accept a site map or Form blueprint with the same privacy checklist. Explain that external tools and account tiers can change; assess the learner's reasoning, not access to a paid feature.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What is the difference between a chart title and a slide title?
 2. Why should the Form and response Sheet be checked separately?

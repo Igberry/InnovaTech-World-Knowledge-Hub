@@ -4,7 +4,7 @@ course: remote-ready
 order: 2
 week: 2
 phase: "Your profile"
-summary: "Build a remote-ready CV and a complete, credible LinkedIn profile."
+summary: "Build the two things every remote employer checks first: a clean one-page CV and a complete LinkedIn profile, this week, with your hands."
 estimatedHours: 7
 tools: ["LinkedIn", "Google Docs / Word"]
 downloads:
@@ -14,70 +14,41 @@ downloads:
     href: "/downloads/remote-ready/linkedin-checklist.md"
 ---
 
-**Goal:** Build the two things every remote employer looks at first: a clean, one-page CV and a
-complete, credible LinkedIn profile.
+**Goal:** By the end of this week you'll have a one-page CV saved as a PDF, a version tailored to a real
+advert, and a complete LinkedIn profile. You build each one as you go, not by reading about CVs.
 
-Your brand is simply how you present your skills and reliability. It does not need to be fancy; it needs
-to be clear, honest, and tailored to the role you want.
-
-## Learning Objectives
-
-By the end of this week you can:
+## What you'll be able to do
 
 - Write a one-page, achievement-focused CV and export it as a PDF
-- Tailor your CV to a specific job advert
+- Tailor your CV to a specific advert in about 10 minutes
 - Build a complete LinkedIn profile (photo, headline, About, experience, skills)
-- Write in a way that shows results, not just duties
+- Write bullets that show results, not just duties
 
-## Pre-Session Resources (about 2 hours)
+## Before you start (about 10 minutes)
 
-- Download this week's **CV template** and **LinkedIn checklist** (in the files box above).
-- Watch (search YouTube): *"how to write a CV with no experience"* and *"LinkedIn profile tips"* from
-  reputable career channels.
-- Browse 3-5 LinkedIn profiles of people in your target role for ideas (don't copy).
+- Download this week's [CV template](/downloads/remote-ready/cv-template.md) and
+  [LinkedIn profile checklist](/downloads/remote-ready/linkedin-checklist.md).
+- Warm-up: open two LinkedIn profiles of people already in your target role. Note one thing you like in each
+  (don't copy them).
 
-## Lesson 1: What a remote CV needs
+## Try it 1 - Fill the CV template
 
-- **One page** (if under ~5 years' experience), saved and sent as **PDF**.
-- A short **summary** (2-3 lines): who you are, key skills, the role you want.
-- **Skills**, **experience**, **education/training**, and **projects** (great if you're new).
-- **Achievements, not duties.** Instead of "Responsible for emails", write "Managed a 200+ email
-  inbox, replying within 2 hours."
+**Why it matters:** a clean one-page CV is what most remote employers look at first. Starting from a template
+beats staring at a blank page.
 
-Use the **CV template** in this week's files. Fill every [bracket] with your own details.
+**Do this now:**
+1. Open the CV template and fill every [bracket] with your real details.
+2. Keep it to **one page** (if under about 5 years' experience).
+3. Write a 2-3 line summary at the top: who you are, key skills, the role you want.
 
-> **Tip:** Start each bullet with an action verb (Managed, Built, Reduced, Organised) and add a number
-> whenever you can. Numbers make achievements believable.
+**You've got it when:** every bracket is gone and the whole CV fits on one page.
 
-## Lesson 2: Tailoring to the job
+## Try it 2 - Turn duties into achievements
 
-A generic CV is weak. For each application:
+**Why it matters:** "Responsible for emails" is forgettable. "Managed a 200+ inbox, replying within 2 hours"
+gets you shortlisted. Numbers make you believable.
 
-1. Read the advert and highlight the **skills and words** it repeats.
-2. Make sure those words (where true for you) appear in your CV.
-3. Reorder your bullets so the most relevant ones are first.
-
-This takes 10 minutes and dramatically improves your chances. Keep a "master" CV and save a tailored
-copy per application.
-
-> **Warning:** Never claim skills or experience you don't have. It unravels fast in interviews and
-> damages your reputation. "Familiar with" and "learning" are honest and fine.
-
-## Lesson 3: Your LinkedIn profile
-
-LinkedIn is often your first impression. Work through the **LinkedIn checklist**. The high-value parts:
-
-- **Photo:** clear, friendly, plain background, good light. No group photos.
-- **Headline:** your role + skills, e.g. "Virtual Assistant | Inbox & Calendar | Remote". Not
-  "Unemployed" or "Looking for opportunities" alone.
-- **About:** 3-5 short paragraphs - who you are, what you do, what you're looking for, how to contact
-  you. First person, warm, specific.
-- **Experience & skills:** mirror your CV; add 5-10 relevant skills.
-- **Custom URL:** edit it to your name.
-
-## Lesson 4: Writing that shows results
-
-A quick formula for experience bullets: **Action verb + what you did + the result/number.**
+**Do this now - rewrite three bullets using Action verb + what you did + the result or number:**
 
 | Weak | Strong |
 |---|---|
@@ -85,35 +56,66 @@ A quick formula for experience bullets: **Action verb + what you did + the resul
 | Helped customers | Resolved 30+ customer queries a day over chat |
 | Managed social media | Grew a local page from 200 to 1,500 followers in 4 months |
 
-If you're new and lack paid experience, use **projects, volunteering, coursework** (including your
-InnovaTech projects) the same way.
+If you're new, use **projects, volunteering or coursework** (including your InnovaTech projects) the same way.
 
-## Common mistakes
+**You've got it when:** three of your bullets start with an action verb and carry a real number.
+
+> Never claim skills or experience you don't have. It unravels fast in interviews. "Familiar with" and
+> "learning" are honest and fine.
+
+## Try it 3 - Tailor your CV to one real advert
+
+**Why it matters:** a generic CV is weak. Ten minutes of tailoring dramatically improves your chances.
+
+**Do this now:**
+1. Open one real advert for your target role (from Week 1) and highlight the skills and words it repeats.
+2. Make sure those words (where true for you) appear in your CV.
+3. Reorder your bullets so the most relevant ones sit first.
+4. Save this as a separate copy, keeping your "master" CV untouched.
+
+**You've got it when:** you have a tailored copy whose top bullets clearly match that advert's words.
+
+## Try it 4 - Export a clean PDF
+
+**Why it matters:** Word files break formatting on other machines. A PDF always opens the way you made it.
+
+**Do this now:**
+1. Export your CV as a PDF named `Firstname-Lastname-CV.pdf`.
+2. Open the PDF and check nothing has shifted or spilled onto a second page.
+
+**You've got it when:** you have a tidy one-page PDF named after you that opens cleanly.
+
+## Try it 5 - Build your LinkedIn profile
+
+**Why it matters:** LinkedIn is often your first impression, and employers search it before replying.
+
+**Do this now - work through the LinkedIn checklist and set up the high-value parts:**
+1. **Photo:** clear, friendly, plain background, good light. No group photos.
+2. **Headline:** your role plus skills, e.g. "Virtual Assistant | Inbox & Calendar | Remote". Not "Unemployed"
+   or "Looking for opportunities" alone.
+3. **About:** 3-5 short paragraphs, first person, warm and specific: who you are, what you do, what you want,
+   how to contact you.
+4. **Experience and skills:** mirror your CV; add 5-10 relevant skills.
+5. **Custom URL:** edit it to your name.
+
+**You've got it when:** every item on the LinkedIn checklist is ticked, including a custom URL.
+
+### Watch out for
 
 - A two-page CV full of duties and no results.
-- Sending a Word file instead of a PDF (formatting breaks).
+- Sending a Word file instead of a PDF.
 - An empty or vague LinkedIn headline.
 - The same CV for every job.
 
-## Practice Exercises
+## This week's build: your brand pack
 
-1. **Easy:** Fill the CV template with your real details.
-2. **Easy:** Rewrite three duty-bullets as achievement-bullets with numbers.
-3. **Medium:** Export your CV as a PDF named `Firstname-Lastname-CV.pdf`.
-4. **Medium:** Write your LinkedIn headline and About section.
-5. **Medium:** Tailor your CV to one real advert; note what you changed.
-6. **Stretch:** Ask someone to review your CV and apply their feedback.
-7. **Stretch:** Add your InnovaTech course/projects to LinkedIn.
-
-## Weekly Assignment (Due Before Week 3)
-
-Deliver your **brand pack**:
+Deliver all three, ready to send to a real employer:
 
 1. A one-page CV (PDF), achievement-focused.
-2. A version **tailored** to one real advert (note the changes).
+2. A version tailored to one real advert, with a note of what you changed.
 3. A complete LinkedIn profile (photo, headline, About, experience, skills, custom URL).
 
-**Grading guide (100%):**
+### Grading guide
 
 | Criteria | % |
 |---|---|
@@ -123,12 +125,18 @@ Deliver your **brand pack**:
 | Complete LinkedIn profile | 30 |
 | Clear writing, no errors | 10 |
 
-**Definition of done:**
+### Definition of done
 
 - [ ] CV is one page, PDF, achievement-focused
 - [ ] A tailored version exists with noted changes
 - [ ] LinkedIn has a photo, strong headline, About, skills, and a custom URL
 - [ ] No spelling errors; nothing private exposed
+
+## Extra quick wins (optional)
+
+- Ask someone to review your CV and apply one piece of their feedback.
+- Add your InnovaTech course and projects to your LinkedIn profile.
+- Ask an AI assistant to suggest stronger action verbs, then pick the honest ones yourself.
 
 ## Mentoring Session Plan (90 min)
 
@@ -146,7 +154,7 @@ The biggest lift is turning "duties" into "achievements with numbers" - drill th
 real examples. For those with little formal experience, legitimise projects, volunteering and coursework
 as evidence. Check CVs are genuinely one page and exported as PDF. Enforce honesty: no invented skills.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. Why export a CV as PDF rather than Word?
 2. What is the difference between a duty and an achievement on a CV?

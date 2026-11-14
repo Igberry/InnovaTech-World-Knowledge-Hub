@@ -4,7 +4,7 @@ course: automation
 order: 1
 week: 1
 phase: "Foundations"
-summary: "Understand what automation is in plain terms, learn to spot the tasks worth automating, and know which tasks to leave to a human."
+summary: "Spend the week spotting real automations in your own life, turning your tasks into simple WHEN-DO recipes, and picking the three worth building. You hunt, you score, you choose - almost no reading."
 estimatedHours: 8
 tools: ["A document or spreadsheet"]
 downloads:
@@ -14,121 +14,94 @@ downloads:
     href: "/downloads/automation/task-audit-log.csv"
 ---
 
-**Goal:** Understand what automation really is, learn a simple way to spot tasks worth automating, and be
-honest about the tasks that should stay with a human.
+**Goal:** By the end of this week you will have *spotted* automations already around you, written your own
+tasks as "WHEN ... DO ...", scored them, and chosen your top three to build this course. You learn by
+hunting and sorting, not reading.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
+- Say what automation is in your own words, with examples you found yourself
+- Write any task in the "WHEN (trigger) ... DO (action)" shape
+- Score your tasks to find the strongest automation candidates
+- Name the tasks to keep with a human, and why
+- Walk away with a ranked top-three list to build
 
-- Explain what automation is in plain words, with everyday examples
-- Describe the "trigger and action" shape most automations share
-- Score tasks to find the best automation candidates
-- Name the tasks you should not automate, and why
-- Produce a ranked list of your own tasks to automate
+## Before you start (about 10 minutes)
 
-## Tools / Accounts Needed This Week
+- Open your task-audit log from setup, plus the
+  [opportunity finder](/downloads/automation/automation-opportunity-finder.md).
+- Warm-up: look around you and name three automations you already rely on (an ATM, an alarm, an email
+  auto-reply). Jot them down - you now know automation is everywhere.
 
-- A document or spreadsheet for your task list
-- The [opportunity finder](/downloads/automation/automation-opportunity-finder.md) and
-  [task-audit log](/downloads/automation/task-audit-log.csv)
+## Try it 1 - Spot automation in the wild
 
-## Pre-Session Resources (about 2 hours)
+**Why it matters:** automation means a task happens on its own without you doing each step. You already
+meet it daily, so naming it makes the idea click.
 
-- Read: search the web for "what is workflow automation simple explanation" and read one clear guide.
-- Watch: *Search YouTube: "no-code automation for beginners explained"*. Watch one introductory video.
-- Try: track your repetitive tasks for two days in the task-audit log.
+**Do this now:**
+1. Walk through your morning and list five things that happened automatically (phone alarm, bank SMS alert, a reminder, an auto-filed receipt, a scheduled data bundle).
+2. For each, ask: "what started it, and what did it do?"
+3. Notice that none of them replaced a person - they just removed a boring step.
 
-## Lesson 1: What automation really is
+**You've got it when:** you can point at five everyday automations and say what each one saves.
 
-**Automation** means setting things up so a task happens on its own, without you doing each step by hand
-every time. You already meet automation daily: an ATM dispensing cash, an email auto-reply, a phone alarm,
-a receipt that files itself with an email rule.
+## Try it 2 - Turn tasks into WHEN ... DO
 
-At work, automation usually means handling the repetitive, rule-based tasks that eat your time: replying
-to the same enquiries, copying data between places, sorting files, sending routine reminders. Done well,
-it gives you back hours for the work that actually needs a human.
+**Why it matters:** nearly every automation is one shape - WHEN something happens (a trigger), DO something
+(an action). Think this way and you see automations everywhere.
 
-> **Note:** Automation is not about replacing people. It is about removing the boring, repetitive parts so
-> people can spend their time on judgement, relationships, and creativity, the things machines are bad at.
+**Do this now - write five of your own tasks in this shape:**
+1. Example: WHEN a new customer fills my form, DO add them to a spreadsheet.
+2. Example: WHEN an email arrives from a receipts sender, DO label it "Finance" and archive it.
+3. Example: WHEN it is 5pm Friday, DO remind me to send the weekly report.
+4. Now write five from your own life or a business you know.
+5. Add a condition to one of them: ONLY IF the message is from outside my company.
 
-## Lesson 2: The shape of most automations
+**You've got it when:** you have five real tasks each written cleanly as "WHEN ... DO ...".
 
-Nearly every automation follows one simple shape:
+## Try it 3 - Score what is worth automating
 
-> **WHEN** something happens (a **trigger**), **DO** something (an **action**).
+**Why it matters:** not every task is worth it. The best score high on repetitive, rule-based, and
+time-consuming.
 
-Examples:
+**Do this now:**
+1. Open the [opportunity finder](/downloads/automation/automation-opportunity-finder.md) and list at least six tasks.
+2. Score each on: how often (repetitive), how fixed the steps are (rule-based), how much time it eats.
+3. For each, multiply time per task by how often you do it. A 2-minute task done 30 times a day is an hour a day - a strong target. A 2-hour task done once a year usually is not.
 
-- WHEN a new form is submitted, DO add a row to a spreadsheet.
-- WHEN an email arrives from a receipts sender, DO label it "Finance" and archive it.
-- WHEN it is 5pm on Friday, DO send me a reminder to write the weekly report.
+**You've got it when:** your sheet clearly shows which tasks win and which are not worth it.
 
-Sometimes you add a **condition**: ONLY IF the email is from outside the company. That is the whole core
-idea. Everything else is detail. Once you think in triggers and actions, you start seeing automations
-everywhere.
+## Try it 4 - Decide what to leave to a human
 
-## Lesson 3: Spotting what to automate
+**Why it matters:** being honest here saves you from real trouble. The skill is automating the *right*
+things, not everything.
 
-Not every task is worth automating. The best candidates score high on three things:
+**Do this now - pick two of your tasks that should stay human and say why. Use these categories:**
+1. **Judgement and empathy:** handling an upset customer, a sensitive message.
+2. **Costly, hard-to-undo actions:** sending money, deleting records.
+3. **No clear rule:** it changes every time, so there is nothing consistent to automate.
+4. **Against the rules:** spam, deception, or breaking a platform's terms.
 
-1. **Repetitive:** it happens often.
-2. **Rule-based:** the steps are the same each time, with clear decisions.
-3. **Time-consuming:** it adds up (time per task x how often).
+**You've got it when:** you can name two tasks you will *not* automate and give a clear reason for each.
 
-Use the [opportunity finder](/downloads/automation/automation-opportunity-finder.md) to score your tasks.
-A task that is frequent, follows clear rules, and eats time is a strong candidate. A task you do once a
-year, or that changes every time, usually is not worth it.
-
-> **Tip:** Multiply time by frequency. A 2-minute task done 30 times a day is an hour a day, a great
-> automation target. A 2-hour task you do once a year is usually not worth automating.
-
-## Lesson 4: What NOT to automate
-
-Being honest here saves you from trouble. Leave these to a human:
-
-- **Judgement and empathy:** handling an upset customer, a sensitive decision, a delicate message.
-- **Costly, hard-to-undo actions:** sending money, deleting records, anything where a mistake is serious.
-- **Tasks with no clear rule:** if it changes every time, there is nothing consistent to automate.
-- **Anything against the rules:** spam, deception, or breaking a platform's terms.
-
-The skill is not "automate everything." It is "automate the right things, and keep a human on the rest."
-
-> **Warning:** Automating a risky, hard-to-undo task is how small mistakes become big ones. If you cannot
-> easily undo it, keep a human in the loop.
-
-## Lesson 5: Build your ranked list
-
-Pull it together. From your task-audit log, pick your tasks, score them in the opportunity finder, and
-choose your **top three** to automate over this course. Start with a small, low-risk one for your first
-build; early wins teach you the tools safely.
-
-### Common mistakes
+### Watch out for
 
 - Trying to automate everything at once
-- Choosing a complex, risky task as your first automation
+- Picking a complex, risky task as your first build
 - Automating a task that changes every time (no clear rule)
 - Ignoring the "do not automate" list to save a little time
 - Forgetting to multiply time by frequency when judging value
 
-## Practice Exercises
+## This week's build: your task automation plan
 
-1. Write down ten repetitive tasks you or a business you know does.
-2. For five of them, write the task as "WHEN ... DO ...".
-3. Score five tasks in the opportunity finder. Which win?
-4. Pick two tasks that should **not** be automated and explain why.
-5. Calculate the weekly time cost of one task (time x frequency).
-6. Choose your top three to automate, and mark the safest one to start with.
-7. Draft the trigger and action for your first, safest task.
+Make a short, shareable plan that proves you can spot the right things to automate:
 
-## Weekly Assignment (Due Before Week 2)
-
-Produce a **task automation plan**:
-
-1. A **task-audit log** with at least 8 real tasks tracked (frequency and time)
+1. A **task-audit log** with at least 8 real tasks (frequency and time)
 2. A completed **opportunity finder** scoring at least 6 tasks
 3. Your **top three** tasks to automate, each written as "WHEN ... DO ..."
-4. A short note on **two tasks you will not automate**, and why
+4. Two tasks you will **not** automate, with the reason for each
+
+Mark the safest, smallest one as your first build. Early wins teach you the tools without risk.
 
 ### Grading guide
 
@@ -145,6 +118,12 @@ Produce a **task automation plan**:
 - [ ] Opportunity finder scoring 6+ tasks
 - [ ] Top three as "WHEN ... DO ..."
 - [ ] Two "do not automate" tasks explained
+
+## Extra quick wins (optional)
+
+- Find a friend's repetitive task and write it as "WHEN ... DO ..." for them.
+- Spot one automation a local business (a shop, a salon) could use and sketch it.
+- Time one small task today, then multiply by how often you do it in a month. Surprised?
 
 ## Mentoring Session Plan (90 minutes)
 
@@ -164,7 +143,7 @@ important process. Spend real time on the "do not automate" list; empathy, judge
 irreversible actions must stay human. Keep examples local (a shop, a small service, a student's study
 routine).
 
-## Self-Check Questions
+## Can you do these now?
 
 1. In one sentence, what is automation?
 2. What is the "trigger and action" shape, with an example?

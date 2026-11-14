@@ -4,7 +4,7 @@ course: virtual-assistant
 order: 5
 week: 5
 phase: "Getting Work"
-summary: "Know which platforms fit your niche, write proposals that get replies, and begin daily applications."
+summary: "Find the platforms that actually hire Nigerian VAs, write proposals that get replies, and switch on a daily application routine."
 estimatedHours: 7
 tools: ["Upwork", "Fiverr", "LinkedIn"]
 downloads:
@@ -20,17 +20,23 @@ downloads:
     href: "/downloads/virtual-assistant/whatsapp-check-in-prompts.md"
 ---
 
-**Goal:** Know which platforms fit your niche, write proposals that get replies, and start daily applications.
+**Goal:** Pin down the platforms that fit your niche and are open to you, write proposals that get replies,
+and start applying every day. You'll write real proposals and outreach, not study them.
 
-## Learning Objectives
-
-By the end of this week you can:
+## What you'll be able to do
 
 - Match the right platforms to your niche
 - Write a proof-first proposal with the 5-Line framework
 - Score and improve your own proposal
 - Write cold outreach for LinkedIn, email, and Instagram
 - Run a daily application routine
+
+## Before you start (about 10 minutes)
+
+- Open the [platform and agency list](/downloads/virtual-assistant/platform-and-agency-list.md) and have a
+  real job post from your niche ready to work from.
+- Warm-up: on Upwork or Fiverr, find one job post that excites you and copy the exact phrase it uses for the
+  skill it wants. You'll mirror that phrase in a proposal below.
 
 ## How This Week Runs
 
@@ -41,57 +47,67 @@ By the end of this week you can:
 | Session B (Teaching + Practice) | Day 3 | 75 min | A real job post to work from |
 | Session C (Workshop/Review) | Day 5 | 60 to 75 min | A real job post + your draft proposal |
 
-## Session A (Teaching, Day 1): Where VA Jobs Actually Are (Live Platform Tour)
+## Try it 1 - Pick your top 3 platforms
 
-A live tour of where the work is, with honest flags (see the
-[platform and agency list](/downloads/virtual-assistant/platform-and-agency-list.md), checked Nov 2026):
+**Why it matters:** applying where you can't be hired wastes the week; knowing the real map saves it.
 
-- **Marketplaces:** Upwork and Fiverr, both open to Nigerian freelancers, good for first clients.
-- **VA-specific agencies:** Belay, Time Etc, Fancy Hands. **Flag:** these use **US-based assistants**, so
-  they are **not open to Nigeria-based applicants**. Know them, but do not waste time applying.
-- **OnlineJobs.ph:** a big VA marketplace, but its jobseeker side is **Philippines-only**, so you generally
-  cannot register as a worker from Nigeria. Use it for research (reading posts), not registration.
-- **Facebook groups and LinkedIn job posts:** real VA work appears here, watch for scams.
-- **Matching platform to niche and rate:** where does your kind of client actually hire?
+**Do this now - using the platform and agency list (checked Nov 2026):**
+1. Note the open marketplaces: **Upwork and Fiverr**, both open to Nigerian freelancers and good for first
+   clients.
+2. Note what to skip: VA agencies like **Belay, Time Etc, Fancy Hands** use US-based assistants, and
+   **OnlineJobs.ph** is Philippines-only for jobseekers; use these for research, not registration.
+3. Bookmark the **top 3 Nigeria-accessible platforms** for your niche, and watch for scams in Facebook groups
+   and LinkedIn posts.
 
-*Learner action:* identify and bookmark the **top 3 platforms** for your niche (Nigeria-accessible ones).
+**You've got it when:** you have three platforms bookmarked where your kind of client actually hires.
 
-## Quick Reference (Day 2): Cold Outreach Message Structure
+## Try it 2 - Write a proof-first proposal
 
-Cold outreach is messaging a potential client who didn't post a job. The structure (see the
-[templates](/downloads/virtual-assistant/cold-outreach-templates.md)):
+**Why it matters:** most proposals are about the applicant; the ones that win are about the client's problem.
 
-1. **Who you are** (one line)
-2. **What you noticed** about them (specific, proves you looked)
-3. **The specific help** you offer (tied to what you noticed)
-4. **Proof** (one line)
-5. **One easy next step**
+**Do this now - using the [5-Line Proposal framework](/downloads/virtual-assistant/proposal-framework-5-line.md):**
+1. Line 1: a hook that mirrors the job post (use the phrase you copied in the warm-up).
+2. Lines 2 to 4: proof, then your plan, then your availability/rate.
+3. Line 5: a clear call to action.
 
-**Length and tone:** short, warm, and about them, not a wall of text about you. Never mass-send identical
-messages.
+**You've got it when:** you have one proposal that leads with the client's problem and your proof.
 
-## Session B (Teaching + Practice, Day 3): Writing Proposals That Get Replies + Cold Outreach
+## Try it 3 - Score and fix your proposal
 
-- **Live rewrite:** a generic proposal becomes a **proof-first, client-problem-led** one (you see the
-  before and after).
-- **The 5-Line Proposal** (see the [framework](/downloads/virtual-assistant/proposal-framework-5-line.md)):
-  (1) a hook mirroring the job post, (2) proof, (3) plan, (4) availability/rate, (5) call to action.
-- **Live drafting of cold outreach** for LinkedIn, email, and Instagram DMs.
+**Why it matters:** scoring turns "I think it's good" into a concrete standard you can hit every time.
 
-*Learner action:* draft **one new proposal** and **three cold outreach messages**.
+**Do this now:**
+1. Run your proposal through the
+   [10-point checklist](/downloads/virtual-assistant/proposal-scoring-checklist.md).
+2. Note any line that loses points and rewrite it.
+3. Re-score and aim for **8 or higher**.
 
-## Session C (Workshop/Review, Day 5): 1:1 Proposal-Writing Session
+**You've got it when:** your proposal scores 8+ on the checklist.
 
-Bring a **real job post**. Together you:
+## Try it 4 - Draft cold outreach that lands
 
-- Rewrite **your own** proposal for it, live
-- **Score it** against the [10-point checklist](/downloads/virtual-assistant/proposal-scoring-checklist.md)
-  (aim for 8+)
-- Troubleshoot any platform account issues
+**Why it matters:** cold outreach reaches clients who never posted a job, but only if it reads as personal,
+not spam.
 
-## This Week's Job-Hunt Focus
+**Do this now - using the [cold outreach templates](/downloads/virtual-assistant/cold-outreach-templates.md),
+write three short messages (LinkedIn, email, Instagram):**
+1. Who you are (one line).
+2. What you noticed about them (specific, proves you looked).
+3. The specific help you offer, your proof (one line), and one easy next step.
 
-**Daily applications start now.** The shift from practising to actively hunting:
+**You've got it when:** you have three warm, about-them messages you'd be glad to receive. Never mass-send
+identical copies.
+
+### Watch out for
+
+- Applying to US-only agencies or OnlineJobs.ph as a jobseeker, it's time you can't get back
+- A proposal that's all about you instead of the client's problem
+- Copy-paste cold messages, personalise every one
+- A big one-off batch instead of a steady daily habit
+
+## This week's job-hunt focus
+
+**Daily applications start now,** the shift from practising to actively hunting:
 
 - **At least 1 application per day** (5+ for the week)
 - **Plus 3 cold outreach messages**
@@ -100,13 +116,13 @@ Bring a **real job post**. Together you:
 
 Consistency over perfection, a steady daily habit beats occasional bursts.
 
-## Weekly Assignment / Deliverable (Due Before Week 6)
+## This week's build: a week of daily, logged applications
 
 Submit your **tracker** showing:
 
-1. At least **5 daily-logged applications** (not one bulk submission)
-2. **3 cold outreach messages** sent
-3. **Response status** noted for each
+1. At least **5 daily-logged applications** (not one bulk submission).
+2. **3 cold outreach messages** sent.
+3. **Response status** noted for each.
 
 ### Grading guide
 
@@ -124,7 +140,7 @@ Submit your **tracker** showing:
 - [ ] Proposals score 8+ on the checklist
 - [ ] Daily WhatsApp check-ins sent
 
-## Self-Check Questions
+## Can you do these now?
 
 1. Which platforms are actually open to you as a Nigerian VA, and which are not?
 2. What are the five lines of the 5-Line Proposal?

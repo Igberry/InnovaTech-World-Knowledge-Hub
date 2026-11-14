@@ -4,7 +4,7 @@ course: automation
 order: 3
 week: 3
 phase: "Core Skills"
-summary: "Use a spreadsheet to remove manual work: formulas that calculate for you, validation that prevents errors, and features that update automatically."
+summary: "Turn a spreadsheet into a little machine that calculates, checks, and tidies itself. You type formulas, break one on purpose, and fix it - hands-on from the first minute."
 estimatedHours: 8
 tools: ["A spreadsheet app"]
 downloads:
@@ -12,95 +12,74 @@ downloads:
     href: "/downloads/automation/task-audit-log.csv"
 ---
 
-**Goal:** Turn a spreadsheet from a place you type into a tool that does work for you, calculating,
-checking, and updating automatically, so you stop doing it by hand.
+**Goal:** Turn a spreadsheet from a place you type into a tool that works for you - calculating, checking,
+and updating on its own. You build every formula with your own hands and even break one to see what happens.
 
-## Learning Objectives
-
-By the end of this week you can:
+## What you'll be able to do
 
 - Use formulas to calculate and summarise automatically
 - Use functions to look things up and count or add by condition
-- Use data validation to prevent entry errors
-- Use auto-formatting and sorting to keep data tidy without effort
+- Use data validation to stop entry errors before they happen
+- Use auto-formatting and sorting to keep data tidy with no effort
 - Decide when a spreadsheet is the right automation tool
 
-## Tools / Accounts Needed This Week
+## Before you start (about 10 minutes)
 
-- A spreadsheet app (Google Sheets or Excel)
-- The [task-audit log](/downloads/automation/task-audit-log.csv) to practise on
+- Open a spreadsheet app (Google Sheets or Excel) and the
+  [task-audit log](/downloads/automation/task-audit-log.csv) to practise on. Work on a copy.
+- Warm-up: in any empty cell, type `=SUM(1,2,3)` and press Enter. It shows 6. The spreadsheet just did
+  work for you. That is the whole idea.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - Make formulas do the maths
 
-- Watch: *Search YouTube: "Google Sheets formulas for beginners"* or the Excel equivalent.
-- Read: search "spreadsheet data validation tutorial" and read one guide.
-- Try: open the task-audit log and add a cell that totals the "Total minutes" column.
+**Why it matters:** the moment you use a formula, the spreadsheet does work you used to do by hand, and it
+recalculates the instant the data changes.
 
-## Lesson 1: Formulas do the maths for you
+**Do this now (these work in Sheets and Excel):**
+1. In your task-audit log copy, total a column with `=SUM(B2:B10)`.
+2. Average it with `=AVERAGE(B2:B10)`.
+3. Multiply two cells, for example quantity by price: `=B2*C2`.
+4. Find the biggest and smallest with `=MAX(B2:B10)` and `=MIN(B2:B10)`.
+5. Change a number in the range and watch the totals update themselves.
 
-A **formula** is an instruction a spreadsheet calculates automatically. The moment you use one, the
-spreadsheet is doing work you used to do by hand, and it updates itself when the data changes.
+**You've got it when:** your totals change on their own the moment you edit a number.
 
-Start with the basics (these work in Google Sheets and Excel):
+## Try it 2 - Let the sheet decide and look things up
 
-- `=SUM(B2:B10)` adds a range
-- `=AVERAGE(B2:B10)` averages it
-- `=B2*C2` multiplies two cells (e.g., quantity x price)
-- `=MAX(B2:B10)` / `=MIN(B2:B10)` find the largest/smallest
+**Why it matters:** a few functions remove a lot of manual counting and matching.
 
-Type the formula once; it recalculates forever. That is automation.
+**Do this now:**
+1. Add a decision with `=IF(B2>10000, "Big order", "Normal")`.
+2. Count matches with `=COUNTIF(A2:A50, "Paid")`.
+3. Add by condition with `=SUMIF(A2:A50, "Paid", B2:B50)`.
+4. Build a tiny product list, then pull a price by name with a lookup (`XLOOKUP` or `VLOOKUP`).
+5. Stuck on a formula? Ask an AI to draft it (from the AI course), then test it on a small copy.
 
-> **Tip:** Click a cell to see its formula. Copying a formula down a column adjusts the references
-> automatically, so you can calculate a whole column in seconds.
+**You've got it when:** the sheet answers "how many paid? total paid?" without you counting.
 
-## Lesson 2: Functions that decide and look up
+## Try it 3 - Stop bad data with validation
 
-A few more functions remove a lot of manual work:
+**Why it matters:** data validation restricts what can be typed, so mistakes never get in.
 
-- `=IF(condition, value_if_true, value_if_false)` makes a decision, e.g.
-  `=IF(B2>10000, "Big order", "Normal")`.
-- `=COUNTIF(range, "Paid")` counts how many cells say "Paid".
-- `=SUMIF(A2:A50, "Paid", B2:B50)` adds the amounts where the status is "Paid".
-- A lookup function (such as `XLOOKUP` or `VLOOKUP`) finds a matching value in another table, e.g. pull a
-  price from a product list by its name.
+**Do this now:**
+1. Pick a status column and add a **dropdown** so people pick "Paid / Unpaid" instead of typing variations.
+2. Add a rule on another column that only allows numbers, or only dates.
+3. Try to type something invalid and watch it get blocked.
 
-These let a spreadsheet answer questions ("how many paid? total paid?") automatically, instead of you
-counting by hand.
+**You've got it when:** the sheet refuses a wrong entry before it can cause a problem.
 
-> **Note:** You do not need to memorise functions. Learn the few above well, and search for others when a
-> task needs them. The AI course's prompting skills help here: ask an AI to explain or draft a formula,
-> then test it on a small copy.
+## Try it 4 - Formatting and sorting that update themselves
 
-## Lesson 3: Validation prevents errors
+**Why it matters:** these keep a sheet readable and current with almost no upkeep.
 
-**Data validation** restricts what can be typed in a cell, which stops mistakes before they happen:
+**Do this now:**
+1. Add **conditional formatting** so overdue or high-time items turn red automatically.
+2. **Sort or filter** your data, then change a value and watch the colours follow.
+3. Break one formula on purpose (delete a bracket), read the error message, then fix it.
 
-- A dropdown list so people pick "Paid / Unpaid" instead of typing variations
-- A rule that only allows numbers, or dates, in a column
-- A warning if a value is outside an expected range
+**You've got it when:** cells recolour themselves as data changes, and you have fixed a broken formula by reading its error.
 
-This is automation in the sense that the spreadsheet enforces the rules for you, keeping the data clean
-without you policing every entry.
-
-## Lesson 4: Formatting and sorting that update themselves
-
-- **Conditional formatting** colours cells automatically based on their value (e.g., overdue items turn
-  red). You set it once; it updates as data changes.
-- **Sorting and filtering** reorganise data on demand without retyping.
-- **Named ranges and tables** keep formulas working as you add rows.
-
-Together these keep a spreadsheet readable and current with almost no manual upkeep.
-
-## Lesson 5: When a spreadsheet is the right tool
-
-A spreadsheet is a great, free automation tool when the job is about **numbers, lists, and simple rules**:
-trackers, summaries, calculations, simple reports. It is not the right tool when you need to connect
-different apps or trigger actions in other systems, that is what Weeks 4 to 6 are for.
-
-> **Rule of thumb:** If the whole task lives inside a table of data, a spreadsheet can probably automate
-> it. If it needs to reach into email, forms, or other apps, you will want a no-code automation tool.
-
-### Common mistakes
+### Watch out for
 
 - Doing by hand what a formula could do (and getting it wrong)
 - Not using validation, then fighting messy, inconsistent data
@@ -108,24 +87,13 @@ different apps or trigger actions in other systems, that is what Weeks 4 to 6 ar
 - Overwriting the only copy while experimenting
 - Using a spreadsheet for a job that really needs app-to-app automation
 
-## Practice Exercises
+## This week's build: a self-calculating spreadsheet
 
-1. In the task-audit log, add formulas to total minutes and average minutes per task.
-2. Add an `IF` column that flags any task over 20 total minutes as "Automate".
-3. Use `COUNTIF` to count how many tasks are marked "Yes" to automate.
-4. Add a dropdown (validation) to the "Automate candidate?" column.
-5. Add conditional formatting to highlight high-time tasks in red.
-6. Build a tiny product list and use a lookup to pull a price into an orders sheet.
-7. Break one formula on purpose, read the error, and fix it.
+Build a sheet for a real or realistic need (a simple sales tracker, an expense log, a market-stall takings
+sheet, or your task-audit log extended) that does its own work:
 
-## Weekly Assignment (Due Before Week 4)
-
-Build a **self-calculating spreadsheet** for a real or realistic need (e.g., a simple sales tracker,
-expense log, or the task-audit log extended):
-
-1. At least **four formulas/functions** that do work automatically (including one `IF` and one `COUNTIF`
-   or `SUMIF`)
-2. **Data validation** on at least one column (a dropdown or a number/date rule)
+1. At least **four formulas/functions** that automate calculation (including one `IF` and one `COUNTIF` or `SUMIF`)
+2. **Data validation** on at least one column (a dropdown, or a number/date rule)
 3. **Conditional formatting** that highlights something useful
 4. A short note on **what manual work this removes**
 
@@ -145,6 +113,12 @@ expense log, or the task-audit log extended):
 - [ ] Useful conditional formatting
 - [ ] A note on time/effort saved
 
+## Extra quick wins (optional)
+
+- Make a tiny budget that shows "over/under" in red or green automatically.
+- Add a dropdown to a sheet a family member uses and watch their typos disappear.
+- Ask an AI to explain one formula you do not understand, then test its answer.
+
 ## Mentoring Session Plan (90 minutes)
 
 | Time | Activity |
@@ -163,7 +137,7 @@ only version. Connect to the AI course: learners can ask an AI to explain a form
 learners who also took Data Analysis, this reinforces and reframes those skills as automation. Keep data
 fictional.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. How is using a formula a form of automation?
 2. What does `COUNTIF` (or `SUMIF`) let you do automatically?

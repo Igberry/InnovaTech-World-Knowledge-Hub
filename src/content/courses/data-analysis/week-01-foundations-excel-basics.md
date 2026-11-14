@@ -4,161 +4,138 @@ course: "data-analysis"
 order: 1
 week: 1
 phase: "Foundations"
-summary: "Understand what a data analyst does, get all tools ready, and complete a first analysis in Excel."
+summary: "Open real sales data and, by the end of the week, turn it into money numbers a business owner would actually use."
 estimatedHours: 10
 tools: ["Excel"]
 downloads:
   - label: "Orders (clean) CSV"
     href: "/downloads/data-analysis/orders_clean.csv"
 ---
-**Goal:** Understand what a data analyst does, get all tools ready, and complete a first analysis in Excel.
+**Goal:** Open a real NaijaMart orders file and, in your first week, turn raw rows into answers: total revenue, the biggest order, the busiest city. You learn by doing it, not by reading about it.
 
-## Learning Objectives
-By the end of this week the student can:
-- Explain the data analysis process in their own words
-- Describe rows, columns, records, fields, and data types
-- Navigate Excel, enter and format data, and sort and filter it
-- Use basic formulas and cell references (relative vs absolute)
-- Open a CSV file correctly and save it as `.xlsx`
+## What you'll be able to do
+- Open a CSV correctly and turn it into an Excel Table
+- Build a `revenue` column and a `net_revenue` column with formulas
+- Sort, filter, and answer real business questions in seconds
+- Lock a cell reference so a formula copies down correctly
+- Say, in your own words, what a data analyst actually does
 
-## Tools to Install This Week
-Excel (desktop or web), GitHub account, Google account (for Colab later). See [Setup Guide](/courses/data-analysis/00-setup-guide/).
+## Before you start (about 10 minutes)
+- Make sure Excel opens and you have your GitHub and Google accounts from the [Setup Guide](/courses/data-analysis/00-setup-guide/).
+- Download the **Orders (clean) CSV** from the panel on this page.
+- Warm-up: open it with **Data -> From Text/CSV**, *File Origin* **UTF-8**, then **Load**. Glance at the columns. What does one row seem to represent?
+- Optional, 5 minutes: search YouTube for *"Alex The Analyst What is a Data Analyst"* and watch the intro.
 
-## Pre-Session Videos (about 2 hours)
-- Search YouTube: **"Alex The Analyst What is a Data Analyst"** (career overview)
-- Search YouTube: **"Kevin Stratvert Excel tutorial for beginners"** (watch the first 60 to 90 minutes)
-- Optional: **"Google Data Analytics process Ask Prepare Process Analyze Share Act"**
+## Try it 1 - Make the data yours
 
----
+**Why it matters:** a plain CSV is awkward. An Excel Table gives you filters, auto-fill, and names you can use in formulas.
 
-## Lesson 1: What Does a Data Analyst Do?
+**Do this now:**
+1. With the CSV open, **File -> Save As -> Excel Workbook (.xlsx)**.
+2. Click anywhere in the data and press **Ctrl+T** to make a Table. Tick "My table has headers".
+3. With the Table selected, type `Orders` in the Table Name box (top-left).
+4. **View -> Freeze Panes -> Freeze Top Row** so headers stay put as you scroll.
 
-A data analyst turns **raw data** into **answers that help people make decisions**. Example: *"Which products make us the most money, and in which city?"*
+**You've got it when:** your data has filter arrows on every header and is named `Orders`.
 
-### The 6-step analysis process
-| Step | Question | Example |
+## Try it 2 - Turn rows into money
+
+**Why it matters:** raw orders do not tell you revenue. One formula does, for all 2,000 rows at once.
+
+**Do this now:**
+1. In the first empty column, type the header `revenue`.
+2. In the first data cell type `=[@quantity]*[@unit_price]` and press Enter. Excel fills the whole column.
+3. Add another column `net_revenue` with `=[@revenue]*(1-[@discount_pct]/100)`.
+4. Highlight both columns and set the number format to currency, or custom `₦#,##0`.
+
+**You've got it when:** every order shows a revenue and a net revenue in naira.
+
+*Quick win: your spreadsheet just calculated 2,000 orders in under a second. That is the whole appeal of this job.*
+
+## Try it 3 - Answer questions fast
+
+**Why it matters:** managers ask questions like "how big was our best order?" You should be able to answer in seconds.
+
+**Do this now, on a blank cell for each:**
+1. Total orders: `=COUNTA(Orders[order_id])`
+2. Total net revenue: `=SUM(Orders[net_revenue])`
+3. Average order: `=AVERAGE(Orders[net_revenue])`
+4. Biggest and smallest: `=MAX(Orders[net_revenue])` and `=MIN(Orders[net_revenue])`
+5. Use the filter arrows: show only `status = Completed` and `city = Yenagoa`. How many rows remain?
+6. Sort by `net_revenue`, largest first. Which order is on top?
+
+**You've got it when:** you can read out total revenue and the single biggest order without scrolling.
+
+## Try it 4 - Lock a reference
+
+**Why it matters:** this one idea trips up every beginner. Get it now and formulas stop "breaking" when you copy them.
+
+**Do this now:**
+1. Put a discount rate in cell `K1`, for example `0.05`.
+2. In a helper column type `=Orders[@revenue]*K1`, copy it down, and watch it go wrong.
+3. Now use `$K$1` instead: `=Orders[@revenue]*$K$1`. Copy it down again.
+
+**You've got it when:** you can explain why `$K$1` stays fixed while `K1` slides. That is the difference between absolute and relative references.
+
+## Know your words (quick reference)
+
+You will hear these all course. Learn them by using them, not memorising them.
+
+| Term | Means | Example |
 |---|---|---|
-| 1. **Ask** | What problem are we solving? | "Why did sales drop in August?" |
-| 2. **Prepare** | Where is the data? Is it reliable? | Export from the sales system |
-| 3. **Process** | Clean it | Remove duplicates, fix dates |
-| 4. **Analyze** | Find patterns | Compare months, products, cities |
-| 5. **Share** | Present clearly | Charts, a dashboard, a short report |
-| 6. **Act** | What should we do? | "Run a promotion in Port Harcourt" |
+| Row (record) | one item or event | one order |
+| Column (field) | one attribute | `order_date` |
+| Header | the column names | the first row |
+| Data type | number, text, date, or true/false | ₦18,000 is a number; "Yenagoa" is text |
 
-> Beginners spend all their time on step 4. Real analysts spend most of their time on steps 2 and 3, and get hired for step 5.
+**Tidy data rule:** one header row, one record per row, one kind of value per column, no merged cells, no totals mixed into the data, and consistent spelling (`Port Harcourt`, never `PH` or `port harcourt`).
 
-### Where analysts work
-Banks, telecoms, oil and gas, NGOs, e-commerce, schools, hospitals, and remote companies worldwide. Common job titles: *Data Analyst, Business Analyst, Reporting Analyst, BI Analyst, Operations Analyst, Marketing Analyst.*
+## This week's build: your first mini sales summary
 
----
+Make `week1_orders.xlsx` a business owner could glance at and understand:
+1. The `Orders` Table with working `revenue` and `net_revenue` columns.
+2. A second sheet called **Summary** showing, each with a formula: total orders, total net revenue, average order, biggest order, smallest order.
+3. A one-line insight in plain English, for example: "Our average order is ₦X, and our biggest single order was ₦Y in [city]."
 
-## Lesson 2: Understanding Data
+*Make it shareable: this is the first thing that goes in your portfolio folder.*
 
-| Term | Meaning | Example |
-|---|---|---|
-| **Table / Dataset** | A grid of data | The orders sheet |
-| **Row (record)** | One item or event | One order |
-| **Column (field)** | One attribute | `order_date` |
-| **Header** | The column names (first row) | `order_id, city, ...` |
+### Grading guide
 
-### Data types
-| Type | Examples | Notes |
-|---|---|---|
-| Number | 5, 18000, 3.5 | Can be calculated |
-| Text | "Yenagoa", "Transfer" | Cannot be added |
-| Date | 2025-03-31 | Excel stores dates as numbers |
-| Boolean | TRUE / FALSE | Yes/no |
-
-### Good spreadsheet structure ("tidy data")
-1. One header row, no blank rows, no merged cells
-2. One column = one kind of information
-3. One row = one record
-4. No totals mixed into the data rows
-5. Consistent values ("Port Harcourt", not "PH", "port harcourt", "P.Harcourt")
-
----
-
-## Lesson 3: Excel Fundamentals
-
-### Opening a CSV
-**Data → From Text/CSV → choose file → File Origin: UTF-8 → Load.** Then **File → Save As → Excel Workbook (.xlsx)**.
-
-### Essential skills
-| Skill | How |
+| Criteria | Weight |
 |---|---|
-| Select a column | Click the column letter |
-| Freeze header row | **View → Freeze Panes → Freeze Top Row** |
-| Convert to a Table | Click in data, **Ctrl+T**. Gives filters, banding, and auto-expanding formulas |
-| Sort | **Data → Sort** (or filter dropdown) |
-| Filter | Filter arrows on the header |
-| AutoFit column width | Double-click the column border |
-| Format as currency | **Home → Number Format → Currency**, or custom format `₦#,##0` |
+| Formulas work and numbers are correct | 40% |
+| Tidy Table and clean formatting | 30% |
+| Clear one-line insight in plain words | 20% |
+| Setup done (Excel, GitHub, Google ready) | 10% |
 
-### Shortcuts to learn this week
-`Ctrl+C / V / Z` · `Ctrl+Arrow` (jump to the edge of data) · `Ctrl+Shift+Arrow` (select to the edge) · `Ctrl+T` (table) · `F4` (lock a reference) · `Alt+=` (AutoSum)
+### Definition of done
 
-### Basic formulas
-Every formula starts with `=`.
+- [ ] CSV opened with UTF-8 and saved as `.xlsx`
+- [ ] Data is a named Table with `revenue` and `net_revenue`
+- [ ] Summary sheet has five numbers, each from a formula
+- [ ] One plain-English insight written
+- [ ] Setup checklist complete
 
-```
-=A2+B2                 add two cells
-=SUM(E2:E2001)         add a range
-=AVERAGE(E2:E2001)     average
-=COUNT(E2:E2001)       count numbers
-=COUNTA(H2:H2001)      count non-empty cells (text too)
-=MIN(F2:F2001)  =MAX(F2:F2001)
-```
-
-### Creating a new column
-In a Table, type in the first empty cell of a new column:
-```
-=[@quantity]*[@unit_price]
-```
-Name the column `revenue`. Excel fills the whole column.
-
-### Relative vs absolute references (key concept)
-| Reference | Behaviour when copied | Example |
-|---|---|---|
-| `A2` | Changes (relative) | Row 2 becomes row 3 |
-| `$A$2` | Never changes (absolute) | Lock a tax rate cell |
-| `$A2` / `A$2` | Mixed | Used in grids |
-
-**Example:** put a discount rate in `K1` (e.g., 0.05). Use `=E2*$K$1` so every row uses the same cell.
-
----
-
-## Practice Exercises (Using `orders_clean.csv`)
-1. Open the CSV with the correct encoding, freeze the header row, and convert to a Table named `Orders`.
-2. Add a `revenue` column = `quantity × unit_price`.
-3. Add a `net_revenue` column = `revenue × (1 − discount_pct/100)`.
-4. How many orders are in the dataset? (`COUNTA`)
-5. What is the total net revenue? What is the average order net revenue?
-6. Filter to `status = Completed` and `city = Yenagoa`. How many rows remain?
-7. Sort by `net_revenue` largest to smallest. Which order is on top?
-
----
-
-## Weekly Assignment (Due Before Week 2)
-**Submit:**
-1. **Setup checklist** (screenshot or tick-list): Excel working, GitHub account created, Google account ready.
-2. **`week1_orders.xlsx`**: the Table with `revenue` and `net_revenue` columns, plus a second sheet called `Summary` showing: total orders, total net revenue, average net revenue, highest order, lowest order (each using a formula).
-3. **Short written note (5 sentences):** "In my own words, what does a data analyst do, and which type of company would I like to work for?"
-
-**Grading guide:** formulas work (40%), tidy structure and formatting (30%), written note (20%), setup done (10%).
-
----
+## Extra quick wins (optional)
+- Which city has the most orders? Filter and count.
+- Add a `big_order` column that shows "Yes" when net revenue is over ₦100,000: `=IF([@net_revenue]>100000,"Yes","No")`.
+- Learn these shortcuts by using them: `Ctrl+Arrow` (jump to the edge), `Ctrl+Shift+Arrow` (select to the edge), `F4` (lock a reference), `Alt+=` (AutoSum).
 
 ## Mentoring Session Plan (90 min, In-Person)
 | Time | Activity |
 |---|---|
-| 0–15 min | Welcome, program rules, sign the training agreement, set the weekly schedule |
-| 15–35 min | Discussion: what do you want from this course? Which jobs interest you? |
-| 35–70 min | **Install together:** Excel check, GitHub account, Google account. Open the CSV together. |
-| 70–85 min | Live practice: create the `revenue` column, then each student explains what the formula does |
-| 85–90 min | Explain the assignment, agree on the due date |
+| 0-15 min | Welcome, program rules, sign the training agreement, set the weekly schedule |
+| 15-30 min | Quick round: which analyst jobs interest you, and why |
+| 30-55 min | Install check and open the CSV together; everyone builds the `revenue` column |
+| 55-80 min | Live practice: each student answers one business question aloud with a formula |
+| 80-90 min | Explain the build, agree the due date |
+
+## Facilitator Notes
+
+The win this week is momentum: a beginner who sees 2,000 rows calculate instantly is hooked. Spend the least time on theory and the most on hands-on. The six-step analysis process (Ask, Prepare, Process, Analyze, Share, Act) is worth one minute of framing, no more; students absorb it as they work. Expect the absolute vs relative reference idea (Try it 4) to be the real hurdle; have the deliberately-broken `K1` example ready so they see it fail before they see it fixed. Where analysts work (banks, telecoms, oil and gas, NGOs, e-commerce, remote) is a good motivator to mention while installs run.
 
 ## Self-Check Questions
 1. What is the difference between a row and a column?
-2. Why do we convert data into a Table?
+2. Why do we convert data into a Table before working on it?
 3. When would you use `$A$1` instead of `A1`?
-4. Name the six steps of the analysis process.
+4. In one sentence, what does a data analyst do?

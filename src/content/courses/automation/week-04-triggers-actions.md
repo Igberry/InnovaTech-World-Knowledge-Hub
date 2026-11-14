@@ -4,7 +4,7 @@ course: automation
 order: 4
 week: 4
 phase: "Building Automations"
-summary: "Use a no-code tool to connect two apps so that when something happens in one, an action runs in another, your first real cross-app automation."
+summary: "Build your first real cross-app automation: submit a form, and watch a row appear in a sheet and an email land in your inbox, all on its own. The satisfying week where it clicks."
 estimatedHours: 8
 tools: ["A no-code automation tool", "A form or spreadsheet", "Email"]
 downloads:
@@ -12,99 +12,77 @@ downloads:
     href: "/downloads/automation/trigger-action-planner.md"
 ---
 
-**Goal:** Build your first real cross-app automation with a no-code tool: a trigger in one app that runs
-an action in another, planned, tested, and working.
+**Goal:** Build your first real cross-app automation with a no-code tool - a trigger in one app that runs
+an action in another, planned, tested, and actually working. You will submit a test form and watch the
+magic happen.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
-
-- Explain how a no-code automation tool connects apps
+- Explain how a no-code tool connects apps
 - Choose a trigger and an action and connect two apps
-- Map fields so data moves correctly between apps
+- Map fields so data moves to the right place
 - Test an automation safely before trusting it
 - Build one simple, working "when X, do Y" automation
 
-## Tools / Accounts Needed This Week
+## Before you start (about 10 minutes)
 
-- Your no-code automation tool (from Week 0)
-- A form or spreadsheet, and email, to connect
-- The [trigger-action planner](/downloads/automation/trigger-action-planner.md)
+- Open your no-code tool and the
+  [trigger-action planner](/downloads/automation/trigger-action-planner.md). Have a form (or sheet) and
+  email ready to connect.
+- Warm-up: in your tool, open the app list and find three apps you already use. You can connect any of
+  them. That is the week in one glance.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - See the tool bridge two apps
 
-- Watch: *Search YouTube: "[your automation tool] tutorial for beginners"* for the tool you chose.
-- Read: your tool's "getting started" help page.
-- Try: look at the tool's list of apps it can connect. Note which ones you already use.
+**Why it matters:** a no-code tool sits between your apps, watches for a trigger, and runs an action in
+another app - the exact "WHEN ... DO" shape from Week 1, now across apps.
 
-## Lesson 1: How a no-code tool connects apps
+**Do this now:**
+1. Start a new automation in your tool.
+2. Notice it asks for a **trigger app** first, then an **action app**. That is the bridge.
+3. Read one example in your head: WHEN a new Google Form response arrives, DO add a row to a Google Sheet.
 
-A **no-code automation tool** sits between your apps and watches for a **trigger**. When the trigger
-happens, it runs an **action** in another app, automatically. You set this up with menus and clicks, no
-programming.
+**You've got it when:** you can describe, in one line, how the tool links App A to App B.
 
-The shape is exactly what you learned in Week 1:
+## Try it 2 - Choose a trigger you can test
 
-> **WHEN** (trigger in App A) **DO** (action in App B)
+**Why it matters:** the trigger is the event that starts everything. A good first trigger is one you can
+fire on purpose to test safely.
 
-Example: WHEN a new response arrives in a Google Form, DO add a row to a Google Sheet and send yourself an
-email. The tool connects the form, the sheet, and the email for you.
+**Do this now:**
+1. Create a simple Google Form (or pick a spreadsheet) as your trigger source.
+2. In your tool, set the trigger to "new form response" (or "new row").
+3. Submit one test response yourself so the tool can find a sample to work with.
 
-> **Note:** Different tools use different words (some say "trigger and action", others "when this, then
-> that"), but the idea is identical. Learn the thinking and you can use any of them.
+**You've got it when:** your tool recognises a test submission as the trigger.
 
-## Lesson 2: Choosing a trigger
+## Try it 3 - Add an action and map the fields
 
-The **trigger** is the event that starts the automation. Common beginner triggers:
+**Why it matters:** field mapping tells the tool which piece of the trigger goes where in the action. Get
+this right and the data arrives correctly; get it wrong and it lands in the wrong column.
 
-- A new form submission
-- A new row in a spreadsheet
-- A new email matching something
-- A scheduled time (every day at 8am)
+**Do this now:**
+1. Plan it first on the [planner](/downloads/automation/trigger-action-planner.md): trigger, action, and which field goes where.
+2. Set the action to "add a row to a spreadsheet".
+3. Map each field: the form's **Name** to the sheet's **Name** column, **Email** to **Email**, and so on.
+4. Add a second action: **send yourself a notification email** with the new details.
 
-Pick a trigger that happens cleanly and predictably. A good first automation uses a trigger you can create
-on purpose for testing (like submitting your own test form), so you can check it safely.
+**You've got it when:** every form field points to the right column and a notification is set.
 
-## Lesson 3: Choosing an action and mapping fields
+## Try it 4 - Test before you trust
 
-The **action** is what happens automatically. Common beginner actions:
+**Why it matters:** a new automation can quietly do the wrong thing on every run. Never switch it on for
+real work without checking.
 
-- Add a row to a spreadsheet
-- Send an email or a notification
-- Create a task or a calendar event
+**Do this now:**
+1. Use the tool's **test** button, or submit your own test form.
+2. Check the result by hand: did the right data land in the right place, and did the email arrive?
+3. Deliberately mis-map one field, run it, see the wrong result, then fix it.
+4. Watch a couple more test runs before trusting it.
 
-The important detail is **field mapping**: telling the tool which piece of the trigger goes where in the
-action. For example, the form's "Name" field maps to the spreadsheet's "Name" column, and "Email" to the
-"Email" column. Getting the mapping right is what makes the data arrive correctly.
+**You've got it when:** a test submission puts the correct row in your sheet and a correct email in your inbox.
 
-> **Tip:** Plan the automation on paper first with the
-> [trigger-action planner](/downloads/automation/trigger-action-planner.md). Knowing your trigger, action,
-> and field mapping before you open the tool makes building it quick and clear.
-
-## Lesson 4: Test before you trust
-
-Never switch a new automation on for real work without testing. The safe routine:
-
-1. Use **sample data** (submit your own test form, add a test row).
-2. Run it **once** and check the result by hand, did the right data land in the right place?
-3. Watch a **few real runs** before leaving it alone.
-
-Most tools have a "test" button that runs the automation with a sample so you can check each step. Use it.
-
-> **Warning:** A new automation can quietly do the wrong thing on every run. Test with sample data first,
-> and check the result yourself before trusting it with anything that matters.
-
-## Lesson 5: Build your first automation
-
-Put it together. A classic, safe first build:
-
-> WHEN a new response is submitted to my test form, DO add a row to my spreadsheet and send me a
-> notification email.
-
-Plan it, build it, test it with your own submissions, and confirm the row and email appear correctly. That
-is a complete, real automation, and the pattern behind thousands of useful ones.
-
-### Common mistakes
+### Watch out for
 
 - Mapping fields wrongly, so data lands in the wrong column
 - Not testing, then trusting a broken automation
@@ -112,23 +90,14 @@ is a complete, real automation, and the pattern behind thousands of useful ones.
 - Connecting an account with more access than the task needs
 - Building something complex before the simple version works
 
-## Practice Exercises
+## This week's build: your first live cross-app automation
 
-1. In the planner, design a "new form response, add a row" automation end to end.
-2. Build it in your tool and map every field correctly.
-3. Test it by submitting your own response; check the row is correct.
-4. Add a second action: send yourself a notification email.
-5. Deliberately mis-map one field, see the wrong result, then fix it.
-6. Change the trigger to a scheduled time and observe the difference.
-7. Write down the access you granted and whether it is the minimum needed.
+Build and document **one working automation** you would actually use (an enquiry logger, a sign-up
+recorder, a market-stall order catcher):
 
-## Weekly Assignment (Due Before Week 5)
-
-Build and document **one working cross-app automation**:
-
-1. A completed **trigger-action planner** for the automation
-2. The **built automation** connecting two (or more) apps, with correct field mapping
-3. Evidence of a **test**: a sample run and the correct result (a screenshot or description)
+1. A completed **trigger-action planner** for it
+2. The **built automation** connecting two or more apps, with correct field mapping
+3. Evidence of a **test**: a sample run and the correct result (a screenshot or a description)
 4. A short note on the **access you granted** and why it is the minimum needed
 
 ### Grading guide
@@ -147,6 +116,12 @@ Build and document **one working cross-app automation**:
 - [ ] A tested sample run with correct result
 - [ ] A note on minimal access
 
+## Extra quick wins (optional)
+
+- Change the trigger to a scheduled time (every day at 8am) and see the difference.
+- Add a third action: create a task or a calendar event from the same trigger.
+- Share your test form with a friend and watch their response flow through.
+
 ## Mentoring Session Plan (90 minutes)
 
 | Time | Activity |
@@ -164,7 +139,7 @@ everyone can follow (form to sheet to email works well and is free). Drill field
 beginner error. Insist on testing with sample data before trusting anything. Note that tools change their
 menus, so teach the trigger-action thinking over specific clicks. Watch account access; grant the minimum.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What are a trigger and an action, in a no-code automation?
 2. What is field mapping, and why does getting it wrong cause problems?

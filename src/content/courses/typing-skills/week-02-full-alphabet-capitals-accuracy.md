@@ -3,7 +3,7 @@ title: "Full Alphabet, Capitals and Accuracy"
 course: typing-skills
 order: 2
 week: 2
-summary: "Learn the remaining letter reaches and improve accuracy through deliberate, repeatable practice."
+summary: "Unlock the whole keyboard this week: reach every letter by feel, hunt down your weak keys with quick drills, and make clean typing your default."
 estimatedHours: 4
 tools: ["Physical keyboard", "Text editor", "Timer"]
 downloads:
@@ -15,32 +15,29 @@ downloads:
     href: "/downloads/typing-skills/typing-practice-log-template.csv"
 draft: false
 ---
-**Goal:** Learn every letter reach and make accurate typing your default before trying to increase speed.
+**Goal:** Reach every letter on the keyboard, find and fix your weak keys, and make accuracy your habit before you chase speed. Type your way through, do not just read.
 
-## Learning Objectives
+## What you'll be able to do
 
-- Assign the remaining top- and bottom-row letters to fingers.
-- Use a repeated drill to identify and practise weak keys.
-- Type short paragraphs with capitals, punctuation and a steady rhythm.
-- Explain how correction rules affect a timed test result.
-- Complete a three-minute accuracy test and analyse the result.
+- Hit every top-row and bottom-row letter with the right finger
+- Spot your weak keys and drill them in minutes
+- Type short paragraphs with capitals and punctuation at a steady pace
+- Say how correction rules change a test score
+- Run a three-minute accuracy test and read the result
 
-## Tools / Accounts Needed This Week
+## Before you start (10 minutes)
 
-Use the same physical keyboard and log as Week 1. Keep the [finger map](/downloads/typing-skills/keyboard-finger-map.md) available, and choose one test method for comparable results.
+- Keep the [finger map](/downloads/typing-skills/keyboard-finger-map.md) and the [Week 2 passages](/downloads/typing-skills/practice-passages-week-2.md) open.
+- Warm-up: replay last week's home row for two minutes, eyes off the keys.
+- Pick one test method for the week so your scores stay comparable.
+- Optional: search YouTube for **"touch typing top row bottom row finger placement"** and watch the hand movement, not the speed claims.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - Finish the whole alphabet
 
-- Review Week 1's [home-row lesson](/courses/typing-skills/week-01-posture-home-row-first-letters/).
-- Read the [five original practice passages](/downloads/typing-skills/practice-passages-week-2.md).
-- Search YouTube for **"touch typing top row bottom row finger placement"** and focus on hand movement rather than speed claims.
-- If using an online site, confirm its current timer and error rules before comparing scores.
+**Why it matters:** once every letter has a finger, you can type any word without a single glance down.
 
-## Lessons
-
-### Lesson 1: Finish the alphabet
-
-From the home row, reach to the top and bottom rows with the assigned finger, then return to home. For a common QWERTY layout:
+**Do this now:**
+1. Use this starting map for a common QWERTY layout. Reach, then return to home row every time.
 
 | Finger | Top-row reach | Bottom-row reach |
 |---|---|---|
@@ -53,73 +50,97 @@ From the home row, reach to the top and bottom rows with the assigned finger, th
 | Right ring | O | . |
 | Right little | P | / |
 
-This table is a starting map, not a reason to strain. Keyboard layouts and physical abilities vary. Keep fingers close to the home row and move the finger rather than stretching the whole hand.
+2. Type the top row once with each hand alone, then both together. Repeat for the bottom row.
+3. Move the finger, not the whole hand. Keep fingers close to home. If a reach strains, ease off - the map is a guide, not a rule to hurt yourself with.
 
-### Lesson 2: Weak-key drills
+**You've got it when:** you can name the finger for any letter without looking it up.
 
-A weak key is not a failure; it is a movement that needs more practice. When a test or exercise shows repeated errors, identify the key and its neighbour. Practise a short set of letter pairs, then use each in a word or sentence. For example, if `v` is difficult, practise `fv vf` followed by short words that contain v.
+## Try it 2 - Turn a weak key into a drill
 
-Use the [weak-key report template](/downloads/typing-skills/weak-key-report-template.md). Record the key, the observed error, a drill, and the next check date. Practise one to three weak keys at a time. Working on every mistake at once makes it harder to notice improvement.
+**Why it matters:** a weak key is just a move you have not practised enough. Name it and it stops being scary.
 
-### Lesson 3: Rhythm, words and sentences
+**Do this now:**
+1. Spot a key you keep missing. Say `v` is tricky.
+2. Drill the pair both ways: `fv vf fv vf`, slow and clean, five times.
+3. Then use it in short words: `van van love give five`.
+4. Log it in the [weak-key report](/downloads/typing-skills/weak-key-report-template.md): the key, the error you saw, the drill, and the next check date. Work on one to three keys at a time, not all of them at once.
 
-Letters become useful when they form words. Practise simple words first, then short sentences. Keep the pace even; do not pause after every word to check your hands. Let your eyes move ahead by a few characters while your fingers type the current ones.
+**You've got it when:** your weak key shows up less in the next line you type.
 
-Use the Week 2 passages in order. Passage 1 contains short common words; later passages add punctuation and longer words. Type each passage twice: once slowly for accuracy and once at a comfortable pace. Note any key that repeatedly breaks your rhythm. Do not copy a passage from a copyrighted typing service.
+## Try it 3 - Build rhythm with words and sentences
 
-### Lesson 4: The 95% accuracy habit
+**Why it matters:** letters only earn their keep inside words. Smooth beats fast.
 
-The course target is a flexible practice benchmark, not a universal hiring requirement. Aim for 95% accuracy during controlled practice before increasing speed. If a practice site shows a different percentage, record its displayed value and name the site; do not silently combine different scoring systems.
+**Do this now:**
+1. Open the [Week 2 passages](/downloads/typing-skills/practice-passages-week-2.md). Passage 1 is short common words; later ones add punctuation and longer words.
+2. Type each passage twice: once slowly for accuracy, once at a comfortable pace.
+3. Let your eyes run a few characters ahead of your fingers. Do not stop to check your hands after every word.
+4. Mark any key that keeps breaking your rhythm, and send it to your weak-key drill.
 
-When you make an error, keep your shoulders relaxed. During a drill, correct it and repeat the phrase. During a timed test, follow the test's correction rule. Some tools count corrected errors differently. The local Typing Practice tool compares the typed character to the matching passage position and reports its own method. Record that you used it when submitting results.
+**You've got it when:** you can type a full sentence without pausing to look down mid-word.
 
-### Lesson 5: Capitals, sentences and both thumbs
+## Try it 4 - Make 95% accuracy your habit
 
-Use the opposite Shift hand from the letter where comfortable. Keep the thumb resting near the space bar, not held tensely above it. Try a short sentence with a name, a place and a full stop. Then repeat it without looking down. On laptop keyboards, take care not to press a nearby key accidentally while reaching for Shift.
+**Why it matters:** clean typing you can trust beats fast typing you have to redo.
 
-### Lesson 6: Correcting without losing rhythm
+**Do this now:**
+1. Aim for 95% accuracy in controlled practice before you push speed. It is a flexible benchmark, not a hiring rule.
+2. When you slip, keep your shoulders loose. In a drill, fix it and repeat the phrase. In a timed test, follow the test's correction rule.
+3. If a practice site shows a different percentage, write down its number and name the site. Do not mix scoring systems silently.
+4. Backspace routine: notice the mistake, correct it once, carry on. Do not hide errors in your log - recurring ones are your next target.
 
-Backspace is useful, but repeatedly correcting one letter can disrupt the whole line. A practical routine is: notice the mistake, correct it once, return to the text and continue. In a practice drill, repeat the full phrase after the test. Do not hide mistakes in the log. Record recurring errors so that the next session can target them.
+**You've got it when:** a clean line feels more satisfying than a fast messy one.
 
-### Lesson 7: Three-minute accuracy test
+## Try it 5 - Capitals and sentences, both hands working
 
-Choose a passage long enough for three minutes. Keep a steady pace and finish the full duration if the test allows. Record WPM, accuracy, correct characters, total typed characters, test method and the five most frequent weak keys. Compare with Week 1's baseline only when both scores use the same test and formula.
+**Why it matters:** real text has names, places and full stops. Capitals should not wreck your rhythm.
 
-### Reading the evidence
+**Do this now:**
+1. Use the opposite Shift hand from the letter where it is comfortable. Keep the thumb resting near the space bar, not hovering tensely.
+2. Type a short sentence with a name, a place and a full stop, for example: `Ada placed an order in Yenagoa.`
+3. Type it again without looking down.
+4. On a laptop, take care not to clip a neighbouring key while reaching for Shift.
 
-Use the test and log together. A test result tells you what happened during one short sample; the log shows what you practised and whether the same difficulty appears over several days. If you have a low score on one day, note the conditions before changing your plan. A different keyboard, a noisy room, a short break in practice or a new test method can all affect a result.
+**You've got it when:** capitals stop interrupting your flow.
 
-Here is a practice example. A learner has repeated errors on `c` and `v`, then improves on those letters but still pauses before capital letters. The next practice should target Shift coordination, not repeat the same `c` and `v` drill indefinitely. Another learner may be accurate on a word list but struggle in a paragraph; that suggests practising word transitions and punctuation rather than isolated keys.
+## Try it 6 - Three-minute accuracy test
 
-If a test only reports one overall accuracy number, use a short manual sample to understand the error pattern. Mark the source and your typed text, compare them character by character, and group the mistakes by key, capitalization, missing spaces or punctuation. Do not put an external test's copied answer key or another learner's details into your public files.
+**Why it matters:** a longer test shows whether your clean technique holds up, not just whether you can sprint a line.
 
-### Keeping a practice set useful
+**Do this now:**
+1. Pick a passage long enough for three minutes. Keep a steady pace and finish the full time if the test allows.
+2. Record WPM, accuracy, correct characters, total typed characters, test method, and your five most frequent weak keys.
+3. Compare with your Week 1 baseline only if both use the same test and formula.
 
-Choose passages that include the letters you need to practise, but do not use a passage so difficult that every line becomes a frustration. Rotate short word drills, sentences and paragraphs. Use the same passage twice in a session only to check a technique; use an unfamiliar passage for an honest timed score. After the test, repeat a troublesome line slowly and record the clean version.
+**You've got it when:** you have a three-minute result with its method written beside it.
 
-Make each drill short enough to repeat with attention. Five careful attempts at a letter pair are more informative than typing the pair fifty times while looking away. Take a few seconds to reset your hands between sets. If a drill remains uncomfortable, adjust the position or ask the facilitator to check the finger assignment for your keyboard layout.
+## Reading the evidence
 
-### Access and pace adjustments
+Use the test and the log together. The test is one short sample; the log shows whether the same trouble appears over several days. A low score on one day might be a different keyboard, a noisy room, a break in practice, or a new test method - check the conditions before you change your plan.
 
-Typing practice should be usable for the learner, not just for a standard keyboard demonstration. A learner may use a different physical layout, a larger keyboard, an alternative input method or a modified hand position. Discuss the goal with the facilitator and agree how to record progress in a way that reflects the learner's actual work. Do not penalise a learner for using an accommodation.
+Example: a learner keeps missing `c` and `v`, fixes those, then starts pausing before capitals. Next practice targets Shift, not another endless `c`/`v` drill. Another learner is accurate on a word list but struggles in a paragraph - that points to word transitions and punctuation, not isolated keys.
 
-If a learner is new to English spelling or punctuation, separate language learning from keyboard technique. First practise familiar words and short patterns; then add unfamiliar vocabulary in a separate exercise. A spelling correction should not be counted as a typing error if the aim of that exercise is keyboard movement, but the scoring method must be stated before the test.
+If a test gives only one overall accuracy number, take a short manual sample. Compare your text with the source character by character and group the mistakes: wrong key, missed capital, missing space, wrong punctuation. Do not copy an external test's answer key or another learner's details into your public files.
 
-Choose a pace that supports another clean repetition. For example, if the learner can type a sentence accurately but loses place when the paragraph becomes longer, divide the paragraph into two sections. Practise each section, then join them. If a learner completes a drill with no errors, increase the challenge by changing the passage or adding punctuation rather than asking them to strike keys harder.
+Keep drills short enough to repeat with attention. Five careful goes at a letter pair teach more than fifty while looking away. Reset your hands between sets. If a drill stays uncomfortable, adjust your position or ask the facilitator to check the finger assignment for your layout.
 
-## Practice Exercises
+## Access and pace notes
 
-1. Type the top-row sequence once with each hand alone, then with both hands.
-2. Type the bottom-row sequence slowly and name the finger for each key.
-3. Choose one weak key and create a 10-word drill with it.
-4. Type one Week 2 passage twice; compare errors and pacing notes.
-5. Type three sentences with capitals, commas and full stops.
-6. Take a three-minute test, then repeat one difficult line at half speed.
-7. Proofread a short paragraph and list corrections separately from the typing score.
+Typing practice should fit the learner. A different physical layout, a larger keyboard, an alternative input method or a modified hand position are all fine. Agree with the facilitator how to record progress so it reflects your real work, and never penalise an accommodation.
 
-## Weekly Assignment (Due Before Week 3)
+New to English spelling or punctuation? Keep language learning separate from keyboard technique. Practise familiar words first, then add new vocabulary in a separate exercise. A spelling slip is not a typing error when the exercise is about keyboard movement, but state the scoring method before the test.
 
-Submit a three-minute accuracy test aiming for 95% or higher, a five-key weak-key report with one drill per key, and the five-day practice log.
+## This week's build: your accuracy report
+
+A tidy package that proves clean typing:
+
+1. A three-minute accuracy test aiming for 95% or higher, with duration, method, WPM and accuracy recorded.
+2. A [weak-key report](/downloads/typing-skills/weak-key-report-template.md) of five keys or fewer, ranked by evidence, each with its own drill.
+3. The five-day [practice log](/downloads/typing-skills/typing-practice-log-template.csv).
+
+*Quick win: your three worst keys from the test become three ten-word drills you can reuse all week.*
+
+### Grading guide
 
 | Criterion | Weight |
 |---|---:|
@@ -127,12 +148,18 @@ Submit a three-minute accuracy test aiming for 95% or higher, a five-key weak-ke
 | Analysis of weak keys and useful drills | 30% |
 | Complete, honest practice log | 30% |
 
-**Definition of done**
+### Definition of done
 
 - [ ] The test duration, method, WPM and accuracy are recorded.
 - [ ] Five weak keys or fewer are ranked by evidence, not guesswork.
 - [ ] Each listed key has a specific practice drill.
 - [ ] The practice log covers five sessions.
+
+## Extra quick wins (optional)
+
+- Type the names of five Nigerian cities and proofread them.
+- Write one sentence using every letter you found hardest this week.
+- Beat your own clean-line record on a tricky passage, accuracy first.
 
 ## Mentoring Session Plan (60 minutes)
 
@@ -149,18 +176,18 @@ Submit a three-minute accuracy test aiming for 95% or higher, a five-key weak-ke
 
 - Stretching the whole hand instead of moving a finger.
 - Looking down every time a new row is used.
-- Trying to reach 95% by deleting evidence of errors.
-- Practising only easy letters and avoiding weak keys.
-- Comparing two sites whose correction and accuracy rules differ.
+- Chasing 95% by deleting evidence of errors.
+- Practising only easy letters and dodging weak keys.
+- Comparing two sites whose correction rules differ.
 - Ignoring fatigue or tension to finish a test.
 
 ## Facilitator Notes
 
 Have learners identify their own weak keys without public ranking. If a learner has an alternate keyboard layout, adapt the finger map and make sure the test passage uses characters available on that layout.
 
-## Self-Check Questions
+## Can you do these now?
 
-1. What should happen to a finger after it reaches a key away from home row?
+1. What should a finger do after it reaches a key away from home row?
 2. How do you turn a repeated error into a useful drill?
 3. Why should two test scores use the same scoring method before you compare them?
 4. What is the difference between practising a line and hiding a mistake?

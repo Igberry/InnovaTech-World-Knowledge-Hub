@@ -4,7 +4,7 @@ course: web-development
 order: 7
 week: 7
 phase: "JavaScript"
-summary: "Fetch data from real APIs with async/await, handle loading and errors, and persist data with localStorage."
+summary: "Pull live Yenagoa weather from a real API and make your cart remember itself between visits, then ship your second portfolio project."
 estimatedHours: 12
 tools: ["VS Code", "Chrome DevTools"]
 downloads:
@@ -14,15 +14,11 @@ downloads:
     href: "/downloads/web-development/week-07-menu-data.json"
 ---
 
-**Goal:** Fetch live data from real web APIs using `async/await`, handle loading and error states, and
-save data in the browser with `localStorage` - then ship **Portfolio Project 2**.
+**Goal:** Fetch live data from a real weather API with `async/await`, handle loading and error states, and
+save data in the browser with `localStorage`, then ship **Portfolio Project 2**. Your app starts talking to
+the outside world. You wire it all up yourself.
 
-This week your app talks to the outside world (a live weather service) and remembers things between
-visits (the cart). These are the skills that turn a static page into a real app.
-
-## Learning Objectives
-
-By the end of this week you can:
+## What you'll be able to do
 
 - Explain synchronous vs asynchronous code
 - Use promises and `async/await` with `try/catch`
@@ -30,21 +26,21 @@ By the end of this week you can:
 - Handle loading, empty and error states gracefully
 - Persist data with `localStorage` and split code into ES modules
 
-## Tools to Install This Week
+## Before you start (about 10 minutes)
 
-Nothing new. Serve your page with **Live Server** (fetch and modules need a server, not `file://`).
+- Nothing new to install, but serve your page with **Live Server** (fetch and modules need a server, not
+  `file://`).
+- Download the [Week 7 menu data (JSON)](/downloads/web-development/week-07-menu-data.json) to practise
+  reading JSON.
+- Warm-up (2 minutes): in the Console, run `fetch("https://jsonplaceholder.typicode.com/users/1").then(r =>
+  r.json()).then(console.log)`. You just pulled real data off the internet.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - See async with your own eyes
 
-- Read: **developer.mozilla.org** → "MDN Promises", "MDN Using fetch", "MDN async/await", "MDN Web Storage".
-- Learn: **javascript.info** → "Promises, async/await" and "Fetch".
-- Watch (search YouTube): *"Web Dev Simplified async await"* and *"The Net Ninja fetch API"*.
+**Why it matters:** some things (like fetching data) take time. Async code starts them without freezing the
+page.
 
-## Lesson 1: Synchronous vs asynchronous
-
-Most code runs **synchronously** - one line after another. But some things take time (fetching data over
-the internet). We don't want the page to freeze while waiting, so those run **asynchronously**: we start
-them, and get the result later.
+**Do this now:**
 
 ```js
 console.log("1");
@@ -53,110 +49,97 @@ console.log("3");
 // Prints: 1, 3, then 2 - the timer runs later, without blocking.
 ```
 
-## Lesson 2: Promises → async/await
+**You've got it when:** you can explain why "2" prints last even though it's written second.
 
-A **promise** represents a value that will arrive later (or fail). Modern code uses `async/await` to
-work with promises in a readable, top-to-bottom style:
+## Try it 2 - Fetch data with async/await
+
+**Why it matters:** `async/await` is how modern code reads data from the web in a clean, top-to-bottom way.
+
+**Do this now:**
 
 ```js
-// A function marked `async` can use `await`
 async function getData() {
   try {
     const response = await fetch("https://jsonplaceholder.typicode.com/users/1");
-    if (!response.ok) {
-      throw new Error(`Request failed: ${response.status}`);
-    }
+    if (!response.ok) throw new Error(`Request failed: ${response.status}`);
     const data = await response.json();
     console.log(data.name);
   } catch (error) {
     console.error("Something went wrong:", error.message);
   }
 }
-
 getData();
 ```
 
-- `await` pauses inside the `async` function until the promise resolves, then gives you the value.
-- Always wrap network calls in **`try/catch`** so failures don't crash your app.
-- `response.ok` is `true` for success (status 200–299); check it before reading the body.
+**You've got it when:** the person's name logs to the console. Always wrap network calls in `try/catch`, and
+check `response.ok` (true for status 200 to 299) before reading the body.
 
-## Lesson 3: fetch, JSON, HTTP
+## Try it 3 - Build a live Yenagoa weather widget
 
-- **`fetch(url)`** makes an HTTP request and returns a promise for a `Response`.
-- **JSON** (JavaScript Object Notation) is the common data format - `response.json()` parses it into
-  JavaScript objects/arrays.
-- **HTTP methods:** `GET` (read, the default), `POST` (create), `PUT`/`PATCH` (update), `DELETE`.
-- **Status codes:** `200` OK, `201` Created, `400` Bad Request, `401` Unauthorized, `404` Not Found,
-  `500` Server Error.
+**Why it matters:** this is the headline feature, real, live data on your own page, and it teaches the three
+UI states every app needs.
 
-> **Important:** This week use only **free, keyless** public APIs. Never put a secret API key in
-> front-end code - anyone can read it. Keys come later (Week 11) and live in environment variables.
-
-## Lesson 4: A real API - Yenagoa weather
-
-**Open-Meteo** is a free weather API that needs no key. Yenagoa is about latitude `4.92`, longitude
-`6.26`. **Check the current parameter names on `open-meteo.com/en/docs` before you rely on them** - APIs
-change.
+**Do this now:** (Open-Meteo is free and needs no key. Check the current parameter names on
+`open-meteo.com/en/docs`, APIs change.)
 
 ```js
 async function getYenagoaWeather() {
   const url =
     "https://api.open-meteo.com/v1/forecast?latitude=4.92&longitude=6.26&current=temperature_2m";
   const statusEl = document.querySelector("#weather");
-  statusEl.textContent = "Loading weather…";
+  statusEl.textContent = "Loading weather...";        // 1. loading
   try {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`Weather request failed: ${res.status}`);
     const data = await res.json();
-    const temp = data.current.temperature_2m;
-    statusEl.textContent = `Yenagoa right now: ${temp}°C`;
+    statusEl.textContent = `Yenagoa right now: ${data.current.temperature_2m} degrees C`; // 2. success
   } catch (error) {
-    statusEl.textContent = "Couldn't load the weather. Please try again later.";
+    statusEl.textContent = "Couldn't load the weather. Please try again later.";          // 3. error
     console.error(error);
   }
 }
 getYenagoaWeather();
 ```
 
-Notice the **three states**: loading ("Loading weather…"), success (the temperature), and error (a
-friendly message). Real apps always handle all three. **JSONPlaceholder**
-(`jsonplaceholder.typicode.com`) is a good keyless API for pure practice.
+1. Now force the error path: open DevTools, go to Network, set it to **Offline**, and reload.
 
-## Lesson 5: localStorage - remember things
+**You've got it when:** your widget shows the live temperature, and shows a friendly message when you go
+offline. Real apps always handle all three states: loading, success, error.
 
-`localStorage` saves small amounts of data in the browser that survive a page reload or closing the tab.
-It stores **strings only**, so use `JSON.stringify` to save and `JSON.parse` to read.
+## Try it 4 - Make the cart remember itself
+
+**Why it matters:** `localStorage` lets your app keep data between visits, so the cart survives a reload.
+
+**Do this now:**
 
 ```js
-// Save the cart
 function saveCart(cart) {
   try {
     localStorage.setItem("freshbites:cart", JSON.stringify(cart));
-  } catch (e) {
-    /* storage can be full or blocked - ignore safely */
-  }
+  } catch (e) { /* storage can be full or blocked, ignore safely */ }
 }
 
-// Load the cart (or an empty array)
 function loadCart() {
   try {
     return JSON.parse(localStorage.getItem("freshbites:cart")) || [];
-  } catch {
-    return [];
-  }
+  } catch { return []; }
 }
 ```
 
-- Namespace your keys (`freshbites:cart`) so they don't clash.
-- Always wrap reads/writes in `try/catch` - storage can be disabled or full.
+1. Add an item, reload the page, and confirm it's still there.
 
-> **Note:** `localStorage` is per-browser and per-device, and it isn't secure storage - never keep
-> passwords or secrets there. For data that must follow a user across devices, you need a database
-> (Week 11).
+**You've got it when:** your cart survives a page refresh. `localStorage` stores strings only, so use
+`JSON.stringify` to save and `JSON.parse` to read, and namespace your keys (`freshbites:cart`).
 
-## Lesson 6: ES modules
+> **Note:** `localStorage` is per-browser and per-device, and isn't secure, never keep passwords there. For
+> data that follows a user across devices, you need a database (Week 11).
 
-Split your code into files with `import`/`export`:
+## Try it 5 - Split code into modules
+
+**Why it matters:** modules keep code organised and are the standard everywhere, including the React you
+meet next.
+
+**Do this now:**
 
 ```js
 // menu-data.js
@@ -176,33 +159,29 @@ Load the entry file as a module:
 <script type="module" src="app.js"></script>
 ```
 
-Modules keep code organised and are the standard everywhere, including the tooling and React you'll meet
-next.
+**You've got it when:** your menu data lives in its own file and `app.js` imports it cleanly.
 
-## Practice Exercises
+### Watch out for
 
-1. **Easy:** Fetch one user from JSONPlaceholder and log their name.
-2. **Easy:** Add loading and error text around a fetch.
-3. **Medium:** Fetch and display Yenagoa's current temperature.
-4. **Medium:** Save and restore the cart with `localStorage`.
-5. **Medium:** Split your menu data and helpers into a module and import them.
-6. **Stretch:** Show a friendly "nothing found" message when a filter returns no items.
-7. **Stretch:** Persist the user's last selected category filter in `localStorage`.
+- Forgetting `await`, so you log a pending Promise instead of the value
+- Reading `response.json()` without checking `response.ok`
+- Testing over `file://`, fetch and modules need Live Server
+- Putting a secret API key in front-end code, never do this; this week use only keyless public APIs
 
-## Weekly Assignment - Portfolio Project 2 (Due Before Week 8)
+## This week's build: Portfolio Project 2
 
-Ship the **interactive Fresh Bites app** - your second portfolio piece.
+Ship the **interactive Fresh Bites app**, your second portfolio piece:
 
-Requirements:
-
-1. Menu with filter + search (from Week 6).
+1. Menu with filter and search (from Week 6).
 2. Cart saved in `localStorage` (survives reload).
 3. A validated order/reservation form with a success message.
 4. A **live Yenagoa weather widget** (Open-Meteo) with loading and error states.
 5. Code split into ES modules.
 6. Live on GitHub Pages, with a README (screenshots, live link, what you learned).
 
-**Grading guide (100%):**
+*Tip: the weather widget is the thing people remember when they see your portfolio. Make it tidy.*
+
+### Grading guide
 
 | Criteria | % |
 |---|---|
@@ -212,7 +191,7 @@ Requirements:
 | Form validation; ES modules used | 20 |
 | Deployed; README; good commits | 20 |
 
-**Definition of done:**
+### Definition of done
 
 - [ ] Live on GitHub Pages; link in README
 - [ ] Weather widget shows loading, success and error states
@@ -220,25 +199,31 @@ Requirements:
 - [ ] Code is split into modules
 - [ ] README has screenshots, live link, and notes
 
+## Extra quick wins (optional)
+
+- Show a friendly "nothing found" message when a filter returns no items.
+- Persist the user's last selected category filter in `localStorage`.
+- Fetch and display a second piece of weather data (such as wind speed) from Open-Meteo.
+
 ## Mentoring Session Plan (90 min)
 
 | Time | Activity |
 |---|---|
-| 0–10 | Review the mid-course checkpoint results and Week 6 app |
-| 10–35 | Live: `fetch` + `async/await` + `try/catch`; build the weather widget together |
-| 35–55 | Live: save/restore the cart with `localStorage` |
-| 55–80 | Pair work: student adds persistence and error states |
-| 80–90 | Brief Portfolio Project 2 |
+| 0-10 | Review the mid-course checkpoint results and Week 6 app |
+| 10-35 | Live: `fetch` + `async/await` + `try/catch`; build the weather widget together |
+| 35-55 | Live: save/restore the cart with `localStorage` |
+| 55-80 | Pair work: student adds persistence and error states |
+| 80-90 | Brief Portfolio Project 2 |
 
 ## Facilitator Notes
 
 The reliable confusions: forgetting `await` (so they log a pending Promise), reading `response.json()`
 without checking `response.ok`, and testing over `file://` (fetch/modules need Live Server). Make them
-simulate a failure (turn off wifi, or use DevTools → Network → Offline) so they *see* the error path and
-build the habit of handling it. Verify the Open-Meteo parameter names against the live docs in session,
-since API shapes change.
+simulate a failure (turn off wifi, or use DevTools, Network, Offline) so they see the error path and build
+the habit of handling it. The live weather widget is the motivating moment, get it working early in the
+session. Verify the Open-Meteo parameter names against the live docs in session, since API shapes change.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What does `await` do inside an `async` function?
 2. Why wrap `fetch` calls in `try/catch`?

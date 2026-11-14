@@ -4,7 +4,7 @@ course: "data-analysis"
 order: 6
 week: 6
 phase: "Databases"
-summary: "Combine tables and answer harder business questions, then prove your skills in the mid-course checkpoint."
+summary: "Join tables, rank customers, and track growth month by month - the queries that separate a real analyst from a beginner - then prove it in the mid-course checkpoint."
 estimatedHours: 10
 tools: ["SQLite", "DB Browser for SQLite"]
 downloads:
@@ -15,55 +15,47 @@ downloads:
   - label: "Products CSV"
     href: "/downloads/data-analysis/products.csv"
 ---
-**Goal:** Combine tables and answer harder business questions, then prove your skills in the mid-course checkpoint.
+**Goal:** Combine tables and answer the harder questions a business really asks - top customers, revenue by category, month-on-month growth - then show what you can do in the mid-course checkpoint and put your first SQL project on GitHub.
 
-## Learning Objectives
+## What you'll be able to do
 - Combine tables with `INNER JOIN` and `LEFT JOIN`
 - Write subqueries and CTEs (`WITH`)
 - Use window functions: `ROW_NUMBER`, `RANK`, running totals, `LAG`
-- Publish work on GitHub
+- Publish your work on GitHub
 
-## Pre-Session Videos (about 2.5 hours)
-- Search YouTube: **"Alex The Analyst SQL joins"**
-- Search YouTube: **"SQL window functions explained for beginners"** (Alex The Analyst or freeCodeCamp)
-- Search YouTube: **"SQL CTE explained"**
-- Interactive: **SQLBolt** lessons on JOINs (6 to 12); **Mode SQL Tutorial** (intermediate and advanced sections)
+## Before you start (about 10 minutes)
+- Open `naijamart.db` in DB Browser with your three tables.
+- Make sure you have your `data-analysis-portfolio` repo from the [Setup Guide](/courses/data-analysis/00-setup-guide/).
+- Warm-up: run one query from last week to confirm the data is still there.
+- Optional: do **SQLBolt** JOIN lessons (6 to 12) or watch five minutes of *"Alex The Analyst SQL joins"*.
 
----
+## Try it 1 - Join the tables
 
-## Lesson 1: Why Joins?
-Data is split across tables to avoid repetition. `orders` has `customer_id` but not the customer's name. A **join** connects tables through a shared key.
+**Why it matters:** `orders` has a `customer_id`, not a name. A join brings the name in so your report reads like English.
 
-```
-orders.customer_id  ───►  customers.customer_id
-orders.product_id   ───►  products.product_id
-```
-
-## Lesson 2: Joins
+**Do this now:**
 ```sql
--- INNER JOIN: only rows with a match in both tables
 SELECT o.order_id, c.customer_name, p.product_name, o.quantity
 FROM orders o
 INNER JOIN customers c ON o.customer_id = c.customer_id
 INNER JOIN products  p ON o.product_id  = p.product_id;
-
--- LEFT JOIN: keep ALL rows from the left table, even without a match
--- (find customers who never ordered)
+```
+Then find customers who never ordered, with a LEFT JOIN:
+```sql
 SELECT c.customer_id, c.customer_name, COUNT(o.order_id) AS orders
 FROM customers c
 LEFT JOIN orders o ON c.customer_id = o.customer_id
 GROUP BY c.customer_id, c.customer_name
 HAVING COUNT(o.order_id) = 0;
 ```
-| Join | Returns |
-|---|---|
-| `INNER JOIN` | Only matching rows |
-| `LEFT JOIN` | All left rows + matches (NULL if none) |
-| `RIGHT / FULL JOIN` | Not supported in older SQLite; use LEFT and swap the tables |
 
-**Aliases (`o`, `c`, `p`)** keep queries readable. Always prefix columns when two tables share a name.
+**You've got it when:** your orders show real names, and you can list customers with zero orders. Remember: INNER keeps only matches, LEFT keeps all left-table rows.
 
-**Revenue by category:**
+## Try it 2 - Answer a real question with a join
+
+**Why it matters:** "which category earns most?" needs data from two tables at once.
+
+**Do this now:**
 ```sql
 SELECT p.category,
        ROUND(SUM(o.quantity * o.unit_price * (1 - o.discount_pct/100.0)), 0) AS net_revenue
@@ -74,22 +66,16 @@ GROUP BY p.category
 ORDER BY net_revenue DESC;
 ```
 
----
+**You've got it when:** you get one revenue figure per category, highest first.
 
-## Lesson 3: Subqueries
-A query inside a query:
-```sql
--- Orders above the overall average price
-SELECT * FROM orders
-WHERE unit_price > (SELECT AVG(unit_price) FROM orders);
-```
+## Try it 3 - Tidy complex queries with a CTE
 
-## Lesson 4: CTEs (Common Table Expressions)
-A CTE is a named temporary result that makes complex queries readable:
+**Why it matters:** a CTE (a named temporary result) makes a scary query readable. Analysts use them constantly.
+
+**Do this now - top 10 customers by spend:**
 ```sql
 WITH customer_totals AS (
-    SELECT customer_id,
-           COUNT(*) AS orders,
+    SELECT customer_id, COUNT(*) AS orders,
            SUM(quantity * unit_price) AS spend
     FROM orders
     WHERE status = 'Completed'
@@ -101,15 +87,15 @@ JOIN customers c ON c.customer_id = ct.customer_id
 ORDER BY ct.spend DESC
 LIMIT 10;
 ```
-Chain multiple CTEs with commas: `WITH a AS (...), b AS (...) SELECT ...`
 
----
+**You've got it when:** you get a clean top-10 table with names and cities.
 
-## Lesson 5: Window Functions
-Windows calculate across related rows **without collapsing them**.
+## Try it 4 - Rank and compare with window functions
 
+**Why it matters:** windows let you rank rows and compare each month to the last without losing detail. This impresses interviewers.
+
+**Do this now - rank customers within each city:**
 ```sql
--- Rank customers by spend within each city
 WITH spend AS (
     SELECT o.customer_id, c.city, SUM(o.quantity * o.unit_price) AS spend
     FROM orders o JOIN customers c ON o.customer_id = c.customer_id
@@ -119,16 +105,7 @@ SELECT city, customer_id, spend,
        RANK() OVER (PARTITION BY city ORDER BY spend DESC) AS rank_in_city
 FROM spend;
 ```
-Pattern: `FUNCTION() OVER (PARTITION BY group ORDER BY column)`
-
-| Function | Use |
-|---|---|
-| `ROW_NUMBER()` | Unique sequence (1, 2, 3…) |
-| `RANK()` / `DENSE_RANK()` | Ranking with ties |
-| `SUM() OVER (ORDER BY …)` | Running total |
-| `LAG(col)` / `LEAD(col)` | Previous / next row value |
-
-**Month-on-month growth:**
+Then month-on-month growth with `LAG`:
 ```sql
 WITH monthly AS (
     SELECT strftime('%Y-%m', order_date) AS month,
@@ -137,60 +114,72 @@ WITH monthly AS (
     GROUP BY month
 )
 SELECT month, ROUND(revenue,0) AS revenue,
-       ROUND(LAG(revenue) OVER (ORDER BY month),0) AS prev_month,
        ROUND(100.0 * (revenue - LAG(revenue) OVER (ORDER BY month))
              / LAG(revenue) OVER (ORDER BY month), 1) AS growth_pct
 FROM monthly;
 ```
-**Running total:** `SUM(revenue) OVER (ORDER BY month)`.
-**Top product per city:** `ROW_NUMBER() OVER (PARTITION BY city ORDER BY revenue DESC)` then filter `= 1` in an outer query.
 
-> Window functions require SQLite 3.25 or newer. DB Browser's current versions support this.
+**You've got it when:** you can rank customers per city and read each month's growth percentage. The pattern is `FUNCTION() OVER (PARTITION BY group ORDER BY column)`.
 
----
+## Try it 5 - Publish to GitHub
 
-## Lesson 6: GitHub for Portfolios
-1. Open your `data-analysis-portfolio` repository.
-2. **Add file → Upload files** and upload `week5_queries.sql` and `week6_business_questions.sql`.
-3. Create `README.md` describing the project: dataset, the questions asked, and two or three key findings.
-4. Make the repo **public**. Copy the link and add it to your LinkedIn.
+**Why it matters:** code that is not on GitHub does not count to an employer.
 
----
+**Do this now:**
+1. Open your `data-analysis-portfolio` repo. Use **Add file -> Upload files**.
+2. Upload `week5_queries.sql` and `week6_business_questions.sql`.
+3. Add a `README.md`: the dataset, the questions you asked, and two or three key findings.
+4. Make the repo public and copy the link into your LinkedIn.
 
-## Practice Exercises
-1. List each order with customer name, product name, and category.
-2. Which 5 customers spent the most? Which city are they in?
-3. Which customer **segment** (Individual, Small Business, Institution) has the highest average order value?
-4. Which products were never returned? Which have the highest return rate?
-5. Show month-on-month revenue growth.
-6. What is the top-selling product in each city?
-7. How many customers have placed more than one order?
+**You've got it when:** anyone with the link can read your queries and your README.
 
----
+## This week's build: twelve business questions, answered
 
-## Weekly Assignment (Due Before Week 7)
-Create **`week6_business_questions.sql`** answering **12 business questions** (mix of joins, CTEs, and windows). Each query needs a comment with the question and one sentence of interpretation. Upload to GitHub with a README.
+Create `week6_business_questions.sql` answering **12 business questions** using a mix of joins, CTEs, and windows. Each query gets a comment with the question and one sentence of interpretation. Upload it to GitHub with your README.
 
----
+*Shareable win: your first public SQL project. Pin the repo on LinkedIn.*
+
+### Grading guide
+
+| Criteria | Weight |
+|---|---|
+| Correctness | 50% |
+| Variety (joins, CTEs, windows) | 25% |
+| Clear comments and interpretation | 15% |
+| GitHub presentation | 10% |
+
+### Definition of done
+
+- [ ] 12 queries mixing joins, CTEs, and windows
+- [ ] Each has a question and a one-line interpretation
+- [ ] Uploaded to GitHub with a README
+- [ ] Repo is public and linked on LinkedIn
 
 ## Mid-Course Checkpoint (Excel + SQL Practical)
-**Format:** During the mentoring session (or an agreed time), 90 minutes, open-book (notes allowed, no copying).
+
+**Format:** during the mentoring session (or an agreed time), 90 minutes, open-book (notes allowed, no copying).
 - **Part A, Excel (30 min):** clean a small messy extract (about 100 rows) and build a pivot answering two questions.
 - **Part B, SQL (45 min):** answer 6 questions on a new small database (2 joins, 2 aggregations, 1 CTE, 1 window).
-- **Part C, Explain (15 min):** the facilitator picks two answers; the student explains the logic aloud.
+- **Part C, Explain (15 min):** the facilitator picks two answers; you explain the logic aloud.
 
-**Scoring (15% of the course grade):** Excel 30% · SQL 50% · Explanation 20%.
+**Scoring (15% of the course grade):** Excel 30%, SQL 50%, Explanation 20%.
 
----
+## Extra quick wins (optional)
+- A running total of revenue by month: `SUM(revenue) OVER (ORDER BY month)`.
+- The top product in each city: `ROW_NUMBER() OVER (PARTITION BY city ORDER BY revenue DESC)`, then keep the rows where it equals 1.
 
 ## Mentoring Session Plan (90 min, Week 6)
 | Time | Activity |
 |---|---|
-| 0–10 min | Review Week 5 queries; show the best one |
-| 10–40 min | Draw joins using two small paper tables, then write the SQL live |
-| 40–65 min | CTE and window function walkthrough using a business scenario |
-| 65–80 min | GitHub setup and upload |
-| 80–90 min | Checkpoint instructions and schedule (the checkpoint can run in a separate sitting) |
+| 0-10 min | Review Week 5 queries; show the best one |
+| 10-40 min | Draw joins with two small paper tables, then write the SQL live |
+| 40-65 min | CTE and window walkthrough on a business scenario |
+| 65-80 min | GitHub setup and upload together |
+| 80-90 min | Checkpoint instructions and schedule |
+
+## Facilitator Notes
+
+Teach joins physically first: two small paper tables with a shared key, slid together, before any SQL. The LEFT JOIN "customers who never ordered" example makes the difference from INNER tangible. CTEs land best framed as "name the hard part, then use the name". For window functions, stress that they keep every row rather than collapsing like GROUP BY - that is the mental shift. Note that window functions need SQLite 3.25+ (current DB Browser is fine). The checkpoint can run in a separate sitting if time is tight; keep it open-book but insist the explanation is in the student's own words.
 
 ## Self-Check Questions
 1. When would a `LEFT JOIN` give a different result from an `INNER JOIN`?

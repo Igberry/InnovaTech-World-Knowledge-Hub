@@ -4,7 +4,7 @@ course: artificial-intelligence
 order: 3
 week: 3
 phase: "Applying AI"
-summary: "Use AI to draft, edit, summarise, and translate real communication, while keeping your own voice and checking every fact."
+summary: "Beat the blank page: draft, edit, summarise, and translate real messages with AI - while keeping your own voice and catching every fact it slips in."
 estimatedHours: 8
 tools: ["An AI chat assistant", "A document"]
 downloads:
@@ -14,96 +14,95 @@ downloads:
     href: "/downloads/artificial-intelligence/fact-check-worksheet.md"
 ---
 
-**Goal:** Use AI to write and communicate better, drafting, editing, summarising, and translating, while
-keeping your own voice, your judgement, and the facts intact.
+**Goal:** This week you'll write real things faster - an email, a summary, a message in two tones - and learn
+to keep them sounding like *you*, not like a robot. You write *with* AI, not let it write *for* you. Mostly
+doing.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
+- Draft and improve emails, messages, and documents with AI
+- Edit and proofread your own writing without losing your voice
+- Summarise long text accurately, with nothing invented
+- Shift tone and translate, and know when to stop and get a human check
 
-- Use AI to draft and improve emails, messages, and documents
-- Edit and proofread your own writing with AI help
-- Summarise long text accurately, without adding things that are not there
-- Use AI to translate and adjust tone, and know its limits
-- Keep your own voice and verify any facts in AI-written text
+## Before you start (about 10 minutes)
 
-## Tools / Accounts Needed This Week
+- Open your AI chat assistant and a document. Have one real email or message you've written nearby.
+- Warm-up: paste that message and ask *"make this clearer and shorter."* Keep both versions - you'll use them in
+  Try it 1.
 
-- Your AI chat assistant
-- The [prompt pattern library](/downloads/artificial-intelligence/prompt-pattern-library.md) and
-  [fact-check worksheet](/downloads/artificial-intelligence/fact-check-worksheet.md)
+## Try it 1 - Draft past the blank page
 
-## Pre-Session Resources (about 2 hours)
+**Why it matters:** AI is brilliant at getting you a first draft so you're editing, not staring at nothing.
 
-- Read: search the web for "how to use AI to improve your writing" and read one practical guide.
-- Try: take an email you have written and ask AI to make it clearer and shorter. Compare.
-- Reflect: think about your own writing voice. What makes a message sound like you?
+**Do this now:**
+1. Use a four-part prompt (Week 2): *"You are helping me write a polite email. Write to a supplier asking when
+   our order will arrive, as it's now two days late. Short, professional, friendly, no more than five sentences."*
+2. Read the draft and fix anything wrong.
+3. Rewrite one line so it sounds like you'd actually say it.
 
-## Lesson 1: Drafting with AI
+**You've got it when:** you have a sendable draft you shaped, not one you copied blindly.
 
-AI is excellent at getting you past the blank page. Give it the four-part prompt (Week 2) and let it produce a
-first draft you then shape.
+## Try it 2 - Use AI as a tireless editor
 
-**Example prompt:**
-> You are helping me write a polite email [role]. Write an email to a supplier [task] asking when our order
-> will arrive, as it is now two days late [details]. Keep it short, professional, and friendly; no more than
-> five sentences [format].
+**Why it matters:** AI will proofread and sharpen your writing for as long as you like, and it teaches you to
+write better yourself.
 
-The draft is a starting point. Read it, fix anything wrong, and make it sound like you. The goal is not to let
-AI write *for* you, but to write *with* you, faster.
+**Do this now - try each of these on something you wrote:**
+1. *"Fix grammar and spelling, but keep my wording where you can."*
+2. *"Make this clearer and shorter without changing the meaning."*
+3. *"What are the three weakest parts of this message?"* - then you decide what to fix.
+4. *"Suggest a stronger opening line."*
 
-## Lesson 2: Editing and proofreading
-
-AI is a tireless editor. You can ask it to:
-
-- "Fix grammar and spelling, but keep my wording where you can."
-- "Make this clearer and shorter without changing the meaning."
-- "Point out anything confusing or unclear."
-- "Suggest a stronger opening line."
-
-A powerful move is to ask for **feedback** before changes: "What are the three weakest parts of this message?"
-Then you decide what to act on. This keeps you in control and teaches you to write better yourself.
+**You've got it when:** you've improved a message using AI's feedback while staying in control of the final words.
 
 > **Tip:** When editing, ask AI to keep your words where possible. Otherwise it may rewrite everything in a
 > generic voice and lose what makes your writing yours.
 
-## Lesson 3: Summarising accurately
+## Try it 3 - Summarise without inventing
 
-AI can turn a long document into a short summary, which saves real time. The danger is that it may add or
-distort things. Prevent that in the prompt:
+**Why it matters:** AI can shrink a long text in seconds, but it may quietly add or twist a detail. The prompt
+is your safeguard.
 
-> Summarise the text below into five bullet points. Use only what is in the text. Do not add facts, opinions,
-> or anything not written there.
->
-> Text: [paste]
+**Do this now:**
+1. Paste any long paragraph or article and send: *"Summarise the text below into five bullet points. Use only
+   what is in the text. Do not add facts, opinions, or anything not written there."*
+2. Read the summary against the original and hunt for anything it added.
+3. If you find an invented detail, note it - that's the exact risk this lesson is about.
 
-Always read the summary against the original for anything important. A summary that invents a detail is worse
-than no summary.
+**You've got it when:** you've checked a summary line by line against its source.
 
-## Lesson 4: Translation and tone
+> **Warning:** A summary that invents a detail is worse than no summary. Always read it against the original for
+> anything that matters.
 
-AI can translate and shift tone, which is useful in a multilingual place. But treat it with care:
+## Try it 4 - Shift tone and translate (with care)
 
-- **Translation** is often good for everyday text, but can miss nuance, idioms, or formal/legal wording. For
-  anything important or official, have a fluent human check it.
-- **Tone** shifts work well: "make this more formal", "make this warmer", "rewrite for a younger audience."
+**Why it matters:** in a multilingual place, tone and translation are everyday wins - but they have limits.
+
+**Do this now:**
+1. Take one message and make two versions: *"make this more formal"* and *"make this warmer."* Compare them.
+2. Translate a short, everyday message into another language you know.
+3. If you can, ask a fluent speaker to check it - and notice any nuance the AI missed.
+
+**You've got it when:** you can produce two clearly different tones and you know not to trust AI translation for
+anything official.
 
 > **Warning:** Do not rely on AI translation for legal, medical, or safety-critical text without a qualified
 > human check. A small mistranslation can change the meaning entirely.
 
-## Lesson 5: Keep your voice and the facts
+## Make it yours - keep your voice and the facts
 
 Two habits keep AI writing honest and yours:
 
-- **Your voice:** read everything aloud. If it does not sound like you, adjust it. Add a personal detail or
-  phrase. Generic AI text is easy to spot and easy to ignore.
+- **Your voice:** read everything aloud. If it doesn't sound like you, adjust it and add a personal phrase.
+  Generic AI text is easy to spot and easy to ignore.
 - **The facts:** if the AI added any claim, number, name, or link, verify it with the
   [fact-check worksheet](/downloads/artificial-intelligence/fact-check-worksheet.md) before you send or publish.
 
 > **Privacy:** Do not paste private messages, client information, or confidential documents into an AI tool to
 > "improve" them. Rewrite with the sensitive parts removed or changed.
 
-### Common mistakes
+### Watch out for
 
 - Sending AI text without reading it (and missing an error or a wrong fact)
 - Letting AI flatten your voice into generic text
@@ -111,24 +110,16 @@ Two habits keep AI writing honest and yours:
 - Relying on AI translation for important or official text
 - Pasting private or confidential content into the tool
 
-## Practice Exercises
+## This week's build: a communication pack you can reuse
 
-1. Draft an email with AI using a four-part prompt, then edit it into your own voice.
-2. Ask AI for the three weakest parts of something you wrote, then improve them yourself.
-3. Summarise a long article into five bullets with the "use only the text" rule; check it against the original.
-4. Translate a short message, then check it with a fluent speaker if you can.
-5. Take one message and produce a formal and a friendly version.
-6. Find and verify one fact that an AI added to a draft.
-7. Rewrite a sensitive message safely by removing identifying details before using AI.
-
-## Weekly Assignment (Due Before Week 4)
-
-Produce a **communication pack**, each piece showing your editing and checking:
+Produce a small pack of real pieces, each showing your editing and checking:
 
 1. One **email or message** drafted with AI and then edited into your own voice (show both versions)
 2. One **accurate summary** of a longer text, with a note confirming you checked it against the original
-3. One piece shown in **two tones** (formal and friendly)
+3. One message shown in **two tones** (formal and friendly)
 4. A short **reflection**: where AI helped, where you had to fix or verify something
+
+*Tip: use messages you genuinely need to send this week, so the pack does real work for you.*
 
 ### Grading guide
 
@@ -145,6 +136,12 @@ Produce a **communication pack**, each piece showing your editing and checking:
 - [ ] Summary with a note that you checked it against the original
 - [ ] Two clearly different tone versions
 - [ ] A reflection on help, fixes, and any fact you verified
+
+## Extra quick wins (optional)
+
+- Ask AI to turn a tangled paragraph into clear steps, then judge the result.
+- Rewrite a sensitive message safely by removing identifying details first, then improve it.
+- Find and verify one fact an AI added to a draft, and record how you checked it.
 
 ## Mentoring Session Plan (90 minutes)
 
@@ -163,7 +160,7 @@ beats sending raw AI text. Run a summary accuracy drill with a text that the AI 
 see the risk. Reinforce that private or confidential text must not be pasted in, and that any fact AI adds must
 be checked. Celebrate writing that sounds human and specific.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What does it mean to write "with" AI rather than letting it write "for" you?
 2. How do you prompt for a summary that will not add things that are not in the text?

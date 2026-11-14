@@ -4,7 +4,7 @@ course: virtual-assistant
 order: 3
 week: 3
 phase: "Core Skills"
-summary: "Offer basic social media, admin, and customer-support services, and send your first three real applications."
+summary: "Build real deliverables, a Canva post, a content calendar, an expense tracker, service replies, then send your first three live applications."
 estimatedHours: 7
 tools: ["Canva", "Google Workspace"]
 downloads:
@@ -20,18 +20,24 @@ downloads:
     href: "/downloads/virtual-assistant/role-play-scenarios.md"
 ---
 
-**Goal:** Offer basic social media, admin and customer-support services, and send your first 3 practice
-applications.
+**Goal:** Build the actual things clients ask VAs to make, a graphic, a content calendar, an expense tracker,
+customer-service replies, and send your first three real applications. Every step produces something you can
+show.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
-
-- Schedule content and make a simple graphic in Canva
+- Make a clean graphic and schedule content
 - Build a content calendar and an expense tracker
-- Run advanced inbox and calendar management
-- Use a basic CRM and write professional customer-service replies
+- Triage an inbox and manage a busy calendar
+- Write professional customer-service replies
 - Send and log your first three real applications
+
+## Before you start (about 10 minutes)
+
+- Create a free Canva account and open the
+  [content calendar template](/downloads/virtual-assistant/content-calendar-template.csv).
+- Warm-up: think of one small Nigerian business you know (a caterer, a thrift store, a barber) and jot three
+  things they could post this week. You'll turn these into a real calendar below.
 
 ## How This Week Runs
 
@@ -42,70 +48,87 @@ By the end of this week you can:
 | Session B (Teaching + Practice) | Day 3 | 75 min | Your Week 2 profiles (to start applying after) |
 | Session C (Workshop/Review) | Day 5 | 60 to 75 min | Prepared replies to the [role-play scenarios](/downloads/virtual-assistant/role-play-scenarios.md) |
 
-## Session A (Teaching, Day 1): Social Media and Content Support Live Demo
+## Try it 1 - Make a social post in Canva
 
-A live demo you follow along with:
+**Why it matters:** "can you make us a quick graphic?" is one of the most common first tasks a client hands a VA.
 
-- **Content scheduling tools:** Buffer, Meta Business Suite, and Later, what they do and how clients use
-  them to plan posts ahead.
-- **Build a Canva graphic together**, a simple, clean social post from a template.
-- **Build a content calendar** using the [template](/downloads/virtual-assistant/content-calendar-template.csv),
-  planning a week of posts (date, platform, post type, caption idea, visual, status).
+**Do this now:**
+1. In Canva, open a social-post template and swap in text for the small business from your warm-up.
+2. Keep it clean: one message, readable text, brand-style colours.
+3. Download it and look at it as a client would, would you post this?
 
-*Learner action:* during the session, build a **1-week sample content calendar** and one Canva graphic.
+**You've got it when:** you have one simple, clean graphic you'd be happy to send a client.
 
-## Quick Reference (Day 2): Light Bookkeeping Basics
+## Try it 2 - Plan a week of content
 
-**What "light bookkeeping" means for a VA:** simple money-tracking tasks, not accounting. Think recording
-expenses and income, organising receipts, and keeping a tidy spreadsheet. You do **not** need an
-accounting background; you need to be careful and consistent.
+**Why it matters:** clients pay VAs to think ahead so their page never goes quiet.
 
-**A sample expense tracker layout** (see the [template](/downloads/virtual-assistant/expense-tracker-template.csv)):
-date, category, description, amount, payment method, notes. Keep income and expenses in the same sheet so a
-client can see the picture at a glance.
+**Do this now - in the content calendar template, plan one week of posts:**
+1. Fill in date, platform, post type, caption idea, visual, and status for each.
+2. Note which tool a client might schedule with: Buffer, Meta Business Suite, or Later.
+3. Aim for a realistic mix, not seven sales posts in a row.
 
-Prepare: skim the expense tracker so you can build your own in Session B.
+**You've got it when:** you have a 1-week content calendar a client could run with.
 
-## Session B (Teaching + Practice, Day 3): Inbox/Calendar Management + Customer Service and CRM
+## Try it 3 - Set up light bookkeeping
 
-- **Advanced inbox triage** and **templated responses:** the four actions (do, delegate, defer,
-  delete/archive), labels, and saved replies for speed.
-- **Complex calendar management (live demo):** multiple attendees, time zones, buffers, and recurring
-  events.
-- **Basic CRM tools:** a CRM tracks a client's customers and leads. See the **HubSpot free tier**, a
-  **Notion CRM**, and a simple **spreadsheet CRM**, pick up any client's system quickly.
-- **Professional customer-service tone and scripts** using the
-  [customer-service templates](/downloads/virtual-assistant/customer-service-templates.md).
+**Why it matters:** "light bookkeeping" is simple money-tracking, not accounting, and many small clients
+badly need it. You need care and consistency, not an accounting background.
 
-*Learner action:* draft **three customer-service response templates** and a **sample expense tracker**.
+**Do this now:**
+1. Open the [expense tracker template](/downloads/virtual-assistant/expense-tracker-template.csv).
+2. Add a few sample rows: date, category, description, amount, payment method, notes.
+3. Keep income and expenses in the same sheet so a client sees the picture at a glance.
 
-## Session C (Workshop/Review, Day 5): Role-Play Lab, Real Client Scenarios
+**You've got it when:** you have a tidy tracker that shows money in and money out clearly.
 
-The mentor plays the client across three live scenarios (prepare your replies beforehand using the
-[role-play scenarios](/downloads/virtual-assistant/role-play-scenarios.md)):
+## Try it 4 - Triage an inbox and write service replies
 
-1. A **difficult email** from an annoyed customer
-2. A **scheduling conflict** (a double-booking to fix)
-3. A **customer complaint** (wrong item, wants a refund)
+**Why it matters:** fast, calm replies are what turn a trial into a retainer.
 
-You get direct feedback on tone and professionalism after each.
+**Do this now:**
+1. Practise the four actions on a messy inbox: do, delegate, defer, delete/archive.
+2. In the [customer-service templates](/downloads/virtual-assistant/customer-service-templates.md), write
+   **three** saved replies in a warm, professional tone.
+3. Set up labels and one saved reply so you answer common messages in seconds.
 
-## This Week's Job-Hunt Focus
+**You've got it when:** you have three ready customer-service templates and a triage habit.
 
-**Send your first 3 real applications.** This is practice-focused, the goal is to build the habit of
-applying, not to land a job this week. Use your Week 2 profiles and the
-[basic proposal template](/downloads/virtual-assistant/basic-proposal-template.md), and **tailor each
-message**. **Log every application** in your Application Tracker.
+## Try it 5 - Handle a tough client scenario
 
-**Start the daily WhatsApp "applications sent" check-in** to your mentor, a short daily message, even "0
-today, here's why" counts. The habit is what matters.
+**Why it matters:** staying calm under a complaint is a skill clients can feel immediately.
 
-## Weekly Assignment / Deliverable (Due Before Week 4)
+**Do this now - prepare replies to the [role-play scenarios](/downloads/virtual-assistant/role-play-scenarios.md):**
+1. A **difficult email** from an annoyed customer.
+2. A **scheduling conflict** (a double-booking to fix).
+3. A **customer complaint** (wrong item, wants a refund), acknowledge first, then offer a solution.
 
-Submit:
+**You've got it when:** you can reply to an upset customer calmly and professionally in writing.
 
-1. Your **Application Tracker** showing **3 real applications** (platform, role/client, date, status)
-2. The **content calendar**, **expense tracker**, and **customer-service templates** you built live
+### Watch out for
+
+- Treating light bookkeeping like full accounting, keep it simple
+- Jumping to a solution before acknowledging a complaint
+- Sending the same copy-paste proposal to every job, tailor each one
+
+## This week's job-hunt focus
+
+**Send your first 3 real applications.** This is practice-focused, the goal is to build the habit of applying,
+not to land a job this week:
+
+- Use your Week 2 profiles and the
+  [basic proposal template](/downloads/virtual-assistant/basic-proposal-template.md), and **tailor each
+  message**.
+- **Log every application** in your Application Tracker.
+- **Start the daily WhatsApp "applications sent" check-in** to your mentor, even "0 today, here's why" counts.
+  The habit is what matters.
+
+## This week's build: your first deliverables + three applications
+
+Submit real work plus your first live applications:
+
+1. Your **Application Tracker** showing **3 real applications** (platform, role/client, date, status).
+2. The **content calendar**, **expense tracker**, and **customer-service templates** you built.
 
 ### Grading guide
 
@@ -122,7 +145,7 @@ Submit:
 - [ ] Daily WhatsApp check-in started
 - [ ] Content calendar, expense tracker, and three CS templates submitted
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What is "light bookkeeping" for a VA, and what is it not?
 2. What are the four actions for triaging an inbox?

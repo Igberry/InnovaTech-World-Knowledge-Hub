@@ -3,7 +3,7 @@ title: "Setup Guide"
 course: typing-skills
 order: 0
 week: 0
-summary: "Prepare a comfortable typing setup, record a baseline and organise your practice."
+summary: "Get your hands on the keyboard in the first 30 minutes: set up a comfy space, feel for F and J by touch, and clock an honest first speed you can beat later."
 estimatedHours: 1
 tools: ["Physical keyboard", "Text editor", "Typing Practice tool"]
 downloads:
@@ -13,76 +13,103 @@ downloads:
     href: "/downloads/typing-skills/keyboard-finger-map.md"
 draft: false
 ---
-**Goal:** Prepare a safe, comfortable setup and a simple way to track practice.
+**Goal:** Set up a comfortable space, find the home row by feel, and record an honest first score you will beat over the next four weeks. Almost no reading here - you set it up by doing it.
 
-## Learning Objectives
+## What you'll be able to do
 
-- Set up a screen, chair and keyboard for comfortable practice.
-- Identify the home row and the raised markers on F and J.
-- Choose an offline practice method and keep a five-day log.
-- Record a baseline without changing the result to look faster.
+- Sit and reach the keyboard without straining
+- Find F and J by touch, eyes off the keys
+- Save your files where you can find them again
+- Record a baseline you can actually improve on
 
-## Tools / Accounts Needed
+## Before you start (10 minutes)
 
-A computer with a physical keyboard, a text editor, a clock or timer, and the practice log. Optional online tools are listed below. No account is required for the local Typing Practice page.
+- Open a blank text editor (Notepad, Google Docs, or the local [Typing Practice tool](/tools/typing-practice/)).
+- Grab a clock or phone timer.
+- Download the [practice log](/downloads/typing-skills/typing-practice-log-template.csv) and the [keyboard finger map](/downloads/typing-skills/keyboard-finger-map.md).
+- Warm-up: type your full name five times, fast as you like. Notice which fingers you actually use right now. That is your starting habit - we will rebuild it.
 
-## Before the first session
+## Try it 1 - Build a comfortable space
 
-Create a folder named `Typing-Skills` with subfolders `01-Practice-Logs`, `02-Tests`, `03-Data-Entry` and `04-Portfolio`. Save downloads there using clear names and keep a separate copy of your practice log. If your device is shared, use a folder that does not expose another person's private files.
+**Why it matters:** sore wrists and a cramped neck will end your practice faster than any hard key. Sort the space once.
 
-### Comfortable setup
+**Do this now:**
+1. Sit back in the chair, shoulders loose, both feet flat on the floor or a stool.
+2. Pull the keyboard close so your elbows stay near your sides, roughly level with the keys.
+3. Keep wrists straight, not bent up or down. Fingers curved gently, like holding a small orange.
+4. Set the screen so you read it without leaning in. Cut any glare.
 
-Sit with your back supported and shoulders relaxed. Keep elbows near your sides and roughly level with the keyboard. Place both feet on the floor or a stable support. Keep wrists straight rather than bent sharply up, down or sideways. Position the screen so you can read it without leaning forward. Use enough light to read the screen without strong glare.
+**You've got it when:** you can rest your hands on the keyboard for a minute with no reaching and no strain.
 
-These are general comfort suggestions, not medical advice. Take brief breaks and change position if you feel stiffness. Stop if you feel pain; ask a qualified professional if it persists.
+> This is comfort guidance, not medical advice. Take short breaks, change position if you stiffen up, and stop if anything hurts. See a professional if pain continues.
 
-Laptop users can raise the screen and connect a separate keyboard if one is available. If you type on the laptop keyboard, keep it at a comfortable height rather than reaching up to it. Do not balance equipment unsafely or block ventilation.
+Laptop users: raise the screen and plug in a separate keyboard if you have one. If not, keep the laptop at a comfortable height and do not block the vents.
 
-### Find your home row
+## Try it 2 - Find the home row blind
 
-On a standard QWERTY keyboard, the left-hand home keys are **A S D F** and the right-hand home keys are **J K L ;**. The raised bumps on F and J let you locate the home row by touch. Rest the index fingers on F and J, then place the remaining fingers beside them. Thumbs rest lightly near the space bar.
+**Why it matters:** F and J have tiny raised bumps so your fingers can find home without looking. This is the whole secret of typing without staring down.
 
-Download and print the [keyboard finger map](/downloads/typing-skills/keyboard-finger-map.md), or keep it nearby during the first practice. Do not worry about speed while learning finger assignments.
+**Do this now:**
+1. Close your eyes. Feel for the two bumps with your index fingers.
+2. Rest left index on **F**, right index on **J**. Let the other fingers fall onto **A S D** and **K L ;**. Thumbs rest near the space bar.
+3. Lift both hands, shake them out, and land back on home by touch. Do it ten times.
+4. Keep the [finger map](/downloads/typing-skills/keyboard-finger-map.md) beside you while you learn where each finger lives.
 
-### Power, data and offline plan
+**You've got it when:** you land on F and J with your eyes shut, nine times out of ten.
 
-Typing practice itself does not need internet once you have the text and a working editor. Download the course files while connected, and keep a copy on your device. If power is intermittent, practise in shorter blocks that fit the available time. Do not try to finish a test while distracted by a low battery or unsafe charging setup.
+## Try it 3 - Make your folders and a power plan
 
-### Optional practice websites
+**Why it matters:** five minutes of setup now saves you hunting for files all month.
 
-As checked on 12 November 2026, TypingClub's official site describes individual lessons as free and says an account is optional; an account saves progress. 10FastFingers currently presents a free one-minute test and text-practice modes. Check each site's current terms, privacy settings and requirements before use. You can complete this course with the downloadable exercises if you prefer not to use an external site.
+**Do this now:**
+1. Make a folder called `Typing-Skills` with four subfolders: `01-Practice-Logs`, `02-Tests`, `03-Data-Entry`, `04-Portfolio`.
+2. Save the downloads into it with clear names. On a shared device, pick a folder that does not expose anyone else's private files.
+3. Typing practice needs no internet once the files are on your device, so download everything while you have data.
+4. If NEPA is unpredictable, plan short practice blocks that fit the power you have. Never rush a test on a dying battery or an unsafe charger.
 
-### Baseline test
+**You've got it when:** every course file is saved where you can open it offline.
 
-Use the supplied [baseline passage](/downloads/typing-skills/baseline-passage.md). Set a two-minute timer. Type at a comfortable pace, keeping your eyes on the screen. Record the test duration, WPM, accuracy, keyboard and any keys you looked down to find. Do not retake it until you get a preferred number; an honest baseline makes later progress meaningful.
+## Try it 4 - Clock your honest baseline
 
-## Practice log
+**Why it matters:** your "before" number is what makes your "after" feel good. Fake it and you are only cheating future you.
 
-Use the [practice log template](/downloads/typing-skills/typing-practice-log-template.csv). For each practice day, record minutes, exercise, result if measured, a weak key or habit, and the next adjustment. Leave a field blank rather than inventing a measurement.
+**Do this now:**
+1. Open the [baseline passage](/downloads/typing-skills/baseline-passage.md).
+2. Set a two-minute timer. Type at a comfortable pace, eyes on the screen.
+3. Record the duration, WPM, accuracy, your keyboard, and any keys you had to peek at.
+4. Do not retake it to get a nicer number. One honest go.
 
-## Verification checklist
+**You've got it when:** you have one real baseline written in your log, warts and all.
 
-- [ ] I can locate F and J by touch.
-- [ ] I can sit and reach the keyboard without straining.
-- [ ] I have saved the downloads and created my course folders.
-- [ ] I have recorded a baseline test honestly.
-- [ ] I have five 30-minute practice blocks planned for this week.
+### Watch out for
 
-## Common setup mistakes
+- Chasing a speed score before your fingers know where to go
+- Pushing through discomfort or skipping breaks
+- Using a phone-only test to guess your physical-keyboard speed
+- Keeping only your best result and binning the rest
+- Putting real customer names or numbers into practice files
 
-- Chasing a speed score before learning finger placement.
-- Practising through discomfort or without breaks.
-- Using a phone-only test to estimate physical-keyboard speed.
-- Recording only the best result and discarding the other tests.
-- Using real customer names, phone numbers or business records in exercises.
+## Optional practice sites (nice to have, not required)
 
-## Self-Check Questions
+As checked on 12 November 2026, TypingClub says individual lessons are free and an account is optional (it saves progress). 10FastFingers has a free one-minute test and text practice. Terms change, so check each site before use. You can finish this whole course with the downloads if you would rather skip external sites.
+
+## This week's build: your practice plan
+
+Set up the habit that carries the course:
+
+1. Block five 30-minute practice slots this week in your calendar.
+2. Open your [practice log](/downloads/typing-skills/typing-practice-log-template.csv) and add a row for each day: minutes, exercise, result if measured, one weak key or habit, and the next small change.
+3. Leave a field blank rather than inventing a measurement.
+
+*Quick win: your first log row is today's setup plus your baseline. That is day one done.*
+
+## Can you do these now?
 
 1. Which fingers start on F and J?
-2. What information should you record in a baseline test?
-3. What is your offline practice plan if your data connection is unavailable?
-4. What should you do if typing causes pain?
+2. What should you record in a baseline test?
+3. What is your offline practice plan if your data runs out?
+4. What do you do if typing starts to hurt?
 
 ## Facilitator Notes
 
-This is a setup guide. Check learners' keyboards and seating before the first timed test. Ask learners to keep their baseline private if they prefer; assessment is about progress and technique, not ranking.
+This is a setup guide. Check learners' keyboards and seating before the first timed test. Let learners keep their baseline private if they prefer; assessment is about progress and technique, not ranking. Watch for learners who rush the baseline to post a flattering number and gently reset the expectation: the honest score is the useful one.
