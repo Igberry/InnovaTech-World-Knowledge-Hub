@@ -162,11 +162,12 @@ const faqJsonLd = {
   const order: Record<string, number> = { basic: 1, advanced: 2, premium: 3 };
 
   // Amounts are stored in the currency's minor units (USD -> cents, NGN -> kobo).
+  // USD (hourly) keeps up to 2 decimals (e.g. $2.5); NGN is shown whole.
   const money = (minor: number, currency: string) => {
-    const major = Math.round((minor || 0) / 100);
+    const major = (minor || 0) / 100;
     return currency === 'USD'
-      ? '$' + major.toLocaleString('en-US')
-      : '₦' + major.toLocaleString('en-NG');
+      ? '$' + major.toLocaleString('en-US', { maximumFractionDigits: 2 })
+      : '₦' + Math.round(major).toLocaleString('en-NG');
   };
 
   (async () => {

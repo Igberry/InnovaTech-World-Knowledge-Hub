@@ -1032,20 +1032,19 @@ const catalog = await buildCatalog();
     box.innerHTML = `<div class="rate-list">${rows.map((r) => `
       <div class="rate-row" data-rate-slug="${esc(r.service_slug)}">
         <span class="rate-name">${esc(serviceTitle(r.service_slug))}</span>
-        <span class="plan-price-field rate-field"><span class="plan-naira">$</span><input type="text" value="${Math.round(r.hourly_price_kobo / 100).toLocaleString('en-US')}" data-rate-price inputmode="numeric" autocomplete="off" /><span class="rate-per">/hr</span></span>
+        <span class="plan-price-field rate-field"><span class="plan-naira">$</span><input type="text" value="${(r.hourly_price_kobo / 100).toLocaleString('en-US', { maximumFractionDigits: 2 })}" data-rate-price inputmode="decimal" autocomplete="off" /><span class="rate-per">/hr</span></span>
         <button type="button" class="btn btn-success" data-rate-save>Save</button>
         <span class="plan-msg" data-rate-msg></span>
       </div>`).join('')}</div>`;
 
+    // Hourly rates allow decimals (e.g. 2.5). Sanitise to digits + one dot, max 2 dp.
     box.querySelectorAll('[data-rate-price]').forEach((el) => {
       const inp = el as HTMLInputElement;
       inp.addEventListener('input', () => {
-        const caret = inp.selectionStart ?? inp.value.length;
-        const digitsBefore = inp.value.slice(0, caret).replace(/\D/g, '').length;
-        inp.value = groupThousands(inp.value);
-        let pos = 0, seen = 0;
-        while (pos < inp.value.length && seen < digitsBefore) { if (/\d/.test(inp.value[pos])) seen += 1; pos += 1; }
-        inp.setSelectionRange(pos, pos);
+        let v = inp.value.replace(/[^\d.]/g, '');
+        const dot = v.indexOf('.');
+        if (dot !== -1) v = v.slice(0, dot + 1) + v.slice(dot + 1).replace(/\./g, '').slice(0, 2);
+        if (inp.value !== v) inp.value = v;
       });
     });
 
@@ -1053,9 +1052,9 @@ const catalog = await buildCatalog();
       const rowEl = (btn as HTMLElement).closest('[data-rate-slug]') as HTMLElement;
       const slug = rowEl.dataset.rateSlug!;
       const m = rowEl.querySelector('[data-rate-msg]') as HTMLElement;
-      const val = Math.round(Number(String((rowEl.querySelector('[data-rate-price]') as HTMLInputElement).value).replace(/[^\d]/g, '')) || 0);
+      const dollars = parseFloat(String((rowEl.querySelector('[data-rate-price]') as HTMLInputElement).value).replace(/[^\d.]/g, '')) || 0;
       m.textContent = 'Saving...'; m.className = 'plan-msg';
-      const r = await updateServiceRate(slug, { hourly_price_kobo: val * 100 });
+      const r = await updateServiceRate(slug, { hourly_price_kobo: Math.round(dollars * 100) });
       m.textContent = r.ok ? 'Saved.' : r.error; m.className = 'plan-msg ' + (r.ok ? 'ok' : 'err');
       if (r.ok) { serviceRates = await getServiceRates(); }
     }));
