@@ -13,7 +13,6 @@ import CodeCopy from '../components/CodeCopy.astro';
 import type { Course, Lesson } from '../utils/courses';
 import { lessonSlug } from '../utils/courses';
 import { site } from '../config/site';
-import { editOnGitHubUrl, whatsappUrl, emailUrl } from '../utils/links';
 
 export interface Props {
   course: Course;
@@ -28,11 +27,6 @@ export interface Props {
 const { course, lessons, lesson, headings, prev, next, hasAssignment = false, jsonLd } = Astro.props;
 const slug = lessonSlug(lesson);
 const d = lesson.data;
-
-const editUrl = editOnGitHubUrl(`src/content/courses/${course.data.slug}/${slug}.md`);
-const problemUrl =
-  whatsappUrl(`${course.data.title} - ${d.title}`) ??
-  emailUrl(`Problem report: ${course.data.title} / ${d.title}`);
 ---
 
 <BaseLayout title={d.title} description={d.summary} jsonLd={jsonLd} wide>
@@ -91,18 +85,6 @@ const problemUrl =
 
           <div class="lesson-actions no-print">
             <MarkComplete course={course.data.slug} lesson={slug} />
-            <div class="lesson-links">
-              {editUrl && (
-                <a href={editUrl} target="_blank" rel="noopener noreferrer">
-                  <Icon name="lucide:pencil" width={15} height={15} aria-hidden="true" /> Edit this page on GitHub
-                </a>
-              )}
-              {problemUrl && (
-                <a href={problemUrl} target={problemUrl.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer">
-                  <Icon name="lucide:flag" width={15} height={15} aria-hidden="true" /> Report a problem
-                </a>
-              )}
-            </div>
           </div>
 
           <LessonNav prev={prev} next={next} courseSlug={course.data.slug} />
