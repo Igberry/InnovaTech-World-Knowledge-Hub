@@ -44,6 +44,53 @@ export interface AdminCertificate {
   issued_at: string;
 }
 
+export interface AdminShowcaseProject {
+  id: string;
+  user_id: string;
+  name: string;
+  course_slug: string | null;
+  project_title: string;
+  summary: string | null;
+  url: string;
+  status: 'pending' | 'approved' | 'rejected';
+  submitted_at: string;
+  reviewed_at: string | null;
+}
+
+export const getShowcaseProjects = () =>
+  selectAll<AdminShowcaseProject>(
+    'showcase_projects',
+    'id, user_id, name, course_slug, project_title, summary, url, status, submitted_at, reviewed_at',
+  );
+
+export async function setShowcaseStatus(
+  id: string,
+  status: 'pending' | 'approved' | 'rejected',
+): Promise<Result> {
+  const sb = getSupabase();
+  if (!sb) return { ok: false, error: 'Portal not configured.' };
+  try {
+    const { error } = await sb
+      .from('showcase_projects')
+      .update({ status, reviewed_at: new Date().toISOString() })
+      .eq('id', id);
+    return error ? { ok: false, error: error.message } : { ok: true, data: undefined };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
+export async function deleteShowcaseProject(id: string): Promise<Result> {
+  const sb = getSupabase();
+  if (!sb) return { ok: false, error: 'Portal not configured.' };
+  try {
+    const { error } = await sb.from('showcase_projects').delete().eq('id', id);
+    return error ? { ok: false, error: error.message } : { ok: true, data: undefined };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
 export const getProfiles = () => selectAll<AdminProfile>('profiles', 'id, full_name, email, cohort');
 export const getEnrollments = () => selectAll<AdminEnrollment>('enrollments', 'user_id, course_slug, status, enrolled_at');
 export const getProgress = () => selectAll<AdminProgress>('lesson_progress', 'user_id, course_slug, lesson_slug, updated_at');

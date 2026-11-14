@@ -138,6 +138,60 @@ export async function getMyReviews(): Promise<Review[]> {
   return (data as Review[]) ?? [];
 }
 
+// ---------- Student project showcase ----------
+
+export interface ShowcaseProject {
+  id: string;
+  project_title: string;
+  course_slug: string | null;
+  url: string;
+  summary: string | null;
+  status: 'pending' | 'approved' | 'rejected';
+  submitted_at: string;
+}
+
+/** The signed-in student's own showcase submissions (any status). */
+export async function getMyShowcaseProjects(): Promise<ShowcaseProject[]> {
+  const sb = getSupabase();
+  if (!sb) return [];
+  const { data } = await sb
+    .from('showcase_projects')
+    .select('id, project_title, course_slug, url, summary, status, submitted_at')
+    .order('submitted_at', { ascending: false });
+  return (data as ShowcaseProject[]) ?? [];
+}
+
+/** Submit a finished project to the showcase (lands as 'pending' for review). */
+export async function submitShowcaseProject(input: {
+  projectTitle: string;
+  courseSlug?: string;
+  url: string;
+  summary?: string;
+}): Promise<Result> {
+  const sb = getSupabase();
+  const user = await currentUser();
+  if (!sb || !user) return { ok: false, error: 'Please log in to submit a project.' };
+  const title = input.projectTitle.trim();
+  const url = input.url.trim();
+  if (!title) return { ok: false, error: 'Please enter a project title.' };
+  if (!/^https?:\/\//i.test(url)) return { ok: false, error: 'Link must start with http:// or https://' };
+  const { data: prof } = await sb.from('profiles').select('full_name').eq('id', user.id).single();
+  const name = ((prof as { full_name?: string } | null)?.full_name || '').trim() || user.email || 'Student';
+  try {
+    const { error } = await sb.from('showcase_projects').insert({
+      user_id: user.id,
+      name,
+      project_title: title,
+      course_slug: input.courseSlug?.trim() || null,
+      url,
+      summary: input.summary?.trim() || null,
+    });
+    return error ? { ok: false, error: error.message } : { ok: true, data: undefined };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : String(e) };
+  }
+}
+
 export async function submitAssignment(
   courseSlug: string,
   lessonSlug: string,

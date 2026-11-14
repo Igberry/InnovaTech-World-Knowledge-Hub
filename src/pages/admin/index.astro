@@ -21,6 +21,7 @@ const catalog = await buildCatalog();
       <button id="tab-attendance" class="tab" data-tab="attendance" role="tab" aria-selected="false" aria-controls="panel-attendance" tabindex="-1">Attendance</button>
       <button id="tab-enrolments" class="tab" data-tab="enrolments" role="tab" aria-selected="false" aria-controls="panel-enrolments" tabindex="-1">Enrolments</button>
       <button id="tab-certificates" class="tab" data-tab="certificates" role="tab" aria-selected="false" aria-controls="panel-certificates" tabindex="-1">Certificates</button>
+      <button id="tab-showcase" class="tab" data-tab="showcase" role="tab" aria-selected="false" aria-controls="panel-showcase" tabindex="-1">Showcase</button>
       <button id="tab-access" class="tab" data-tab="access" role="tab" aria-selected="false" aria-controls="panel-access" tabindex="-1">Access &amp; Pricing</button>
       <button id="tab-blog" class="tab" data-tab="blog" role="tab" aria-selected="false" aria-controls="panel-blog" tabindex="-1">Blog</button>
     </div>
@@ -159,6 +160,14 @@ const catalog = await buildCatalog();
       </div>
 
       <div data-certificates><p class="muted">Loading…</p></div>
+    </section>
+
+    <section id="panel-showcase" data-panel="showcase" class="panel" role="tabpanel" aria-labelledby="tab-showcase" tabindex="0" hidden>
+      <div class="panel-head">
+        <h2>Student showcase</h2>
+      </div>
+      <p class="muted" style="margin:-0.5rem 0 1rem">Projects students submit from the site. Approve one to feature it on the public showcase page.</p>
+      <div data-showcase><p class="muted">Loading…</p></div>
     </section>
 
     <BlogManager />
@@ -413,6 +422,7 @@ const catalog = await buildCatalog();
   import {
     getProfiles, getEnrollments, getProgress, getSubmissions, getReviews, getAttendance,
     getCertificates, issueCertificate, deleteCertificate,
+    getShowcaseProjects, setShowcaseStatus, deleteShowcaseProject,
     saveReview, setEnrollment, saveAttendance, downloadCsv,
     getCoursePlans, updateCoursePlan, getServicePlans, updateServicePlan,
     getServiceRates, updateServiceRate,
@@ -420,6 +430,7 @@ const catalog = await buildCatalog();
     getPayments, getEntitlements, grantFreePass, revokeEntitlement,
     type AdminProfile, type AdminEnrollment, type AdminProgress,
     type AdminSubmission, type AdminReview, type AdminAttendance, type AdminCertificate,
+    type AdminShowcaseProject,
     type CoursePlanRow, type ServicePlanRow, type ServiceRateRow,
     type VoucherRow, type PaymentRow, type EntitlementRow,
   } from '../../lib/admin';
@@ -450,14 +461,15 @@ const catalog = await buildCatalog();
   let reviews: AdminReview[] = [];
   let attendance: AdminAttendance[] = [];
   let certificates: AdminCertificate[] = [];
+  let showcaseProjects: AdminShowcaseProject[] = [];
   const nameOf = (uid: string) => {
     const p = profiles.find((x) => x.id === uid);
     return p ? (p.full_name || p.email || uid) : uid;
   };
 
   async function loadAll() {
-    [profiles, enrollments, progress, submissions, reviews, attendance, certificates] = await Promise.all([
-      getProfiles(), getEnrollments(), getProgress(), getSubmissions(), getReviews(), getAttendance(), getCertificates(),
+    [profiles, enrollments, progress, submissions, reviews, attendance, certificates, showcaseProjects] = await Promise.all([
+      getProfiles(), getEnrollments(), getProgress(), getSubmissions(), getReviews(), getAttendance(), getCertificates(), getShowcaseProjects(),
     ]);
   }
 
@@ -842,6 +854,42 @@ const catalog = await buildCatalog();
   }
 
   // ---------- Tabs + boot ----------
+  // ---------- Student showcase ----------
+  function renderShowcase() {
+    const el = root.querySelector('[data-showcase]')!;
+    if (showcaseProjects.length === 0) { el.innerHTML = '<p class="muted">No project submissions yet.</p>'; return; }
+    const order: Record<string, number> = { pending: 0, approved: 1, rejected: 2 };
+    const pill = (s: string) => s === 'approved' ? 'approved' : s === 'rejected' ? 'needs_changes' : 'pending';
+    const rows = [...showcaseProjects]
+      .sort((a, b) => (order[a.status] - order[b.status]) || b.submitted_at.localeCompare(a.submitted_at))
+      .map((p) => `<tr>
+        <td>${esc(p.name)}</td>
+        <td>${esc(p.course_slug ? courseTitle(p.course_slug) : '-')}</td>
+        <td><a href="${esc(p.url)}" target="_blank" rel="noopener noreferrer">${esc(p.project_title)}</a>${p.summary ? `<br><span class="muted" style="font-size:0.85em">${esc(p.summary)}</span>` : ''}</td>
+        <td><span class="pill ${pill(p.status)}">${esc(p.status)}</span></td>
+        <td>${new Date(p.submitted_at).toLocaleDateString()}</td>
+        <td><span style="display:inline-flex;gap:0.4rem;flex-wrap:wrap;justify-content:flex-end">
+          ${p.status !== 'approved' ? `<button class="link-btn" data-sc-approve="${p.id}">Approve</button>` : ''}
+          ${p.status !== 'rejected' ? `<button class="link-btn" data-sc-reject="${p.id}">Reject</button>` : ''}
+          <button class="link-btn danger" data-sc-del="${p.id}">Delete</button>
+        </span></td></tr>`).join('');
+    el.innerHTML = `<div class="adm-table-wrap" role="region" aria-label="Showcase submissions" tabindex="0"><table class="adm-table"><thead><tr><th>Student</th><th>Course</th><th>Project</th><th>Status</th><th>Submitted</th><th>Actions</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+    const refresh = async () => { showcaseProjects = await getShowcaseProjects(); renderShowcase(); };
+    el.querySelectorAll('[data-sc-approve]').forEach((b) => b.addEventListener('click', async () => {
+      const r = await setShowcaseStatus((b as HTMLElement).getAttribute('data-sc-approve')!, 'approved');
+      if (r.ok) refresh(); else alert(r.error);
+    }));
+    el.querySelectorAll('[data-sc-reject]').forEach((b) => b.addEventListener('click', async () => {
+      const r = await setShowcaseStatus((b as HTMLElement).getAttribute('data-sc-reject')!, 'rejected');
+      if (r.ok) refresh(); else alert(r.error);
+    }));
+    el.querySelectorAll('[data-sc-del]').forEach((b) => b.addEventListener('click', async () => {
+      if (!confirm('Delete this submission permanently?')) return;
+      const r = await deleteShowcaseProject((b as HTMLElement).getAttribute('data-sc-del')!);
+      if (r.ok) refresh(); else alert(r.error);
+    }));
+  }
+
   function setupTabs() {
     const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
     const activate = (tab: HTMLButtonElement, moveFocus = false) => {
@@ -1287,6 +1335,7 @@ const catalog = await buildCatalog();
     renderEnrolments();
     renderCertificates();
     bindCertForm();
+    renderShowcase();
     renderAccess();
   }
 
