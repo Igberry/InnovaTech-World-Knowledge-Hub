@@ -3,7 +3,7 @@ title: "Numbers, Punctuation, Numpad and Shortcuts"
 course: typing-skills
 order: 3
 week: 3
-summary: "Practise accurate number entry, punctuation, the numeric keypad and common work shortcuts."
+summary: "Type the stuff real work is made of: Naira amounts, dates, the numpad and the editing shortcuts that make you look fast. Hands-on with a 100-row data job."
 estimatedHours: 4
 tools: ["Physical keyboard", "Spreadsheet", "Text editor"]
 downloads:
@@ -15,106 +15,124 @@ downloads:
     href: "/downloads/typing-skills/shortcuts-quiz.md"
 draft: false
 ---
-**Goal:** Type work-related numbers and punctuation accurately, use the numpad safely, and apply useful editing shortcuts.
+**Goal:** Type work numbers and punctuation accurately, use the numpad safely, and fire off the editing shortcuts that save real time. You build the skill by entering real-shaped data, not by reading about it.
 
-## Learning Objectives
+## What you'll be able to do
 
-- Reach the number row without losing home-row orientation.
-- Enter dates, amounts and punctuation with deliberate checks.
-- Use the numpad home position and distinguish Num Lock states.
-- Apply common selection, editing and navigation shortcuts.
-- Complete a 100-row fictional data-entry task and check it for errors.
+- Reach the number row without losing your home-row bearings
+- Enter dates, Naira amounts and punctuation with a checking habit
+- Use the numpad home position and spot Num Lock states
+- Run common selection, editing and navigation shortcuts
+- Complete a 100-row fictional data-entry task and catch your own errors
 
-## Tools / Accounts Needed This Week
+## Before you start (10 minutes)
 
-A keyboard with a number row; a numpad is useful but not required. Use a spreadsheet or text editor and the supplied fictional CSV. If your keyboard has no numpad, use the number row and state this in your submission.
+- Open the [shortcuts cheat sheet](/downloads/typing-skills/shortcuts-cheat-sheet.md) and the [finger map](/downloads/typing-skills/keyboard-finger-map.md).
+- Open a spreadsheet and the [100-row dataset](/downloads/typing-skills/data-entry-100-rows.csv) so they are ready.
+- Warm-up: type `1 2 3 4 5 6 7 8 9 0` twice, returning to home row after the reach.
+- Check your device's official docs for the Naira sign - symbol entry varies by operating system and layout.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - Own the number row
 
-- Review the [keyboard map](/downloads/typing-skills/keyboard-finger-map.md).
-- Read the [shortcuts cheat sheet](/downloads/typing-skills/shortcuts-cheat-sheet.md).
-- Check your device's official support documentation for the Naira sign and keyboard layout; symbol entry varies by operating system and layout.
-- Search YouTube for **"typing numbers numpad touch typing beginner"**.
+**Why it matters:** numbers are further from home than letters, so they are where accuracy slips first.
 
-## Lessons
+**Do this now:**
+1. Type `1 2 3 4 5 6 7 8 9 0`, slowly then at a comfortable pace, returning home after each reach.
+2. Type a date and a simple amount, for example `2026-05-04` and `2500`.
+3. Find where the symbols live on your keyboard: `@ # $ % & * ( ) - _ / : ; " ' ?`. Many need Shift. Use the opposite hand for the Shift when comfortable.
 
-### Lesson 1: Number row and symbols
+**You've got it when:** you can type a short string of numbers without staring down.
 
-The number row sits above the letters. Reaching it takes more movement than typing home-row keys, so keep the hand relaxed and return to home after each reach. Practise a short pattern such as `1 2 3 4 5 6 7 8 9 0`, then type a date and a simple amount.
+## Try it 2 - Naira, dates and amounts that survive a check
 
-Symbols such as `@ # $ % & * ( ) - _ / : ; " ' ?` may require Shift or an alternate key on your layout. Learn the mapping on your own keyboard rather than memorising one layout's symbol positions. For a symbol that requires Shift, use the opposite hand when comfortable.
+**Why it matters:** a wrong comma or a dropped zero in money or a phone number is a real problem at work.
 
-### Lesson 2: Naira, dates and amounts
+**Do this now:**
+1. Type `₦12,500.00` and check every digit, comma and decimal. The Naira sign may come from a symbol panel, a supported keyboard layout, or copy-and-paste from a trusted source. There is no single universal shortcut - verify the method on your own device.
+2. Type five more amounts and confirm the punctuation each time.
+3. Dates are slippery: `04/05/2026` means different days in different conventions. For fictional records, prefer `2026-05-04` when the recipient accepts it. Match the requested format and check before sending.
 
-Use commas and decimal places consistently. For practice, type `₦12,500.00` and check every digit, comma and decimal. The Naira sign may be available through a device-specific symbol panel, a supported keyboard layout, or copy-and-paste from a trusted source. There is no single shortcut that works on every device. Verify the method for your own operating system; do not claim a shortcut is universal.
+**You've got it when:** you check amounts and dates by habit, not hope.
 
-Dates can be ambiguous. `04/05/2026` may mean different dates in different conventions. For fictional business records, prefer an unambiguous format such as `2026-05-04` when the recipient accepts it. Match the requested format and check it before sending.
+## Try it 3 - Set up on the numpad
 
-### Lesson 3: Numeric keypad
+**Why it matters:** for columns of numbers, the numpad is far faster than the number row once your hand knows home.
 
-On a standard numpad, the fingers rest on **4, 5 and 6**: index on 4, middle on 5, ring on 6. The right little finger often reaches Enter, while the thumb can reach 0. Keep the hand relaxed. Num Lock changes whether the keypad enters numbers or provides navigation functions on many keyboards; its behaviour may differ by device.
+**Do this now:**
+1. Rest index on **4**, middle on **5**, ring on **6**. Right little finger reaches Enter, thumb can reach 0.
+2. Enter short groups of three to five values, then check the first and last number in each group.
+3. Watch Num Lock: it switches the keypad between numbers and navigation on many keyboards.
+4. No numpad? Use the number row with the same small-batch checking habit, and say so in your submission.
 
-Practice short groups of three to five values, then check the first and last number in each group. A neat data-entry rhythm is less valuable than correct records. If your device has no numpad, position your hands for the number row and use the same small-batch checking habit.
+**You've got it when:** you can enter a group of five and verify it without looking down.
 
-### Lesson 4: Essential shortcuts
+## Try it 4 - Fire the essential shortcuts
 
-On Windows, common shortcuts include Ctrl+C to copy, Ctrl+X to cut, Ctrl+V to paste, Ctrl+Z to undo, Ctrl+Y to redo, Ctrl+A to select all, Ctrl+S to save, Ctrl+F to find, and Ctrl+P to print. Ctrl+B, Ctrl+I and Ctrl+U apply bold, italic and underline in many editors. Ctrl+Backspace deletes a previous word; Ctrl+Arrow moves by a word in many applications.
+**Why it matters:** these are the moves that make you look quick and keep your hands off the mouse.
 
-On macOS, many common editing shortcuts use Command instead of Ctrl: Command+C, Command+V, Command+Z and Command+S. Some shortcuts vary by app. Home, End, Alt/Option, Windows key and arrow-key combinations can differ by operating system and keyboard. Use the cheat sheet as a starting point and test each shortcut in a blank document before using it on important work.
+**Do this now:**
+1. In a blank document, try each Windows shortcut: Ctrl+C copy, Ctrl+X cut, Ctrl+V paste, Ctrl+Z undo, Ctrl+Y redo, Ctrl+A select all, Ctrl+S save, Ctrl+F find, Ctrl+P print. Then Ctrl+B, Ctrl+I, Ctrl+U for bold, italic, underline. Ctrl+Backspace deletes a word; Ctrl+Arrow jumps by a word.
+2. On macOS, swap Ctrl for Command on most of these: Command+C, Command+V, Command+Z, Command+S.
+3. Mark which shortcuts behave differently in your app. Test each in a blank document before using it on real work.
 
-### Lesson 5: Data-entry habits
+**You've got it when:** you can copy, paste, undo and save without reaching for the mouse.
 
-Open the [100-row fictional dataset](/downloads/typing-skills/data-entry-100-rows.csv) in a spreadsheet. Type each row into a new sheet rather than editing the source. Keep columns in the same order. Use the row number to track progress and save regularly.
+## Try it 5 - Build a clean data-entry habit
 
-Work in batches of ten rows. After each batch, compare the entered data with the source from left to right. Check easily confused characters, digits, commas, dates and leading zeroes. A phone-like value is text, not a number to calculate with; do not let spreadsheet formatting remove leading zeroes.
+**Why it matters:** a neat rhythm means nothing if the records are wrong. Correct beats fast.
 
-The supplied records use obviously fictional names and phone values. Never replace them with actual customers or acquaintances. If a row is unclear, mark it for review rather than guessing.
+**Do this now:**
+1. Open the [100-row dataset](/downloads/typing-skills/data-entry-100-rows.csv) in a spreadsheet. Type rows into a new sheet - do not edit the source. Keep columns in the same order and save often.
+2. Work in batches of ten. After each batch, compare entered rows with the source left to right.
+3. Check easily confused characters, digits, commas, dates and leading zeroes. A phone-like value is text, not a number - do not let the spreadsheet strip its leading zero.
+4. The records use obviously fictional names and numbers. Never swap in a real customer. If a row is unclear, mark it for review rather than guessing.
 
-### Lesson 6: Professional short messages
+**You've got it when:** you finish a ten-row batch and your check finds it clean.
 
-Typing a WhatsApp or email message is a work task: read it once for meaning and once for accuracy before sending. Use a greeting, a clear main point and an appropriate closing. Avoid sending a message while a person is still dictating private information in a public place. Do not store real customer numbers in course assignments.
+## Try it 6 - Type a professional short message
 
-For example, a fictional order confirmation can state the item, collection time and a request to confirm details. It should not promise a delivery time the business has not verified. Concise typing is not the same as skipping important information.
+**Why it matters:** quick, correct messages are a daily work task. Concise is not the same as careless.
 
-### Lesson 7: Check a long entry task
+**Do this now:**
+1. Write a short fictional order confirmation: the item, collection time, and a request to confirm details.
+2. Read it once for meaning, once for accuracy, before you imagine sending it.
+3. Use a greeting, a clear main point and a suitable closing. Do not promise a delivery time the business has not verified, and keep real customer numbers out of course work.
 
-Before entering all 100 records, make a clean copy of the source sheet and decide how you will compare your work. The sample has six fields per record, so there are 600 field values to check. A simple accuracy measure for this exercise is:
+**You've got it when:** your message is clear, correct and nothing is missing.
+
+## Try it 7 - Check the long entry task
+
+**Why it matters:** on 100 records there are 600 field values. A system beats eyeballing it.
+
+**Do this now:**
+1. Before entering everything, make a clean copy of the source and decide how you will compare.
+2. Use this simple measure:
 
 ```text
-Field accuracy = matching field values ÷ 600 × 100
+Field accuracy = matching field values / 600 x 100
 ```
 
-If 594 of the 600 values match, the accuracy is 99%. The course target for this task is **at least 98%**. Compare text exactly, including leading zeroes, hyphens and date order. For amount fields, check both the numeric value and the displayed punctuation; a spreadsheet may format the same value differently, so preserve the source value and document any formatting choice.
+3. Example: 594 of 600 values match is 99%. The target for this task is **at least 98%**.
+4. Compare exactly, including leading zeroes, hyphens and date order. For amounts, check the digits first, then the comma and decimals. Keep source and answer sheet side by side if your screen allows, or switch in small batches - never hold a long row in memory.
+5. Save with a clear name like `typing-data-entry-demo-v01.xlsx`. Use Save As to put your answer sheet in your course folder, not the downloads folder.
 
-Use batches of ten rows. At the end of each batch, compare the source and entered rows from left to right. When you find an error, record the row and field, correct it, then check the next batch. If a field appears to be ambiguous, do not invent a value. The exercise data is generated and unambiguous; in real work, ask the data owner.
+**You've got it when:** your field accuracy is 98% or higher and every correction is logged.
 
-Use Save As to create the answer sheet in your course folder, not in the original downloads folder. A facilitator can provide the answer key separately; it is deliberately not included in the public downloads. Do not publish the key, even if it is only fictional, because future learners need to complete the exercise without seeing it first.
+## Safe use of editing shortcuts
 
-### Safe use of editing shortcuts
+Shortcuts change data fast. Before Find and Replace, select the intended range or copy the sheet; use Undo at once if it hits the wrong cells. Before sorting, select the whole table so names stay beside their amounts, then spot-check a few records after. Move carefully around protected or formula cells, and never overwrite a formula to make a score look right. These habits carry into any office job.
 
-Shortcuts change data quickly. Before using Find and Replace, select the intended range or make a copy of the sheet. Use Undo immediately if a replacement affects the wrong cells. Before sorting, select the whole table so names remain beside their matching references and amounts. After sorting, compare a few records with the source to ensure the rows stayed intact.
+## This week's build: the 100-row data job
 
-When using keyboard navigation in a spreadsheet, move carefully around protected or formula cells. Do not overwrite formulas to make a score look correct. If an exercise requires values only, enter them into a designated answer sheet. If it asks you to preserve formulas, use a separate input area. These habits are useful in office work beyond this typing course.
+The real, useful deliverable:
 
-### Check punctuation and leading zeroes
+1. Enter all 100 fictional records into a spreadsheet at **98% field accuracy** or higher, checked against the answer key your facilitator provides. The key is deliberately not in the public downloads.
+2. Keep a short error-check log showing your comparison method and every correction.
+3. Complete the 20-question [shortcuts quiz](/downloads/typing-skills/shortcuts-quiz.md).
 
-People often notice a wrong amount but miss a wrong separator. Compare the source and target by field, not by whether the whole row "looks about right." For a phone-like string, count all digits and preserve any leading zero. For a date, compare year, month and day in that order. For an amount, compare the digits first and then the comma and decimal places. A spreadsheet may display a value with a different number format; use the raw cell value or format the answer consistently before comparison.
+*Quick win: once your batch-of-ten habit clicks, the back 90 rows go far faster than the first 10.*
 
-Keep the source and answer sheet open side by side if your screen permits, or switch between them in small batches. If a side-by-side view makes either column too narrow, use one window at a time and write down the current row. Do not attempt to hold a long row in memory while switching. After checking, save the file with a name such as `typing-data-entry-demo-v01.xlsx`.
-
-## Practice Exercises
-
-1. Type the number row twice, first slowly and then at a comfortable pace.
-2. Enter five Naira amounts and verify punctuation and digits.
-3. Type ten ISO-format dates and check that every digit is in the right position.
-4. Practise numpad groups of five values, checking after each group.
-5. Test ten shortcuts in a blank document and mark which differ in your app.
-6. Enter ten fictional CSV rows, then compare every field with the source.
-7. Write a three-sentence fictional order confirmation and proofread it aloud.
-
-## Weekly Assignment (Due Before Week 4)
-
-Enter the 100 fictional records into a spreadsheet and achieve at least **98% field accuracy** against the answer key. Use the separate answer key provided to learners by the facilitator; the key is not published in the course repository. Submit the completed sheet, a short error-check log showing the comparison method, and the 20-question shortcuts quiz.
+### Grading guide
 
 | Criterion | Weight |
 |---|---:|
@@ -123,12 +141,18 @@ Enter the 100 fictional records into a spreadsheet and achieve at least **98% fi
 | Shortcuts quiz | 25% |
 | Practice log and checking evidence | 15% |
 
-**Definition of done**
+### Definition of done
 
 - [ ] All 100 source records are present in the submitted sheet.
-- [ ] The learner checked each ten-row batch.
+- [ ] Each ten-row batch was checked.
 - [ ] Any corrections are recorded in the error-check log.
 - [ ] The quiz is complete and the operating system is noted.
+
+## Extra quick wins (optional)
+
+- Type ten ISO-format dates and confirm every digit sits right.
+- Enter five Naira amounts on the numpad and verify the punctuation.
+- Time yourself on ten rows, then beat it on the next ten without dropping accuracy.
 
 ## Mentoring Session Plan (60 minutes)
 
@@ -145,18 +169,18 @@ Enter the 100 fictional records into a spreadsheet and achieve at least **98% fi
 
 - Treating phone-like values as numbers and losing leading zeroes.
 - Rushing a long list without saving or checking batches.
-- Assuming a symbol shortcut works on all keyboards.
-- Hitting Num Lock accidentally and entering navigation commands.
-- Applying a shortcut in a different app without checking its behaviour.
+- Assuming a symbol shortcut works on every keyboard.
+- Hitting Num Lock by accident and entering navigation commands.
+- Using a shortcut in a new app without checking its behaviour.
 - Copying real contact data into a practice spreadsheet.
 
 ## Facilitator Notes
 
-Provide the ignored answer key separately; never place it in `public/downloads`. Learners should not submit screenshots exposing other files, notifications or account details. Allow a number-row alternative where no numpad exists.
+Provide the answer key separately; never place it in `public/downloads`. Learners should not submit screenshots exposing other files, notifications or account details. Allow a number-row alternative where no numpad exists.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What is the numpad home position?
 2. Why should a phone-like value be kept as text?
 3. How can you check a 100-row task without rechecking the whole file after every row?
-4. Why should shortcut behaviour be confirmed in the app being used?
+4. Why should shortcut behaviour be confirmed in the app you are using?

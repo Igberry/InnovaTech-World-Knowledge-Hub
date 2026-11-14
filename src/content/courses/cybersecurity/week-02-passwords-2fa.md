@@ -4,7 +4,7 @@ course: cybersecurity
 order: 2
 week: 2
 phase: "Core Protection"
-summary: "Lock down your accounts: strong unique passwords, a password manager, two-step verification, passkeys, and safe account recovery."
+summary: "The highest-impact week: actually lock down your real accounts - generate unique passwords, switch on 2FA, set up a passkey, and fix your recovery so you can never be locked out."
 estimatedHours: 8
 tools: ["A password manager", "An authenticator app"]
 downloads:
@@ -12,121 +12,100 @@ downloads:
     href: "/downloads/cybersecurity/password-2fa-audit.csv"
 ---
 
-**Goal:** Secure your most important accounts properly, with strong unique passwords, a password manager,
-two-step verification, and safe recovery, closing the most common way accounts get taken.
+**Goal:** By the end of this week your real accounts are genuinely more secure: unique passwords generated and
+saved, 2FA on, a passkey tried, and recovery locked down. This is the most hands-on week of the course - you fix
+your own accounts as you go.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
+- Generate and save strong, unique passwords with a password manager
+- Turn on 2FA and pick the stronger methods
+- Set up a passkey on a real account
+- Fix your account recovery so you are never locked out or taken over
 
-- Explain why reused and weak passwords are so dangerous
-- Use a password manager to create and store strong, unique passwords
-- Set up two-step verification, and choose stronger 2FA methods
-- Explain what passkeys are and why they help
-- Set safe account recovery so you do not get locked out or taken over
+## Before you start (about 10 minutes)
 
-## Tools / Accounts Needed This Week
+- Open your password manager and authenticator app from setup.
+- Warm-up: open the [password and 2FA audit](/downloads/cybersecurity/password-2fa-audit.csv) and list your 5
+  most important accounts. These are the ones you will fix today.
 
-- Your password manager and an authenticator app (from Week 0)
-- The [password and 2FA audit](/downloads/cybersecurity/password-2fa-audit.csv)
+## Try it 1 - Replace a reused password with a generated one
 
-## Pre-Session Resources (about 2 hours)
+**Why it matters:** when one site is breached, attackers try that same email and password everywhere else. A
+unique password per site shuts that down.
 
-- Read: search the web for "why password reuse is dangerous" and read one clear guide.
-- Watch: *Search YouTube: "how to use a password manager for beginners"*.
-- Read: search "what is a passkey" and read one beginner explainer.
+**Do this now:**
+1. Pick an important account where you know you reused the password.
+2. Change its password and let your password manager **generate** a long random one.
+3. Save it in the manager and log out and back in to confirm it fills correctly.
 
-## Lesson 1: Why passwords are the front door
+**You've got it when:** one real account now has a unique generated password, saved and working.
 
-Most everyday account takeovers come down to passwords. Two habits cause the damage:
+## Try it 2 - Turn on 2FA (strongest method available)
 
-- **Weak passwords** (short, common, guessable) that automated tools crack quickly.
-- **Reused passwords:** when one site is breached, attackers try that same email and password on many other
-  sites. If you reused it, they walk straight in.
+**Why it matters:** 2FA means a stolen password alone is not enough to get in.
 
-Huge lists of leaked passwords circulate online. Attackers run automated tools that try them against millions
-of accounts. The single most powerful fix is a **different, strong password for every account**, which is only
-practical with a password manager.
-
-> **Important:** You cannot remember a unique strong password for every site, and you should not try. That is
-> exactly what a password manager is for.
-
-## Lesson 2: Use a password manager
-
-A **password manager** creates, stores, and fills strong, unique passwords. You remember **one** strong master
-password; it handles the rest.
-
-- Make the **master password** long and unique, a passphrase of several random words is strong and memorable.
-- Let it **generate** new passwords as you update each account.
-- It works across your phone and laptop, and fills logins for you.
-
-Yes, it feels odd to "put all your passwords in one place", but a reputable password manager is far safer than
-the alternative (reuse and weak passwords), because it encrypts everything behind your master password and
-2FA.
-
-## Lesson 3: Two-step verification (2FA)
-
-**Two-step verification** adds a second step at login, so a stolen password alone is not enough. Methods, from
-stronger to weaker:
+**Do this now:**
+1. Open an important account's security settings and turn on two-step verification.
+2. Choose the strongest offered, in this order: passkey / security key, then authenticator app, then SMS.
+3. Link your authenticator app by scanning the code, then confirm login now asks for the second step.
 
 | Method | Strength | Note |
 |---|---|---|
 | Passkey / security key | Strongest | Phishing-resistant; use where offered |
 | Authenticator app | Strong | A code that changes every 30 seconds |
-| SMS text code | Okay | Better than nothing, but can be SIM-swapped or intercepted |
+| SMS text code | Okay | Better than nothing, but can be SIM-swapped |
 
-Turn on 2FA for **email first** (it resets your other accounts), then money, then social. Prefer an
-authenticator app or passkey over SMS where you can, but any 2FA beats none.
+**You've got it when:** at least one real account asks for a code or tap on top of the password.
 
-> **Warning:** Never share a one-time code or OTP with anyone, even someone claiming to be support or a
-> "friend in trouble." A real service will never ask you to read out your code. Sharing it hands over your
-> account.
+## Try it 3 - Set up a passkey
 
-## Lesson 4: Passkeys (the newer, stronger way)
+**Why it matters:** a passkey lets you sign in with your fingerprint, face, or PIN. There is no password to
+steal or phish - nothing to type into a fake site.
 
-A **passkey** lets you sign in with your device's unlock (fingerprint, face, or PIN) instead of a password.
-Behind the scenes it uses strong cryptography tied to your device, so there is no password to steal or phish.
+**Do this now:**
+1. Pick an account that supports passkeys (many big services do now).
+2. In its security settings, choose "add a passkey" and follow the prompt to use your device unlock.
+3. Sign out and sign back in with the passkey to feel how fast it is.
 
-- Passkeys are **phishing-resistant**: there is nothing to type into a fake site.
-- More services support them each year. Use them where offered, especially for important accounts.
-- Keep your device secure (lock screen, backups), since it now holds your sign-in.
+**You've got it when:** you can log in to one account with your device unlock instead of a password.
 
-## Lesson 5: Safe account recovery
+## Try it 4 - Lock down your recovery
 
-Attackers often take over accounts through **recovery** (the "forgot password" path), and lock you out by
-changing your recovery details. Protect this:
+**Why it matters:** attackers often take over accounts through the "forgot password" path, then change your
+recovery details to lock you out. This is the back door.
 
-- Set a **recovery email and phone** that are yours and well secured.
-- Save any **backup/recovery codes** somewhere safe (offline is fine).
-- After any incident, **re-check** recovery settings, attackers change them.
-- Secure your **email** above all; whoever controls your email can reset most other accounts.
+**Do this now:**
+1. Open your **email** account's recovery settings (email resets most other accounts, so start here).
+2. Confirm the recovery email and phone are yours and well secured.
+3. Save any backup/recovery codes offline, and note where you put them.
 
-### Common mistakes
+**You've got it when:** your email recovery points only to things you control, and your backup codes are saved.
+
+> **Warning:** Never share a one-time code or OTP with anyone, even someone claiming to be support or a "friend
+> in trouble". A real service will never ask you to read out your code. Sharing it hands over your account.
+
+## Make it yours - finish the audit
+
+Reused passwords you cannot fix today are a live risk. In your audit, mark each account as done or still to do,
+and schedule the rest. The goal is progress on your real accounts, not a perfect score.
+
+### Watch out for
 
 - Reusing one password across many sites
 - Relying on memory instead of a password manager
-- No 2FA, or 2FA only on minor accounts but not email
+- 2FA only on minor accounts but not email
 - Sharing a one-time code with a "support agent" (always a scam)
 - Ignoring recovery settings until you are locked out
 
-## Practice Exercises
+## This week's build: your secured-accounts record
 
-1. Complete the password/2FA audit for your important accounts.
-2. Set a strong master password (a multi-word passphrase) for your password manager.
-3. Replace reused passwords on your top five accounts with generated ones.
-4. Turn on 2FA for your email using an authenticator app.
-5. Set up a passkey on one account that supports it.
-6. Save your backup/recovery codes somewhere safe and note where.
-7. Check and fix the recovery email/phone on your email account.
+Document the real improvements you made:
 
-## Weekly Assignment (Due Before Week 3)
-
-Secure your accounts and document it:
-
-1. A completed **password/2FA audit** (before state) with an **after** column showing what you fixed
-2. **At least five accounts** moved to unique, strong passwords in a password manager
+1. A completed **password/2FA audit** with a "before" and an "after" column
+2. **At least five accounts** moved to unique, strong passwords in your manager
 3. **2FA turned on** for email and at least two other key accounts (note the method used)
-4. A short note on your **recovery setup** and why email is protected first
+4. A short note on your **recovery setup** and why you secured email first
 
 ### Grading guide
 
@@ -144,6 +123,12 @@ Secure your accounts and document it:
 - [ ] 2FA on email and two+ others
 - [ ] Recovery settings checked and secured
 
+## Extra quick wins (optional)
+
+- Turn on 2FA for your mobile money or banking app if it is not already on.
+- Replace five more reused passwords beyond your top five.
+- Have your password manager run its "security check" and fix one flagged item.
+
 ## Mentoring Session Plan (90 minutes)
 
 | Time | Activity |
@@ -158,11 +143,11 @@ Secure your accounts and document it:
 
 This is the highest-impact week, give it real hands-on time; learners should leave with accounts genuinely
 secured, not just informed. Walk through a password manager and 2FA setup live. Hammer the "never share your
-one-time code" rule, OTP-sharing scams are extremely common locally (mobile money, WhatsApp). Explain
-SIM-swap simply so learners prefer app-based 2FA. Emphasise securing email first. Keep it supportive; some
-will have many reused passwords to fix.
+one-time code" rule, OTP-sharing scams are extremely common locally (mobile money, WhatsApp). Explain SIM-swap
+simply so learners prefer app-based 2FA. Emphasise securing email first. Keep it supportive; some will have many
+reused passwords to fix.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. Why is reusing passwords so dangerous, and what is the fix?
 2. What does 2FA add, and which methods are stronger?

@@ -4,7 +4,7 @@ course: cybersecurity
 order: 4
 week: 4
 phase: "Protecting What You Have"
-summary: "Keep your devices and data safe: updates, malware defence, backups you can actually restore, basic encryption, and safe disposal."
+summary: "Make your devices hard to crack: switch on auto-updates, trim risky app permissions, set up a real backup, and prove it works by restoring a file with your own hands."
 estimatedHours: 8
 tools: ["A device you own", "A cloud backup account"]
 downloads:
@@ -14,118 +14,99 @@ downloads:
     href: "/downloads/cybersecurity/security-checklist.md"
 ---
 
-**Goal:** Protect your devices and the data on them: keep software updated, avoid and handle malware, back up
-so you can recover, and dispose of old devices safely.
+**Goal:** By the end of this week your devices update themselves, your backups actually exist, and you have
+proven a restore works by doing one. You set each of these up on your real device, not on paper.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
+- Turn on automatic updates and a strong device lock
+- Trim app permissions so apps can only see what they need
+- Set up backups that follow the 3-2-1 rule
+- Restore a real file to prove your backup works
 
-- Keep devices safe with updates, locks, and trusted software
-- Recognise and avoid malware, and know what to do if infected
-- Set up backups you have actually tested
-- Explain device encryption in plain words and use it
-- Wipe a device safely before selling or giving it away
+## Before you start (about 10 minutes)
 
-## Tools / Accounts Needed This Week
+- Grab the device you use most and open the
+  [backup plan template](/downloads/cybersecurity/backup-plan-template.md).
+- Warm-up: check right now whether automatic updates and device backup are already on. Note what you find; you
+  will fix the gaps this week.
 
-- A device you own and a cloud (or external) backup option
-- The [backup plan template](/downloads/cybersecurity/backup-plan-template.md) and
-  [security checklist](/downloads/cybersecurity/security-checklist.md)
+## Try it 1 - Switch on automatic updates
 
-## Pre-Session Resources (about 2 hours)
+**Why it matters:** updates are not just features - they patch the security holes attackers exploit. An
+out-of-date phone or app is a known, open door.
 
-- Read: search the web for "why software updates matter for security" and read one guide.
-- Read: search "how to back up your phone" for your device type.
-- Try: check whether automatic updates and device backup are on right now.
+**Do this now:**
+1. Open your phone's settings and turn on **automatic updates** for the operating system and apps.
+2. Do the same on your laptop.
+3. Install any updates already waiting, especially security ones.
 
-## Lesson 1: Updates are security
+**You've got it when:** both devices update themselves, and nothing is sitting un-updated right now.
 
-Software updates are not just new features; they fix security holes attackers exploit. An out-of-date phone,
-laptop, or app is a known, open door. The fix is simple:
+## Try it 2 - Trim your app permissions
 
-- Turn on **automatic updates** for your operating system and apps.
-- Install updates promptly, especially security ones.
-- Replace software (or devices) that no longer receive updates, when you can.
+**Why it matters:** many apps ask for far more than they need. A simple torch app does not need your contacts,
+messages, and location.
 
-This one habit closes a large share of real risk, with almost no effort once it is automatic.
+**Do this now:**
+1. Open your phone's app permissions (privacy settings) and look at location, contacts, microphone, and camera.
+2. For each, ask: does this app really need this to do its job?
+3. Switch off at least three permissions that do not make sense.
 
-> **Note:** "Update later" that becomes "never" is how many devices get compromised. Automatic updates remove
-> the decision, which is exactly why they help.
+**You've got it when:** you have removed three permissions an app did not need.
 
-## Lesson 2: Malware, and how to avoid it
+## Try it 3 - Set up a 3-2-1 backup
 
-**Malware** is harmful software: it can steal data, spy, or lock your files. You mostly avoid it with habits:
+**Why it matters:** a backup is your safety net against theft, damage, loss, and ransomware. The simple target
+is 3-2-1: three copies, on two types of storage, with one kept separate.
 
-- **Install from official stores** and trusted sources only. Avoid pirated or "cracked" apps, a common malware
-  source.
-- **Do not open unexpected attachments** or enable "macros"/permissions a file asks for.
-- **Be wary of pop-ups** telling you that you are infected, those are often the trap.
-- **Use reputable security software** where appropriate, and keep it updated.
-- **Review app permissions**, does a simple app really need your contacts, messages, and location?
+**Do this now:**
+1. Turn on **automatic backup** for your phone photos and contacts to a cloud account.
+2. Set your important documents to sync or back up automatically.
+3. Arrange **one copy that is not always connected** (a separate cloud account or an external drive you unplug),
+   so ransomware or theft cannot take everything at once.
 
-> **Warning:** A "cracked" paid app or a too-good free download is one of the easiest ways to get malware.
-> The money you save is not worth a stolen account or locked files.
+**You've got it when:** your photos, contacts, and documents all back up automatically, with one copy kept
+separate.
 
-## Lesson 3: Backups you can actually restore
+## Try it 4 - Prove it by restoring a file (the step most people skip)
 
-A backup is your safety net against theft, damage, loss, and ransomware. The simple, strong target is
-**3-2-1**: three copies, on two types of storage, with one kept separate (off-site or cloud).
+**Why it matters:** a backup you have never restored from may silently be broken. The restore is the only proof.
 
-- Turn on **automatic backup** for phone photos and contacts (to a cloud account).
-- **Sync or back up documents** automatically.
-- Keep **one backup not always connected** (a separate cloud account or an external drive you unplug), so
-  ransomware or theft cannot take everything at once.
+**Do this now:**
+1. Pick one file or photo you have backed up.
+2. Restore it from the backup - to a different folder, or onto another device.
+3. Open it to confirm it is complete and correct.
 
-The step most people skip: **test the restore.** A backup you have never restored from may not work when you
-need it. Use the [backup plan template](/downloads/cybersecurity/backup-plan-template.md).
+**You've got it when:** you have opened a file you pulled back from your own backup.
 
 > **Important:** Back up before you need it. After a device is lost or files are locked is too late. Set it up
-> today and test it this week.
+> today and prove the restore this week.
 
-## Lesson 4: Encryption, in plain words
+## Make it yours - encryption and safe disposal
 
-**Encryption** scrambles data so only someone with the key (your password/PIN) can read it. If your encrypted
-phone or laptop is stolen, the thief gets a locked brick, not your data.
+Two quick protections to lock in:
 
-- Most modern phones encrypt by default when you set a lock screen, so **set a strong lock** (PIN, password,
-  or biometrics).
-- On laptops, turn on **device encryption** if available (built into many systems).
-- This matters most for portable devices, which are the ones that get lost or stolen.
+- **Encryption:** set a strong lock screen (PIN, password, or biometrics). Most modern phones then encrypt by
+  default, so a stolen phone becomes a locked brick, not your data. On laptops, turn on device encryption if
+  available.
+- **Safe disposal:** before you ever sell or give away a device, back it up, sign out of accounts, factory reset
+  or securely wipe it, and remove the SIM and memory cards.
 
-## Lesson 5: Safe disposal
-
-Old phones and laptops hold a surprising amount of personal data. Before you sell, give away, or discard one:
-
-- **Back up** anything you want to keep.
-- **Sign out** of accounts and remove them from the device.
-- **Factory reset / securely wipe** the device (on an encrypted device, a reset makes old data unrecoverable).
-- **Remove SIM and memory cards.**
-
-> **Rule of thumb:** Never pass on a device until you have wiped it and confirmed your accounts are removed. A
-> "cleared" phone that is only deleted, not reset, can still leak data.
-
-### Common mistakes
+### Watch out for
 
 - Postponing updates indefinitely
-- Installing pirated/cracked apps and catching malware
+- Installing pirated or "cracked" apps and catching malware
 - Having backups but never testing a restore
-- One backup that is always connected (ransomware/theft takes it too)
+- One backup that is always connected (ransomware or theft takes it too)
 - Selling or giving away a device without a proper wipe
 
-## Practice Exercises
+> **Warning:** A "cracked" paid app or a too-good free download is one of the easiest ways to get malware. The
+> money you save is not worth a stolen account or locked files.
 
-1. Turn on automatic updates on your phone and laptop; install any pending ones.
-2. Review app permissions and remove ones an app does not need.
-3. Set up automatic backup for your photos and contacts.
-4. Fill in the backup plan template for your important data (3-2-1).
-5. **Restore one file** from a backup to prove it works.
-6. Confirm your device has a strong lock and encryption is on.
-7. Write the steps you would follow to wipe a phone before giving it away.
+## This week's build: your device and data safety record
 
-## Weekly Assignment (Due Before Week 5)
-
-Secure your devices and data, and document it:
+Document the real protections you put in place:
 
 1. A completed **backup plan** (3-2-1) with at least one **tested restore** noted
 2. Evidence that **automatic updates** and a **device lock/encryption** are on
@@ -148,6 +129,12 @@ Secure your devices and data, and document it:
 - [ ] Permissions reviewed and trimmed
 - [ ] Safe-disposal checklist written
 
+## Extra quick wins (optional)
+
+- Set up remote find-and-wipe for your phone (you will use it in Week 7).
+- Replace one risky "cracked" app with a trusted alternative from an official store.
+- Add your backup locations to the [security checklist](/downloads/cybersecurity/security-checklist.md).
+
 ## Mentoring Session Plan (90 minutes)
 
 | Time | Activity |
@@ -165,7 +152,7 @@ notes. The tested restore is the key moment; many "backups" fail silently, so in
 strongly against cracked apps (a major local malware vector) and pop-up "you are infected" scams. Explain
 encryption simply, tied to setting a strong lock. Keep it hands-on with their real devices.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. Why are software updates a security measure, not just features?
 2. What is the 3-2-1 backup idea, and why keep one copy disconnected?

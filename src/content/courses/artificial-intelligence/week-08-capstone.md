@@ -4,7 +4,7 @@ course: artificial-intelligence
 order: 8
 week: 8
 phase: "Capstone"
-summary: "Bring it all together: plan, build, and present a real AI-powered project, done responsibly, with your prompts, checks, and honest reflection."
+summary: "Build one real, useful AI-powered project from start to finish - with your prompts, your checks, and an honest reflection - and turn it into a portfolio piece you can show."
 estimatedHours: 8
 tools: ["An AI chat assistant", "An AI image tool", "A document"]
 downloads:
@@ -14,110 +14,115 @@ downloads:
     href: "/downloads/artificial-intelligence/ai-workflow-outline.md"
 ---
 
-**Goal:** Plan, build, and present a real, useful AI-powered project that shows your prompting, your
-responsible-use habits, and your judgement, finished and ready for a portfolio.
+**Goal:** This is where it all comes together. You'll plan, build, and present one real, useful project made with
+AI - responsibly - and finish with a portfolio piece that proves your job-ready skills. All building, almost no
+reading.
 
-## Learning Objectives
-
-By the end of this week you can:
+## What you'll be able to do
 
 - Plan a realistic AI-powered project with a clear, useful result
-- Use the right AI tools for each part, with human checks in place
+- Use the right tool for each part, with human checks in place
 - Apply privacy, fact-checking, copyright, and honesty throughout
-- Present your project, your process, and an honest reflection
-- Show the project as a portfolio piece
+- Present your project, your process, and an honest reflection as a portfolio piece
 
-## Tools / Accounts Needed This Week
+## Before you start (about 10 minutes)
 
-- Your AI tools from the course
-- The [AI project brief](/downloads/artificial-intelligence/ai-project-brief.md) and
-  [workflow outline](/downloads/artificial-intelligence/ai-workflow-outline.md); your prompt log and policy
+- Open the [AI project brief](/downloads/artificial-intelligence/ai-project-brief.md) and the
+  [workflow outline](/downloads/artificial-intelligence/ai-workflow-outline.md); have your prompt log and policy
+  nearby.
+- Warm-up: skim your work from Weeks 1 to 7 and note your three strongest prompts. They feed straight into the
+  capstone.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - Choose a project you can finish
 
-- Review: your work from Weeks 1 to 7. Your best prompts, workflow, and checks feed the capstone.
-- Read: the [project brief](/downloads/artificial-intelligence/ai-project-brief.md) template.
-- Decide: a real, small project you can finish well this week (see the ideas below).
+**Why it matters:** a small project done well beats a big one left unfinished. Pick something real you'd actually
+use.
 
-## Lesson 1: What makes a good capstone
+**Do this now - choose one (or invent your own):**
+1. A set of **social media posts** for a small business, with AI images, all rights-checked.
+2. A **study guide** on a topic, researched with AI and fully fact-checked.
+3. A tidy **FAQ** for a service, drafted with AI and verified.
+4. A **translated leaflet** or notice, with a human check of the translation.
+5. A documented **AI workflow** for a repeated task, with a worked run.
+6. A simple **plan or toolkit** (for example, an event plan) built with AI help.
 
-The capstone is not about the fanciest tool. It is a **real, finished, useful result**, produced with AI,
-responsibly. A small project done well beats a big one left unfinished.
+**You've got it when:** you can name your project in one sentence and say who it helps.
 
-Good capstones solve a genuine small problem for you, a business, a group, or your studies. The judging looks
-at three things: the **result**, your **responsible-use habits** (privacy, fact-checking, honesty), and your
-honest **reflection** on where AI helped and where it fell short.
+## Try it 2 - Write the brief before you build
 
-## Lesson 2: Choose your project
+**Why it matters:** five minutes of planning keeps the project focused and responsible from the start.
 
-Pick something you can finish this week and would actually use. Ideas (choose or invent your own):
+**Do this now - fill the [project brief](/downloads/artificial-intelligence/ai-project-brief.md) with:**
+1. The **problem** and who it's for.
+2. The **result** you'll produce.
+3. **Where AI helps** and where you'll check.
+4. Your **responsible-use plan** (privacy, facts, rights, honesty).
 
-- A set of **social media posts** for a small business, with AI images, all rights-checked
-- A **study guide** on a topic, researched with AI and fully fact-checked
-- A tidy **FAQ** for a service, drafted with AI and verified
-- A **translated leaflet** or notice, with a human check of the translation
-- A documented **AI workflow** for a repeated task, with a worked run
-- A simple **plan or toolkit** (e.g., an event plan) built with AI help
+**You've got it when:** your brief could be handed to someone else and they'd understand the whole plan.
 
-Use the [project brief](/downloads/artificial-intelligence/ai-project-brief.md) to define the problem, the
-result, where AI helps, and your responsible-use plan before you build.
+## Try it 3 - Build it responsibly
 
-## Lesson 3: Build it responsibly
+**Why it matters:** this is the capstone itself - the whole course applied at once, with you supervising the AI.
 
-As you build, apply the whole course:
+**Do this now, keeping notes as you go:**
+1. **Prompt well** and iterate (Week 2); save the prompts you use.
+2. **Verify** every fact, number, and link (Week 5).
+3. **Protect privacy**: no sensitive data in any tool (Weeks 0 and 7).
+4. **Check rights** for any images or content you publish (Week 4).
+5. **Keep a human in charge**: you decide what's good enough (Week 6).
+6. **Be honest**: disclose AI use where expected (Week 7).
 
-- **Prompt well** and iterate (Week 2); save your prompts
-- **Verify** every fact, number, and link (Week 5)
-- **Protect privacy**: no sensitive data in any tool (Weeks 0 and 7)
-- **Check rights** for any images or content you publish (Week 4)
-- **Keep a human in charge**: you decide what is good enough (Week 6)
-- **Be honest**: disclose AI use where expected (Week 7)
+**You've got it when:** you have a finished result and a record of the prompts and checks behind it.
 
-Keep notes as you go: which prompts you used, what you checked, what you changed. That record is part of the
-capstone.
+> **Important:** The project must contain no made-up facts presented as true, no private data, and no content you
+> don't have the right to use. A polished result built on an unchecked claim fails the brief.
 
-> **Important:** The project must contain no made-up facts presented as true, no private data, and no content
-> you do not have the right to use. A polished result built on an unchecked claim fails the brief.
+## Try it 4 - Present and make it a portfolio piece
 
-## Lesson 4: Document and present
+**Why it matters:** showing that you supervised the AI is exactly what makes you trustworthy with it. Honesty is
+a strength here, not a weakness.
 
-Prepare a short presentation (and a portfolio page) covering:
+**Do this now - prepare a short presentation and a portfolio page covering:**
+1. The **problem** and who it's for.
+2. The **result** (show it).
+3. **How you used AI**: tools, key prompts, workflow.
+4. **Your checks**: facts verified, privacy protected, rights and honesty handled.
+5. **Honest reflection**: what AI did well, where it fell short, what you'd do differently.
 
-1. **The problem** and who it is for
-2. **The result** (show it)
-3. **How you used AI**: the tools, your key prompts, your workflow
-4. **Your checks**: facts verified, privacy protected, rights and honesty handled
-5. **Honest reflection**: what AI did well, where it fell short or got things wrong, what you would do differently
+For hosting a simple portfolio for free, see the InnovaTech
+[Remote Ready](/courses/remote-ready/) course.
 
-This honesty is a strength, not a weakness. Showing that you supervised the AI is exactly what makes you
-trustworthy with it.
-
-## Lesson 5: Make it a portfolio piece
-
-Turn the capstone into something you can show. See the InnovaTech [Remote Ready](/courses/remote-ready/) course
-for building and hosting a simple portfolio for free. For an AI project, a good portfolio piece shows the
-result, a short note on your process, and your responsible-use approach, with any private details removed.
+**You've got it when:** you have a portfolio-ready version with all private details removed.
 
 > **Privacy:** As with any portfolio, use fictional or anonymised data in anything you publish. Never expose a
 > real person's or client's private information.
 
-### Common mistakes
+## Make it yours - finish and ship it
+
+A capstone isn't judged on the fanciest tool. It's judged on a **real, finished, useful result**, your
+**responsible-use habits**, and your honest **reflection**. Choose scope you can complete this week, build the
+checks in, and ship something you're proud to show.
+
+### Watch out for
 
 - Choosing a project too big to finish well
 - Skipping the checks under time pressure
 - Hiding where AI was used instead of explaining it
 - Publishing unverified facts or rights-uncleared images
-- No reflection, so the learning is not shown
+- No reflection, so the learning isn't shown
 
-## Capstone Assignment (Due Week 8 session)
+## This week's build: your complete AI-powered project
 
-Deliver your **complete AI-powered project**:
+Deliver the full project, finished and portfolio-ready:
 
 1. A completed **project brief** (problem, result, AI use, responsible-use plan)
 2. The **finished result** itself
 3. A **process record**: key prompts, your workflow, and the checks you did (facts, privacy, rights, honesty)
 4. An **honest reflection** on AI's help and limits in your project
 5. A **portfolio-ready version** with any private details removed
+
+*Tip: solve a genuine small problem for yourself, a business, a group, or your studies - a real result is the
+best portfolio piece.*
 
 ### Grading guide
 
@@ -135,6 +140,12 @@ Deliver your **complete AI-powered project**:
 - [ ] Prompts and checks documented
 - [ ] Honest reflection included
 - [ ] Portfolio version with no private data
+
+## Extra quick wins (optional)
+
+- Write a one-line "how I used AI responsibly" note you can attach to any future project.
+- Record the three prompts that did the most work, ready to reuse on your next project.
+- Draft a short caption for your portfolio piece that names the problem and the result.
 
 ## Mentoring Session Plan (90 minutes)
 
@@ -154,7 +165,7 @@ any private data, and uncleared images; these are the failures that matter. Rewa
 admitting where AI got things wrong. Point learners to Remote Ready for portfolio hosting. Keep outcomes honest:
 real, supervised AI skill, not guaranteed income.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What three things does a good capstone show, beyond the result itself?
 2. Which checks must you apply while building an AI project?

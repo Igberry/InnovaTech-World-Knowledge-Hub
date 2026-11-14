@@ -4,7 +4,7 @@ course: remote-ready
 order: 1
 week: 1
 phase: "Foundations"
-summary: "Understand remote, hybrid and async work, the real opportunities, and set a clear, honest goal."
+summary: "Spend this week looking at real remote jobs, not theory: see what's genuinely out there for you from Nigeria and lock in one clear target."
 estimatedHours: 7
 tools: ["LinkedIn"]
 downloads:
@@ -12,110 +12,107 @@ downloads:
     href: "/downloads/remote-ready/remote-readiness-checklist.md"
 ---
 
-**Goal:** Understand what remote work really involves, see the genuine opportunities (and the honest
-limits), and set a clear goal for the kind of remote role you're aiming for.
+**Goal:** By the end of this week you'll have browsed real remote adverts with your own eyes, understood
+how global teams actually work, and written one clear, honest target role you're aiming for. You learn
+this by looking at live jobs, not by reading about them.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
+- Explain remote, hybrid, sync and async work in your own words, after seeing them in real adverts
+- Name the kinds of remote roles genuinely open to people in Nigeria
+- Set one specific, realistic target for your search
+- Talk honestly about the real challenges and how you'll handle them
 
-- Explain the difference between remote, hybrid, and async work
-- Describe the kinds of remote roles open to people in Nigeria
-- Set a specific, realistic goal for your remote-work search
-- Name the real challenges and how to approach them honestly
+## Before you start (about 10 minutes)
 
-## Pre-Session Resources (about 2 hours)
+- Open **linkedin.com/jobs** and a blank doc for notes.
+- Warm-up: search "remote" and filter by Remote. Just scroll for two minutes to see what exists. Don't
+  apply to anything yet.
 
-- Read: search the web for "remote work glossary async vs sync" and read one clear guide from a
-  well-known site.
-- Watch (search YouTube): *"what is remote work"* and *"async communication explained"* from reputable
-  channels.
-- Browse **linkedin.com/jobs** and search "remote" to see real adverts (don't apply yet).
+## Try it 1 - Spot sync vs async in real adverts
 
-## Lesson 1: Remote, hybrid, async
+**Why it matters:** async work (you send updates, others reply later) is the key that lets you work from
+Nigeria with teams in Europe or the Americas. See it once and the rest makes sense.
 
-- **Remote:** you work from anywhere, not an office.
-- **Hybrid:** a mix of home and office (less relevant if you're applying abroad).
-- **Synchronous (sync):** working at the same time as others - live calls, instant chat.
-- **Asynchronous (async):** working at different times - you send updates, others reply later. Common
-  across time zones and the key skill for global work.
+**Do this now:**
+1. Open three remote adverts. In each, look for words like "async", "overlap hours", "time zone", "stand-up",
+   "live calls".
+2. Label each one in your notes: mostly live (sync), mostly written (async), or a mix.
+3. Write one line: which style would suit you working from WAT?
 
-Most global remote teams are **mostly async** with a few live calls. That's good news from Nigeria: you
-can work with teams in Europe or the Americas by being clear in writing and overlapping for a short
-window each day.
+**You've got it when:** you can say, in your own words, the difference between working at the same time
+(sync) and at different times (async), using a real advert as your example.
 
-## Lesson 2: What roles are realistic
+## Try it 2 - Find the roles that are realistic for you
 
-Remote work is not only for programmers. Common entry points include:
+**Why it matters:** remote work is not only for programmers. Knowing the real entry points stops you
+chasing the wrong jobs.
 
-| Field | Example remote roles |
-|---|---|
-| Admin & support | Virtual assistant, customer support, data entry |
-| Data | Data analyst, data entry, research |
-| Software | Front-end developer, QA |
-| Content & marketing | Social media, content writer, community manager |
-| Design | Graphic/brand design |
+**Do this now - search LinkedIn Jobs for each of these and note what comes up:**
+1. "virtual assistant remote"
+2. "customer support remote"
+3. "data entry remote" or "data analyst remote"
+4. "social media remote" or "content writer remote"
 
-Pair a **skill** (from an InnovaTech course or your own experience) with **remote-readiness** (this
-course), and you have something to offer. If you're still building a skill, that's fine - start this
-course alongside it.
+Pair a **skill** (from an InnovaTech course or your own experience) with the **remote-readiness** you build
+here, and you have something real to offer.
 
-> **Tip:** The clearer and narrower your target ("remote virtual assistant, part-time"), the easier
-> everything else becomes - your CV, your search, your pitch.
+**You've got it when:** you've found at least five live adverts that could realistically fit you, and saved them.
 
-## Lesson 3: The honest picture
+## Try it 3 - Read what the adverts actually ask for
 
-Remote work is a real opportunity, but be clear-eyed:
+**Why it matters:** the advert tells you exactly what to put on your CV and what to practise. It's free research.
 
-- It is **competitive** - you're applying alongside people worldwide. Your profile and reliability are
-  how you stand out.
-- It **takes time** - most people send many applications before landing a role. Consistency wins.
-- It rewards **communication and trust** more than credentials.
-- Pay varies widely; research real ranges for your field and region, and don't believe anyone promising
-  guaranteed high income fast.
+**Do this now:**
+1. Open 10 adverts for your target role.
+2. In your notes, tally the skills they ask for most (e.g. "written English", "Google Sheets", "reliable
+   internet", "customer service").
+3. Mark which of the top five you already have, and which you'll build.
 
-> **Important:** This course does not promise a job or any income. It makes you genuinely ready and
-> helps you apply well. The results come from your effort over time.
+**You've got it when:** you have a ranked list of the top five skills your target role wants, and an honest
+have-or-build mark next to each.
 
-## Lesson 4: The Nigerian context (turn it into a strength)
+## Try it 4 - Turn the Nigerian context into a selling point
 
-- **Power and data:** manage them (Setup Guide). Framed well, your backup plan shows reliability.
-- **Time zones:** Nigeria (WAT) overlaps well with Europe and the mornings of the Americas - a selling
-  point for async teams.
-- **Payments:** getting paid from abroad is very doable (covered in Week 6).
-- **English:** strong written English is a real advantage; keep improving it.
+**Why it matters:** the things that feel like obstacles can be framed as strengths an async team actually wants.
 
-## Lesson 5: Set your goal
+**Do this now - write one line for each:**
+1. **Time zones:** WAT overlaps well with Europe and the mornings of the Americas. Note your overlap with
+   two target regions (use a world-clock search).
+2. **Reliability:** one sentence on how your power and data plan (Setup Guide) keeps you dependable.
+3. **English:** one honest line on your written English and how you keep improving it.
 
-Write a one-line goal, for example: *"In 3 months I want a remote part-time virtual assistant role with
-a small business, working mornings (WAT) and paid monthly."* You'll refine everything else around it.
+**You've got it when:** you have three lines you could say to an interviewer that turn "challenges" into reasons to hire you.
 
-## Common mistakes
+## Try it 5 - Lock in your one-line target
+
+**Why it matters:** the narrower your target, the easier your CV, search and pitch all become.
+
+**Do this now:** write one line, for example: *"In 3 months I want a remote part-time virtual assistant role
+with a small business, working mornings (WAT) and paid monthly."* Everything else this course bends around this line.
+
+**You've got it when:** you have a single, specific sentence naming the role, type, hours and how you'd be paid.
+
+### Watch out for
 
 - Vague goals ("any remote job") that make your CV and pitch unfocused.
 - Believing "get rich quick" remote promises.
 - Underestimating communication; overestimating certificates.
 
-## Practice Exercises
+> This course does not promise a job or any income. It builds genuine, job-ready skills and helps you apply
+> well. The results come from your effort over time.
 
-1. **Easy:** Write definitions of remote, hybrid, sync and async in your own words.
-2. **Easy:** List five remote roles that fit your skills or interests.
-3. **Medium:** Browse 10 real remote adverts; note the skills they ask for most.
-4. **Medium:** Write your one-line remote-work goal.
-5. **Medium:** Note your time-zone overlap with two target regions.
-6. **Stretch:** Write a short, honest paragraph on how you'll handle power/data, as if answering an interviewer.
+## This week's build: your "My remote target" brief
 
-## Weekly Assignment (Due Before Week 2)
-
-Produce a short **"My remote target" brief** (one page):
+Produce a one-page brief you'll reuse all course:
 
 1. Your one-line goal (role, type, hours, how paid).
 2. The field and 3-5 example roles you'll aim for.
-3. The top 5 skills those roles ask for (from real adverts) and which you have / will build.
+3. The top five skills those roles ask for (from real adverts) and which you have or will build.
 4. Your time-zone overlap with two target regions.
-5. Your honest power/data reliability plan.
+5. Your honest power and data reliability plan.
 
-**Grading guide (100%):**
+### Grading guide
 
 | Criteria | % |
 |---|---|
@@ -125,12 +122,18 @@ Produce a short **"My remote target" brief** (one page):
 | Time-zone and reliability plan | 20 |
 | Clear writing, one page | 10 |
 
-**Definition of done:**
+### Definition of done
 
 - [ ] One-page brief with a specific goal
 - [ ] 3-5 target roles and the skills they need (from real adverts)
 - [ ] Time-zone overlap noted
 - [ ] Honest reliability plan included
+
+## Extra quick wins (optional)
+
+- Follow two remote-first companies in your field on LinkedIn to see how they talk about work.
+- Find one person in Nigeria doing your target role remotely and read how they describe it.
+- Save a job advert you love as the "dream role" you're working towards.
 
 ## Mentoring Session Plan (90 min)
 
@@ -149,7 +152,7 @@ disappointment and risky scam decisions later. Push for a narrow, specific goal;
 every later week. For learners still building a core skill, position Remote Ready as parallel prep, not
 a replacement for the skill.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What is the difference between synchronous and asynchronous work?
 2. Why is async communication especially important for working from Nigeria?

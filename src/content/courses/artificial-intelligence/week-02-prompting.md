@@ -4,7 +4,7 @@ course: artificial-intelligence
 order: 2
 week: 2
 phase: "Core Skills"
-summary: "Learn to write prompts that get useful results: structure, context, examples, and the habit of improving a prompt by iterating."
+summary: "Turn weak answers into great ones by asking better. You'll build strong prompts live, improve them by iterating, and walk away with your own reusable prompt library."
 estimatedHours: 8
 tools: ["An AI chat assistant", "A document"]
 downloads:
@@ -14,94 +14,94 @@ downloads:
     href: "/downloads/artificial-intelligence/prompt-log.csv"
 ---
 
-**Goal:** Learn to write prompts that reliably get useful results, and build the habit of improving a prompt
-step by step rather than giving up on a weak first answer.
+**Goal:** In this session you'll feel, with your own hands, how a better prompt turns a useless answer into an
+excellent one - and you'll save the prompts that work so you never start from scratch again. Mostly doing, very
+little reading.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
-
-- Write a prompt with clear role, task, details, and output format
-- Add context and examples to lift the quality of answers
+- Write a prompt with a clear role, task, details, and output format
+- Lift any answer by adding context and an example
 - Improve a weak answer by iterating, not starting over
-- Choose the right level of detail for a task
-- Keep a reusable library of prompts that work
+- Build a personal library of prompts you can paste and adapt
 
-## Tools / Accounts Needed This Week
+## Before you start (about 10 minutes)
 
-- Your AI chat assistant
-- The [prompt pattern library](/downloads/artificial-intelligence/prompt-pattern-library.md) and
-  [prompt log](/downloads/artificial-intelligence/prompt-log.csv)
+- Open your AI chat assistant and your "Prompts that work" document.
+- Skim the [prompt pattern library](/downloads/artificial-intelligence/prompt-pattern-library.md) for 5 minutes
+  so you know what's in it.
+- Warm-up: ask the AI the vague prompt *"write something about remote work"* and keep its answer. You'll fix
+  this exact prompt in a minute and compare.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - Feel the difference a prompt makes
 
-- Read: the [prompt pattern library](/downloads/artificial-intelligence/prompt-pattern-library.md) in this course.
-- Watch: *Search YouTube: "how to write better AI prompts for beginners"*. Watch one practical video.
-- Try: take one weak prompt and rewrite it three times, each time adding more detail. Note the difference.
+**Why it matters:** the same AI gives a weak or an excellent answer depending only on how you ask. This is the
+biggest free lever you have.
 
-## Lesson 1: Why prompting matters
+**Do this now:**
+1. Send the weak prompt: *"Write a message about our shop closing."* Keep the answer.
+2. Now send the strong version: *"You are helping a small shop in Yenagoa. Write a short, friendly WhatsApp
+   message telling customers we'll be closed next Monday for a public holiday. Under 40 words, warm but
+   professional, no emoji."*
+3. Put both answers side by side.
 
-The same AI can give you a useless answer or an excellent one, depending on how you ask. **Prompting** is the
-skill of asking well. It is the single biggest lever you have over the quality of your results, and it costs
-nothing to improve.
+**You've got it when:** you can point to exactly why the second answer is usable and the first isn't.
 
-A weak prompt is vague: "write something about remote work." A strong prompt is specific about what you want,
-for whom, and in what form. The AI cannot read your mind; it works with what you give it.
+## Try it 2 - Use the four parts of a strong prompt
 
-## Lesson 2: The four parts of a strong prompt
+**Why it matters:** most good prompts have four parts. Name them once and you can build a strong prompt every
+time.
 
-Most good prompts have some or all of these four parts:
+**Do this now - build one prompt that has all four:**
+1. **Role / context:** who the AI should act as and the situation ("You are helping a market trader in Bayelsa").
+2. **Task:** exactly what you want done ("write a price-list caption for Instagram").
+3. **Details / input:** the material, length, and tone ("5 items, friendly, under 30 words").
+4. **Output format:** the shape of the answer ("as a short caption with 3 hashtags").
 
-1. **Role / context:** who the AI should act as, and the situation
-2. **Task:** exactly what you want done
-3. **Details / input:** the material, constraints, length, and tone
-4. **Output format:** how you want the answer (list, table, email, steps)
+Send it, then try removing one part and sending again. Watch the answer get worse.
 
-**Weak:** "Write a message about our shop closing."
+**You've got it when:** you can say which of the four parts was missing whenever an answer disappoints you.
 
-**Strong:** "You are helping a small shop in Yenagoa [role]. Write a short, friendly WhatsApp message [task]
-telling customers we will be closed next Monday for a public holiday [details]. Under 40 words, warm but
-professional, no emoji [constraints/format]."
+> **Tip:** If an answer is not what you wanted, the fastest fix is usually to add the one part that was missing,
+> most often the details or the output format.
 
-The strong prompt gets a usable answer first time. The weak one needs several tries.
+## Try it 3 - Add context and an example (the power move)
 
-> **Tip:** If an answer is not what you wanted, the fastest fix is usually to add one of the four parts that
-> was missing, most often the details or the output format.
+**Why it matters:** giving the AI an example of what "good" looks like is one of the strongest things you can do.
 
-## Lesson 3: Context and examples
+**Do this now:**
+1. Take any prompt and add real **context**: *"Our customers are mostly young, budget-conscious, and read in a
+   mix of English and Pidgin."* Compare the answer to the version without it.
+2. Now add an **example**: paste a message you like and say *"write it in this style."*
+3. Tell it what to **avoid**: *"no jargon, no emoji, no more than 3 sentences."*
 
-Two things reliably raise quality:
+**You've got it when:** your answer clearly shifts to match the style and audience you described.
 
-- **Context:** tell the AI what it needs to know. "Our customers are mostly young, budget-conscious, and read
-  in a mix of English and Pidgin" shapes the answer far better than silence.
-- **Examples:** show what good looks like. "Write it in the style of this message: [paste a good example]."
-  Giving an example is one of the most powerful prompting moves.
+## Try it 4 - Iterate, do not restart
 
-You can also tell the AI what to **avoid**: "do not use jargon", "no emoji", "do not exceed 3 sentences."
+**Why it matters:** the first answer is a draft. Skilled users improve it with quick follow-ups, because the AI
+remembers the conversation. Starting over throws away everything you built.
 
-## Lesson 4: Iterate, do not restart
+**Do this now - take one answer and refine it in three steps:**
+1. *"Make it shorter."*
+2. *"Make the tone warmer, like you're talking to a friend."*
+3. *"Good. Now give me two more options in the same style."*
 
-The first answer is a **draft**. Skilled users improve it with follow-up instructions, because the AI
-remembers the conversation:
-
-- "Make it shorter." / "Make the tone warmer." / "Add a line about the discount."
-- "That is too formal, write it like you are talking to a friend."
-- "Good. Now give me two more options in the same style."
-
-This back-and-forth is normal and fast. Starting a brand-new prompt each time throws away the context you have
-built. Treat it as a conversation, not a vending machine.
+**You've got it when:** you've turned a 70%-right answer into a great one without writing a brand-new prompt.
 
 > **Rule of thumb:** If an answer is 70% right, refine it with one clear instruction. Only start over if the
 > whole direction is wrong.
 
-## Lesson 5: Build your prompt library
+## Make it yours - start your prompt library
 
-Good prompts are reusable. When one works well, save it. Use the
-[prompt log](/downloads/artificial-intelligence/prompt-log.csv) to record the tool, the task, the prompt, what
-worked, and what to improve. Over a few weeks you build a personal toolkit you can paste and adapt, which saves
+Good prompts are reusable, so save the ones that work. Open the
+[prompt log](/downloads/artificial-intelligence/prompt-log.csv) and record the tool, the task, the prompt, what
+worked, and what to improve. Over a few weeks this becomes a personal toolkit you paste and adapt, and it saves
 real time.
 
-### Common mistakes
+Quick win: save your three best prompts from today right now, before they slip away.
+
+### Watch out for
 
 - **Vague prompts** that could mean anything
 - **Forgetting the output format**, then being annoyed at the shape of the answer
@@ -109,24 +109,17 @@ real time.
 - **Not giving an example** when you clearly have one in mind
 - **Over-stuffing** a prompt with contradictory instructions (be clear, not just long)
 
-## Practice Exercises
+## This week's build: your personal prompt library
 
-1. Take a vague prompt and rewrite it with all four parts. Compare the two answers.
-2. Ask for the same thing in three output formats (a list, a table, a short paragraph).
-3. Give the AI an example of a style you like and ask it to match it.
-4. Start with a rough answer and improve it using three follow-up instructions.
-5. Write a prompt that tells the AI what to avoid; check it obeyed.
-6. Add real context to a prompt (audience, purpose) and note how the answer changes.
-7. Save your three best prompts to the prompt log with notes.
+Build a library of at least **six working prompts** you'll actually reuse, with evidence you can show:
 
-## Weekly Assignment (Due Before Week 3)
+1. **Six prompts** you wrote, each using the four-part structure where it fits
+2. **Three before-and-after pairs:** a weak first prompt and your improved one, with both answers shown
+3. **One iteration:** a first answer plus the follow-ups that improved it
+4. All of it saved in the **prompt log** with "what worked / what to improve" notes
 
-Build a **personal prompt library** of at least **six working prompts**, with evidence:
-
-1. Six prompts you wrote, each using the four-part structure where relevant
-2. For three of them, show the **before and after**: a weak first prompt, then your improved one, with both answers
-3. One example of **iterating**: a first answer plus the follow-ups that improved it
-4. The prompts saved in the **prompt log** with "what worked / what to improve" notes
+*Tip: pick prompts for real things you need - a job message, a shop notice, a study summary - so the library is
+useful the day you finish it.*
 
 ### Grading guide
 
@@ -143,6 +136,12 @@ Build a **personal prompt library** of at least **six working prompts**, with ev
 - [ ] Three before/after pairs with both answers shown
 - [ ] One documented iteration (first answer + follow-ups)
 - [ ] Prompt log completed with notes
+
+## Extra quick wins (optional)
+
+- Ask for the same thing in three output formats (a list, a table, a short paragraph) and compare.
+- Give the AI a style you like and challenge it to match it in one try.
+- Rewrite your worst prompt from Week 1 using all four parts.
 
 ## Mentoring Session Plan (90 minutes)
 
@@ -161,7 +160,7 @@ together and watches the answer get better. Emphasise iterating, because beginne
 answer or start over. Encourage saving good prompts from day one. Keep examples local and practical (a shop
 notice, a job message, a study summary). Remind learners to keep private data out of prompts.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What are the four parts of a strong prompt?
 2. Why does giving the AI an example often improve the result so much?

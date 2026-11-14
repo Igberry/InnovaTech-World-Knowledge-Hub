@@ -3,7 +3,7 @@ title: "Posture, Home Row and First Letters"
 course: typing-skills
 order: 1
 week: 1
-summary: "Find a relaxed position, learn home-row touch points and establish an honest typing baseline."
+summary: "Hands on the keys from minute one: lock in a relaxed home-row position, reach your first new keys by feel, and set a baseline you'll beat."
 estimatedHours: 4
 tools: ["Physical keyboard", "Text editor", "Timer"]
 downloads:
@@ -15,120 +15,129 @@ downloads:
     href: "/downloads/typing-skills/typing-practice-log-template.csv"
 draft: false
 ---
-**Goal:** Build a relaxed home-row position, learn the first reaching keys, and measure a starting point.
+**Goal:** Build a relaxed home-row position, reach your first new keys without looking, and clock a starting score. You learn this by typing, not by reading about typing.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week, you can:
+- Sit relaxed and plant both hands on the home row by feel
+- Hit your first new keys without looking down
+- Type short patterns with a steady rhythm and clean accuracy
+- Say why a baseline matters, then beat it later
+- Finish five practice sessions and log what needs work
 
-- Set a comfortable posture and place both hands on the home row.
-- Identify which finger presses the first new keys without looking down.
-- Type short letter patterns with a steady rhythm and controlled accuracy.
-- Explain the difference between a baseline and a later progress test.
-- Complete five practice sessions and record what needs attention.
+## Before you start (10 minutes)
 
-## Tools / Accounts Needed This Week
+- Skim the [setup guide](/courses/typing-skills/00-setup-guide/) if you have not set up your space yet.
+- Keep the [finger map](/downloads/typing-skills/keyboard-finger-map.md) open beside you.
+- Warm-up: rest your hands on home row, close your eyes, and tap F and J ten times each. Feel the bumps, no peeking.
+- Optional: search YouTube for **"touch typing home row posture beginner"** and watch one short clip for the hand shape. Ignore any speed claims.
 
-A physical keyboard, text editor, timer, baseline passage and practice log. The local [Typing Practice tool](/tools/typing-practice/) is optional; you may also practise in an offline text editor.
+## Try it 1 - Lock in the home row
 
-## Pre-Session Resources (about 2 hours)
+**Why it matters:** every reach you ever make starts and ends on the home row. Get this solid and the rest clicks into place.
 
-- Read the [setup guide](/courses/typing-skills/00-setup-guide/).
-- Search YouTube for **"touch typing home row posture beginner"**. Choose a recent lesson that demonstrates relaxed hand position; do not rely on its speed claims.
-- Review the printable [keyboard finger map](/downloads/typing-skills/keyboard-finger-map.md).
-- Take the supplied two-minute baseline test and bring the result to mentoring.
+**Do this now:**
+1. Shoulders loose, elbows near your sides, wrists straight, fingers curved.
+2. Left little, ring, middle fingers on **A S D**. Left index on **F**. Right index on **J**. Right middle, ring, little on **K L ;**. Thumbs near the space bar.
+3. Look away from the keyboard, find F and J by touch, reset. Do it slowly ten times.
+4. If your layout differs, use its normal home-row keys and ask your facilitator where the punctuation key sits.
 
-## Lessons
+**You've got it when:** you can place and reset both hands on home row without glancing down.
 
-### Lesson 1: Why touch typing matters
+## Try it 2 - Reach G and H and come back
 
-Touch typing means finding keys by feel while looking at the screen or source text, rather than repeatedly looking down. It can make writing, data entry and editing more fluent, but it does not replace proofreading. A quickly typed incorrect phone number is still incorrect.
+**Why it matters:** the first reaches teach the habit that matters most - the finger goes out, then straight home.
 
-Imagine a fictional counter assistant at Yenagoa Fresh Bites recording a takeaway order while speaking with a customer. A steady typing technique can help capture the request while keeping attention on the conversation. The worker must still confirm the order details with the customer. Typing speed is useful only when the information is accurate and handled respectfully.
+**Do this now:**
+1. Left index reaches to **G**, then back to F. Right index reaches to **H**, then back to J.
+2. Slowly type this line a few times, watching whether your hands return home between reaches:
 
-### Lesson 2: Posture and home-row position
+```text
+fg gf   hj jh
+fgh jhg   gh hg
+```
 
-Start with relaxed shoulders and elbows near your sides. Keep wrists straight and fingers curved gently above the keys. Do not press hard or hover your hands high above the keyboard. Place the left index finger on **F** and the right index finger on **J**. The small raised markers help you return to position without looking.
+3. If you miss a key again and again, slow right down and repeat just that one reach five times.
 
-The left little, ring and middle fingers rest on **A, S, D**. The left index finger rests on **F**. The right index finger rests on **J**, with the right middle, ring and little fingers on **K, L, ;**. Both thumbs can press the space bar. If your keyboard layout differs, use its normal home-row positions and ask your facilitator how the punctuation key is arranged.
+**You've got it when:** your index fingers snap back to F and J after every G and H.
 
-Practise placing and lifting your hands slowly. Look away from the keyboard, locate F and J by touch, and reset. Accuracy begins with a reliable starting position.
+## Try it 3 - Add E, R, I, U, T and Y
 
-### Lesson 3: First keys and finger paths
+**Why it matters:** these upper-row reaches unlock real words. Now you can type things that mean something.
 
-Keep the fingers returning to their home keys after reaching. The left index finger reaches to **G**, and the right index finger reaches to **H**. Then practise selected upper-row reaches: **E** and **R** with the left middle/index area; **I** and **U** with the right middle/index area; and **T** and **Y** with the index fingers. Use the finger map rather than guessing.
-
-Try short patterns slowly:
+**Do this now:**
+1. Left middle and index area handle **E** and **R**. Right middle and index area handle **I** and **U**. Both index fingers handle **T** and **Y**. Use the finger map, do not guess.
+2. Type these slowly, resetting to home after each word:
 
 ```text
 asdf jkl;
-fg hj
 red try yet
 they read a letter
 ```
 
-The goal is not to memorise these exact strings. Notice whether your hands return to F and J between reaches. If you miss a key repeatedly, slow down and practise that movement in a short set of five repetitions.
+3. The exact words do not matter. Notice whether your hands drift away from home.
 
-### Lesson 4: Accuracy before speed
+**You've got it when:** you can type "they read a letter" without hunting for a key.
 
-Speed is a result, not a movement to force. Choose a pace at which you can control each finger and notice mistakes. A short pause to reset can be better than continuing with tense hands. During a learning drill, correct a typo if the exercise allows it; during a timed test, follow the test's rules and record whether errors can be fixed.
+## Try it 4 - Accuracy first, speed will follow
 
-Use the "slow down to clean it up" rule: if you repeatedly miss keys, reduce your pace until you can complete a short line accurately. Practise a clean line twice before increasing the pace slightly. Do not compare your early score with another person's result.
+**Why it matters:** speed is a result, not a thing you force. Clean fingers get fast on their own.
 
-### Lesson 5: Capitals, spaces and punctuation
+**Do this now:**
+1. Pick a pace slow enough to control every finger and notice every mistake.
+2. Use the "slow down to clean it up" rule: if you keep missing keys, drop the pace until one line comes out perfect.
+3. Type a clean line twice before you nudge the speed up a little.
+4. For a capital, hold **Shift** with the opposite hand from the letter when it is comfortable (right Shift for a capital A, left Shift for a capital J). Light thumb tap for space. No Caps Lock for a single capital.
 
-For a capital letter, hold **Shift** with the opposite hand from the letter when practical. For example, use the right Shift for a capital A and the left Shift for a capital J. This lets one hand hold Shift while the other reaches. If a keyboard layout makes this uncomfortable, choose the more comfortable Shift key and keep your wrist neutral.
+**You've got it when:** you choose accuracy over speed without being reminded.
 
-Use a light thumb tap for the space bar. Practise a full stop and comma as part of a phrase, not as isolated symbols only. Type the supplied baseline passage at an even pace and notice whether capital letters interrupt your rhythm. Do not use Caps Lock for a single capital.
+## Try it 5 - Clock your baseline and read the score
 
-### Lesson 6: Baseline test and score
+**Why it matters:** a baseline is your "before" photo. It only works if it is honest.
 
-The WPM estimate used in this course is:
+**Do this now:**
+1. Open the [baseline passage](/downloads/typing-skills/baseline-passage.md), set a two-minute timer, type at a comfortable pace.
+2. Work out your score with the course formula:
 
 ```text
-WPM = (correct characters ÷ 5) ÷ elapsed minutes
-Accuracy = correct characters ÷ total typed characters × 100
+WPM = (correct characters / 5) / elapsed minutes
+Accuracy = correct characters / total typed characters x 100
 ```
 
-For example, if 150 characters match the passage after two minutes, the estimate is `(150 ÷ 5) ÷ 2 = 15 WPM`. If 160 characters were typed in total, accuracy is `150 ÷ 160 × 100 = 93.75%`. Round the display to a whole WPM and one decimal place for accuracy, but keep the raw counts if available.
+3. Example: 150 correct characters in 2 minutes is `(150 / 5) / 2 = 15 WPM`. If you typed 160 in total, accuracy is `150 / 160 x 100 = 93.75%`.
+4. Record it. Do not retake it to get a prettier number.
 
-Different test sites may count words, errors, pauses or corrected text differently. Use the same method for your own before-and-after comparison. Do not present one site's result as directly comparable with another's.
+**You've got it when:** one honest baseline, with its method, sits in your log.
 
-### Lesson 7: Plan five small practice sessions
+*Different sites count words and errors differently, so always compare your own before-and-after with the same method. Do not treat one site's score as the same as another's.*
 
-Practice five days this week for 30 minutes each:
+## A simple feedback loop
 
-| Day | 5 min warm-up | 15 min lesson | 5 min accuracy drill | 5 min cool-down |
+After each session, write one observation a stranger could act on: "I looked down reaching for T" beats "I was bad today." Pick one change for next time, like repeating the T and Y reach slowly or moving the keyboard closer. Change one thing at a time so you can tell what helped.
+
+At week's end, compare your log with your baseline. A higher WPM is not the only win. Finding F and J blind, fewer repeat errors, or finishing a line with looser hands all count. If your score drops, check whether you used a different passage, timer, or scoring rule before you conclude anything.
+
+Practising with a partner? Ask for specific feedback: "Did my hands return home?" or "Were my shoulders relaxed?" Skip comments about natural ability or ranking the room.
+
+## This week's build: your five-day starter log
+
+Something you can actually show at mentoring:
+
+1. Practise five days, 30 minutes each. A sample shape per day:
+
+| Day | 5 min warm-up | 15 min focus | 5 min accuracy drill | 5 min cool-down |
 |---|---|---|---|---|
-| 1 | Find F/J with eyes closed | Home row A–; | `asdf jkl;` slowly | Stretch fingers gently |
-| 2 | Home-row placement | G and H reaches | Short words with G/H | Note one difficult reach |
-| 3 | Relaxed hand reset | E, R, I and U | Type short phrases twice | Record accuracy |
+| 1 | Find F/J eyes closed | Home row A to ; | `asdf jkl;` slowly | Stretch fingers |
+| 2 | Home-row placement | G and H reaches | Short words with G/H | Note one hard reach |
+| 3 | Relaxed hand reset | E, R, I, U | Short phrases twice | Record accuracy |
 | 4 | F/J location check | T and Y plus review | Capitals and spaces | Note any tension |
-| 5 | Slow home-row line | Mixed first-week keys | Baseline passage excerpt | Update the log |
+| 5 | Slow home-row line | Mixed week-1 keys | Baseline passage excerpt | Update the log |
 
-Stop or take a break if your hands feel tired. Use a short passage rather than trying to finish a large amount at once.
+2. Submit your honest baseline result, the five-day [practice log](/downloads/typing-skills/typing-practice-log-template.csv), and a short reflection naming your three hardest keys or habits with one fix each.
 
-### A simple feedback loop
+*Quick win: your baseline row is day one already filled in.*
 
-After each session, write one observation that another person could understand: "I looked down when reaching for T" is more useful than "I was bad today." Choose one change for the next practice, such as repeating a T/Y reach slowly or moving the keyboard closer. Do not change posture, keyboard layout and speed target all at once; a small adjustment makes it easier to tell what helped.
-
-At the end of the week, compare the practice log with your baseline notes. A higher WPM is not the only evidence of progress. You may now find F and J without looking, make fewer repeated errors, or finish a sentence with less tension. Keep that evidence. If the measured score falls, check whether you used a different passage, timer or scoring rule before drawing a conclusion.
-
-When practising with another learner, ask for specific feedback: "Did my hands return to the home row?" or "Did I keep my shoulders relaxed?" Avoid comments about someone else's natural ability or a ranking of the group. Feedback should point to a habit the learner can test in the next practice.
-
-## Practice Exercises
-
-1. Find F and J by touch ten times, resetting your hands between attempts.
-2. Type `asdf jkl;` for two minutes without looking at the keys.
-3. Type ten short words containing G or H and underline any difficult reach in your log.
-4. Type one short sentence using capitals and punctuation, then proofread it.
-5. Repeat a 30-second line at a slower pace and compare errors, not just speed.
-6. Take the baseline test and write down the keyboard type and test method.
-7. Ask a partner to observe posture and name one adjustment that feels more comfortable.
-
-## Weekly Assignment (Due Before Week 2)
-
-Submit the baseline test result, a practice log for five days, and a short reflection naming your three hardest keys or habits and one fix for each.
+### Grading guide
 
 | Criterion | Weight |
 |---|---:|
@@ -136,12 +145,18 @@ Submit the baseline test result, a practice log for five days, and a short refle
 | Honest baseline and method | 25% |
 | Specific reflection and fix plan | 25% |
 
-**Definition of done**
+### Definition of done
 
 - [ ] A two-minute baseline result is recorded with its method.
 - [ ] Five practice days are entered in the log.
 - [ ] Three difficulties are described with a practical fix.
 - [ ] No real personal or customer data appears in the submitted work.
+
+## Extra quick wins (optional)
+
+- Type the first names of five friends, resetting to home row between each.
+- Race yourself: type `they read a letter` three times and see if line three is cleaner than line one.
+- Ask a partner to watch only your posture and name one comfier adjustment.
 
 ## Mentoring Session Plan (60 minutes)
 
@@ -157,20 +172,20 @@ Submit the baseline test result, a practice log for five days, and a short refle
 ## Common Mistakes
 
 - Looking down after every key instead of resetting by touch.
-- Reaching with the wrong finger and leaving the hand in a tense position.
+- Reaching with the wrong finger and leaving the hand tense.
 - Slamming keys or holding the shoulders up.
-- Treating a baseline as a pass/fail score.
-- Increasing speed when accuracy is falling sharply.
+- Treating a baseline as a pass or fail score.
+- Pushing speed while accuracy is falling.
 - Skipping the log and trying to remember practice days later.
 
 ## Facilitator Notes
 
 Ask before adjusting a learner's seating or keyboard. Demonstrate a neutral hand position, then let learners choose a comfortable version. Keep scores private unless the learner chooses to share. If a learner cannot use the standard finger assignment comfortably, adapt the practice without penalising them for the layout.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. Which keys are the home-row touch points for your index fingers?
-2. Which fingers should reach for G and H?
+2. Which fingers reach for G and H?
 3. Why do we record a baseline before regular practice?
-4. If your accuracy falls while you speed up, what should you change first?
-5. How will you protect your practice data from including real customer details?
+4. If accuracy falls while you speed up, what do you change first?
+5. How will you keep real customer details out of your practice files?

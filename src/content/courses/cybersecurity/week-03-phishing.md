@@ -4,7 +4,7 @@ course: cybersecurity
 order: 3
 week: 3
 phase: "Core Protection"
-summary: "Recognise and defeat the attacks that target people, not machines: phishing, scams, and manipulation, with a practical red-flags routine."
+summary: "Train your eye on real scam messages: hunt the red flags, practise the verify-before-you-act routine, and rehearse the replies that defeat OTP and 'urgent boss' scams."
 estimatedHours: 8
 tools: ["A document"]
 downloads:
@@ -12,86 +12,80 @@ downloads:
     href: "/downloads/cybersecurity/phishing-red-flags.md"
 ---
 
-**Goal:** Learn to spot and stop the attacks aimed at people, phishing, scams, and social engineering, with a
-simple routine you can use on any suspicious message.
+**Goal:** By the end of this week you can look at any suspicious message and defeat it with one routine. You
+learn this by dissecting real messages from your own inbox, not by memorising theory.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
+- Spot the red flags in real email, SMS, call, and DM scams
+- Run a verify-before-you-act routine on any suspicious message
+- Handle the common local scams: OTP theft, mobile money, impersonation
+- Know exactly what to do if you clicked or shared something
 
-- Explain what phishing and social engineering are
-- Recognise the red flags across email, SMS, calls, and DMs
-- Apply a verify-before-you-act routine
-- Handle common local scams (OTP, mobile money, impersonation)
-- Know what to do if you clicked or shared something
+## Before you start (about 10 minutes)
 
-## Tools / Accounts Needed This Week
+- Open the [phishing red-flags cheat-sheet](/downloads/cybersecurity/phishing-red-flags.md) and skim the flags.
+- Warm-up: dig three suspicious messages out of your own spam, SMS, or WhatsApp. Screenshot or copy them into a
+  document. These are your practice material.
 
-- A document for your examples and notes
-- The [phishing red-flags cheat-sheet](/downloads/cybersecurity/phishing-red-flags.md)
+## Try it 1 - Hunt the red flags
 
-## Pre-Session Resources (about 2 hours)
+**Why it matters:** the more red flags a message shows, the more certain it is a scam. Once you can name them,
+you spot scams in seconds.
 
-- Read: the [phishing cheat-sheet](/downloads/cybersecurity/phishing-red-flags.md) in this course.
-- Read: search the web for "how to spot phishing" from a trusted security source.
-- Cross-read: the [Remote Ready](/courses/remote-ready/) course, Week 4, covers job and freelance scams in
-  depth; this week focuses on the security angle of spotting manipulation.
+**Do this now - on each of your three real messages, mark any of these:**
+1. Urgency or fear ("act now or lose access")
+2. Too good to be true (a prize or job you did not expect)
+3. An unexpected link or attachment, especially one asking you to log in
+4. A request for secrets (password, PIN, full card number, OTP)
+5. An odd sender address, or a generic greeting from a service that knows your name
 
-## Lesson 1: Attacks on people, not machines
+**You've got it when:** you can point to at least two red flags on a real message you received.
 
-The easiest way past good security is often not to break the technology, but to trick the person. **Phishing**
-is a fake message designed to make you give up secrets or money or click something harmful. **Social
-engineering** is the broader craft of manipulating people, using urgency, fear, authority, or trust.
+## Try it 2 - Run the verify-before-you-act routine
 
-Why it works: attackers push your emotions so you act before you think. A message that makes you feel panicked
-("your account will be closed!"), excited ("you won!"), or pressured by authority ("this is your boss, send it
-now") is designed to switch off your caution. Knowing the trick is half the defence.
+**Why it matters:** one routine defeats almost every scam. The core habit is to verify through a channel you
+already trust, never the details in the message.
 
-## Lesson 2: The red flags
+**Do this now - pick one of your messages that pretends to be from a bank or service:**
+1. **Stop.** Name the urgency out loud; that feeling is the trap.
+2. Do **not** click, reply, pay, or share a code.
+3. Find the real contact (the number on your bank card, or the official app) - not the one in the message.
+4. Write down exactly how you would verify this message through that trusted channel.
 
-The more of these a message shows, the more suspicious it is:
+**You've got it when:** you have a written, independent way to check a message without touching its links.
 
-- **Urgency or fear:** act now or lose access/money.
-- **Too good to be true:** prizes, jobs, or money you did not expect.
-- **Unexpected link or attachment**, especially one asking you to log in.
-- **Asks for secrets:** password, PIN, full card number, OTP. Legit services never do.
-- **Odd sender address:** small misspellings of a real name or domain.
-- **Generic greeting** from a service that knows your name.
-- **Payment pressure:** gift cards, crypto, or a personal account.
-- **A "boss" or "client" on a new number** urgently wanting money or data.
+> **Warning:** No real bank, company, or service will ever ask for your password or a one-time code, or need you
+> to "confirm" them. Anyone who asks is scamming you. End the conversation.
 
-## Lesson 3: The verify-before-you-act routine
+## Try it 3 - Check a link safely
 
-One routine defeats most of these. When a message asks you to act:
+**Why it matters:** a scam link often leads to a look-alike address (a small misspelling of a real site)
+designed to steal your login.
 
-1. **Stop.** Notice the urgency; that feeling is the trap.
-2. **Do not click, reply, pay, or share a code.**
-3. **Verify independently.** Contact the person or company through a number or app you already trust, not the
-   details in the message.
-4. **Check links** before clicking (hover on desktop; long-press to preview on mobile).
-5. **Report and delete.**
+**Do this now:**
+1. On a suspicious message, preview the link without opening it - hover on desktop, long-press on mobile.
+2. Read the address carefully: is it the real domain, or a near-copy?
+3. Write down what you found, and why you would or would not trust it.
 
-The core habit: **verify through a channel you trust.** If "your bank" messages you, open your banking app or
-call the number on your card, not the one in the message.
+**You've got it when:** you can reveal and judge a link's real destination before clicking.
 
-> **Warning:** No real bank, company, or service will ever ask for your password or a one-time code, and will
-> never need you to "confirm" them. Anyone who asks is scamming you. End the conversation.
+## Try it 4 - Rehearse the scam replies
 
-## Lesson 4: Common local scams
+**Why it matters:** local scams follow scripts. If you have rehearsed your reply, you will not freeze when it
+happens for real.
 
-Be ready for the ones that are widespread:
+**Do this now - write your exact response to each:**
+1. "I sent money to your number by mistake, please read me the code." (OTP theft)
+2. A "boss" or "client" on a new number urgently asking for airtime or a transfer. (impersonation)
+3. A hacked friend's account sending you a link or a plea. (takeover spread)
 
-- **OTP theft:** "I sent money to your number by mistake, please read me the code." Sharing it gives away your
-  account or money. Never share a code.
-- **Mobile-money tricks:** fake "reversal" or "agent" messages pressuring you to send or refund money.
-- **Impersonation:** a "boss", "pastor", "relative", or "client" (often from a new number or hacked account)
-  urgently asking for money, airtime, or data. Verify by calling the person on their known number.
-- **Account-takeover spread:** a hacked friend's account messages you a link or a plea. Be suspicious even of
-  messages from people you know.
+**You've got it when:** your three replies all point to one rule - never share a code, and verify on a known
+number.
 
-## Lesson 5: If you clicked or shared something
+## Make it yours - if you clicked or shared something
 
-Mistakes happen; acting fast limits the damage:
+Mistakes happen; acting fast limits the damage. Keep these steps ready:
 
 1. **Change the password** for the affected account (and anywhere you reused it); turn on 2FA.
 2. **Tell your bank** immediately if money or card details were involved.
@@ -99,9 +93,7 @@ Mistakes happen; acting fast limits the damage:
 4. **Warn your contacts** if your account may have messaged them.
 5. **Follow your incident-response plan** (Week 7).
 
-There is no shame in being targeted; staying quiet and slow is what makes it worse.
-
-### Common mistakes
+### Watch out for
 
 - Acting on urgency instead of pausing to verify
 - Trusting a message just because it names a real company or person
@@ -109,23 +101,13 @@ There is no shame in being targeted; staying quiet and slow is what makes it wor
 - Clicking to "check" if something is real (verify separately instead)
 - Staying silent after a mistake instead of acting fast
 
-## Practice Exercises
+## This week's build: your phishing defence pack
 
-1. Collect three real suspicious messages you have received; mark the red flags on each.
-2. For one, write exactly how you would verify it through a trusted channel.
-3. Write the response you would give to "please read me the code you just got."
-4. Describe how you would check a link safely before clicking.
-5. Write a short warning message you would send contacts if your account was hacked.
-6. List three local scams and the one rule that defeats each.
-7. Role-play (on paper) an "urgent boss" money request and your verify step.
-
-## Weekly Assignment (Due Before Week 4)
-
-Build a **phishing defence pack**:
+Build something you could share with family to keep them safe:
 
 1. **Three real suspicious messages** (anonymised) with the red flags labelled
-2. Your **verify-before-you-act routine** written in your own words
-3. A **local-scams guide**: three common scams and how to defeat each
+2. Your **verify-before-you-act routine** in your own words
+3. A **local-scams guide**: three common scams and the one rule that defeats each
 4. An **"if I clicked" plan**: the steps you would take, in order
 
 ### Grading guide
@@ -144,6 +126,12 @@ Build a **phishing defence pack**:
 - [ ] Three local scams with defeats
 - [ ] An ordered recovery plan
 
+## Extra quick wins (optional)
+
+- Report and block the scam messages you collected, then show someone else how.
+- Send a short warning to your contacts about one scam doing the rounds.
+- The [Remote Ready](/courses/remote-ready/) course, Week 4, covers job and freelance scams in depth - skim it.
+
 ## Mentoring Session Plan (90 minutes)
 
 | Time | Activity |
@@ -159,10 +147,10 @@ Build a **phishing defence pack**:
 This week prevents a huge share of real losses, make it vivid and local. Bring real (anonymised) phishing
 examples and run a group spot-the-phish. Drill the two rules that matter most: never share an OTP, and verify
 through a channel you trust. Role-play the urgent-boss and hacked-friend scenarios, these catch even careful
-people. Make clear there is no shame in being targeted, so learners act fast rather than hide. Cross-link
-Remote Ready Week 4 for job scams.
+people. Make clear there is no shame in being targeted, so learners act fast rather than hide. Cross-link Remote
+Ready Week 4 for job scams.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. Why do phishing and social engineering target emotions like urgency and fear?
 2. What is the single most reliable habit for defeating phishing?

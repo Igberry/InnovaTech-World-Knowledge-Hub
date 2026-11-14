@@ -4,7 +4,7 @@ course: remote-ready
 order: 5
 week: 5
 phase: "The search"
-summary: "Communicate clearly in writing and async, use the common remote tools, and work reliably across time zones."
+summary: "Practise the day-to-day skills that keep you hired: clear written updates, the common remote tools, and the reliability that earns referrals."
 estimatedHours: 7
 tools: ["Slack / chat", "Zoom / Google Meet", "Trello / Notion", "Shared docs"]
 downloads:
@@ -12,112 +12,105 @@ downloads:
     href: "/downloads/remote-ready/remote-readiness-checklist.md"
 ---
 
-**Goal:** Build the day-to-day skills that keep remote employers happy: clear written and async
-communication, the common collaboration tools, and reliable habits across time zones.
+**Goal:** By the end of this week you'll have written real async messages, set up and used the common remote
+tools, worked out your overlap hours, and built a reliability plan. You practise these by doing them, not reading about them.
 
-Getting hired is step one; keeping the work and getting referrals depends on how you operate. These are
-the skills that make you easy and safe to hire.
-
-## Learning Objectives
-
-By the end of this week you can:
+## What you'll be able to do
 
 - Write clear, concise messages and updates for async teams
 - Use the common remote tools (chat, video, task boards, shared docs)
 - Manage your time and time-zone overlap
 - Work reliably through power and internet challenges, and communicate about them
 
-## Pre-Session Resources (about 2 hours)
+## Before you start (about 10 minutes)
 
-- Read about async communication (search "async communication best practices").
-- Explore free versions: **Slack**, **Zoom** or **Google Meet**, **Trello** or **Notion**,
-  **Google Docs**. Create a free account for one chat and one task tool.
-- Watch (search YouTube): *"how to communicate on a remote team"*.
+- Open the [remote-readiness checklist](/downloads/remote-ready/remote-readiness-checklist.md).
+- Warm-up: find a vague message you've sent recently (or write "let me know"). You'll rewrite it in Try it 1.
 
-## Lesson 1: Written and async communication
+## Try it 1 - Write so the reader needs no follow-up
 
-Most remote work happens in writing, often async (you reply later, not instantly). Good written
-communication is the #1 remote skill.
+**Why it matters:** most remote work happens in writing, often async. Clear writing is the number one remote skill.
 
-**Write so the reader needs no follow-up:**
+**Do this now - rewrite one vague message using these rules:**
+1. Lead with the point, then the detail.
+2. One message, complete: context + what you need + by when.
+3. Make requests specific: "Can you approve the draft by Friday 3pm WAT?" not "let me know".
 
-- Lead with the point, then the detail.
-- One message, complete: context + what you need + by when.
-- Short paragraphs, simple words, correct spelling.
-- Make requests specific: "Can you approve the draft by Friday 3pm WAT?" not "let me know".
+**You've got it when:** your rewritten message gives the reader everything to reply in one go.
 
-**A good daily update (async):**
+## Try it 2 - Write a daily async update
 
-> **Yesterday:** finished the April data entry (500 rows).
-> **Today:** cleaning the May file; will share by 2pm WAT.
-> **Blocked:** need the password for the shared sheet - could you send it?
+**Why it matters:** async teams love people who keep them posted without being asked. One tidy update builds trust fast.
 
-> **Tip:** Before sending, re-read as if you were the busy person receiving it. Did you give them
-> everything to reply in one go? Async teams love people who don't create extra back-and-forth.
+**Do this now - write your own version of this:**
 
-## Lesson 2: The common tools
+> Yesterday: finished the April data entry (500 rows).
+> Today: cleaning the May file; will share by 2pm WAT.
+> Blocked: need the password for the shared sheet, could you send it?
 
-You don't need to master all of them - understand the categories and be ready to learn the team's choice:
+Re-read it as if you were the busy person receiving it. Did you give them everything?
+
+**You've got it when:** you have a three-line update (yesterday / today / blocked) a manager could act on instantly.
+
+## Try it 3 - Set up and test the common tools
+
+**Why it matters:** you don't need to master every tool, but you must be ready to pick one up fast. Learning one makes the rest familiar.
+
+**Do this now:**
+1. Create a free account for **one chat tool** (Slack, Teams or Discord).
+2. Create a free account for **one task tool** (Trello, Asana or Notion).
+3. Do a real test task in each: post a message in a channel, and make a board with three cards.
 
 | Category | Common tools | Used for |
 |---|---|---|
-| **Chat** | Slack, Microsoft Teams, Discord | Quick messages, channels |
-| **Video** | Zoom, Google Meet, Teams | Live meetings, interviews |
-| **Task boards** | Trello, Asana, Notion | Tracking who does what |
-| **Docs** | Google Docs, Office, Notion | Shared writing |
-| **Files** | Google Drive, Dropbox | Sharing files |
+| Chat | Slack, Microsoft Teams, Discord | Quick messages, channels |
+| Video | Zoom, Google Meet, Teams | Live meetings, interviews |
+| Task boards | Trello, Asana, Notion | Tracking who does what |
+| Docs | Google Docs, Office, Notion | Shared writing |
+| Files | Google Drive, Dropbox | Sharing files |
 
-Create a free account for **one chat tool** and **one task tool**, and do a test task in each. Learning
-one makes the others familiar.
+**You've got it when:** you've posted a message in a chat tool and built a small board in a task tool.
 
-## Lesson 3: Time zones and overlap
+## Try it 4 - Work out your overlap hours
 
-- Know your zone: Nigeria is **WAT (UTC+1)**.
-- Find your overlap with the team (e.g. WAT mornings overlap with European mornings and US mornings).
-- Agree your working/overlap hours in writing, and keep them. Use a simple world-clock or calendar to
-  avoid confusion ("3pm your time" is ambiguous - say "3pm WAT").
-- For async roles, overlap can be small; what matters is that you deliver and communicate.
+**Why it matters:** "3pm your time" causes missed calls. Clear time zones make you easy to work with.
 
-## Lesson 4: Reliability (the habit that earns referrals)
+**Do this now:**
+1. Note your zone: Nigeria is WAT (UTC+1).
+2. Use a world-clock search to find your overlap with two target regions (e.g. WAT mornings overlap with
+   European mornings and US mornings).
+3. Write one line: the hours you'd offer as overlap, always stated in WAT.
 
-Reliability, not perfection, is what employers remember:
+**You've got it when:** you can state your overlap hours with two regions, each written as a WAT time.
 
-- **Reply** within the agreed time (even just "got it, will do by X").
-- **Show up** to calls on time, prepared, camera and mic tested.
-- **Meet deadlines**, or flag early if you can't.
-- **Manage power/data** (Setup Guide) and communicate when something fails: "Power's out, back by 4pm
-  WAT." A heads-up keeps trust; silence breaks it.
+## Try it 5 - Practise the reliability message
 
-> **Important:** The fastest way to lose remote work is going quiet. The fastest way to get referrals is
-> being someone the team never has to chase.
+**Why it matters:** going quiet is the fastest way to lose remote work. A 10-second heads-up is the fastest way to earn referrals.
 
-## Common mistakes
+**Do this now:**
+1. Write the exact message you'd send if your power went out mid-task, e.g. "Power's out, back by 4pm WAT,
+   here's where I've got to."
+2. Complete your reliability plan on the readiness checklist (reply times, showing up to calls, flagging early).
+
+**You've got it when:** you have a ready-to-send "something went wrong" message and a completed reliability plan.
+
+### Watch out for
 
 - Vague messages that create back-and-forth.
 - Saying "3pm" without a time zone.
 - Going silent when a problem happens, instead of sending a quick update.
 - Promising a deadline you can't meet instead of flagging early.
 
-## Practice Exercises
+## This week's build: your remote-operations kit
 
-1. **Easy:** Rewrite a vague message into a clear, complete one.
-2. **Easy:** Write a daily async update (yesterday/today/blocked).
-3. **Medium:** Set up a free chat tool and a free task tool; do a test task in each.
-4. **Medium:** Work out your overlap hours with two target regions.
-5. **Medium:** Write the message you'd send if your power went out mid-task.
-6. **Stretch:** Make a simple Trello/Notion board for your job search.
-7. **Stretch:** Record yourself explaining a task in a 1-minute video (practice for async video updates).
+Assemble the kit you'll use on your first remote job:
 
-## Weekly Assignment (Due Before Week 6)
-
-Build your **remote-operations kit**:
-
-1. A free **chat tool** and **task tool** set up, with a test task done in each.
+1. A free chat tool and task tool set up, with a test task done in each.
 2. Three written samples: a clear request, a daily update, and a "something went wrong" message.
-3. Your **overlap hours** with two target regions, written down.
+3. Your overlap hours with two target regions, written down.
 4. Your reliability plan (from the readiness checklist) completed.
 
-**Grading guide (100%):**
+### Grading guide
 
 | Criteria | % |
 |---|---|
@@ -126,12 +119,18 @@ Build your **remote-operations kit**:
 | Time-zone overlap worked out correctly | 20 |
 | Reliability plan complete and realistic | 20 |
 
-**Definition of done:**
+### Definition of done
 
 - [ ] A chat tool and a task tool set up with a test task each
 - [ ] Three strong written samples
 - [ ] Overlap hours noted for two regions
 - [ ] Reliability plan complete
+
+## Extra quick wins (optional)
+
+- Make a simple Trello or Notion board for your own job search and move cards as you apply.
+- Record yourself explaining a task in a 1-minute video (practice for async video updates).
+- Rewrite one more vague message from your own chats into a clear, complete one.
 
 ## Mentoring Session Plan (90 min)
 
@@ -150,7 +149,7 @@ of "rewrite this message" drills with real examples. Stress that going silent is
 remote work; a 10-second "power's out, back by X" message preserves trust. Keep tool choices lightweight;
 the point is transferable habits, not mastering one app.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What makes a written message "complete" for an async team?
 2. What are the main categories of remote tools?

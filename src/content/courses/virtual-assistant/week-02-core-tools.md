@@ -4,7 +4,7 @@ course: virtual-assistant
 order: 2
 week: 2
 phase: "Core Skills"
-summary: "Operate confidently in the tools clients use daily, and set up your three live job profiles."
+summary: "Get hands-on in the exact tools clients use every day, build a real invoice and task board, and stand up three live job profiles."
 estimatedHours: 7
 tools: ["Google Workspace", "Slack", "Zoom", "Trello / Notion"]
 downloads:
@@ -20,17 +20,23 @@ downloads:
     href: "/downloads/virtual-assistant/mock-client-workspace-brief.md"
 ---
 
-**Goal:** Operate confidently in the tools clients use daily, and set up your platform profiles.
+**Goal:** Spend this week with your hands on the real tools, inbox, calendar, files, Slack, Zoom, a task
+board, a timer, and an invoice, and set up three live job profiles. You learn each one by doing it, not
+reading about it.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
-
-- Manage inbox, calendar, and files in Google Workspace or Microsoft 365
-- Use Slack and Zoom professionally
+- Run inbox, calendar, and files in Google Workspace or Microsoft 365
+- Use Slack and Zoom like a professional
 - Use a task board and a time tracker, and build a simple invoice
-- Work across time zones, and know your payment options
-- Set up live profiles on three job platforms
+- Work across time zones and know your payment options
+- Have three live job-platform profiles ready
+
+## Before you start (about 10 minutes)
+
+- Have your laptop or phone open with Gmail/Outlook and a free Google account ready.
+- Warm-up: open your inbox and count how many unread emails you have. We're about to make that number mean
+  nothing, because you'll sort mail in seconds with labels and a filter.
 
 ## How This Week Runs
 
@@ -41,84 +47,99 @@ By the end of this week you can:
 | Session B (Teaching + Practice) | Day 3 | 75 min | Your niche statement (for profiles and invoice) |
 | Session C (Workshop/Review) | Day 5 | 60 to 75 min | The [mock client workspace brief](/downloads/virtual-assistant/mock-client-workspace-brief.md) |
 
-## Session A (Teaching, Day 1): Google Workspace and Microsoft 365 Live Walkthrough
+## Try it 1 - Tame an inbox and calendar
 
-A shared-screen walkthrough where you set things up alongside the mentor:
+**Why it matters:** managing someone else's inbox and calendar is the most common VA job, and the one that
+builds instant trust.
 
-- **Inbox management (Gmail/Outlook):** labels/folders, filters/rules, and delegation (managing someone
-  else's inbox). You will practise sorting mail with a few labels and one filter.
-- **Calendar (Google Calendar):** creating events, scheduling, and shared calendars; adding clear titles
-  and reminders; avoiding clashes.
-- **Files (Drive/OneDrive):** folder structures and, crucially, **sharing permissions** (view vs comment
-  vs edit; never "anyone with the link can edit" for private client files).
+**Do this now - in Gmail/Outlook and Google Calendar:**
+1. Create two labels/folders and one filter/rule that auto-sorts a type of mail.
+2. Create a calendar event with a clear title and a reminder, then add a second and check for clashes.
+3. Practise once more until sorting mail and booking a slot feels fast.
 
-*Learner action:* set up a real folder and a calendar live, alongside the mentor.
+**You've got it when:** you can clear and sort an inbox and book a clash-free meeting without thinking.
 
-## Quick Reference (Day 2): Slack and Zoom Etiquette
+## Try it 2 - Share files the safe way
 
-**Slack basics:** channels (topic-based rooms) vs threads (replies kept tidy), your status, managing
-notifications, and when to DM vs post in a channel. Keep messages short and clear.
+**Why it matters:** the wrong sharing setting can leak a client's private data, this one habit protects you
+and them.
 
-**Zoom basics:** mute when not speaking, camera on for client calls, a tidy background, and sharing the
-meeting link correctly.
+**Do this now - in Drive/OneDrive:**
+1. Build a simple folder structure for a pretend client.
+2. Share a file as **view**, then **comment**, then **edit**, and notice the difference.
+3. Make it a rule: never "anyone with the link can edit" for private client files.
 
-**Professional etiquette:** reply within agreed times, and **summarise calls in writing** afterwards (a
-short "here's what we agreed" message), clients love a VA who does this.
+**You've got it when:** you can pick the right permission for any file on purpose.
 
-## Session B (Teaching + Practice, Day 3): Collaboration Tools, Time Tracking & Invoicing
+## Try it 3 - Message like a pro in Slack and Zoom
 
-**Collaboration tools (live demo):** Trello, Asana, and Notion. The point is not to master one, but to see
-that they all share the same idea (tasks moving through stages), so you can pick up **any client's system
-quickly**.
+**Why it matters:** clients notice communication habits fast, and reward the VA who's easy to work with.
 
-**Time tracking:** Toggl and Clockify, start/stop timers per client and task, so your hours and invoices
-are accurate.
+**Do this now:**
+1. In Slack, post in a channel, then reply in a thread, and set your status; note when to DM vs post.
+2. In Zoom, join a test call: mute when not speaking, camera on, tidy background, share the link correctly.
+3. After any call, send a short "here's what we agreed" summary, clients love a VA who does this.
 
-**Working across time zones (worked example):** a client in the US or UK and you on a Nigerian schedule,
-agree overlap hours, state times clearly ("3pm your time"), and deliver inside the hours you promise.
+**You've got it when:** your messages are short and clear, and you summarise calls in writing.
 
-**Build an invoice together** using the [invoice template](/downloads/virtual-assistant/invoice-template.csv):
-your details, the client, line items (hours x rate), a total, and the payment method.
+## Try it 4 - Pick up any task board
 
-**Getting paid (verify before you rely on it, checked November 2026):**
+**Why it matters:** every client uses some board (Trello, Asana, Notion); they all share one idea, so once
+you learn one you can learn any.
 
-- **Payoneer** is the most widely used option for Nigerian freelancers and integrates with Upwork and
-  Fiverr; you can withdraw to a Naira bank account. Fees vary, check Payoneer's current pricing.
-- **Local bank transfer** works for some direct clients.
-- **Wise** is useful for currency conversion, but it is **unclear whether Wise gives Nigerian users USD
-  receiving details**, verify directly before relying on it.
-- Other options people mention include Grey and Geegpay; verify current availability and fees yourself.
+**Do this now:**
+1. Open Trello or Notion and build a personal board with columns like To do, Doing, Done.
+2. Add three tasks and move them across the stages.
+3. Glance at Asana or the other tool and notice it's the same idea in a different skin.
 
-> **Important:** Agree the payment method and schedule with a client **up front**, as part of onboarding.
-> Date-check any fee you quote, these change.
+**You've got it when:** you can set up a board and know you could pick up a client's system quickly.
 
-*Learner action:* build a personal task board and one sample invoice.
+## Try it 5 - Track time and build an invoice
 
-## Session C (Workshop/Review, Day 5): Hands-On Tools Practice Lab
+**Why it matters:** accurate hours and a clean invoice are how you get paid correctly and on time.
 
-A live 1:1 lab where you set up a complete **mock client workspace** across Google Workspace, Slack, and a
-task tool, using the [mock client workspace brief](/downloads/virtual-assistant/mock-client-workspace-brief.md).
-The mentor troubleshoots with you in real time.
+**Do this now:**
+1. In Toggl or Clockify, start and stop a timer for a task so you see your real hours.
+2. Open the [invoice template](/downloads/virtual-assistant/invoice-template.csv) and fill it in: your
+   details, the client, line items (hours x rate), a total, and the payment method.
+3. For time zones, practise stating a time clearly: "3pm your time", and pick an overlap window.
 
-## This Week's Job-Hunt Focus
+**You've got it when:** you have one sample invoice built and one task's time tracked accurately.
 
-**Set up (do not apply yet)** three live profiles, using your Week 1 niche statement as the headline/summary:
+### Watch out for
+
+- "Anyone with the link can edit" on private client files
+- Quoting payment fees as fact, they change, so date-check them
+- Agreeing payment method after you start instead of up front
+
+> **Getting paid (verify before you rely on it, checked November 2026):** Payoneer is the most widely used
+> option for Nigerian freelancers and works with Upwork and Fiverr, with withdrawal to a Naira bank account;
+> fees vary, check current pricing. Local bank transfer works for some direct clients. Wise helps with
+> currency conversion, but it's unclear whether it gives Nigerian users USD receiving details, verify first.
+> People also mention Grey and Geegpay, verify availability and fees yourself. Agree the method and schedule
+> with a client up front, as part of onboarding.
+
+## This week's job-hunt focus
+
+**Set up, do not apply yet,** three live profiles, using your Week 1 niche statement as the headline/summary:
 
 1. **Upwork** ([checklist](/downloads/virtual-assistant/profile-setup-checklist-upwork.md))
 2. **LinkedIn** ([checklist](/downloads/virtual-assistant/profile-setup-checklist-linkedin.md))
 3. A **third marketplace that accepts Nigerian freelancers** ([checklist](/downloads/virtual-assistant/profile-setup-checklist-onlinejobs.md))
 
 > **Flag (checked Nov 2026):** OnlineJobs.ph admits only Philippine workers as jobseekers, so a Nigerian
-> learner generally cannot register there. Use a Nigeria-accessible marketplace (e.g., Fiverr) as your
-> third profile. You can still read OnlineJobs.ph posts for market research.
+> learner generally cannot register there. Use a Nigeria-accessible marketplace (e.g., Fiverr) as your third
+> profile. You can still read OnlineJobs.ph posts for market research.
 
-## Weekly Assignment / Deliverable (Due Before Week 3)
+## This week's build: your mock client workspace + live profiles
 
-Submit:
+A real, shareable setup you'd hand to a client:
 
-1. **Screenshots or links** of your **three completed profiles** (consistent with your niche statement)
-2. **One completed sample invoice**
-3. **One day of tracked time** (a screenshot or export)
+1. A complete **mock client workspace** across Google Workspace, Slack, and a task tool, using the
+   [mock client workspace brief](/downloads/virtual-assistant/mock-client-workspace-brief.md).
+2. **Screenshots or links** of your **three completed profiles** (consistent with your niche statement).
+3. **One completed sample invoice.**
+4. **One day of tracked time** (a screenshot or export).
 
 ### Grading guide
 
@@ -135,7 +156,7 @@ Submit:
 - [ ] A sample invoice built correctly
 - [ ] One day of tracked time submitted
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What is the difference between view, comment, and edit sharing, and why does it matter for client files?
 2. Why do all task boards (Trello/Asana/Notion) feel similar once you learn one?

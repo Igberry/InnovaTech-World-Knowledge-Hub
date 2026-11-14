@@ -4,7 +4,7 @@ course: automation
 order: 7
 week: 7
 phase: "Putting It Together"
-summary: "Keep automations trustworthy over time: handle errors, protect privacy, plan for failure, and maintain them so they do not quietly break."
+summary: "Turn a working automation into a trustworthy one: make failure loud, trace where your data really goes, lock down access, and set a review habit so nothing quietly breaks."
 estimatedHours: 8
 tools: ["A no-code automation tool", "A document"]
 downloads:
@@ -14,100 +14,79 @@ downloads:
     href: "/downloads/automation/automation-blueprint.md"
 ---
 
-**Goal:** Make your automations reliable and safe over the long run, by handling errors, protecting
-privacy, planning for failure, and maintaining them so they keep working as the world around them changes.
+**Goal:** Make your automations reliable and safe for the long run - handle errors, make failure loud,
+protect privacy, and keep a review habit - so they keep working as the world around them changes. You turn
+on alerts, trace a data path, and tighten access with your own hands.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
-
-- Anticipate what can go wrong with an automation and plan for it
-- Build in error handling and notifications
+- Anticipate what can go wrong and plan for it
+- Build in error handling and failure notifications
 - Protect privacy and account security in automated workflows
 - Keep a rollback plan and a manual backup for every automation
 - Maintain and review automations so they do not silently break
 
-## Tools / Accounts Needed This Week
+## Before you start (about 10 minutes)
 
-- Your no-code automation tool
-- The [test and rollback checklist](/downloads/automation/test-and-rollback-checklist.md) and
-  [automation blueprint](/downloads/automation/automation-blueprint.md)
+- Open your no-code tool, the
+  [test and rollback checklist](/downloads/automation/test-and-rollback-checklist.md) and the
+  [automation blueprint](/downloads/automation/automation-blueprint.md).
+- Warm-up: pick one automation you built and list three things that could go wrong with it. That list is
+  your work for the week.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - Brainstorm what could break
 
-- Read: search the web for "why automations break" and read one practical article.
-- Read: your tool's help page on error handling, run history, or notifications.
-- Reflect: for one of your automations, list three things that could go wrong.
+**Why it matters:** automations break not because you erred, but because the world changes around them. The
+pro mindset is "when it fails, I will know fast and recover safely."
 
-## Lesson 1: What goes wrong (so you can plan for it)
+**Do this now - for one automation, write down what would happen if:**
+1. A connected app changes (a form field is renamed, a login expires).
+2. The input is odd (a blank field, a strange value, a huge attachment).
+3. A service is down or slow.
+4. A rule was too broad and fired when it should not.
 
-Automations break. Not because you did something wrong, but because the world changes around them.
-Common causes:
+**You've got it when:** you have a short, honest list of real failure modes for one automation.
 
-- **A connected app changes** (a form field is renamed, a login expires)
-- **Unexpected input** (a blank field, a strange value, a huge attachment)
-- **A service is down** or slow
-- **A rule was too broad** and fires when it should not
-- **Access was revoked** or a password changed
+## Try it 2 - Make failure loud
 
-The professional mindset is not "my automation will never fail." It is "when it fails, I will know quickly
-and recover safely." Planning for failure is what separates a toy from a tool.
+**Why it matters:** the worst failures are silent ones that run wrong for days. You want a quiet alert to
+you, not an angry customer weeks later.
 
-## Lesson 2: Error handling and notifications
+**Do this now:**
+1. Open your tool's **run history / logs** and read the last few runs.
+2. Turn on **error notifications** so the tool messages you when a run fails.
+3. Add a **filter that stops bad input**, for example "only continue if the email field is not empty".
+4. Trigger a failure on purpose (submit bad input) and confirm you get the alert.
 
-Good automations tell you when something goes wrong. Most tools offer:
+**You've got it when:** a deliberate failure sends you an alert instead of passing silently.
 
-- **Run history / logs:** a record of each run and whether it succeeded. Check it.
-- **Error notifications:** the tool emails or messages you when a run fails. Turn this on.
-- **Fallback steps:** "if this step fails, do X" (e.g., log it, notify a human).
-- **Filters that stop bad input:** "only continue if the email field is not empty."
+## Try it 3 - Trace the data path and tighten access
 
-The aim is that a failure becomes a quiet notification to you, not a silent gap that someone discovers
-weeks later.
+**Why it matters:** automations hold the keys to your accounts and move data between them. An automation can
+quietly copy data to places you did not intend.
 
-> **Tip:** Add a simple "notify me on failure" to any automation that matters. Finding out from your own
-> alert is far better than finding out from an angry customer.
+**Do this now:**
+1. For one automation, **trace the data** from trigger to final step. Write down every place it lands.
+2. Flag anywhere data could leak (a public sheet, an external inbox, a third-party tool).
+3. Review the **access** each connection has, and reduce any that is broader than the task needs.
+4. Confirm two-step verification on every connected account.
 
-## Lesson 3: Privacy and security in automations
+**You've got it when:** you can name every place your data goes, and each connection has only the access it needs.
 
-Automations hold access to your accounts and move data between them, so they carry real responsibility:
+## Try it 4 - Rollback, backup, and a review habit
 
-- **Least access:** give each connection only the access it needs. Do not grant full account access for a
-  task that reads one spreadsheet.
-- **Mind the data path:** know what data flows through the automation and where it ends up. Do not route
-  private or confidential information through a tool or an inbox that should not have it.
-- **Secure the accounts:** strong, unique passwords and two-step verification on everything connected.
-- **Review access:** remove connections and tools you no longer use.
+**Why it matters:** an automation nobody can turn off or do by hand is a risk, not a help. And automations
+are not "set and forget" - they need light, regular care.
 
-> **Privacy:** An automation can quietly copy data to places you did not intend, a public sheet, an
-> external inbox, a third-party tool. Before you trust one, trace exactly where the data goes at every
-> step.
+**Do this now:**
+1. Write the **rollback / off switch** into the [blueprint](/downloads/automation/automation-blueprint.md): how to stop it and undo it.
+2. Write the **manual backup**: how to do the job by hand, and who knows how.
+3. Set yourself a **review reminder** (for example monthly) to check it still does the right thing.
+4. Retire any old automation you no longer need.
 
-## Lesson 4: Rollback and manual backup (always)
+**You've got it when:** your blueprint has a rollback, a manual backup, and a review date.
 
-You met this in Week 5; now make it a rule for every automation you keep:
-
-- A **rollback / off switch:** how to turn it off fast, and how to undo what it did.
-- A **manual backup:** how to do the job by hand if the automation is off, and someone who knows how.
-
-Write both into the [blueprint](/downloads/automation/automation-blueprint.md). An automation nobody can
-turn off or do manually is a risk, not a help.
-
-> **Warning:** The worst automation failures are the silent ones that run wrong for days. Build in
-> notifications and checks so failure is loud and quick to catch, never silent and slow.
-
-## Lesson 5: Maintenance (automations are not "set and forget")
-
-An automation needs light, regular care:
-
-- **Review on a schedule** (e.g., monthly): is it still doing the right thing?
-- **Check after changes:** when a connected app updates, confirm the automation still works.
-- **Keep the blueprint current:** update it when you change the automation.
-- **Retire what you no longer need:** an old, forgotten automation can cause surprises.
-
-A small habit of review keeps your automations trustworthy for the long run.
-
-### Common mistakes
+### Watch out for
 
 - Assuming an automation will run forever without care
 - No failure notification, so breakage is silent
@@ -115,17 +94,7 @@ A small habit of review keeps your automations trustworthy for the long run.
 - Not tracing where data actually goes
 - No rollback, no manual backup, and no one else who understands it
 
-## Practice Exercises
-
-1. For one automation, list five things that could go wrong and how you would know.
-2. Turn on failure notifications and check the run history.
-3. Add a filter that stops the automation on bad or empty input.
-4. Trace the full data path of one automation; note anywhere data could leak.
-5. Review the access each connection has; reduce any that is too broad.
-6. Write (or update) the rollback plan and manual backup in the blueprint.
-7. Set yourself a review reminder for one automation.
-
-## Weekly Assignment (Due Before Week 8)
+## This week's build: a reliability and safety review
 
 Produce a **reliability and safety review** for one of your automations:
 
@@ -150,6 +119,12 @@ Produce a **reliability and safety review** for one of your automations:
 - [ ] Data path traced; access reduced where needed
 - [ ] Blueprint updated with rollback, backup, review date
 
+## Extra quick wins (optional)
+
+- Add a "notify me on failure" step to every automation you plan to keep.
+- Set a calendar reminder to review your automations once a month.
+- Remove one old app connection you no longer use from your accounts.
+
 ## Mentoring Session Plan (90 minutes)
 
 | Time | Activity |
@@ -168,7 +143,7 @@ manual backup. Do a live data-path trace to reveal where information could leak.
 account security, especially since connected accounts hold real keys. Keep all data fictional, and connect
 back to the privacy habits from the AI course.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. Name three reasons an automation might break over time.
 2. How do you make a failure loud and quick to catch instead of silent?

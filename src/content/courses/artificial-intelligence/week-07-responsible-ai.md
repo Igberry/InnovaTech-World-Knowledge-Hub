@@ -4,7 +4,7 @@ course: artificial-intelligence
 order: 7
 week: 7
 phase: "Putting It Together"
-summary: "Pull together the judgement that makes AI use safe and honest: privacy, bias, copyright, disclosure, and avoiding harm, as a personal policy you will follow."
+summary: "Turn scattered cautions into settled judgement: handle privacy, bias, copyright, and disclosure by doing, then write a short personal AI-use policy you'll actually follow."
 estimatedHours: 8
 tools: ["A document"]
 downloads:
@@ -12,71 +12,74 @@ downloads:
     href: "/downloads/artificial-intelligence/responsible-use-privacy-checklist.md"
 ---
 
-**Goal:** Bring together everything that makes AI use responsible, privacy, accuracy, bias, copyright,
-honesty, and avoiding harm, and turn it into a personal AI-use policy you will actually follow.
+**Goal:** This week you build judgement by doing, not by reading rules. You'll test a privacy decision, catch
+bias in real output, make disclosure calls on real situations, and finish with a one-page personal AI-use policy
+you'll genuinely follow. Mostly doing.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
-
-- Protect privacy when using AI, and explain what must never be shared
-- Recognise bias in AI output and reduce it
-- Apply copyright and honesty rules to AI work
+- Protect privacy and say exactly what must never be shared
+- Spot bias in AI output and reduce it
+- Apply copyright and honesty rules to your AI work
 - Decide when and how to disclose AI use
 - Write a personal AI-use policy
 
-## Tools / Accounts Needed This Week
+## Before you start (about 10 minutes)
 
-- A document for your policy
-- The [responsible-use and privacy checklist](/downloads/artificial-intelligence/responsible-use-privacy-checklist.md)
+- Open a document for your policy and the
+  [responsible-use and privacy checklist](/downloads/artificial-intelligence/responsible-use-privacy-checklist.md).
+- Warm-up: look back over your weeks and write the one moment where responsible use mattered most. You'll build
+  on it.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - Make the privacy call
 
-- Read: search the web for "AI ethics for everyday users" and read one clear, balanced guide.
-- Read: search "how AI bias happens simple explanation" and read one beginner guide.
-- Reflect: look back at your weeks. Where did responsible use matter most?
+**Why it matters:** AI tools can store what you type. One habit protects you, your colleagues, and anyone whose
+data passes through your hands.
 
-## Lesson 1: Privacy
+**Do this now:**
+1. Write your **"never paste" list**: passwords, bank or payment details, ID numbers, and other people's private
+   information.
+2. Take one sensitive example and rewrite it safely by **changing the names and numbers** first.
+3. Apply the test: would you be happy if this appeared on a public website?
 
-You met this in Week 0; now make it a firm habit. AI tools can store what you type, so:
+**You've got it when:** you can turn a sensitive request into a safe one without losing the help you needed.
 
-- **Never** paste passwords, bank or payment details, or ID numbers.
-- **Never** paste other people's private information without consent.
-- **Never** paste confidential or client work you are not allowed to share.
-- When information is sensitive but you need help, **remove or change the identifying details** first.
+> **Privacy:** A good test - would you be comfortable if what you're about to paste appeared on a public
+> website? If not, don't paste it, or strip the sensitive parts first.
 
-This protects you, the people you work with, and anyone whose data passes through your hands.
+## Try it 2 - Catch bias in real output
 
-> **Privacy:** A good test: would you be comfortable if what you are about to paste appeared on a public
-> website? If not, do not paste it, or strip the sensitive parts first.
+**Why it matters:** AI learns from human-made content, so it can carry unfair assumptions about people, places,
+jobs, or groups. You're responsible for what goes out under your name.
 
-## Lesson 2: Bias
+**Do this now:**
+1. Ask AI something open, like *"describe a typical nurse and a typical engineer,"* and read for assumptions.
+2. Push back: *"Rewrite this without assuming the reader is [X]"* or *"give a more balanced view."*
+3. Save the before and after as your example.
 
-AI learns from human-made content, so it can carry **bias**: unfair assumptions about people, places, jobs, or
-groups. You might see it in word choices, stereotypes, or whose perspective is assumed as "normal."
+**You've got it when:** you've found one biased or one-sided answer and improved it.
 
-What to do:
+## Try it 3 - Apply copyright and honesty
 
-- **Notice it.** Read output with an eye for unfair or one-sided assumptions.
-- **Push back.** "Rewrite this without assuming the reader is [X]." "Give a more balanced view."
-- **Decide.** You are responsible for what you publish; fix bias before it goes out under your name.
+**Why it matters:** two linked rules keep your work legal and trustworthy.
 
-## Lesson 3: Copyright and honesty
+**Do this now:**
+1. Look up your main AI tool's **usage rights** and summarise them in two sentences.
+2. Note the copyright rule: don't copy someone's work or protected style and pass it off as original; credit
+   sources where you should.
+3. Note the honesty rule: don't present AI work dishonestly - in school it's usually cheating; with clients be
+   clear; in public, disclose if people would feel misled.
 
-Two linked issues:
+**You've got it when:** you can state your tool's rights and the honest default in your own words.
 
-- **Copyright:** do not use AI to copy someone's work or a protected style and pass it off as original. For AI
-  images or text you publish or sell, check the tool's usage rights. Credit sources where you should.
-- **Honesty about AI use:** do not present AI work dishonestly. In school or exams, submitting AI work as your
-  own is usually cheating. For clients, be clear about what you did. For public content, if people would feel
-  misled to learn it was AI, disclose it.
-
-> **Important:** The honest default is simple: do not use AI to deceive. If knowing you used AI would change how
+> **Important:** The honest default is simple - do not use AI to deceive. If knowing you used AI would change how
 > someone judges the work, tell them.
 
-## Lesson 4: Disclosure, in practice
+## Try it 4 - Make disclosure decisions
 
-Disclosure is about context. A rough guide:
+**Why it matters:** disclosure depends on context. Practising on real situations makes the call quick.
+
+**Do this now - decide "disclose or not" for three situations and give your reason:**
 
 | Situation | Usual expectation |
 |---|---|
@@ -85,19 +88,22 @@ Disclosure is about context. A rough guide:
 | Published content (posts, articles) | Disclose if presenting AI content as human, or AI images as real |
 | Personal drafts you fully rewrite | Usually no disclosure needed; the work is yours |
 
-When unsure, ask the person or institution what they expect. Over-disclosing is safer than deceiving.
+**You've got it when:** you've made three clear calls, each with a reason you could defend.
 
-## Lesson 5: Avoiding harm, and writing your policy
+## Make it yours - write your AI-use policy
 
-Some uses are simply off-limits: deceiving people, impersonating someone, creating fake "evidence" or
-deepfakes, harassing or defaming, or anything illegal. A good user says no to these, even when a tool would
-happily do it.
+Some uses are simply off-limits: deceiving people, impersonating someone, creating fake "evidence" or deepfakes,
+harassing or defaming, or anything illegal. A good user says no to these even when a tool would happily do it.
 
-Now write your **personal AI-use policy** using the checklist. It should cover: what you will never paste in,
-how you check facts, how you handle bias and copyright, when you disclose, and the lines you will not cross.
-Keep it short enough to actually follow.
+Now write your **personal AI-use policy** using the checklist. Keep it short enough to actually follow, and cover:
 
-### Common mistakes
+1. What you will **never paste in**
+2. How you **check facts**
+3. How you handle **bias and copyright**
+4. When you **disclose** AI use
+5. The **lines you won't cross**
+
+### Watch out for
 
 - Pasting sensitive data "just this once"
 - Not noticing bias because the output sounded normal
@@ -105,25 +111,16 @@ Keep it short enough to actually follow.
 - Assuming no one needs to know AI was used, when they would feel misled
 - Thinking "the tool allowed it" makes a harmful use acceptable
 
-## Practice Exercises
+## This week's build: your personal AI-use policy
 
-1. List five things you will never paste into an AI tool, and why.
-2. Find an example of biased or one-sided AI output and rewrite the prompt to reduce it.
-3. Look up your main AI tool's usage rights and summarise them in two sentences.
-4. For three situations, decide whether you would disclose AI use, and why.
-5. Write two uses of AI that you consider off-limits, and the harm each could cause.
-6. Take one piece of your earlier course work and check it against the responsible-use checklist.
-7. Draft your personal AI-use policy.
+Write it and prove you can apply it:
 
-## Weekly Assignment (Due Before Week 8)
-
-Write and apply your **personal AI-use policy**:
-
-1. A one-page **policy** covering privacy, fact-checking, bias, copyright, disclosure, and your lines you will
-   not cross
+1. A one-page **policy** covering privacy, fact-checking, bias, copyright, disclosure, and your lines you won't cross
 2. A **bias example**: output you found, and how you reduced it
 3. A **disclosure decision** for three realistic situations, with reasons
-4. A **self-audit**: check one earlier assignment against your policy and note anything you would change
+4. A **self-audit**: check one earlier assignment against your policy and note anything you'd change
+
+*Tip: write the policy so plainly you could pin it above your desk and follow it on a busy day.*
 
 ### Grading guide
 
@@ -140,6 +137,12 @@ Write and apply your **personal AI-use policy**:
 - [ ] A bias example with a fix
 - [ ] Three disclosure decisions justified
 - [ ] A self-audit of earlier work
+
+## Extra quick wins (optional)
+
+- List five things you'll never paste in, and why, in one line each.
+- Write two AI uses you consider off-limits and the harm each could cause.
+- Run one earlier assignment through the responsible-use checklist and note one improvement.
 
 ## Mentoring Session Plan (90 minutes)
 
@@ -158,7 +161,7 @@ tempted to submit AI work, a freelancer unsure whether to disclose, someone abou
 Discuss, do not just lecture. The personal policy is the key artefact; help learners make it specific and
 realistic. Reinforce that harmful uses are off-limits regardless of what a tool permits.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What is a quick test for whether something is safe to paste into an AI tool?
 2. How can you spot and reduce bias in AI output?

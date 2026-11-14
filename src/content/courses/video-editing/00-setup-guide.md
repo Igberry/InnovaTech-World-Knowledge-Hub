@@ -2,7 +2,7 @@
 title: "Setup Guide: Phone Video and Editing Tools"
 course: video-editing
 order: 0
-summary: "Prepare a phone, storage, safe footage, editing software and a recoverable project folder."
+summary: "Get your phone, an editor and a safe project folder ready in one short hands-on session, then prove it all works with a 10-second test clip."
 estimatedHours: 3
 tools: ["Phone camera", "CapCut", "DaVinci Resolve", "Shotcut"]
 downloads:
@@ -14,47 +14,64 @@ downloads:
     href: "/downloads/video-editing/shooting-checklist.md"
 draft: false
 ---
-**Goal:** Set up a safe, simple filming and editing workflow that works with the device and storage you already have.
+**Goal:** In one short session, get a phone, an editor and a recoverable project folder working, then prove it with a 10-second test clip you can shoot, play back and copy. You set up by doing, not by reading.
 
-## Before installing anything
+## What you'll be able to do
 
-Video editing can use significant storage, memory and battery. Check the free space on the phone and computer, and make a short test recording before planning a large shoot. Keep original footage on the phone or a local drive until you confirm a second copy opens. Cloud synchronisation is useful but is not the same as a separate backup.
+- Record and replay a clean 10-second test clip
+- Install one editor from an official source and know its limits
+- Build a project folder you can actually find footage in
+- Make a second copy of a file and open it, so nothing is ever lost
 
-Use the official CapCut site at [capcut.com](https://www.capcut.com/), the official DaVinci Resolve page at [Blackmagic Design](https://www.blackmagicdesign.com/products/davinciresolve), or [Shotcut.org](https://shotcut.org/) for downloads and product information. Confirm that the download matches your operating system and hardware. Read the current licence and privacy terms before signing in, uploading media or relying on any feature. Do not use unofficial download mirrors, cracks, key generators or borrowed accounts. Cracked installers can contain malware; the [Cybersecurity Foundations course](/courses/cybersecurity/) covers safer software habits.
+## Before you start (about 10 minutes)
 
-CapCut is the primary editor in Weeks 1–5; DaVinci Resolve is the primary editor for Weeks 6–8. Shotcut is an alternative when hardware is limited. This course uses concepts that transfer between editors. Menus, free features, export limits, watermarks and minimum system requirements can change, and were not independently verified on the date this setup guide was written. Review the current official product pages before installation and ask the facilitator if a listed feature is unavailable.
+- Clear a little space on your phone and laptop. Video is hungry for storage and battery.
+- Have headphones nearby for playback.
+- Pick a safe subject you own or have permission to film (a plate of food, a craft, your own product). Do not film strangers, children or private property.
 
-## Prepare the phone and laptop
+## Try it 1 - Shoot and check a test clip
 
-1. Clean the camera lens with a soft cloth. Check battery health and available storage.
-2. Record a 10-second test clip in a quiet, well-lit place. Play it back with headphones and check picture, sound, focus and orientation.
-3. Use the camera's normal video mode. If frame rate and resolution options are available, choose a consistent setting for the whole shoot rather than changing them clip by clip. Use 1080p only if the device and storage handle it comfortably; lower settings can be appropriate for a constrained device.
-4. Turn on a grid if available. Keep exposure and focus steady by tapping and holding or using the device's lock controls only if supported. The names and gestures differ by phone.
-5. Disable notifications or use an appropriate focus mode while filming, but do not disable emergency alerts or safety features. Keep the phone cool, out of direct sun, and away from water.
-6. On the laptop, close unneeded applications before editing. Ensure the project and source files are on a drive with enough free space. Do not edit directly from an unreliable USB stick.
+**Why it matters:** every later week builds on footage you can trust. A 10-second test tells you in a minute whether your picture and sound are usable.
 
-### File size and storage planning
+**Do this now:**
+1. Wipe the camera lens with a soft cloth.
+2. Open the phone's normal video mode. Turn on the grid if it has one.
+3. In a quiet, window-lit spot, record 10 seconds of your subject. Hold the phone with both hands.
+4. Play it back with headphones. Check picture, sound, focus and that it is the right way up.
 
-File size depends on resolution, frame rate, codec, bitrate, scene detail and recording duration. Do not plan storage from a single universal number. Record a short sample using your planned settings, inspect its size, then estimate:
+**You've got it when:** you can see the subject clearly and hear clean sound with no loud hiss or echo.
 
-```text
-Estimated footage size = sample file size × planned duration ÷ sample duration
-```
+## Try it 2 - Know your storage before you shoot big
 
-For example, if a 10-second test is 24 MB and a shoot may contain 300 seconds, a rough estimate is `24 × 300 ÷ 10 = 720 MB`, before project files and exports. The real result may differ, so leave a margin and check actual free space. Delete only duplicate test files that you can safely identify; do not remove original footage until two verified copies exist.
+**Why it matters:** a long shoot can fill a phone and stop mid-take. A quick estimate saves a ruined session.
 
-### Low-spec laptop routine
+**Do this now:**
+1. Check the file size of your 10-second test.
+2. Estimate a bigger shoot with: `test size x planned seconds / test seconds`.
+3. Example: a 24 MB test over a planned 300 seconds is roughly `24 x 300 / 10 = 720 MB`, before project files and exports. Leave a margin.
 
-- Prefer a short timeline and make a copy before testing demanding effects.
-- Lower the preview/playback resolution if the editor offers that control; it changes preview smoothness, not necessarily final export quality.
-- If the editor supports proxy or optimised media, make small working copies and keep the original clips untouched. The location and settings vary by app.
-- Store footage on a fast local drive with free space. Avoid synchronising a large raw-footage folder while editing.
-- Close browser tabs and other heavy applications; save before testing a new effect.
-- If playback stutters, review a lower-resolution preview, shorten the timeline, or switch to Shotcut or a phone workflow. Do not assume the machine is broken.
+**You've got it when:** you can say roughly how much space your next shoot needs, and you have that space free.
 
-## Project folders and backups
+## Try it 3 - Install one editor from the official source
 
-Create a separate folder for every project. Use the supplied template:
+**Why it matters:** cracked installers carry malware. The official site is the only safe download.
+
+**Do this now:**
+1. Pick one: CapCut at [capcut.com](https://www.capcut.com/) (the main editor for Weeks 1 to 5), DaVinci Resolve at [Blackmagic Design](https://www.blackmagicdesign.com/products/davinciresolve) (used from Week 6), or [Shotcut.org](https://shotcut.org/) if your hardware is light.
+2. Download the version that matches your operating system.
+3. Skim the current licence and privacy terms before you sign in or upload anything.
+4. Open it once and find the import, timeline and export controls.
+
+Menus, free features, export limits and watermarks change and were not verified on the date this guide was written. Check the official page and ask the facilitator if a feature is missing. Cracked installers can carry malware; the [Cybersecurity Foundations course](/courses/cybersecurity/) covers safer software habits.
+
+**You've got it when:** the editor opens and you have spotted where footage goes in and where the export button is.
+
+## Try it 4 - Build a project folder you can trust
+
+**Why it matters:** scattered files lose work. One folder per project keeps originals safe and findable.
+
+**Do this now:**
+1. Create a folder per project using the [template](/downloads/video-editing/project-folder-template.md):
 
 ```text
 FreshBites_Project/
@@ -66,29 +83,43 @@ FreshBites_Project/
   06-Archive/
 ```
 
-Copy original clips into `01-Raw` and treat them as read-only. Put voice recordings and licensed music in `02-Audio`, approved logos and title graphics in `03-Graphics`, editor project files and version notes in `04-Projects`, review and final videos in `05-Exports`, and a final compact delivery package or archive note in `06-Archive`. Name files with date, project, content and version, for example `2026-11-13_FreshBites_MenuCloseup_v01.mp4`. The case and all details are fictional.
+2. Copy your test clip into `01-Raw` and treat it as read-only.
+3. Name files with date, project, content and version, for example `2026-11-13_FreshBites_MenuCloseup_v01.mp4`. (Fresh Bites is a fictional case.)
+4. Put voice and music in `02-Audio`, logos and titles in `03-Graphics`, editor project files in `04-Projects`, review and final videos in `05-Exports`, and a final package in `06-Archive`.
 
-Keep two copies on separate storage when possible: for example, the phone plus a computer drive, or a computer plus an external drive. Reopen a sample from the backup to confirm it copied. A second folder on the same drive is not a robust backup against drive failure. When a project includes private client footage, follow the client's retention and deletion instructions rather than keeping it indefinitely.
+**You've got it when:** every folder has a clear job and your test clip is sitting in `01-Raw`.
 
-## Phone shooting basics
+## Try it 5 - Make a backup that actually opens
 
-Hold the phone with both hands, keep elbows near your body, or rest it against a stable surface. Move deliberately; an unplanned fast pan is difficult to watch. Frame a shot, pause, record a few seconds before the action, let the action happen, and hold briefly before stopping. This gives an editor room to cut. For a moving subject, move your body smoothly only if the surface is safe. Do not walk backward while watching the screen.
+**Why it matters:** a single copy is one accident away from gone. A sync folder is not a real backup.
 
-Use soft window light when practical. Face the subject toward the light rather than placing a bright window behind them. Avoid mixing a very warm lamp with cool daylight if colour consistency matters. For food or products, move the subject or phone until texture and shape are visible; do not place a hot lamp or phone near an open flame, cooking oil or wet surface.
+**Do this now:**
+1. Copy your `01-Raw` test clip to a second place: phone to computer, or computer to an external drive.
+2. Open the copied file from that second location and play it.
+3. If a project has private client footage later, follow the client's retention and deletion rules rather than keeping it forever.
 
-Audio is part of the shot. Move closer to the speaker, choose a quieter room, pause noisy appliances, and record a few seconds of room tone. If the phone is the only microphone, keep it near but outside the camera frame. Do not record private conversations without permission. A low-cost cardboard reflector or a white sheet of paper can bounce window light; ensure it is not near heat or food.
+**You've got it when:** a second copy plays from different storage, not just a second folder on the same drive.
+
+## Quick wins for a low-spec laptop
+
+- Keep the timeline short and copy the project before testing heavy effects.
+- Lower the preview resolution if the editor offers it; it changes preview smoothness, not final quality.
+- Use proxy or optimised media if available, and keep originals untouched.
+- Close browser tabs and heavy apps; save before each new effect.
+- If playback stutters, try a lower preview, a shorter timeline, or Shotcut. The machine is probably fine.
+
+## Shooting, light and sound in one minute
+
+- Hold the phone with both hands, elbows in, or brace it on a surface. Do not walk backward watching the screen.
+- Start recording a few seconds before the action and hold after it, so an editor has room to cut.
+- Face the subject toward a window, not with the window behind them. A white sheet of paper can bounce light. Keep it away from heat, flame and water.
+- Move the phone close to the speaker and pause noisy appliances. Record a few seconds of room tone.
 
 ## Consent, licensing and safety
 
-Before recording an identifiable person, explain where the video may appear, how it may be edited, and whether it is a practice exercise or client work. Ask for explicit permission in a way they understand. If they decline, do not film them. For a private business, event or home, ask the responsible owner or organiser before filming. For minors, obtain permission from a parent or guardian and follow venue rules; do not use a child's image in public practice work.
-
-Use only your own footage, permitted client material, or assets with a licence that covers the planned use. Keep the asset name, source, licence, date checked and any attribution requirements in `licence-log-template.csv`. Save a copy or screenshot of the licence terms when permitted. Do not assume that music available inside an app is cleared for every client, region, account, platform, or monetised use. When uncertain, omit it or seek written permission.
-
-Be alert to trip hazards, road traffic, crowds, cables, heat, weather, electrical equipment and theft. Keep gear secured and do not trespass or obstruct a public path. A gimbal is optional; use it only after learning its controls and keeping the route clear. Drone use is not taught here; do not fly one without checking current local rules, permissions and safety requirements.
-
-## Accessibility and backups
-
-Use a readable title, strong contrast, captions that are proofread, and enough display time to read each line. Keep text away from edges and app controls. Do not use flashing transitions. Make a separate caption file or transcript when the project workflow supports it, and keep a copy of the spoken script. Ask the viewer what access format they need when producing for a real client.
+- Before filming an identifiable person, say where the video may appear and ask clear permission. If they decline, do not film them. For minors, get a parent or guardian and follow venue rules; avoid children in practice work.
+- Use only your own footage, permitted client material, or assets whose licence covers your use. Log the name, source, licence, date checked and attribution. Do not assume in-app music is cleared for every client or platform.
+- Watch for trip hazards, traffic, cables, heat, water and theft. Do not trespass or block a path. Drones are not taught here.
 
 ## Setup verification checklist
 

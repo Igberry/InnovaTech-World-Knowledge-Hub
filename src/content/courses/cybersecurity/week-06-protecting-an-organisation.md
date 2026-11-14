@@ -4,7 +4,7 @@ course: cybersecurity
 order: 6
 week: 6
 phase: "Beyond Yourself"
-summary: "Apply security to a small business or team: access control, least privilege, protecting customer data, staff awareness, and a simple written policy."
+summary: "Step up from protecting yourself to protecting a team: run an access review, apply least privilege, design a blame-free reporting process, and write a one-page policy people will actually follow."
 estimatedHours: 8
 tools: ["A document"]
 downloads:
@@ -12,93 +12,93 @@ downloads:
     href: "/downloads/cybersecurity/small-org-security-policy.md"
 ---
 
-**Goal:** Extend your security skills from yourself to a small organisation: control access, protect customer
-data, build staff awareness, and write a simple policy people will actually follow.
+**Goal:** By the end of this week you will have mapped who can access what in a real or realistic small
+business, fixed an over-broad access, and drafted a usable one-page security policy. You build these for an
+actual organisation you know, not from theory.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
+- Run an access review and apply least privilege
+- Decide what customer data to collect, keep, and protect
+- Design a blame-free way for people to report incidents
+- Write a short, usable security policy people will follow
 
-- Explain the extra responsibilities of protecting an organisation and its customers
-- Apply access control and least privilege
-- Protect customer and staff data appropriately
-- Build simple staff awareness against the biggest risks
-- Write a short, usable security policy
+## Before you start (about 10 minutes)
 
-## Tools / Accounts Needed This Week
+- Pick a small business you know or run (a shop, a VA practice, a freelance client). Open a document for its
+  access review and policy.
+- Warm-up: list the customer data that business holds - names, phone numbers, addresses, payment details, client
+  files. This is what you are protecting.
 
-- A document for your policy and access review
-- The [small organisation security policy](/downloads/cybersecurity/small-org-security-policy.md)
+## Try it 1 - Run an access review
 
-## Pre-Session Resources (about 2 hours)
+**Why it matters:** when you hold other people's data and trust, a breach harms them too. The first question is
+always: who can see what?
 
-- Read: search the web for "small business cybersecurity basics" from a trusted source.
-- Read: search "principle of least privilege explained simply".
-- Reflect: think of a small business you know. What customer data does it hold, and who can access it?
+**Do this now - in a simple table for your chosen business:**
+1. List each type of data (customer details, finances, client files).
+2. Beside each, write who currently has access.
+3. Mark anywhere access is broader than it needs to be.
 
-## Lesson 1: Why organisations carry extra responsibility
+**You've got it when:** your table shows each data type and exactly who can reach it today.
 
-When you protect only yourself, the risk is yours. When you work in or run an organisation, you hold **other
-people's data and trust**, customers, colleagues, partners. A breach can harm people who trusted you, damage
-the business, and break laws about protecting personal data.
+## Try it 2 - Apply least privilege
 
-This is directly relevant if you work as a VA, freelancer, or in a small business (see the
-[Virtual Assistant](/courses/virtual-assistant/) course): the client's data in your care is your
-responsibility. Good security is part of being trustworthy and professional.
+**Why it matters:** least privilege means each person gets only the access they need. It limits the damage if any
+one account is compromised.
 
-## Lesson 2: Access control and least privilege
+**Do this now:**
+1. Pick one case from Try it 1 where access is too broad ("everyone can see everything").
+2. Write who should keep access and who should lose it, by role.
+3. Note how you would remove access the moment someone leaves or changes role.
 
-**Least privilege** means each person gets **only the access they need** to do their job, and no more. It
-limits the damage if any one account is compromised or misused.
+**You've got it when:** you have one concrete access fix: who keeps it, who loses it, and how leavers are handled.
 
-- Give access by **role**, not "everyone can see everything."
-- Limit access to **sensitive data** (customer details, finances) to those who truly need it.
-- Give **admin rights** sparingly and track who has them.
-- **Remove access immediately** when someone leaves or changes role.
-- Use **personal accounts**, not shared logins, so actions are traceable and access is easy to revoke.
+> **Important:** Shared logins are a common weak point: no one owns them, passwords rarely change, and you cannot
+> tell who did what. Use proper per-person access with a team password manager.
 
-> **Important:** Shared logins are a common weak point: no one owns them, passwords rarely change, and you
-> cannot tell who did what. Use proper per-person access with a password manager for teams.
+## Try it 3 - Design blame-free reporting
 
-## Lesson 3: Protecting customer and staff data
+**Why it matters:** most breaches start with a person, and people hide mistakes they fear being punished for -
+which makes things far worse.
 
-Personal data deserves special care:
+**Do this now:**
+1. Write a simple, three-step process for anyone to report a suspected incident (clicked a link, lost a phone,
+   odd payment request).
+2. Make it clear that honest, fast reporting is rewarded, never punished.
+3. Add the two rules everyone must follow: never share passwords or OTPs, and verify any payment or detail change
+   by a second channel.
+
+**You've got it when:** you have a reporting process a nervous staff member would actually use.
+
+## Try it 4 - Write a one-page policy
+
+**Why it matters:** a one-page policy that is read and followed beats a ten-page one that is ignored.
+
+**Do this now - using the
+[policy template](/downloads/cybersecurity/small-org-security-policy.md), fill in short sections for:**
+1. Accounts and passwords (password manager, 2FA, no sharing)
+2. Access (least privilege; remove access when people leave)
+3. Devices, data and privacy (locks, updates, what you protect and how)
+4. Phishing, reporting, incidents, and a review date
+
+**You've got it when:** you have a completed policy short enough that people will actually read it.
+
+## Make it yours - protecting customer data
+
+A simple principle runs through all of this: treat every customer's data the way you would want your own
+treated.
 
 - **Collect only what you need**, and keep it only as long as you need it.
-- **Store it securely**: protected accounts, 2FA, limited access, and backups.
-- **Share it only as necessary**, and not through insecure or personal channels.
-- **Dispose of it safely** when no longer needed.
+- **Store it securely**: protected accounts, 2FA, limited access, backups.
+- **Share it only as necessary**, never through insecure or personal channels.
 - Know your basic **legal duties** to protect personal data in your area, and follow them.
 
-A simple principle: treat every customer's data the way you would want your own treated.
+This is directly relevant if you handle client data as a VA or freelancer (see the
+[Virtual Assistant](/courses/virtual-assistant/) course) - protecting it is part of being trustworthy and
+professional.
 
-## Lesson 4: Staff awareness (people are the front line)
-
-Most breaches start with a person, so awareness is one of the best investments a small organisation can make:
-
-- Train everyone to **spot phishing** and to **verify** unusual requests (especially money or data).
-- Make **reporting easy and blame-free**, people hide mistakes they fear being punished for, which makes things
-  worse.
-- Agree simple rules: never share passwords or OTPs; verify payment/detail changes by a second channel.
-- Keep it **short and repeated**, a brief reminder regularly beats a long training once.
-
-## Lesson 5: A simple security policy
-
-A short, plain **security policy** sets shared expectations. Using the
-[policy template](/downloads/cybersecurity/small-org-security-policy.md), cover:
-
-- Accounts and passwords (password manager, 2FA, no sharing)
-- Access (least privilege; remove access when people leave)
-- Devices (locks, updates)
-- Data and privacy (what you protect and how)
-- Phishing and reporting
-- What to do in an incident
-- A review date
-
-Keep it short enough that people will read and follow it. A one-page policy that is used beats a ten-page one
-that is ignored.
-
-### Common mistakes
+### Watch out for
 
 - Everyone having access to everything
 - Shared logins no one owns
@@ -106,19 +106,9 @@ that is ignored.
 - Collecting and keeping more customer data than needed
 - A long policy nobody reads, or punishing honest mistake-reporting
 
-## Practice Exercises
+## This week's build: your small-organisation security pack
 
-1. For a small business you know (or imagine), list the customer data it holds.
-2. Do an **access review**: who should and should not have access to each type of data.
-3. Identify one case of too-broad access and how you would fix it.
-4. Write three simple staff rules against the biggest risks.
-5. Draft a blame-free reporting process for suspected incidents.
-6. Fill in the security policy template for the organisation.
-7. Write a one-paragraph plan to keep the policy alive (reminders, reviews).
-
-## Weekly Assignment (Due Before Week 7)
-
-Produce a **small-organisation security pack** (real or realistic, no real private data):
+Build a pack for a real or realistic business (no real private data):
 
 1. An **access review**: data held, who has access, and what to change (least privilege)
 2. A completed **security policy** from the template
@@ -141,6 +131,12 @@ Produce a **small-organisation security pack** (real or realistic, no real priva
 - [ ] Staff-awareness plan written
 - [ ] Reporting process defined
 
+## Extra quick wins (optional)
+
+- Write a one-paragraph plan to keep the policy alive (short reminders, a review date).
+- Sketch a 10-minute staff refresher on spotting phishing.
+- List which shared logins the business could replace with per-person access.
+
 ## Mentoring Session Plan (90 minutes)
 
 | Time | Activity |
@@ -158,7 +154,7 @@ Least privilege and removing access when people leave are the highest-value idea
 sample org. Stress blame-free reporting, fear of blame is why incidents get hidden and worsen. Keep policies
 short and usable. Use only fictional data in exercises, and reinforce legal duties to protect personal data.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. Why does an organisation carry extra security responsibility?
 2. What is least privilege, and why does it limit damage?

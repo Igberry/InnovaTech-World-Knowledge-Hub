@@ -4,7 +4,7 @@ course: cybersecurity
 order: 8
 week: 8
 phase: "Capstone"
-summary: "Audit your own security, make real improvements, build your plans, present the before and after, and look honestly at cybersecurity as a field."
+summary: "Put it all together for real: audit your own security, fix the gaps you find, finalise your plans, and present an honest before-and-after you can be proud to show."
 estimatedHours: 8
 tools: ["A device you own", "A document"]
 downloads:
@@ -14,99 +14,92 @@ downloads:
     href: "/downloads/cybersecurity/security-checklist.md"
 ---
 
-**Goal:** Bring the course together: audit your own security (or an organisation's, with permission), make
-real improvements, finalise your plans, present the before and after, and understand honestly where
-cybersecurity can lead.
+**Goal:** Bring the course together by doing a real security audit of your own life (or an organisation's, with
+permission), fixing what you find, and presenting an honest before-and-after. This is real work on real
+accounts, not a written report about security.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
-
-- Run a full security audit of your own accounts, devices, and data
+- Run a full audit of your own accounts, devices, and data
 - Make and document real improvements
 - Finalise your backup, incident-response, and (if relevant) policy plans
-- Present your before-and-after clearly and honestly
-- Describe realistic next steps in cybersecurity as a field
+- Present an honest before-and-after and name your next steps
 
-## Tools / Accounts Needed This Week
+## Before you start (about 10 minutes)
 
-- Your own devices and accounts; your checklists, audits, and plans from the course
-- The [capstone brief](/downloads/cybersecurity/security-capstone-brief.md) and
-  [security checklist](/downloads/cybersecurity/security-checklist.md)
+- Gather everything you built over the course: audits, checklists, backup plan, incident-response plan.
+- Open the [capstone brief](/downloads/cybersecurity/security-capstone-brief.md) and decide your scope: your own
+  security, or a small organisation's (with clear permission).
 
-## Pre-Session Resources (about 2 hours)
+> **Important:** Audit only what is yours, or an organisation's **with clear permission**. Never test, probe, or
+> access systems, accounts, or devices that are not yours. This is the ethics line the whole course rests on.
 
-- Review: all your work, audits, checklists, backup plan, incident-response plan.
-- Read: search the web for "cybersecurity career paths for beginners" from a reputable source.
-- Decide: whether your capstone covers your own security or a small organisation's (with permission).
+## Try it 1 - Run the full audit
 
-## Lesson 1: What a good capstone shows
+**Why it matters:** the point is to find real weaknesses honestly, not to look perfect. A gap you name is a gap
+you can fix.
 
-The capstone is a **real security audit and genuine improvements**, done honestly. It is not about sounding
-like an expert; it is about showing you can find real weaknesses and fix them, and plan for what remains.
+**Do this now - using the brief and your checklists, go through and mark every gap:**
+1. **Accounts:** which lack 2FA, which have weak or reused passwords, recovery settings
+2. **Devices:** locks, updates, encryption, app permissions
+3. **Data:** backups (and whether a restore was tested), sensitive data handling
+4. **Habits and (if an org):** phishing awareness, privacy, oversharing, access/least privilege, policy
 
-Judging looks at three things: a **thorough, honest audit**; **real improvements** you actually made; and
-**solid plans** (backup, incident response, and policy if for an organisation). Showing what still needs work
-is a strength, security is ongoing.
+**You've got it when:** you have an honest "before" list of real gaps across accounts, devices, data, and habits.
 
-> **Important:** Audit only what is yours, or an organisation's **with clear permission**. Never test, probe,
-> or access systems, accounts, or devices that are not yours. This is the ethics line the whole course rests
-> on.
+## Try it 2 - Fix what you found
 
-## Lesson 2: Run the audit
+**Why it matters:** real, completed fixes are the heart of the capstone. This is where the course pays off.
 
-Using the [capstone brief](/downloads/cybersecurity/security-capstone-brief.md) and your checklists, assess:
+**Do this now - work down your gap list and fix the top ones:**
+1. Turn on any missing 2FA; replace weak or reused passwords.
+2. Set and **test** a backup; tighten privacy and device settings.
+3. For each fix, record the risk you found, what you did, and the result.
 
-- **Accounts:** which lack 2FA, which have weak or reused passwords, recovery settings
-- **Devices:** locks, updates, encryption, app permissions
-- **Data:** backups (and whether a restore was tested), sensitive data handling
-- **Habits:** phishing awareness, privacy, oversharing
-- **(If an organisation):** access/least privilege, policy, staff awareness
+**You've got it when:** you have a before/after record of at least several real fixes you actually completed.
 
-Be honest; the point is to find the gaps, not to look perfect.
+## Try it 3 - Finalise your plans
 
-## Lesson 3: Make the improvements
+**Why it matters:** the plans are what protect you after the course ends.
 
-Fix what you found, and record it:
+**Do this now:**
+1. Finish your **incident-response plan** (contacts, scenario steps, remote wipe, restore).
+2. Confirm your **backup** is set and a restore is tested.
+3. If your scope is an organisation, finalise the **security policy** too.
 
-- Turn on missing 2FA; replace weak/reused passwords
-- Set and test a backup
-- Tighten privacy and device settings
-- Finalise your incident-response plan (and a policy, if for an organisation)
+**You've got it when:** your backup, incident-response plan, and (if relevant) policy are all complete.
 
-Keep a simple before/after record: the risk you found, what you did, and the result. Real, completed fixes are
-the heart of the capstone.
+## Try it 4 - Present your before and after
 
-## Lesson 4: Present before and after
+**Why it matters:** explaining your work clearly, including what is still imperfect, is how you show real
+understanding. Security is never "finished."
 
-Prepare a short, honest presentation:
-
+**Do this now - prepare a short, honest presentation:**
 1. **Scope:** what you audited (and your permission to do so)
 2. **Before:** the main risks you found
 3. **After:** the improvements you made
 4. **Plans:** your backup and incident-response plans (and policy if relevant)
-5. **Honest reflection:** what surprised you, what still needs work, and the habit you will keep
+5. **Honest reflection:** what surprised you, what still needs work, and the one habit you will keep
 
-Honesty, including what is still imperfect, is a strength. Security is never "finished," and saying so shows
-real understanding.
+**You've got it when:** you can walk someone through your before, after, and plans in a few clear minutes.
 
-## Lesson 5: Cybersecurity as a field (an honest look)
+## Make it yours - cybersecurity as a field (an honest look)
 
 Cybersecurity is a large, growing field with many roles, from security awareness and support to analysis,
-defence (blue team), governance, and more. If it interests you:
+defence, and governance. If it interests you:
 
-- **Keep building fundamentals**, much of this course is the foundation professionals rely on.
-- **Learn continuously**, the field changes constantly; curiosity and ethics matter more than any one tool.
-- **Explore reputable learning paths and recognised certifications** when you are ready (research current,
-  well-regarded options; verify before paying).
-- **Stay strictly ethical and legal**, the whole field runs on trust; practise only on your own systems or with
+- **Keep building fundamentals** - much of this course is the foundation professionals rely on.
+- **Learn continuously** - the field changes constantly; curiosity and ethics matter more than any one tool.
+- **Explore reputable learning paths and recognised certifications** when ready (research current, well-regarded
+  options; verify before paying).
+- **Stay strictly ethical and legal** - the whole field runs on trust; practise only on your own systems or with
   permission.
 
-> **Note:** This course does not promise a cybersecurity job or income, and no course can. What it gives you is
-> a genuine foundation and safe, ethical habits. Where you take them is up to your effort and continued
-> learning.
+> **Note:** This course does not promise a cybersecurity job or income, and no course can. What it gives you is a
+> genuine foundation and safe, ethical habits that build job-ready skills. Where you take them is up to your
+> effort and continued learning.
 
-### Common mistakes
+### Watch out for
 
 - A shallow audit that avoids the real gaps
 - Listing improvements without actually doing them
@@ -114,9 +107,9 @@ defence (blue team), governance, and more. If it interests you:
 - Hiding what still needs work instead of noting it honestly
 - Forgetting the ethics line (only your own systems, or with permission)
 
-## Capstone Assignment (Due Week 8 session)
+## This week's build: your complete security plan
 
-Deliver your **complete security plan**:
+Deliver the whole thing:
 
 1. A completed **capstone brief** with an honest **audit** (before state)
 2. A record of **real improvements** made (risk, action, result)
@@ -140,6 +133,12 @@ Deliver your **complete security plan**:
 - [ ] Backup tested; incident-response plan finished
 - [ ] Before/after presented with honest reflection
 
+## Extra quick wins (optional)
+
+- Help one family member run a mini-audit of their top three accounts.
+- Write the single habit you will keep forever on a card where you will see it.
+- Note one reputable, current learning path you might explore next (verify before paying).
+
 ## Mentoring Session Plan (90 minutes)
 
 | Time | Activity |
@@ -158,7 +157,7 @@ systems or permission only. Keep the careers talk honest and encouraging, this c
 guarantee; point to reputable, current learning paths without overpromising. End on the habits that will keep
 learners safe for life.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What three things does a strong security capstone show?
 2. Why is noting what still needs work a strength, not a weakness?

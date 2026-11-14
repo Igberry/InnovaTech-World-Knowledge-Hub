@@ -3,7 +3,7 @@ title: "Short-Form Content"
 course: video-editing
 order: 5
 week: 5
-summary: "Plan a five-video vertical series with hooks, captions, safe framing and a realistic posting plan."
+summary: "Make five scroll-stopping vertical videos this week from footage you already have, each with a real hook and captions, plus a seven-day posting plan you could actually run."
 estimatedHours: 8
 tools: ["CapCut", "Phone camera", "Platform preview tools"]
 downloads:
@@ -17,149 +17,141 @@ downloads:
     href: "/downloads/video-editing/caption-style-guide.md"
 draft: false
 ---
-**Goal:** Build a five-video short-form series from permitted footage and plan publication without depending on unverified platform rules.
+**Goal:** Build a five-video vertical series from footage you already have, each with a truthful hook and captions, plus a realistic seven-day posting plan. This week is all making and planning.
 
-## Learning Objectives
+## What you'll be able to do
 
-- Write a truthful opening hook that matches the actual footage and audience.
-- Plan a vertical shot and text layout that can be previewed safely on a phone.
-- Produce five distinct 15–30 second videos with captions and an appropriate call to action.
-- Repurpose one shoot without making five copies of the same video.
-- Draft a seven-day posting plan and identify which platform specifications need current checking.
-- Interpret basic view, watch-time, share and follow measures without treating them as proof of business success.
+- Write a hook that matches what the video actually delivers
+- Frame vertical video so the platform interface does not hide your subject
+- Produce five distinct 15 to 30 second videos with captions and a clear call to action
+- Repurpose one shoot into several videos without copying yourself
+- Read basic view and watch-time numbers without treating them as proof of success
 
-## Tools / Accounts Needed This Week
+## Before you start (about 10 minutes)
 
-Use the Week 1–4 footage, CapCut, a phone preview and the supplied planning templates. Publishing is optional; do not create or use a platform account just to complete the lesson. Platform video length, file-size limits, aspect ratios, safe zones, music permissions, analytics labels and policies change by product, region and account. Check each intended platform's current official help or in-app guidance before publication. Exact platform limits were not independently verified while this course was prepared.
+- Gather your Week 1 to 4 footage and open the [hook ideas list](/downloads/video-editing/hook-ideas-list.md), [planning sheet](/downloads/video-editing/short-form-planning-sheet.csv) and [posting plan](/downloads/video-editing/posting-plan-template.csv).
+- Warm-up: open the current official help for one platform you might use and note today's accepted length and dimensions. Platform rules change, so date your note and do not trust an old screenshot.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - Nail one idea, one viewer, one action
 
-- Search YouTube: **"short-form video hooks one idea per video examples"**.
-- Search YouTube: **"vertical video framing safe areas captions"**.
-- Search YouTube: **"short-form video retention analytics watch time beginner"**.
-- Read the [hook ideas list](/downloads/video-editing/hook-ideas-list.md), [planning sheet](/downloads/video-editing/short-form-planning-sheet.csv) and [posting plan](/downloads/video-editing/posting-plan-template.csv).
-- Open the current official help for the destination you might use and record the date and requirements; do not rely on an old screenshot.
+**Why it matters:** short-form is a compact story, not a long video chopped short. One idea is what makes it land.
 
-## Lessons
+**Do this now:**
+1. Write: "This video helps [viewer] understand [one thing]."
+2. If that sentence contains several unrelated ideas, split them into separate videos.
+3. Pick one honest action: notice a detail, save a checklist, ask a question, view a permitted resource. No guarantees, no pressure for private information.
 
-### Lesson 1: One idea, one viewer, one action
+**You've got it when:** one sentence captures one viewer, one idea and one action.
 
-Short-form video is a compact story, not just a long video cut shorter. Start by naming the intended viewer and the one idea they should remember. A clip about a product might show one detail and invite a viewer to read a sample menu. It should not try to explain the entire business, list every feature and include multiple unrelated offers.
+## Try it 2 - Write three hooks and pick the truest
 
-Write a sentence before editing: “This video helps [viewer] understand [one thing].” If that sentence contains several unrelated ideas, split them into separate videos. Then choose one action: notice a detail, save a checklist, ask a question or view a permitted resource. A call to action should not imply a guarantee or pressure the viewer to share private information.
+**Why it matters:** the opening earns the watch. A hook that overpromises loses trust fast.
 
-### Lesson 2: Hooks and the first few seconds
+**Do this now:**
+1. For one clip, write three hooks: a question, a useful result, and a true surprising detail.
+2. Check each against the footage. "Three steps" must show three steps; "before and after" needs a fair comparison.
+3. Pick the clearest. Make the subject visible early and skip a long logo intro.
 
-A **hook** is the opening that gives the viewer a reason to continue. It can be a question, a useful result, a surprising detail that is actually true, or a clear promise about what the video will show. A hook is not permission to exaggerate. If the video promises “three steps,” show three steps; if it says “before and after,” use a fair comparison with the same subject and conditions.
+**You've got it when:** your chosen hook is something the video genuinely delivers.
 
-The prompt describes the hook as the first three seconds. Treat that as a planning target, not a platform rule or guarantee. There is no universal duration that captures every viewer. Make the subject visible early, avoid a long logo animation, and keep the opening aligned with the rest of the video. A viewer who stays should receive what the hook led them to expect.
+## Try it 3 - Frame vertical for the real interface
 
-Use the hook list as a prompt, not copy that must be used word for word. Example: “Watch this process from start to finish” works only if the video shows a complete process. A title like “The secret customers love” would imply evidence that this fictional case does not have. Do not invent testimonials, popularity, customer counts or a discount.
+**Why it matters:** the platform covers edges with buttons, captions and profile labels. Subjects parked at the edge get hidden.
 
-### Lesson 3: Vertical framing and interface safe areas
+**Do this now:**
+1. Keep the main subject and key words away from the outer edges.
+2. Preview on the actual upload or draft screen if you can, and check against current safe-area guidance.
+3. If you crop a landscape shot vertical, check what the crop removes and whether a person or object is cut in a meaning-changing way. Record separate vertical takes when it matters.
 
-A vertical frame gives a phone viewer a tall image, but the platform interface may cover edges or add buttons, profile labels, captions and controls. Keep the main subject and critical wording away from the outer edges. Preview the actual upload or draft screen when available, and consult the platform's current safe-area guidance. Do not use a fixed old diagram as a guarantee.
+**You've got it when:** your subject stays clear of where the interface buttons land.
 
-Look at the background, horizon and lighting. Keep faces or product details inside the frame and make the viewer's attention clear. Text should be large enough for a small phone screen but concise enough to avoid covering the subject. Captions need their own safe space; check that a platform's automatic captions will not overlap your burned-in text.
+## Try it 4 - Build five repeatable formats
 
-Horizontal footage can be cropped vertically, but crop changes the composition. Reframe the image, check what is lost and consider recording separate vertical takes. Do not crop a person or object in a way that changes the meaning. If one piece needs landscape and vertical versions, save separate project versions and review both exports.
+**Why it matters:** formats give you variety fast, so one shoot becomes a series instead of five near-identical clips.
 
-### Lesson 4: Platform lengths, specifications and policies
+**Do this now - make one of each:**
+1. **Menu highlight:** one fictional sample item, labelled a practice example.
+2. **Behind the scenes:** a permitted process or workspace, no private screens or people.
+3. **Testimonial-style story:** a consenting real speaker, or a clearly labelled fictional role-play. Never pass a fictional quote off as a real review.
+4. **Quick tip:** one useful action, shown accurately step by step.
+5. **Promotion:** a fictional call to action with no invented price, availability or contact.
 
-Before export, identify the exact destination and check its current accepted duration, dimensions, aspect ratio, file size, caption options, cover image, music rights and safe areas. There is no single specification for all short-form platforms, and requirements can change. If a brief says “short video” without a destination, ask the client to confirm rather than choosing an arbitrary setting.
+Repurpose by changing the question, opening, detail or audience, not just the music.
 
-The platform's upload preview can reveal crop or interface overlaps, but it does not replace checking the official help page. Record the URL, date checked and required settings in the project notes. If the information cannot be verified, tell the client and deliver a review copy without claiming compliance. The provided export guide avoids fixed numeric platform limits for this reason.
+**You've got it when:** you have five videos that each do a genuinely different job.
 
-Check policies before posting. Rules about music, branded content, paid promotions, synthetic media, safety, copyrighted content and account eligibility vary. Do not assume one platform's permission transfers to another. If AI tools generated or altered media, check current disclosure requirements and describe the edit honestly. The [Artificial Intelligence course](/courses/artificial-intelligence/) covers responsible AI use in more detail.
+## Try it 5 - Caption, then plan seven days without publishing
 
-### Lesson 5: Five repeatable short-form formats
+**Why it matters:** you can plan a real posting schedule and check everything is ready, without exposing a personal account.
 
-The assignment uses five formats. They are starting structures, not claims about guaranteed reach:
+**Do this now:**
+1. Proofread captions on each video and check them on a phone. Match speech and meaningful sound.
+2. Write a plain caption that says what the video shows and the next step. Skip unsupported superlatives and copied slogans.
+3. Fill the [seven-day posting plan](/downloads/video-editing/posting-plan-template.csv): schedule drafts for review, caption checks, permission checks and one iteration. No public posting is required.
+4. For each video, write a predicted outcome and label it "not measured". Never invent views.
 
-1. **Menu highlight:** show one fictional sample item and label it as a practice example.
-2. **Behind the scenes:** show a permitted process or workspace without exposing private screens or people.
-3. **Testimonial-style story:** use a consenting real speaker with explicit permission, or clearly label a fictional script as a role-play. Never imply that a fictional quote is a real customer review.
-4. **Quick tip:** explain one useful action and show the steps accurately.
-5. **Promotion:** present a fictional call to action without invented price, availability or business contact.
+**You've got it when:** five captioned videos and a realistic, honest seven-day plan are ready to go.
 
-Repurpose a shoot by changing the question, opening, detail or audience need. A single set of permitted clips might support a “how it is made” video, a close-up explanation and a short checklist. Do not simply publish the same sequence five times with different music. Keep a shot and idea log so the series has variety.
+### Watch out for
 
-### Lesson 6: Captions, hashtags and posting basics
+- Treating "first three seconds" as a guaranteed formula rather than a prompt
+- Using a hook the video does not deliver
+- Cropping a landscape shot without reviewing the vertical composition
+- Assuming duration or file-size limits are identical across apps
+- Publishing a fictional testimonial as a real customer statement
+- Treating views or likes as proof of sales or quality
 
-Use readable, proofread captions and check them on a phone. Captions should match speech and meaningful sound. Do not use hashtags to imply affiliation with a person, event or brand that is not involved. A small number of descriptive tags may help organise a post, but no tag guarantees discovery.
+## This week's build: a five-video short-form series
 
-Write a plain caption that explains what the video shows and gives the intended next step. Avoid unsupported superlatives, misleading claims, copied slogans and personal data. If a post is sponsored or includes a paid promotion, follow the platform's current disclosure requirements and the applicable agreement. Do not publish a client draft without approval.
+Produce a five-video series for fictional Fresh Bites or your own permitted subject.
 
-Posting can be planned without publishing. For the assignment, a seven-day plan may schedule drafts for review, caption checks, permission checks or a private test. Learners do not need to expose their personal account or post publicly. The plan should include a realistic action and a note about whether the asset is ready.
+1. Each video is 15 to 30 seconds and uses one required format: menu highlight, behind the scenes, testimonial-style story (fictional and labelled, or consented), quick tip, promotion.
+2. Each needs a truthful hook, proofread captions and a clear call to action.
+3. Submit the seven-day posting plan and a short reflection on which hook worked best, or would work best if the series is not published.
+4. Do not publish unless you have permission and have checked current specifications and rights. If a sound, template or sticker is only cleared for one platform, verify before any client export. If AI tools generated or altered media, check current disclosure rules; the [Artificial Intelligence course](/courses/artificial-intelligence/) covers responsible AI use.
 
-### Lesson 7: Basic analytics and iteration
+### Grading guide
 
-**Views** describe how often a platform counts a video as viewed under its current rules. **Watch time** is the time people spend watching; **retention** describes how viewing continues or drops through the clip. **Shares** and **follows** can indicate an interaction, but do not explain why it happened. The platform may define these metrics differently and can change their names or counting methods.
+| Criteria | Weight |
+|---|---|
+| Hooks | 25% |
+| Editing and captions | 30% |
+| Consistency across the series | 20% |
+| Posting plan | 15% |
+| Reflection | 10% |
 
-Use analytics as questions, not a verdict. If viewers leave early, check whether the opening matches the subject. If a video is watched but not shared, the viewer may still have learned something; do not assume the edit failed. Compare similar content, record the date range and avoid drawing conclusions from tiny samples.
+### Definition of done
 
-For a private class project that is not published, write a predicted outcome and label it “not measured.” Do not invent views or pretend a test export was published. A simple reflection can still identify which hook is clearest and what you would test next.
-
-### Lesson 8: Ethics, trends and content reuse
-
-Trends can be adapted, but copying a creator's full edit, voice, footage or signature design is not responsible reuse. Use original footage and your own script. Check whether a sound, template or sticker is permitted for your type of account and use. A platform library may limit use to that platform, certain accounts or particular contexts; verify before a client export.
-
-Do not edit footage to mislead about a product, person, event or result. Label a staged demonstration as a demonstration. Respect privacy, location rules and permission withdrawal. Obtain written client approval for final publication. If a video includes AI-generated or altered images or voices, do not misrepresent them as authentic footage; check the current platform disclosure rules.
-
-## Common Mistakes
-
-- Treating “first three seconds” as a guaranteed formula rather than a prompt.
-- Using a hook that the video does not deliver.
-- Cropping a landscape shot without reviewing the vertical composition.
-- Assuming duration, file-size or interface limits are identical across apps.
-- Publishing a fictional testimonial as if it were a real customer statement.
-- Reusing a platform sound outside the use allowed by its current terms.
-- Treating views or likes as proof of sales, quality or audience satisfaction.
-- Reporting predicted analytics as though a post were published.
-
-## Practice Exercises
-
-1. Write three honest hooks for one clip and choose the clearest.
-2. Reframe a landscape shot vertically and list what the crop removes.
-3. Create two distinct videos from the same shoot by changing the idea and opening.
-4. Build a five-row plan using the five formats in Lesson 5.
-5. Proofread captions and check safe margins on a phone.
-6. Find and record the current requirements for one intended platform; if unavailable, mark them unverified.
-7. Analyse a sample retention chart supplied by the facilitator or explain what you would measure.
-8. Draft a seven-day posting plan that includes review, permissions and one iteration.
-
-## Weekly Assignment (Due Before Week 6)
-
-Produce a five-video series for fictional Fresh Bites or your own permitted subject. Each video should be 15–30 seconds and use one of the required formats: menu highlight, behind the scenes, testimonial-style story (fictional and labelled or consented), quick tip, and promotion. Each needs a truthful hook, captions and a call to action. Submit a seven-day posting plan and a reflection on which hook worked best or would work best if the series is not published. Do not publish unless you have permission and have checked current specifications and rights.
-
-**Grading guide:** hooks 25%, editing and captions 30%, consistency across the series 20%, posting plan 15%, reflection 10%.
-
-**Definition of done**
-
-- [ ] Five different 15–30 second videos use the assigned formats.
+- [ ] Five different 15 to 30 second videos use the assigned formats.
 - [ ] Hooks match the content; claims and testimonials are truthful and labelled.
 - [ ] Captions are reviewed, and each export is checked in its intended frame.
 - [ ] A seven-day posting plan includes permissions and platform checks.
 - [ ] The reflection distinguishes observed results from predictions.
 - [ ] No post uses unlicensed audio or unapproved footage.
 
+## Extra quick wins (optional)
+
+- Turn one shoot into two very different videos by only changing the idea and opening.
+- Read a sample retention chart from the facilitator and name one thing you would test.
+- Rewrite your weakest hook three more ways and see if it improves.
+
 ## Mentoring Session Plan (90 min)
 
 | Time | Activity |
 |---|---|
-| 0–10 min | Choose audience, one idea and safe subject |
-| 10–25 min | Draft and compare hook options |
-| 25–40 min | Reframe vertical footage and check interface margins |
-| 40–55 min | Plan the five formats and caption approach |
-| 55–68 min | Review platform requirements and licence notes |
-| 68–82 min | Draft posting plan and analytics reflection |
-| 82–90 min | Confirm assignment scope and publication boundaries |
+| 0-10 min | Choose audience, one idea and safe subject |
+| 10-25 min | Draft and compare hook options |
+| 25-40 min | Reframe vertical footage and check interface margins |
+| 40-55 min | Plan the five formats and caption approach |
+| 55-68 min | Review platform requirements and licence notes |
+| 68-82 min | Draft posting plan and analytics reflection |
+| 82-90 min | Confirm assignment scope and publication boundaries |
 
 ## Facilitator Notes
 
 Do not ask learners to publish to personal accounts. Verify platform requirements and music rights before recommending a workflow; no current numeric limits are claimed here because official pages were not reachable during authoring. Treat fictional testimonials as role-play and require clear labelling. Avoid use of student analytics or account information in class.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What makes a hook truthful and useful?
 2. Why should vertical safe areas be checked in the actual preview?

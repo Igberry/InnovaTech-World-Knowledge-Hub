@@ -4,7 +4,7 @@ course: automation
 order: 8
 week: 8
 phase: "Capstone"
-summary: "Bring it all together: automate one real, repeatable process end to end, safely tested with a rollback plan, documented, and presented."
+summary: "Pick one real, repeatable task and automate it end to end - tested, safe, documented, and measured. Walk away with a portfolio-ready build and the time saved to prove it."
 estimatedHours: 8
 tools: ["A no-code automation tool", "A spreadsheet", "A document"]
 downloads:
@@ -14,12 +14,11 @@ downloads:
     href: "/downloads/automation/automation-blueprint.md"
 ---
 
-**Goal:** Plan, build, test, and present one real automation that saves genuine time, done safely, with a
-rollback plan and a clear blueprint, ready to show in a portfolio.
+**Goal:** Plan, build, test, and present one real automation that saves genuine time - done safely, with a
+rollback plan and a clear blueprint, ready to show in a portfolio. This week is all build and show, almost
+no reading.
 
-## Learning Objectives
-
-By the end of this week you can:
+## What you'll be able to do
 
 - Choose a real, repeatable process worth automating
 - Design and build it with the right triggers, actions, and conditions
@@ -27,82 +26,66 @@ By the end of this week you can:
 - Document it clearly in a blueprint
 - Present the before, the after, and the time saved
 
-## Tools / Accounts Needed This Week
+## Before you start (about 10 minutes)
 
-- Your no-code automation tool and a spreadsheet
-- The [capstone brief](/downloads/automation/automation-capstone-brief.md) and
-  [blueprint](/downloads/automation/automation-blueprint.md); your checklists from earlier weeks
+- Open your task-audit log and opportunity finder from Week 1 - your best candidate is likely already there.
+- Have the [capstone brief](/downloads/automation/automation-capstone-brief.md) and
+  [blueprint](/downloads/automation/automation-blueprint.md) ready, plus your checklists from earlier weeks.
+- Warm-up: in one sentence, write the process you will automate and the time you expect to save.
 
-## Pre-Session Resources (about 2 hours)
+## Try it 1 - Choose your process
 
-- Review: your task-audit log and opportunity finder from Week 1. Your best candidate is likely there.
-- Review: the test and rollback checklist (Week 5) and reliability lesson (Week 7).
-- Decide: one process you can automate and finish safely this week.
+**Why it matters:** the capstone is a real, working, safe automation that saves genuine time, not the most
+complex one you can imagine. A simple one that runs reliably beats an ambitious one that breaks.
 
-## Lesson 1: What makes a good capstone
+**Do this now - pick one repeatable, rule-based task you (or a business you know) actually does:**
+1. **Enquiry handling:** when a form is submitted, log it, confirm it, and notify the team.
+2. **Content logging:** when something is published or received, record it in a tracker.
+3. **Reminders:** send a scheduled weekly reminder or report.
+4. **Data tidying:** a spreadsheet that cleans or summarises entries automatically.
+5. **AI-assisted sorting:** categorise or summarise incoming messages (from Week 6).
 
-The capstone is a **real, working, safe automation** that saves genuine time, not the most complex one you
-can imagine. A simple automation that runs reliably, with a rollback plan, beats an ambitious one that
-breaks or cannot be undone.
+**You've got it when:** you have one clear process and can say who it helps.
 
-The judging looks at three things: the **automation works**, it is **safe** (tested, with rollback and a
-manual backup), and you can **explain** the before, the after, and the time saved.
+## Try it 2 - Define it in the brief
 
-## Lesson 2: Choose your process
+**Why it matters:** defining the before, the after, and the safety plan before you build keeps the project
+finishable in a week.
 
-Pick a repeatable, rule-based task you (or a business or group you know) actually does. Ideas (choose or
-invent your own):
+**Do this now:**
+1. Open the [capstone brief](/downloads/automation/automation-capstone-brief.md).
+2. Write the process, the **before** (the manual way) and the **after** (the automated way).
+3. Write your safety plan: how you will test, and how you will roll back.
 
-- **Enquiry handling:** when a form is submitted, log it, send a confirmation, and notify the team
-- **Content logging:** when something is published or received, record it in a tracker
-- **Reminders:** send a scheduled weekly reminder or report
-- **Data tidying:** a spreadsheet that cleans, categorises, or summarises entries automatically
-- **AI-assisted sorting:** categorise or summarise incoming messages (from the AI week)
+**You've got it when:** your brief shows the process, the before/after, and a safety plan.
 
-Use the [capstone brief](/downloads/automation/automation-capstone-brief.md) to define the process, the
-before and after, and your safety plan before you build.
+## Try it 3 - Build it safely
 
-## Lesson 3: Build it safely
+**Why it matters:** this is where the whole course comes together, and where "safe before clever" must win.
 
-Apply the whole course as you build:
+**Do this now:**
+1. **Design first:** triggers, actions, and any condition (Weeks 4 to 5).
+2. **Test with sample data** - never point it at anything real until it is proven (Week 5).
+3. **Add safety:** failure notifications and a filter for bad input (Week 7).
+4. **Protect privacy:** least access, and trace the data path (Week 7).
+5. **Plan rollback and a manual backup** before it runs for real (Weeks 5 and 7).
+6. Keep notes as you go - your blueprint, your tests, and what you changed.
 
-- **Design first:** triggers, actions, and any condition (Weeks 4 to 5)
-- **Test with sample data:** never point it at anything real until it is proven (Week 5)
-- **Add safety:** failure notifications, filters for bad input (Week 7)
-- **Protect privacy:** least access, and trace the data path (Week 7)
-- **Plan rollback and a manual backup** before it runs for real (Weeks 5 and 7)
+**You've got it when:** the automation runs correctly on sample data and has an off-switch and a manual backup.
 
-Keep notes as you go: your blueprint, your tests, and what you changed. That record is part of the
-capstone.
+## Try it 4 - Prove it, measure it, present it
 
-> **Important:** The automation must be safe before it is clever. No capstone should run on real customers,
-> real money, or the only copy of important data without testing and a rollback plan. Safe first, always.
+**Why it matters:** numbers make your work visible, and a clear story is what turns a build into a portfolio piece.
 
-## Lesson 4: Prove it and measure it
+**Do this now:**
+1. Do a **worked run** with sample (or safely real) data showing the correct result.
+2. Measure the **time it used to take** versus **now**.
+3. Confirm your **checks**: tests passed, notifications on, rollback ready.
+4. Prepare a short presentation and a portfolio page: the process, before and after, the design and blueprint, the safety, the result, and an honest reflection. See the [Remote Ready](/courses/remote-ready/) course for hosting a simple portfolio for free. Remove any private details before publishing.
 
-Show that it works and that it helps:
+**You've got it when:** you can show it working and say "this used to take 30 minutes a day; now it takes 2, with a failure alert if anything breaks."
 
-- A **worked run** with sample (or safely real) data, showing the correct result
-- The **time it used to take** versus **now**, so the value is clear
-- The **checks** you did: tests passed, notifications on, rollback ready
-
-Numbers make your work visible. "This used to take 30 minutes a day; now it takes 2, and I get a failure
-alert if anything goes wrong" is a strong, honest result.
-
-## Lesson 5: Document and present
-
-Prepare a short presentation (and a portfolio page) covering:
-
-1. **The process** and who it helps
-2. **Before and after** (the manual way vs the automated way)
-3. **The design** (triggers, actions, conditions) and the **blueprint**
-4. **Safety** (tests, rollback, manual backup, privacy)
-5. **The result** (time saved) and an **honest reflection** (what was tricky, what you would improve)
-
-See the [Remote Ready](/courses/remote-ready/) course for building and hosting a simple portfolio for
-free. Remove any private details before publishing.
-
-### Common mistakes
+### Watch out for
 
 - Choosing a process too big or too risky to finish safely
 - Skipping tests or the rollback plan under time pressure
@@ -110,7 +93,7 @@ free. Remove any private details before publishing.
 - Not measuring the before and after, so the value is unclear
 - Publishing a blueprint or screenshot with private data in it
 
-## Capstone Assignment (Due Week 8 session)
+## This week's build: your complete automation capstone
 
 Deliver your **complete automation capstone**:
 
@@ -138,6 +121,12 @@ Deliver your **complete automation capstone**:
 - [ ] A worked run and the time saved
 - [ ] Honest reflection, and a portfolio version with no private data
 
+## Extra quick wins (optional)
+
+- Record a 60-second screen clip of your automation running for your portfolio.
+- Write the one next process you will automate after the course.
+- Show your capstone to the person it helps and note their reaction.
+
 ## Mentoring Session Plan (90 minutes)
 
 | Time | Activity |
@@ -157,7 +146,7 @@ data in blueprints or screenshots before anything is shown or published. Reward 
 clear, measured result. Point learners to Remote Ready for portfolio hosting. Keep outcomes honest: real
 skills and time saved, not guaranteed income.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. What three things does a good automation capstone show?
 2. Why must an automation be "safe before it is clever"?

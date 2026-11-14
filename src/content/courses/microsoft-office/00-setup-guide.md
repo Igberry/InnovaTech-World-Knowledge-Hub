@@ -2,7 +2,7 @@
 title: "Setup Guide"
 course: microsoft-office
 order: 0
-summary: "Check your device, choose a legal Office access path and prepare safe local and cloud storage."
+summary: "Get a safe, low-data workspace ready in one short sitting: pick a legal way into Office, make a clean folder, and save your first file so you never lose work."
 estimatedHours: 2
 tools: ["Windows", "Microsoft account", "OneDrive", "Word", "Excel", "PowerPoint"]
 downloads:
@@ -12,60 +12,89 @@ downloads:
     href: "/downloads/microsoft-office/folder-structure-template.md"
 draft: false
 ---
-**Goal:** Prepare a safe, low-data workspace for the six weeks of practice.
+**Goal:** Set up a safe, low-data workspace in one short sitting so you can spend the next six weeks doing, not fixing. Almost no reading here - you do each step on your own machine.
 
-## Before you begin
+## What you'll have at the end
 
-You need a Windows computer where you are allowed to save practice files, a keyboard and mouse or touchpad, and enough local space for small text and spreadsheet exercises. A phone can review a document or join a meeting, but several tasks in this course are much easier on a laptop. Check whether your device has reliable power, a charger and a safe place to store a USB drive. If you share a computer, use a separate user account when possible; do not save passwords in a public or borrowed browser.
+- A legal way into Word, Excel and PowerPoint that you have tested yourself
+- One clean course folder you can find in two seconds
+- Your first saved file, named the smart way
+- A short list of shortcuts your hands already know
 
-You do not need to buy software to start. Microsoft's official Microsoft 365 for the web page lists free browser versions of Word, Excel and PowerPoint with a Microsoft account; its OneDrive page lists a free account option. Those pages are US-facing, and availability, storage, sign-in rules and features may vary by country, account type or date. Check the current terms from your own account and region. Desktop apps may need a valid licence or organisation-provided access. LibreOffice is an official free and open-source option for local Writer, Calc and Impress practice, with some feature and formatting differences.
+## Before you start (about 10 minutes)
 
-## Choose and check your Office access
+- Find a Windows computer where you are allowed to save files, plus a charger and a safe spot for a USB drive if you use one.
+- If you share the machine, check whose Windows account is signed in before you save anything.
+- Warm-up: press **Win+E**. File Explorer opens. That one key is half of file management.
 
-1. If your school, employer or training provider has issued a Microsoft 365 account, ask its administrator which apps and sharing features are included. Keep that account separate from your personal files.
-2. If you use a personal Microsoft account, visit the official Microsoft 365 for the web page and sign in or create an account yourself. Do not send your password or verification code to a mentor.
-3. Open Word, Excel and PowerPoint in the browser. Confirm you can create a blank file, type into it and save it to a location you control. The free web apps may depend on online storage and a working connection.
-4. On a desktop installation, open an Office app and use **File → Account** (or search the ribbon for **Account**) to check the product name and version. Office 2019/2021 and Microsoft 365 Apps can differ in feature availability and update behaviour.
-5. In a newer desktop or web app, use the **Search** or **Tell me** box, often opened with **Alt+Q**, to find a command by task name when the ribbon layout differs. Shortcuts and labels may vary by platform.
-6. If Microsoft apps are not available, install LibreOffice only from its official site and test that Writer, Calc and Impress open. Do not download installers from an advert or an unfamiliar file-sharing page.
+You do not need to buy anything to begin. Microsoft lists free browser versions of Word, Excel and PowerPoint with a Microsoft account, and a free OneDrive tier. Those pages are US-facing, so storage and sign-in rules can vary by country and date - check the terms on your own account. LibreOffice is a free, official offline option (Writer, Calc, Impress) with small formatting differences.
 
-## Set up OneDrive carefully
+## Try it 1 - Get into Office and prove it works
 
-OneDrive can sync files between devices and support sharing and version history. Sync is not the same as an independent backup: deletion or unwanted changes can also sync. Before turning on automatic backup for Desktop, Documents or Pictures, read the on-screen options and decide which folders you want included.
+**Why it matters:** the fastest way to know your setup is fine is to make a file, not to read about it.
 
-Create a course folder in a location you can identify. If you use OneDrive, wait for the sync indicator to show that a file is available before relying on its cloud copy. The exact icons vary by Windows version. Keep a second local copy of important practice work, especially before power interruptions or travel. Avoid syncing large video or photo folders over limited mobile data.
+**Do this now:**
+1. If a school or employer gave you a Microsoft 365 account, ask their admin which apps you have and keep it separate from personal files. Otherwise open Microsoft 365 for the web and sign in or create your own account.
+2. Never read your password or verification code to a mentor. A code is a secret.
+3. Open Word in the browser, type one line, and save it somewhere you control.
+4. On a desktop install, open any Office app and check **File then Account** to see which version you have (Microsoft 365 Apps and Office 2019/2021 differ).
+5. No Microsoft apps? Install LibreOffice from its official site only, never from an advert, and open Writer, Calc and Impress once.
 
-To practise sharing, use a second account you own or an address explicitly supplied for training. Give the least access needed, choose **Can view** for the Week 1 sharing exercise, and set an expiry date if the interface offers one. After the exercise, remove access. Never share real client, student or financial documents in a training folder. Check the recipient and link scope before you send; a link that works for anyone with the link is not private.
+**You've got it when:** you have created, typed into and saved one file without help.
 
-## Prepare for offline work and power cuts
+## Try it 2 - Build your course folder
 
-When a connection is available, download the weekly starter files and save working copies on the computer. Do not edit the only copy of a starter. For desktop Office, review **File → Options → Save** and note the AutoRecover and AutoSave settings available in your version. AutoSave may require a supported cloud location; AutoRecover is a recovery aid, not a promise that every last change will be restored.
+**Why it matters:** a tidy folder now saves you hunting for files every single week.
 
-Use **Ctrl+S** after meaningful edits. Save a local working file with a clear name, then sync or upload it when power and data return. Before closing after a crash, reopen the app and check for a Document Recovery pane. Compare recovered work with your last deliberate save. Never assume a cloud icon or progress indicator means a file is fully synced; wait for its current status.
+**Do this now:**
+1. Download the folder structure template and recreate it in a place you can name out loud.
+2. Keep untouched starter files in `00_Inbox_Originals`; put your edits in a project folder; put finished shareable files in `07_Exports`.
+3. Keep a second local copy of anything important, especially before a power cut or travel.
 
-## Keyboard and folder practice
+**You've got it when:** you can open your course folder from File Explorer in under five seconds.
 
-Download the Windows shortcuts cheat sheet and folder structure template. Learn a small set first: **Win+E** opens File Explorer, **Win+S** opens search, **Ctrl+C** copies, **Ctrl+X** cuts, **Ctrl+V** pastes, **Ctrl+Z** undoes and **F2** renames a selected file. Read the relevant screen label before using a shortcut that could move or delete files.
+## Try it 3 - Set up OneDrive without surprises
 
-Use this naming pattern throughout the course:
+**Why it matters:** sync is handy, but it is not a backup - a deletion syncs too.
+
+**Do this now:**
+1. If you use OneDrive, wait for the sync tick to show a file is uploaded before you rely on the cloud copy.
+2. Before turning on automatic backup for Desktop, Documents or Pictures, read the on-screen options and pick only the folders you want.
+3. Avoid syncing big photo or video folders over mobile data.
+
+**You've got it when:** you can tell which of your folders are local and which sync to OneDrive.
+
+## Try it 4 - Save a file the smart way (never lose work)
+
+**Why it matters:** AutoRecover is a safety net, not a promise. A deliberate save beats hope.
+
+**Do this now:**
+1. In a desktop app, look at **File then Options then Save** and note the AutoSave and AutoRecover settings your version offers.
+2. Press **Ctrl+S** and save with this naming pattern:
 
 ```text
 YYYY-MM-DD_Client_Document_v01.ext
 ```
 
-For example, `2026-11-12_FreshBites_MenuDraft_v01.docx` is a fictional practice name. The date comes first, words are separated consistently, the version is visible, and the extension tells Windows which kind of file it is. Avoid names such as `final-final-new`, emojis, slashes, personal information or an extension typed by guesswork.
+For example, `2026-11-12_FreshBites_MenuDraft_v01.docx` is a fictional practice name. Date first, version visible, correct extension. Avoid `final-final-new`, emoji, slashes or personal information.
+
+**You've got it when:** you can open a crashed app, find the Document Recovery pane, and compare it with your last save.
+
+## Quick win - learn five shortcuts in two minutes
+
+Open the [Windows shortcuts cheat sheet](/downloads/microsoft-office/windows-shortcuts-cheat-sheet.md) and drill just these until your fingers remember them: **Win+E** File Explorer, **Win+S** search, **Ctrl+C** copy, **Ctrl+V** paste, **F2** rename. Read the on-screen label before any shortcut that could move or delete files.
 
 ## Verification checklist
 
-- [ ] I can open File Explorer and find the local practice folder.
-- [ ] I know whether I am using Microsoft 365 Apps, Office 2019/2021, web apps or LibreOffice.
+- [ ] I can open File Explorer and find my local practice folder.
+- [ ] I know whether I am on Microsoft 365 Apps, Office 2019/2021, web apps or LibreOffice.
 - [ ] I can create, save and reopen one practice file.
-- [ ] I know which folders are local and which ones sync to OneDrive.
-- [ ] I can find AutoSave or AutoRecover settings, if my version provides them.
+- [ ] I know which folders are local and which sync to OneDrive.
+- [ ] I can find AutoSave or AutoRecover settings, if my version has them.
 - [ ] My account uses a strong, unique password and two-step verification where available.
-- [ ] I can identify the official Microsoft or LibreOffice site rather than an installer advert.
-- [ ] I have downloaded the Week 1 templates or know where to open them.
+- [ ] I can tell the official Microsoft or LibreOffice site from an installer advert.
+- [ ] I have the Week 1 templates ready or know where to open them.
 
 ## Where to get help
 
-Use Microsoft Support for Microsoft app help, Microsoft Learn for official learning material, and the LibreOffice site for its documentation. For a changing menu, search the ribbon by feature name and describe what you are trying to do. If your school or employer manages the device, ask its administrator before changing sync, account, security or installation settings.
+Use Microsoft Support for app help, Microsoft Learn for official learning material, and the LibreOffice site for its docs. When a menu has moved, search the ribbon by feature name. If your school or employer manages the device, ask their admin before changing sync, account, security or install settings.
