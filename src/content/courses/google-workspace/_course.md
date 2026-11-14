@@ -1,6 +1,7 @@
 ---
 title: "Google Workspace Skills"
 slug: google-workspace
+requirements: ["A laptop or desktop computer", "Stable internet connection", "A free Google account", "About 5-7 hours per week to practice"]
 status: available
 category: "Office & Productivity"
 level: "Beginner"

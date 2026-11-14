@@ -1,6 +1,7 @@
 ---
 title: "Automation (Less Work, More Done)"
 slug: "automation"
+requirements: ["A laptop or desktop computer", "Stable internet connection", "A free Google account", "About 6-8 hours per week to practice", "No coding experience needed"]
 status: "available"
 category: "AI & Automation"
 level: "Beginner"

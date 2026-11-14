@@ -1,6 +1,7 @@
 ---
 title: "Video Editing"
 slug: video-editing
+requirements: ["A smartphone with a camera (to record)", "A laptop or a capable smartphone (to edit)", "Stable internet connection", "A free editing app such as CapCut", "About 6-8 hours per week to practice"]
 status: available
 category: "Creative Skills"
 level: "Beginner"

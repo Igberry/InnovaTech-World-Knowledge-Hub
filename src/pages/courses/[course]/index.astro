@@ -57,6 +57,9 @@ const courseJsonLd = {
         {d.duration && <div><dt>Duration</dt><dd>{d.duration}</dd></div>}
         {d.format && <div><dt>Format</dt><dd>{d.format}</dd></div>}
         {d.tools && <div><dt>Tools</dt><dd>{d.tools.join(', ')}</dd></div>}
+        {d.requirements && d.requirements.length > 0 && (
+          <div class="facts-requirements"><dt>Requirements</dt><dd>{d.requirements.join(', ')}</dd></div>
+        )}
       </dl>
 
       <div class="course-hero-cta">
@@ -201,6 +204,7 @@ const courseJsonLd = {
     margin: 0.15rem 0 0;
     font-weight: 500;
   }
+  .facts .facts-requirements { grid-column: 1 / -1; }
   .course-hero-cta {
     display: flex;
     flex-wrap: wrap;

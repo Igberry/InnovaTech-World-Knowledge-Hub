@@ -1,6 +1,7 @@
 ---
 title: "Cybersecurity (Stay Safe Online)"
 slug: "cybersecurity"
+requirements: ["A laptop, desktop or smartphone", "Stable internet connection", "An email account to practice with", "About 6-8 hours per week to practice", "No technical background needed"]
 status: "available"
 category: "Cybersecurity"
 level: "Beginner"

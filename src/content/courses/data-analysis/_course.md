@@ -1,6 +1,7 @@
 ---
 title: "Data Analysis Career Launch"
 slug: "data-analysis"
+requirements: ["A laptop or desktop computer (Windows, Mac or Linux)", "Stable internet connection", "A free Google account", "About 8-10 hours per week to practice", "No prior Excel or coding experience needed"]
 status: "available"
 category: "Data & Analytics"
 level: "Beginner"

@@ -1,6 +1,7 @@
 ---
 title: "Typing Skills"
 slug: typing-skills
+requirements: ["A laptop or desktop computer with a physical keyboard", "Stable internet connection (for the free practice tool)", "About 4-6 hours per week to practice"]
 status: available
 category: "Digital Basics"
 level: "Beginner"

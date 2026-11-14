@@ -1,6 +1,7 @@
 ---
 title: "Virtual Assistant (VA Launch)"
 slug: virtual-assistant
+requirements: ["A laptop or desktop computer", "A smartphone", "Stable internet connection", "A professional email and WhatsApp", "About 6-8 hours per week to practice"]
 status: available
 category: "Remote Work"
 level: "Beginner"
