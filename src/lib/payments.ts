@@ -23,27 +23,22 @@ export interface ServicePlan {
   currency: string; features: string[];
 }
 
-/** All active service packages (for the public Services page). Anon-readable via RLS. */
+/** All active service packages (for the public Services page). Reads via a
+ *  security-definer RPC so logged-out visitors can see prices (see migration 0013). */
 export async function getServicePlans(): Promise<ServicePlan[]> {
   const sb = getSupabase();
   if (!sb) return [];
-  const { data, error } = await sb
-    .from('service_plans')
-    .select('service_slug, plan, price_kobo, fixed_price_kobo, currency, features')
-    .eq('active', true);
+  const { data, error } = await sb.rpc('get_service_plans');
   return error ? [] : ((data as ServicePlan[]) ?? []);
 }
 
 export interface ServiceRate { service_slug: string; hourly_price_kobo: number; currency: string }
 
-/** Per-service hourly rates (for hiring on contract). Anon-readable via RLS. */
+/** Per-service hourly rates (for hiring on contract). Security-definer RPC (anon-readable). */
 export async function getServiceRates(): Promise<ServiceRate[]> {
   const sb = getSupabase();
   if (!sb) return [];
-  const { data, error } = await sb
-    .from('service_rates')
-    .select('service_slug, hourly_price_kobo, currency')
-    .eq('active', true);
+  const { data, error } = await sb.rpc('get_service_rates');
   return error ? [] : ((data as ServiceRate[]) ?? []);
 }
 

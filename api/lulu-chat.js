@@ -137,76 +137,59 @@ async function livePricing() {
   const key = process.env.PUBLIC_SUPABASE_ANON_KEY;
   let text = 'LIVE PRICING: unavailable right now — tell the user prices are shown on each course page or /services/.';
   if (url && key && !/PASTE_/i.test(key)) {
-    const headers = { apikey: key, Authorization: `Bearer ${key}` };
+    // Read via SECURITY DEFINER RPCs so the anon key works (see migration 0013).
+    const headers = { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' };
     const order = { basic: 1, advanced: 2, premium: 3 };
-    const section = async (table, slugCol, titles, heading, suffixOf, extraCols = '', fixedOf = null) => {
+    const rpc = async (fn) => {
       try {
-        const r = await fetch(
-          `${url}/rest/v1/${table}?select=${slugCol},plan,price_kobo,currency${extraCols}&active=eq.true`,
-          { headers },
-        );
-        if (!r.ok) return '';
-        const rows = await r.json();
-        const by = {};
-        for (const row of rows) (by[row[slugCol]] ||= []).push(row);
-        const lines = Object.keys(by).sort().map((slug) => {
-          const plans = by[slug]
-            .sort((a, b) => (order[a.plan] || 9) - (order[b.plan] || 9))
-            .map((p) => {
-              const major = Math.round(p.price_kobo / 100);
-              const amt = p.currency === 'USD'
-                ? `$${major.toLocaleString('en-US')}`
-                : `₦${major.toLocaleString('en-NG')}`;
-              return `${p.plan} ${amt}${suffixOf ? suffixOf(slug) : ''}${fixedOf ? fixedOf(p) : ''}`;
-            })
-            .join(', ');
-          return `- ${titles[slug] || slug}: ${plans}`;
-        });
-        return lines.length ? `${heading}:\n${lines.join('\n')}` : '';
+        const r = await fetch(`${url}/rest/v1/rpc/${fn}`, { method: 'POST', headers, body: '{}' });
+        return r.ok ? await r.json() : [];
       } catch {
-        return '';
+        return [];
       }
     };
     const courseTitles = Object.fromEntries(COURSES.map(([s, t]) => [s, t]));
     const serviceTitles = Object.fromEntries(SERVICES.map(([s, t]) => [s, t]));
 
-    const serviceSection = async () => {
-      try {
-        const [pr, rr] = await Promise.all([
-          fetch(`${url}/rest/v1/service_plans?select=service_slug,plan,fixed_price_kobo&active=eq.true`, { headers }),
-          fetch(`${url}/rest/v1/service_rates?select=service_slug,hourly_price_kobo&active=eq.true`, { headers }),
-        ]);
-        const plans = pr.ok ? await pr.json() : [];
-        const rates = rr.ok ? await rr.json() : [];
-        if (!plans.length && !rates.length) return '';
-        const rateBy = {};
-        for (const x of rates) rateBy[x.service_slug] = x.hourly_price_kobo;
-        const by = {};
-        for (const p of plans) (by[p.service_slug] ||= []).push(p);
-        const slugs = [...new Set([...Object.keys(by), ...Object.keys(rateBy)])].sort();
-        const lines = slugs.map((slug) => {
-          const pkgs = (by[slug] || [])
-            .sort((a, b) => (order[a.plan] || 9) - (order[b.plan] || 9))
-            .map((p) => `${p.plan} ₦${Math.round(p.fixed_price_kobo / 100).toLocaleString('en-NG')}`)
-            .join(', ');
-          const h = rateBy[slug];
-          const hourly = h ? `hire hourly $${(h / 100).toLocaleString('en-US', { maximumFractionDigits: 2 })}/hr (paid in Naira equivalent)` : '';
-          const segs = [pkgs ? `one-time packages: ${pkgs}` : '', hourly].filter(Boolean).join('; ');
-          return `- ${serviceTitles[slug] || slug}: ${segs}`;
-        });
-        return lines.length
-          ? `LIVE SERVICE PRICING (one-time packages in Naira; hourly hire in USD paid in the Naira equivalent):\n${lines.join('\n')}`
-          : '';
-      } catch {
-        return '';
-      }
-    };
-
-    const [courses, servicesText] = await Promise.all([
-      section('course_plans', 'course_slug', courseTitles, 'LIVE COURSE PRICING (Nigerian Naira)'),
-      serviceSection(),
+    const [coursePlans, servicePlans, serviceRates] = await Promise.all([
+      rpc('get_all_course_plans'),
+      rpc('get_service_plans'),
+      rpc('get_service_rates'),
     ]);
-    const parts = [courses, servicesText].filter(Boolean);
+
+    // Courses (Nigerian Naira)
+    const cBy = {};
+    for (const p of coursePlans) (cBy[p.course_slug] ||= []).push(p);
+    const cLines = Object.keys(cBy).sort().map((slug) => {
+      const plans = cBy[slug]
+        .sort((a, b) => (order[a.plan] || 9) - (order[b.plan] || 9))
+        .map((p) => `${p.plan} ₦${Math.round(p.price_kobo / 100).toLocaleString('en-NG')}`)
+        .join(', ');
+      return `- ${courseTitles[slug] || slug}: ${plans}`;
+    });
+    const coursesText = cLines.length ? `LIVE COURSE PRICING (Nigerian Naira):\n${cLines.join('\n')}` : '';
+
+    // Services (fixed one-time Naira packages + per-service hourly USD rate)
+    const rateBy = {};
+    for (const x of serviceRates) rateBy[x.service_slug] = x.hourly_price_kobo;
+    const sBy = {};
+    for (const p of servicePlans) (sBy[p.service_slug] ||= []).push(p);
+    const sSlugs = [...new Set([...Object.keys(sBy), ...Object.keys(rateBy)])].sort();
+    const sLines = sSlugs.map((slug) => {
+      const pkgs = (sBy[slug] || [])
+        .sort((a, b) => (order[a.plan] || 9) - (order[b.plan] || 9))
+        .map((p) => `${p.plan} ₦${Math.round(p.fixed_price_kobo / 100).toLocaleString('en-NG')}`)
+        .join(', ');
+      const h = rateBy[slug];
+      const hourly = h ? `hire hourly $${(h / 100).toLocaleString('en-US', { maximumFractionDigits: 2 })}/hr (paid in Naira equivalent)` : '';
+      const segs = [pkgs ? `one-time packages: ${pkgs}` : '', hourly].filter(Boolean).join('; ');
+      return `- ${serviceTitles[slug] || slug}: ${segs}`;
+    });
+    const servicesText = sLines.length
+      ? `LIVE SERVICE PRICING (one-time packages in Naira; hourly hire in USD paid in the Naira equivalent):\n${sLines.join('\n')}`
+      : '';
+
+    const parts = [coursesText, servicesText].filter(Boolean);
     if (parts.length) text = parts.join('\n\n');
   }
   pricingCache = { text, at: now };
