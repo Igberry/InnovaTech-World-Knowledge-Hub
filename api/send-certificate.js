@@ -17,6 +17,15 @@
  */
 import nodemailer from 'nodemailer';
 import { createClient } from '@supabase/supabase-js';
+import qrcode from 'qrcode-generator';
+
+/** Self-contained, scalable QR code as an inline SVG string. */
+function qrSvg(text, cellSize = 4) {
+  const qr = qrcode(0, 'M');
+  qr.addData(text);
+  qr.make();
+  return qr.createSvgTag({ cellSize, margin: 0, scalable: true });
+}
 
 const send = (res, status, body) => {
   res.statusCode = status;
@@ -104,6 +113,14 @@ function certificateDoc(cert, achievements, verifyLink, signatureUrl) {
   const sigImg = signatureUrl
     ? `<img src="${esc(signatureUrl)}" alt="" style="max-height:60px;max-width:220px;height:auto;vertical-align:bottom;" onerror="this.style.display='none'" />`
     : '';
+  // QR code that opens the verify page with this certificate's code pre-filled.
+  const verifyTarget = verifyLink
+    ? (cert.code ? `${verifyLink}?id=${encodeURIComponent(cert.code)}` : verifyLink)
+    : '';
+  const qrCell = verifyTarget
+    ? `<span style="display:inline-block;width:84px;height:84px;">${qrSvg(verifyTarget)}</span>
+       <div style="font:700 10px/1.4 Poppins,Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#64748b;margin-top:2px;">Scan to verify</div>`
+    : '';
   return `<!doctype html><html><head><meta charset="utf-8">
   <title>Certificate - ${esc(cert.student_name)}</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
@@ -124,8 +141,8 @@ function certificateDoc(cert, achievements, verifyLink, signatureUrl) {
          <div style="height:62px;">${sigImg}</div>
          <div style="border-top:1px solid #94a3b8;width:220px;margin:0 auto 4px;"></div>David C. Igberi, Lead Facilitator</td>
        <td style="text-align:center;font:13px/1.6 Poppins,Arial,sans-serif;color:#334155;">
-         <div style="height:62px;"></div>
-         <div style="border-top:1px solid #94a3b8;width:220px;margin:0 auto 4px;"></div>Date: ${niceDate(cert.issued_at)}</td>
+         ${qrCell}
+         <div style="margin-top:4px;">Date: ${niceDate(cert.issued_at)}</div></td>
      </tr></table>
      <p style="margin:22px 0 0;font:12px/1.5 Poppins,Arial,sans-serif;color:#64748b;">
        Certificate code: <strong>${esc(cert.code)}</strong>${verifyLink ? ` &middot; Verify at ${esc(verifyLink)}` : ''}</p>

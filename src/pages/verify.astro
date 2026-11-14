@@ -85,25 +85,36 @@ const records = certificates.map((c) => ({ id: c.id, name: c.name, course: c.cou
        <p>We couldn't find a certificate with that code. Check it and try again, or contact us.</p>`;
   }
 
-  if (form && input && result) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const q = input.value.trim();
-      if (!q) return;
-      result.className = 'verify-result';
-      result.textContent = 'Checking…';
+  async function runCheck(q: string) {
+    if (!q) return;
+    result!.className = 'verify-result';
+    result!.textContent = 'Checking…';
 
-      if (isPortalEnabled) {
-        const { verifyCertificate } = await import('../lib/certificates');
-        const match = await verifyCertificate(q);
-        if (match) showValid(match);
-        else showNotFound();
-      } else {
-        const m = fallback.find((r) => r.id.toLowerCase() === q.toLowerCase());
-        if (m) showValid({ code: m.id, student_name: m.name, course: m.course, issued_at: m.issued });
-        else showNotFound();
-      }
+    if (isPortalEnabled) {
+      const { verifyCertificate } = await import('../lib/certificates');
+      const match = await verifyCertificate(q);
+      if (match) showValid(match);
+      else showNotFound();
+    } else {
+      const m = fallback.find((r) => r.id.toLowerCase() === q.toLowerCase());
+      if (m) showValid({ code: m.id, student_name: m.name, course: m.course, issued_at: m.issued });
+      else showNotFound();
+    }
+  }
+
+  if (form && input && result) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      runCheck(input.value.trim());
     });
+
+    // Opened from a certificate QR code (e.g. /verify/?id=ITW-...): prefill and check.
+    const fromUrl = new URLSearchParams(location.search).get('id')
+      || new URLSearchParams(location.search).get('code');
+    if (fromUrl) {
+      input.value = fromUrl;
+      runCheck(fromUrl.trim());
+    }
   }
 </script>
 

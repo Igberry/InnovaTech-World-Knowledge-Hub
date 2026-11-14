@@ -399,6 +399,7 @@ const catalog = await buildCatalog();
   } from '../../lib/admin';
   import { serviceTitle } from '../../data/services';
   import { withBase } from '../../utils/links';
+  import { qrSvg } from '../../utils/qr';
 
   type Lesson = { slug: string; title: string };
   type Course = { slug: string; title: string; status: string; outcomes: string[]; lessons: Lesson[] };
@@ -647,6 +648,11 @@ const catalog = await buildCatalog();
     .cert-sign-area{display:flex;align-items:flex-end;justify-content:center;height:60px;margin:0 16px;}
     .cert-sign-img{max-height:60px;max-width:220px;width:auto;object-fit:contain;}
     .cert-signline{display:block;border-top:1px solid #94a3b8;margin:0 16px 8px;height:1px;}
+    .cert-qr-cell{display:flex;flex-direction:column;align-items:center;gap:4px;}
+    .cert-qr{display:block;width:84px;height:84px;}
+    .cert-qr svg{display:block;width:100%;height:100%;}
+    .cert-qr-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#64748b;}
+    .cert-qr-date{font-size:13px;color:#0f172a;margin-top:2px;}
     .cert-code{margin-top:24px;font-size:12px;color:#475569;}
     @media print{@page{size:A4 landscape;margin:0;}body{margin:0;padding:0;}.cert-doc{width:100%;}}
   `;
@@ -676,6 +682,9 @@ const catalog = await buildCatalog();
     // Saved signature (public/images/signature.png). Hidden gracefully if not added yet.
     const sigUrl = origin + withBase('/images/signature.png');
     const sigImg = `<img class="cert-sign-img" src="${sigUrl}" alt="" onerror="this.style.display='none'" />`;
+    // QR code that opens the verify page with this certificate's code pre-filled.
+    const verifyTarget = f.code ? `${verifyUrl}?id=${encodeURIComponent(f.code)}` : verifyUrl;
+    const qr = qrSvg(verifyTarget, 4, 0);
     return `<div class="cert-doc"><div class="cert-border">
       <img class="cert-logo" src="${logo}" alt="InnovaTech World" />
       <p class="cert-kicker">InnovaTech World</p>
@@ -688,7 +697,7 @@ const catalog = await buildCatalog();
       ${skills}
       <div class="cert-footer">
         <div><span class="cert-sign-area">${sigImg}</span><span class="cert-signline"></span>David C. Igberi, Lead Facilitator</div>
-        <div><span class="cert-sign-area"></span><span class="cert-signline"></span>Date: ${esc(niceDate(f.date))}</div>
+        <div class="cert-qr-cell"><span class="cert-qr">${qr}</span><span class="cert-qr-label">Scan to verify</span><span class="cert-qr-date">Date: ${esc(niceDate(f.date))}</span></div>
       </div>
       <p class="cert-code">Certificate code: <strong>${esc(f.code) || '—'}</strong> · Verify at ${esc(verifyUrl)}</p>
     </div></div>`;
