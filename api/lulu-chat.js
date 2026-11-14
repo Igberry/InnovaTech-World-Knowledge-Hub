@@ -190,7 +190,7 @@ async function livePricing() {
             .map((p) => `${p.plan} ₦${Math.round(p.fixed_price_kobo / 100).toLocaleString('en-NG')}`)
             .join(', ');
           const h = rateBy[slug];
-          const hourly = h ? `hire hourly $${Math.round(h / 100).toLocaleString('en-US')}/hr (paid in Naira equivalent)` : '';
+          const hourly = h ? `hire hourly $${(h / 100).toLocaleString('en-US', { maximumFractionDigits: 2 })}/hr (paid in Naira equivalent)` : '';
           const segs = [pkgs ? `one-time packages: ${pkgs}` : '', hourly].filter(Boolean).join('; ');
           return `- ${serviceTitles[slug] || slug}: ${segs}`;
         });
