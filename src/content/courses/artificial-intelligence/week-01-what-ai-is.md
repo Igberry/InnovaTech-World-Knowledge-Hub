@@ -4,7 +4,7 @@ course: artificial-intelligence
 order: 1
 week: 1
 phase: "Foundations"
-summary: "Understand in plain words what today's AI is, what it can and cannot do, and why it sometimes gets things confidently wrong."
+summary: "Spend your first hour hands-on with an AI assistant: see what it's brilliant at, catch it confidently making things up, and set your own rules."
 estimatedHours: 8
 tools: ["An AI chat assistant", "A document"]
 downloads:
@@ -12,146 +12,122 @@ downloads:
     href: "/downloads/artificial-intelligence/responsible-use-privacy-checklist.md"
 ---
 
-**Goal:** Build an honest, plain-words understanding of what today's AI tools are, what they do well, where
-they fail, and why they can sound confident and still be wrong.
+**Goal:** In your first hour with an AI assistant you'll *see* what it's great at, catch it being confidently
+wrong yourself, and write three rules for using it well. Almost no reading this week - you learn by using it.
 
-## Learning Objectives
+## What you'll be able to do
 
-By the end of this week you can:
+- Say, in your own words, what a chat AI is - after watching it work
+- Spot the jobs it's brilliant at and the ones where it slips
+- Catch a "hallucination" (a confident wrong answer) with your own hands
+- Use three personal rules to stay safe and honest
 
-- Explain in plain language what today's AI tools (like chat assistants) are
-- Describe, simply, how a chat AI produces its answers
-- List tasks AI is good at and tasks it is weak at
-- Explain what a "hallucination" is and why it happens
-- Set a few honest personal rules for using AI
+## Before you start (10 minutes)
 
-## Tools / Accounts Needed This Week
+- Open your AI chat assistant (from Week 0) and a blank document for notes.
+- Warm-up: ask it *"Explain what you are in 3 simple sentences."* Paste the answer into your notes - we'll come
+  back to it at the end.
 
-- Your AI chat assistant account (from Week 0)
-- A document for notes and your first experiments
+## Try it 1 - Watch it predict words
 
-## Pre-Session Resources (about 2 hours)
+**Why it matters:** a chat AI doesn't "look things up" - it predicts the next words, very well. See it once and
+everything else makes sense.
 
-- Read: search the web for "what is generative AI in simple terms" and read one clear guide from a
-  well-known source.
-- Watch: *Search YouTube: "how do large language models work simple explanation"*. Watch one beginner video.
-- Try: ask your AI assistant three questions you already know the answers to, and note where it is right and
-  where it is wrong.
+**Do this now:**
+1. Ask: *"Finish this sentence five different ways: The best thing about Yenagoa is..."*
+2. Then: *"Now give me five funnier ones."*
+3. Watch how smoothly it continues *your* words.
 
-## Lesson 1: What we mean by "AI" today
+**You've got it when:** you can say, in your own words, *"it predicts likely words - it doesn't fetch facts."*
 
-"Artificial Intelligence" is a broad term, but when most people say "AI" today they mean **generative AI**:
-tools that create text, images, or other content from a request. The chat assistants you will use are built
-on something called a **large language model (LLM)**.
+## Try it 2 - Find what it's brilliant at
 
-You do not need the technical details, but one plain idea helps a lot: a chat AI is, at heart, a very
-powerful **prediction machine for words**. It has read an enormous amount of text, and it answers by
-predicting what words should come next, given your prompt and what it has "learned" about how language fits
-together.
+**Why it matters:** AI shines when the job is shaping language and ideas.
 
-That single idea explains most of what you will see: why it writes so fluently, why it is great at language
-tasks, and why it can state false things as confidently as true ones. It is predicting plausible words, not
-looking up guaranteed facts.
+**Do this now - give it these four jobs and rate each 1-5:**
+1. *"Rewrite this message to sound friendly and professional:"* (paste a rough message)
+2. *"Summarise this in 2 lines:"* (paste any paragraph)
+3. *"Give me 10 content ideas for a small catering business."*
+4. *"Turn these messy notes into a tidy checklist:"* (paste some notes)
 
-> **Note:** This is a simplified picture, and that is on purpose. You do not need to build AI to use it well,
-> just as you do not need to be a mechanic to drive safely. You need an honest mental model.
+**You've got it when:** you notice it's strongest at drafting, rewriting, summarising, brainstorming and
+organising - things you'll still review and improve.
 
-## Lesson 2: What AI is genuinely good at
+## Try it 3 - Catch it making things up (the fun part)
 
-Used well, today's AI is remarkably useful. It tends to be strong at:
+**Why it matters:** because it predicts plausible words, it can be confidently wrong. That's a **hallucination**.
 
-- **Language tasks:** drafting, rewriting, summarising, changing tone, translating
-- **Explaining:** putting a hard idea in simple words, or giving examples
-- **Brainstorming:** producing many options quickly
-- **Structure:** turning messy notes into organised lists, tables, or plans
-- **First drafts:** getting you past the blank page
+**Do this now:**
+1. Ask: *"Give me 3 statistics about internet use in Bayelsa State, with sources."*
+2. Pick one "source" or link and actually check it online.
+3. Ask: *"Give me a real quote by [a famous person] about hard work"* - then search to see if the quote exists.
 
-Notice the pattern: AI shines when the task is about **shaping language and ideas**, especially when you will
-review and improve the result. It is a brilliant assistant for a thinking human.
+Write down **one thing it made up and how you caught it.** Keep this - it goes in your build below.
 
-## Lesson 3: What AI is weak at (and why)
+**You've got it when:** you've personally caught at least one invented fact, link or quote.
 
-Because it predicts plausible words rather than checking a source of truth, AI is weak at:
+> **Confidence is not correctness.** An AI can be completely wrong in a calm, sure voice.
 
-- **Facts, numbers, and recent events.** It can be wrong, out of date, or simply make things up.
-- **Sources and quotes.** It often invents realistic-looking links and quotations that do not exist.
-- **Reasoning carefully through tricky problems.** It can slip, especially with maths or multi-step logic.
-- **Knowing what it does not know.** It rarely says "I am not sure"; it just answers.
+## Try it 4 - See its blind spots
 
-This is why **you** stay in charge. AI is a fast, confident assistant that still needs a supervisor who checks
-the important things.
+Quick hits - note what happens each time:
+- Ask a tricky multi-step maths question, then check the answer.
+- Ask about something that happened *this week*.
+- Ask the same question twice, worded differently, and compare.
 
-> **Warning:** The biggest beginner mistake is trusting a confident answer. Confidence is not correctness. An
-> AI can be completely wrong in a calm, authoritative voice.
+**You've got it when:** you can list what to always double-check - facts, numbers, recent events, sources, and
+hard reasoning.
 
-## Lesson 4: Hallucinations
+## Make it yours - your 3 AI rules
 
-When an AI states something false as if it were true, that is called a **hallucination**. It is not lying (it
-has no intent); it is predicting plausible words that happen to be wrong.
+Open the [responsible-use checklist](/downloads/artificial-intelligence/responsible-use-privacy-checklist.md)
+and write three rules you'll actually follow. For example:
 
-Common hallucinations:
-
-- Invented statistics or dates
-- Fake book titles, article names, or quotes
-- Links that look real but go nowhere, or somewhere unrelated
-- Confident answers about very recent events it cannot actually know
-
-The fix is not to avoid AI; it is to **verify**. From Week 5 you will use a simple fact-check routine. For now,
-just build the instinct: *"Could this be made up? Then check it."*
-
-### Common mistakes
-
-- Treating AI answers as facts instead of drafts
-- Asking AI for exact figures or sources and trusting them unchecked
-- Assuming "it sounded sure, so it must be right"
-- Thinking AI "knows" things the way a database does (it predicts, it does not look up)
-- Expecting it to be up to date on very recent events
-
-## Lesson 5: Set your honest rules
-
-Good AI users decide, early, how they will use it honestly and safely. Open the
-[responsible-use checklist](/downloads/artificial-intelligence/responsible-use-privacy-checklist.md) and draft
-three personal rules. Examples (write your own):
-
-- "I check every fact, number, and link before I use it."
+- "I check every fact, number and link before I use it."
 - "I never paste private or confidential information."
-- "I am honest about where I used AI when it matters."
+- "I say where I used AI when it matters."
 
-## Practice Exercises
+### Watch out for
 
-1. Ask your AI assistant to explain a topic you know well. List what it got right and wrong.
-2. Ask it for three statistics on a topic, then try to verify one. What did you find?
-3. Ask it for a quote from a famous person, then search to check the quote is real.
-4. Give it a short messy paragraph and ask it to tidy it. Judge the result.
-5. Ask it the same question twice, worded differently. Compare the answers.
-6. Ask it something about a very recent event. Note how it handles what it may not know.
-7. Write your three honest AI-use rules.
+- Treating answers as facts instead of drafts
+- Trusting figures or sources unchecked
+- "It sounded sure, so it must be right"
+- Expecting it to know very recent events
 
-## Weekly Assignment (Due Before Week 2)
+## This week's build: your "Honest AI" one-pager
 
-Write a one-to-two page **"Honest AI" report**:
+Make a short, shareable one-pager (1-2 pages) that proves you can use AI with your eyes open:
 
-1. A **plain-words explanation** of what a chat AI is and how it produces answers (in your own words)
-2. A **list of 5 tasks AI is good at** and **5 it is weak at**, each with one line of why
-3. A **hallucination you found**: what the AI claimed, and what checking revealed
-4. Your **three personal AI-use rules**
+1. **In your own words:** what a chat AI is and how it answers (3-4 sentences)
+2. **5 things it's great at + 5 to always double-check** (one line each)
+3. **The hallucination you caught:** what it claimed vs what checking showed
+4. **Your 3 personal AI rules**
+
+*Tip: ask the AI to help you format it nicely - then fact-check whatever it gives you. That's the whole lesson
+in one move.*
 
 ### Grading guide
 
 | Criteria | Weight |
 |---|---|
 | Clear, correct plain-words explanation | 30% |
-| Sensible good-at / weak-at lists with reasons | 25% |
+| Sensible good-at / double-check lists with reasons | 25% |
 | A real, documented hallucination with a check | 25% |
 | Thoughtful, honest personal rules | 20% |
 
 ### Definition of done
 
 - [ ] One to two pages, in your own words
-- [ ] Explanation captures "predicts plausible words", not "looks up facts"
-- [ ] Five strengths and five weaknesses, each justified
-- [ ] A real hallucination, with how you checked it
+- [ ] Explanation says "predicts plausible words", not "looks up facts"
+- [ ] Five strengths and five things to double-check, each justified
+- [ ] A real hallucination you caught, with how you checked it
 - [ ] Three personal rules
+
+## Extra quick wins (optional)
+
+- Ask it to explain a topic you already know well - list what it got right and wrong.
+- Give it a messy paragraph and ask it to tidy it - judge the result.
+- Ask it to role-play a job interviewer for a role you want, and answer three questions.
 
 ## Mentoring Session Plan (90 minutes)
 
@@ -170,7 +146,7 @@ about facts. The live hallucination hunt lands this better than any lecture; pre
 reliably produce made-up sources or stats. Gently correct both extremes: learners who fear AI and learners who
 trust it completely. Keep it non-technical; nobody needs the maths. Reinforce privacy from Week 0.
 
-## Self-Check Questions
+## Can you do these now?
 
 1. In one plain sentence, how does a chat AI produce its answers?
 2. Name three kinds of task AI is good at and three it is weak at.
