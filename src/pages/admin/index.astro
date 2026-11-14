@@ -343,6 +343,10 @@ const catalog = await buildCatalog();
   #admin .link-btn:hover { border-color: var(--color-burgundy-600); color: var(--color-burgundy-text); background: var(--color-burgundy-50); }
   #admin .link-btn.danger { border-color: var(--color-danger); color: var(--color-danger); }
   #admin .link-btn.danger:hover { background: var(--color-danger); color: #fff; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme='light']) #admin .link-btn.danger { color: #fff; }
+  }
+  :root[data-theme='dark'] #admin .link-btn.danger { color: #fff; }
   #admin .adm-card select,
   #admin .adm-card input,
   #admin .adm-card textarea,
