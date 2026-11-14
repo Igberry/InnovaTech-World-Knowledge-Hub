@@ -11,13 +11,13 @@ export interface Props {
 }
 
 const { height = 40, class: className = '', badge = false } = Astro.props;
-// Intrinsic logo size is 447x347 - pass both so there is no layout shift.
-const width = Math.round((447 / 347) * height);
+// Intrinsic logo size is 232x264 (mark only) - pass both so there is no layout shift.
+const width = Math.round((232 / 264) * height);
 ---
 
 <span class={`logo ${badge ? 'logo-badge' : ''} ${className}`}>
   <img
-    src={withBase('/images/logo.png')}
+    src={withBase('/images/logo-mark.png')}
     alt={`${site.name} logo`}
     width={width}
     height={height}
