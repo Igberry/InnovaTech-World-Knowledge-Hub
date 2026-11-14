@@ -319,8 +319,30 @@ const catalog = await buildCatalog();
   #admin .adm-card { border: 1px solid var(--color-border); border-radius: 0.6rem; padding: 1rem 1.1rem; margin-bottom: 0.75rem; background: var(--surface); }
   #admin .adm-card h3 { font-size: 1.05rem; }
   #admin .adm-row { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
-  #admin .adm-table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  #admin .adm-table-wrap { max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border: 1px solid var(--color-border); border-radius: 0.6rem; }
   #admin .adm-table-wrap table { min-width: 38rem; }
+  /* Injected tables (access / vouchers / payments) - styled here because they
+     are built via innerHTML and Astro's scoped rules cannot reach them. */
+  #admin .adm-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; margin: 0; }
+  #admin .adm-table thead th {
+    text-align: left; padding: 0.7rem 0.9rem; background: var(--color-burgundy-600);
+    color: #fff; font-weight: 600; white-space: nowrap;
+  }
+  #admin .adm-table thead th:first-child { border-top-left-radius: 0.55rem; }
+  #admin .adm-table thead th:last-child { border-top-right-radius: 0.55rem; }
+  #admin .adm-table tbody td { padding: 0.7rem 0.9rem; border-top: 1px solid var(--color-border); vertical-align: middle; }
+  #admin .adm-table tbody tr:nth-child(even) { background: color-mix(in srgb, var(--color-ink) 4%, transparent); }
+  #admin .adm-table th:last-child, #admin .adm-table td:last-child { text-align: right; white-space: nowrap; }
+  #admin .adm-table code { font-size: 0.82rem; }
+  /* Small action button used in injected tables (Revoke / Activate / Deactivate). */
+  #admin .link-btn {
+    font: inherit; font-size: 0.82rem; font-weight: 600; cursor: pointer; line-height: 1;
+    padding: 0.4rem 0.85rem; border-radius: 0.45rem;
+    border: 1px solid var(--color-border); background: var(--surface); color: var(--color-ink);
+  }
+  #admin .link-btn:hover { border-color: var(--color-burgundy-600); color: var(--color-burgundy-text); background: var(--color-burgundy-50); }
+  #admin .link-btn.danger { border-color: var(--color-danger); color: var(--color-danger); }
+  #admin .link-btn.danger:hover { background: var(--color-danger); color: #fff; }
   #admin .adm-card select,
   #admin .adm-card input,
   #admin .adm-card textarea,
@@ -1110,7 +1132,7 @@ const catalog = await buildCatalog();
     if (active.length === 0) { box.innerHTML = '<p class="muted">No one has access yet.</p>'; return; }
     box.innerHTML = '<div class="adm-table-wrap" role="region" aria-label="Course access list" tabindex="0"><table class="adm-table"><thead><tr><th>Student</th><th>Course</th><th>Plan</th><th>Source</th><th>Actions</th></tr></thead><tbody>' +
       active.map((e) => `<tr><td>${esc(userLabel(e.user_id))}</td><td>${esc(courseTitle(e.course_slug))}</td><td>${esc(e.plan)}</td><td>${esc(e.source)}</td>
-        <td><button class="link-btn" data-ent-revoke="${e.id}">Revoke</button></td></tr>`).join('') + '</tbody></table></div>';
+        <td><button class="link-btn danger" data-ent-revoke="${e.id}">Revoke</button></td></tr>`).join('') + '</tbody></table></div>';
     box.querySelectorAll('[data-ent-revoke]').forEach((b) => b.addEventListener('click', async () => {
       if (!confirm('Revoke this access?')) return;
       const r = await revokeEntitlement((b as HTMLElement).getAttribute('data-ent-revoke')!);
