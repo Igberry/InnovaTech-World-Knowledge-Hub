@@ -139,6 +139,30 @@ export async function updateServicePlan(
   }
 }
 
+// ---------- Per-service hourly rate (USD) ----------
+export interface ServiceRateRow {
+  service_slug: string; hourly_price_kobo: number; currency: string; active: boolean;
+}
+export const getServiceRates = () =>
+  selectAll<ServiceRateRow>('service_rates', 'service_slug, hourly_price_kobo, currency, active');
+
+export async function updateServiceRate(
+  serviceSlug: string,
+  patch: { hourly_price_kobo?: number; active?: boolean },
+): Promise<Result> {
+  const sb = getSupabase();
+  if (!sb) return { ok: false, error: 'Portal not configured.' };
+  try {
+    const { error } = await sb
+      .from('service_rates')
+      .update({ ...patch, updated_at: new Date().toISOString() })
+      .eq('service_slug', serviceSlug);
+    return error ? { ok: false, error: error.message } : { ok: true, data: undefined };
+  } catch (e) {
+    return { ok: false, error: e instanceof Error ? e.message : 'Update failed.' };
+  }
+}
+
 export interface VoucherRow {
   id: string; code: string; kind: string; value: number;
   course_slug: string | null; plan: string | null;

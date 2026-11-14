@@ -104,8 +104,13 @@ const catalog = await buildCatalog();
       </div>
 
       <div class="adm-card">
-        <div class="panel-head"><h3>Services pricing (USD / hour)</h3><span data-service-pricing-msg></span></div>
+        <div class="panel-head"><h3>Services pricing (fixed one-time, naira)</h3><span data-service-pricing-msg></span></div>
         <div data-service-pricing><p class="muted">Loading…</p></div>
+      </div>
+
+      <div class="adm-card">
+        <div class="panel-head"><h3>Service hourly rates (USD / hour)</h3><span data-service-rates-msg></span></div>
+        <div data-service-rates><p class="muted">Loading…</p></div>
       </div>
 
       <div class="adm-card">
@@ -276,6 +281,15 @@ const catalog = await buildCatalog();
     :root:not([data-theme='light']) #admin .plan-feat-btn { color: #fff; border-color: var(--color-burgundy-200); }
   }
   :root[data-theme='dark'] #admin .plan-feat-btn { color: #fff; border-color: var(--color-burgundy-200); }
+  #admin .rate-list { display: grid; gap: 0.6rem; }
+  #admin .rate-row {
+    display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+    padding: 0.6rem 0.75rem; border: 1px solid var(--color-border);
+    border-radius: 0.5rem; background: var(--surface-2);
+  }
+  #admin .rate-name { font-weight: 600; flex: 1 1 12rem; min-width: 10rem; }
+  #admin .rate-field { max-width: 12rem; }
+  #admin .rate-per { padding: 0 0.5rem; color: var(--color-muted); font-weight: 600; }
   #admin .plan-card-foot { display: flex; align-items: center; gap: 0.6rem; margin-top: auto; }
   #admin .plan-card-foot .btn { padding-block: 0.4rem; }
   #admin .plan-msg { font-size: 0.8rem; }
@@ -362,11 +376,13 @@ const catalog = await buildCatalog();
     getCertificates, issueCertificate, deleteCertificate,
     saveReview, setEnrollment, saveAttendance, downloadCsv,
     getCoursePlans, updateCoursePlan, getServicePlans, updateServicePlan,
+    getServiceRates, updateServiceRate,
     getVouchers, createVoucher, setVoucherActive,
     getPayments, getEntitlements, grantFreePass, revokeEntitlement,
     type AdminProfile, type AdminEnrollment, type AdminProgress,
     type AdminSubmission, type AdminReview, type AdminAttendance, type AdminCertificate,
-    type CoursePlanRow, type ServicePlanRow, type VoucherRow, type PaymentRow, type EntitlementRow,
+    type CoursePlanRow, type ServicePlanRow, type ServiceRateRow,
+    type VoucherRow, type PaymentRow, type EntitlementRow,
   } from '../../lib/admin';
   import { serviceTitle } from '../../data/services';
   import { withBase } from '../../utils/links';
@@ -823,6 +839,7 @@ const catalog = await buildCatalog();
 
   let coursePlans: CoursePlanRow[] = [];
   let servicePlans: ServicePlanRow[] = [];
+  let serviceRates: ServiceRateRow[] = [];
   let vouchers: VoucherRow[] = [];
   let payments: PaymentRow[] = [];
   let entitlements: EntitlementRow[] = [];
@@ -844,7 +861,8 @@ const catalog = await buildCatalog();
     emptyMsg: string;
     currencySymbol?: string;
     priceLabel?: string;
-    secondField?: { patchKey: string; label: string; symbol: string; valueOf: (p: PlanLike) => number };
+    priceKey?: string;                      // patch key for the editable price (default 'price_kobo')
+    priceValueOf?: (p: PlanLike) => number;  // current value for that price (default p.price_kobo)
   }
 
   function makePricingEditor(opts: PricingEditorOpts) {
@@ -866,12 +884,8 @@ const catalog = await buildCatalog();
       const active = (row.querySelector('[data-active]') as HTMLInputElement).checked;
       const features = (row.querySelector('[data-features]') as HTMLTextAreaElement).value
         .split('\n').map((s) => s.trim()).filter(Boolean);
-      const patch: Record<string, unknown> = { price_kobo: price * 100, features, active };
-      if (opts.secondField) {
-        const el2 = row.querySelector('[data-price2]') as HTMLInputElement | null;
-        const v2 = Math.round(Number(String(el2?.value ?? '').replace(/[^\d]/g, '')) || 0);
-        patch[opts.secondField.patchKey] = v2 * 100;
-      }
+      const patch: Record<string, unknown> = { features, active };
+      patch[opts.priceKey || 'price_kobo'] = price * 100;
       return opts.update(id, patch);
     }
 
@@ -896,11 +910,8 @@ const catalog = await buildCatalog();
                 <label class="plan-active"><input type="checkbox" ${p.active ? 'checked' : ''} data-active /> Active</label>
               </div>
               <label class="plan-price">${esc(opts.priceLabel || 'Price')}
-                <span class="plan-price-field"><span class="plan-naira">${opts.currencySymbol || '₦'}</span><input type="text" value="${Math.round(p.price_kobo / 100).toLocaleString('en-US')}" data-price inputmode="numeric" autocomplete="off" /></span>
+                <span class="plan-price-field"><span class="plan-naira">${opts.currencySymbol || '₦'}</span><input type="text" value="${Math.round((opts.priceValueOf ? opts.priceValueOf(p) : p.price_kobo) / 100).toLocaleString('en-US')}" data-price inputmode="numeric" autocomplete="off" /></span>
               </label>
-              ${opts.secondField ? `<label class="plan-price">${esc(opts.secondField.label)}
-                <span class="plan-price-field"><span class="plan-naira">${esc(opts.secondField.symbol)}</span><input type="text" value="${Math.round((opts.secondField.valueOf(p) || 0) / 100).toLocaleString('en-US')}" data-price2 inputmode="numeric" autocomplete="off" /></span>
-              </label>` : ''}
               <textarea data-features hidden>${esc(feats.join('\n'))}</textarea>
               <button type="button" class="plan-feat-btn" data-edit-feats>Edit features <span class="plan-feat-count" data-feat-count>${feats.length}</span></button>
               <div class="plan-card-foot">
@@ -942,7 +953,7 @@ const catalog = await buildCatalog();
         if (r.ok) { await opts.reload(); render(); }
       }));
 
-      box.querySelectorAll('[data-price], [data-price2]').forEach((el) => {
+      box.querySelectorAll('[data-price]').forEach((el) => {
         const inp = el as HTMLInputElement;
         inp.addEventListener('input', () => {
           const caret = inp.selectionStart ?? inp.value.length;
@@ -1003,16 +1014,52 @@ const catalog = await buildCatalog();
     titleOf: serviceTitle,
     reload: async () => { servicePlans = await getServicePlans(); },
     update: updateServicePlan,
-    emptyMsg: 'No service plans found. Run migrations 0008, 0009 and 0010 to seed pricing.',
-    currencySymbol: '$',
-    priceLabel: 'Hourly (USD)',
-    secondField: {
-      patchKey: 'fixed_price_kobo',
-      label: 'Fixed one-time (₦)',
-      symbol: '₦',
-      valueOf: (p) => (p as ServicePlanRow).fixed_price_kobo || 0,
-    },
+    emptyMsg: 'No service plans found. Run migrations 0008-0010 to seed pricing.',
+    currencySymbol: '₦',
+    priceLabel: 'Fixed one-time (₦)',
+    priceKey: 'fixed_price_kobo',
+    priceValueOf: (p) => (p as ServicePlanRow).fixed_price_kobo || 0,
   });
+
+  function renderServiceRates() {
+    const box = root.querySelector('[data-service-rates]') as HTMLElement | null;
+    if (!box) return;
+    if (serviceRates.length === 0) {
+      box.innerHTML = '<p class="muted">No service rates found. Run migration 0011 to seed hourly rates.</p>';
+      return;
+    }
+    const rows = [...serviceRates].sort((a, b) => serviceTitle(a.service_slug).localeCompare(serviceTitle(b.service_slug)));
+    box.innerHTML = `<div class="rate-list">${rows.map((r) => `
+      <div class="rate-row" data-rate-slug="${esc(r.service_slug)}">
+        <span class="rate-name">${esc(serviceTitle(r.service_slug))}</span>
+        <span class="plan-price-field rate-field"><span class="plan-naira">$</span><input type="text" value="${Math.round(r.hourly_price_kobo / 100).toLocaleString('en-US')}" data-rate-price inputmode="numeric" autocomplete="off" /><span class="rate-per">/hr</span></span>
+        <button type="button" class="btn btn-success" data-rate-save>Save</button>
+        <span class="plan-msg" data-rate-msg></span>
+      </div>`).join('')}</div>`;
+
+    box.querySelectorAll('[data-rate-price]').forEach((el) => {
+      const inp = el as HTMLInputElement;
+      inp.addEventListener('input', () => {
+        const caret = inp.selectionStart ?? inp.value.length;
+        const digitsBefore = inp.value.slice(0, caret).replace(/\D/g, '').length;
+        inp.value = groupThousands(inp.value);
+        let pos = 0, seen = 0;
+        while (pos < inp.value.length && seen < digitsBefore) { if (/\d/.test(inp.value[pos])) seen += 1; pos += 1; }
+        inp.setSelectionRange(pos, pos);
+      });
+    });
+
+    box.querySelectorAll('[data-rate-save]').forEach((btn) => btn.addEventListener('click', async () => {
+      const rowEl = (btn as HTMLElement).closest('[data-rate-slug]') as HTMLElement;
+      const slug = rowEl.dataset.rateSlug!;
+      const m = rowEl.querySelector('[data-rate-msg]') as HTMLElement;
+      const val = Math.round(Number(String((rowEl.querySelector('[data-rate-price]') as HTMLInputElement).value).replace(/[^\d]/g, '')) || 0);
+      m.textContent = 'Saving...'; m.className = 'plan-msg';
+      const r = await updateServiceRate(slug, { hourly_price_kobo: val * 100 });
+      m.textContent = r.ok ? 'Saved.' : r.error; m.className = 'plan-msg ' + (r.ok ? 'ok' : 'err');
+      if (r.ok) { serviceRates = await getServiceRates(); }
+    }));
+  }
 
   function renderVouchers() {
     const box = root.querySelector('[data-vouchers]') as HTMLElement;
@@ -1099,10 +1146,10 @@ const catalog = await buildCatalog();
   async function renderAccess() {
     const fpC = root.querySelector('[data-fp-course]') as HTMLSelectElement; if (fpC) fpC.innerHTML = availableCourseOptions(false);
     const vcC = root.querySelector('[data-vc-course]') as HTMLSelectElement; if (vcC) vcC.innerHTML = availableCourseOptions(true);
-    [coursePlans, servicePlans, vouchers, payments, entitlements] = await Promise.all([
-      getCoursePlans(), getServicePlans(), getVouchers(), getPayments(), getEntitlements(),
+    [coursePlans, servicePlans, serviceRates, vouchers, payments, entitlements] = await Promise.all([
+      getCoursePlans(), getServicePlans(), getServiceRates(), getVouchers(), getPayments(), getEntitlements(),
     ]);
-    renderPricing(); renderServicePricing(); renderVouchers(); renderEntitlementsList(); renderPayments();
+    renderPricing(); renderServicePricing(); renderServiceRates(); renderVouchers(); renderEntitlementsList(); renderPayments();
     bindAccessForms();
   }
 

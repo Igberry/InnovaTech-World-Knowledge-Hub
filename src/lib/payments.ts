@@ -34,6 +34,19 @@ export async function getServicePlans(): Promise<ServicePlan[]> {
   return error ? [] : ((data as ServicePlan[]) ?? []);
 }
 
+export interface ServiceRate { service_slug: string; hourly_price_kobo: number; currency: string }
+
+/** Per-service hourly rates (for hiring on contract). Anon-readable via RLS. */
+export async function getServiceRates(): Promise<ServiceRate[]> {
+  const sb = getSupabase();
+  if (!sb) return [];
+  const { data, error } = await sb
+    .from('service_rates')
+    .select('service_slug, hourly_price_kobo, currency')
+    .eq('active', true);
+  return error ? [] : ((data as ServiceRate[]) ?? []);
+}
+
 export async function myEntitlement(course: string): Promise<string | null> {
   const sb = getSupabase();
   if (!sb) return null;
