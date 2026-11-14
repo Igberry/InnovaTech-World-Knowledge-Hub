@@ -43,14 +43,6 @@ const how = [
         support, and work to show for it.
       </p>
     </div>
-    <figure class="about-media">
-      <img
-        src={withBase('/images/building.jpg')}
-        alt="InnovaTech World"
-        loading="lazy"
-        onerror="this.closest('.about-media').remove()"
-      />
-    </figure>
   </section>
 
   <section class="section">
@@ -136,21 +128,6 @@ const how = [
     grid-template-columns: 1fr;
     gap: 1.5rem;
     align-items: center;
-  }
-  .about-media {
-    margin: 0;
-  }
-  .about-media img {
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    border-radius: 1rem;
-    display: block;
-  }
-  @media (min-width: 820px) {
-    .about-intro {
-      grid-template-columns: 1.2fr 1fr;
-    }
   }
   .facilitator {
     display: flex;
