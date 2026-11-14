@@ -47,9 +47,9 @@ export const site = {
   },
 
   social: {
-    facebook: 'TODO',
-    instagram: 'TODO',
-    linkedin: 'TODO',
+    facebook: 'https://www.facebook.com/innovatech.devpro',
+    instagram: 'https://www.instagram.com/innovatech_dev/',
+    linkedin: 'https://www.linkedin.com/company/innovatech-world',
     youtube: 'TODO',
     tiktok: 'TODO',
   },
