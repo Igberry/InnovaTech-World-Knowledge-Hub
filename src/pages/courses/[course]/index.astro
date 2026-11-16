@@ -382,18 +382,19 @@ const courseJsonLd = {
     padding: 0.75rem 1rem; border: 1px solid var(--color-success); border-radius: 0.5rem;
     background: color-mix(in srgb, var(--color-success) 10%, transparent); font-weight: 600;
   }
-  /* Inline code + pay step, revealed inside a plan card after "Get access". */
-  .plan-pay { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.9rem; }
-  .plan-code { font: inherit; padding: 0.6rem 0.75rem; border: 2px solid var(--color-burgundy-600); border-radius: 0.5rem; background: var(--surface); color: var(--color-ink); width: 100%; box-sizing: border-box; }
-  .plan-code::placeholder { color: var(--color-muted); }
-  .plan-code:focus-visible { outline: none; border-color: var(--color-burgundy-600); box-shadow: 0 0 0 3px var(--color-burgundy-50); }
-  .plan-pay-actions { display: flex; flex-direction: column; align-items: stretch; gap: 0.6rem; }
-  .plan-pay-actions .btn { width: 100%; }
-  .plan-cancel { background: none; border: none; color: var(--color-muted); font: inherit; font-size: 0.85rem; cursor: pointer; padding: 0; text-decoration: underline; align-self: center; }
-  .plan-cancel:hover { color: var(--color-burgundy-text); }
-  .plan-msg { font-size: 0.85rem; min-height: 1.1em; }
-  .plan-msg.err { color: var(--color-danger); }
-  .plan-msg.ok { color: var(--color-success); }
+  /* Inline code + pay step, revealed inside a plan card after "Get access".
+     :global() so these reach the cards, which are injected via innerHTML. */
+  :global(.plan-pay) { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.9rem; }
+  :global(.plan-code) { font: inherit; padding: 0.6rem 0.75rem; border: 2px solid var(--color-burgundy-600); border-radius: 0.5rem; background: var(--surface); color: var(--color-ink); width: 100%; box-sizing: border-box; }
+  :global(.plan-code)::placeholder { color: var(--color-muted); }
+  :global(.plan-code:focus-visible) { outline: none; border-color: var(--color-burgundy-600); box-shadow: 0 0 0 3px var(--color-burgundy-50); }
+  :global(.plan-pay-actions) { display: flex; flex-direction: column; align-items: stretch; gap: 0.6rem; }
+  :global(.plan-pay-actions .btn) { width: 100%; }
+  :global(.plan-cancel) { background: none; border: none; color: var(--color-muted); font: inherit; font-size: 0.85rem; cursor: pointer; padding: 0; text-decoration: underline; align-self: center; }
+  :global(.plan-cancel:hover) { color: var(--color-burgundy-text); }
+  :global(.plan-msg) { font-size: 0.85rem; min-height: 1.1em; }
+  :global(.plan-msg.err) { color: var(--color-danger); }
+  :global(.plan-msg.ok) { color: var(--color-success); }
 </style>
 
 <script>
