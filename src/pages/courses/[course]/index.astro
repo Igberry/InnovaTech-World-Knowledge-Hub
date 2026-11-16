@@ -483,7 +483,7 @@ const courseJsonLd = {
           const r = await checkout({ course, plan, priceKobo: kobo, voucher, voucherCode: code || null });
           btn.disabled = false; btn.textContent = label;
           if (r.ok) {
-            statusEl.innerHTML = `<p class="pricing-granted">Payment confirmed — you now have access. Reloading...</p>`;
+            statusEl.innerHTML = `<p class="pricing-granted">Payment confirmed - you now have access. Reloading...</p>`;
             setTimeout(() => window.location.reload(), 1200);
           } else if (r.error === 'login') {
             statusEl.innerHTML = `<p>Please <a href="${withBase('/login/')}">log in</a> first.</p>`;

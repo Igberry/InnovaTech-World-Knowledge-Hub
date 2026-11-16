@@ -35,6 +35,10 @@ students-*.csv
 student-data/
 private/
 
+# --- Supabase migrations: keep DB schema/RLS/functions out of the public repo.
+# The owner runs these manually in the Supabase SQL Editor; keep a local/LastPass backup. ---
+supabase/migrations/
+
 # --- Original (unoptimized) source photos: optimized copies are committed instead ---
 public/images/20260304_133918.jpg
 public/images/20260304_134000.jpg

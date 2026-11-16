@@ -33,6 +33,7 @@ async function loadPublicKnowledge(): Promise<KnowledgeDocument[]> {
       content: [
         site.description,
         `Location: ${site.location}.`,
+        'Innovatech World has no physical office or campus. Courses are delivered online, and one-on-one coaching/mentoring sessions are offered both virtually and in person, based on what the student prefers.',
         `Training services: ${site.services.join(', ')}.`,
         'The website publishes practical digital-skills training, courses, resources and Insights articles.',
         'Course availability, duration and outcomes should be answered from the current published course information. Do not invent prices, schedules, credentials, partnerships, or guaranteed work or income.',

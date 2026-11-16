@@ -6,7 +6,7 @@
 
 Yenagoa, Bayelsa State  
 Email: amaka.sample@example.invalid  
-Portfolio: [Practice portfolio link — replace only with an approved real link]
+Portfolio: [Practice portfolio link - replace only with an approved real link]
 
 ### Professional profile
 
@@ -22,7 +22,7 @@ Organised entry-level office support learner practising document formatting, spr
 
 ### Fictional learning experience
 
-**Office Skills Practice Project — Fresh Bites case study**  
+**Office Skills Practice Project - Fresh Bites case study**  
 Training project | 2026
 
 - Created a supplier letter, one-page flyer and structured practice CV.
@@ -31,7 +31,7 @@ Training project | 2026
 
 ### Education
 
-**Certificate in Office Administration — fictional example**  
+**Certificate in Office Administration - fictional example**  
 Bayview Learning Centre (fictional) | 2024–2025
 
 Replace this sample with only education and training that the real applicant has completed and can verify.

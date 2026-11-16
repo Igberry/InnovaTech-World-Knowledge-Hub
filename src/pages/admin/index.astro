@@ -737,7 +737,7 @@ const catalog = await buildCatalog();
         <div><span class="cert-sign-area">${sigImg}</span><span class="cert-signline"></span>David C. Igberi, Lead Facilitator</div>
         <div class="cert-qr-cell"><span class="cert-qr">${qr}</span><span class="cert-qr-label">Scan to verify</span><span class="cert-qr-date">Date: ${esc(niceDate(f.date))}</span></div>
       </div>
-      <p class="cert-code">Certificate code: <strong>${esc(f.code) || '—'}</strong> · Verify at ${esc(verifyUrl)}</p>
+      <p class="cert-code">Certificate code: <strong>${esc(f.code) || '-'}</strong> · Verify at ${esc(verifyUrl)}</p>
     </div></div>`;
   }
 

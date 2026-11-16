@@ -4,13 +4,13 @@
 
 Create a ten-slide deck and write speaker notes for every slide. Add one idea per slide, use a consistent master and cite or label every practice assumption.
 
-1. **Title:** Fresh Bites — a simple catering plan for team events. Add “fictional training pitch.”
+1. **Title:** Fresh Bites - a simple catering plan for team events. Add “fictional training pitch.”
 2. **The problem:** An organiser needs a clear headcount, menu, timing and handover plan. Keep the example general; do not claim research or real customer findings.
 3. **The proposed solution:** One fictional workflow: confirm requirements, prepare a labelled menu, deliver at an agreed time and verify handover.
 4. **How it works:** Four steps with one short sentence each: plan, confirm, prepare, hand over.
 5. **Sample menu packages:** Practice-only options: Tea and snack tray; Lunch box; Small event tray. Identify the figures as examples.
-6. **Fictional pricing table:** Lunch box — ₦6,500 per person; refreshment pack — ₦3,500 per person; small event tray — ₦12,000. These invented figures are not a quote or market rate.
-7. **Practice-only social proof:** “The sample plan made the event schedule easier to follow.” Label it prominently: “Fictional role-play sentence — not a customer testimonial.”
+6. **Fictional pricing table:** Lunch box - ₦6,500 per person; refreshment pack - ₦3,500 per person; small event tray - ₦12,000. These invented figures are not a quote or market rate.
+7. **Practice-only social proof:** “The sample plan made the event schedule easier to follow.” Label it prominently: “Fictional role-play sentence - not a customer testimonial.”
 8. **Service and quality checks:** Confirm the final count, label the items, check the handover and document any change. Avoid food-safety or allergy guarantees.
 9. **Next step:** Ask the fictional organiser to review the sample menu and identify what would need confirmation before a real proposal.
 10. **Contact / close:** “Thank you.” Use `[Approved contact details would go here in a real, authorised deck]`; do not invent or publish a phone number, email or social account.

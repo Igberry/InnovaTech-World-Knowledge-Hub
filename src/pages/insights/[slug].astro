@@ -4,8 +4,7 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import CodeCopy from '../../components/CodeCopy.astro';
 import { getPublicInsight, renderInsightMarkdown } from '../../lib/insights';
 import { formatDate } from '../../utils/insights';
-import { editOnGitHubUrl, withBase } from '../../utils/links';
-import { Icon } from 'astro-icon/components';
+import { withBase } from '../../utils/links';
 import { site } from '../../config/site';
 
 export const prerender = false;
@@ -15,7 +14,6 @@ if (!post) {
   Astro.response.status = 404;
 }
 const bodyHtml = post ? await renderInsightMarkdown(post.bodyMarkdown) : '';
-const editUrl = post?.source === 'markdown' ? editOnGitHubUrl(`src/content/insights/${post.slug}.md`) : null;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? new URL(Astro.url)).toString();
 const jsonLd = post ? {
@@ -55,16 +53,6 @@ const jsonLd = post ? {
 
     {post.image && <img class="post-featured-image" src={post.image} alt={post.imageAlt ?? ''} fetchpriority="high" />}
     <div class="prose" set:html={bodyHtml}></div>
-
-    {
-      editUrl && (
-        <p class="post-edit no-print">
-          <a href={editUrl} target="_blank" rel="noopener noreferrer">
-            <Icon name="lucide:pencil" width={15} height={15} aria-hidden="true" /> Edit this page on GitHub
-          </a>
-        </p>
-      )
-    }
   </article>
 
   <CodeCopy />
@@ -108,22 +96,5 @@ const jsonLd = post ? {
     font-size: 0.9rem;
     color: var(--color-muted);
     margin-top: 0.75rem;
-  }
-  .post-edit {
-    margin-top: 2rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--color-border);
-    font-size: 0.875rem;
-  }
-  .post-edit a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    color: var(--color-muted);
-    text-decoration: none;
-  }
-  .post-edit a:hover {
-    color: var(--color-blue-700);
-    text-decoration: underline;
   }
 </style>

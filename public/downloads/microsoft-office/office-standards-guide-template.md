@@ -1,6 +1,6 @@
 # Fresh Bites office standards
 
-**Fictional practice guide — adapt only with an authorised organisation's approval**
+**Fictional practice guide - adapt only with an authorised organisation's approval**
 
 ## Files and folders
 

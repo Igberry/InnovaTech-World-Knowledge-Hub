@@ -1,6 +1,6 @@
 # Practice meeting agenda
 
-**Fictional practice meeting — do not send without approval**
+**Fictional practice meeting - do not send without approval**
 
 - **Meeting title:** Fresh Bites weekly planning
 - **Date:** [YYYY-MM-DD]

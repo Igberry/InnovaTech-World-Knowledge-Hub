@@ -186,7 +186,7 @@ import passages from '../../data/typing-passages.json';
       }
       savedResultsList.replaceChildren(...list.map((entry) => {
         const item = document.createElement('li');
-        item.textContent = `${new Date(entry.date).toLocaleDateString()} — ${entry.passage}, ${entry.duration} min: ${entry.wpm} WPM, ${entry.accuracy}% accuracy`;
+        item.textContent = `${new Date(entry.date).toLocaleDateString()} - ${entry.passage}, ${entry.duration} min: ${entry.wpm} WPM, ${entry.accuracy}% accuracy`;
         return item;
       }));
     } catch (error) {

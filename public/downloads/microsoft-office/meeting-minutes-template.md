@@ -1,6 +1,6 @@
 # Practice meeting minutes
 
-**Fictional practice meeting — remove any test attendee details before sharing**
+**Fictional practice meeting - remove any test attendee details before sharing**
 
 - **Meeting title:** [Title]
 - **Date:** [YYYY-MM-DD]
