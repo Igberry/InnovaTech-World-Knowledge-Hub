@@ -86,12 +86,6 @@ const courseJsonLd = {
         <h2>Plans &amp; pricing</h2>
         <div class="pricing-status" data-pricing-status></div>
         <div class="plan-grid" data-plan-grid></div>
-        <div class="voucher-row" data-voucher-row hidden>
-          <label>Have a discount or access code?
-            <input type="text" data-voucher placeholder="Enter code" autocomplete="off" />
-          </label>
-          <span class="muted" data-voucher-msg></span>
-        </div>
         <p class="muted pay-note" data-pay-note hidden>Secure payment by Paystack. Access is granted instantly.</p>
       </section>
     )
@@ -388,10 +382,18 @@ const courseJsonLd = {
     padding: 0.75rem 1rem; border: 1px solid var(--color-success); border-radius: 0.5rem;
     background: color-mix(in srgb, var(--color-success) 10%, transparent); font-weight: 600;
   }
-  .voucher-row { margin: 0.5rem 0; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
-  .voucher-row input { font: inherit; padding: 0.55rem 0.7rem; border: 2.5px solid var(--color-burgundy-600); border-radius: 0.5rem; background: var(--surface); color: var(--color-ink); min-width: 13rem; }
-  .voucher-row input::placeholder { color: var(--color-muted); }
-  .voucher-row input:focus-visible { outline: none; border-color: var(--color-burgundy-600); box-shadow: 0 0 0 3px var(--color-burgundy-50); }
+  /* Inline code + pay step, revealed inside a plan card after "Get access". */
+  .plan-pay { margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.6rem; }
+  .plan-code { font: inherit; padding: 0.55rem 0.7rem; border: 2px solid var(--color-burgundy-600); border-radius: 0.5rem; background: var(--surface); color: var(--color-ink); width: 100%; box-sizing: border-box; }
+  .plan-code::placeholder { color: var(--color-muted); }
+  .plan-code:focus-visible { outline: none; border-color: var(--color-burgundy-600); box-shadow: 0 0 0 3px var(--color-burgundy-50); }
+  .plan-pay-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 0.9rem; }
+  .plan-pay-actions .btn { flex: 1 1 auto; }
+  .plan-cancel { background: none; border: none; color: var(--color-muted); font: inherit; font-size: 0.85rem; cursor: pointer; padding: 0; text-decoration: underline; }
+  .plan-cancel:hover { color: var(--color-burgundy-text); }
+  .plan-msg { font-size: 0.85rem; min-height: 1.1em; }
+  .plan-msg.err { color: var(--color-danger); }
+  .plan-msg.ok { color: var(--color-success); }
 </style>
 
 <script>
@@ -425,9 +427,6 @@ const courseJsonLd = {
     const course = section.dataset.course!;
     const statusEl = section.querySelector('[data-pricing-status]') as HTMLElement;
     const grid = section.querySelector('[data-plan-grid]') as HTMLElement;
-    const voucherRow = section.querySelector('[data-voucher-row]') as HTMLElement;
-    const voucherInput = section.querySelector('[data-voucher]') as HTMLInputElement;
-    const voucherMsg = section.querySelector('[data-voucher-msg]') as HTMLElement;
     const payNote = section.querySelector('[data-pay-note]') as HTMLElement;
     const esc = (s: string) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' } as any)[c]);
 
@@ -442,7 +441,6 @@ const courseJsonLd = {
         return;
       }
 
-      voucherRow.hidden = false;
       payNote.hidden = false;
       // Course is locked for this visitor: point the hero button at the plans.
       const startBtn = document.querySelector('[data-start-course]') as HTMLAnchorElement | null;
@@ -450,45 +448,80 @@ const courseJsonLd = {
       const order: Record<string, number> = { basic: 1, advanced: 2, premium: 3 };
       plans.sort((a, b) => (order[a.plan] || 9) - (order[b.plan] || 9));
       grid.innerHTML = plans.map((p) => `
-        <div class="plan-card ${p.plan === 'advanced' ? 'is-popular' : ''}">
+        <div class="plan-card ${p.plan === 'advanced' ? 'is-popular' : ''}" data-plan-card="${esc(p.plan)}">
           <h3>${esc(p.plan.charAt(0).toUpperCase() + p.plan.slice(1))}</h3>
           <div class="plan-price">${nairaFromKobo(p.price_kobo)}</div>
           <ul>${(p.features || []).map((f) => `<li>✓ ${esc(f)}</li>`).join('')}</ul>
           <button class="btn btn-primary" data-buy="${esc(p.plan)}" data-kobo="${p.price_kobo}">Get access</button>
+          <div class="plan-pay" data-pay hidden>
+            <input type="text" class="plan-code" data-code placeholder="Discount or access code (optional)" autocomplete="off" />
+            <div class="plan-pay-actions">
+              <button class="btn btn-primary" data-confirm data-kobo="${p.price_kobo}">Pay ${nairaFromKobo(p.price_kobo)}</button>
+              <button type="button" class="plan-cancel" data-cancel>Cancel</button>
+            </div>
+            <span class="plan-msg" data-msg></span>
+          </div>
         </div>`).join('');
 
-      grid.querySelectorAll<HTMLButtonElement>('[data-buy]').forEach((btn) => {
-        btn.addEventListener('click', async () => {
-          const plan = btn.dataset.buy!;
-          const kobo = Number(btn.dataset.kobo || '0');
+      const closeAll = () => grid.querySelectorAll<HTMLElement>('.plan-card').forEach((c) => {
+        (c.querySelector('[data-pay]') as HTMLElement).hidden = true;
+        (c.querySelector('[data-buy]') as HTMLElement).hidden = false;
+      });
+
+      grid.querySelectorAll<HTMLElement>('.plan-card').forEach((card) => {
+        const plan = card.dataset.planCard!;
+        const buyBtn = card.querySelector('[data-buy]') as HTMLButtonElement;
+        const pay = card.querySelector('[data-pay]') as HTMLElement;
+        const codeInput = card.querySelector('[data-code]') as HTMLInputElement;
+        const confirmBtn = card.querySelector('[data-confirm]') as HTMLButtonElement;
+        const cancelBtn = card.querySelector('[data-cancel]') as HTMLButtonElement;
+        const msg = card.querySelector('[data-msg]') as HTMLElement;
+        const kobo = Number(buyBtn.dataset.kobo || '0');
+
+        // Step 1: "Get access" reveals the code + pay step inside this card.
+        buyBtn.addEventListener('click', async () => {
           const user = await currentUser();
           if (!user) {
             statusEl.innerHTML = `<p>Please <a href="${withBase('/login/')}">log in or create an account</a> to enrol, then come back and choose your plan.</p>`;
             statusEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
             return;
           }
-          const code = voucherInput.value.trim();
+          closeAll();
+          buyBtn.hidden = true;
+          pay.hidden = false;
+          msg.textContent = '';
+          codeInput.focus();
+        });
+
+        cancelBtn.addEventListener('click', () => {
+          pay.hidden = true; buyBtn.hidden = false; msg.textContent = ''; codeInput.value = '';
+          confirmBtn.textContent = 'Pay ' + nairaFromKobo(kobo);
+        });
+
+        // Step 2: validate an optional code, then pay.
+        confirmBtn.addEventListener('click', async () => {
+          const code = codeInput.value.trim();
           let voucher = null;
           if (code) {
             voucher = await validateVoucher(code, course, plan);
             if (!voucher || !voucher.valid) {
-              voucherMsg.textContent = voucher?.reason || 'Invalid code.'; voucherMsg.className = 'err';
+              msg.textContent = voucher?.reason || 'Invalid code.'; msg.className = 'plan-msg err';
               return;
             }
             const final = amountAfterVoucher(kobo, voucher);
-            voucherMsg.textContent = 'Code applied: you pay ' + nairaFromKobo(final); voucherMsg.className = 'ok';
+            msg.textContent = 'Code applied: you pay ' + nairaFromKobo(final); msg.className = 'plan-msg ok';
           }
-          const label = btn.textContent;
-          btn.disabled = true; btn.textContent = 'Processing...';
+          const label = confirmBtn.textContent;
+          confirmBtn.disabled = true; confirmBtn.textContent = 'Processing...';
           const r = await checkout({ course, plan, priceKobo: kobo, voucher, voucherCode: code || null });
-          btn.disabled = false; btn.textContent = label;
+          confirmBtn.disabled = false; confirmBtn.textContent = label;
           if (r.ok) {
             statusEl.innerHTML = `<p class="pricing-granted">Payment confirmed - you now have access. Reloading...</p>`;
             setTimeout(() => window.location.reload(), 1200);
           } else if (r.error === 'login') {
             statusEl.innerHTML = `<p>Please <a href="${withBase('/login/')}">log in</a> first.</p>`;
           } else if (r.error && r.error !== 'cancelled') {
-            voucherMsg.textContent = r.error; voucherMsg.className = 'err';
+            msg.textContent = r.error; msg.className = 'plan-msg err';
           }
         });
       });
