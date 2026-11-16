@@ -33,11 +33,19 @@ export function onAuthChange(cb: (user: User | null) => void): () => void {
   return () => data.subscription.unsubscribe();
 }
 
-export async function signInWithPassword(email: string, password: string): Promise<Result> {
+export async function signInWithPassword(
+  email: string,
+  password: string,
+  captchaToken?: string,
+): Promise<Result> {
   const sb = getSupabase();
   if (!sb) return err('Portal not configured.');
   try {
-    const { error } = await sb.auth.signInWithPassword({ email, password });
+    const { error } = await sb.auth.signInWithPassword({
+      email,
+      password,
+      ...(captchaToken ? { options: { captchaToken } } : {}),
+    });
     return error ? err(error) : ok(undefined);
   } catch (e) {
     return err(e);
@@ -53,6 +61,7 @@ export async function signUpWithPassword(
   email: string,
   password: string,
   fullName: string,
+  captchaToken?: string,
 ): Promise<Result<{ needsConfirmation: boolean }>> {
   const sb = getSupabase();
   if (!sb) return err('Portal not configured.');
@@ -60,7 +69,11 @@ export async function signUpWithPassword(
     const { data, error } = await sb.auth.signUp({
       email,
       password,
-      options: { data: { full_name: fullName }, emailRedirectTo: absoluteUrl('/auth/callback/') },
+      options: {
+        data: { full_name: fullName },
+        emailRedirectTo: absoluteUrl('/auth/callback/'),
+        ...(captchaToken ? { captchaToken } : {}),
+      },
     });
     if (error) return err(error);
     // If email confirmation is on, there is a user but no active session yet.
@@ -72,14 +85,14 @@ export async function signUpWithPassword(
 }
 
 /** Re-send the sign-up confirmation email. */
-export async function resendConfirmation(email: string): Promise<Result> {
+export async function resendConfirmation(email: string, captchaToken?: string): Promise<Result> {
   const sb = getSupabase();
   if (!sb) return err('Portal not configured.');
   try {
     const { error } = await sb.auth.resend({
       type: 'signup',
       email,
-      options: { emailRedirectTo: absoluteUrl('/auth/callback/') },
+      options: { emailRedirectTo: absoluteUrl('/auth/callback/'), ...(captchaToken ? { captchaToken } : {}) },
     });
     return error ? err(error) : ok(undefined);
   } catch (e) {
@@ -87,13 +100,13 @@ export async function resendConfirmation(email: string): Promise<Result> {
   }
 }
 
-export async function signInWithMagicLink(email: string): Promise<Result> {
+export async function signInWithMagicLink(email: string, captchaToken?: string): Promise<Result> {
   const sb = getSupabase();
   if (!sb) return err('Portal not configured.');
   try {
     const { error } = await sb.auth.signInWithOtp({
       email,
-      options: { emailRedirectTo: absoluteUrl('/auth/callback/'), shouldCreateUser: false },
+      options: { emailRedirectTo: absoluteUrl('/auth/callback/'), shouldCreateUser: false, ...(captchaToken ? { captchaToken } : {}) },
     });
     return error ? err(error) : ok(undefined);
   } catch (e) {
@@ -101,7 +114,7 @@ export async function signInWithMagicLink(email: string): Promise<Result> {
   }
 }
 
-export async function sendPasswordReset(email: string): Promise<Result> {
+export async function sendPasswordReset(email: string, captchaToken?: string): Promise<Result> {
   const sb = getSupabase();
   if (!sb) return err('Portal not configured.');
   try {
@@ -109,6 +122,7 @@ export async function sendPasswordReset(email: string): Promise<Result> {
       // Go through /auth/callback/ which verifies the recovery token and then
       // forwards to /account/reset-password/ with an active session.
       redirectTo: absoluteUrl('/auth/callback/'),
+      ...(captchaToken ? { captchaToken } : {}),
     });
     return error ? err(error) : ok(undefined);
   } catch (e) {

@@ -106,6 +106,16 @@ export const site = {
     allowSignups: true,
   },
 
+  // Bot protection on login/signup (and the other auth emails).
+  security: {
+    // Cloudflare Turnstile SITE key (public - safe to commit). When set to a real
+    // key, a CAPTCHA widget shows on login/signup and a token is sent with every
+    // auth request. You MUST also enable Turnstile in Supabase (Authentication ->
+    // Attack Protection / Bot and Abuse Protection) with the matching SECRET key.
+    // Leave as 'TODO' to keep CAPTCHA off (nothing is shown; auth works normally).
+    turnstileSiteKey: 'TODO',
+  },
+
   // Optional privacy-friendly analytics. OFF by default (WEBSITE-BUILD-PROMPT.md §7.10).
   analytics: {
     enabled: false,

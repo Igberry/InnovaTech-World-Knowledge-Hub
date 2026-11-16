@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { site } from '../config/site';
+import { site, isTodo } from '../config/site';
 
 const allowSignups = site.portal.allowSignups;
+const turnstileKey = site.security.turnstileSiteKey;
+const captchaOn = !isTodo(turnstileKey);
 ---
 
 <BaseLayout title="Log in" description="Log in to your Innovatech World student account.">
@@ -69,6 +71,14 @@ const allowSignups = site.portal.allowSignups;
         )
       }
 
+      {
+        captchaOn && (
+          <div class="cf-turnstile-wrap">
+            <div class="cf-turnstile" data-sitekey={turnstileKey} data-appearance="interaction-only" data-theme="auto" />
+          </div>
+        )
+      }
+
       <p class="auth-help">
         Accounts are invite-only. If you're a student without access, ask your facilitator to invite you.
         <br />
@@ -77,6 +87,7 @@ const allowSignups = site.portal.allowSignups;
       </p>
     </div>
   </div>
+  {captchaOn && <script is:inline async defer src="https://challenges.cloudflare.com/turnstile/v0/api.js" />}
 </BaseLayout>
 
 <script>
@@ -166,12 +177,16 @@ const allowSignups = site.portal.allowSignups;
     font-size: 0.85rem;
     color: var(--color-muted);
   }
+  .cf-turnstile-wrap {
+    margin-top: 1rem;
+  }
 </style>
 
 <script>
   import { isPortalEnabled } from '../lib/supabase';
   import { currentUser, signInWithPassword, signInWithMagicLink, sendPasswordReset, signUpWithPassword, resendConfirmation } from '../lib/auth';
   import { withBase } from '../utils/links';
+  import { site, isTodo } from '../config/site';
 
   const form = document.getElementById('login-form') as HTMLFormElement | null;
   const off = document.getElementById('portal-off');
@@ -185,6 +200,18 @@ const allowSignups = site.portal.allowSignups;
   function clear() {
     errEl.hidden = true;
     okEl.hidden = true;
+  }
+
+  // --- Cloudflare Turnstile (CAPTCHA). Off entirely until a site key is set. ---
+  const captchaOn = !isTodo(site.security.turnstileSiteKey);
+  const turnstile = () => (window as unknown as { turnstile?: { getResponse?: () => string; reset?: () => void } }).turnstile;
+  const captchaToken = (): string | undefined => (captchaOn ? (turnstile()?.getResponse?.() || '') : undefined);
+  const resetCaptcha = () => { if (captchaOn) { try { turnstile()?.reset?.(); } catch {} } };
+  /** Returns true if we may proceed; otherwise shows a prompt on `el`. */
+  function captchaReady(el: HTMLElement): boolean {
+    if (!captchaOn) return true;
+    if (!captchaToken()) { show(el, 'Please complete the verification, then try again.'); return false; }
+    return true;
   }
 
   if (!isPortalEnabled) {
@@ -205,7 +232,9 @@ const allowSignups = site.portal.allowSignups;
       e.preventDefault();
       clear();
       if (resendWrap) resendWrap.hidden = true;
-      const r = await signInWithPassword(emailEl(), passEl());
+      if (!captchaReady(errEl)) return;
+      const r = await signInWithPassword(emailEl(), passEl(), captchaToken());
+      resetCaptcha();
       if (r.ok) {
         window.location.href = withBase('/account/');
       } else if (/confirm/i.test(r.error)) {
@@ -219,7 +248,9 @@ const allowSignups = site.portal.allowSignups;
     form.querySelector('[data-resend]')?.addEventListener('click', async () => {
       clear();
       if (!emailEl()) return show(errEl, 'Enter your email first.');
-      const r = await resendConfirmation(emailEl());
+      if (!captchaReady(errEl)) return;
+      const r = await resendConfirmation(emailEl(), captchaToken());
+      resetCaptcha();
       if (r.ok) show(okEl, 'Confirmation email sent. Check your inbox (and spam).');
       else show(errEl, r.error);
     });
@@ -227,7 +258,9 @@ const allowSignups = site.portal.allowSignups;
     form.querySelector('[data-magic]')?.addEventListener('click', async () => {
       clear();
       if (!emailEl()) return show(errEl, 'Enter your email first, then tap the link button.');
-      const r = await signInWithMagicLink(emailEl());
+      if (!captchaReady(errEl)) return;
+      const r = await signInWithMagicLink(emailEl(), captchaToken());
+      resetCaptcha();
       if (r.ok) show(okEl, 'Check your email for a login link.');
       else show(errEl, r.error);
     });
@@ -235,7 +268,9 @@ const allowSignups = site.portal.allowSignups;
     form.querySelector('[data-forgot]')?.addEventListener('click', async () => {
       clear();
       if (!emailEl()) return show(errEl, 'Enter your email first, then tap "Forgot password".');
-      const r = await sendPasswordReset(emailEl());
+      if (!captchaReady(errEl)) return;
+      const r = await sendPasswordReset(emailEl(), captchaToken());
+      resetCaptcha();
       if (r.ok) show(okEl, 'If that email has an account, a reset link is on its way.');
       else show(errEl, r.error);
     });
@@ -268,7 +303,9 @@ const allowSignups = site.portal.allowSignups;
         const email = (document.getElementById('su-email') as HTMLInputElement).value.trim();
         const pw = (document.getElementById('su-password') as HTMLInputElement).value;
         if (!name) return show(suErr, 'Please enter your name.');
-        const r = await signUpWithPassword(email, pw, name);
+        if (!captchaReady(suErr)) return;
+        const r = await signUpWithPassword(email, pw, name, captchaToken());
+        resetCaptcha();
         if (r.ok) {
           if (r.data.needsConfirmation) {
             show(suOk, 'Account created. Check your email to confirm, then log in.');
