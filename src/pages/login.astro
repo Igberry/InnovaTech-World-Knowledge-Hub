@@ -74,7 +74,7 @@ const captchaOn = !isTodo(turnstileKey);
       {
         captchaOn && (
           <div class="cf-turnstile-wrap">
-            <div class="cf-turnstile" data-sitekey={turnstileKey} data-appearance="interaction-only" data-theme="auto" />
+            <div class="cf-turnstile" data-sitekey={turnstileKey} data-theme="auto" />
           </div>
         )
       }
@@ -205,13 +205,26 @@ const captchaOn = !isTodo(turnstileKey);
   // --- Cloudflare Turnstile (CAPTCHA). Off entirely until a site key is set. ---
   const captchaOn = !isTodo(site.security.turnstileSiteKey);
   const turnstile = () => (window as unknown as { turnstile?: { getResponse?: () => string; reset?: () => void } }).turnstile;
-  const captchaToken = (): string | undefined => (captchaOn ? (turnstile()?.getResponse?.() || '') : undefined);
   const resetCaptcha = () => { if (captchaOn) { try { turnstile()?.reset?.(); } catch {} } };
-  /** Returns true if we may proceed; otherwise shows a prompt on `el`. */
-  function captchaReady(el: HTMLElement): boolean {
-    if (!captchaOn) return true;
-    if (!captchaToken()) { show(el, 'Please complete the verification, then try again.'); return false; }
-    return true;
+  let busy = false; // guards against double-submits while a token is still coming
+
+  /**
+   * Resolve the Turnstile token, WAITING up to a few seconds for the widget to
+   * finish (it may still be solving on a fast first click). Returns:
+   *   undefined -> captcha off (proceed, send no token)
+   *   <string>  -> a token (proceed)
+   *   null      -> could not verify (stop; message shown on `el`)
+   */
+  async function requireCaptcha(el: HTMLElement): Promise<string | undefined | null> {
+    if (!captchaOn) return undefined;
+    const start = Date.now();
+    while (Date.now() - start < 6000) {
+      const t = turnstile()?.getResponse?.();
+      if (t) return t;
+      await new Promise((r) => setTimeout(r, 200));
+    }
+    show(el, 'Could not verify you are human. Complete the check below and try again.');
+    return null;
   }
 
   if (!isPortalEnabled) {
@@ -232,9 +245,13 @@ const captchaOn = !isTodo(turnstileKey);
       e.preventDefault();
       clear();
       if (resendWrap) resendWrap.hidden = true;
-      if (!captchaReady(errEl)) return;
-      const r = await signInWithPassword(emailEl(), passEl(), captchaToken());
+      if (busy) return;
+      busy = true;
+      const token = await requireCaptcha(errEl);
+      if (token === null) { busy = false; return; }
+      const r = await signInWithPassword(emailEl(), passEl(), token || undefined);
       resetCaptcha();
+      busy = false;
       if (r.ok) {
         window.location.href = withBase('/account/');
       } else if (/confirm/i.test(r.error)) {
@@ -248,9 +265,13 @@ const captchaOn = !isTodo(turnstileKey);
     form.querySelector('[data-resend]')?.addEventListener('click', async () => {
       clear();
       if (!emailEl()) return show(errEl, 'Enter your email first.');
-      if (!captchaReady(errEl)) return;
-      const r = await resendConfirmation(emailEl(), captchaToken());
+      if (busy) return;
+      busy = true;
+      const token = await requireCaptcha(errEl);
+      if (token === null) { busy = false; return; }
+      const r = await resendConfirmation(emailEl(), token || undefined);
       resetCaptcha();
+      busy = false;
       if (r.ok) show(okEl, 'Confirmation email sent. Check your inbox (and spam).');
       else show(errEl, r.error);
     });
@@ -258,9 +279,13 @@ const captchaOn = !isTodo(turnstileKey);
     form.querySelector('[data-magic]')?.addEventListener('click', async () => {
       clear();
       if (!emailEl()) return show(errEl, 'Enter your email first, then tap the link button.');
-      if (!captchaReady(errEl)) return;
-      const r = await signInWithMagicLink(emailEl(), captchaToken());
+      if (busy) return;
+      busy = true;
+      const token = await requireCaptcha(errEl);
+      if (token === null) { busy = false; return; }
+      const r = await signInWithMagicLink(emailEl(), token || undefined);
       resetCaptcha();
+      busy = false;
       if (r.ok) show(okEl, 'Check your email for a login link.');
       else show(errEl, r.error);
     });
@@ -268,9 +293,13 @@ const captchaOn = !isTodo(turnstileKey);
     form.querySelector('[data-forgot]')?.addEventListener('click', async () => {
       clear();
       if (!emailEl()) return show(errEl, 'Enter your email first, then tap "Forgot password".');
-      if (!captchaReady(errEl)) return;
-      const r = await sendPasswordReset(emailEl(), captchaToken());
+      if (busy) return;
+      busy = true;
+      const token = await requireCaptcha(errEl);
+      if (token === null) { busy = false; return; }
+      const r = await sendPasswordReset(emailEl(), token || undefined);
       resetCaptcha();
+      busy = false;
       if (r.ok) show(okEl, 'If that email has an account, a reset link is on its way.');
       else show(errEl, r.error);
     });
@@ -303,9 +332,13 @@ const captchaOn = !isTodo(turnstileKey);
         const email = (document.getElementById('su-email') as HTMLInputElement).value.trim();
         const pw = (document.getElementById('su-password') as HTMLInputElement).value;
         if (!name) return show(suErr, 'Please enter your name.');
-        if (!captchaReady(suErr)) return;
-        const r = await signUpWithPassword(email, pw, name, captchaToken());
+        if (busy) return;
+        busy = true;
+        const token = await requireCaptcha(suErr);
+        if (token === null) { busy = false; return; }
+        const r = await signUpWithPassword(email, pw, name, token || undefined);
         resetCaptcha();
+        busy = false;
         if (r.ok) {
           if (r.data.needsConfirmation) {
             show(suOk, 'Account created. Check your email to confirm, then log in.');
