@@ -47,7 +47,7 @@ const d = lesson.data;
       </details>
 
       <!-- Center: lesson content -->
-      <article class="lesson-main" data-lesson-gate data-course={course.data.slug}>
+      <article class="lesson-main" data-lesson-gate data-course={course.data.slug} data-lesson={slug}>
         <Breadcrumbs
           items={[
             { label: 'Courses', href: '/courses/' },
@@ -67,6 +67,9 @@ const d = lesson.data;
         </header>
 
         <div class="lesson-paywall" data-paywall hidden></div>
+
+        <!-- Admin-only teaching notes (loaded at runtime; never in the static HTML). -->
+        <aside class="instructor-notes no-print" data-instructor-notes hidden></aside>
 
         <div data-gated>
           <!-- Mobile: On this page dropdown -->
@@ -230,6 +233,28 @@ const d = lesson.data;
   .lesson-paywall h2 { margin: 0 0 0.5rem; }
   .lesson-paywall p { margin: 0 0 1rem; color: var(--color-muted); }
   .lesson-paywall .btn + .btn { margin-left: 0.5rem; }
+  /* Admin-only instructor notes (content injected at runtime). */
+  .instructor-notes {
+    border: 1px dashed var(--color-burgundy-600);
+    border-radius: 0.7rem;
+    background: var(--color-burgundy-50);
+    padding: 1rem 1.2rem;
+    margin: 1rem 0 2rem;
+  }
+  .instructor-notes :global(.in-label) {
+    margin: 0 0 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-burgundy-text);
+  }
+  .instructor-notes :global(.in-body) {
+    white-space: pre-wrap;
+    color: var(--color-ink);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
 </style>
 
 <script>
@@ -255,7 +280,27 @@ const d = lesson.data;
       // Admins get full access to every course and every gated section, so they
       // can follow along and assist students regardless of their own plan.
       const admin = user ? await isAdminMember() : false;
-      if (admin) { unlockGates(99); return; }
+      if (admin) {
+        unlockGates(99);
+        // Load private instructor notes for this lesson (admins only).
+        const lesson = art.dataset.lesson!;
+        const box = art.querySelector('[data-instructor-notes]') as HTMLElement | null;
+        try {
+          const { getInstructorNote } = await import('../lib/instructor-notes');
+          const note = await getInstructorNote(course, lesson);
+          if (box && note && note.trim()) {
+            const label = document.createElement('p');
+            label.className = 'in-label';
+            label.textContent = 'Instructor notes - visible to admins only';
+            const body = document.createElement('div');
+            body.className = 'in-body';
+            body.textContent = note; // textContent: safe, CSS keeps line breaks
+            box.append(label, body);
+            box.hidden = false;
+          }
+        } catch {}
+        return;
+      }
 
       const plans = await getPlans(course);
       if (!plans.length) { unlockGates(99); return; } // course not monetised -> stays open

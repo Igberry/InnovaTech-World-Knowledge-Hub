@@ -22,6 +22,7 @@ const catalog = await buildCatalog();
       <button id="tab-enrolments" class="tab" data-tab="enrolments" role="tab" aria-selected="false" aria-controls="panel-enrolments" tabindex="-1">Enrolments</button>
       <button id="tab-certificates" class="tab" data-tab="certificates" role="tab" aria-selected="false" aria-controls="panel-certificates" tabindex="-1">Certificates</button>
       <button id="tab-showcase" class="tab" data-tab="showcase" role="tab" aria-selected="false" aria-controls="panel-showcase" tabindex="-1">Showcase</button>
+      <button id="tab-instructor" class="tab" data-tab="instructor" role="tab" aria-selected="false" aria-controls="panel-instructor" tabindex="-1">Instructor notes</button>
       <button id="tab-access" class="tab" data-tab="access" role="tab" aria-selected="false" aria-controls="panel-access" tabindex="-1">Access &amp; Pricing</button>
       <button id="tab-blog" class="tab" data-tab="blog" role="tab" aria-selected="false" aria-controls="panel-blog" tabindex="-1">Blog</button>
     </div>
@@ -170,6 +171,31 @@ const catalog = await buildCatalog();
       <div data-showcase><p class="muted">Loading…</p></div>
     </section>
 
+    <section id="panel-instructor" data-panel="instructor" class="panel" role="tabpanel" aria-labelledby="tab-instructor" tabindex="0" hidden>
+      <div class="panel-head">
+        <h2>Instructor notes</h2>
+      </div>
+      <p class="muted" style="margin:-0.5rem 0 1rem">Private teaching notes per lesson. Only admins can see them - they appear at the top of the lesson for a logged-in admin, and never on the public site.</p>
+      <div class="adm-card in-editor">
+        <div class="in-pickers">
+          <label>Course
+            <select data-in-course></select>
+          </label>
+          <label>Lesson
+            <select data-in-lesson></select>
+          </label>
+        </div>
+        <label class="in-area-label">Notes
+          <textarea data-in-body rows="12" placeholder="Teaching guidance for this lesson - what to emphasise, common sticking points, how to help a student who is stuck, answers to tricky questions, etc."></textarea>
+        </label>
+        <div class="adm-row" style="margin-top:0.5rem">
+          <button class="btn btn-primary" data-in-save>Save notes</button>
+          <button type="button" class="btn btn-secondary" data-in-delete>Delete</button>
+          <span data-in-msg></span>
+        </div>
+      </div>
+    </section>
+
     <BlogManager />
   </div>
 
@@ -232,6 +258,10 @@ const catalog = await buildCatalog();
   .cert-preview { max-width: 820px; min-width: 620px; margin: 0 auto; }
   .link-btn-danger { background: none; border: none; color: var(--color-danger); font: inherit; cursor: pointer; padding: 0; }
   @media (min-width: 640px) { .cert-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+  .in-pickers { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; }
+  .in-pickers label { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.9rem; font-weight: 600; flex: 1 1 14rem; min-width: 0; }
+  .in-area-label { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.9rem; font-weight: 600; }
+  .in-editor textarea { width: 100%; box-sizing: border-box; resize: vertical; font: inherit; }
 </style>
 
 <style is:global>
@@ -437,6 +467,7 @@ const catalog = await buildCatalog();
   import { serviceTitle } from '../../data/services';
   import { withBase } from '../../utils/links';
   import { qrSvg } from '../../utils/qr';
+  import { getInstructorNote, saveInstructorNote, deleteInstructorNote } from '../../lib/instructor-notes';
 
   type Lesson = { slug: string; title: string };
   type Course = { slug: string; title: string; status: string; outcomes: string[]; lessons: Lesson[] };
@@ -890,6 +921,55 @@ const catalog = await buildCatalog();
     }));
   }
 
+  // ---------- Instructor notes editor ----------
+  let instructorBound = false;
+  function bindInstructorNotes() {
+    if (instructorBound) return; instructorBound = true;
+    const courseSel = root.querySelector('[data-in-course]') as HTMLSelectElement;
+    const lessonSel = root.querySelector('[data-in-lesson]') as HTMLSelectElement;
+    const bodyEl = root.querySelector('[data-in-body]') as HTMLTextAreaElement;
+    const msg = root.querySelector('[data-in-msg]') as HTMLElement;
+    const saveBtn = root.querySelector('[data-in-save]') as HTMLButtonElement;
+    const delBtn = root.querySelector('[data-in-delete]') as HTMLButtonElement;
+    if (!courseSel || !lessonSel || !bodyEl) return;
+
+    courseSel.innerHTML = catalog.map((c) => `<option value="${esc(c.slug)}">${esc(c.title)}</option>`).join('');
+
+    const fillLessons = () => {
+      const c = catalog.find((x) => x.slug === courseSel.value);
+      lessonSel.innerHTML = (c?.lessons || []).map((l) => `<option value="${esc(l.slug)}">${esc(l.title)}</option>`).join('');
+    };
+    const loadNote = async () => {
+      msg.textContent = ''; msg.className = '';
+      bodyEl.value = '';
+      if (!courseSel.value || !lessonSel.value) return;
+      bodyEl.disabled = true;
+      const note = await getInstructorNote(courseSel.value, lessonSel.value);
+      bodyEl.disabled = false;
+      bodyEl.value = note || '';
+    };
+
+    courseSel.addEventListener('change', () => { fillLessons(); loadNote(); });
+    lessonSel.addEventListener('change', loadNote);
+
+    saveBtn?.addEventListener('click', async () => {
+      if (!courseSel.value || !lessonSel.value) { msg.textContent = 'Pick a course and lesson.'; msg.className = 'err'; return; }
+      msg.textContent = 'Saving...'; msg.className = '';
+      const r = await saveInstructorNote(courseSel.value, lessonSel.value, bodyEl.value);
+      msg.textContent = r.ok ? 'Saved.' : r.error; msg.className = r.ok ? 'ok' : 'err';
+    });
+    delBtn?.addEventListener('click', async () => {
+      if (!courseSel.value || !lessonSel.value) return;
+      if (!confirm('Delete the instructor notes for this lesson?')) return;
+      const r = await deleteInstructorNote(courseSel.value, lessonSel.value);
+      if (r.ok) { bodyEl.value = ''; msg.textContent = 'Deleted.'; msg.className = 'ok'; }
+      else { msg.textContent = r.error; msg.className = 'err'; }
+    });
+
+    fillLessons();
+    loadNote();
+  }
+
   function setupTabs() {
     const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
     const activate = (tab: HTMLButtonElement, moveFocus = false) => {
@@ -1336,6 +1416,7 @@ const catalog = await buildCatalog();
     renderCertificates();
     bindCertForm();
     renderShowcase();
+    bindInstructorNotes();
     renderAccess();
   }
 
