@@ -60,6 +60,7 @@ const COURSES = [
   ['digital-marketing', 'Digital Marketing', 'available', 'Beginner', '8 weeks', 'Reach customers online across the whole funnel: landing pages, SEO, content, email, ads and analytics (GA4).'],
   ['graphic-design', 'Graphic Design', 'available', 'Beginner', '6 weeks', 'Design clean, professional graphics with free Canva: principles, colour and type, social posts, logos, print and a portfolio.'],
   ['workplace-ethics', 'Workplace Ethics', 'coming-soon', '', '', 'A free short course on integrity, respect, confidentiality and handling tricky situations professionally.'],
+  ['crm-management', 'CRM Management', 'coming-soon', '', '', 'Organise contacts, track leads through a pipeline, and manage customer relationships with a CRM.'],
 ];
 
 // Agency services (done-for-you). Rates live in Supabase service_plans (USD per hour).
