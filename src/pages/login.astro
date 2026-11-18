@@ -187,6 +187,7 @@ const captchaOn = !isTodo(turnstileKey);
   import { currentUser, signInWithPassword, signInWithMagicLink, sendPasswordReset, signUpWithPassword, resendConfirmation } from '../lib/auth';
   import { withBase } from '../utils/links';
   import { site, isTodo } from '../config/site';
+  import { checkEmail } from '../utils/email-check';
 
   const form = document.getElementById('login-form') as HTMLFormElement | null;
   const off = document.getElementById('portal-off');
@@ -334,6 +335,9 @@ const captchaOn = !isTodo(turnstileKey);
         if (!name) return show(suErr, 'Please enter your name.');
         if (busy) return;
         busy = true;
+        // Validate the email can plausibly receive mail before creating anything.
+        const emailCheck = await checkEmail(email);
+        if (!emailCheck.ok) { busy = false; return show(suErr, emailCheck.message!); }
         const token = await requireCaptcha(suErr);
         if (token === null) { busy = false; return; }
         const r = await signUpWithPassword(email, pw, name, token || undefined);
