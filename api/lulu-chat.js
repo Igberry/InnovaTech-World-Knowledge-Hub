@@ -56,9 +56,10 @@ const COURSES = [
   ['video-editing', 'Video Editing', 'available', 'Beginner', '8 weeks', 'Shoot, edit and deliver professional videos for social media, events and businesses.'],
   ['virtual-assistant', 'Virtual Assistant (VA Launch)', 'available', 'Beginner', '7 weeks', 'Land and deliver remote VA work: tools, workflows and client communication, with 1:1 live mentorship.'],
   ['web-development', 'Web Development Career Launch', 'available', 'Beginner', '12 weeks', 'Go from zero to building and deploying real websites and web apps with HTML, CSS, JavaScript, React and Supabase.'],
-  ['digital-marketing', 'Digital Marketing', 'coming-soon', '', '', 'Reach customers online across search, social, email and ads.'],
-  ['graphic-design', 'Graphic Design', 'coming-soon', '', '', 'Design clean, professional graphics for brands and social media.'],
-  ['social-media-marketing', 'Social Media Marketing', 'coming-soon', '', '', 'Plan content, grow an audience and run campaigns that reach the right people.'],
+  ['social-media-marketing', 'Social Media Marketing', 'available', 'Beginner', '6 weeks', 'Plan content, grow a real audience and run simple campaigns with free tools like Canva and Meta Business Suite.'],
+  ['digital-marketing', 'Digital Marketing', 'available', 'Beginner', '8 weeks', 'Reach customers online across the whole funnel: landing pages, SEO, content, email, ads and analytics (GA4).'],
+  ['graphic-design', 'Graphic Design', 'available', 'Beginner', '6 weeks', 'Design clean, professional graphics with free Canva: principles, colour and type, social posts, logos, print and a portfolio.'],
+  ['workplace-ethics', 'Workplace Ethics', 'coming-soon', '', '', 'A free short course on integrity, respect, confidentiality and handling tricky situations professionally.'],
 ];
 
 // Agency services (done-for-you). Rates live in Supabase service_plans (USD per hour).

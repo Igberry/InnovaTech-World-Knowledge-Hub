@@ -23,7 +23,7 @@ const DISPOSABLE = new Set([
 // Obvious typos of the big providers -> the correct domain.
 const TYPOS: Record<string, string> = {
   'gmial.com': 'gmail.com', 'gmil.com': 'gmail.com', 'gmai.com': 'gmail.com',
-  'gmaill.com': 'gmail.com', 'gmaill.com': 'gmail.com', 'gnail.com': 'gmail.com',
+  'gmaill.com': 'gmail.com', 'gamil.com': 'gmail.com', 'gnail.com': 'gmail.com',
   'gmail.co': 'gmail.com', 'gmail.cm': 'gmail.com', 'gmail.con': 'gmail.com',
   'yahooo.com': 'yahoo.com', 'yaho.com': 'yahoo.com', 'yahoo.co': 'yahoo.com',
   'yahoo.con': 'yahoo.com', 'hotmial.com': 'hotmail.com', 'hotmai.com': 'hotmail.com',
