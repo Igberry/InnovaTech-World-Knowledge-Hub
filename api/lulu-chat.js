@@ -61,6 +61,7 @@ const COURSES = [
   ['graphic-design', 'Graphic Design', 'available', 'Beginner', '6 weeks', 'Design clean, professional graphics with free Canva: principles, colour and type, social posts, logos, print and a portfolio.'],
   ['workplace-ethics', 'Workplace Ethics', 'coming-soon', '', '', 'A free short course on integrity, respect, confidentiality and handling tricky situations professionally.'],
   ['crm-management', 'CRM Management', 'coming-soon', '', '', 'Organise contacts, track leads through a pipeline, and manage customer relationships with a CRM.'],
+  ['content-creation', 'Content Creation', 'coming-soon', '', '', 'Plan, shoot and edit scroll-stopping photos, short videos and written content with free tools and a phone.'],
 ];
 
 // Agency services (done-for-you). Rates live in Supabase service_plans (USD per hour).
