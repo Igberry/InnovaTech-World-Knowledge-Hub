@@ -141,8 +141,7 @@ Create a two-to-three-minute brand story or small event highlight, such as the f
 - Try a proxy workflow on a short copy and feel the playback difference.
 - Keep a version before and after a big change so you can restore a choice.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Confirm permission, hardware and story idea |

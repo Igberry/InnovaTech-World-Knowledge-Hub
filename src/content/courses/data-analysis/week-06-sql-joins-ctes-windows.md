@@ -168,7 +168,7 @@ Create `week6_business_questions.sql` answering **12 business questions** using 
 - A running total of revenue by month: `SUM(revenue) OVER (ORDER BY month)`.
 - The top product in each city: `ROW_NUMBER() OVER (PARTITION BY city ORDER BY revenue DESC)`, then keep the rows where it equals 1.
 
-## Mentoring Session Plan (90 min, Week 6)
+## Mentoring Session Plan (90 min, Week 6) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review Week 5 queries; show the best one |

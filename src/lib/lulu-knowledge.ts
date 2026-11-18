@@ -15,7 +15,12 @@ interface KnowledgeDocument {
 let documentsPromise: Promise<KnowledgeDocument[]> | undefined;
 
 function stripPrivateCourseContent(body: string): string {
-  return removeHiddenContent(body, HIDDEN_SECTION_HEADINGS);
+  // Also drop the `{advanced}` / `{premium}` plan-gate markers so they don't
+  // show up in Lulu's knowledge index (the rendered site strips them already).
+  return removeHiddenContent(body, HIDDEN_SECTION_HEADINGS).replace(
+    /[ \t]*\{(?:advanced|premium)\}[ \t]*$/gim,
+    '',
+  );
 }
 
 async function loadPublicKnowledge(): Promise<KnowledgeDocument[]> {

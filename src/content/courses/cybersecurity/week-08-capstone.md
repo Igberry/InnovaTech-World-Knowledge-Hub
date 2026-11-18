@@ -139,8 +139,7 @@ Deliver the whole thing:
 - Write the single habit you will keep forever on a card where you will see it.
 - Note one reputable, current learning path you might explore next (verify before paying).
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-15 min | Capstone overview; the ethics scope restated |

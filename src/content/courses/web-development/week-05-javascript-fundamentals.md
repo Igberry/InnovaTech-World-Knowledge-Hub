@@ -225,8 +225,7 @@ Build a small, reusable set of programs (in `.js` files, run with Node or the co
 - Write `cartTotal(ids)` that takes item ids and returns the formatted total.
 - Use `find` to get the item with id `"suya-platter"`.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review Portfolio Project 1; celebrate the first live project |

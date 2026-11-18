@@ -127,8 +127,7 @@ Finish a plan you could follow on your worst day:
 - Walk a family member through setting up remote wipe on their phone.
 - For a past or imagined incident, name the weak point and how you would close it.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; speed and order decide the outcome |

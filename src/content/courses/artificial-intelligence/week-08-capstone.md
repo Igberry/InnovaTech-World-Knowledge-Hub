@@ -147,8 +147,7 @@ best portfolio piece.*
 - Record the three prompts that did the most work, ready to reuse on your next project.
 - Draft a short caption for your portfolio piece that names the problem and the result.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-15 min | Capstone overview; each learner states their project and who it helps |

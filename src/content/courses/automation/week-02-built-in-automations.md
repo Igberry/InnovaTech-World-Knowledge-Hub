@@ -116,8 +116,7 @@ Set up and document **three working built-in automations** that genuinely save y
 - Save a second template for the message you dread typing most.
 - Set one recurring reminder for a bill or renewal you always forget.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; built-in automations as the safest quick wins |

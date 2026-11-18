@@ -126,7 +126,7 @@ Submit `week2_cleaning.xlsx` with three sheets anyone could trust:
 - Count distinct city spellings before and after cleaning - a satisfying before/after number for your log.
 - Try `=CLEAN(A2)` to strip hidden characters, and `=LEN(A2)` to catch sneaky trailing spaces.
 
-## Mentoring Session Plan (90 min)
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review Week 1 builds, quick feedback |

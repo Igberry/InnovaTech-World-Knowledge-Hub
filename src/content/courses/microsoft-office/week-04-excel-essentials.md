@@ -198,8 +198,7 @@ Keep the source dataset unchanged on its own sheet. Label the workbook and any s
 
 This week covers everyday workbook tasks. The [Data Analysis course](/courses/data-analysis/) continues with data cleaning, deeper Excel, PivotTables, dashboards, SQL, Python and Power BI when you are ready for a longer pathway.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review Week 3 checkpoint and note the sample data is fictional |

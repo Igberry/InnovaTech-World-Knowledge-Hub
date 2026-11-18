@@ -143,8 +143,7 @@ Produce a small pack of real pieces, each showing your editing and checking:
 - Rewrite a sensitive message safely by removing identifying details first, then improve it.
 - Find and verify one fact an AI added to a draft, and record how you checked it.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; "write with AI, not let AI write for you" |

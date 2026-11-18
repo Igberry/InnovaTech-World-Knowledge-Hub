@@ -191,8 +191,7 @@ recruiters read these first.*
 - Build a footer with three columns on desktop that stack on mobile.
 - Use the device toolbar to screenshot your site at phone and desktop widths for the README.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review Week 3 styling and commits |

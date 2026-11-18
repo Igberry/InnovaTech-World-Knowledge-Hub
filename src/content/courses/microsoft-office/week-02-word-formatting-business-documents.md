@@ -152,8 +152,7 @@ Use styles and real paragraph tools - no spaces for alignment. Export each as PD
 - Save your three styles as a set and reuse them on a new blank document.
 - Give your CV to a friend and ask what they remember after ten seconds - then sharpen it.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review one Week 1 naming or folder decision |

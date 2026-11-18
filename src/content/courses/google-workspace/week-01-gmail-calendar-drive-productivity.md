@@ -153,8 +153,7 @@ Put it all together into something you'd actually show an employer:
 - Build a filter that stars anything from the fictional `Team` sender.
 - Add a second display time zone and schedule a mock call with a teammate "abroad".
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0–10 min | Check account access and review the practice folder; do not collect passwords or codes |

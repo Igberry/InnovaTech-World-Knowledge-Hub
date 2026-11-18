@@ -119,7 +119,7 @@ Submit:
 - Add conditional formatting (red/green) on the return rate.
 - Put all measures in a dedicated "_Measures" table to keep the model tidy.
 
-## Mentoring Session Plan (90 min)
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review Week 10 models and relationships |

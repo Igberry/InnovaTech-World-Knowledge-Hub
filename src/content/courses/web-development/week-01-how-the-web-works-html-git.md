@@ -230,8 +230,7 @@ point.*
 - Build a `menu.html` listing six items from the kit's `menu.json`, linked from the home page.
 - Add a list of five Nigerian foods you like, each with one line on why.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review Week 0 checklist; confirm everyone's tools work |

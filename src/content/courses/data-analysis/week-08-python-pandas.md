@@ -164,7 +164,7 @@ Upload it to GitHub. Save a summary file too: `df.to_csv("city_summary.csv", ind
 - Re-answer 3 of your Week 6 SQL questions in pandas and confirm the numbers match.
 - Month-on-month growth in one line: `.pct_change()` on your monthly series.
 
-## Mentoring Session Plan (90 min)
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review Week 7 programs |

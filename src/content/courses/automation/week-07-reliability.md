@@ -125,8 +125,7 @@ Produce a **reliability and safety review** for one of your automations:
 - Set a calendar reminder to review your automations once a month.
 - Remove one old app connection you no longer use from your accounts.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; "plan for failure, not perfection" |

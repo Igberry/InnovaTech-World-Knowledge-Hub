@@ -184,8 +184,7 @@ Put them in a `.env` file and **git-ignore `.env`**.
 - Add a `.env` with a `VITE_` variable and read it in code.
 - Deploy the same app to a second host and compare the experience.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review Portfolio Project 2 |

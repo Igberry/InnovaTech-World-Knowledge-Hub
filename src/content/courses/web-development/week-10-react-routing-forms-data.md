@@ -232,8 +232,7 @@ Ship a **multi-page React Fresh Bites app**, your third portfolio piece:
 - Extract the weather logic into a custom hook, `useWeather()`.
 - Add an About page with your real story and a link to your GitHub.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review the React components build |

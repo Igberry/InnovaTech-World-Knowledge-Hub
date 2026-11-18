@@ -215,8 +215,7 @@ client **and** rely on RLS on the database, defence in depth.
 - Show a friendly message when a logged-out user tries to view the protected list.
 - Add a "sign out" button that updates the UI immediately.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review Portfolio Project 3 |

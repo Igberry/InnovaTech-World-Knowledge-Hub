@@ -160,8 +160,7 @@ The package that shows what you can do:
 - Type a short thank-you email to a fictional customer and proofread it aloud.
 - Draft your CV typing line and check every detail against your real test.
 
-## Mentoring Session Plan (60 minutes)
-
+## Mentoring Session Plan (60 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 5 min | Check posture and identify signs of tension |

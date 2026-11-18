@@ -135,8 +135,7 @@ Produce a five-video series for fictional Fresh Bites or your own permitted subj
 - Read a sample retention chart from the facilitator and name one thing you would test.
 - Rewrite your weakest hook three more ways and see if it improves.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Choose audience, one idea and safe subject |

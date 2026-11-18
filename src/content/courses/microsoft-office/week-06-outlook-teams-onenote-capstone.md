@@ -165,8 +165,7 @@ Microsoft Learn's pages (checked 12 November 2026) describe the **Microsoft Offi
 
 This course is a practical introduction and does not claim to meet that guidance or prepare you to pass an exam. The certification is optional and separate from your Innovatech World completion record. Check the current Microsoft Learn page and its exam provider before planning or paying. Do not buy an exam or subscription because of a course example.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review capstone checklist and confirm safe account boundaries |

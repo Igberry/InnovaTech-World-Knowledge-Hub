@@ -148,7 +148,7 @@ Paste the first 3 result rows under each query as a comment or screenshot.
 - What percentage of orders were returned? `100.0 * SUM(CASE WHEN status='Returned' THEN 1 ELSE 0 END) / COUNT(*)`.
 - Replace missing payment methods on the fly: `SELECT COALESCE(payment_method,'Unknown') FROM orders;`.
 
-## Mentoring Session Plan (90 min)
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review stats read-outs, resolve questions |

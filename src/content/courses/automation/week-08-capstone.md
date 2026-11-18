@@ -127,8 +127,7 @@ Deliver your **complete automation capstone**:
 - Write the one next process you will automate after the course.
 - Show your capstone to the person it helps and note their reaction.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-15 min | Capstone overview; each learner states their process and expected saving |

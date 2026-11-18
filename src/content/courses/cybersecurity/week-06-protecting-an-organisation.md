@@ -137,8 +137,7 @@ Build a pack for a real or realistic business (no real private data):
 - Sketch a 10-minute staff refresher on spotting phishing.
 - List which shared logins the business could replace with per-person access.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; protecting others' data and trust |

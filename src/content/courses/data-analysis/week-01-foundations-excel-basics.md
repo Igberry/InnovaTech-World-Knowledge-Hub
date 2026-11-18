@@ -121,7 +121,7 @@ Make `week1_orders.xlsx` a business owner could glance at and understand:
 - Add a `big_order` column that shows "Yes" when net revenue is over ₦100,000: `=IF([@net_revenue]>100000,"Yes","No")`.
 - Learn these shortcuts by using them: `Ctrl+Arrow` (jump to the edge), `Ctrl+Shift+Arrow` (select to the edge), `F4` (lock a reference), `Alt+=` (AutoSum).
 
-## Mentoring Session Plan (90 min, In-Person)
+## Mentoring Session Plan (90 min, In-Person) {advanced}
 | Time | Activity |
 |---|---|
 | 0-15 min | Welcome, program rules, sign the training agreement, set the weekly schedule |

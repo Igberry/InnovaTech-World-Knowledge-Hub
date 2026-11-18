@@ -158,8 +158,7 @@ Something you can actually show at mentoring:
 - Race yourself: type `they read a letter` three times and see if line three is cleaner than line one.
 - Ask a partner to watch only your posture and name one comfier adjustment.
 
-## Mentoring Session Plan (60 minutes)
-
+## Mentoring Session Plan (60 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 5 min | Check posture, keyboard height and F/J hand placement |

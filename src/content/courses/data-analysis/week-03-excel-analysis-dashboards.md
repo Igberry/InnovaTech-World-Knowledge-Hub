@@ -124,7 +124,7 @@ Submit `week3_dashboard.xlsx` a manager could actually use:
 - Add conditional formatting: data bars on revenue, or a red highlight on returned orders (**Home -> Conditional Formatting**).
 - Which city has the highest average order but not the highest total? A great insight line.
 
-## Mentoring Session Plan (90 min)
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review Week 2 cleaning logs, highlight one good decision |

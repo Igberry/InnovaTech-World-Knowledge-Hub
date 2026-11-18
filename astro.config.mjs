@@ -11,6 +11,7 @@ import { remarkFacilitator } from './src/plugins/remark-facilitator.mjs';
 import { remarkCallouts } from './src/plugins/remark-callouts.mjs';
 import { remarkSelfCheck } from './src/plugins/remark-selfcheck.mjs';
 import { remarkAssignment } from './src/plugins/remark-assignment.mjs';
+import { remarkPlanGate } from './src/plugins/remark-plan-gate.mjs';
 import { rehypeBaseLinks } from './src/plugins/rehype-base-links.mjs';
 import { rehypeTableWrap } from './src/plugins/rehype-table-wrap.mjs';
 
@@ -52,8 +53,9 @@ export default defineConfig({
       wrap: false,
     },
     // Order matters: strip facilitator content first; style callouts while all
-    // blockquotes are still top-level; THEN wrap sections (self-check, assignment).
-    remarkPlugins: [remarkFacilitator, remarkCallouts, remarkSelfCheck, remarkAssignment],
+    // blockquotes are still top-level; THEN wrap sections (self-check, assignment,
+    // then plan-gated sections last so they wrap already-processed content).
+    remarkPlugins: [remarkFacilitator, remarkCallouts, remarkSelfCheck, remarkAssignment, remarkPlanGate],
     rehypePlugins: [
       rehypeBaseLinks,
       rehypeTableWrap,

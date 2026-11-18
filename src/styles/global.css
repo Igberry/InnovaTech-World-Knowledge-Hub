@@ -531,6 +531,59 @@ a:hover {
   --icon-clipboard: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='8' height='4' x='8' y='2' rx='1'/%3E%3Cpath d='M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2'/%3E%3Cpath d='m9 14 2 2 4-4'/%3E%3C/svg%3E");
 }
 
+/* Plan-gated section (remark-plan-gate). Content is hidden behind a "Locked"
+   panel by default; LessonLayout adds .unlocked for students whose tier (or
+   admin) allows it. Soft lock - consistent with the whole-lesson paywall. */
+.prose .plan-gate {
+  margin: 1.5rem 0;
+}
+.prose .plan-gate > .plan-gate-content {
+  display: none;
+}
+.prose .plan-gate.unlocked > .plan-gate-content {
+  display: block;
+}
+.prose .plan-gate.unlocked > .plan-gate-lock {
+  display: none;
+}
+.prose .plan-gate-lock {
+  border: 1px solid var(--color-burgundy-600);
+  border-left: 4px solid var(--color-burgundy-600);
+  background: var(--color-burgundy-50);
+  border-radius: 0.7rem;
+  padding: 1rem 1.2rem;
+}
+.prose .plan-gate-lock > :first-child {
+  margin-top: 0;
+}
+.prose .plan-gate-lock > :last-child {
+  margin-bottom: 0;
+}
+.prose .plan-gate-lock-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  color: var(--color-burgundy-text);
+}
+.prose .plan-gate-lock-title::before {
+  content: '';
+  flex: 0 0 auto;
+  width: 1.15rem;
+  height: 1.15rem;
+  background-color: var(--color-burgundy-600);
+  -webkit-mask: var(--icon-lock) center / contain no-repeat;
+  mask: var(--icon-lock) center / contain no-repeat;
+  --icon-lock: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect width='18' height='11' x='3' y='11' rx='2' ry='2'/%3E%3Cpath d='M7 11V7a5 5 0 0 1 10 0v4'/%3E%3C/svg%3E");
+}
+.prose .plan-gate-lock-msg {
+  color: var(--color-ink);
+}
+.prose a.plan-gate-upgrade {
+  color: var(--color-burgundy-text);
+  font-weight: 600;
+}
+
 /* Self-check collapsible */
 .prose details.selfcheck {
   border: 1px solid var(--color-blue-200);

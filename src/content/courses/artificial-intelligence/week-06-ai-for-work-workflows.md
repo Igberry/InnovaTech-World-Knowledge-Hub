@@ -141,8 +141,7 @@ Take a real, repeatable task and turn it into a workflow you could hand off:
 - Save the exact prompts for your task to the prompt log so next week is one paste away.
 - Draft an agenda or a plan from a brain-dump, then refine it to fit your real situation.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; AI as a work assistant you supervise |

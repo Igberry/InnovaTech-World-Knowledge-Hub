@@ -130,8 +130,7 @@ Re-edit your Week 2 video with a 20 to 30 second voice-over, balanced audio, and
 - Try cutting one edit on a musical beat; drop it if it forces an unnatural cut.
 - Compare your mix with music removed entirely; decide if the music earns its place.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Check the script and licence boundaries |

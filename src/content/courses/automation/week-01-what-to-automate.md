@@ -125,8 +125,7 @@ Mark the safest, smallest one as your first build. Early wins teach you the tool
 - Spot one automation a local business (a shop, a salon) could use and sketch it.
 - Time one small task today, then multiply by how often you do it in a month. Surprised?
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Welcome; everyday automations learners already use |

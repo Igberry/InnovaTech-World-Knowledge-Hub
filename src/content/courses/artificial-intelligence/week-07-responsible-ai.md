@@ -144,8 +144,7 @@ Write it and prove you can apply it:
 - Write two AI uses you consider off-limits and the harm each could cause.
 - Run one earlier assignment through the responsible-use checklist and note one improvement.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; responsible use as part of the skill, not an add-on |

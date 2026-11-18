@@ -137,8 +137,7 @@ Edit a 30-second video from your Week 1 clips, for Fresh Bites or your own permi
 - Try a J-cut using natural sound: let the next clip's sound start before its picture.
 - Export a second draft and play it on a different device to catch what you missed.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Check project folder, backup and app version |

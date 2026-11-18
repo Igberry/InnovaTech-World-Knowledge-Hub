@@ -138,8 +138,7 @@ Deliver all three, ready to send to a real employer:
 - Add your Innovatech World course and projects to your LinkedIn profile.
 - Ask an AI assistant to suggest stronger action verbs, then pick the honest ones yourself.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review the Week 1 target briefs |

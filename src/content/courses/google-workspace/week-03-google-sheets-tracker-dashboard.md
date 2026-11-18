@@ -160,8 +160,7 @@ Ship one spreadsheet a small shop could run on:
 - Recreate the two remaining QUERY examples (average sale by payment method, sales by date).
 - Cross-link the process, not the accounts: [Automation](/courses/automation/) Week 2 shows a form feeding a sheet; [Data Analysis](/courses/data-analysis/) goes deeper on cleaning.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0–10 min | Review the Week 2 document and privacy checklist |

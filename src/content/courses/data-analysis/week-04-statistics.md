@@ -114,7 +114,7 @@ Submit `week4_statistics_report.xlsx` (or a Word/PDF) that reads like a real ana
 - Compute AOV by month and the month-on-month growth beside it.
 - Spot one misleading statistic in a news headline or advert and explain the trick.
 
-## Mentoring Session Plan (90 min)
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Dashboard show-and-tell: each student presents for 2 minutes |

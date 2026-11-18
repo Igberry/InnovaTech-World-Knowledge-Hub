@@ -132,8 +132,7 @@ Build something you could share with family to keep them safe:
 - Send a short warning to your contacts about one scam doing the rounds.
 - The [Remote Ready](/courses/remote-ready/) course, Week 4, covers job and freelance scams in depth - skim it.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; attacks on people, not machines |

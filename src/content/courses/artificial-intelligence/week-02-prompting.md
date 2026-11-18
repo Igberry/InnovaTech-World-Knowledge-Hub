@@ -143,8 +143,7 @@ useful the day you finish it.*
 - Give the AI a style you like and challenge it to match it in one try.
 - Rewrite your worst prompt from Week 1 using all four parts.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap Week 1; why prompting is the biggest lever |

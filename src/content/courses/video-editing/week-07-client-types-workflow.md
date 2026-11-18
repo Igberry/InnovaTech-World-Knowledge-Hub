@@ -136,8 +136,7 @@ Use the fictional choir promo or Fresh Bites brief.
 - Build one reusable title template with clearly labelled placeholders and no client assets.
 - Practise declining one out-of-scope request politely in writing.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review project boundaries and subject permissions |

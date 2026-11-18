@@ -122,8 +122,7 @@ recorder, a market-stall order catcher):
 - Add a third action: create a task or a calendar event from the same trigger.
 - Share your test form with a friend and watch their response flow through.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; the no-code tool as a bridge between apps |

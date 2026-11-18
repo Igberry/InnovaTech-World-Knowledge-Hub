@@ -120,8 +120,7 @@ Build and document **one AI-assisted automation**:
 - Add an AI step that extracts just the phone number from an enquiry into its own column.
 - Ask your AI to draft three reply templates, then fact-check and save the best.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; AI as a "language" step inside automation |

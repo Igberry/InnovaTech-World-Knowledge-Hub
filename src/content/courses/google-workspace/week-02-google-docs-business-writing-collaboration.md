@@ -124,8 +124,7 @@ Produce two documents a small business could use tomorrow:
 - Rewrite one wordy paragraph as a three-item checklist and see how much clearer it reads.
 - Export the proposal to Word as well, reopen it, and spot what shifted.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0–10 min | Review Week 1 sharing choices and assignment questions |

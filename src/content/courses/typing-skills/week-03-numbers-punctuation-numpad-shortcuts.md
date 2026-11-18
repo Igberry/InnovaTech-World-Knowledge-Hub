@@ -154,8 +154,7 @@ The real, useful deliverable:
 - Enter five Naira amounts on the numpad and verify the punctuation.
 - Time yourself on ten rows, then beat it on the next ten without dropping accuracy.
 
-## Mentoring Session Plan (60 minutes)
-
+## Mentoring Session Plan (60 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 5 min | Check posture, number-row reach and numpad hand position |

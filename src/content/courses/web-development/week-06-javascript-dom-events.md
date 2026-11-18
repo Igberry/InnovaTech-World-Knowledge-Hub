@@ -251,8 +251,7 @@ in this repo.)
 - Show a friendly "nothing found" message when a search returns no items.
 - Toggle a `.dark` theme class on the body with a button.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review Week 5 functions; quick console warm-up |

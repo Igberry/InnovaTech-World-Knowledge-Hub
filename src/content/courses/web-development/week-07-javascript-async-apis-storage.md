@@ -205,8 +205,7 @@ Ship the **interactive Fresh Bites app**, your second portfolio piece:
 - Persist the user's last selected category filter in `localStorage`.
 - Fetch and display a second piece of weather data (such as wind speed) from Open-Meteo.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review the mid-course checkpoint results and Week 6 app |

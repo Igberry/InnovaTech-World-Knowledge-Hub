@@ -142,8 +142,7 @@ to use.*
 - Generate a before-and-after: a vague prompt versus a detailed one for the same idea.
 - Write your tool's usage rights as a one-line note you can reuse on every project.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; what controls an AI image (the description) |

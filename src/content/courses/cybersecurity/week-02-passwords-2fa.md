@@ -129,8 +129,7 @@ Document the real improvements you made:
 - Replace five more reused passwords beyond your top five.
 - Have your password manager run its "security check" and fix one flagged item.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; why passwords are the front door |

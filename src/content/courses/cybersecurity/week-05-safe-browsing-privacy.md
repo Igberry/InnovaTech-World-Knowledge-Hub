@@ -134,8 +134,7 @@ Produce a short, practical review:
 - Check one app's data-sharing settings (building on Week 4) and adjust it.
 - Add your site-verification habit to the [security checklist](/downloads/cybersecurity/security-checklist.md).
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; the padlock means encrypted, not honest |

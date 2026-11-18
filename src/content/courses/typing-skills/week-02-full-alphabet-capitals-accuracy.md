@@ -161,8 +161,7 @@ A tidy package that proves clean typing:
 - Write one sentence using every letter you found hardest this week.
 - Beat your own clean-line record on a tricky passage, accuracy first.
 
-## Mentoring Session Plan (60 minutes)
-
+## Mentoring Session Plan (60 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 5 min | Check posture and relaxed home-row return |

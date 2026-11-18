@@ -135,8 +135,7 @@ Document the real protections you put in place:
 - Replace one risky "cracked" app with a trusted alternative from an official store.
 - Add your backup locations to the [security checklist](/downloads/cybersecurity/security-checklist.md).
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; updates as security |

@@ -117,8 +117,7 @@ Finish the day with everything below done and ticked on the checklist:
 - [ ] A written power and data backup plan
 - [ ] A `remote-ready` folder set up
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Welcome; why reliability matters as much as skill in remote work |

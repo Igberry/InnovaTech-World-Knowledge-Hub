@@ -148,8 +148,7 @@ Pull the whole course together into one package you can start applying with:
 - Write your "first three places I'll apply" list and pin it where you'll see it.
 - Draft a warm thank-you message to send after a real interview.
 
-## Mentoring Session Plan (90 min + final graduation session)
-
+## Mentoring Session Plan (90 min + final graduation session) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review the remote-operations kit from Week 5 |

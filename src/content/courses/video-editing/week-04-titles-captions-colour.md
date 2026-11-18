@@ -134,8 +134,7 @@ Create a branded 30-second advert for a fictional Fresh Bites sample offer or yo
 - Caption a 15-second clip manually, then against an auto-caption draft, and count the fixes.
 - Ask someone to watch muted and tell you what the advert is selling.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review brand brief, permissions and device capabilities |

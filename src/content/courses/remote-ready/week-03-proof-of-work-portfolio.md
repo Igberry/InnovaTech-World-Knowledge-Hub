@@ -138,8 +138,7 @@ Publish a portfolio of 2-4 pieces that an employer could open today:
 - Ask a friend to open your portfolio link on their phone and tell you if anything is confusing.
 - Write a one-line intro at the top of your portfolio so visitors know who you are instantly.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review brand packs from Week 2 |

@@ -132,8 +132,7 @@ Make a short, useful document you could hand to a friend to help them get safer:
 - Ask a family member which accounts matter most to them, and sketch their top three risks.
 - Start the [security checklist](/downloads/cybersecurity/security-checklist.md) and tick what you already do.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Welcome; the ethics rules; "defence only" |

@@ -129,8 +129,7 @@ in one move.*
 - Give it a messy paragraph and ask it to tidy it - judge the result.
 - Ask it to role-play a job interviewer for a role you want, and answer three questions.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Welcome; what learners hope AI will help them do |

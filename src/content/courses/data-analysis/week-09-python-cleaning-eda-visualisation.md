@@ -156,7 +156,7 @@ Choose a dataset on **kaggle.com/datasets** that is 1,000 to 100,000 rows, about
 - Add a correlation heatmap: `sns.heatmap(df.select_dtypes("number").corr(), annot=True, cmap="Blues")`.
 - Make one chart badly on purpose, then fix it, and keep both to show the improvement.
 
-## Mentoring Session Plan (90 min)
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review pandas notebooks |

@@ -143,8 +143,7 @@ Pick a topic you care about and produce a summary you'd trust enough to share:
 - Ask AI to quiz you on a topic you're learning, then grade yourself honestly.
 - Take a high-stakes question and list the primary sources you'd check instead of AI.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; "use AI to start research, not finish it" |

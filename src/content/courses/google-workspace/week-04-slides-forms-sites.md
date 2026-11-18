@@ -158,8 +158,7 @@ Produce a connected set a small business could use:
 - Rebuild your bar chart as a line chart and decide which tells the story better.
 - Read the official guides for [saving Form responses to Sheets](https://support.google.com/docs/answer/2917686) and [publishing a Site](https://support.google.com/sites/answer/6372880).
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0–10 min | Review Week 3 dashboard and confirm figures are labelled fictional |

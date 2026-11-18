@@ -118,7 +118,7 @@ Submit `week10_model.pbix` with:
 - Add a calculated column `Net Revenue = orders[quantity] * orders[unit_price] * (1 - orders[discount_pct] / 100)` in Table view (Week 11 shows why measures are usually better).
 - Compare: which tool cleaned the data in the fewest steps, and why does refresh matter?
 
-## Mentoring Session Plan (90 min)
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review Portfolio Project 1 GitHub links (quick feedback) |

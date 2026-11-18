@@ -143,8 +143,7 @@ The work may be fictional; any real person or client footage must be permission-
 - Ask a reviewer to watch your reel and name the single strongest ten seconds.
 - Draft a short, respectful introduction you could send a local business with your reel.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Confirm project permissions and final destinations |

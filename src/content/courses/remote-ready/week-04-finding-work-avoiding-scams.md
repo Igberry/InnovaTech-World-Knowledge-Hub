@@ -145,8 +145,7 @@ Run an actual search this week, not a practice one:
 - Set a small daily target (e.g. two applications a day) and tick it in the tracker.
 - Save one scam message you receive (don't reply) as a real example for your red-flags note.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review portfolios from Week 3 |

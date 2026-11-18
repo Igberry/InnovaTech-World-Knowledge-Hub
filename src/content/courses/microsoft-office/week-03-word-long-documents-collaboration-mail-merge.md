@@ -162,8 +162,7 @@ The facilitator uses the same checklist for each learner and considers the resul
 - Add a simple fillable form control (text field or drop-down) with fictional entries.
 - Use **Check for Issues** to find author names or tracked changes hiding in the metadata.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review Week 2 documents and set up a safe proposal copy |

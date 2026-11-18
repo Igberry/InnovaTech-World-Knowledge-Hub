@@ -137,8 +137,7 @@ Before you leave the location, watch a few clips. If focus or audio failed, resh
 - Shoot one "five second" detail you could imagine opening a Fresh Bites advert.
 - Try one slow, rehearsed pan on a clear, safe path and see if it stays watchable.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Confirm safe subject, permission, devices and storage |

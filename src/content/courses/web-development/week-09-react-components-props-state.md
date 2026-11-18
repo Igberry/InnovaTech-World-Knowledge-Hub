@@ -221,8 +221,7 @@ Notice `addToCart` creates a **new** array (`[...cart, item]`) rather than mutat
 - Show the cart total and an "empty cart" message conditionally.
 - Add a "Spicy" tag that only shows for spicy items.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review the Vite + Tailwind app |

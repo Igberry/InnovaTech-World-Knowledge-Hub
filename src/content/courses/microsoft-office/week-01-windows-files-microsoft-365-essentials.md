@@ -171,8 +171,7 @@ If you cannot use OneDrive, write a short note on which permission and recovery 
 - Set up a second local backup copy of your course folder and practise restoring one file from it.
 - Learn three more shortcuts from the cheat sheet and use each five times today.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Check device access, accessibility needs and safe practice folder setup |

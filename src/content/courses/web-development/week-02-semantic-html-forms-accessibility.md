@@ -231,8 +231,7 @@ Pages.
 - Add a `<figure>` with a dish image and caption on the menu page.
 - Add a phone input with a pattern: `<input type="tel" pattern="[0-9+ ]{7,15}" />`.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review last week's live sites and commit history |

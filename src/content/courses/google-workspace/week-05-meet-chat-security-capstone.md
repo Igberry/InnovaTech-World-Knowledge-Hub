@@ -143,8 +143,7 @@ For the fictional six-role Fresh Bites team, build and document a workspace that
 - Keep learning: [Automation](/courses/automation/) covers Forms-to-Sheets workflows, and [Cybersecurity Foundations](/courses/cybersecurity/) goes deeper on account recovery and phishing.
 - For client work and portfolios, continue with [VA Launch](/courses/virtual-assistant/) and [Remote Ready](/courses/remote-ready/). The optional [Associate Google Workspace Administrator certification](https://cloud.google.com/learn/certification/associate-google-workspace-administrator) is a separate Google Cloud exam, not a promise of employment.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0–10 min | Agree on safe meeting and screen-sharing boundaries |

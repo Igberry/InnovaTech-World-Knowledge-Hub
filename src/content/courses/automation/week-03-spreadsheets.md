@@ -119,8 +119,7 @@ sheet, or your task-audit log extended) that does its own work:
 - Add a dropdown to a sheet a family member uses and watch their typos disappear.
 - Ask an AI to explain one formula you do not understand, then test its answer.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; a spreadsheet as a tool that works for you |

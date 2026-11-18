@@ -135,8 +135,7 @@ Produce a one-page brief you'll reuse all course:
 - Find one person in Nigeria doing your target role remotely and read how they describe it.
 - Save a job advert you love as the "dream role" you're working towards.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Welcome; what everyone hopes to get from the course |

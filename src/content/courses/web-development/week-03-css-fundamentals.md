@@ -237,8 +237,7 @@ genuinely satisfying, and great for your portfolio.*
 - Check text contrast with the DevTools contrast tool and fix any pair that fails.
 - Add a subtle hover lift to cards with `transform: translateY(-2px)`.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review Week 2 sites; look at commit history |

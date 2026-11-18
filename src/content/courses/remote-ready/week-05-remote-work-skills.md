@@ -132,8 +132,7 @@ Assemble the kit you'll use on your first remote job:
 - Record yourself explaining a task in a 1-minute video (practice for async video updates).
 - Rewrite one more vague message from your own chats into a clear, complete one.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 | Review the Week 4 job-search progress |

@@ -155,7 +155,7 @@ Submit `week7_python_basics.ipynb` (Colab: File -> Download .ipynb) with five pr
 - Without `sum()`, total a list of prices with a loop, then check against `sum()`.
 - Finish the first five **Kaggle Learn -> Python** lessons.
 
-## Mentoring Session Plan (90 min)
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review Week 6 GitHub repos, give feedback |

@@ -148,8 +148,7 @@ Build a **ten-slide pitch deck** for the fictional Fresh Bites catering service 
 - Prepare an answer for one likely question the deck does not cover.
 - Record your one-minute talk once and watch it back for filler words.
 
-## Mentoring Session Plan (90 min)
-
+## Mentoring Session Plan (90 min) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Review Week 4 chart and select one message for the pitch |

@@ -126,8 +126,7 @@ Build and document **one multi-step automation** (at least three steps, one cond
 - Add a branch: send a different message for one type of order.
 - Time how long the manual version takes, so next week's reliability work has a number to beat.
 
-## Mentoring Session Plan (90 minutes)
-
+## Mentoring Session Plan (90 minutes) {advanced}
 | Time | Activity |
 |---|---|
 | 0-10 min | Recap; more power means more need to test |
