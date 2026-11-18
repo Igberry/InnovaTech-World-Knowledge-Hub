@@ -419,7 +419,7 @@ const courseJsonLd = {
 
 <script>
   import { isPortalEnabled } from '../../../lib/portal-config';
-  import { currentUser } from '../../../lib/auth';
+  import { currentUser, isAdminMember } from '../../../lib/auth';
   import { getPlans, myEntitlement, validateVoucher, amountAfterVoucher, checkout, nairaFromKobo } from '../../../lib/payments';
   import { withBase } from '../../../utils/links';
 
@@ -435,6 +435,13 @@ const courseJsonLd = {
       const plans = await getPlans(course);
       if (!plans.length) return; // not configured yet -> stay hidden
       section.hidden = false;
+
+      // Admins get full access to every course without paying.
+      const user = await currentUser();
+      if (user && await isAdminMember()) {
+        statusEl.innerHTML = `<p class="pricing-granted">Admin access - you have full access to this course, no payment needed. Scroll down to start learning.</p>`;
+        return;
+      }
 
       const entitled = await myEntitlement(course);
       if (entitled) {
