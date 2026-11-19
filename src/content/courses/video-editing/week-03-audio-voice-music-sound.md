@@ -48,7 +48,7 @@ draft: false
 **Why it matters:** a clipped recording is distorted for good. You cannot fix it by turning it down later.
 
 **Do this now:**
-1. Watch the meter while you speak. If it slams the top and sounds harsh, that is clipping.
+1. Watch the meter while you speak. If it slams the top and sounds harsh, that is clipping. (The meter is the moving bar in your recording app or editor that shows how loud the sound is right now.)
 2. Lower the input level or move back from the mic, then record again.
 3. If a take is very quiet, notice how raising it later also raises room noise. Aim for a comfortable middle.
 
@@ -61,7 +61,7 @@ draft: false
 **Do this now:**
 1. Listen to your voice take on headphones. Note any click, hum, wind or mouth noise.
 2. Play it back on a phone speaker or second device. Can you still hear every word?
-3. Trust your ears over the waveform size.
+3. Trust your ears over the waveform size. (The waveform is the jagged shape that represents a sound on the timeline; a tall waveform is not proof the words are clear.)
 
 **You've got it when:** the voice is clear on both headphones and a small speaker.
 
@@ -72,7 +72,7 @@ draft: false
 **Do this now:**
 1. Put your voice-over on its own track, aligned with the picture it explains.
 2. Add music on a separate track (only if its licence allows your use, see Try it 5).
-3. Use your editor's ducking control, or drop volume keyframes manually so music dips under speech and lifts in the gaps.
+3. Use your editor's ducking control, or drop volume keyframes manually so music dips under speech and lifts in the gaps. (A keyframe pins a value such as volume to an exact moment; set two of them and the editor slides smoothly from one level to the other.)
 4. Add short fades at the start and end. Listen: the viewer should notice the story, not the volume moving.
 
 **You've got it when:** speech stays clear over the music and the dips sound smooth.
@@ -105,7 +105,7 @@ Re-edit your Week 2 video with a 20 to 30 second voice-over, balanced audio, and
 1. Record the voice-over and place it against the right shots.
 2. Add music and one sound effect only if the licence permits; otherwise document that you omitted music and why.
 3. Apply ducking or manual volume so speech stays clear.
-4. Submit the new edit, the script, and a complete licence log. Noise reduction, EQ and normalisation are optional polish; make a duplicate first, apply the smallest change that helps, and compare at equal loudness. Never add a sound effect that fakes an event that did not happen.
+4. Submit the new edit, the script, and a complete licence log. Noise reduction, EQ and normalisation are optional polish (EQ, short for equalisation, turns particular tones up or down, such as cutting a boomy rumble or a harsh hiss, and normalisation lifts a whole clip to a standard loudness); make a duplicate first, apply the smallest change that helps, and compare at equal loudness. Never add a sound effect that fakes an event that did not happen.
 
 ### Grading guide
 

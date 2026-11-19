@@ -65,7 +65,7 @@ draft: false
 
 **Do this now:**
 1. Edit version 1 from permitted footage (fictional choir, Fresh Bites, or your own permitted clips).
-2. Add a timecode slate so a reviewer can point to an exact moment.
+2. Add a timecode slate so a reviewer can point to an exact moment. (Timecode is the running time shown on screen as minutes and seconds, like 0:12, so feedback can name an exact point.)
 3. Name it clearly, for example `ChoirPromo_v01_review.mp4`, and keep project, notes and exports together.
 
 **You've got it when:** a labelled V1 with visible timecode is ready to send for review.
@@ -86,7 +86,7 @@ draft: false
 **Why it matters:** a clean hand-off with honest titles and a delivery note is what gets you hired again.
 
 **Do this now:**
-1. Draft an accurate title and a thumbnail concept that is readable small and not misleading.
+1. Draft an accurate title and a thumbnail concept that is readable small and not misleading. (A thumbnail is the small still image that represents the video before someone presses play.)
 2. Write a description with the subject, approved sources and a clear next step.
 3. Create a delivery note listing files, version, destination and any known limitation. Ask how long raw files should be kept.
 4. Check current platform requirements before any publish, and never upload a client project to a personal or public account without written approval.

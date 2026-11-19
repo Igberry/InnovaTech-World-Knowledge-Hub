@@ -70,7 +70,7 @@ draft: false
 
 ## Try it 4 - Gather B-roll that tells the truth
 
-**Why it matters:** B-roll covers cuts and illustrates points, but misused it fakes a different event.
+**Why it matters:** B-roll (extra supporting footage, such as hands working, the location or close details, that you lay over the main clip or an interview to illustrate it and hide cuts) covers cuts and illustrates points, but misused it fakes a different event.
 
 **Do this now:**
 1. For a spoken line like "I check each detail", film the detail actually being checked.
@@ -84,7 +84,7 @@ draft: false
 **Why it matters:** a long edit is unmanageable in one pass. Stages keep you sane and the story clear.
 
 **Do this now:**
-1. In the Media area, make bins for interviews, B-roll, audio, graphics and sequences. Name clips usefully.
+1. In the Media area, make bins for interviews, B-roll, audio, graphics and sequences. Name clips usefully. (Bins are simply folders inside the editor for sorting your clips.)
 2. Build a **string-out** (candidate clips in rough order), then a **rough cut** (story and timing), then a **fine cut** (pacing, sound, graphics).
 3. Use the Cut or Edit area to assemble, Color for consistency, Fairlight for audio, Deliver for export. Learn each area's goal rather than memorising menus.
 4. If a line is shortened, play it with its neighbours and confirm the meaning is unchanged.
@@ -94,7 +94,7 @@ draft: false
 ## Low-spec workflow quick wins
 
 - Keep source files on a local drive with room for project, cache and exports.
-- Use proxy or optimised media for smooth playback and never delete the originals.
+- Use proxy or optimised media for smooth playback and never delete the originals. (A proxy is a smaller, lighter stand-in copy that plays back smoothly while you edit; the editor swaps the full-quality originals back in for the final export.)
 - If proxies are missing, lower the preview resolution, edit fewer clips, or switch to Shotcut.
 - Assembling on a phone is acceptable if the deliverable stays accessible and backed up. Record the constraint and what you would revisit on a stronger machine.
 

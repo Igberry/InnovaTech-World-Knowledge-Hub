@@ -18,6 +18,8 @@ downloads:
     href: "/downloads/virtual-assistant/customer-service-templates.md"
   - label: "Role-play scenarios"
     href: "/downloads/virtual-assistant/role-play-scenarios.md"
+  - label: "Application and Skills Tracker"
+    href: "/downloads/virtual-assistant/application-tracker-template.csv"
 ---
 
 **Goal:** Build the actual things clients ask VAs to make, a graphic, a content calendar, an expense tracker,
@@ -34,7 +36,8 @@ show.
 
 ## Before you start (about 10 minutes)
 
-- Create a free Canva account and open the
+- Create a free Canva account (Canva is a free online design tool you use in your browser, no design skills
+  needed) and open the
   [content calendar template](/downloads/virtual-assistant/content-calendar-template.csv).
 - Warm-up: think of one small Nigerian business you know (a caterer, a thrift store, a barber) and jot three
   things they could post this week. You'll turn these into a real calendar below.
@@ -84,7 +87,9 @@ badly need it. You need care and consistency, not an accounting background.
 
 ## Try it 4 - Triage an inbox and write service replies
 
-**Why it matters:** fast, calm replies are what turn a trial into a retainer.
+**Why it matters:** fast, calm replies are what turn a trial into a retainer. A **retainer** is an ongoing
+arrangement where a client pays you a set amount each month to keep helping them, instead of a one-off job, so
+it means steady, repeating income.
 
 **Do this now:**
 1. Practise the four actions on a messy inbox: do, delegate, defer, delete/archive.
@@ -119,7 +124,9 @@ not to land a job this week:
 - Use your Week 2 profiles and the
   [basic proposal template](/downloads/virtual-assistant/basic-proposal-template.md), and **tailor each
   message**.
-- **Log every application** in your Application Tracker.
+- **Log every application** in your
+  [Application and Skills Tracker](/downloads/virtual-assistant/application-tracker-template.csv) (the
+  spreadsheet from the Setup Guide; download it from the panel if you do not have it yet).
 - **Start the daily WhatsApp "applications sent" check-in** to your mentor, even "0 today, here's why" counts.
   The habit is what matters.
 

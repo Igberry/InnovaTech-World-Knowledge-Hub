@@ -18,6 +18,8 @@ downloads:
     href: "/downloads/virtual-assistant/platform-and-agency-list.md"
   - label: "WhatsApp check-in prompts"
     href: "/downloads/virtual-assistant/whatsapp-check-in-prompts.md"
+  - label: "Application and Skills Tracker"
+    href: "/downloads/virtual-assistant/application-tracker-template.csv"
 ---
 
 **Goal:** Pin down the platforms that fit your niche and are open to you, write proposals that get replies,
@@ -66,9 +68,11 @@ and start applying every day. You'll write real proposals and outreach, not stud
 **Why it matters:** most proposals are about the applicant; the ones that win are about the client's problem.
 
 **Do this now - using the [5-Line Proposal framework](/downloads/virtual-assistant/proposal-framework-5-line.md):**
-1. Line 1: a hook that mirrors the job post (use the phrase you copied in the warm-up).
+1. Line 1: a **hook** (an opening line that grabs attention) that mirrors the job post (use the phrase you
+   copied in the warm-up).
 2. Lines 2 to 4: proof, then your plan, then your availability/rate.
-3. Line 5: a clear call to action.
+3. Line 5: a clear **call to action** (one sentence telling the client the next step, for example "Can we hop
+   on a quick call this week?").
 
 **You've got it when:** you have one proposal that leads with the client's problem and your proof.
 

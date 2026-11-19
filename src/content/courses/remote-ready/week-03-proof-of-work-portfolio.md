@@ -15,6 +15,11 @@ downloads:
 **Goal:** By the end of this week you'll have a simple, shareable portfolio of your 2-4 best pieces, each with
 a short case study, plus one reference requested. You build it this week from work you already have.
 
+> *Plain English:* a **portfolio** is a small, organised collection of your best work samples that an employer
+> can open and look through. A **case study** is a short write-up next to each sample that explains what the
+> job was, what you did, and what happened. A **reference** is a person who agrees to speak well of your work
+> if an employer asks them.
+
 ## What you'll be able to do
 
 - Choose and present 2-4 pieces of work that prove your skills
@@ -77,11 +82,13 @@ work count.
 | LinkedIn "Featured" + Projects | Everyone | Free, already part of your profile |
 | A PDF or Google Doc | VAs, writers, analysts | Easy, shareable link, works on low data |
 | A free site builder | Designers, developers | More polished; check current free tiers |
-| GitHub | Developers, data | Code and README (see the Data Analysis / Web Development courses) |
+| GitHub | Developers, data | Code and a README, a plain-text file that explains what a project is and how to run it (see the Data Analysis / Web Development courses) |
 
 1. Build your portfolio in one of the above.
 2. Get a shareable link and test it opens in a private browser window (so you see what others see).
-3. Add the link to your CV and LinkedIn, and your two best pieces to LinkedIn's Featured section.
+3. Add the link to your CV and LinkedIn, and your two best pieces to LinkedIn's Featured section. (Featured is
+   a strip near the top of your LinkedIn profile where you can pin links, images or files so visitors see your
+   best work first. Turn it on from your profile via "Add profile section" then "Recommended" then "Add featured".)
 
 **You've got it when:** you have one link that opens cleanly for anyone, linked from your CV and LinkedIn.
 
@@ -93,7 +100,9 @@ work count.
 1. Pick someone who has seen your work: a course facilitator, volunteer coordinator, past client or team lead.
 2. Send a short, polite ask: explain the role you're seeking and make it easy ("A line or two about working
    with me would mean a lot").
-3. On LinkedIn, you can request a recommendation with their permission.
+3. On LinkedIn, you can request a recommendation with their permission. (A LinkedIn recommendation is a short
+   public note the person writes on your profile; it works like a reference that anyone visiting can read.
+   Ask from their profile using the "More" button, then "Request a recommendation".)
 
 **You've got it when:** you've asked at least one person, and kept a short list of 1-3 references (name,
 relationship, how to contact) private, not public.

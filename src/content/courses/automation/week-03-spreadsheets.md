@@ -42,6 +42,11 @@ recalculates the instant the data changes.
 4. Find the biggest and smallest with `=MAX(B2:B10)` and `=MIN(B2:B10)`.
 5. Change a number in the range and watch the totals update themselves.
 
+**What these do, in plain words:** `SUM` adds up all the numbers in a range of cells, `AVERAGE` gives their
+average, `B2*C2` multiplies two cells together, and `MAX` / `MIN` find the biggest and smallest number.
+`B2:B10` just means "all the cells from B2 down to B10". Every formula starts with `=` to tell the sheet
+"work this out for me".
+
 **You've got it when:** your totals change on their own the moment you edit a number.
 
 ## Try it 2 - Let the sheet decide and look things up
@@ -54,6 +59,12 @@ recalculates the instant the data changes.
 3. Add by condition with `=SUMIF(A2:A50, "Paid", B2:B50)`.
 4. Build a tiny product list, then pull a price by name with a lookup (`XLOOKUP` or `VLOOKUP`).
 5. Stuck on a formula? Ask an AI to draft it (from the AI course), then test it on a small copy.
+
+**What these do, in plain words:** `IF` checks a question and shows one answer when it is true and another
+when it is false (here, "Big order" when the value is over 10000, otherwise "Normal"). `COUNTIF` counts how
+many cells match a value, like how many rows say "Paid". `SUMIF` adds up numbers only for the rows that
+match, like the total money from the paid rows. A **lookup** (`XLOOKUP` or `VLOOKUP`) finds a matching item
+in a list and returns a related value, like finding a price by typing a product name.
 
 **You've got it when:** the sheet answers "how many paid? total paid?" without you counting.
 

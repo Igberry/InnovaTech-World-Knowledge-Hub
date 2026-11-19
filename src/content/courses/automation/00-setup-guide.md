@@ -17,6 +17,17 @@ downloads:
 automation with your own hands, and learn the four safety habits that keep automations from causing harm.
 Almost no reading - you set things up by doing.
 
+### New to automation? Read this once
+
+If automation is new to you, here is everything the rest of the course assumes, in plain words. You do not
+need to memorise it; come back whenever a word is unclear.
+
+- **Automation** means a task runs on its own, without you doing each step by hand. Example: a new form reply gets added to a spreadsheet automatically.
+- **Trigger** is the event that starts an automation, the "WHEN" part. Example: "when a new email arrives".
+- **Action** is what happens in response, the "DO" part. Example: "add a row to a spreadsheet".
+- **No-code tool** is an app that links your other apps with clicks instead of programming. You pick a trigger and an action from menus. Popular ones with a free tier: Zapier, Make, and Microsoft Power Automate.
+- **The accounts you need** are ones you likely already have (your email and a spreadsheet) plus one free no-code tool account. Nothing here costs money.
+
 ## What you'll be able to do
 
 - Create the free accounts an automation beginner needs
@@ -49,6 +60,7 @@ nothing more.
 
 **Do this now:**
 1. Open your tool and start creating a new automation (look for "Create", "New Zap", "New flow", or similar).
+   Different tools use different words for one automation: Zapier calls it a **Zap**, Make calls it a **scenario**, and Microsoft Power Automate calls it a **flow**. They all mean the same thing - one trigger plus one or more actions.
 2. Browse the list of **triggers** - notice options like "new email", "new form response", "new row".
 3. Browse the list of **actions** - notice "send email", "add row", "create task".
 4. Do not finish it yet. Just close it. You have seen the whole idea: pick a trigger, pick an action.

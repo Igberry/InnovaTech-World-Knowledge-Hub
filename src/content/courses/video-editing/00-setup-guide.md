@@ -16,6 +16,15 @@ draft: false
 ---
 **Goal:** In one short session, get a phone, an editor and a recoverable project folder working, then prove it with a 10-second test clip you can shoot, play back and copy. You set up by doing, not by reading.
 
+> **New to video editing? Read this once.** A handful of words come up all through this course. Come back here any week one of them stops making sense.
+> - **Clip:** one single piece of recorded video or audio.
+> - **Import:** bringing your clips into the editor so you can work on them. It points the editor at your file, it does not move or change your original.
+> - **Timeline:** the strip along the bottom of the editor where you lay clips out in the order they play. Time runs from left (the start) to right (the end).
+> - **Track:** one horizontal lane on the timeline. Picture sits on one lane, with sound, titles and logos stacked on lanes above or below it.
+> - **Export:** turning your finished timeline into one complete video file (usually an .mp4) you can play or send. Some editors call this "render".
+> - **Aspect ratio:** the shape of the frame. Landscape (wide, 16:9) suits YouTube and TV; vertical (tall, 9:16) suits phone feeds like TikTok, Reels and Shorts.
+> You will practise every one of these below.
+
 ## What you'll be able to do
 
 - Record and replay a clean 10-second test clip
@@ -104,7 +113,7 @@ FreshBites_Project/
 
 - Keep the timeline short and copy the project before testing heavy effects.
 - Lower the preview resolution if the editor offers it; it changes preview smoothness, not final quality.
-- Use proxy or optimised media if available, and keep originals untouched.
+- Use proxy or optimised media if available, and keep originals untouched. (A proxy is a smaller, lighter copy of your footage that plays back smoothly on a slow computer; the editor swaps the full-quality original back in for the final export.)
 - Close browser tabs and heavy apps; save before each new effect.
 - If playback stutters, try a lower preview, a shorter timeline, or Shotcut. The machine is probably fine.
 
@@ -113,7 +122,7 @@ FreshBites_Project/
 - Hold the phone with both hands, elbows in, or brace it on a surface. Do not walk backward watching the screen.
 - Start recording a few seconds before the action and hold after it, so an editor has room to cut.
 - Face the subject toward a window, not with the window behind them. A white sheet of paper can bounce light. Keep it away from heat, flame and water.
-- Move the phone close to the speaker and pause noisy appliances. Record a few seconds of room tone.
+- Move the phone close to the speaker and pause noisy appliances. Record a few seconds of room tone (room tone is the ordinary background sound of a place with nobody speaking; an editor uses it to smooth over gaps and cuts).
 
 ## Consent, licensing and safety
 

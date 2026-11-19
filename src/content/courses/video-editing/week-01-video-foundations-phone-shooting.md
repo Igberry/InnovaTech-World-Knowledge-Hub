@@ -38,8 +38,8 @@ draft: false
 **Why it matters:** switching frame rate, resolution or orientation mid-shoot makes clips that fight each other in the edit. Pick once, stay there.
 
 **Do this now:**
-1. Open the camera's normal video mode. If you can choose, pick a frame rate your phone supports (24, 25, 30 or 60 are common) and 1080p if storage allows.
-2. Turn on the grid. Tap to focus, and lock focus and exposure if your phone offers it.
+1. Open the camera's normal video mode. If you can choose, pick a frame rate your phone supports (24, 25, 30 or 60 are common) and 1080p if storage allows. Frame rate is how many still pictures the camera captures each second (higher looks smoother); 1080p is a resolution, meaning how many dots build the picture, and it is a safe, widely supported choice.
+2. Turn on the grid. Tap to focus, and lock focus and exposure if your phone offers it. (Exposure is how bright or dark the picture looks; locking it stops the brightness jumping around as you move the phone.)
 3. Record a 5-second sample and play it back. Check focus, exposure, sound and file size.
 
 **You've got it when:** you have one setting chosen and you will not change it for the rest of the shoot.
@@ -56,7 +56,7 @@ draft: false
 3. **Close-up:** a person, object or action.
 4. **Detail:** one small feature, like a texture or a tool.
 
-Start recording a few seconds before the action and hold after it, every time.
+Start recording a few seconds before the action and hold after it, every time. Those spare seconds are called handles, and they give you room to make a clean cut later.
 
 **You've got it when:** you can line up four clearly different shots of one subject.
 
@@ -78,7 +78,7 @@ Start recording a few seconds before the action and hold after it, every time.
 **Do this now:**
 1. Record a voice or natural-sound test close to the source, then again from across the room. Compare with headphones.
 2. Pause fans, ask for quiet, and record a few seconds of **room tone** (the location's ordinary sound, no speech).
-3. Listen for traffic, a fan, clipping or a distant voice before you commit to a real take.
+3. Listen for traffic, a fan, clipping or a distant voice before you commit to a real take. (Clipping is the harsh, crackly distortion you get when sound is recorded too loud; it cannot be repaired afterwards, so catch it now.)
 
 **You've got it when:** the close recording is clearly the cleaner one, and you know your quietest spot.
 

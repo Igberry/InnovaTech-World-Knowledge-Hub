@@ -96,7 +96,9 @@ If you're new, use **projects, volunteering or coursework** (including your Inno
 3. **About:** 3-5 short paragraphs, first person, warm and specific: who you are, what you do, what you want,
    how to contact you.
 4. **Experience and skills:** mirror your CV; add 5-10 relevant skills.
-5. **Custom URL:** edit it to your name.
+5. **Custom URL:** the web address of your profile. By default it ends in random numbers; change it to your name
+   (for example `linkedin.com/in/jane-okoro`) so it looks tidy when you share it. On your profile page, click
+   "Edit public profile & URL" (top right), then edit the URL on the right.
 
 **You've got it when:** every item on the LinkedIn checklist is ticked, including a custom URL.
 

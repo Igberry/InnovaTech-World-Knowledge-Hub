@@ -13,6 +13,8 @@ downloads:
     href: "/downloads/typing-skills/shortcuts-cheat-sheet.md"
   - label: "Shortcuts quiz"
     href: "/downloads/typing-skills/shortcuts-quiz.md"
+  - label: "Keyboard finger map"
+    href: "/downloads/typing-skills/keyboard-finger-map.md"
 draft: false
 ---
 **Goal:** Type work numbers and punctuation accurately, use the numpad safely, and fire off the editing shortcuts that save real time. You build the skill by entering real-shaped data, not by reading about it.
@@ -150,7 +152,7 @@ The real, useful deliverable:
 
 ## Extra quick wins (optional)
 
-- Type ten ISO-format dates and confirm every digit sits right.
+- Type ten ISO-format dates (the year-month-day order, like `2026-05-04`) and confirm every digit sits right.
 - Enter five Naira amounts on the numpad and verify the punctuation.
 - Time yourself on ten rows, then beat it on the next ten without dropping accuracy.
 

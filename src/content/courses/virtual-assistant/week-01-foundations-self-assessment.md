@@ -77,7 +77,12 @@ that a VA does for clients. You almost certainly have more than you think.
 
 ## Try it 3 - Decide generalist or specialist
 
-**Why it matters:** this choice shapes who you pitch and what you can charge.
+**What these words mean:** a **niche** is the specific kind of VA work you focus on (for example social media,
+or real-estate admin). A **generalist** offers broad general admin to anyone; a **specialist** focuses on one
+niche.
+
+**Why it matters:** this choice shapes who you pitch (who you send your one-line sales message to) and what
+you can charge.
 
 **Do this now - weigh the trade-off:**
 

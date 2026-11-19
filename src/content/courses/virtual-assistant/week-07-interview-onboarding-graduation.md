@@ -48,6 +48,11 @@ not read about it.
 
 ## Try it 1 - Build your onboarding checklist
 
+**What these words mean:** **onboarding** is the set of steps you run in the first days with a new client to
+get started cleanly: getting access to their tools, agreeing how you will communicate, and agreeing the first
+task. A **deliverable** is a finished piece of work you hand over (for example a completed content calendar or
+a sorted inbox).
+
 **Why it matters:** a clean first week sets the tone; clear access, expectations, and a first deliverable
 build trust fast.
 
@@ -79,7 +84,8 @@ becomes a real income.
 
 **Do this now:**
 1. Note how you'll over-communicate in the first month to build trust.
-2. Pick the gentle script you'll use to ask for feedback and a testimonial.
+2. Pick the gentle script you'll use to ask for feedback and a **testimonial** (a short written recommendation
+   from a happy client that you can show future clients).
 3. Set a **90-day goal** using the [template](/downloads/virtual-assistant/ninety-day-goal-template.md):
    clients, income, and the skills you'll keep learning (other Innovatech World courses help here).
 
@@ -108,7 +114,9 @@ job-ready.
 ## This week's job-hunt focus
 
 **Close out.** Either **confirm a first client/job**, or leave with a **fully active pipeline** and a
-**concrete next-2-weeks plan**. Success is measured by momentum, not a guaranteed job on day 49.
+**concrete next-2-weeks plan**. Your **pipeline** is all the applications and leads you have in progress, the
+jobs you have applied to and the clients you are talking to but have not closed yet. Success is measured by
+momentum, not a guaranteed job on day 49.
 
 ## This week's build: your VA Career Package
 

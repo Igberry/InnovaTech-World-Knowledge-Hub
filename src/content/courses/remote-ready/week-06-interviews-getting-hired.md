@@ -18,6 +18,9 @@ downloads:
 test tasks and money questions, chosen a payment method, and assembled your complete remote-ready package (your
 capstone). You practise by doing, not by reading.
 
+> *Plain English:* a **capstone** is the final project that pulls everything from the course together into one
+> finished package you can actually use.
+
 ## What you'll be able to do
 
 - Prepare for and perform well in a remote interview

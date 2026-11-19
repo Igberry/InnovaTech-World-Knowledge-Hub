@@ -51,7 +51,7 @@ draft: false
 **Do this now:**
 1. Use the same title style, alignment and accent across your titles.
 2. Place the fictional Fresh Bites logo so it does not cover the product or the captions.
-3. Add a lower third with accurate, fictional, approved text such as "Sample menu". Never invent a real person's title, address or endorsement.
+3. Add a lower third (a strip of text set low on the screen that names a person, place or item) with accurate, fictional, approved text such as "Sample menu". Never invent a real person's title, address or endorsement.
 4. Keep a clean version without the logo in case a client wants a clean master.
 
 **You've got it when:** your titles share one look and the logo never blocks key content.
@@ -73,8 +73,8 @@ draft: false
 **Why it matters:** mismatched colour makes a cut look accidental. A little correction makes a series look intentional.
 
 **Do this now:**
-1. Put two clips side by side. Adjust exposure so important detail is visible.
-2. Balance white so a neutral object looks neutral, then make a modest contrast change, then check saturation.
+1. Put two clips side by side. Adjust exposure so important detail is visible. (Exposure here means the overall brightness of the shot.)
+2. Balance white so a neutral object looks neutral, then make a modest contrast change, then check saturation. (Contrast is the gap between the darkest and lightest parts of the picture; saturation is how strong or vivid the colours are.)
 3. If a white shirt looks blue in one clip and orange in another, suspect mixed light before reaching for a preset.
 4. Compare before and after at the same brightness. Avoid crushing shadows or over-saturating skin and food.
 
@@ -105,7 +105,7 @@ draft: false
 
 Create a branded 30-second advert for a fictional Fresh Bites sample offer or your own permitted subject.
 
-1. Include a title, a lower third, readable proofread captions, a logo end-card and consistent restrained colour.
+1. Include a title, a lower third, readable proofread captions, a logo end-card and consistent restrained colour. (An end-card is the final few seconds that show a logo or closing message.)
 2. Make the call to action harmless and honest, such as "See the sample menu". No invented price, location, testimonial or guarantee, and no real contact detail on the end-card.
 3. Submit the project or a playable export plus a one-page design-choices note.
 4. Also run the 90-minute mid-course checkpoint: take the supplied [raw-clip brief](/downloads/video-editing/checkpoint-raw-clips-brief.md) (or a facilitator-prepared permission-cleared set) and build a 30-second captioned video with a title and balanced audio, time-boxed. Submit the export and a short note with one decision and one remaining limitation.

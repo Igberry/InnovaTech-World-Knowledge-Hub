@@ -86,7 +86,7 @@ draft: false
 
 **Do this now:**
 1. Check the test type: speed, accuracy, data entry or formatting. Read the instructions first.
-2. Confirm whether mistakes can be corrected, whether the text is supplied, the time limit, and whether the score is gross or net.
+2. Confirm whether mistakes can be corrected, whether the text is supplied, the time limit, and whether the score is gross or net. Gross WPM counts everything you typed; net WPM takes your errors off the total, so it is the stricter number.
 3. Before you start: check the keyboard works, close unrelated apps, silence non-urgent notifications, and take a short warm-up. If remote, check power and connection in advance.
 4. Never have someone else sit a test for you.
 

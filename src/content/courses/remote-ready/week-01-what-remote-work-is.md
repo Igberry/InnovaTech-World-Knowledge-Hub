@@ -38,7 +38,11 @@ Nigeria with teams in Europe or the Americas. See it once and the rest makes sen
 1. Open three remote adverts. In each, look for words like "async", "overlap hours", "time zone", "stand-up",
    "live calls".
 2. Label each one in your notes: mostly live (sync), mostly written (async), or a mix.
-3. Write one line: which style would suit you working from WAT?
+3. Write one line: which style would suit you working from WAT (West Africa Time, UTC+1)?
+
+*Plain English:* a **stand-up** is a short daily team check-in, often 10-15 minutes, where everyone says what
+they are working on. **Hybrid** work means splitting time between home and a nearby office, so it usually needs
+you to live close to that office; most roles realistic from Nigeria are fully remote, and often async.
 
 **You've got it when:** you can say, in your own words, the difference between working at the same time
 (sync) and at different times (async), using a real advert as your example.
@@ -77,8 +81,9 @@ have-or-build mark next to each.
 **Why it matters:** the things that feel like obstacles can be framed as strengths an async team actually wants.
 
 **Do this now - write one line for each:**
-1. **Time zones:** WAT overlaps well with Europe and the mornings of the Americas. Note your overlap with
-   two target regions (use a world-clock search).
+1. **Time zones:** WAT overlaps well with Europe and the mornings of the Americas. Your *overlap* is the hours
+   when your work day and theirs are both open, so you can meet live. Note your overlap with two target regions
+   (search "world clock" and compare the two cities' current times).
 2. **Reliability:** one sentence on how your power and data plan (Setup Guide) keeps you dependable.
 3. **English:** one honest line on your written English and how you keep improving it.
 

@@ -59,7 +59,9 @@ Re-read it as if you were the busy person receiving it. Did you give them everyt
 **Do this now:**
 1. Create a free account for **one chat tool** (Slack, Teams or Discord).
 2. Create a free account for **one task tool** (Trello, Asana or Notion).
-3. Do a real test task in each: post a message in a channel, and make a board with three cards.
+3. Do a real test task in each: post a message in a channel, and make a board with three cards. (A **channel** is
+   a named chat room inside a tool like Slack, used for one topic or team. A **board** is a page of **cards**, where
+   each card is one task you can move between columns like "To do" and "Done".)
 
 | Category | Common tools | Used for |
 |---|---|---|

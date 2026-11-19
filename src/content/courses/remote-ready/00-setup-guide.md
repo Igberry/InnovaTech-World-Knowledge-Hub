@@ -15,6 +15,15 @@ downloads:
 you can take a video call from, and a written power and data plan. Almost no reading - you set each thing
 up as you go.
 
+> **New to remote work? Read this once.** Remote work means doing a job for a company or client over the
+> internet from wherever you are, instead of travelling to their office. Because your team is often in
+> another country, a lot of remote work is *async* (short for asynchronous): you send your work or updates
+> in writing and people reply later, when their day starts, instead of everyone being online at the same
+> time (that same-time way is *sync*, short for synchronous). Nigeria's clock is **WAT** (West Africa Time,
+> UTC+1). *Time zone overlap* means the hours when your work day and your employer's work day are both
+> happening, so you can talk live. These few ideas come up all course. You do not need to memorise them now,
+> just know the words when you see them.
+
 ## What you'll be able to do
 
 - Create and use a professional email and the core accounts (LinkedIn, a document tool)

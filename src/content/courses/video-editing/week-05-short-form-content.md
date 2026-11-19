@@ -39,7 +39,7 @@ draft: false
 **Do this now:**
 1. Write: "This video helps [viewer] understand [one thing]."
 2. If that sentence contains several unrelated ideas, split them into separate videos.
-3. Pick one honest action: notice a detail, save a checklist, ask a question, view a permitted resource. No guarantees, no pressure for private information.
+3. Pick one honest action: notice a detail, save a checklist, ask a question, view a permitted resource. No guarantees, no pressure for private information. (This one action is your call to action, or CTA: the single next step you ask the viewer to take.)
 
 **You've got it when:** one sentence captures one viewer, one idea and one action.
 
@@ -132,7 +132,7 @@ Produce a five-video series for fictional Fresh Bites or your own permitted subj
 ## Extra quick wins (optional)
 
 - Turn one shoot into two very different videos by only changing the idea and opening.
-- Read a sample retention chart from the facilitator and name one thing you would test.
+- Read a sample retention chart from the facilitator and name one thing you would test. (Watch-time is how long people actually watch; a retention chart shows the point where viewers tend to drop off.)
 - Rewrite your weakest hook three more ways and see if it improves.
 
 ## Mentoring Session Plan (90 min) {advanced}

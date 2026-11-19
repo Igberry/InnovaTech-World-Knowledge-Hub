@@ -17,6 +17,23 @@ downloads:
 system, a working video-call kit, and secure accounts. Almost no reading, you do each step as you go, and
 you walk into Week 1 ready.
 
+## New to virtual assistant work? Read this once
+
+If "virtual assistant" is new to you, read this once and the rest of the course will make sense.
+
+- **A virtual assistant (VA)** is someone who does support tasks for a business or a busy person from home,
+  over the internet: things like managing email, booking appointments, posting on social media, or tracking
+  expenses.
+- **A client** is the person or business who pays you to do that work. You might have one client or several.
+- **A platform (or marketplace)** is a website where clients post jobs and hire VAs, such as Upwork, Fiverr,
+  or LinkedIn. You make a profile there and apply to the posts.
+- **A proposal (or application)** is the short message you send to apply for a job: you explain how you can
+  help that client and why they should pick you.
+- **A niche** is the specific type of VA work you focus on (for example social media support, or real-estate
+  admin), instead of offering "everything to everyone".
+
+You do not need to memorise any of this now. Each week explains the terms again as you use them.
+
 ## What you'll be able to do
 
 - Spin up a professional email and a clean client-folder system

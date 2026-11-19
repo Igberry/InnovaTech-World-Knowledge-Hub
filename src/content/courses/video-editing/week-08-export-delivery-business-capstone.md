@@ -40,12 +40,12 @@ draft: false
 
 ## Try it 1 - Export the same video two ways
 
-**Why it matters:** one preset does not fit every destination. A review copy and a delivery master have different jobs.
+**Why it matters:** one preset does not fit every destination. A review copy and a delivery master have different jobs. (A master is your highest-quality final file, the clean source you keep and re-export from.)
 
 **Do this now:**
 1. Export one small review copy and one higher-quality delivery copy of the same video.
 2. Compare file size and how each plays on a second device.
-3. Match dimensions to the destination (vertical post, landscape presentation, review link, archive master). Date-stamp a project note with the current official requirements; do not reuse an old preset blindly.
+3. Match dimensions to the destination (vertical post, landscape presentation, review link, archive master). Date-stamp a project note with the current official requirements; do not reuse an old preset blindly. (A preset is a saved bundle of export settings; an out-of-date one can quietly break current platform requirements.)
 
 **You've got it when:** you can say which export is for review and which is for delivery, and both play elsewhere.
 

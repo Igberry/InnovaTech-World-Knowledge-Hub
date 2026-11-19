@@ -18,6 +18,8 @@ downloads:
     href: "/downloads/virtual-assistant/scam-red-flag-checklist.md"
   - label: "Rate negotiation scripts"
     href: "/downloads/virtual-assistant/rate-negotiation-scripts.md"
+  - label: "Application and Skills Tracker"
+    href: "/downloads/virtual-assistant/application-tracker-template.csv"
 ---
 
 **Goal:** Turn replies into offers, perform in interviews and trial tasks, hold your rate, and dodge scams.
@@ -75,8 +77,12 @@ and you need a line you can say calmly.
 
 **Why it matters:** learners cave fastest on price; a ready script keeps your rate steady under pressure.
 
+**What these words mean:** **scope** is the exact list of tasks you have agreed to do (what is included and
+what is not). A **lowball offer** is an offer that pays far below your rate.
+
 **Do this now - using the [negotiation scripts](/downloads/virtual-assistant/rate-negotiation-scripts.md):**
-1. Write your reply to a lowball offer, flex **scope**, not just price.
+1. Write your reply to a lowball offer, flex **scope**, not just price (for example offer fewer tasks for the
+   lower price instead of simply cutting your rate).
 2. Write one line that defines scope clearly before you start.
 3. List the checks you'll run to vet a client before committing, and recap safe payment (agree method up front).
 
@@ -91,7 +97,8 @@ and you need a line you can say calmly.
    upfront payment for "training", cheque/overpayment "refund the difference", unpaid "trial" work, pressure
    and vagueness.
 2. Memorise the rule that defeats most scams: **a real client pays you; you never pay or refund them.**
-3. If unsure: slow down, verify independently, and keep things on-platform.
+3. If unsure: slow down, verify independently, and keep things on-platform (do your chat, work, and payment
+   through the hiring site like Upwork, not private WhatsApp or bank transfers, so the site can protect you).
 
 **You've got it when:** you can spot a scam fast and know the one rule that stops it.
 

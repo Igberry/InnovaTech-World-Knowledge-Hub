@@ -76,7 +76,9 @@ and them.
 **Why it matters:** clients notice communication habits fast, and reward the VA who's easy to work with.
 
 **Do this now:**
-1. In Slack, post in a channel, then reply in a thread, and set your status; note when to DM vs post.
+1. In Slack (a team chat app clients use instead of email), post in a channel, then reply in a thread, and
+   set your status. Note when to send a **DM** (a direct message, a private one-to-one chat) versus posting in
+   the shared channel.
 2. In Zoom, join a test call: mute when not speaking, camera on, tidy background, share the link correctly.
 3. After any call, send a short "here's what we agreed" summary, clients love a VA who does this.
 
@@ -99,8 +101,10 @@ you learn one you can learn any.
 **Why it matters:** accurate hours and a clean invoice are how you get paid correctly and on time.
 
 **Do this now:**
-1. In Toggl or Clockify, start and stop a timer for a task so you see your real hours.
-2. Open the [invoice template](/downloads/virtual-assistant/invoice-template.csv) and fill it in: your
+1. In Toggl or Clockify (free apps that time your work), start and stop a timer for a task so you see your
+   real hours.
+2. An **invoice** is the bill you send a client listing the work and what they owe. Open the
+   [invoice template](/downloads/virtual-assistant/invoice-template.csv) and fill it in: your
    details, the client, line items (hours x rate), a total, and the payment method.
 3. For time zones, practise stating a time clearly: "3pm your time", and pick an overlap window.
 

@@ -11,6 +11,8 @@ downloads:
     href: "/downloads/typing-skills/practice-passages-week-2.md"
   - label: "Weak-key report template"
     href: "/downloads/typing-skills/weak-key-report-template.md"
+  - label: "Keyboard finger map"
+    href: "/downloads/typing-skills/keyboard-finger-map.md"
   - label: "Practice log template"
     href: "/downloads/typing-skills/typing-practice-log-template.csv"
 draft: false

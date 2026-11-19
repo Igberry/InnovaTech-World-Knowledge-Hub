@@ -17,6 +17,10 @@ downloads:
 **Goal:** By the end of this week you'll have found real openings, sent tailored applications, logged them in
 a tracker, and built a scam radar that protects your money. This is a real search, done this week, not a reading exercise.
 
+> *Plain English:* **job boards** are websites that list many openings in one place. **Freelance platforms** are
+> sites where clients post short paid projects you can apply or bid for. **Outreach** means contacting a company
+> or person directly to introduce yourself and offer your help, instead of waiting for them to post an advert.
+
 ## What you'll be able to do
 
 - Search the main platforms and boards for real openings in your field
@@ -90,7 +94,8 @@ points and move on. Consistency across many applications beats perfection on one
      A tiny, clearly-scoped sample is fine; building their real project free is not.
    - Too-good-to-be-true pay, or urgent pressure to act fast.
    - Vague company, no real online presence, or contact only via a personal chat app.
-   - Requests for sensitive data (bank PIN, BVN, passwords) or to move to crypto immediately.
+   - Requests for sensitive data (bank PIN, BVN which is your Bank Verification Number, passwords) or to move to
+     crypto immediately. A real employer never needs these to hire or pay you.
 3. Write the one-line response you'd give to each flag.
 
 **You've got it when:** you have five red flags in your own words, each with how you'd respond.

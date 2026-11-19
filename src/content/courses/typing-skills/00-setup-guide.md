@@ -11,9 +11,13 @@ downloads:
     href: "/downloads/typing-skills/typing-practice-log-template.csv"
   - label: "Keyboard finger map"
     href: "/downloads/typing-skills/keyboard-finger-map.md"
+  - label: "Baseline passage"
+    href: "/downloads/typing-skills/baseline-passage.md"
 draft: false
 ---
 **Goal:** Set up a comfortable space, find the home row by feel, and record an honest first score you will beat over the next four weeks. Almost no reading here - you set it up by doing it.
+
+> **New to touch typing? Read this once.** Touch typing means typing without looking at the keys: your fingers learn where each letter is by feel. The "home row" is the middle row of letter keys (A S D F for the left hand, J K L ; for the right) where your fingers rest between reaches. Two terms show up all course: **WPM** (words per minute) is how fast you type, counting every five characters as one word; **accuracy** is the percentage of characters you got right. Sit up with relaxed shoulders, keep wrists straight, and train yourself not to look down. Slow and correct now becomes fast and correct later.
 
 ## What you'll be able to do
 

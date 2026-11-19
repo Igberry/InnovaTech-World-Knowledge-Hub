@@ -66,8 +66,8 @@ draft: false
 
 **Do this now:**
 1. Lay your chosen clips on the timeline in an order that makes sense.
-2. To cut a pause: put the playhead at its start and split, move to its end and split, select the middle and delete.
-3. Watch whether the gap closes (ripple) or stays. Set the behaviour you want and inspect the result.
+2. To cut a pause: put the playhead at its start and split, move to its end and split, select the middle and delete. (The playhead is the vertical line showing where you are on the timeline; splitting cuts the clip at that line into two pieces; trimming, by contrast, just shortens a clip by dragging its edge inward.)
+3. Watch whether the gap closes (ripple) or stays. Set the behaviour you want and inspect the result. (A ripple delete removes the clip and slides everything after it to the left to close the gap automatically.)
 4. Play across each cut, not just the first frame, listening for a pop or a black frame.
 
 **You've got it when:** your sequence plays with no awkward dead gaps and no accidental black frames.
@@ -99,7 +99,7 @@ draft: false
 - Moving or deleting source clips while the editor is linked to them
 - Assuming the timeline is saved because the preview still plays
 - Deleting a clip without checking whether the gap closes
-- Adding transitions and effects before the rough cut makes sense
+- Adding transitions and effects before the rough cut makes sense (a transition is an effect that blends one clip into the next, such as a fade or dissolve, while a plain cut with no effect is usually best; a rough cut is your first plain assembly of clips in order, before any polish)
 - Cropping a vertical version until the subject is lost
 - Exporting and never watching the actual file
 
