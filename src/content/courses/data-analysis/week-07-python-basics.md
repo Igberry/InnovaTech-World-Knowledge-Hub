@@ -7,6 +7,9 @@ phase: "Programming"
 summary: "Write your first Python by building small, useful programs on real sales data - enough to make pandas feel easy next week."
 estimatedHours: 10
 tools: ["Python", "Google Colab"]
+downloads:
+  - label: "Orders (clean) CSV"
+    href: "/downloads/data-analysis/orders_clean.csv"
 ---
 **Goal:** Get comfortable writing and reading simple Python by building tiny programs that do real jobs on the NaijaMart data. You type code from minute one, so pandas (Week 8) feels natural.
 
@@ -110,7 +113,7 @@ print(net_revenue(3, 18000, 10))    # 48600.0
 **Why it matters:** your programs become useful the moment they read real data. And every programmer meets errors; the skill is staying calm.
 
 **Do this now:**
-1. In Colab, upload `orders_clean.csv` with the folder icon on the left.
+1. Download `orders_clean.csv` from the panel on this page, then in Colab upload it with the folder icon on the left.
 2. Read it:
 ```python
 import csv

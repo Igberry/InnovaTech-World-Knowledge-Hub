@@ -7,6 +7,9 @@ phase: "Foundations"
 summary: "Use statistics the way analysts really do - to describe data, catch outliers, and avoid embarrassing wrong conclusions. All hands-on in Excel, no heavy maths."
 estimatedHours: 10
 tools: ["Excel"]
+downloads:
+  - label: "Orders (clean) CSV"
+    href: "/downloads/data-analysis/orders_clean.csv"
 ---
 **Goal:** Learn just enough statistics to describe any dataset honestly, spot the odd values, and avoid the classic traps that make analysts look foolish. You do it all in Excel on the NaijaMart orders, not on a whiteboard.
 
@@ -18,7 +21,7 @@ tools: ["Excel"]
 - Work out the business metrics every analyst is expected to know
 
 ## Before you start (about 10 minutes)
-- Open `orders_clean.csv` in Excel as a Table with a `net_revenue` column.
+- Download the **Orders (clean) CSV** from the panel on this page and open it in Excel as a Table with a `net_revenue` column (same steps as Week 1).
 - Warm-up: in two cells compute `=AVERAGE(Orders[net_revenue])` and `=MEDIAN(Orders[net_revenue])`. Are they far apart? Keep that question in mind.
 - Optional: search YouTube for *"StatQuest Statistics Fundamentals"* and watch the mean/median clip.
 

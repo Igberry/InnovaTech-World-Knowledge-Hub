@@ -7,6 +7,15 @@ phase: "Career"
 summary: "Pull everything together into one end-to-end capstone, finish a portfolio you are proud of, and take real steps toward remote data analysis work."
 estimatedHours: 10
 tools: ["GitHub"]
+downloads:
+  - label: "Orders (clean) CSV - for the NaijaMart capstone option"
+    href: "/downloads/data-analysis/orders_clean.csv"
+  - label: "Customers CSV"
+    href: "/downloads/data-analysis/customers.csv"
+  - label: "Products CSV"
+    href: "/downloads/data-analysis/products.csv"
+  - label: "Orders (raw, messy) CSV"
+    href: "/downloads/data-analysis/orders_raw.csv"
 ---
 **Goal:** Run one complete analysis from business question to recommendation, publish a clean portfolio, and take concrete steps toward remote work. This week is about doing and shipping, not reading - you build the things that help you get hired.
 
