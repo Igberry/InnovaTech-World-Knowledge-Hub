@@ -453,6 +453,7 @@ const catalog = await buildCatalog();
     getProfiles, getEnrollments, getProgress, getSubmissions, getReviews, getAttendance,
     getCertificates, issueCertificate, deleteCertificate,
     getShowcaseProjects, setShowcaseStatus, deleteShowcaseProject,
+    submissionFileUrl,
     saveReview, setEnrollment, saveAttendance, downloadCsv,
     getCoursePlans, updateCoursePlan, getServicePlans, updateServicePlan,
     getServiceRates, updateServiceRate,
@@ -540,14 +541,18 @@ const catalog = await buildCatalog();
     const byDate = [...submissions].sort((a, b) => b.submitted_at.localeCompare(a.submitted_at));
     el.innerHTML = byDate.map((s) => {
       const r = reviews.find((x) => x.submission_id === s.id);
-      const link = s.link_url ? `<a href="${esc(s.link_url)}" target="_blank" rel="noopener noreferrer">open link</a>` : '(no link)';
+      const parts = [];
+      if (s.file_path) parts.push(`<button type="button" class="link-btn" data-dl-file="${esc(s.file_path)}">Download file${s.file_name ? ' (' + esc(s.file_name) + ')' : ''}</button>`);
+      if (s.link_url) parts.push(`<a href="${esc(s.link_url)}" target="_blank" rel="noopener noreferrer">open link</a>`);
+      const attach = parts.length ? parts.join(' · ') : '(no file or link)';
       return `<div class="adm-card" data-sub="${s.id}">
         <div class="adm-row" style="justify-content:space-between">
           <strong>${esc(nameOf(s.user_id))}</strong>
           <span class="muted">${new Date(s.submitted_at).toLocaleString()}</span>
         </div>
         <p class="muted">${esc(courseTitle(s.course_slug))} · ${esc(lessonTitle(s.course_slug, s.lesson_slug))}</p>
-        <p>${link}${s.note ? ' · ' + esc(s.note) : ''}</p>
+        <p>${attach}${s.note ? ' · ' + esc(s.note) : ''}</p>
+        ${s.text_body ? `<div style="white-space:pre-wrap;margin:.25rem 0 .5rem;padding:.6rem .8rem;border:1px solid var(--color-border);border-radius:.5rem;background:var(--surface)">${esc(s.text_body)}</div>` : ''}
         <div class="adm-row">
           <label>Status
             <select data-r-status>
@@ -564,6 +569,16 @@ const catalog = await buildCatalog();
         </div>
       </div>`;
     }).join('');
+
+    el.querySelectorAll<HTMLButtonElement>('[data-dl-file]').forEach((b) => {
+      b.addEventListener('click', async () => {
+        const path = b.getAttribute('data-dl-file')!;
+        b.disabled = true;
+        const url = await submissionFileUrl(path);
+        b.disabled = false;
+        if (url) window.open(url, '_blank', 'noopener'); else alert('Could not open that file.');
+      });
+    });
 
     el.querySelectorAll<HTMLButtonElement>('[data-r-save]').forEach((btn) => {
       btn.addEventListener('click', async () => {

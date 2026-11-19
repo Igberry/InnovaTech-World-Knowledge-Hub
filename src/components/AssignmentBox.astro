@@ -26,13 +26,22 @@ const { course, lesson } = Astro.props;
   <div data-state="form" hidden>
     <div data-status hidden></div>
     <form data-submit-form>
+      <p class="asg-help">Submit your work however the assignment asks: upload a file, paste a link, or type your answer. You can use more than one.</p>
       <div class="field">
-        <label for="asg-link">Link to your work (GitHub, Drive, Kaggle…)</label>
-        <input id="asg-link" name="link" type="url" placeholder="https://…" required />
+        <label for="asg-file">Upload a file (PDF, Word, PowerPoint, CSV, Markdown or text - max 15 MB)</label>
+        <input id="asg-file" name="file" type="file" accept=".pdf,.docx,.pptx,.csv,.md,.txt" />
       </div>
       <div class="field">
-        <label for="asg-note">Note (optional)</label>
-        <textarea id="asg-note" name="note" rows="3"></textarea>
+        <label for="asg-link">Or a link to your work (GitHub, Drive, Kaggle…)</label>
+        <input id="asg-link" name="link" type="url" placeholder="https://…" />
+      </div>
+      <div class="field">
+        <label for="asg-text">Or type your answer</label>
+        <textarea id="asg-text" name="text" rows="4" placeholder="Type your written answer here if the assignment is a written response."></textarea>
+      </div>
+      <div class="field">
+        <label for="asg-note">Note to your mentor (optional)</label>
+        <textarea id="asg-note" name="note" rows="2"></textarea>
       </div>
       <p data-error class="asg-error" role="alert" hidden></p>
       <button type="submit" class="btn btn-primary">Submit assignment</button>
@@ -72,6 +81,8 @@ const { course, lesson } = Astro.props;
     color: var(--color-ink);
   }
   .muted { color: var(--color-muted); }
+  .asg-help { color: var(--color-muted); font-size: 0.9rem; margin: 0 0 1rem; }
+  .assignment-submit input[type='file'] { padding: 0.45rem; }
   .asg-error { color: var(--color-danger); font-size: 0.9rem; }
   [data-status] {
     margin-bottom: 0.75rem;
@@ -126,21 +137,46 @@ const { course, lesson } = Astro.props;
         const label = r ? (r.status === 'approved' ? 'Approved' : 'Needs changes') : 'Submitted - awaiting review';
         const fb = r?.feedback ? ` Feedback: ${esc(r.feedback)}` : '';
         const score = r?.score != null ? ` (score: ${r.score})` : '';
-        statusEl.innerHTML = `<strong>${label}${score}</strong>.${fb} You can submit again if you have an updated link.`;
+        statusEl.innerHTML = `<strong>${label}${score}</strong>.${fb} You can submit again with updated work.`;
         statusEl.hidden = false;
       }
 
       const form = root.querySelector<HTMLFormElement>('[data-submit-form]')!;
       const errEl = root.querySelector<HTMLElement>('[data-error]')!;
+      const ALLOWED = ['pdf', 'docx', 'pptx', 'csv', 'md', 'txt'];
       form.addEventListener('submit', async (e) => {
         e.preventDefault();
         errEl.hidden = true;
+        const fileInput = form.querySelector('#asg-file') as HTMLInputElement;
+        const file = fileInput.files && fileInput.files[0] ? fileInput.files[0] : null;
         const link = (form.querySelector('#asg-link') as HTMLInputElement).value.trim();
+        const text = (form.querySelector('#asg-text') as HTMLTextAreaElement).value.trim();
         const note = (form.querySelector('#asg-note') as HTMLTextAreaElement).value.trim();
+        if (!file && !link && !text) {
+          errEl.textContent = 'Add a file, a link, or type your answer.';
+          errEl.hidden = false;
+          return;
+        }
+        if (file) {
+          const ext = (file.name.split('.').pop() || '').toLowerCase();
+          if (!ALLOWED.includes(ext)) {
+            errEl.textContent = 'Allowed file types: ' + ALLOWED.join(', ') + '.';
+            errEl.hidden = false;
+            return;
+          }
+          if (file.size > 15 * 1024 * 1024) {
+            errEl.textContent = 'That file is too large (max 15 MB).';
+            errEl.hidden = false;
+            return;
+          }
+        }
         const btn = form.querySelector('button')!;
+        const label = btn.textContent;
         btn.disabled = true;
-        const r = await submitAssignment(course, lesson, link, note);
+        btn.textContent = 'Submitting…';
+        const r = await submitAssignment(course, lesson, { file, link, text, note });
         btn.disabled = false;
+        btn.textContent = label;
         if (r.ok) {
           statusEl.innerHTML = '<strong>Submitted - awaiting review.</strong>';
           statusEl.hidden = false;

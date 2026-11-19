@@ -16,7 +16,17 @@ export interface AdminEnrollment { user_id: string; course_slug: string; status:
 export interface AdminProgress { user_id: string; course_slug: string; lesson_slug: string; updated_at: string }
 export interface AdminSubmission {
   id: string; user_id: string; course_slug: string; lesson_slug: string;
-  link_url: string | null; note: string | null; submitted_at: string;
+  link_url: string | null; note: string | null;
+  file_path: string | null; file_name: string | null; text_body: string | null;
+  submitted_at: string;
+}
+
+/** A short-lived signed URL to download a submission's uploaded file (admins). */
+export async function submissionFileUrl(path: string): Promise<string | null> {
+  const sb = getSupabase();
+  if (!sb) return null;
+  const { data } = await sb.storage.from('submissions').createSignedUrl(path, 120);
+  return data?.signedUrl ?? null;
 }
 export interface AdminReview {
   submission_id: string; status: 'approved' | 'needs_changes'; score: number | null;
@@ -94,7 +104,7 @@ export async function deleteShowcaseProject(id: string): Promise<Result> {
 export const getProfiles = () => selectAll<AdminProfile>('profiles', 'id, full_name, email, cohort');
 export const getEnrollments = () => selectAll<AdminEnrollment>('enrollments', 'user_id, course_slug, status, enrolled_at');
 export const getProgress = () => selectAll<AdminProgress>('lesson_progress', 'user_id, course_slug, lesson_slug, updated_at');
-export const getSubmissions = () => selectAll<AdminSubmission>('submissions', 'id, user_id, course_slug, lesson_slug, link_url, note, submitted_at');
+export const getSubmissions = () => selectAll<AdminSubmission>('submissions', 'id, user_id, course_slug, lesson_slug, link_url, note, file_path, file_name, text_body, submitted_at');
 export const getReviews = () => selectAll<AdminReview>('reviews', 'submission_id, status, score, feedback, reviewed_at');
 export const getAttendance = () => selectAll<AdminAttendance>('attendance', 'id, user_id, course_slug, session_date, status, note');
 export const getCertificates = () =>
