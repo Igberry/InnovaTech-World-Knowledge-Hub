@@ -113,7 +113,10 @@ export const site = {
     // auth request. You MUST also enable Turnstile in Supabase (Authentication ->
     // Attack Protection / Bot and Abuse Protection) with the matching SECRET key.
     // Leave as 'TODO' to keep CAPTCHA off (nothing is shown; auth works normally).
-    turnstileSiteKey: '0x4AAAAAAGHnZ8QrVcM10APe',
+    // Disabled 2026-11-19: Turnstile failed to verify on some browsers (privacy
+    // blockers / third-party storage), locking real students out. Re-add the key
+    // AND re-enable CAPTCHA in Supabase Auth together to turn it back on.
+    turnstileSiteKey: 'TODO',
   },
 
   // Optional privacy-friendly analytics. OFF by default (WEBSITE-BUILD-PROMPT.md §7.10).
