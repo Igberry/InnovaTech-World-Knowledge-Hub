@@ -20,6 +20,18 @@ downloads:
 - Lock a cell reference so a formula copies down correctly
 - Say, in your own words, what a data analyst actually does
 
+## New to spreadsheets? Read this once
+
+If you have never really used Excel, read this before the steps below. It explains everything the rest of the course assumes, so you can work on your own.
+
+- **Cells, columns, and rows.** The grid is made of boxes called **cells**. Columns are the letters across the top (A, B, C...). Rows are the numbers down the side (1, 2, 3...). So **B2** means the box where column B meets row 2. When a step says "in cell `K1`", click the box where column K meets row 1 and start typing.
+- **Typing a formula.** A formula always starts with an equals sign `=`. Click a cell, type the formula, then press **Enter**. Excel shows the answer, not the formula you typed.
+- **A "helper column".** This just means a spare empty column next to your data where you build a calculation or a fix. Later you often copy the result and paste it back as plain values.
+- **A menu path like "Data -> From Text/CSV".** The words along the very top of Excel (File, Home, Insert, Data...) are **tabs**. "Data -> From Text/CSV" means: click the **Data** tab, then click the **From Text/CSV** button on it.
+- **Table references like `[@quantity]`.** Once your data is an Excel Table (you make one in Try it 1), you can point at a column by its name instead of a letter. `[@quantity]` means "the quantity on this same row". It is easier to read than `E2`, and it fills the whole column for you.
+
+Do not try to memorise this. Keep it open for a week or two and it will become second nature.
+
 ## Before you start (about 10 minutes)
 - Make sure Excel opens and you have your GitHub and Google accounts from the [Setup Guide](/courses/data-analysis/00-setup-guide/).
 - Download the **Orders (clean) CSV** from the panel on this page.

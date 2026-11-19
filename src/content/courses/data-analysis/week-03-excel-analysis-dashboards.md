@@ -38,6 +38,8 @@ downloads:
 3. Returned orders: `=COUNTIFS(Orders[status],"Returned")`.
 4. Put a city name in a cell and reference it so the formula copies: `=SUMIFS(Orders[net_revenue],Orders[city],$A2)`.
 
+**What this does, in plain words:** read `SUMIFS` as "add up the first column, but only on the rows that pass a test". So `SUMIFS(Orders[net_revenue], Orders[city], "Yenagoa")` adds up `net_revenue` only on rows where `city` is Yenagoa. Add more pairs (column, value) to apply more tests at once, as in the Lagos + Completed example.
+
 **You've got it when:** changing the city in `A2` instantly changes the revenue number.
 
 ## Try it 2 - Bring in the product names
@@ -48,6 +50,8 @@ downloads:
 1. Modern Excel: `=XLOOKUP([@product_id],Products[product_id],Products[product_name],"Not found")`.
 2. Older Excel: `=VLOOKUP([@product_id],Products!A:D,2,FALSE)` (the `FALSE` forces an exact match - always use it).
 3. Add `category` the same way.
+
+**What this does, in plain words:** a lookup finds a value in one table and brings back a matching value from another. Read `XLOOKUP(this order's product_id, the list of product_ids, the list of product_names)` as "find this order's product_id in the Products table, and return the product name sitting next to it". That is how the id number `15` becomes a readable name like `Laptop Bag`.
 
 **You've got it when:** every order shows a product name and category.
 

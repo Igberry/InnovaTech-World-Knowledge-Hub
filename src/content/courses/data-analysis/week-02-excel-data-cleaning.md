@@ -25,6 +25,8 @@ downloads:
 - Warm-up, 3 minutes: filter the `city` column and count how many different spellings of the same cities you can see. Note the number. You will fix this today.
 - Optional: search YouTube for *"Alex The Analyst Data Cleaning in Excel"* and watch five minutes.
 
+> **Note:** The formulas this week use cell letters so you can follow along exactly. In this file the columns are: **A** order_id, **B** order_date, **C** customer_id, **D** product_id, **E** quantity, **F** unit_price, **G** discount_pct, **H** city, **I** payment_method, **J** status. So `H2` is the first city, `F2` is the first unit price, and `B2` is the first order date. (New to cell letters? See "New to spreadsheets? Read this once" in [Week 1](/courses/data-analysis/week-01-foundations-excel-basics/).) If your columns sit in a different order, just swap in your own letters.
+
 ## Try it 1 - Protect the original
 
 **Why it matters:** never edit raw data. If a fix goes wrong, you need something to fall back to, and employers expect it.
@@ -45,6 +47,8 @@ downloads:
 2. Replace dashes in names: `=PROPER(TRIM(SUBSTITUTE(H2,"-"," ")))`. Now `Port-Harcourt`, `PORT HARCOURT`, and ` port harcourt ` all become `Port Harcourt`.
 3. Copy the cleaned column, then **Paste Special -> Values** so it no longer depends on the messy original.
 
+**What this does, in plain words:** `TRIM` removes extra spaces, `PROPER` makes the first letter of each word a capital (so `PORT HARCOURT` becomes `Port Harcourt`), and `SUBSTITUTE(H2,"-"," ")` swaps any dash for a space. Nesting them runs all three fixes at once on the city in `H2`.
+
 **You've got it when:** your city column has exactly **6** clean, consistent names.
 
 ## Try it 3 - Turn text back into numbers
@@ -55,6 +59,8 @@ downloads:
 1. Strip the symbol and commas, then convert: `=VALUE(SUBSTITUTE(SUBSTITUTE(F2,"₦",""),",",""))`.
 2. For quantities like `"2 units"`, take the number before the space: `=VALUE(LEFT(E2,FIND(" ",E2&" ")-1))`.
 3. Paste Special -> Values over your cleaned columns.
+
+**What this does, in plain words:** `SUBSTITUTE` deletes the ₦ sign and then the commas, leaving plain text like `22000`. `VALUE` then turns that text into a real number Excel can add up. In step 2, `FIND(" ",...)` locates the space and `LEFT` keeps only the digits before it.
 
 **You've got it when:** `SUM` works on the price and quantity columns and returns a real total.
 
@@ -68,6 +74,8 @@ downloads:
 3. For `YYYY-MM-DD` text: `=DATE(LEFT(B2,4),MID(B2,6,2),RIGHT(B2,2))`.
 4. Easiest for a whole DD/MM/YYYY block: **Data -> Text to Columns -> Date (DMY)**.
 5. Format the final column as **Short Date** and check every date lands in 2025.
+
+**What this does, in plain words:** `DATE(year, month, day)` builds a proper date from three numbers. `LEFT`, `MID`, and `RIGHT` cut those numbers out of the text: `LEFT(B2,2)` takes the first 2 characters, `MID(B2,4,2)` takes 2 characters starting at position 4, and `RIGHT(B2,4)` takes the last 4. So for `09/07/2025`, you feed the year, month, and day into `DATE` in the right order.
 
 **You've got it when:** every date is a real date and none fall outside 2025.
 
