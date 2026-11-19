@@ -84,8 +84,14 @@ with space at the top for a title, no text in the image."* Then refine it twice.
 
 **You've got it when:** you can state your tool's usage rights and name a use you would refuse.
 
+> **Note:** "Usage rights" means the tool's rules for what you are allowed to do with an image it makes.
+> "Commercial use" means using it to make money, for example in an advert, a logo, or a product you sell. Some
+> tools allow this on the free plan and some do not, so check before you rely on it. You usually find these in
+> the tool's terms of use or a help or FAQ page on its website.
+
 > **Warning:** Creating realistic fake images of real people or events can cause serious harm and may be
-> illegal. Do not make deepfakes or pass off AI images as genuine photos.
+> illegal. Do not make deepfakes or pass off AI images as genuine photos. A deepfake is a fake but realistic
+> image, video, or audio of a real person, made to look like something they really did or said.
 
 ## Make it yours - know when a real photo wins
 

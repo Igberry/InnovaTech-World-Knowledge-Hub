@@ -28,7 +28,7 @@ draft: false
 
 ## Before you start (about 10 minutes)
 
-- Open the proposal starter, the ten-record CSV and the mail merge letter.
+- Download the proposal starter, the ten-record CSV and the mail merge letter from the panel on this page, then open them.
 - Warm-up: apply **Heading 1** to two section titles in the proposal, then open the Navigation pane (**Ctrl+F**) and click between them. You now have a document map.
 - Optional 10-minute video: search YouTube for **"Kevin Stratvert Word table of contents headings page numbers"**.
 

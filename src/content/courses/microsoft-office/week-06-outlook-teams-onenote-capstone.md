@@ -29,7 +29,7 @@ downloads:
 
 ## Before you start (about 10 minutes)
 
-- Open the capstone brief, the agenda template and the minutes template.
+- Download the capstone brief, the agenda template, the minutes template and the office standards guide template from the panel on this page, then open them.
 - Warm-up: write one email subject line that states the action and the deadline, such as **"Practice menu review - response requested by Friday"**. A good subject is half a good email.
 - List which artifacts you already have from Weeks 1 to 5 and what still needs a polish.
 - Optional 10-minute video: search YouTube for **"Kevin Stratvert Outlook email rules calendar meeting"**.

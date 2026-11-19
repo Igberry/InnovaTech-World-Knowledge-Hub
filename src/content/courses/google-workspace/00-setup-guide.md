@@ -15,6 +15,25 @@ draft: false
 
 **Goal:** In about two hours you'll pick the right account, switch on strong sign-in, and build a clean practice workspace. Little reading, mostly clicking - you set it up by doing it.
 
+## New to Google Workspace? Read this once
+
+Google Workspace is a set of free online apps you open in a web browser (Chrome or Edge). You do not install them; you sign in once and they all share the same account. The ones this course uses:
+
+- **Gmail** - email.
+- **Google Calendar** - your schedule and meeting invites.
+- **Google Drive** - online storage. Think of it as your filing cabinet in the cloud, where every file and folder lives.
+- **Google Docs** - documents (like letters, reports, procedures).
+- **Google Sheets** - spreadsheets (rows and columns of numbers you can add up).
+- **Google Slides** - presentation slides.
+- **Google Forms** - online forms and surveys that collect answers for you.
+
+A few words you'll meet a lot:
+- **The cloud** just means your files live on Google's computers, not only on yours, so you can reach them from any device.
+- **Sign in** means logging in with your email address and password.
+- A **browser tab** is one page open in your browser; you can keep several open at once (handy for following a cheat sheet while you work).
+
+You do not need to memorise anything here. Come back to it if a term later feels unfamiliar.
+
 ## What you'll have when you finish
 
 - An account you fully control, with a second sign-in step switched on
@@ -62,7 +81,7 @@ draft: false
 
 **Do this now:**
 1. Open any practice file and open its Share panel.
-2. Set it to **Restricted**, then notice the difference between Viewer, Commenter and Editor.
+2. Set it to **Restricted**, then notice the difference between Viewer, Commenter and Editor. In plain words: **Restricted** means only people you name can open the file; **Viewer** can read it, **Commenter** can read and leave comments, **Editor** can change it.
 3. If you have a second account you control, add it as Viewer, open the file from there to test, then remove the access.
 
 **You've got it when:** you can explain, in one line, why Restricted plus the least role beats "Anyone with the link".

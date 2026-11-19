@@ -30,6 +30,9 @@ actual organisation you know, not from theory.
 - Warm-up: list the customer data that business holds - names, phone numbers, addresses, payment details, client
   files. This is what you are protecting.
 
+*Jargon note:* a **VA** is a virtual assistant - someone who does admin, scheduling, or customer-support work
+for clients remotely.
+
 ## Try it 1 - Run an access review
 
 **Why it matters:** when you hold other people's data and trust, a breach harms them too. The first question is

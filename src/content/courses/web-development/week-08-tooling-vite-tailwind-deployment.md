@@ -7,6 +7,9 @@ phase: "Tooling & React"
 summary: "Join the professional workflow: spin up a project with Vite, style fast with Tailwind, and ship it through a real branch-and-pull-request flow."
 estimatedHours: 12
 tools: ["Node.js", "VS Code terminal", "Vite", "Tailwind CSS"]
+downloads:
+  - label: "Fresh Bites content kit"
+    href: "/downloads/web-development/fresh-bites-content.zip"
 ---
 
 **Goal:** Step up to the tools real developers use every day, the terminal, **npm**, **Vite** and

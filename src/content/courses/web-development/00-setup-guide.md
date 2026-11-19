@@ -18,6 +18,28 @@ to write code, run it in a browser, and publish it online.
 Do this guide **before** Week 1, ideally live with your facilitator, because installing alone is where
 most beginners get stuck. Work top to bottom and tick the checklist at the end.
 
+## New to all this? Read this once
+
+If words like "editor", "terminal" or "file path" are new, read this short list first. Every later step
+relies on these basics.
+
+- **Code** is just plain text written in a special order that a computer can follow. You will type it
+  yourself.
+- **A code editor** (here, VS Code) is the program you type code in. Think of it as a word processor built
+  for code: it colours your code, points out mistakes, and keeps your files organised.
+- **A file** is one document saved on your computer (for example `index.html`). **A folder** (also called a
+  directory) is a box that holds files and other folders. You keep each week's work in its own folder.
+- **To create a file:** in VS Code, open a folder, then click the "new file" icon (or **File, New File**)
+  and give it a name with its ending, like `index.html`. **To save:** press `Ctrl+S` (or turn on Auto Save
+  below). An unsaved file shows a dot in its tab.
+- **A browser** (Chrome or Edge) is the program you use to view websites. **DevTools** is a hidden panel
+  inside the browser (open it with `F12`) that lets you look at and poke the code behind any page.
+- **The terminal** (also called the command line) is a text box where you type commands for the computer to
+  run, one line at a time, instead of clicking buttons. VS Code has one built in.
+- **An extension** is a small add-on that gives VS Code extra powers, like auto-refreshing your page.
+
+You do not need to memorise these. Just come back here whenever a word is unfamiliar.
+
 ## What you'll be able to do
 
 - Write code in **VS Code** with the right extensions switched on

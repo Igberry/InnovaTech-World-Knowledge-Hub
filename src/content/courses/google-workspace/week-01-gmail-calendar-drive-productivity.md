@@ -20,12 +20,12 @@ draft: false
 
 ## What you'll be able to do
 
-- Sort a busy inbox with labels, filters and search operators that actually find things
-- Build reusable replies and run a fast, calm inbox triage
+- Sort a busy inbox with labels, filters and search operators (special words you type in the search box to narrow results) that actually find things
+- Build reusable replies and run a fast, calm inbox triage (quickly sorting messages so you know what to handle first)
 - Plan a weekly Calendar routine with the right time zone and a clean invite
 - Share Drive files with the least access that does the job
 - Capture work in Contacts, Tasks and Keep without hoarding private data
-- Spot a phishing cue and check your account safely
+- Spot a phishing cue and check your account safely (phishing is a fake message that tries to trick you into giving away a password, code or payment)
 
 ## Before you start (about 10 minutes)
 
@@ -41,6 +41,8 @@ draft: false
 1. Load the fictional messages into your practice inbox.
 2. Create a small label set: `Action`, `Waiting`, `Orders`, `Team`, `Reference`. Colour them, but don't make colour the only signal.
 3. Run a search: `from:orders@freshbites.example subject:reservation`. Then try `is:unread`, `has:attachment` and `older_than:7d`.
+
+   **What these search words mean, in plain words:** type them into the Gmail search box at the top. `from:` shows only mail from that sender. `subject:` shows only mail with that word in its subject line. `is:unread` shows mail you have not opened. `has:attachment` shows mail with a file attached. `older_than:7d` shows mail older than 7 days (`d` means days). You can combine them, as in the first example.
 4. If a search returns nothing, drop one condition at a time until it works.
 
 **You've got it when:** you can find any message with search instead of scrolling, and each label has a one-line purpose.
@@ -76,7 +78,7 @@ draft: false
 **Why it matters:** a calendar is a plan you can keep, not a pile of promises.
 
 **Do this now:**
-1. Set your Calendar time zone to `Africa/Lagos` (the fictional Fresh Bites team is in Yenagoa).
+1. Set your Calendar time zone to `Africa/Lagos` (the fictional Fresh Bites team is in Yenagoa). To find it: open Calendar, click the gear icon (top right), choose **Settings**, then under **Time zone** pick `Africa/Lagos`. That is Google's name for Nigeria's time zone, so your events show at the correct local time.
 2. Block study, family, travel and rest first, then add one 30-minute team event with a clear title, agenda and the right local time.
 3. Add a video link only if everyone agreed to meet online, and check guest permissions before sending.
 

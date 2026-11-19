@@ -30,7 +30,7 @@ draft: false
 
 ## Before you start (about 10 minutes)
 
-- Open Word and the four supplied text starters (letter, flyer, CV, messy source).
+- Download the four supplied text starters (letter, flyer, CV, messy source) from the panel on this page, then open them with Word.
 - Warm-up: type a line, make it **Heading 1** from the Styles gallery, then open the Navigation pane and watch your heading appear. That is the whole idea of styles in 30 seconds.
 - Stuck finding a command? Press **Alt+Q** and type what you want.
 - Optional 10-minute video: search YouTube for **"Kevin Stratvert Microsoft Word beginner ribbon formatting styles"**.

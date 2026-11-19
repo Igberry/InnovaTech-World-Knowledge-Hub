@@ -18,6 +18,9 @@ downloads:
 steps to see exactly where a human must check, and write up one repeatable workflow you could hand to someone
 else. Mostly doing.
 
+> **Note:** A workflow is just the set of steps you follow to get a job done, written down in order so you, or
+> someone else, can repeat it the same way every time.
+
 ## What you'll be able to do
 
 - Apply AI to common work tasks (spreadsheets, planning, drafting, light coding help)

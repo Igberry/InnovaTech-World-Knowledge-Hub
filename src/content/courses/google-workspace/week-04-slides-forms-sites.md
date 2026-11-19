@@ -31,6 +31,21 @@ draft: false
 - Download the [20 fictional feedback responses](/downloads/google-workspace/feedback-responses-20.csv) and open the [form checklist](/downloads/google-workspace/form-design-checklist.md) and [slides checklist](/downloads/google-workspace/slides-design-checklist.md).
 - Warm-up: skim the feedback CSV and write down two questions a six-slide report could answer.
 
+**Column-letter map for the feedback file** (`feedback-responses-20.csv`, 20 responses). Once imported into Sheets with the header in row 1, the columns are:
+
+| Column | Field |
+|---|---|
+| A | response_id |
+| B | visit_type |
+| C | rating_1_to_5 (overall) |
+| D | food_quality_1_to_5 |
+| E | service_1_to_5 |
+| F | wait_minutes |
+| G | order_accurate (Yes/No) |
+| H | comment |
+
+So, for example, the average overall rating is `=AVERAGE(C2:C21)` and the average wait is `=AVERAGE(F2:F21)`.
+
 ## Try it 1 - Plan the slide story before opening Slides
 
 **Why it matters:** a deck works when each slide carries one idea. Planning on paper beats fiddling with fonts.
@@ -56,7 +71,7 @@ draft: false
 1. Pick one theme and use the built-in layouts so titles stay aligned.
 2. Import the feedback CSV into Sheets, calculate counts and average ratings, then build one bar chart (easier to compare than a pie).
 3. Give the chart a title and units. Decide whether to keep it linked to the Sheet - do not leave it linked to a workbook the audience cannot open.
-4. Add alt text to meaningful images, keep high contrast, and avoid relying on red and green alone. Use the [Slides design checklist](../../downloads/google-workspace/slides-design-checklist.md) as a final pass.
+4. Add alt text to meaningful images, keep high contrast, and avoid relying on red and green alone. (Alt text is a short written description of an image that a screen reader reads aloud for someone who cannot see it; add it by right-clicking the image and choosing **Alt text**. High contrast means dark text on a light background, or the reverse, so words stay easy to read.) Use the [Slides design checklist](../../downloads/google-workspace/slides-design-checklist.md) as a final pass.
 
 **You've got it when:** the deck reads at full-screen size, every chart is labelled, and nothing depends on colour alone.
 
@@ -91,7 +106,7 @@ draft: false
 **Do this now:**
 1. Create three pages: **Home**, **Menu**, **Contact**. Put the most useful information first with short nav labels.
 2. Home explains the fictional purpose; Menu lists example items with no real prices; Contact holds a safe practice note - no fabricated phone number, real address or personal email.
-3. Embed your practice Form, then test the embed from the intended viewer's perspective.
+3. Embed your practice Form, then test the embed from the intended viewer's perspective. (To embed means to place the Form so it appears directly inside the page, rather than as a separate link; in Sites, use **Insert > Forms** and pick your Form.)
 4. Preview on desktop and a narrow phone width, then keep the site unpublished or Restricted.
 
 **You've got it when:** three pages navigate cleanly, work at phone width, and the site is not public by default.
@@ -154,7 +169,7 @@ Produce a connected set a small business could use:
 
 ## Extra quick wins (optional)
 
-- Add a short Form section with simple branching that only shows a follow-up when it's relevant.
+- Add a short Form section with simple branching that only shows a follow-up when it's relevant. (Branching, set with "Go to section based on answer", sends the person to a different question depending on what they picked, so they only see questions that apply to them.)
 - Rebuild your bar chart as a line chart and decide which tells the story better.
 - Read the official guides for [saving Form responses to Sheets](https://support.google.com/docs/answer/2917686) and [publishing a Site](https://support.google.com/sites/answer/6372880).
 

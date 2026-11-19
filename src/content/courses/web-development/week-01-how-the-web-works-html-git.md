@@ -179,6 +179,11 @@ git branch -M main
 git push -u origin main
 ```
 
+**What this does, in plain words:** the first line tells your computer the web address of your new GitHub
+repository (`origin` is just a nickname for it). The second line names your main line of work `main`. The
+third line uploads ("pushes") your saved commits to GitHub so they live online. Swap `YOUR-USERNAME` for
+your real GitHub username. The first push may ask you to sign in to GitHub in your browser, that is normal.
+
 3. On the repo page, go to **Settings, Pages**. Under "Source" choose **Deploy from a branch**, pick
    **`main`** and **`/ (root)`**, and **Save**.
 4. Wait a minute, refresh, and open your live URL: `https://YOUR-USERNAME.github.io/fresh-bites/`.

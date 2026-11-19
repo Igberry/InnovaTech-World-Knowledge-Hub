@@ -26,9 +26,21 @@ draft: false
 - Add a low-stock highlight, a labelled chart and a first PivotTable
 - Build a dropdown, freeze headers and set a clean print area
 
+## New to Excel? Read this once
+
+If you have never used a spreadsheet, these basics are all the later steps assume. Read them once and every formula below will make sense.
+
+- **Cell:** one box in the grid. You click it, then type into it.
+- **Column and row:** columns run down the screen and are named by letters (A, B, C ...); rows run across and are numbered (1, 2, 3 ...).
+- **Cell address:** a column letter plus a row number. `H2` means column H, row 2. The address of the box you have clicked shows in the Name Box at the top left.
+- **The formula bar:** the long strip above the grid. It shows what is really inside the selected cell - a number, some text, or a formula.
+- **A formula starts with `=`.** Once you type `=`, Excel calculates instead of just showing text. For example `=5+5` shows `10`.
+- **A range** is a block of cells written with a colon: `A2:A10` means every cell from A2 down to A10.
+- **A function** is a ready-made calculation with a name, such as `SUM`. You give it values inside brackets: `=SUM(A2:A10)` adds up that whole range.
+
 ## Before you start (about 10 minutes)
 
-- Open the three CSV files and spot which columns are text, dates, quantities and amounts.
+- Download the three CSV files from the panel on this page, then open them and spot which columns are text, dates, quantities and amounts.
 - Warm-up: in a blank sheet type `=5+5` and press Enter. That `=` is every formula you will ever write. Now try `=SUM(1,2,3)`.
 - Save a working copy as `.xlsx` and keep the untouched CSV.
 - Optional 10-minute video: search YouTube for **"Kevin Stratvert Excel formulas tables sorting filtering beginners"**.
@@ -51,6 +63,22 @@ draft: false
 
 **Do this now - type each into a Table named `Sales` and watch it calculate:**
 
+**Column-letter map for `sales-sample-100.csv`**, so you know what each reference points to:
+
+| Column name | Letter | Holds |
+|---|---|---|
+| SaleID | A | the sale's ID code |
+| Date | B | the sale date |
+| City | C | city name |
+| Product | D | product name |
+| Category | E | product category |
+| Quantity | F | how many were sold |
+| Unit_Price_NGN | G | price for one |
+| Sales_NGN | H | total money for that sale |
+| Payment_Method | I | how they paid |
+
+Inside a Table, `Sales[Sales_NGN]` means the whole Sales_NGN column (column H), so you never have to remember the letter. The `A2` and `B2` in the SUMIFS line below are two spare cells where you type a city and a product to total by - put them above or beside your table; they are not part of the sales data.
+
 ```text
 =SUM(Sales[Sales_NGN])
 =AVERAGE(Sales[Sales_NGN])
@@ -66,6 +94,18 @@ draft: false
 
 `SUM`, `AVERAGE`, `MIN`, `MAX` and `COUNT` summarise. `IF` tests a condition. `SUMIF`/`SUMIFS` and `COUNTIF`/`COUNTIFS` add or count by criteria. `TODAY` returns today's date. `TEXT` turns a value into text, so do not feed its result into another calculation.
 
+**What these do, in plain words:**
+
+- `=SUM(Sales[Sales_NGN])` adds up every sale amount in the Sales_NGN column.
+- `=AVERAGE(Sales[Sales_NGN])` gives the average sale amount.
+- `=MIN(...)` and `=MAX(...)` return the smallest and the largest sale amount.
+- `=COUNT(Sales[Quantity])` counts how many rows have a number in Quantity.
+- `=IF([@Qty_On_Hand]<=[@Reorder_Level],"Check stock","OK")` reads one row and shows "Check stock" when the quantity on hand is at or below the reorder level, otherwise "OK". (`[@...]` means "this row's value".)
+- `=SUMIF(Sales[City],"Yenagoa",Sales[Sales_NGN])` adds up the sales only for rows where the city is Yenagoa.
+- `=SUMIFS(Sales[Sales_NGN],Sales[City],A2,Sales[Product],B2)` adds up sales for rows that match both the city you typed in cell A2 and the product you typed in cell B2.
+- `=COUNTIF(Sales[Payment_Method],"Transfer")` counts how many sales were paid by Transfer.
+- `=TEXT(TODAY(),"yyyy-mm-dd")` writes today's date as text in year-month-day order.
+
 **You've got it when:** each formula returns a sensible number for the sample data.
 
 ## Try it 3 - Lock cells with absolute references
@@ -76,6 +116,8 @@ draft: false
 1. Put a tax or rate assumption in cell `K1`.
 2. In another cell type `=E2*$K$1` and copy it down. The rate stays fixed.
 3. Try the variations below and watch what moves.
+
+**What the `$` does, in plain words:** the dollar sign pins part of a cell address so it does not shift when you copy the formula. `$K$1` keeps pointing at cell K1 wherever you paste it, while `E2` (no dollar signs) moves down with the formula. `E2` and `K1` here are just example cells - use whichever cell holds the value to multiply and whichever cell holds your fixed rate. Tip: click a reference and press **F4** to add or remove the dollar signs quickly.
 
 | Reference | What stays fixed when copied | Example use |
 |---|---|---|
@@ -102,6 +144,9 @@ draft: false
 **Why it matters:** conditional formatting turns a wall of numbers into an at-a-glance alert, and a lookup pulls details from another table.
 
 **Do this now:**
+
+**Column-letter map for `inventory-items-20.csv`:** A = ItemID, B = Item, C = Category, D = Qty_On_Hand, E = Reorder_Level, F = Unit_Cost_NGN. Inside a Table, `[@Qty_On_Hand]` means "this row's Qty_On_Hand" (column D) and `[@Reorder_Level]` means "this row's Reorder_Level" (column E). "Conditional formatting" just means Excel changes a cell's look (for example its colour) automatically when a rule you set is true.
+
 1. Add a status column and conditional formatting for items at or below reorder level:
 
 ```text
@@ -120,6 +165,12 @@ Older versions use `VLOOKUP` with an exact match (`FALSE`):
 ```text
 =VLOOKUP(A2,Inventory[[ItemID]:[Unit_Cost_NGN]],6,FALSE)
 ```
+
+**What these do, in plain words:**
+
+- The `IF` above fills a status column: for each row it checks whether the quantity on hand is at or below the reorder level, and writes "Reorder" if so, otherwise "OK".
+- `XLOOKUP` looks up an item's ID and brings back that item's unit cost. Read it as: "find this ItemID in the ItemID column, and give me the matching Unit_Cost_NGN; if it is not found, show Check item."
+- `VLOOKUP` does the same job in older Excel. It searches the first column of the range for the ID and returns the value from the 6th column. Unit_Cost_NGN is column F, which is the 6th column of the inventory, hence the `6`. The `FALSE` at the end means "only an exact match counts" - always include it for this kind of lookup.
 
 **You've got it when:** a low item lights up with a **Reorder** label and your lookup returns the right cost. See [Microsoft Support's XLOOKUP documentation](https://support.microsoft.com/en-us/excel/functions/xlookup) for the version caveat (checked 12 November 2026).
 

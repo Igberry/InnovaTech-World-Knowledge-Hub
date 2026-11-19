@@ -17,6 +17,23 @@ downloads:
 accounts, set up a tidy place to save your work, and lock in one privacy habit that keeps you safe. Almost no
 reading - you set it up by doing it.
 
+## New to AI tools? Read this once
+
+If you have never used one, here are the only basics you need before you start:
+
+- **What an AI chat assistant is:** a free website or phone app you type into, and it types a reply back in
+  plain language. You can ask it to explain things, write, summarise, or brainstorm. You may also hear it called
+  a "chatbot" or a "large language model" (LLM). They all mean the same kind of tool here.
+- **What an AI image tool is:** the same idea, but instead of writing text back, it makes a picture from the
+  words you type. You mainly use this from Week 4.
+- **How you open one:** it runs in your web browser (the app you use to visit websites) or as a phone app. You
+  go to the tool's website, create a free account (that is the next step below), then type in the message box on
+  the screen.
+- **What a prompt is:** a prompt is simply the message or instruction you type into the tool. Clearer prompts
+  get better answers, which is the whole focus of Week 2.
+
+That is enough to begin. You will learn everything else by doing it.
+
 ## What you'll be able to do
 
 - Log in to a free AI chat assistant and a free AI image tool
@@ -37,7 +54,8 @@ reading - you set it up by doing it.
 **Do this now:**
 1. Create a free account on **one AI chat assistant**. Use a professional email and a strong password.
 2. Create a free account on **one AI image tool** (you mainly need this from Week 4).
-3. Turn on two-step verification if it is offered.
+3. Turn on two-step verification if it is offered (this is a second check at login, usually a code sent to your
+   phone, so only you can get into your account).
 4. Open the [tool comparison worksheet](/downloads/artificial-intelligence/ai-tool-comparison.md) and jot down
    what you chose and why.
 

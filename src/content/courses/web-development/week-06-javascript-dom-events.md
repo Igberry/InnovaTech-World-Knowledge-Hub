@@ -123,6 +123,13 @@ function renderMenu(list) {
 renderMenu(menu);
 ```
 
+**What this does, in plain words:** `renderMenu` builds the menu on the page from your data. `list.map(...)`
+turns each menu item into a chunk of HTML text (the backticks `` ` `` let you drop values like
+`${item.name}` straight into the text), `.join("")` glues all those chunks into one string, and
+`container.innerHTML = ...` drops that HTML into the `#menu` element so it shows up. The `data-id` on each
+button quietly stores which item it belongs to, so a click handler can tell what to add to the cart. The
+last line, `renderMenu(menu)`, actually runs it.
+
 **You've got it when:** your menu appears on the page, built entirely from the data array.
 
 > **Warning:** only use `innerHTML` with data *you* control (your own menu). For text a user typed, use

@@ -23,7 +23,7 @@ downloads:
 
 - Schedule and run a Google Meet with sensible audio, video and screen-share choices
 - Choose between email, Chat and a shared doc for a given task
-- Audit Drive links and permissions using least privilege
+- Audit Drive links and permissions using least privilege (giving each person only the access their job needs, and nothing extra)
 - Review account security and spot phishing and risky OAuth requests
 - Tell the difference between using Workspace and administering it
 - Present a documented workspace without exposing personal data
@@ -54,7 +54,7 @@ downloads:
 **Do this now:**
 1. Take four sample messages and decide: email (durable summary), Chat (quick coordination), task (a due date) or shared doc (needs a stable record).
 2. Write one Chat message the clear way: context, the action, the owner, the due date. Example: "The fictional weekly report is ready for review. Please comment by Friday; the owner approves the final copy."
-3. Check a Space's membership and history before posting - and never post credentials or customer details there.
+3. Check a Space's membership and history before posting - and never post credentials or customer details there. (A Chat Space is a named group chat room in Google Chat; its history can be read by everyone in it, including people added later.)
 
 **You've got it when:** each of the four messages has a channel and a reason, and your Chat message says who does what by when.
 
@@ -77,7 +77,7 @@ downloads:
 **Do this now:**
 1. Open account security directly and review 2-Step Verification, recovery options, recent activity and connected third-party apps.
 2. Remove one app you recognise and no longer use. If you don't recognise an app, check its publisher and access first.
-3. Look at a mock OAuth consent screen and list what you'd check: the app name, each permission, and whether the access even fits the task. If it asks for more than it needs, cancel.
+3. Look at a mock OAuth consent screen and list what you'd check: the app name, each permission, and whether the access even fits the task. (OAuth is the "Sign in with Google" or "Allow this app to access your account" screen that pops up when an outside app wants to connect; approving it hands that app the access it lists, so read it before you click Allow.) If it asks for more than it needs, cancel.
 4. Store backup codes somewhere private - never on Drive or in a capstone file.
 
 **You've got it when:** you can walk through an OAuth screen and say exactly why you would approve or cancel it.

@@ -111,6 +111,11 @@ clears it up.
 }
 ```
 
+**What this does, in plain words:** the `*` is the "everything" selector, so this rule applies to every
+element on the page. `box-sizing: border-box` tells the browser to include padding and border *inside* the
+width you set, so a box you size at `300px` actually stays `300px` wide instead of growing. Paste this once
+at the top of your stylesheet and spacing stops surprising you.
+
 2. Build a card and feel the difference between padding and margin:
 
 ```css

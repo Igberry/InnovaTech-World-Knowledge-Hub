@@ -40,6 +40,10 @@ use HTTPS too, on look-alike addresses.
    near-copy with a small misspelling?
 3. Click the padlock and look at the connection details.
 
+*What these words mean:* **HTTPS** is the secure version of a web address - the "s" stands for secure, and it is
+what makes the padlock appear. The **domain** is the main site name in the address (for example, the part just
+before ".com"); a scam site copies it with a tiny change you have to read carefully to catch.
+
 **You've got it when:** you can say what the padlock guarantees (encrypted) and what it does not (honest) - and
 you checked the address, not just the lock.
 
@@ -62,6 +66,10 @@ to set up.
 
 **Why it matters:** a VPN is a useful tool, not magic. Knowing its limits stops you relying on it for things it
 cannot do.
+
+(**VPN** stands for Virtual Private Network. It is an app that sends your internet traffic through an encrypted
+tunnel to one of its own servers, which hides your **IP address** - your device's own address on the internet -
+and your location, and stops other people on the same network from seeing what you are doing.)
 
 **Do this now - in your own words, write two short lists:**
 1. What a VPN **does**: protects traffic on untrusted networks, hides your IP/location from sites.

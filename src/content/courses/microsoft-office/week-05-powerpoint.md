@@ -26,7 +26,7 @@ draft: false
 
 ## Before you start (about 10 minutes)
 
-- Open the ten-slide starter content and the design checklist.
+- Download the ten-slide starter content and the design checklist from the panel on this page, then open them.
 - Warm-up: write your pitch in one sentence - "Fresh Bites helps [who] do [what] so they can [benefit]." Everything else supports that line.
 - Mark any content in the starter that is an assumption, a fictional amount or simulated feedback.
 - Optional 10-minute video: search YouTube for **"Kevin Stratvert PowerPoint slide master layouts"**.

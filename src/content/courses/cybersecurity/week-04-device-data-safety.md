@@ -60,6 +60,9 @@ messages, and location.
 **Why it matters:** a backup is your safety net against theft, damage, loss, and ransomware. The simple target
 is 3-2-1: three copies, on two types of storage, with one kept separate.
 
+(**Ransomware** is harmful software that locks or scrambles your files and then demands money to unlock them. A
+good backup means you can restore your files yourself instead of ever paying.)
+
 **Do this now:**
 1. Turn on **automatic backup** for your phone photos and contacts to a cloud account.
 2. Set your important documents to sync or back up automatically.

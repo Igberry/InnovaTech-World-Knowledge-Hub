@@ -94,7 +94,9 @@ thinking.
 
 ## Make it yours - know when AI is not enough
 
-Go to primary or expert sources, not AI, when:
+Go to primary or expert sources, not AI, when the stakes are high. A primary or expert source is the original,
+authoritative place a fact comes from, such as an official government website, the actual law or document, or the
+organisation or qualified person involved, rather than a summary of it. Use them, not AI, when:
 
 - The topic is **high-stakes** (health, money, legal, safety)
 - You need **current, exact** facts (prices, laws, recent events)

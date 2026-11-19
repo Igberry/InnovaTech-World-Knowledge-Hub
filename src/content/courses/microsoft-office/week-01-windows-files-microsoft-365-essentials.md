@@ -28,7 +28,7 @@ downloads:
 ## Before you start (about 10 minutes)
 
 - Open File Explorer with **Win+E** and make one empty test folder.
-- Download the dummy files list, folder template and shortcuts cheat sheet.
+- Download the dummy files list, folder template and shortcuts cheat sheet from the panel on this page.
 - Warm-up: save a harmless text file, then rename it with **F2**. You just did the two actions this week is built on.
 - Optional 10-minute video: search YouTube for **"Kevin Stratvert Windows 11 File Explorer basics"** if you want a visual tour first.
 

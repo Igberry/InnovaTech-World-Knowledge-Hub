@@ -16,6 +16,31 @@ downloads:
 **Goal:** In this setup hour you will actually install the two tools that stop most attacks, turn them on for
 your own email, and write down the three ethics rules. Almost no reading - you set things up by doing them.
 
+## New to cybersecurity? Read this once
+
+If some words below are new, here is the plain-English version. You do not need to memorise these; each one is
+explained again as you use it.
+
+- **Cybersecurity:** keeping your accounts, devices, and information safe from people who want to steal, change,
+  or lock them.
+- **Password manager:** an app that creates and remembers a different strong password for every account, so you
+  only ever memorise one master password.
+- **2FA (two-factor authentication, also called two-step verification):** a second check after your password,
+  usually a code or a tap on your phone, so a stolen password alone is not enough to get in.
+- **OTP (one-time code):** a short number a service sends you to confirm it is really you. Never share it with
+  anyone.
+- **Phishing:** a fake message (email, SMS text, or chat) that tricks you into clicking a bad link or handing
+  over a password or code.
+- **Malware:** harmful software that sneaks onto your device to steal, spy on, or lock your data. "Ransomware"
+  is malware that locks your files until you pay.
+- **Backup:** a spare copy of your files kept somewhere safe, so you can get them back if a device is lost,
+  stolen, or locked.
+- **Encryption:** scrambling data so only someone with the key (your PIN, password, or fingerprint) can read it.
+
+> **SMS and SIM swap:** SMS just means a normal text message. A "SIM swap" is when a scammer tricks your phone
+> network into moving your number onto their SIM card, so your SMS codes arrive on their phone. That is why an
+> authenticator app (a code-generating app on your own phone) is safer than SMS codes.
+
 ## What you'll be able to do
 
 - Install and use a password manager on your own phone or laptop
@@ -53,6 +78,10 @@ should never be enough to open it.
 2. Choose an **authenticator app** or a **passkey** if offered (stronger than SMS codes, which can be
    SIM-swapped).
 3. Follow the steps to link it, then sign out and back in to confirm it asks for the second step.
+
+*Where to click (example):* in Gmail, tap your profile picture, then "Manage your Google Account", then the
+"Security" tab, then "2-Step Verification". On other providers the same setting usually sits under Settings,
+then "Security" or "Password and security".
 
 **You've got it when:** logging in to your email now needs a code or a tap, not just a password.
 

@@ -18,6 +18,8 @@ draft: false
 
 **Goal:** This week you'll build two documents a real business would actually use - a step-by-step order SOP and a short proposal - and run a review round with a teammate. You build by doing, not by reading about formatting.
 
+*New term: an **SOP** (Standard Operating Procedure) is simply a written, step-by-step how-to for a routine task, so anyone can do it the same way.*
+
 ## What you'll be able to do
 
 - Structure a document with real heading styles, not just bold text
@@ -38,8 +40,8 @@ draft: false
 
 **Do this now:**
 1. Open the SOP starter. Add a clear Title and a one-line purpose.
-2. Apply **Heading 1** to main sections and **Heading 2** to subsections - use the style, not just a bigger font.
-3. Open the outline panel and read only the headings. If they read like a useful summary, you're done. If one says "Other", rename it to say what follows.
+2. Apply **Heading 1** to main sections and **Heading 2** to subsections - use the style, not just a bigger font. To apply a style: select the line, then use the style menu on the toolbar (it usually reads "Normal text") and choose **Heading 1** or **Heading 2**. A heading style is a label Docs understands, not just large text, which is what makes the outline and table of contents work.
+3. Open the outline panel and read only the headings. (The outline panel is a clickable list of your headings down the left side; turn it on with **View menu > Show outline**.) If they read like a useful summary, you're done. If one says "Other", rename it to say what follows.
 
 **You've got it when:** the outline panel alone tells the whole story of the document.
 
@@ -50,7 +52,7 @@ draft: false
 **Do this now:**
 1. Turn the order-handling steps into a numbered list (sequence matters) and add a small table of step, owner and status.
 2. Add one descriptive link - "Read the current Google Docs Help article", never "click here".
-3. Insert a table of contents after the title. Docs builds it from heading styles.
+3. Insert a table of contents after the title (a table of contents is an auto-built list of your headings with links that jump to each section). Add it with **Insert menu > Table of contents**. Docs builds it from the heading styles you applied, which is why step 2 matters.
 4. Rename one heading, then refresh the table of contents and test that each entry jumps to the right place.
 
 **You've got it when:** every table-of-contents entry opens the correct section after you refreshed it.
@@ -64,7 +66,7 @@ draft: false
 **Do this now:**
 1. Share the proposal with a practice reviewer (a test account or mentor) as **Commenter**, using Restricted access.
 2. Have the reviewer add one focused comment - quote the phrase, name the issue, suggest a fix. No "fix this".
-3. Switch to **Suggesting mode** and make two wording changes. As owner, accept one and reject one, and note why.
+3. Switch to **Suggesting mode** and make two wording changes. (Suggesting mode records your edits as proposals the owner can accept or reject, instead of changing the text directly - switch to it with the pencil-icon menu at the top right of the doc, then pick **Suggesting**.) As owner, accept one and reject one, and note why.
 
 **You've got it when:** the doc shows a comment and two suggestions, and only the owner approved the final wording.
 
@@ -73,7 +75,7 @@ draft: false
 **Why it matters:** named versions are checkpoints you can return to, and a quick export check catches layout surprises before anyone else sees them.
 
 **Do this now:**
-1. In version history, name a version `Before mentor review`, then after changes name one `After comments round`.
+1. In version history, name a version `Before mentor review`, then after changes name one `After comments round`. (Version history keeps dated snapshots of the doc so you can see or restore an earlier state; open it with **File menu > Version history > See version history**, then use the three-dot menu on a version to name it.)
 2. Try voice typing one sentence (Docs supports English (Nigeria)); proofread the punctuation, names and numbers - speech recognition slips.
 3. Export the SOP to PDF, reopen it, and check page breaks, table width, links and the table of contents.
 

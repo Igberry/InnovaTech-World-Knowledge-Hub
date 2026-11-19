@@ -53,6 +53,14 @@ create table public.reservations (
 );
 ```
 
+**What this does, in plain words:** `create table` makes a new table (like a spreadsheet) called
+`reservations`. Each line inside the brackets is one column: its name, then the kind of data it holds.
+`id` is a unique code for each row (`primary key` means "the one value that identifies this row", and
+`gen_random_uuid()` makes that code automatically). `created_at timestamptz ... default now()` stamps each
+row with the date and time it was added. `text` holds words, `int2` holds a small whole number (guests),
+and `date` holds a calendar date. `not null` means that column cannot be left empty. `notes` has no
+`not null`, so it is optional. Type this into the SQL Editor and press Run.
+
 **You've got it when:** your `reservations` table appears in the Table Editor with those columns.
 
 ## Try it 2 - Connect from React with the right key
