@@ -510,6 +510,14 @@ a:hover {
 .prose .assignment-card > :first-child {
   margin-top: 0;
 }
+.prose .assignment-card .assignment-submit-hint {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--color-blue-200);
+  font-size: 0.9rem;
+  color: var(--color-ink);
+}
 .prose .assignment-card > h2,
 .prose .assignment-card > h3 {
   display: flex;

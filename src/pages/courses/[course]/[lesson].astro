@@ -33,7 +33,7 @@ if (!course) throw new Error(`Course not found: ${courseSlug}`);
 const lessons = await getLessons(courseSlug!);
 const { prev, next } = await getAdjacentLessons(lesson);
 const { Content, headings } = await render(lesson);
-const hasAssignment = /(^|\n)#{1,6}\s+Weekly Assignment/i.test(lesson.body ?? '');
+const hasAssignment = /(^|\n)#{1,6}\s+(Weekly Assignment|This week[’']?s build|Final Deliverable|Capstone)/i.test(lesson.body ?? '');
 ---
 
 <LessonLayout
