@@ -95,10 +95,10 @@ exactly one `<main>` and one `<h1>`.
 caption text under it. The `src` is the file path to the image (here, a file named `jollof.svg` inside an
 `images` folder), and `alt` describes the image for people who cannot see it.
 
-> **Note on the file:** the content kit ships `dish-placeholder.svg`, `hero.svg` and `logo.svg` inside its
-> `images` folder (there is no `jollof.svg`). Use one that exists, for example
-> `src="images/dish-placeholder.svg"`, or add your own `jollof.svg` to the folder first. Whatever you name
-> the file, the `src` path must match it exactly, lowercase.
+> **Note on the file:** this `src` points to a file named `jollof.svg` inside an `images` folder. The content
+> kit includes `jollof.svg` (along with `dish-placeholder.svg`, `hero.svg` and `logo.svg`), so this example
+> works as written once your project has the kit's `images` folder. The key rule to remember: the `src` path
+> must match the real filename exactly, lowercase and all - `images/Jollof.SVG` would not load.
 
 2. Add an opening-hours table (real tabular data, never for layout):
 
